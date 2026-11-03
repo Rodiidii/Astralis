@@ -1,0 +1,22 @@
+/* Le classeur reste une vue fixe. Les animations et les calques du modèle sont réservés à l’ouverture et à l’aperçu plein écran. */
+.binder-book .tcg-card,
+.binder-book .tcg-card * { animation: none !important; }
+.binder-book .tcg-card { transform: none !important; transition: none !important; box-shadow: 0 8px 24px rgba(0,0,0,.24); }
+.binder-book .tcg-sparkles,
+.binder-book .tcg-glare,
+.binder-book .tcg-foil,
+.binder-book .tcg-aura,
+.binder-book .tcg-orbs,
+.binder-book .tcg-fxo,
+.binder-book .tcg-fxo2,
+.binder-book .tcg-spk,
+.binder-book .tcg-edge,
+.binder-book .tcg-elem-wm,
+.binder-book .tcg-neb,
+.binder-book .tcg-beam,
+.binder-book .tcg-dust,
+.binder-book .tcg-fx { display: none !important; }
+.binder-book .tcg-card__art img { transform: none !important; filter: none !important; }
+.binder-book .tcg-card__art { overflow: hidden; }
+.binder-book .tcg-card__inner { pointer-events: none; }
+.binder-book .tcg-fan-hint { backdrop-filter: none; }

@@ -1,0 +1,25 @@
+Tu es mon assistant de recherche d'images. J'ai joint « liste-cartes-chatgpt.txt » : 167 lignes « Nom | Type de carte | Jeu | nom-de-fichier »
+(Genshin Impact, Honkai: Star Rail, Wuthering Waves). Pour CHAQUE ligne, trouve sur le web UNE illustration et donne-moi un lien direct vers le fichier image.
+
+CE QUE JE VEUX (dans l'ordre de priorité)
+1. Un VRAI artwork officiel : illustration publiée par HoYoverse / Cognosphere (Genshin, Star Rail) ou Kuro Games (Wuthering Waves) — key visual, illustration promo, artwork de version/événement, collaboration, illustration commandée à un illustrateur par l'éditeur, comptes officiels (X/Twitter, HoYoLAB, Pixiv officiel, sites officiels).
+2. Si aucun artwork officiel convenable n'existe : une illustration d'artiste de très haute qualité, tout public.
+
+CE QUE JE NE VEUX PAS
+- Splash arts (visuels de gacha / de menu du jeu), icônes, cartes de nom (namecards), sprites, portraits de menu, bannières de vœux, captures d'écran, rendus 3D de modèle, chibis, stickers, figurines, cosplay.
+- Illustrations d'anniversaire (Birthday / Happy Birthday) sauf si c'est vraiment la seule option.
+- Tout contenu NSFW ou suggestif : strictement tout public.
+- Les images avec du texte, un logo ou une interface incrustés.
+
+CONTRAINTES TECHNIQUES
+- Image haute définition (idéalement ≥ 1500 px sur le petit côté), format portrait ou carré de préférence (c'est pour une carte 5:7), personnage bien visible et centré.
+- Pour la ligne de type « Groupe » : une seule image montrant TOUS les personnages du groupe (ou au moins les 2-3 principaux).
+- Un seul personnage principal pour les autres types.
+- Le lien doit mener directement au FICHIER (se terminer en .jpg / .png / .webp, ou être l'URL « image » directe), pas à une page web. Vérifie qu'il s'ouvre.
+
+FORMAT DE RÉPONSE (très important, je vais le copier-coller tel quel dans un fichier)
+Réponds par lots de 20 cartes, dans un bloc de code, une ligne par carte, exactement :
+nom-de-fichier | URL directe de l'image
+puis, sous le bloc, un petit tableau : nom-de-fichier | officiel (oui/non) | artiste ou compte source | page source | résolution.
+Si tu ne trouves rien de valable pour une carte, écris : nom-de-fichier | AUCUN (et dis pourquoi en une phrase). N'invente JAMAIS une URL : si tu n'as pas vérifié qu'elle existe, mets AUCUN.
+Commence par le lot 1 (les 20 premières lignes du fichier) et attends que je dise « suivant » pour continuer.

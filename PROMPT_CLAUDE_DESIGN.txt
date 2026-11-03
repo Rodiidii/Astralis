@@ -1,0 +1,11 @@
+REFONTE VISUELLE UNIQUEMENT — Astralis
+
+Redessine seulement ces vues : Team Build (liste et éditeur de personnages/armes/sets/rotation), Build d’un personnage, Endgame, Calc Sheets, Vœux & objectifs, HoYoLAB connecté, fiches Personnages/Armes/Sets.
+
+Contraintes : conserve intégralement le comportement, les données, les événements, la navigation, les formulaires et toutes les fonctionnalités. Ne change aucune logique JavaScript, API, stockage ou calcul. Privilégie CSS; ajoute seulement des classes de présentation si indispensable, sans modifier les attributs/actions existants.
+
+Pour économiser le temps et les tokens, ne lis pas tout le projet et ne lance pas de recherche générale. Repère d’abord les fonctions concernées avec `rg -n`, puis lis uniquement ces fonctions et les règles CSS associées. Ne touche qu’aux fichiers nécessaires à ces vues.
+
+Direction artistique : interface éditoriale soignée, lisible et cohérente avec Astralis; typographie Inter/Circular Std, bonnes hiérarchies, espaces maîtrisés, composants compacts et responsive. Pas de néons, halos lumineux, glassmorphism ni cartes génériques à l’allure générée par IA. Garde les couleurs propres à chaque jeu et assure le contraste.
+
+À la fin, vérifie que les contrôles existants restent présents et que le JavaScript passe un contrôle de syntaxe. Résume brièvement les fichiers de style modifiés.

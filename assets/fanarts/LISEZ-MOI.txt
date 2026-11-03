@@ -1,0 +1,25 @@
+FAN ARTS (Full Art, Secrète, Gold, Légende, Groupe)
+===================================================
+Ces cartes n'affichent QUE des fan arts : tant qu'aucun fichier n'est ici, la carte montre
+« FAN ART À AJOUTER » avec le nom de fichier attendu.
+
+Dépose ici tes images (.webp, .jpg, .png ou .avif). Nom du fichier = nom du personnage
+en minuscules, sans accent, avec des tirets, suivi du type :
+
+  furina-full.webp        carte Full Art de Furina
+  huohuo-gold.webp        carte Gold de Huohuo
+  cyrene-legend.webp      carte Légende
+  istaroth-secret.webp    carte Secrète
+  groupe-de-fontaine-group.webp   carte Groupe
+
+(sans suffixe, ex. furina.webp, le fichier sert à toutes les raretés plein cadre de Furina).
+La liste complète des fichiers attendus, avec des liens de recherche, est dans fanarts-a-trouver.txt.
+Format conseillé : portrait 5:7 (ex. 1000 x 1400), moins de 1 Mo. Recharge la page après ajout.
+Les fan arts appartiennent à leurs artistes : garde leur nom pour les créditer si tu publies le site.
+
+Astrale Éternelle : obsidian-astral.png (image principale), obsidian-astral-scene.png (dos de carte).
+Auto : lance « Telecharger les fan arts.bat » à la racine pour récupérer les fan arts tout public les mieux notés.
+
+IMPORTANT : le dossier assets/fanarts est celui de la version que tu LANCES. Si tu extrais une nouvelle archive dans un autre dossier,
+copie d'abord tes anciens fan arts (tout le contenu de assets/fanarts) dans le nouveau dossier. Nom attendu : <nom>-<rareté>.<ext>, ex. furina-full.jpg, mitya-astral.png.
+Au lancement, une pastille en bas à gauche du site indique combien de fan arts sont détectés.
