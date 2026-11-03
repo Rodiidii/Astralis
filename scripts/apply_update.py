@@ -27,6 +27,11 @@ def preserved(rel: Path) -> bool:
     return bool(parts & {".git", ".cache", "cache", "user-data", "userdata", "local-data", "localdata"}) or (len(rel.parts) >= 2 and rel.parts[0].lower() == "assets" and rel.parts[1].lower() == "user") or rel.name.lower() in {".env", "hoyolab.dpapi"}
 
 
+def start_app(root: Path) -> None:
+    launcher = root / "Lancer Astralis.bat"
+    subprocess.Popen(["cmd.exe", "/c", "start", "", str(launcher)], cwd=str(root), stdin=subprocess.DEVNULL, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL, creationflags=getattr(subprocess, "CREATE_NEW_PROCESS_GROUP", 0) | getattr(subprocess, "DETACHED_PROCESS", 0), close_fds=True)
+
+
 def main() -> int:
     if len(sys.argv) != 4:
         return 2
@@ -91,10 +96,10 @@ def main() -> int:
                 pass
         (local / "update-status.json").write_text('{"state":"error","message":"Échec de l’installation.","error":' + __import__("json").dumps(str(exc), ensure_ascii=False) + '}', encoding="utf-8")
         shutil.rmtree(staging, ignore_errors=True)
+        start_app(root)
         return 4
     shutil.rmtree(staging, ignore_errors=True)
-    launcher = root / "Lancer Astralis.bat"
-    subprocess.Popen(["cmd.exe", "/c", "start", "", str(launcher)], cwd=str(root), stdin=subprocess.DEVNULL, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL, creationflags=getattr(subprocess, "CREATE_NEW_PROCESS_GROUP", 0) | getattr(subprocess, "DETACHED_PROCESS", 0), close_fds=True)
+    start_app(root)
     return 0
 
 
