@@ -341,10 +341,10 @@ export function imageSet(game, item, category = item?._category || 'character') 
     }
     if (item?.nanokaIcon) {
       const assetType = category === 'character' ? 'avatarshopicon' : 'lightconemediumicon';
-      urls.unshift(`https://static.nanoka.cc/assets/hsr/${assetType}/${encodeURIComponent(item._id)}.webp`);
+      urls.push(`https://static.nanoka.cc/assets/hsr/${assetType}/${encodeURIComponent(item._id)}.webp`);
     }
-    // The bundled Nanoka light-cone catalogue is broader than the current
-    // StarRailStaticAPI index and does not carry icon paths for every entry.
+    // Nanoka remains as an icon fallback; StarRailStaticAPI/StarRailRes keep
+    // priority for the established character portraits. Its kit data is unchanged.
     // StarRailRes keeps portraits keyed by the same stable game ID.
     if (category === 'weapon' && /^\d+$/.test(String(item?._id || ''))) {
       urls.push(`https://raw.githubusercontent.com/Mar-7th/StarRailRes/master/image/light_cone_portrait/${encodeURIComponent(item._id)}.png`);
@@ -353,19 +353,17 @@ export function imageSet(game, item, category = item?._category || 'character') 
   }
   if (game === 'gi') {
     if (category === 'character') {
-      const rawIcon=String(item?.images?.filename_icon||item?._name||'').replace(/^UI_AvatarIcon_(?:Side_)?/,'').replace(/_Card$/,'');
-      const generatedSlug=rawIcon.replace(/([a-z0-9])([A-Z])/g,'$1-$2').replace(/[^A-Za-z0-9]+/g,'-').replace(/^-|-$/g,'').toLowerCase();
       const prydwenAliases={ayaka:'kamisato-ayaka',ayato:'kamisato-ayato',kazuha:'kaedehara-kazuha',kokomi:'sangonomiya-kokomi',itto:'arataki-itto',sara:'kujou-sara',heizou:'shikanoin-heizou',heizo:'shikanoin-heizou',yae:'yae-miko',miko:'yae-miko',alhatham:'alhaitham',ambor:'amber',baizhuer:'baizhu',hutao:'hu-tao',qin:'jean',momoka:'kirara',shinobu:'kuki-shinobu',lanyan:'lan-yan',linette:'lynette',liney:'lyney',noel:'noelle',olorun:'ororon',shougun:'raiden-shogun','marionette-new':'sandrone','skirk-new':'skirk',tohma:'thoma',liuyun:'xianyun',feiyan:'yanfei',mizuki:'yumemizuki-mizuki',yunjin:'yun-jin'};
-      const prydwenSlug=prydwenAliases[generatedSlug]||generatedSlug;
+      const toPrydwenSlug=value=>{const clean=String(value||'').normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/^UI_(?:(?:Gacha_)?AvatarIcon_)(?:Side_)?/i,'').replace(/_Card$/i,'');const slug=clean.replace(/([a-z0-9])([A-Z])/g,'$1-$2').replace(/[^A-Za-z0-9]+/g,'-').replace(/^-|-$/g,'').toLowerCase();return prydwenAliases[slug]||slug;};
+      const prydwenSlugs=[...new Set([item?.images?.filename_icon,item?.enName,item?.englishName,item?.name,item?._name].map(toPrydwenSlug).filter(Boolean))];
+      const prydwenIcons=prydwenSlugs.map(slug=>`https://cdn.prydwen.gg/images/genshin-impact/characters/${slug}_icon.webp`);
       const lunarisIcon=item?.images?.lunarisIcon||item?.images?.filename_icon;
-      const lunarisSplash=item?.images?.lunarisSplash||item?.images?.filename_gachaSplash;
       const lunarisUrls=lunarisIcon?[`https://api.lunaris.moe/data/assets/avataricon/${encodeURIComponent(String(lunarisIcon).replace('UI_Gacha_AvatarIcon','UI_AvatarIcon'))}.webp`]:[];
-      const lunarisArt=lunarisSplash?[`https://api.lunaris.moe/data/assets/gachaicon/${encodeURIComponent(lunarisSplash)}.webp`]:[];
       return [
-      // Restore the familiar Prydwen portraits first; unavailable portraits fall
-      // through to the current Lunaris and Enka/Yatta icon sources below.
-      prydwenSlug&&`https://cdn.prydwen.gg/images/genshin-impact/characters/${prydwenSlug}_icon.webp`,
-      ...lunarisUrls,...lunarisArt,
+      // Keep the familiar Prydwen portraits first. Other icon sources remain
+      // as fallbacks; character splash art stays in splashImage() and is not
+      // substituted into compact avatar/icon slots.
+      ...prydwenIcons,...lunarisUrls,
       item?.images?.filename_icon && `https://enka.network/ui/${encodeURIComponent(item.images.filename_icon)}.png`,
       item?.images?.filename_icon && `https://gi.yatta.moe/assets/UI/${encodeURIComponent(item.images.filename_icon)}.png`,
       item?.images?.['mihoyo_icon'], item?.images?.portrait, item?.images?.image,

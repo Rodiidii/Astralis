@@ -1,4 +1,4 @@
-import { GAMES, catalog, characterDetails, imageSet, splashImage, skillList, equipmentImage, frenchTerm, setBonuses, levelStatsFor } from './data.js?v=20261104-updater-icons-1';
+import { GAMES, catalog, characterDetails, imageSet, splashImage, skillList, equipmentImage, frenchTerm, setBonuses, levelStatsFor } from './data.js?v=20261104-prydwen-icon-3';
 import * as Store from './store.js?v=20261028-team-buffs-78';
 import * as Local from './persistence.js?v=20261028-team-buffs-78';
 import { ic, stars, emblemIcon } from './icons.js?v=20261028-team-buffs-78';
