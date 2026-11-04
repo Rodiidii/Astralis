@@ -114,9 +114,25 @@ export async function catalog(game, category, { force = false } = {}) {
     catalogCache.set(key, { items, savedAt });
     putLocal('cache', `catalog:${key}`, { items, savedAt, source: GAMES[game].source }).catch(() => {});
     return items;
-  }).catch(error => { if (cached?.items) { catalogCache.set(key, cached); return cached.items; } catalogCache.delete(key); throw error; });
+  }).catch(error => { if (cached?.items && !force) { catalogCache.set(key, cached); return cached.items; } catalogCache.delete(key); throw error; });
   catalogCache.set(key, { pending });
   return pending;
+}
+
+async function fetchLunarisGi(category) {
+  const meta=await json('https://api.lunaris.moe/data/version.json',AbortSignal.timeout(20000));
+  const version=String(meta?.version||'');
+  if(!/^\d+\.\d+\.\d+$/.test(version))throw new Error('Version Lunaris invalide.');
+  const file=category==='character'?'charlist.json':category==='weapon'?'weaponlist.json':category==='artifact'?'artifactlist.json':null;
+  if(!file)return null;
+  const raw=await json(`https://api.lunaris.moe/data/${version}/${file}`,AbortSignal.timeout(30000));
+  const rows=Object.entries(raw||{}).map(([id,row])=>{
+    const rarity=String(row.qualityType||'').includes('ORANGE')?5:String(row.qualityType||'').includes('PURPLE')?4:Number(row.rarity)||0;
+    if(category==='character')return {id,name:row.frName||row.enName||row.chsName, enName:row.enName,rarity,element:row.element,weaponType:row.weaponType,version,sourceVersion:version,images:{filename_icon:row.CardImg||`UI_Gacha_AvatarIcon_${row.enName}`,filename_gachaSplash:row.GachaImg||`UI_Gacha_AvatarImg_${row.enName}`,lunarisIcon:row.CardImg,lunarisSplash:row.GachaImg},introduction:row.description||'',description:row.description||'',ascensionStats:row.ascensionStats||{}};
+    if(category==='weapon')return {id,name:row.frName||row.enName||row.chsName,enName:row.enName,rarity,weaponType:row.weaponType,ascensionStats:row.ascensionStats||{},images:{filename_icon:row.weaponIcon,lunarisIcon:row.weaponIcon},description:row.description||''};
+    return {id,name:row.frName||row.enName||row.chsName,enName:row.enName,rarity,setId:row.setId,images:{filename_icon:row.setIcon,lunarisIcon:row.setIcon},twoPieceBonus:row.twoPieceBonus||'',fourPieceBonus:row.fourPieceBonus||'',description:row.description||''};
+  });
+  return {version,items:rows};
 }
 
 async function fetchCatalog(game, category, force) {
@@ -124,9 +140,16 @@ async function fetchCatalog(game, category, force) {
   if (game === 'gi') {
     const file = category === 'character' ? 'characters' : category === 'weapon' ? 'weapons' : category === 'artifact' ? 'artifacts' : category==='material'?'materials':'';
     if (file) {
+      const lunaris=await fetchLunarisGi(category).catch(()=>null);
       const endpoint = file;
       const url = `https://genshin-db-api.vercel.app/api/v5/${endpoint}?query=names&matchCategories=true&verboseCategories=true&queryLanguages=french&resultLanguage=French`;
-      data = await json(url, AbortSignal.timeout(30000)).then(payload => { const rows = Array.isArray(payload) ? payload : Object.values(payload || {}); if (!rows.length || rows.every(row => !row || typeof row !== 'object' || !(row.name || row.id))) throw new Error('La source a renvoyé un catalogue vide ou invalide.'); return payload; }).catch(() => json(`assets/data/gi-${file}.json`, AbortSignal.timeout(30000)));
+      const secondary=await json(url, AbortSignal.timeout(30000)).catch(()=>null);
+      if(lunaris?.items?.length){
+        const normName=value=>String(value||'').normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase().replace(/[^a-z0-9]/g,'');
+        const extras=Array.isArray(secondary)?secondary:Object.values(secondary||{});
+        const byName=new Map(extras.map(row=>[normName(row.name||row.enName),row]));
+        data=lunaris.items.map(row=>({...((byName.get(normName(row.enName))||byName.get(normName(row.name)))||{}),...row,images:{...((byName.get(normName(row.enName))||{}).images||{}),...(row.images||{})}}));
+      } else data=secondary||await json(`assets/data/gi-${file}.json`,AbortSignal.timeout(30000));
       // The live database has French text; the bundled Hakushin-era export is
       // retained only as a complete source for stable icon filenames and costs.
       try {
@@ -236,6 +259,21 @@ export async function characterDetails(game, character) {
   try{const saved=await getLocal('cache',`detail:studio69:${key}`);if(saved?.items&&Date.now()-(Number(saved.savedAt)||0)<cacheTtl()){detailCache.set(key,saved.items);return saved.items;}}catch{}
   let details = character;
   if (game === 'gi') {
+    if(/^\d+$/.test(String(character.id||''))){
+      try{
+        const meta=await json('https://api.lunaris.moe/data/version.json',AbortSignal.timeout(15000));
+        const version=String(meta?.version||'');
+        const raw=await json(`https://api.lunaris.moe/data/${version}/fr/char/${encodeURIComponent(character.id)}.json`,AbortSignal.timeout(25000));
+        const info=raw.info||{},skillIcons=raw.icons||{},skills=raw.skills||{};
+        const skillKeys=['normalattack','elementalskill','elementalburst'];
+        const skillTalents=skillKeys.map((key,index)=>{const value=skills[key];if(!value)return null;return {...value,name:value.name||key,unlock:['Attaque normale','Compétence élémentaire','Déchaînement élémentaire'][index],icon:value.icon?`https://api.lunaris.moe/data/assets/skills/${encodeURIComponent(value.icon)}.webp`:undefined,description:value.description||value.desc||'',values:value.multipliers?Object.entries(value.multipliers).map(([label,values])=>`${label} · ${Array.isArray(values)?values.join(' / '):values}`):[]};}).filter(Boolean);
+        const constellations=Array.from({length:6},(_,i)=>raw.constellations?.[`const${i+1}`]).filter(Boolean).map((value,i)=>({...value,name:`C${i+1} · ${value.name||''}`,icon:value.icon?`https://api.lunaris.moe/data/assets/skills/${encodeURIComponent(value.icon)}.webp`:undefined}));
+        const attr=(info.attributes||[]).filter(x=>Number(x.level)===90).sort((a,b)=>Number(b.ascension)-Number(a.ascension))[0]||{};
+        const icon=filename=>filename?`https://api.lunaris.moe/data/assets/skills/${encodeURIComponent(filename)}.webp`:undefined;
+        details={...character,...info,levelStats:info.attributes,baseStats:{hp:attr.hp,attack:attr.atk,defense:attr.def},skillTalents,passives:Object.values(skills).filter(x=>x&&(/passive|utility/i.test(String(x.type||x.name||'')))),constellations,kitVersion:`Lunaris ${version}`,source:'Lunaris'};
+        detailCache.set(key,details);putLocal('cache',`detail:studio69:${key}`,{items:details,savedAt:Date.now(),source:'Lunaris'}).catch(()=>{});return details;
+      }catch{/* fallback below: Genshin-DB remains a rescue source */}
+    }
     const options = `query=${encodeURIComponent(character.name || character._name)}&matchCategories=true&verboseCategories=true&queryLanguages=french&resultLanguage=French`;
     const statsQuery=encodeURIComponent(character.name||character._name);
     const [talentValues,constellations,levelStats] = await Promise.all([
@@ -319,11 +357,15 @@ export function imageSet(game, item, category = item?._category || 'character') 
       const generatedSlug=rawIcon.replace(/([a-z0-9])([A-Z])/g,'$1-$2').replace(/[^A-Za-z0-9]+/g,'-').replace(/^-|-$/g,'').toLowerCase();
       const prydwenAliases={ayaka:'kamisato-ayaka',ayato:'kamisato-ayato',kazuha:'kaedehara-kazuha',kokomi:'sangonomiya-kokomi',itto:'arataki-itto',sara:'kujou-sara',heizou:'shikanoin-heizou',heizo:'shikanoin-heizou',yae:'yae-miko',miko:'yae-miko',alhatham:'alhaitham',ambor:'amber',baizhuer:'baizhu',hutao:'hu-tao',qin:'jean',momoka:'kirara',shinobu:'kuki-shinobu',lanyan:'lan-yan',linette:'lynette',liney:'lyney',noel:'noelle',olorun:'ororon',shougun:'raiden-shogun','marionette-new':'sandrone','skirk-new':'skirk',tohma:'thoma',liuyun:'xianyun',feiyan:'yanfei',mizuki:'yumemizuki-mizuki',yunjin:'yun-jin'};
       const prydwenSlug=prydwenAliases[generatedSlug]||generatedSlug;
+      const lunarisIcon=item?.images?.lunarisIcon||item?.images?.filename_icon;
+      const lunarisSplash=item?.images?.lunarisSplash||item?.images?.filename_gachaSplash;
+      const lunarisUrls=lunarisIcon?[`https://api.lunaris.moe/data/assets/avataricon/${encodeURIComponent(String(lunarisIcon).replace('UI_Gacha_AvatarIcon','UI_AvatarIcon'))}.webp`]:[];
+      const lunarisArt=lunarisSplash?[`https://api.lunaris.moe/data/assets/gachaicon/${encodeURIComponent(lunarisSplash)}.webp`]:[];
       return [
-      // Prydwen's character portrait is the preferred compact avatar. The
-      // shared image fallback handler advances through the other sources if
-      // a character is not present there yet.
+      // Restore the familiar Prydwen portraits first; unavailable portraits fall
+      // through to the current Lunaris and Enka/Yatta icon sources below.
       prydwenSlug&&`https://cdn.prydwen.gg/images/genshin-impact/characters/${prydwenSlug}_icon.webp`,
+      ...lunarisUrls,...lunarisArt,
       item?.images?.filename_icon && `https://enka.network/ui/${encodeURIComponent(item.images.filename_icon)}.png`,
       item?.images?.filename_icon && `https://gi.yatta.moe/assets/UI/${encodeURIComponent(item.images.filename_icon)}.png`,
       item?.images?.['mihoyo_icon'], item?.images?.portrait, item?.images?.image,

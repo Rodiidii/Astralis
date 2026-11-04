@@ -1,0 +1,25 @@
+name: Publish Astralis updater
+on:
+  push:
+    tags:
+      - 'v*'
+permissions:
+  contents: write
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Build portable update archive
+        run: python scripts/build_release.py "$RUNNER_TEMP/astralis-release"
+      - name: Publish release assets
+        uses: softprops/action-gh-release@v2
+        with:
+          name: Astralis ${{ github.ref_name }}
+          generate_release_notes: true
+          files: |
+            ${{ runner.temp }}/astralis-release/Astralis-Update.zip
+            ${{ runner.temp }}/astralis-release/Astralis-Update.zip.sha256

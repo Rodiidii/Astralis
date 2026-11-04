@@ -18,7 +18,7 @@ from urllib.error import URLError
 from urllib.request import Request, urlopen
 from urllib.parse import parse_qs, urlsplit, unquote, urlparse, quote, urlencode, urljoin
 
-HOST = "127.0.0.1"
+HOST = "0.0.0.0"
 PORT = 8766
 TTL = 900
 cache: dict[str, tuple[float, bytes]] = {}
