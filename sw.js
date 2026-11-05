@@ -1,4 +1,4 @@
-const CACHE='astralis-shell-v6';
+const CACHE='astralis-shell-v7';
 const SHELL=['/','/index.html','/manifest.webmanifest','/styles.css','/design.css','/character-theme.css','/assistant.css','/dashboard-polish.css','/binder.css','/binder-static.css','/booster-effects.css','/booster-ui.css','/card-polish.css','/card-dopamine.css','/card-pokemon.css','/updater.css','/src/app.js','/src/data.js','/src/icons.js','/src/persistence.js','/assets/app-icon.svg'];
 self.addEventListener('install',event=>event.waitUntil(caches.open(CACHE).then(cache=>cache.addAll(SHELL.map(path=>new Request(path,{cache:'reload'}))).catch(()=>{})).then(()=>self.skipWaiting())));
 self.addEventListener('activate',event=>event.waitUntil(caches.keys().then(keys=>Promise.all(keys.filter(key=>key.startsWith('astralis-shell-')&&key!==CACHE).map(key=>caches.delete(key)))).then(()=>self.clients.claim())));

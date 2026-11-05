@@ -103,9 +103,18 @@ function Get-ExpectedInstance {
 
 }
 
+function Get-AstralisListenerIds {
+    $ids = @()
+    $netstat = Join-Path $env:SystemRoot 'System32\netstat.exe'
+    foreach ($line in (& $netstat -ano -p tcp 2>$null)) {
+        if ($line -match '\s+\S+:8766\s+\S+\s+LISTENING\s+(\d+)\s*$') { $ids += [int]$Matches[1] }
+    }
+    return @($ids | Select-Object -Unique)
+}
+
 function Stop-OldAstralisServer([switch]$ConfirmedAstralis) {
 
-    $listeners = @(Get-NetTCPConnection -LocalPort 8766 -State Listen -ErrorAction SilentlyContinue | Select-Object -ExpandProperty OwningProcess -Unique)
+    $listeners = @(Get-AstralisListenerIds)
 
     if ($listeners.Count -eq 0) { return $false }
 
@@ -122,7 +131,7 @@ function Stop-OldAstralisServer([switch]$ConfirmedAstralis) {
 
     for ($attempt = 0; $attempt -lt 20; $attempt++) {
         Start-Sleep -Milliseconds 250
-        $remaining = @(Get-NetTCPConnection -LocalPort 8766 -State Listen -ErrorAction SilentlyContinue)
+        $remaining = @(Get-AstralisListenerIds)
         if ($remaining.Count -eq 0) { return $true }
     }
 
@@ -245,7 +254,7 @@ if (-not $python) {
 
 
 
-$listener = Get-NetTCPConnection -LocalPort 8766 -State Listen -ErrorAction SilentlyContinue
+$listener = @(Get-AstralisListenerIds)
 
 if ($listener) { Stop-OldAstralisServer }
 
