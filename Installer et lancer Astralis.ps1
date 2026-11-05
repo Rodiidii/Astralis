@@ -3,9 +3,41 @@ $root = Split-Path -Parent $MyInvocation.MyCommand.Path
 $healthUrl = 'http://127.0.0.1:8766/health'
 $appUrl = 'http://127.0.0.1:8766/index.html'
 function Open-AstralisApp {
-    $edge = Get-Command msedge.exe -ErrorAction SilentlyContinue
-    if ($edge) { Start-Process $edge.Source -ArgumentList @('--app=' + $appUrl) }
-    else { Start-Process $appUrl }
+    $candidates = @(
+        (Get-Command msedge.exe -ErrorAction SilentlyContinue | Select-Object -ExpandProperty Source -First 1),
+        (Join-Path $env:ProgramFiles 'Microsoft/Edge/Application/msedge.exe'),
+        (Join-Path ${env:ProgramFiles(x86)} 'Microsoft/Edge/Application/msedge.exe'),
+        (Join-Path $env:LOCALAPPDATA 'Microsoft/Edge/Application/msedge.exe'),
+        (Get-Command chrome.exe -ErrorAction SilentlyContinue | Select-Object -ExpandProperty Source -First 1),
+        (Join-Path $env:ProgramFiles 'Google/Chrome/Application/chrome.exe'),
+        (Join-Path ${env:ProgramFiles(x86)} 'Google/Chrome/Application/chrome.exe'),
+        (Join-Path $env:LOCALAPPDATA 'Google/Chrome/Application/chrome.exe')
+    )
+    $browser = $candidates | Where-Object { $_ -and (Test-Path -LiteralPath $_) } | Select-Object -First 1
+    if (-not $browser) { throw 'Aucun moteur Chromium trouvé. Installe Microsoft Edge ou Google Chrome, puis relance Astralis.' }
+    Start-Process -FilePath $browser -ArgumentList @('--app=' + $appUrl, '--new-window')
+}
+function Get-AstralisHealth {
+    $response = Invoke-WebRequest $healthUrl -TimeoutSec 2 -UseBasicParsing
+    return ($response.Content | ConvertFrom-Json)
+}
+function Get-ExpectedInstance {
+    $normalized = (Resolve-Path -LiteralPath $root).Path.TrimEnd('\').ToLowerInvariant()
+    $sha = [Security.Cryptography.SHA256]::Create()
+    try { $bytes = $sha.ComputeHash([Text.Encoding]::UTF8.GetBytes($normalized)) }
+    finally { $sha.Dispose() }
+    return ([BitConverter]::ToString($bytes).Replace('-', '').ToLowerInvariant()).Substring(0, 12)
+}
+function Stop-OldAstralisServer([switch]$ConfirmedAstralis) {
+    $listener = Get-NetTCPConnection -LocalPort 8766 -State Listen -ErrorAction SilentlyContinue | Select-Object -First 1
+    if (-not $listener) { return $false }
+    $process = Get-CimInstance Win32_Process -Filter "ProcessId = $($listener.OwningProcess)" -ErrorAction SilentlyContinue
+    if (-not $process -or $process.Name -notmatch '^python(w)?\.exe$' -or $process.CommandLine -notmatch 'server\.py' -or (-not $ConfirmedAstralis -and $process.CommandLine -notmatch 'Astralis')) {
+        throw 'Le port 8766 est utilisé par un autre programme. Ferme-le puis relance Astralis.'
+    }
+    Stop-Process -Id $listener.OwningProcess -Force
+    Start-Sleep -Milliseconds 700
+    return $true
 }
 function Add-AstralisShortcut {
     try {
@@ -20,13 +52,19 @@ function Add-AstralisShortcut {
 
 # Astralis ne dépend que de la bibliothèque standard de Python.
 try {
-    $health = Invoke-WebRequest $healthUrl -TimeoutSec 2 -UseBasicParsing
-    if ($health.StatusCode -eq 200) {
+    $health = Get-AstralisHealth
+    $expectedVersion = (Get-Content (Join-Path $root 'VERSION') -Raw).Trim()
+    $expectedInstance = Get-ExpectedInstance
+    if ($health.version -eq $expectedVersion -and $health.instance -eq $expectedInstance) {
         Add-AstralisShortcut
         Open-AstralisApp
         exit 0
     }
-} catch {}
+    if ($health.ok -and $health.message -match 'Astralis local') { Stop-OldAstralisServer -ConfirmedAstralis }
+    else { throw 'Le port 8766 répond, mais ce n’est pas l’instance Astralis attendue. Ferme le programme qui utilise ce port.' }
+} catch {
+    if ($_.Exception.Message -match 'port 8766') { throw }
+}
 
 $python = $null
 $pythonArgs = @()
@@ -65,7 +103,7 @@ if (-not $python) {
 }
 
 $listener = Get-NetTCPConnection -LocalPort 8766 -State Listen -ErrorAction SilentlyContinue
-if ($listener) { throw 'Le port 8766 est utilisé par une autre application. Ferme-la puis relance Astralis.' }
+if ($listener) { Stop-OldAstralisServer }
 
 Start-Process -FilePath $python -ArgumentList ($pythonArgs + @('server.py')) -WorkingDirectory $root -WindowStyle Hidden
 $ready = $false

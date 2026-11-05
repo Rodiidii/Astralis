@@ -1,3 +1,13 @@
+# Astralis — application Windows
+
+## Installer sur un PC distant
+
+1. Télécharge `Astralis-Update.zip` depuis la [dernière release GitHub](https://github.com/Rodiidii/Astralis/releases/latest) et extrais **tout** le contenu dans un dossier.
+2. Lance `Installer et lancer Astralis.bat` une première fois. Il installe Python si nécessaire, démarre le serveur local et ouvre Astralis dans une fenêtre d’application sans onglets ni barre d’adresse.
+3. Les lancements suivants se font avec le raccourci **Astralis** du Bureau ou le même fichier `.bat`.
+
+Ne lance pas `index.html` et ne navigue pas sur l’adresse GitHub pour utiliser l’application : cela ouvre une page web sans serveur local. Le lanceur détecte une ancienne instance Astralis sur le port local, la remplace par celle du dossier choisi et vérifie sa version.
+
 ## v79
 - Foil « master » à motif d'étoiles (change de couleur selon l'angle) sur Full Art, Secrète, Gold, Légende, Groupe, Astrale.
 - Groupes : une seule illustration avec tous les persos + aura et orbes lumineuses autour de la carte.

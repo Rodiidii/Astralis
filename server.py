@@ -1019,7 +1019,11 @@ class Handler(SimpleHTTPRequestHandler):
             names = sorted(f.name for f in folder.iterdir() if f.is_file() and f.suffix.lower() in {".webp", ".jpg", ".jpeg", ".png", ".avif"}) if folder.is_dir() else []
             self.send_json(200, names); return
         if path == "/health":
-            self.send_json(200, {"ok": True, "message": "Astralis local data bridge active"})
+            root = Path(__file__).resolve().parent
+            version_file = root / "VERSION"
+            version = version_file.read_text(encoding="utf-8").strip() if version_file.exists() else "0.0.0"
+            instance = hashlib.sha256(str(root).casefold().encode("utf-8")).hexdigest()[:12]
+            self.send_json(200, {"ok": True, "message": "Astralis local app active", "version": version, "instance": instance})
             return
         if path == "/api/gi/aiynao":
             key = "gi/aiynao"
