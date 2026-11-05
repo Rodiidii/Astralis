@@ -4,10 +4,15 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#111113">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="Astralis">
   <meta name="description" content="Astralis — ton atelier de collection, d’équipes et de builds pour Honkai: Star Rail, Genshin Impact et Wuthering Waves.">
   <title>Astralis — Atelier de builds</title>
-  <link rel="stylesheet" href="styles.css?v=20261104-prydwen-icon-3">
-  <link rel="stylesheet" href="design.css?v=20261031-restore-layout-1">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="apple-touch-icon" href="assets/app-icon.svg">
+  <link rel="stylesheet" href="styles.css?v=20261105-release-105-1">
+  <link rel="stylesheet" href="design.css?v=20261105-release-105-1">
   <link rel="stylesheet" href="character-theme.css?v=20261031-theme-media-fix-1">
   <link rel="stylesheet" href="assistant.css?v=20261101-farm-calendar-ui-1">
   <link rel="stylesheet" href="dashboard-polish.css?v=20261031-restored-pages-2">
@@ -48,9 +53,12 @@
       setTimeout(function () { show('Aucun contenu affich\u00e9 apr\u00e8s 4 secondes : le script principal (src/app.js) ne s\u2019est pas ex\u00e9cut\u00e9.'); }, 4000);
     })();
   </script>
-  <script type="module" src="src/app.js?v=20261104-prydwen-icon-3"></script>
+  <script>if('serviceWorker' in navigator && location.protocol!=='file:') addEventListener('load',()=>navigator.serviceWorker.register('./sw.js').catch(()=>{}));</script>
+  <script type="module" src="src/app.js?v=20261105-release-105-1"></script>
 </body>
 </html>
+
+
 
 
 

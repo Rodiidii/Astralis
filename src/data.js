@@ -409,6 +409,22 @@ export function splashImage(game, item) {
   return imageSet(game, item)[0] || '';
 }
 
+export function splashImageCandidates(game, item) {
+  const primary = splashImage(game, item);
+  if (!item || item._category !== 'character') return [primary, ...imageSet(game, item, 'character')].filter(Boolean);
+  if (game === 'gi') {
+    const id = encodeURIComponent(item._id || '');
+    if (item.preRelease && primary) return [...new Set([primary, item.images?.cover1, item.images?.card].filter(Boolean))];
+    return [...new Set([
+      item.images?.cover1,
+      item.images?.card,
+      `https://genshin.jmp.blue/characters/${id}/gacha-splash`,
+      primary,
+    ].filter(Boolean))];
+  }
+  return [...new Set([primary].filter(Boolean))];
+}
+
 export function setBonuses(item, game) {
   const raw = item || {};
   if (game === 'gi') return [
@@ -487,4 +503,5 @@ function sharpenWuwa(url) {
 export function equipmentImage(game, item, category) {
   return imageSet(game, item, category)[0] || '';
 }
+
 

@@ -1,20 +1,39 @@
 ﻿$ErrorActionPreference = 'Stop'
 $root = Split-Path -Parent $MyInvocation.MyCommand.Path
 $healthUrl = 'http://127.0.0.1:8766/health'
+$appUrl = 'http://127.0.0.1:8766/index.html'
+function Open-AstralisApp {
+    $edge = Get-Command msedge.exe -ErrorAction SilentlyContinue
+    if ($edge) { Start-Process $edge.Source -ArgumentList @('--app=' + $appUrl) }
+    else { Start-Process $appUrl }
+}
+function Add-AstralisShortcut {
+    try {
+        $desktop = [Environment]::GetFolderPath('Desktop')
+        $shortcut = (New-Object -ComObject WScript.Shell).CreateShortcut((Join-Path $desktop 'Astralis.lnk'))
+        $shortcut.TargetPath = Join-Path $root 'Installer et lancer Astralis.bat'
+        $shortcut.WorkingDirectory = $root
+        $shortcut.Description = 'Lancer Astralis'
+        $shortcut.Save()
+    } catch {}
+}
 
 # Astralis ne dépend que de la bibliothèque standard de Python.
 try {
     $health = Invoke-WebRequest $healthUrl -TimeoutSec 2 -UseBasicParsing
     if ($health.StatusCode -eq 200) {
-        Start-Process 'http://127.0.0.1:8766/index.html'
+        Add-AstralisShortcut
+        Open-AstralisApp
         exit 0
     }
 } catch {}
 
 $python = $null
 $pythonArgs = @()
+$installedPython = Join-Path $env:LOCALAPPDATA 'Programs/Astralis/Python314/python.exe'
+if (Test-Path $installedPython) { $python = $installedPython }
 $launcher = Get-Command py -ErrorAction SilentlyContinue
-if ($launcher) {
+if (-not $python -and $launcher) {
     try {
         & $launcher.Source -3 -c 'import sys; raise SystemExit(0 if sys.version_info >= (3,10) else 1)' 2>$null
         if ($LASTEXITCODE -eq 0) { $python = $launcher.Source; $pythonArgs = @('-3') }
@@ -58,5 +77,6 @@ for ($attempt = 0; $attempt -lt 40; $attempt++) {
     } catch {}
 }
 if (-not $ready) { throw 'Astralis ne répond pas sur le port 8766. Vérifie le pare-feu ou le fichier server.py.' }
-Start-Process 'http://127.0.0.1:8766/index.html'
+Add-AstralisShortcut
+Open-AstralisApp
 Write-Host 'Astralis est lancé.'

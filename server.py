@@ -9,10 +9,11 @@ import hashlib
 import secrets
 import xml.etree.ElementTree as ET
 from pathlib import Path
-from datetime import datetime, timezone
+from datetime import datetime, timezone, timedelta
 from email.utils import parsedate_to_datetime
 from concurrent.futures import ThreadPoolExecutor
 from html import unescape
+from html.parser import HTMLParser
 from http.server import SimpleHTTPRequestHandler, ThreadingHTTPServer
 from urllib.error import URLError
 from urllib.request import Request, urlopen
@@ -535,6 +536,11 @@ def genshin_events() -> bytes:
         def iso(stamp: object) -> str:
             try: return datetime.fromtimestamp(int(stamp), timezone.utc).isoformat().replace("+00:00", "Z")
             except (TypeError, ValueError, OverflowError): return ""
+        def paris_tz(year: int, month: int, day: int):
+            march_last=datetime(year,3,31).date(); march_last-=timedelta(days=(march_last.weekday()+1)%7)
+            october_last=datetime(year,10,31).date(); october_last-=timedelta(days=(october_last.weekday()+1)%7)
+            current=datetime(year,month,day).date()
+            return timezone(timedelta(hours=2 if march_last<=current<october_last else 1))
         events = []
         for row in payload.get("events", []):
             end = int(row.get("end_time") or 0)
@@ -556,12 +562,50 @@ def genshin_events() -> bytes:
             if not end or end < now: continue
             kind = "weapon-banner" if row.get("weapons") else "char-banner"
             featured = row.get("weapons") or row.get("characters") or []
+            end_utc=datetime.fromtimestamp(end,timezone.utc)
+            end_local=datetime(end_utc.year,end_utc.month,end_utc.day,18,tzinfo=paris_tz(end_utc.year,end_utc.month,end_utc.day))
             events.append({"id": f"ennead:banner:{row.get('id', row.get('name', ''))}", "kind": kind, "title": str(row.get("name") or "Vœux"),
-                "start": iso(row.get("start_time")), "end": iso(row.get("end_time")), "image": "",
+                "start": iso(row.get("start_time")), "end": end_local.astimezone(timezone.utc).isoformat().replace("+00:00","Z"), "image": "",
                 "icons": [{"name": x.get("name", ""), "src": x.get("icon", ""), "rarity": x.get("rarity")} for x in featured], "primogems": None,
                 "description": " · ".join(x.get("name", "") for x in featured), "source": {"title": "Calendrier HoYoverse via Ennead API", "url": "https://api.ennead.cc/mihoyo/genshin/calendar?lang=fr-fr"}})
+        # Ennead supplies live banners and published 4★. Gacha Tracker lists announced
+        # future phases; only future character 5★ are used as a supplement.
+        try:
+            tracker = fetch("https://gacha-tracker.com/genshin/banners").decode("utf-8", errors="replace")
+            class BannerCards(HTMLParser):
+                def __init__(self): super().__init__(convert_charrefs=True); self.card=None; self.cards=[]
+                def handle_starttag(self, tag, attrs):
+                    href=dict(attrs).get("href", "")
+                    if tag=="a" and "/genshin/banners/" in href: self.card={"href":href,"text":""}
+                def handle_data(self, data):
+                    if self.card is not None: self.card["text"] += " " + data
+                def handle_endtag(self, tag):
+                    if tag=="a" and self.card is not None: self.cards.append(self.card); self.card=None
+            cards=BannerCards(); cards.feed(tracker)
+            month_pattern=r"(Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)\s+(\d{1,2})"
+            known={(e.get("kind"),e.get("start")) for e in events if e.get("kind")=="char-banner"}
+            for card in cards.cards:
+                href=card["href"]
+                if not re.search(r"-character(?:$|[?#])",href): continue
+                text=" ".join(card["text"].split())
+                phase_match=re.search(r"v(\d+\.\d+).*?Phase\s*(\d+)",text,re.I)
+                names_dates=re.search(r"Phase\s*\d+\s+(.+?)\s+"+month_pattern+r"\s*[^A-Za-z0-9]{1,8}\s*"+month_pattern+r",\s*(\d{4})",text,re.I)
+                if not phase_match or not names_dates: continue
+                version,phase=phase_match.groups();raw_names,m1,d1,m2,d2,year=names_dates.groups();year=int(year)
+                names=[re.sub(r"\s+"," ",n).strip(" ·�&-") for n in re.split(r"[·•�&]+",raw_names) if n.strip(" ·�&-")]
+                slug_date=re.search(r"(\d{4})-(\d{2})-(\d{2})-character",href)
+                if slug_date:
+                    sy,sm,sd=map(int,slug_date.groups());start_dt=datetime(sy,sm,sd,11,tzinfo=paris_tz(sy,sm,sd))
+                else: start_dt=datetime.strptime(f"{m1} {d1} {year}","%b %d %Y").replace(hour=11,tzinfo=paris_tz(year,datetime.strptime(m1,"%b").month,int(d1)))
+                end_dt=datetime.strptime(f"{m2} {d2} {year}","%b %d %Y").replace(hour=18,tzinfo=paris_tz(year,datetime.strptime(m2,"%b").month,int(d2)))
+                if not names or start_dt.timestamp()<=now or end_dt.timestamp()<=now: continue
+                start_iso=start_dt.astimezone(timezone.utc).isoformat().replace("+00:00","Z")
+                if ("char-banner",start_iso) in known: continue
+                events.append({"id":f"gacha-tracker:{version}:phase-{phase}:characters","kind":"char-banner","title":f"Bannière de personnages · phase {phase}","start":start_iso,"end":end_dt.astimezone(timezone.utc).isoformat().replace("+00:00","Z"),"image":"","icons":[{"name":name,"src":"","rarity":5} for name in names],"primogems":None,"description":" · ".join(names),"source":{"title":"Gacha Tracker · phase annoncée (dates susceptibles d’évoluer)","url":"https://gacha-tracker.com/genshin/banners"}})
+        except Exception:
+            pass
         events.sort(key=lambda x: x.get("start", ""))
-        return json.dumps({"updatedAt": time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime()), "source": "Ennead API · calendrier HoYoverse, événements et récompenses", "events": events}, ensure_ascii=False).encode("utf-8")
+        return json.dumps({"updatedAt": time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime()), "source": "Ennead + calendrier des bannières annoncées", "events": events}, ensure_ascii=False).encode("utf-8")
     except Exception:
         pass
     # GenshinFlex remains a fallback if the structured calendar API is unavailable.
@@ -775,7 +819,9 @@ def genshin_endgame() -> bytes:
                     icon = re.search(r'<img[^>]+src="([^"]+)"', enemy, re.I)
                     name = re.search(r'<span[^>]*>(.*?)</span>', enemy, re.I | re.S)
                     if name:
-                        enemies.append({"name": html_text(name.group(1)), "icon": urljoin("https://genshinflex.com/", unescape(icon.group(1))) if icon else ""})
+                        enemy_name = html_text(name.group(1))
+                        enemy_icon = urljoin("https://genshinflex.com/", unescape(icon.group(1))) if icon else theater_db_icon(re.sub(r"\s*\([^)]*\)", "", enemy_name).strip())
+                        enemies.append({"name": enemy_name, "icon": enemy_icon})
                 note_match = re.search(r'<p class="muted small"[^>]*>(.*?)</p>', half, re.I | re.S)
                 halves.append({"name": html_text(label.group(1)).replace("Half 1", "1re moitié").replace("Half 2", "2e moitié") if label else "Moitié", "enemies": enemies, "note": html_text(note_match.group(1)) if note_match else ""})
             if heading:
@@ -832,7 +878,9 @@ def genshin_endgame() -> bytes:
             icon = re.search(r'<img[^>]+src="([^"]+)"', enemy, re.I)
             name = re.search(r'<span[^>]*>(.*?)</span>', enemy, re.I | re.S)
             if name:
-                enemies.append({"name": html_text(name.group(1)), "icon": urljoin("https://genshinflex.com/", unescape(icon.group(1))) if icon else ""})
+                enemy_name = html_text(name.group(1))
+                enemy_icon = urljoin("https://genshinflex.com/", unescape(icon.group(1))) if icon else theater_db_icon(re.sub(r"\s*\([^)]*\)", "", enemy_name).strip())
+                enemies.append({"name": enemy_name, "icon": enemy_icon})
         if enemies and (not heading or "main villains" not in html_text(heading.group(1)).lower()): theater_bosses.append({"name": html_text(heading.group(1)) if heading else "Boss", "enemies": enemies})
     blessing_text = html_text(blessing_match.group(1)) if blessing_match else ""
     for english, french in (("Abyssal Moon blessing:", "Bénédiction de la lune abyssale :"), ("Disorder", "Bonus de trouble"), ("Superconduct", "Supraconduction"), ("Frozen", "Gel"), ("Shatter", "Brisé"), ("Time left over", "Temps restant")):
@@ -858,7 +906,9 @@ def genshin_endgame() -> bytes:
                 icon = re.search(r'<img[^>]+src="([^"]+)"', enemy, re.I)
                 name = re.search(r'<span[^>]*>(.*?)</span>', enemy, re.I | re.S)
                 if name:
-                    enemies.append({"name": html_text(name.group(1)), "icon": urljoin("https://genshinflex.com/", unescape(icon.group(1))) if icon else ""})
+                    enemy_name = html_text(name.group(1))
+                    enemy_icon = urljoin("https://genshinflex.com/", unescape(icon.group(1))) if icon else theater_db_icon(re.sub(r"\s*\([^)]*\)", "", enemy_name).strip())
+                    enemies.append({"name": enemy_name, "icon": enemy_icon})
         weak = re.search(r'<div class="weak"[^>]*>(.*?)</div>', body, re.I | re.S)
         advantages = [html_text(x) for x in re.findall(r'<span class="chip gold"[^>]*>(.*?)</span>', weak.group(1), re.I | re.S)] if weak else []
         on_bosses.append({"stage": stage_no, "name": html_text(stage_title.group(1)) if stage_title else f"Combat {stage_no}", "enemies": enemies, "advantages": advantages})
