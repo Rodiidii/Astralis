@@ -105,23 +105,28 @@ function Get-ExpectedInstance {
 
 function Stop-OldAstralisServer([switch]$ConfirmedAstralis) {
 
-    $listener = Get-NetTCPConnection -LocalPort 8766 -State Listen -ErrorAction SilentlyContinue | Select-Object -First 1
+    $listeners = @(Get-NetTCPConnection -LocalPort 8766 -State Listen -ErrorAction SilentlyContinue | Select-Object -ExpandProperty OwningProcess -Unique)
 
-    if (-not $listener) { return $false }
+    if ($listeners.Count -eq 0) { return $false }
 
-    $process = Get-CimInstance Win32_Process -Filter "ProcessId = $($listener.OwningProcess)" -ErrorAction SilentlyContinue
-
-    if (-not $process -or $process.Name -notmatch '^python(w)?\.exe$' -or $process.CommandLine -notmatch 'server\.py' -or (-not $ConfirmedAstralis -and $process.CommandLine -notmatch 'Astralis')) {
-
-        throw 'Le port 8766 est utilisé par un autre programme. Ferme-le puis relance Astralis.'
-
+    $processes = @()
+    foreach ($processId in $listeners) {
+        $process = Get-CimInstance Win32_Process -Filter "ProcessId = $processId" -ErrorAction SilentlyContinue
+        if (-not $process -or $process.Name -notmatch '^python(w)?\.exe$' -or $process.CommandLine -notmatch 'server\.py' -or (-not $ConfirmedAstralis -and $process.CommandLine -notmatch 'Astralis')) {
+            throw 'Le port 8766 contient un programme qui nest pas une instance Astralis. Ferme-le avant de relancer.'
+        }
+        $processes += $process
     }
 
-    Stop-Process -Id $listener.OwningProcess -Force
+    foreach ($process in $processes) { Stop-Process -Id $process.ProcessId -Force -ErrorAction SilentlyContinue }
 
-    Start-Sleep -Milliseconds 700
+    for ($attempt = 0; $attempt -lt 20; $attempt++) {
+        Start-Sleep -Milliseconds 250
+        $remaining = @(Get-NetTCPConnection -LocalPort 8766 -State Listen -ErrorAction SilentlyContinue)
+        if ($remaining.Count -eq 0) { return $true }
+    }
 
-    return $true
+    throw 'Des instances Astralis occupent encore le port 8766. Ferme les processus Python server.py et relance.'
 
 }
 
