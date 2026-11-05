@@ -1,4 +1,4 @@
-﻿$ErrorActionPreference = 'Stop'
+$ErrorActionPreference = 'Stop'
 
 $root = Split-Path -Parent $MyInvocation.MyCommand.Path
 
@@ -6,34 +6,79 @@ $healthUrl = 'http://127.0.0.1:8766/health'
 
 $appUrl = 'http://127.0.0.1:8766/index.html'
 
+function Find-AstralisBrowser {
+    $candidates = New-Object 'System.Collections.Generic.List[string]'
+    foreach ($name in @('msedge.exe', 'chrome.exe')) {
+        $command = Get-Command $name -ErrorAction SilentlyContinue | Select-Object -First 1
+        if ($command -and $command.Source) { $candidates.Add($command.Source) }
+    }
+    foreach ($key in @(
+        'Registry::HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\App Paths\msedge.exe',
+        'Registry::HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\App Paths\msedge.exe',
+        'Registry::HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node\Microsoft\Windows\CurrentVersion\App Paths\msedge.exe',
+        'Registry::HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\App Paths\chrome.exe',
+        'Registry::HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\App Paths\chrome.exe',
+        'Registry::HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node\Microsoft\Windows\CurrentVersion\App Paths\chrome.exe'
+    )) {
+        try {
+            $item = Get-Item -LiteralPath $key -ErrorAction Stop
+            $value = $item.GetValue('')
+            if ($value) { $candidates.Add([string]$value) }
+        } catch {}
+    }
+    foreach ($base in @($env:ProgramFiles, ${env:ProgramFiles(x86)}, $env:LOCALAPPDATA)) {
+        if (-not $base) { continue }
+        foreach ($relative in @(
+            'Microsoft\Edge\Application\msedge.exe', 'Google\Chrome\Application\chrome.exe',
+            'Microsoft\Edge\Application\*\msedge.exe', 'Google\Chrome\Application\*\chrome.exe'
+        )) {
+            $pattern = Join-Path $base $relative
+            if ($relative.Contains('*')) {
+                Get-ChildItem -Path $pattern -File -ErrorAction SilentlyContinue | ForEach-Object { $candidates.Add($_.FullName) }
+            } elseif (Test-Path -LiteralPath $pattern) { $candidates.Add($pattern) }
+        }
+    }
+    foreach ($candidate in $candidates) {
+        if ($candidate -and (Test-Path -LiteralPath $candidate -PathType Leaf)) { return $candidate }
+    }
+    return $null
+}
+
+function Install-AstralisBrowser {
+    Write-Host 'Aucun navigateur compatible detecte. Installation automatique de Microsoft Edge...'
+    $winget = Get-Command winget.exe -ErrorAction SilentlyContinue | Select-Object -First 1
+    if ($winget) {
+        try {
+            & $winget.Source install --id Microsoft.Edge --exact --silent --accept-package-agreements --accept-source-agreements
+            if ($LASTEXITCODE -eq 0) {
+                Start-Sleep -Seconds 2
+                $installed = Find-AstralisBrowser
+                if ($installed) { return $installed }
+            }
+        } catch {}
+    }
+
+    $is64Bit = [Environment]::Is64BitOperatingSystem
+    $linkId = if ($is64Bit) { '2093437' } else { '2093505' }
+    $msi = Join-Path $env:TEMP 'astralis-edge-stable.msi'
+    Invoke-WebRequest -Uri ("https://go.microsoft.com/fwlink/?LinkID=$linkId") -OutFile $msi -UseBasicParsing
+    $arguments = @('/i', ('"' + $msi + '"'), '/qn', '/norestart')
+    $installer = Start-Process -FilePath 'msiexec.exe' -ArgumentList $arguments -Wait -PassThru
+    if ($installer.ExitCode -eq 1603) {
+        Write-Host 'Edge demande une installation avec droits administrateur. Une demande Windows va apparaitre.'
+        $installer = Start-Process -FilePath 'msiexec.exe' -Verb RunAs -ArgumentList $arguments -Wait -PassThru
+    }
+    if ($installer.ExitCode -ne 0) { throw "Installation de Microsoft Edge echouee (code $($installer.ExitCode))." }
+    Start-Sleep -Seconds 2
+    $installed = Find-AstralisBrowser
+    if (-not $installed) { throw 'Microsoft Edge a ete installe mais son executable reste introuvable.' }
+    return $installed
+}
+
 function Open-AstralisApp {
-
-    $candidates = @(
-
-        (Get-Command msedge.exe -ErrorAction SilentlyContinue | Select-Object -ExpandProperty Source -First 1),
-
-        (Join-Path $env:ProgramFiles 'Microsoft/Edge/Application/msedge.exe'),
-
-        (Join-Path ${env:ProgramFiles(x86)} 'Microsoft/Edge/Application/msedge.exe'),
-
-        (Join-Path $env:LOCALAPPDATA 'Microsoft/Edge/Application/msedge.exe'),
-
-        (Get-Command chrome.exe -ErrorAction SilentlyContinue | Select-Object -ExpandProperty Source -First 1),
-
-        (Join-Path $env:ProgramFiles 'Google/Chrome/Application/chrome.exe'),
-
-        (Join-Path ${env:ProgramFiles(x86)} 'Google/Chrome/Application/chrome.exe'),
-
-        (Join-Path $env:LOCALAPPDATA 'Google/Chrome/Application/chrome.exe')
-
-    )
-
-    $browser = $candidates | Where-Object { $_ -and (Test-Path -LiteralPath $_) } | Select-Object -First 1
-
-    if (-not $browser) { throw 'Aucun moteur Chromium trouvé. Installe Microsoft Edge ou Google Chrome, puis relance Astralis.' }
-
+    $browser = Find-AstralisBrowser
+    if (-not $browser) { $browser = Install-AstralisBrowser }
     Start-Process -FilePath $browser -ArgumentList @('--app=' + $appUrl, '--new-window')
-
 }
 
 function Get-AstralisHealth {
@@ -102,25 +147,14 @@ function Add-AstralisShortcut {
 
 
 
+$expectedVersion = (Get-Content (Join-Path $root 'VERSION') -Raw).Trim()
+$expectedInstance = Get-ExpectedInstance
+
 # Astralis ne dépend que de la bibliothèque standard de Python.
 
 try {
 
     $health = Get-AstralisHealth
-
-    $expectedVersion = (Get-Content (Join-Path $root 'VERSION') -Raw).Trim()
-
-    $expectedInstance = Get-ExpectedInstance
-
-    if ($health.version -eq $expectedVersion -and $health.instance -eq $expectedInstance) {
-
-        Add-AstralisShortcut
-
-        Open-AstralisApp
-
-        exit 0
-
-    }
 
     if ($health.ok -and $health.message -match 'Astralis local') { Stop-OldAstralisServer -ConfirmedAstralis }
 
@@ -215,6 +249,7 @@ if ($listener) { Stop-OldAstralisServer }
 Start-Process -FilePath $python -ArgumentList ($pythonArgs + @('server.py')) -WorkingDirectory $root -WindowStyle Hidden
 
 $ready = $false
+$actualHealth = $null
 
 for ($attempt = 0; $attempt -lt 40; $attempt++) {
 
@@ -224,17 +259,23 @@ for ($attempt = 0; $attempt -lt 40; $attempt++) {
 
         $response = Invoke-WebRequest $healthUrl -TimeoutSec 2 -UseBasicParsing
 
-        if ($response.StatusCode -eq 200) { $ready = $true; break }
+        if ($response.StatusCode -eq 200) {
+            $actualHealth = $response.Content | ConvertFrom-Json
+            if ($actualHealth.ok -and $actualHealth.version -eq $expectedVersion -and $actualHealth.instance -eq $expectedInstance) { $ready = $true; break }
+        }
 
     } catch {}
 
 }
 
-if (-not $ready) { throw 'Astralis ne répond pas sur le port 8766. Vérifie le pare-feu ou le fichier server.py.' }
+if (-not $ready) {
+    if ($actualHealth) { throw "Mauvaise instance sur le port 8766. Attendu: Astralis $expectedVersion ($expectedInstance); trouve: $($actualHealth.version) ($($actualHealth.instance)). Ferme les autres instances." }
+    throw 'Astralis ne répond pas sur le port 8766. Vérifie le pare-feu ou le fichier server.py.'
+}
 
 Add-AstralisShortcut
 
 Open-AstralisApp
 
-Write-Host 'Astralis est lancé.'
+Write-Host "Astralis $expectedVersion est lance depuis $root. Instance: $expectedInstance."
 
