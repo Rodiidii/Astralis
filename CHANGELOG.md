@@ -7,3 +7,6 @@
 - Police Circular Std choisie par défaut, avec sélection de police et import d’icône conservés dans Réglages.
 - Ajout d’une bibliothèque de 200 presets d’animations de page, avec réduction des mouvements respectée.
 - Cache hors ligne versionné et étendu aux nouveaux styles et au module d’animations.
+# 1.0.13 — 6 novembre 2026
+
+- Le bouton d’accès aux médias du thème est replacé dans le flux de page au lieu de rester épinglé à l’écran.

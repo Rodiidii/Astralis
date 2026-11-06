@@ -12,3 +12,6 @@ button:focus-visible,
 @media (prefers-reduced-motion: reduce) {
   *,*::before,*::after { scroll-behavior: auto !important; }
 }
+/* Le bouton Média du thème reste dans le flux de page, sans se superposer au contenu. */
+.theme-media-dock:not(.is-open){position:static;z-index:auto;width:min(390px,calc(100vw - var(--rail,0px) - 32px));max-height:none;margin:16px 24px 24px auto;}
+@media(max-width:760px){.theme-media-dock:not(.is-open){width:calc(100% - 28px);margin:14px;}}
