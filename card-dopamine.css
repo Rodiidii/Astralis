@@ -1,3 +1,4 @@
+/* card-dopamine.css */
 /* Astralis v77 · effets "dopamine" des cartes spéciales + Légende Astrale Éternelle */
 @property --dp-a { syntax: "<angle>"; inherits: false; initial-value: 0deg; }
 @keyframes dpSpin { to { --dp-a: 360deg; } }
@@ -91,7 +92,7 @@
 .astral-seal-bar i { display: block; height: 100%; border-radius: inherit; background: linear-gradient(90deg, #ffd86a, #ff4f8b, #9a6bff, #54d8ff); box-shadow: 0 0 10px rgba(255,160,200,.8); transition: width .6s; }
 .astral-seal.is-full { border-color: #ffd86a; box-shadow: 0 0 30px rgba(255,200,100,.5); animation: dpPulse 1.6s infinite; }
 @media (max-width: 560px) { .astral-seal { flex-direction: column; text-align: center; } }
-@media (prefers-reduced-motion: reduce) { .tcg-card:not(.booster-opening-overlay .tcg-card):not(.binder-view-dialog .tcg-card), .tcg-card:not(.booster-opening-overlay .tcg-card):not(.binder-view-dialog .tcg-card) *, .astral-seal * { animation: none !important; } }
+@media (prefers-reduced-motion: reduce) { .tcg-card, .tcg-card *, .booster-card-arrival *, .astral-seal * { animation: none !important; } }
 
 /* ═════════ v78 : icônes d'éléments, reflet qui suit le pointeur, parallaxe ═════════ */
 .tcg-badge:has(.tcg-badge-el) { background: radial-gradient(circle at 35% 30%, rgba(255,255,255,.35), rgba(0,0,0,.45)); }
@@ -466,7 +467,7 @@
 .tcg-el-anemo .tcg-fxo b { height: 2px; width: calc(var(--s) * 4); border-radius: 2px; background: linear-gradient(90deg, transparent, var(--fo), transparent); }
 .tcg-el-quantum .tcg-fxo b { border-radius: 0; width: calc(var(--s) * 1.3); height: calc(var(--s) * 1.3); background: var(--fo); }
 .tcg-el-pyro .tcg-fxo b { background: linear-gradient(to top, rgba(255,60,0,0), #ff9a3c 60%, #ffe27a); }
-@media (prefers-reduced-motion: reduce) { .tcg-elb:not(.booster-opening-overlay .tcg-elb):not(.binder-view-dialog .tcg-elb) { animation: none !important; } }
+@media (prefers-reduced-motion: reduce) { .tcg-elb { animation: none !important; } }
 
 /* v89 : contours élémentaires fins et soignés ; touche légère sur les Épiques */
 .tcg-elb { opacity: .85; }
@@ -530,7 +531,7 @@
 .tcg-card--full:hover .tcg-holo { stroke-width: 2.6; }
 /* même vitesse accélérée au survol */
 .tcg-card:hover .tcg-vein { animation-duration: .6s; } .tcg-card:hover .tcg-holo { animation-duration: 1.8s; }
-@media (prefers-reduced-motion: reduce) { .tcg-vein:not(.booster-opening-overlay .tcg-vein):not(.binder-view-dialog .tcg-vein), .tcg-holo:not(.booster-opening-overlay .tcg-holo):not(.binder-view-dialog .tcg-holo), .tcg-th:not(.booster-opening-overlay .tcg-th):not(.binder-view-dialog .tcg-th), .tcg-bead:not(.booster-opening-overlay .tcg-bead):not(.binder-view-dialog .tcg-bead), .tcg-comet:not(.booster-opening-overlay .tcg-comet):not(.binder-view-dialog .tcg-comet) { animation: none !important; } }
+@media (prefers-reduced-motion: reduce) { .tcg-vein, .tcg-holo, .tcg-th, .tcg-bead, .tcg-comet { animation: none !important; } }
 .tcg-vein { stroke-width: 1.3; stroke-dasharray: 22 34; opacity: .75; }
 
 /* ═════════ v93 : ÉCHELLE DE RARETÉ — l'intensité des effets de bord monte à chaque palier, visible de loin ═════════
@@ -568,23 +569,3 @@
 /* réglage : halos plus fins, la hiérarchie reste lisible */
 .tcg-card--rare { --bo: .3; --bs: 8px; } .tcg-card--epic { --bo: .4; --bs: 12px; } .tcg-card--full { --bo: .38; --bs: 16px; } .tcg-card--group { --bs: 16px; --bo: .36; }
 .tcg-card--legend { --bo: .5; --bs: 20px; } .tcg-card--gold { --bo: .6; --bs: 22px; } .tcg-card--secret { --bo: .58; --bs: 22px; } .tcg-card--astral { --bo: .72; --bs: 30px; }
-
-/* ═════════ v94 : fini les gros halos sur Astrale et Full Art — effets originaux, fins, en dehors du cadre ═════════ */
-.tcg-card--astral, .tcg-card--full, .tcg-card--astral:hover, .tcg-card--full:hover { --bo: 0; --bm: 0; }
-.tcg-card--astral::before, .tcg-card--astral::after, .tcg-card--full::before, .tcg-card--full::after { display: none !important; }
-.tcg-card--astral > .tcg-fxo2, .tcg-card--full > .tcg-fxo2, .tcg-card--astral .tcg-fxo::before, .tcg-card--full .tcg-fxo::before, .tcg-card--astral .tcg-fxo::after, .tcg-card--full .tcg-fxo::after { display: none !important; }
-.tcg-card--astral .tcg-aurora, .tcg-card--astral .tcg-ast-aurora { opacity: .35; }
-/* ASTRALE : une constellation vivante — étoiles à quatre branches et fins traits qui se tracent autour de la carte */
-@keyframes dpDraw { 0% { stroke-dashoffset: 100; opacity: 0; } 25% { opacity: .8; } 60%,100% { stroke-dashoffset: 0; opacity: .8; } 85% { opacity: .25; } 100% { opacity: 0; } }
-.tcg-const { position: absolute; inset: -40px; width: calc(100% + 80px); height: calc(100% + 80px); z-index: -1; pointer-events: none; overflow: visible; }
-.tcg-const line { vector-effect: non-scaling-stroke; stroke: #ffe9b8; stroke-width: 1; stroke-dasharray: 100; stroke-dashoffset: 100; opacity: 0; animation: dpDraw 6s ease-in-out infinite; animation-delay: var(--d); }
-.tcg-const path { fill: #fff6dc; transform-box: fill-box; transform-origin: center; animation: dpGlint 3.2s ease-in-out infinite; animation-delay: var(--d); filter: drop-shadow(0 0 3px #ffd98a); }
-.tcg-card--astral:hover .tcg-const line { animation-duration: 2.6s; }
-/* FULL ART : éclats de prisme — petits cristaux de verre qui flottent et dispersent la lumière, avec un fin rayon spectral */
-@keyframes dpPrismFloat { 0%,100% { transform: translateY(0) rotate(0deg); opacity: .55; } 50% { transform: translateY(-14px) rotate(35deg); opacity: 1; } }
-.tcg-prism { position: absolute; inset: 0; z-index: -1; pointer-events: none; }
-.tcg-prism b { position: absolute; width: var(--s); height: calc(var(--s) * 1.15); clip-path: polygon(50% 0, 100% 100%, 0 100%); background: linear-gradient(135deg, #ff7ab8, #ffe27a, #7affd0, #7ab4ff, #c07aff); animation: dpPrismFloat var(--t) ease-in-out infinite, dpHue 6s linear infinite; animation-delay: var(--d); opacity: .8; }
-.tcg-prism::before { content: ""; position: absolute; left: -62px; top: 14%; width: 96px; height: 1.5px; transform: rotate(-32deg); transform-origin: right center; background: linear-gradient(90deg, transparent, #ff7ab8, #ffe27a, #7affd0, #7ab4ff, #c07aff); animation: dpBeam 3.6s ease-in-out infinite; }
-.tcg-prism::after { content: ""; position: absolute; right: -62px; bottom: 16%; width: 96px; height: 1.5px; transform: rotate(-32deg); transform-origin: left center; background: linear-gradient(90deg, #c07aff, #7ab4ff, #7affd0, #ffe27a, #ff7ab8, transparent); animation: dpBeam 3.6s ease-in-out infinite 1.8s; }
-.tcg-card--full:hover .tcg-prism b { animation-duration: 2.4s, 3s; }
-@media (prefers-reduced-motion: reduce) { .tcg-card:not(.booster-opening-overlay .tcg-card):not(.binder-view-dialog .tcg-card) .tcg-const *, .tcg-card:not(.booster-opening-overlay .tcg-card):not(.binder-view-dialog .tcg-card) .tcg-prism b, .tcg-card:not(.booster-opening-overlay .tcg-card):not(.binder-view-dialog .tcg-card) .tcg-prism::before, .tcg-card:not(.booster-opening-overlay .tcg-card):not(.binder-view-dialog .tcg-card) .tcg-prism::after { animation: none !important; } }

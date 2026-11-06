@@ -1,0 +1,15 @@
+/* Astralis · fiche de build : cinq emplacements, une rangée lisible */
+.build-artifact-grid{display:grid;grid-template-columns:repeat(5,minmax(198px,1fr));gap:12px;align-items:stretch;overflow-x:auto;padding:4px 2px 12px;scroll-snap-type:x proximity;overscroll-behavior-inline:contain}
+.build-artifact-grid>.build-artifact-piece{display:grid;grid-template-rows:auto auto auto auto 1fr;align-content:start;gap:9px;min-width:198px;padding:12px;border:1px solid color-mix(in srgb,var(--build-tint,var(--accent)) 42%,var(--line));border-radius:16px;background:linear-gradient(160deg,color-mix(in srgb,var(--build-tint,var(--accent)) 11%,var(--surface)),var(--surface) 52%);box-shadow:0 10px 26px #0002;scroll-snap-align:start}
+.build-artifact-grid>.build-artifact-piece>legend{padding:0 8px;color:var(--build-tint,var(--accent));font-size:12px;font-weight:800;letter-spacing:.08em;text-transform:uppercase}
+.build-artifact-piece>.image-picker-field{margin:0;gap:5px}.build-artifact-piece>.image-picker-field>span{font-size:10px}.build-artifact-piece .image-picker>summary{min-height:46px;border-radius:12px}.build-artifact-piece .image-picker-pop{z-index:35;max-height:min(60vh,480px)}
+.build-piece-visual{position:relative;display:grid;place-items:center;min-height:128px;height:128px;overflow:hidden;border:1px solid #ffffff20;border-radius:14px;background:radial-gradient(ellipse at 50% 44%,color-mix(in srgb,var(--build-tint,var(--accent)) 24%,transparent),transparent 69%),linear-gradient(145deg,#ffffff09,#00000018)}
+.build-piece-visual .build-piece-image{width:100%;height:100%;max-width:none!important;max-height:none!important;object-fit:contain;filter:drop-shadow(0 8px 12px #0005);padding:7px}
+.build-piece-name{display:block;overflow:hidden;color:var(--ink);font-size:11px;text-overflow:ellipsis;white-space:nowrap}
+.build-artifact-piece>label:not(.build-piece-upload){gap:5px;font-size:10px}.build-artifact-piece .build-stat-input{display:grid;grid-template-columns:minmax(0,1fr) 68px;gap:5px}.build-artifact-piece .build-stat-input select,.build-artifact-piece .build-stat-input input{min-height:34px;padding:6px 7px;font-size:10px}
+.build-piece-upload{position:absolute;right:7px;bottom:7px;z-index:2;padding:5px 8px;border:1px solid #ffffff35;border-radius:999px;background:#111b;color:#fff;font-size:9px;backdrop-filter:blur(8px)}.build-piece-upload input{max-width:112px;font-size:9px}
+.build-editor button,.button-primary,.quiet-btn,.theme-option,.pref-group summary,.custom-setting input,.custom-setting select{border-radius:14px}
+.build-editor .image-picker-option{border-radius:12px}.build-editor .image-picker>summary{border-radius:12px}
+button.button-primary,button.quiet-btn{transition:transform .22s cubic-bezier(.2,.8,.2,1),border-color .22s,background-color .22s,box-shadow .22s}
+button.button-primary:hover,button.quiet-btn:hover{transform:translateY(-2px);box-shadow:0 8px 22px color-mix(in srgb,var(--accent) 16%,transparent)}
+@media(max-width:760px){.build-artifact-grid{grid-template-columns:repeat(5,minmax(190px,78vw));gap:9px}.build-piece-visual{height:116px;min-height:116px}}

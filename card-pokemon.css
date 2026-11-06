@@ -1,3 +1,4 @@
+/* card-pokemon.css */
 /* Astralis v77 · présentation façon carte Pokémon : typo, nom/PV, attaques avec énergie + dégâts, pied de carte */
 .tcg-card { font-family: "Cabin", "Gill Sans", "Gill Sans MT", "Trebuchet MS", sans-serif; }
 .tcg-card .tcg-card__name { font-family: "Cabin", "Gill Sans", sans-serif; font-weight: 700; font-size: 1.15rem; letter-spacing: 0; line-height: 1; text-shadow: 0 1px 2px rgba(0,0,0,.65); }

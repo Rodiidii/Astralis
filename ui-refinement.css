@@ -1,0 +1,14 @@
+/* Global button polish: soft rounded controls, no pinned action-button layer. */
+button,
+[role="button"],
+input[type="button"],
+input[type="submit"] { border-radius: 14px; }
+button:focus-visible,
+[role="button"]:focus-visible { outline: 2px solid color-mix(in srgb,var(--accent) 78%,white); outline-offset: 2px; }
+/* Keep deliberate square icon buttons legible while rounding their hit-area. */
+.icon-button,
+.card-action,
+.modal-close { border-radius: 50%; }
+@media (prefers-reduced-motion: reduce) {
+  *,*::before,*::after { scroll-behavior: auto !important; }
+}
