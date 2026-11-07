@@ -6,6 +6,7 @@ import re
 import threading
 import time
 import hashlib
+import ipaddress
 import secrets
 import xml.etree.ElementTree as ET
 from pathlib import Path
@@ -48,6 +49,17 @@ def _version_key(value: str) -> tuple[int, int, int, int, str]:
         raise ValueError(f"Version invalide : {value!r}")
     major, minor, patch, prerelease = match.groups()
     return int(major), int(minor), int(patch), 0 if prerelease else 1, prerelease or ""
+
+def _is_local_origin(origin: str) -> bool:
+    if not origin:
+        return True
+    try:
+        parsed = urlsplit(origin)
+        host = (parsed.hostname or "").lower()
+        local_host = host == "localhost" or (bool(host) and ipaddress.ip_address(host).is_loopback)
+        return parsed.scheme == "http" and parsed.port == PORT and local_host
+    except (ValueError, TypeError):
+        return False
 
 def _set_update_status(**values: object) -> None:
     global _UPDATE_STATUS
@@ -943,7 +955,7 @@ class Handler(SimpleHTTPRequestHandler):
         if path not in {"/api/hoyolab/credentials", "/api/hoyolab/disconnect", "/api/update/install"}:
             self.send_json(404, {"error":"Route inconnue."}); return
         origin = self.headers.get("Origin", "")
-        if origin and origin not in {f"http://{HOST}:{PORT}", f"http://localhost:{PORT}"}:
+        if not _is_local_origin(origin):
             self.send_json(403, {"error":"Origine refusée."}); return
         try:
             length = int(self.headers.get("Content-Length", "0"))

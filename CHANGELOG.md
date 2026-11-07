@@ -1,3 +1,8 @@
+# 1.0.17 — 7 novembre 2026
+
+- Autorise correctement les requêtes d’installation provenant de localhost, 127.0.0.1 et ::1 sur le port local Astralis.
+- Rétablit le défilement tactile et trackpad du menu latéral desktop.
+
 # 1.0.16 — 7 novembre 2026
 
 - Corrige la comparaison des versions : une release plus ancienne n’est plus signalée comme mise à jour disponible.
