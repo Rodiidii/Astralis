@@ -1,5 +1,5 @@
-import { getLocal, putLocal } from './persistence.js?v=20261028-team-buffs-78';
-import { ic } from './icons.js?v=20261028-team-buffs-78';
+import { getLocal, putLocal } from './persistence.js?v=20261107-stability-6';
+import { ic } from './icons.js?v=20261107-stability-6';
 
 export const GAMES = {
   hsr: { label: 'Honkai: Star Rail', short: 'Star Rail', icon: ic('hsr'), accent: '#c1a7ff', source: 'StarRailStaticAPI' },
@@ -18,6 +18,14 @@ const levelStatsCache = new Map();
 const skillCache = new Map();
 let hsrRankCache;
 const refreshing = new Map();
+const retiredPreviewIds = new Set(['mitya-preview', 'lily-preview', 'starsealed-edict-preview']);
+function cleanCatalogRows(rows) {
+  return (Array.isArray(rows) ? rows : []).filter(row => {
+    const id = String(row?._id || row?.id || '').toLowerCase();
+    const name = String(row?._name || row?.name || '').toLowerCase();
+    return !retiredPreviewIds.has(id) && !(row?.preRelease && ['mitya', 'lily', 'starsealed-edict'].some(key => id === key || name === key));
+  });
+}
 function cacheTtl(){try{const days=Number(JSON.parse(localStorage.getItem('astralis:preferences')||'{}').dataRefreshDays)||1;return Math.max(1,Math.min(30,days))*24*60*60*1000;}catch{return 24*60*60*1000;}}
 const MAX_JSON_BYTES = 16 * 1024 * 1024;
 
@@ -54,8 +62,6 @@ function normalize(game, category, item, fallback) {
   const id = entityId(game, item, fallback);
   return { ...item, _id: id, _name: displayName(game, item, id), _game: game, _category: category };
 }
-function ensureAnnouncedCharacters(game,category,items){if(game!=='gi')return items;const officialArt='/assets/images/mitya-splash.png';if(category==='character'&&!items.some(x=>String(x._name||x.name||'').toLowerCase()==='mitya'))items.push(normalize('gi','character',{id:'mitya-preview',name:'Mitya',rarity:5,element:'Electro',elementText:'Électro',weaponType:'Catalyst',weaponText:'Catalyseur',version:'7.2',preRelease:true,images:{cover1:officialArt,portrait:officialArt,image:officialArt,filename_icon:'UI_AvatarIcon_Mitya',filename_gachaSplash:'UI_Gacha_AvatarImg_Mitya',mihoyo_icon:'https://upload-os-bbs.mihoyo.com/game_record/genshin/character_icon/UI_AvatarIcon_Mitya.png',mihoyo_sideIcon:'https://upload-os-bbs.mihoyo.com/game_record/genshin/character_side_icon/UI_AvatarIcon_Side_Mitya.png'},title:'Rules Set at Naught',constellation:'Nodus Gordianus',substatType:'FIGHT_PROP_CRITICAL_HURT',substatText:'DGT CRIT',description:'Personnage annoncé en version 7.2. Fiche de kit de bêta v7.1.53, avec valeurs susceptibles de changer avant la sortie.'},'mitya-preview'));if(category==='character'){const m=items.find(x=>String(x._name||x.name||'').toLowerCase()==='mitya');if(m&&(m.preRelease||m._id==='mitya-preview')){m.preRelease=true;m.version='7.2';m.element='Electro';m.elementText='Électro';m.weaponType='Catalyst';m.weaponText='Catalyseur';m.images={...(m.images||{}),cover1:officialArt,portrait:officialArt,image:officialArt,filename_icon:'UI_AvatarIcon_Mitya',filename_gachaSplash:'UI_Gacha_AvatarImg_Mitya'};m.title='Rules Set at Naught';m.constellation='Nodus Gordianus';m.substatType='FIGHT_PROP_CRITICAL_HURT';m.substatText='DGT CRIT';m.description='Personnage annoncé en version 7.2. Fiche de kit de bêta v7.1.53, avec valeurs susceptibles de changer avant la sortie.';}}if(category==='weapon'&&!items.some(x=>String(x._name||x.name||'').toLowerCase()==='starsealed edict'))items.push(normalize('gi','weapon',{id:'starsealed-edict-preview',name:'Starsealed Edict',rarity:5,weaponType:'Catalyst',weaponText:'Catalyseur',version:'7.2',preRelease:true,images:{icon:'/assets/images/weapon-preview-catalyst.svg',mihoyo_icon:'/assets/images/weapon-preview-catalyst.svg'},description:'Nouveau catalyseur 5★ présenté dans les informations de la version 7.2. Le visuel actuel est un repère provisoire; statistiques, passif, icône officielle et détails de bannière : en cours d’informations.'},'starsealed-edict-preview'));return items;}
-
 async function json(url, signal) {
   const response = await fetch(url, { signal, cache: 'no-cache' });
   if (!response.ok) throw new Error(`La source répond avec HTTP ${response.status}`);
@@ -85,14 +91,15 @@ export async function catalog(game, category, { force = false } = {}) {
   const key = `studio64:${game}:${category}`;
   const cached = catalogCache.get(key);
   const ttl=cacheTtl();
-  if (!force && cached && Date.now() - cached.savedAt < ttl) return ensureAnnouncedCharacters(game,category,cached.items);
+  if (!force && cached && Date.now() - cached.savedAt < ttl) return cleanCatalogRows(cached.items);
   if (!force && cached?.pending) return cached.pending;
   if (!force) {
     try {
       const saved = await getLocal('cache', `catalog:${key}`);
       if (Array.isArray(saved?.items) && saved.items.length) {
         const savedAt=Number(saved.savedAt)||0;
-        catalogCache.set(key, { items: saved.items, savedAt });
+        const cleanItems = cleanCatalogRows(saved.items);
+        catalogCache.set(key, { items: cleanItems, savedAt });
         let autoRefresh=true;try{autoRefresh=JSON.parse(localStorage.getItem('astralis:preferences')||'{}').autoRefresh!==false;}catch{}
         if (autoRefresh&&Date.now()-savedAt>=ttl&&!refreshing.has(key)) {
           const refresh = fetchCatalog(game, category, false).then(items => {
@@ -104,11 +111,13 @@ export async function catalog(game, category, { force = false } = {}) {
           }).catch(() => {}).finally(() => refreshing.delete(key));
           refreshing.set(key, refresh);
         }
-        return ensureAnnouncedCharacters(game,category,saved.items);
+        if (cleanItems.length !== saved.items.length) putLocal('cache', `catalog:${key}`, { ...saved, items: cleanItems }).catch(() => {});
+        return cleanItems;
       }
     } catch { /* Cache absente : lecture réseau ci-dessous. */ }
   }
-  const pending = fetchCatalog(game, category, force).then(items => {
+  const pending = fetchCatalog(game, category, force).then(rows => {
+    const items = cleanCatalogRows(rows);
     if (game === 'gi' && category === 'character' && cached?.items?.length > 40 && items.length < cached.items.length * 0.75) throw new Error('Mise à jour partielle ignorée : conservation du catalogue Genshin déjà valide.');
     const savedAt = Date.now();
     catalogCache.set(key, { items, savedAt });
@@ -182,10 +191,8 @@ async function fetchCatalog(game, category, force) {
   } else if (game === 'ww' && category==='material') data=await json('assets/data/ww-items.json',AbortSignal.timeout(30000));
   else data = await json(`/data/${game}/${category}${force || game === 'ww' ? '?refresh=1' : ''}`, AbortSignal.timeout(30000));
     const entries = Array.isArray(data) ? data.map((value, index) => [value?.id ?? index, value]) : Object.entries(data || {});
-    const items = ensureAnnouncedCharacters(game,category,entries.map(([id, value]) => normalize(game, category, value, id))
-      .filter(item => item._name && item._name !== 'Sans nom' && !/^\s*\.{2,}\s*$/.test(item._name)));
-    if(game==='ww'&&category==='character'&&!items.some(item=>item._name.toLowerCase()==='lily'))items.push(normalize(game,category,{id:'lily-preview',name:'Lily',rarity:5,preRelease:true,description:'Résonatrice annoncée pour la version 3.8. Les coefficients, compétences détaillées et builds seront complétés quand une base publique les publiera.'},'lily-preview'));
-    if(game==='gi'&&category==='character'&&!items.some(item=>item._name.toLowerCase()==='mitya'))items.push(normalize(game,category,{id:'mitya-preview',name:'Mitya',rarity:5,element:'Electro',elementText:'Électro',weaponType:'Catalyst',weaponText:'Catalyseur',version:'7.2',preRelease:true,images:{filename_icon:'UI_AvatarIcon_Mitya',filename_gachaSplash:'UI_Gacha_AvatarImg_Mitya',cover1:'https://fastcdn.hoyoverse.com/content-v2/hk4e/165002/ecd34b52bd4a26b227fdbb58215fe46c_8363697304532950719.jpg'},description:'Personnage annoncé pour la version 7.2. Fiche de kit de bêta v7.1.53, avec valeurs susceptibles de changer avant la sortie.'},'mitya-preview'));
+    const items = entries.map(([id, value]) => normalize(game, category, value, id))
+      .filter(item => item._name && item._name !== 'Sans nom' && !/^\s*\.{2,}\s*$/.test(item._name));
     if(game==='hsr'&&category==='character'){
       try{const profile=await getLocal('profiles','hsr');for(const avatar of profile?.data?.avatar_list||[]){const id=String(avatar.id);if(items.some(item=>item._id===id))continue;items.push(normalize(game,category,{id,name:avatar.name,element:avatar.element,rarity:avatar.rarity,icon:avatar.icon,portrait:avatar.image,preview:avatar.image,profileOnly:true},id));}}catch{/* No profile imported yet. */}
     }
@@ -231,27 +238,9 @@ export async function hsrCharacterRanks(){
 
 export async function characterDetails(game, character) {
   const key = `${game}:${character._id}`;
-  // Never fuzzy-query unreleased/announced characters: Genshin-DB may return a
-  // different character (e.g. Ayato for Mitya) and poison the build with false data.
+  // Never fuzzy-query unreleased characters: wait for a connected public source rather than fabricating kit data.
   if (game === 'gi' && character.preRelease) {
-    if (String(character._name||'').toLowerCase()==='mitya') {
-      const kit=[
-        {name:'Chain Reaction',unlock:'Attaque normale',description:'Enchaîne jusqu’à 3 attaques Électro. L’attaque chargée inflige des DGT Électro de zone. Lorsque son Détecteur : Surcharge est actif et qu’il possède au moins 1 Balise de gradient, l’attaque chargée devient Détonation de gradient : elle ne consomme pas d’endurance et consomme les balises tant que l’attaque est maintenue; chaque balise inflige des DGT de réaction Conduction stellaire.',values:['1er coup · 105,8 %','2e coup · 86,9 %','3e coup · 124,2 %','Attaque chargée · 246,4 %','Détonation de gradient · 302,4 %','DGT Conduction stellaire / balise · 403,2 % de la maîtrise élémentaire']},
-        {name:'Principle: Variable Detection',unlock:'Compétence élémentaire',description:'Inflige des DGT Électro de zone et crée un Détecteur en état Stable (appui) ou Surcharge (maintien). Un nouvel appui dans les 6 s peut changer son état, au plus une fois toutes les 1,5 s. En état Stable, le Détecteur suit les ennemis, attaque périodiquement et consomme les balises excédentaires; à sa disparition, il consomme les balises restantes. En état Surcharge, Mitya peut maintenir son attaque chargée pour consommer les balises.',values:['DGT appui · 163,3 %','DGT maintien · 233,3 %','Détecteur stable · 129,6 %','Consommation de balise · 144 % de la maîtrise élémentaire','Détonation · 165,6 % de la maîtrise élémentaire par balise','Durée · 25 s · TdR · 18 s']},
-        {name:'Analysis: Gradient Theory',unlock:'Déchaînement élémentaire',description:'Laisse les éléments jaillir comme l’inspiration : inflige des DGT Électro de zone et crée immédiatement 3 Balises de gradient.',values:['DGT · 600,5 % ATQ + 1 201 % maîtrise élémentaire','Balises créées · 3','TdR · 15 s · Énergie · 60']}
-      ];
-      const passives=[
-        {name:'Baseline Stress Test',description:'Améliore le Détecteur : en état Stable, chaque Balise de gradient possédée confère 30 pts de maîtrise élémentaire aux personnages proches. En état Surcharge, les réactions Conduction stellaire de l’équipe créent une balise toutes les 1,5 s pendant 3 s.'},
-        {name:'Explosive Reagent: Safe Limits Exceeded',description:'Les Balises de gradient durent 10 s. Après la création d’une balise, le taux CRIT de Mitya augmente de 5 % pendant 15 s. Cumulable 4 fois.'},
-        {name:'Stellar Jubilee: Top-Secret Protocol',description:'Le Superconducteur de l’équipe devient Conduction stellaire : il crée une Balise de gradient toutes les 1,5 s pendant 3 s. Chaque point de maîtrise élémentaire de Mitya augmente les DGT de base de Conduction stellaire de 0,028 %, jusqu’à 14 %. Dans un Champ polaire, Mitya entre en état Rayonnement : Conduction stellaire.'},
-        {name:'Energy Catalysis',description:'Le Détecteur en état Stable détruit rapidement certains rochers de Snezhnaya. La création d’une Source de chaleur de base du Construct de glace primordial ne consomme pas d’énergie Kresnik lorsque Mitya fait partie de l’équipe.'}
-      ];
-      const constellationNames=['The Observer Seeking What Is Missing','The Matter That Slumbers Beyond Inertness','The Knotted String of Invariant Topology','The Isotopes Born of Decay','The Periodic Law That Orders All','Elemental Transition at the Gate of Reason'];
-      const constellationDescriptions=['La limite de Balises de gradient passe à 5 et la compétence crée 1 Balise supplémentaire. Tant que le Détecteur est présent, le personnage déployé gagne 50 % de DGT CRIT. Mitya récupère 10 pts d’énergie lorsqu’une balise est créée, une fois toutes les 8 s.','Dans le Champ polaire, la RÉS Cryo et Électro des ennemis diminue de 25 %. En état Stable, les personnages proches gagnent 100 pts de maîtrise élémentaire; en état Surcharge, le personnage déployé gagne 200 pts.','Le niveau de la compétence élémentaire augmente de 3.','Pour chaque tranche de 5 Balises consommées, le Détecteur inflige une instance de DGT de Conduction stellaire équivalente à 400 % de la maîtrise élémentaire de Mitya.','Le niveau de l’attaque normale augmente de 3.','Lorsqu’un Détecteur Stable est actif, ses DGT augmentent de 15 %. En état Surcharge, chaque balise consommée a 30 % de chances d’en créer une nouvelle. Les DGT de réaction Conduction stellaire de l’équipe augmentent de 20 %.'];
-      const details={...character,levelStats:{'90+':{level:90,ascension:6,hp:11634,attack:263,defense:792,elementalMastery:100,specialized:.384}},baseStats:{hp:11634,attack:263,defense:792,elementalMastery:100,critDamage:38.4},ascensionStat:{name:'DGT CRIT',value:38.4,elementalMastery:100},skillTalents:kit,talentValues:null,passives,constellations:constellationNames.map((name,i)=>({name:`C${i+1} · ${name}`,description:constellationDescriptions[i],icon:'https://genshin.jmp.blue/elements/electro.png'})),announcedKitUrl:'https://genshin.hoyoverse.com/en/news/detail/167047',betaKitUrl:'https://gi.gachabase.net/characters/10000136/mitya/beta',kitVersion:'Bêta 7.1.53 · valeurs non définitives'};
-      detailCache.set(key,details);return details;
-    }
-    const details = { ...character, levelStats: null, skillTalents: [], talentValues: null, passives: [], constellations: [], announcedKitUrl: 'https://genshin.hoyoverse.com/fr/news/detail/167047' };
+    const details = { ...character, levelStats: null, skillTalents: [], talentValues: null, passives: [], constellations: [] };
     detailCache.set(key, details);
     return details;
   }
@@ -401,6 +390,8 @@ export function imageSet(game, item, category = item?._category || 'character') 
 export function splashImage(game, item) {
   if (game === 'gi' && item?._category === 'character') {
     if (item?.preRelease && item?.images?.cover1) return item.images.cover1;
+    const lunarisSplash = item?.images?.lunarisSplash || item?.images?.filename_gachaSplash;
+    if (lunarisSplash) return /^https?:\/\//i.test(lunarisSplash) ? lunarisSplash : `https://enka.network/ui/${encodeURIComponent(lunarisSplash)}.png`;
     const iconName = item?.images?.filename_icon || '';
     const gacha = iconName.replace('UI_AvatarIcon_', 'UI_Gacha_AvatarImg_');
     return gacha && gacha !== iconName ? `https://enka.network/ui/${encodeURIComponent(gacha)}.png` : (item?.images?.cover1 || item?.images?.card || `https://genshin.jmp.blue/characters/${encodeURIComponent(item._id)}/gacha-splash`);
