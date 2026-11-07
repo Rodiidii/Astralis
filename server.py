@@ -57,6 +57,21 @@ def _version_key(value: str) -> tuple[int, int, int, int, str]:
     major, minor, patch, prerelease = match.groups()
     return int(major), int(minor), int(patch), 0 if prerelease else 1, prerelease or ""
 
+def _installed_update_version(root: Path, client_version: str = "") -> str:
+    """Use the installed app's VERSION file; cached HTML may report a stale value."""
+    candidates = []
+    version_file = root / "VERSION"
+    try:
+        candidates.append(version_file.read_text(encoding="utf-8").strip())
+    except OSError:
+        pass
+    candidates.append(str(client_version).strip())
+    for candidate in candidates:
+        normalized = candidate.removeprefix("v")
+        if re.fullmatch(r"\d+\.\d+\.\d+", normalized):
+            return normalized
+    raise ValueError("Version installée introuvable. Relance Astralis avec son lanceur.")
+
 def _is_local_origin(origin: str) -> bool:
     if not origin:
         return True
@@ -980,9 +995,9 @@ class Handler(SimpleHTTPRequestHandler):
             if path == "/api/update/install":
                 repo = str(body.get("repo", "")).strip()
                 tag = str(body.get("tag", "")).strip()
-                from_version = str(body.get("current", "")).strip()
+                client_version = str(body.get("current", "")).strip()
                 if not re.fullmatch(r"[A-Za-z0-9_.-]{1,100}/[A-Za-z0-9_.-]{1,100}", repo) or not tag or len(tag) > 120: raise ValueError("Dépôt ou version invalide.")
-                if not re.fullmatch(r"\d+\.\d+\.\d+", from_version): raise ValueError("Version locale invalide. Redémarre Astralis puis réessaie.")
+                from_version = _installed_update_version(Path(__file__).resolve().parent, client_version)
                 with _UPDATE_LOCK:
                     if _UPDATE_STATUS.get("state") in {"checking", "downloading", "staged"}: raise ValueError("Une mise à jour est déjà en cours.")
                     _UPDATE_STATUS.update({"state":"downloading", "message":"Vérification de la version…", "error":"", "tag":tag, "percent":0, "receivedBytes":0, "totalBytes":0, "updatedAt":time.time()})
