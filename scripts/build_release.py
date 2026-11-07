@@ -7,7 +7,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 OUT = Path(sys.argv[1]).resolve() if len(sys.argv) > 1 else ROOT / "releases"
-SKIP_DIRS = {".git", ".cache", "__pycache__", "releases", "user-data", "userdata", "local-data", "localdata"}
+SKIP_DIRS = {".git", ".idea", ".cache", "__pycache__", "releases", "user-data", "userdata", "local-data", "localdata"}
 SKIP_FILES = {".env", "hoyolab.dpapi"}
 SKIP_PATHS = {("assets", "user")}
 
@@ -20,7 +20,7 @@ def main() -> None:
             if not path.is_file():
                 continue
             relative = path.relative_to(ROOT)
-            if any(part.lower() in SKIP_DIRS for part in relative.parts) or tuple(part.lower() for part in relative.parts[:2]) in SKIP_PATHS or path.name.lower() in SKIP_FILES or path.suffix.lower() in {".pyc", ".pyo"}:
+            if any(part.lower() in SKIP_DIRS for part in relative.parts) or tuple(part.lower() for part in relative.parts[:2]) in SKIP_PATHS or path.name.lower() in SKIP_FILES or path.name.lower().endswith(".tmp.txt") or path.suffix.lower() in {".pyc", ".pyo"}:
                 continue
             output.write(path, relative.as_posix())
     hasher = hashlib.sha256()
