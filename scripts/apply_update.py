@@ -1,13 +1,14 @@
 from __future__ import annotations
 
+import json
 import os
 import shutil
 import subprocess
 import sys
-import tempfile
 import time
+import urllib.request
 import zipfile
-from pathlib import Path, PurePosixPath
+from pathlib import Path, PurePosixPath, PureWindowsPath
 
 
 def local_root() -> Path:
@@ -17,7 +18,10 @@ def local_root() -> Path:
 def safe_relative(name: str) -> Path:
     normalized = name.replace("\\", "/")
     part = PurePosixPath(normalized)
-    if part.is_absolute() or not part.parts or any(p in {"", ".", ".."} for p in part.parts):
+    win = PureWindowsPath(name)
+    if part.is_absolute() or win.is_absolute() or win.drive or not part.parts or any(p in {"", ".", ".."} for p in part.parts):
+        raise ValueError(f"Chemin interdit dans l’archive : {name}")
+    if "\x00" in name or ":" in part.parts[0]:
         raise ValueError(f"Chemin interdit dans l’archive : {name}")
     return Path(*part.parts)
 
@@ -27,80 +31,157 @@ def preserved(rel: Path) -> bool:
     return bool(parts & {".git", ".cache", "cache", "user-data", "userdata", "local-data", "localdata"}) or (len(rel.parts) >= 2 and rel.parts[0].lower() == "assets" and rel.parts[1].lower() == "user") or rel.name.lower() in {".env", "hoyolab.dpapi"}
 
 
+def write_status(state: str, message: str, error: str = "", version: str = "") -> None:
+    local = local_root()
+    local.mkdir(parents=True, exist_ok=True)
+    data = {"state": state, "message": message, "error": error, "version": version, "updatedAt": time.time()}
+    (local / "update-status.json").write_text(json.dumps(data, ensure_ascii=False), encoding="utf-8")
+
+
+def expected_instance(root: Path) -> str:
+    import hashlib
+    return hashlib.sha256(str(root.resolve()).casefold().encode("utf-8")).hexdigest()[:12]
+
+
 def start_app(root: Path) -> None:
     launcher = root / "Lancer Astralis.bat"
+    if not launcher.is_file():
+        raise FileNotFoundError("Le lanceur Windows est absent de la nouvelle version.")
     subprocess.Popen(["cmd.exe", "/c", "start", "", str(launcher)], cwd=str(root), stdin=subprocess.DEVNULL, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL, creationflags=getattr(subprocess, "CREATE_NEW_PROCESS_GROUP", 0) | getattr(subprocess, "DETACHED_PROCESS", 0), close_fds=True)
+
+
+def wait_for_new_app(version: str, root: Path, timeout: float = 45.0) -> bool:
+    url = "http://127.0.0.1:8766/health"
+    deadline = time.monotonic() + timeout
+    while time.monotonic() < deadline:
+        try:
+            request = urllib.request.Request(url, headers={"Cache-Control": "no-cache"})
+            with urllib.request.urlopen(request, timeout=2) as response:
+                health = json.loads(response.read(32_000).decode("utf-8"))
+            if health.get("ok") and str(health.get("version")) == version and str(health.get("instance")) == expected_instance(root):
+                return True
+        except Exception:
+            pass
+        time.sleep(0.5)
+    return False
+
+
+def move_preserved_data(old_root: Path, new_root: Path) -> None:
+    for source in list(old_root.iterdir()):
+        rel = Path(source.name)
+        if preserved(rel):
+            target = new_root / rel
+            target.parent.mkdir(parents=True, exist_ok=True)
+            if target.exists():
+                if target.is_dir():
+                    shutil.rmtree(target)
+                else:
+                    target.unlink()
+            shutil.move(str(source), str(target))
+    # Nested preserved paths are moved separately after the containing tree is present.
+    for rel in (Path("assets/user"), Path(".env"), Path("hoyolab.dpapi")):
+        source = old_root / rel
+        if not source.exists():
+            continue
+        target = new_root / rel
+        target.parent.mkdir(parents=True, exist_ok=True)
+        if target.exists():
+            if target.is_dir(): shutil.rmtree(target)
+            else: target.unlink()
+        shutil.move(str(source), str(target))
 
 
 def main() -> int:
     if len(sys.argv) != 4:
         return 2
     root, archive, server_pid = Path(sys.argv[1]).resolve(), Path(sys.argv[2]).resolve(), int(sys.argv[3])
-    if not (root / "server.py").is_file() or not archive.is_file():
+    if root == root.parent or not (root / "server.py").is_file() or not archive.is_file():
         return 3
-    time.sleep(1.2)
-    subprocess.run(["taskkill", "/PID", str(server_pid), "/T", "/F"], stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL, check=False)
-    for _ in range(30):
-        time.sleep(0.5)
-        try:
-            os.kill(server_pid, 0)
-        except OSError:
-            break
-
-    local = local_root()
-    staging = Path(tempfile.mkdtemp(prefix="astralis-update-", dir=str(local)))
-    backup = local / "update-backup"
-    changed: list[tuple[Path, Path | None]] = []
+    parent = root.parent
+    if not parent.is_dir():
+        return 3
+    suffix = f"{int(time.time())}-{os.getpid()}"
+    staging = parent / f".{root.name}.astralis-next-{suffix}"
+    backup = parent / f".{root.name}.astralis-previous-{suffix}"
+    failed = parent / f".{root.name}.astralis-failed-{suffix}"
     try:
+        staging.mkdir()
+        write_status("installing", "Décompression de la mise à jour…")
         with zipfile.ZipFile(archive) as zf:
             entries = []
+            total = 0
             for info in zf.infolist():
-                rel = safe_relative(info.filename.rstrip("/")) if info.filename.rstrip("/") else None
-                if rel is None or info.is_dir() or preserved(rel):
+                raw = info.filename.rstrip("/")
+                if not raw or info.is_dir():
                     continue
+                rel = safe_relative(raw)
                 mode = (info.external_attr >> 16) & 0o170000
                 if mode == 0o120000:
                     raise ValueError("L’archive contient un lien symbolique interdit.")
+                if preserved(rel):
+                    continue
+                total += info.file_size
+                if len(entries) >= 100_000 or total > 3_000_000_000:
+                    raise ValueError("L’archive dépasse les limites de sécurité prévues.")
+                target = (staging / rel).resolve()
+                if staging.resolve() not in target.parents:
+                    raise ValueError(f"Chemin hors de l’application : {raw}")
                 entries.append((info, rel))
-            if not entries or len(entries) > 100_000:
-                raise ValueError("Archive vide ou trop volumineuse en nombre de fichiers.")
+            if not entries:
+                raise ValueError("L’archive ne contient aucun fichier d’application.")
             for info, rel in entries:
-                target = (root / rel).resolve()
-                if root not in target.parents:
-                    raise ValueError(f"Chemin hors du dossier Astralis : {info.filename}")
-                temp_file = staging / rel
-                temp_file.parent.mkdir(parents=True, exist_ok=True)
-                with zf.open(info) as src, temp_file.open("wb") as dst:
+                target = staging / rel
+                target.parent.mkdir(parents=True, exist_ok=True)
+                with zf.open(info) as src, target.open("wb") as dst:
                     shutil.copyfileobj(src, dst)
-        backup.mkdir(parents=True, exist_ok=True)
-        for _, rel in entries:
-            target, staged = root / rel, staging / rel
-            old_copy = None
-            if target.exists() and target.is_file():
-                old_copy = backup / rel
-                old_copy.parent.mkdir(parents=True, exist_ok=True)
-                shutil.copy2(target, old_copy)
-            changed.append((target, old_copy))
-            target.parent.mkdir(parents=True, exist_ok=True)
-            os.replace(staged, target)
-        (local / "update-status.json").write_text('{"state":"done","message":"Mise à jour installée.","error":""}', encoding="utf-8")
-    except Exception as exc:
-        for target, old_copy in reversed(changed):
+        version_file = staging / "VERSION"
+        version = version_file.read_text(encoding="utf-8").strip() if version_file.exists() else ""
+        if not version:
+            raise ValueError("La version publiée ne contient pas de fichier VERSION.")
+
+        write_status("restarting", "Fichiers installés. Redémarrage d’Astralis…", version=version)
+        subprocess.run(["taskkill", "/PID", str(server_pid), "/F"], stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL, check=False)
+        for _ in range(40):
             try:
-                if old_copy and old_copy.exists():
-                    target.parent.mkdir(parents=True, exist_ok=True)
-                    shutil.copy2(old_copy, target)
-                else:
-                    target.unlink(missing_ok=True)
+                os.kill(server_pid, 0)
             except OSError:
-                pass
-        (local / "update-status.json").write_text('{"state":"error","message":"Échec de l’installation.","error":' + __import__("json").dumps(str(exc), ensure_ascii=False) + '}', encoding="utf-8")
-        shutil.rmtree(staging, ignore_errors=True)
+                break
+            time.sleep(0.25)
+
+        os.replace(root, backup)
+        move_preserved_data(backup, staging)
+        os.replace(staging, root)
         start_app(root)
+        if not wait_for_new_app(version, root):
+            # Retain both folders for recovery and restore the previous working copy.
+            os.replace(root, failed)
+            os.replace(backup, root)
+            move_preserved_data(failed, root)
+            start_app(root)
+            raise RuntimeError("La nouvelle instance n’a pas confirmé son démarrage. L’ancienne version a été restaurée.")
+
+        # Permanent deletion, only after /health confirms the new version is serving.
+        shutil.rmtree(backup)
+        archive.unlink(missing_ok=True)
+        write_status("done", "Mise à jour installée et application relancée.", version=version)
+        return 0
+    except Exception as exc:
+        if backup.exists():
+            try:
+                recovery_source = root if root.exists() and (root / "VERSION").is_file() else staging
+                if recovery_source.exists():
+                    if root.exists() and recovery_source == root:
+                        os.replace(root, failed)
+                        recovery_source = failed
+                    move_preserved_data(recovery_source, backup)
+                if not root.exists():
+                    os.replace(backup, root)
+                    start_app(root)
+            except Exception:
+                pass
+        shutil.rmtree(staging, ignore_errors=True)
+        write_status("error", "Échec de la mise à jour.", str(exc))
         return 4
-    shutil.rmtree(staging, ignore_errors=True)
-    start_app(root)
-    return 0
 
 
 if __name__ == "__main__":

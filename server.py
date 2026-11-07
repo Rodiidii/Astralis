@@ -101,7 +101,7 @@ def _download_update(repo: str, tag: str) -> None:
         helper = root / "scripts" / "apply_update.py"
         flags = getattr(__import__('subprocess'), "CREATE_NEW_PROCESS_GROUP", 0) | getattr(__import__('subprocess'), "DETACHED_PROCESS", 0)
         import subprocess
-        subprocess.Popen([os.sys.executable, str(helper), str(root), str(final_archive), str(os.getpid())], cwd=str(root), creationflags=flags, stdin=subprocess.DEVNULL, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL, close_fds=True)
+        subprocess.Popen([os.sys.executable, str(helper), str(root), str(final_archive), str(os.getpid())], cwd=str(updates), creationflags=flags, stdin=subprocess.DEVNULL, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL, close_fds=True)
     except Exception as exc:
         _set_update_status(state="error", message="Mise à jour interrompue.", error=str(exc))
 
