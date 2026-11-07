@@ -20,9 +20,9 @@ jobs:
         run: |
           git fetch --tags
           current="${GITHUB_REF_NAME}"
-          base="$(git tag --list 'v*' --sort=-version:refname | grep -Fvx "$current" | head -n 1)"
+          mapfile -t prior_tags < <(git tag --list 'v*' --sort=-version:refname | grep -Fvx "$current" | head -n 6)
           args=()
-          if [[ -n "$base" ]]; then args+=(--base-tag "$base"); fi
+          for base in "${prior_tags[@]}"; do args+=(--base-tag "$base"); done
           python scripts/build_release.py "$RUNNER_TEMP/astralis-release" "${args[@]}"
       - name: Publish release assets
         uses: softprops/action-gh-release@v2

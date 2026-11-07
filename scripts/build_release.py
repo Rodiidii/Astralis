@@ -61,22 +61,23 @@ def main() -> None:
                 continue
             output.write(path, relative.as_posix())
     write_checksum(archive)
-    base_tag = next((sys.argv[i + 1] for i, arg in enumerate(sys.argv[:-1]) if arg == "--base-tag"), "")
-    if base_tag:
-        base_version = base_tag.removeprefix("v")
+    base_tags = [sys.argv[i + 1] for i, arg in enumerate(sys.argv[:-1]) if arg == "--base-tag"]
+    if base_tags:
         target_version = (ROOT / "VERSION").read_text(encoding="utf-8").strip()
-        changed, deleted = git_changed_files(base_tag)
-        patch_archive = OUT / f"Astralis-Patch-from-{base_version}.zip"
-        manifest = {"kind": "astralis-delta", "baseVersion": base_version, "version": target_version, "deleted": [name for name in deleted if not should_skip(Path(name))]}
-        with zipfile.ZipFile(patch_archive, "w", compression=zipfile.ZIP_DEFLATED, compresslevel=6, allowZip64=True) as output:
-            output.writestr("ASTRALIS-PATCH.json", json.dumps(manifest, ensure_ascii=False))
-            for name in changed:
-                relative = Path(name)
-                path = ROOT / relative
-                if path.is_file() and not should_skip(relative):
-                    output.write(path, relative.as_posix())
-        write_checksum(patch_archive)
-        print(f"Patch : {patch_archive} ({len(changed)} fichiers modifiés, {len(manifest['deleted'])} supprimés)")
+        for base_tag in base_tags:
+            base_version = base_tag.removeprefix("v")
+            changed, deleted = git_changed_files(base_tag)
+            patch_archive = OUT / f"Astralis-Patch-from-{base_version}.zip"
+            manifest = {"kind": "astralis-delta", "baseVersion": base_version, "version": target_version, "deleted": [name for name in deleted if not should_skip(Path(name))]}
+            with zipfile.ZipFile(patch_archive, "w", compression=zipfile.ZIP_DEFLATED, compresslevel=6, allowZip64=True) as output:
+                output.writestr("ASTRALIS-PATCH.json", json.dumps(manifest, ensure_ascii=False))
+                for name in changed:
+                    relative = Path(name)
+                    path = ROOT / relative
+                    if path.is_file() and not should_skip(relative):
+                        output.write(path, relative.as_posix())
+            write_checksum(patch_archive)
+            print(f"Patch : {patch_archive} ({len(changed)} fichiers modifiés, {len(manifest['deleted'])} supprimés)")
     print(f"Archive : {archive}")
     print("Publie les fichiers ZIP et SHA-256 comme assets de la même release GitHub.")
 
