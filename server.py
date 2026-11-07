@@ -38,9 +38,16 @@ def _github_release(repo: str) -> dict:
     assets = release.get("assets", [])
     archive = next((asset for asset in assets if asset.get("name") == "Astralis-Update.zip"), None)
     checksum = next((asset for asset in assets if asset.get("name") == "Astralis-Update.zip.sha256"), None)
+    patches = []
+    for asset in assets:
+        match = re.fullmatch(r"Astralis-Patch-from-(\d+\.\d+\.\d+)\.zip", str(asset.get("name", "")))
+        if not match:
+            continue
+        patch_checksum = next((item for item in assets if item.get("name") == f"{asset['name']}.sha256"), None)
+        patches.append({"fromVersion":match.group(1), "name":asset["name"], "url":asset.get("browser_download_url"), "digest":asset.get("digest"), "checksumUrl":patch_checksum.get("browser_download_url") if patch_checksum else None, "size":asset.get("size", 0)})
     if not archive:
         raise LookupError("La dernière version ne contient pas l’archive Astralis-Update.zip.")
-    return {"tag":str(release.get("tag_name", "")), "name":str(release.get("name") or release.get("tag_name") or "Version publiée"), "notes":str(release.get("body") or "")[:12000], "url":archive.get("browser_download_url"), "digest":archive.get("digest"), "checksumUrl":checksum.get("browser_download_url"), "published":release.get("published_at")}
+    return {"tag":str(release.get("tag_name", "")), "name":str(release.get("name") or release.get("tag_name") or "Version publiée"), "notes":str(release.get("body") or "")[:12000], "url":archive.get("browser_download_url"), "digest":archive.get("digest"), "checksumUrl":checksum.get("browser_download_url"), "patches":patches, "published":release.get("published_at")}
 
 def _version_key(value: str) -> tuple[int, int, int, int, str]:
     """Compare numeric release versions instead of treating older tags as updates."""
@@ -66,7 +73,7 @@ def _set_update_status(**values: object) -> None:
     with _UPDATE_LOCK:
         _UPDATE_STATUS = {**_UPDATE_STATUS, **values, "updatedAt":time.time()}
 
-def _download_update(repo: str, tag: str) -> None:
+def _download_update(repo: str, tag: str, from_version: str) -> None:
     global _UPDATE_STATUS
     try:
         release = _github_release(repo)
@@ -77,19 +84,28 @@ def _download_update(repo: str, tag: str) -> None:
         root = Path(__file__).resolve().parent
         updates = Path(os.environ.get("LOCALAPPDATA") or Path.home() / "AppData" / "Local") / "Astralis" / "updates"
         updates.mkdir(parents=True, exist_ok=True)
-        archive = updates / "Astralis-Update.zip.part"
+        patch = next((item for item in release.get("patches", []) if item.get("fromVersion") == from_version), None)
+        selected = patch if patch else {"name":"Astralis-Update.zip", "url":release["url"], "digest":release.get("digest"), "checksumUrl":release.get("checksumUrl"), "size":0}
+        archive = updates / (str(selected["name"]) + ".part")
         digest = hashlib.sha256()
-        _set_update_status(state="downloading", message="Téléchargement de la mise à jour…", error="", tag=tag)
-        request = Request(str(release["url"]), headers={"User-Agent":"Astralis-Updater", "Accept":"application/octet-stream"})
+        total_bytes = int(selected.get("size") or 0)
+        _set_update_status(state="downloading", message="Téléchargement des fichiers modifiés…" if patch else "Téléchargement de l’archive complète…", error="", tag=tag, downloadName=selected["name"], receivedBytes=0, totalBytes=total_bytes, percent=0, differential=bool(patch))
+        request = Request(str(selected["url"]), headers={"User-Agent":"Astralis-Updater", "Accept":"application/octet-stream"})
         with urlopen(request, timeout=120) as response, archive.open("wb") as output:
+            if not total_bytes:
+                try: total_bytes = int(response.headers.get("Content-Length", "0"))
+                except ValueError: total_bytes = 0
+            received = 0
             while True:
                 chunk = response.read(1024 * 1024)
                 if not chunk: break
-                output.write(chunk); digest.update(chunk)
+                output.write(chunk); digest.update(chunk); received += len(chunk)
+                percent = min(100, round(received * 100 / total_bytes)) if total_bytes else 0
+                _set_update_status(state="downloading", message="Téléchargement des fichiers modifiés…" if patch else "Téléchargement de l’archive complète…", receivedBytes=received, totalBytes=total_bytes, percent=percent)
         actual = digest.hexdigest()
-        expected = str(release.get("digest") or "").removeprefix("sha256:").lower()
-        if not expected and release.get("checksumUrl"):
-            check_req = Request(str(release["checksumUrl"]), headers={"User-Agent":"Astralis-Updater"})
+        expected = str(selected.get("digest") or "").removeprefix("sha256:").lower()
+        if not expected and selected.get("checksumUrl"):
+            check_req = Request(str(selected["checksumUrl"]), headers={"User-Agent":"Astralis-Updater"})
             with urlopen(check_req, timeout=30) as response:
                 expected = re.search(r"\b([0-9a-fA-F]{64})\b", response.read(4096).decode("ascii", "ignore")).group(1).lower()
         if not expected or not secrets.compare_digest(actual, expected):
@@ -97,7 +113,7 @@ def _download_update(repo: str, tag: str) -> None:
             raise ValueError("La vérification SHA-256 a échoué. Aucun fichier n’a été modifié.")
         final_archive = updates / "Astralis-Update.zip"
         archive.replace(final_archive)
-        _set_update_status(state="staged", message="Archive vérifiée. Préparation du redémarrage…", error="")
+        _set_update_status(state="staged", message=("Mise à jour différentielle vérifiée. Préparation…" if patch else "Archive complète vérifiée. Préparation…"), error="", percent=100)
         helper = root / "scripts" / "apply_update.py"
         flags = getattr(__import__('subprocess'), "CREATE_NEW_PROCESS_GROUP", 0) | getattr(__import__('subprocess'), "DETACHED_PROCESS", 0)
         import subprocess
@@ -964,11 +980,13 @@ class Handler(SimpleHTTPRequestHandler):
             if path == "/api/update/install":
                 repo = str(body.get("repo", "")).strip()
                 tag = str(body.get("tag", "")).strip()
+                from_version = str(body.get("current", "")).strip()
                 if not re.fullmatch(r"[A-Za-z0-9_.-]{1,100}/[A-Za-z0-9_.-]{1,100}", repo) or not tag or len(tag) > 120: raise ValueError("Dépôt ou version invalide.")
+                if not re.fullmatch(r"\d+\.\d+\.\d+", from_version): raise ValueError("Version locale invalide. Redémarre Astralis puis réessaie.")
                 with _UPDATE_LOCK:
                     if _UPDATE_STATUS.get("state") in {"checking", "downloading", "staged"}: raise ValueError("Une mise à jour est déjà en cours.")
-                    _UPDATE_STATUS.update({"state":"downloading", "message":"Vérification de la version…", "error":"", "tag":tag, "updatedAt":time.time()})
-                threading.Thread(target=_download_update, args=(repo, tag), daemon=True).start()
+                    _UPDATE_STATUS.update({"state":"downloading", "message":"Vérification de la version…", "error":"", "tag":tag, "percent":0, "receivedBytes":0, "totalBytes":0, "updatedAt":time.time()})
+                threading.Thread(target=_download_update, args=(repo, tag, from_version), daemon=True).start()
                 self.send_json(202, {"ok":True,"state":"downloading"}); return
             if path.endswith("/disconnect"):
                 _write_hoyolab_secret(None)
@@ -997,7 +1015,8 @@ class Handler(SimpleHTTPRequestHandler):
                 version_file = Path(__file__).resolve().parent / "VERSION"
                 current = version_file.read_text(encoding="utf-8").strip() if version_file.exists() else "0.0.0"
                 available = _version_key(release["tag"]) > _version_key(current)
-                self.send_json(200, {"ok":True,"current":current,"available":available,"installable":bool(release.get("digest") or release.get("checksumUrl")),"release":{k:v for k,v in release.items() if k not in {"url","checksumUrl","digest"}}}); return
+                matching_patch = next((item for item in release.get("patches", []) if item.get("fromVersion") == current), None)
+                self.send_json(200, {"ok":True,"current":current,"available":available,"installable":bool(release.get("digest") or release.get("checksumUrl")),"patchAvailable":bool(matching_patch),"release":{k:v for k,v in release.items() if k not in {"url","checksumUrl","digest","patches"}}}); return
             except LookupError as exc: self.send_json(404, {"ok":False,"error":str(exc)})
             except Exception as exc: self.send_json(502, {"ok":False,"error":str(exc) or "GitHub est momentanément inaccessible."})
             return

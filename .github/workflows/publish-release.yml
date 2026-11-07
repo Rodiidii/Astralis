@@ -10,11 +10,20 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
       - name: Build portable update archive
-        run: python scripts/build_release.py "$RUNNER_TEMP/astralis-release"
+        shell: bash
+        run: |
+          git fetch --tags
+          current="${GITHUB_REF_NAME}"
+          base="$(git tag --list 'v*' --sort=-version:refname | grep -Fvx "$current" | head -n 1)"
+          args=()
+          if [[ -n "$base" ]]; then args+=(--base-tag "$base"); fi
+          python scripts/build_release.py "$RUNNER_TEMP/astralis-release" "${args[@]}"
       - name: Publish release assets
         uses: softprops/action-gh-release@v2
         with:
@@ -23,3 +32,5 @@ jobs:
           files: |
             ${{ runner.temp }}/astralis-release/Astralis-Update.zip
             ${{ runner.temp }}/astralis-release/Astralis-Update.zip.sha256
+            ${{ runner.temp }}/astralis-release/Astralis-Patch-from-*.zip
+            ${{ runner.temp }}/astralis-release/Astralis-Patch-from-*.zip.sha256

@@ -38,6 +38,18 @@ def write_status(state: str, message: str, error: str = "", version: str = "") -
     (local / "update-status.json").write_text(json.dumps(data, ensure_ascii=False), encoding="utf-8")
 
 
+def copy_application_tree(source: Path, target: Path) -> None:
+    def ignore(directory: str, names: list[str]) -> set[str]:
+        current = Path(directory)
+        ignored = set()
+        for name in names:
+            rel = (current / name).relative_to(source)
+            if preserved(rel):
+                ignored.add(name)
+        return ignored
+    shutil.copytree(source, target, ignore=ignore)
+
+
 def expected_instance(root: Path) -> str:
     import hashlib
     return hashlib.sha256(str(root.resolve()).casefold().encode("utf-8")).hexdigest()[:12]
@@ -105,14 +117,30 @@ def main() -> int:
     backup = parent / f".{root.name}.astralis-previous-{suffix}"
     failed = parent / f".{root.name}.astralis-failed-{suffix}"
     try:
-        staging.mkdir()
-        write_status("installing", "Décompression de la mise à jour…")
+        write_status("installing", "Préparation des fichiers modifiés…")
         with zipfile.ZipFile(archive) as zf:
+            patch_info = next((item for item in zf.infolist() if item.filename == "ASTRALIS-PATCH.json"), None)
+            patch = json.loads(zf.read(patch_info)) if patch_info else None
+            if patch:
+                if patch.get("kind") != "astralis-delta" or patch.get("baseVersion") != (root / "VERSION").read_text(encoding="utf-8").strip():
+                    raise ValueError("Cette mise à jour différentielle ne correspond pas à la version installée. Relance la vérification pour obtenir l’archive complète.")
+                copy_application_tree(root, staging)
+                for name in patch.get("deleted", []):
+                    rel = safe_relative(str(name))
+                    if preserved(rel):
+                        continue
+                    target = (staging / rel).resolve()
+                    if staging.resolve() not in target.parents:
+                        raise ValueError(f"Chemin de suppression hors de l’application : {name}")
+                    if target.is_dir(): shutil.rmtree(target)
+                    else: target.unlink(missing_ok=True)
+            else:
+                staging.mkdir()
             entries = []
             total = 0
             for info in zf.infolist():
                 raw = info.filename.rstrip("/")
-                if not raw or info.is_dir():
+                if not raw or info.is_dir() or raw == "ASTRALIS-PATCH.json":
                     continue
                 rel = safe_relative(raw)
                 mode = (info.external_attr >> 16) & 0o170000
