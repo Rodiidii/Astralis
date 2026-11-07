@@ -1,3 +1,11 @@
+# 1.0.18 — 7 novembre 2026
+
+- Rétablit un écran de lancement animé avec accueil personnalisé, heure/date locales, météo et messages de chargement.
+- Remplace les symboles de navigation des jeux par les images fournies.
+- Retire le fil d’Ariane de l’en-tête et regroupe les ressources du jeu avec un profil plus visible.
+- Ajoute des compteurs éditables de primogemmes, vœux, jades, passes, astrites, marées et énergie; la résine HoYoLAB ouvre sa page dédiée.
+- Renouvelle le cache hors ligne et inclut les nouvelles icônes.
+
 # 1.0.17 — 7 novembre 2026
 
 - Autorise correctement les requêtes d’installation provenant de localhost, 127.0.0.1 et ::1 sur le port local Astralis.
