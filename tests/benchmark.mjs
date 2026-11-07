@@ -1,0 +1,6 @@
+import { performance } from 'node:perf_hooks';
+import { optimizeArtifacts } from '../src/optimizer.js';
+const slots=['flower','plume','sands','goblet','circlet'];
+const makeInventory=size=>Array.from({length:size},(_,i)=>({id:`bench-${i}`,setKey:'TestSet',slot:slots[i%5],slotIndex:i%5,mainType:'atkPct',mainValue:46.6,substats:[{type:'critRate',value:3.89},{type:'critDmg',value:7.77}],rarity:5,level:20,locked:false}));
+const input={baseStats:{atk:1000,critRate:5,critDmg:50},bonuses:{},setEffects:{TestSet:{two:{atkPct:18},four:{dmgBonus:35}}},hit:{baseStat:'atk',talentMultiplier:1,attackerLevel:90,enemyLevel:100,enemyResistance:.1,critMode:'average'}};
+for(const size of [1000,5000]){const inventory=makeInventory(size);const counts=slots.map((_,i)=>inventory.filter(row=>row.slotIndex===i).length);const start=performance.now();const result=await optimizeArtifacts({inventory,input,topN:1});const ms=performance.now()-start;console.log(`${size} reliques · ${result.exact?'exact':'incomplet'} · ${counts.join('/')} par emplacement · ${result.combinations} combinaisons après dédoublonnage · ${ms.toFixed(1)} ms${result.error?` · ${result.error}`:''}`);if(!result.exact||!result.results.length)process.exitCode=1;}

@@ -41,6 +41,14 @@ def _github_release(repo: str) -> dict:
         raise LookupError("La dernière version ne contient pas l’archive Astralis-Update.zip.")
     return {"tag":str(release.get("tag_name", "")), "name":str(release.get("name") or release.get("tag_name") or "Version publiée"), "notes":str(release.get("body") or "")[:12000], "url":archive.get("browser_download_url"), "digest":archive.get("digest"), "checksumUrl":checksum.get("browser_download_url"), "published":release.get("published_at")}
 
+def _version_key(value: str) -> tuple[int, int, int, int, str]:
+    """Compare numeric release versions instead of treating older tags as updates."""
+    match = re.fullmatch(r"v?(\d+)\.(\d+)\.(\d+)(?:-([0-9A-Za-z.-]+))?", str(value).strip())
+    if not match:
+        raise ValueError(f"Version invalide : {value!r}")
+    major, minor, patch, prerelease = match.groups()
+    return int(major), int(minor), int(patch), 0 if prerelease else 1, prerelease or ""
+
 def _set_update_status(**values: object) -> None:
     global _UPDATE_STATUS
     with _UPDATE_LOCK:
@@ -976,7 +984,7 @@ class Handler(SimpleHTTPRequestHandler):
                 release = _github_release(repo)
                 version_file = Path(__file__).resolve().parent / "VERSION"
                 current = version_file.read_text(encoding="utf-8").strip() if version_file.exists() else "0.0.0"
-                available = release["tag"].lstrip("v") != current.lstrip("v")
+                available = _version_key(release["tag"]) > _version_key(current)
                 self.send_json(200, {"ok":True,"current":current,"available":available,"installable":bool(release.get("digest") or release.get("checksumUrl")),"release":{k:v for k,v in release.items() if k not in {"url","checksumUrl","digest"}}}); return
             except LookupError as exc: self.send_json(404, {"ok":False,"error":str(exc)})
             except Exception as exc: self.send_json(502, {"ok":False,"error":str(exc) or "GitHub est momentanément inaccessible."})

@@ -1,3 +1,15 @@
+# 1.0.16 — 7 novembre 2026
+
+- Corrige la comparaison des versions : une release plus ancienne n’est plus signalée comme mise à jour disponible.
+
+# 1.0.15 — 7 novembre 2026
+
+- Ajout du Laboratoire de dégâts Genshin : simulateur transparent, détail des multiplicateurs et rotation enregistrée localement.
+- Ajout d’un optimiseur GOOD exact pour un coup moyen, avec élagage des reliques dominées, worker annulable et liste de priorité.
+- Les bonus 2 pièces et 4 pièces se cumulent correctement ; les données de talent/réaction manquantes restent marquées `TODO_DATA`.
+- Le contrôle de mise à jour tolère une ancienne API locale qui renvoie la page HTML et consulte alors la release GitHub.
+- Cache hors ligne renouvelé pour charger les nouveaux modules du laboratoire.
+
 # 1.0.12 — 5 novembre 2026
 
 - Restauration à l’identique des styles de cartes du fichier `cartes-apercu (8).html` pour le classeur et les boosters.
