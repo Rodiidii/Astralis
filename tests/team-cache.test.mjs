@@ -1,0 +1,32 @@
+import assert from 'node:assert/strict';
+import { readFile } from 'node:fs/promises';
+import test from 'node:test';
+
+const [worker, html, css] = await Promise.all([
+  readFile(new URL('../sw.js', import.meta.url), 'utf8'),
+  readFile(new URL('../index.html', import.meta.url), 'utf8'),
+  readFile(new URL('../team-layout-fix.css', import.meta.url), 'utf8'),
+]);
+
+test('le service worker renouvelle le shell et précharge le style des équipes', () => {
+  assert.match(worker, /astralis-shell-v28/);
+  assert.match(worker, /'\/team-layout-fix\.css'/);
+  assert.match(worker, /'\/design-system\.css'/);
+});
+
+test('les ressources versionnées sont cherchées exactement avant le repli hors ligne', () => {
+  assert.match(worker, /caches\.match\(req\)\.then/);
+  assert.match(worker, /\.catch\(\(\)=>caches\.match\(req,\{ignoreSearch:true\}\)\)/);
+  assert.doesNotMatch(worker, /caches\.match\(req,\{ignoreSearch:true\}\)\.then/);
+});
+
+test('l’index force le rechargement du CSS d’équipe et de son module', () => {
+  assert.match(html, /team-layout-fix\.css\?v=20261108-team-compact-roster-3/);
+  assert.match(html, /src\/app\.js\?v=20261108-team-cache-refresh-1/);
+});
+
+test('les équipes gardent une grille de portraits et une disposition adaptative', () => {
+  assert.match(css, /\.teams-stack \.team-roster\s*\{[^}]*display:\s*grid/s);
+  assert.match(css, /grid-template-columns:\s*repeat\(4,/);
+  assert.match(css, /@media\s*\(max-width:\s*650px\)/);
+});
