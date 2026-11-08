@@ -1,6 +1,6 @@
 # Astralis UI foundation
 
-`design-system.css` is loaded last so it can unify the existing vanilla-JS UI without replacing application behavior. It aliases user-configured tokens (`--bg`, `--surface`, `--surface-2`, `--ink`, `--muted`, `--line`, `--accent`) and honors light theme, character/game accents, custom radius, and reduced motion.
+`design-system.css` provides reusable aliases and accessibility behavior; `global-refresh.css` is loaded last to apply the shared visual language across routes without replacing application behavior. It uses the user's tokens (`--bg`, `--surface`, `--surface-2`, `--ink`, `--muted`, `--line`, `--accent`) and honors light theme, character/game accents, custom radius, and reduced motion.
 
 ## Shared component classes
 
