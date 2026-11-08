@@ -136,6 +136,7 @@
 
 /* Remove the archive-card inset so the splash artwork covers the complete tile. */
 .character-catalog-grid .genshin-card.archive-card { padding: 0 !important; }
+.character-catalog-grid .genshin-card.archive-card { border-right: 0 !important; }
 
 /* The two official Genshin type icons sit with the name; the portrait stays clean. */
 .character-catalog-grid .genshin-card.archive-card .art-frame.unit-cinematic {
@@ -186,4 +187,76 @@
   .character-catalog-toolbar .collection-copy { font-size: .7rem; }
   .character-catalog-toolbar .collection-controls { gap: .3rem; }
   .character-catalog-toolbar .search-box { flex-basis: 12rem; height: 2.1rem; }
+}
+
+/* Equipment catalogue: same artwork-led treatment, sized for item illustrations. */
+.catalog-grid > .archive-card[data-item-category="weapon"],
+.catalog-grid > .archive-card[data-item-category="artifact"] {
+  min-width: 0;
+  padding: 0 !important;
+  overflow: clip;
+  border-radius: var(--ds-card-radius, var(--radius-lg));
+}
+.catalog-grid > .archive-card[data-item-category="weapon"] .art-frame,
+.catalog-grid > .archive-card[data-item-category="artifact"] .art-frame {
+  position: relative;
+  display: block;
+  height: clamp(205px, 19vw, 278px);
+  min-height: 0;
+  aspect-ratio: 1.08;
+  isolation: isolate;
+  background:
+    radial-gradient(ellipse at 50% 42%, color-mix(in srgb, var(--card-tint, var(--accent)) 24%, transparent), transparent 68%),
+    linear-gradient(155deg, var(--surface-2, var(--ds-surface-soft)), var(--surface, var(--ds-surface)));
+}
+.catalog-grid > .archive-card[data-item-category="weapon"] .art-main,
+.catalog-grid > .archive-card[data-item-category="artifact"] .art-main {
+  position: absolute;
+  inset: 7% 9% 14%;
+  width: 82%;
+  height: 79%;
+  padding: .5rem;
+  object-fit: contain;
+  object-position: center;
+  filter: drop-shadow(0 9px 18px color-mix(in srgb, var(--bg, var(--ds-bg)) 48%, transparent));
+}
+.catalog-grid > .archive-card[data-item-category="weapon"] .art-fade,
+.catalog-grid > .archive-card[data-item-category="artifact"] .art-fade {
+  inset: 58% 0 0;
+  background: linear-gradient(180deg, transparent, color-mix(in srgb, var(--bg, var(--ds-bg)) 92%, transparent));
+}
+.catalog-grid > .archive-card[data-item-category="weapon"] .art-caption,
+.catalog-grid > .archive-card[data-item-category="artifact"] .art-caption {
+  right: .8rem;
+  bottom: .7rem;
+  left: .8rem;
+  padding: .35rem .2rem 0;
+  border: 0;
+  border-radius: 0;
+  background: none;
+  backdrop-filter: none;
+}
+.catalog-grid > .archive-card[data-item-category="weapon"] .art-caption h2,
+.catalog-grid > .archive-card[data-item-category="artifact"] .art-caption h2 {
+  margin: .2rem 0 0;
+  font-size: clamp(.9rem, 1.1vw, 1.12rem);
+  line-height: 1.08;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+}
+.catalog-grid > .archive-card[data-item-category="weapon"] .art-kicker,
+.catalog-grid > .archive-card[data-item-category="artifact"] .art-kicker {
+  color: var(--muted, var(--ds-muted));
+  font-size: .62rem;
+}
+.catalog-grid > .archive-card:is([data-item-category="weapon"], [data-item-category="artifact"]) .art-actions {
+  top: .55rem;
+  right: .55rem;
+}
+@media (max-width: 620px) {
+  .catalog-grid > .archive-card:is([data-item-category="weapon"], [data-item-category="artifact"]) .art-frame {
+    height: clamp(190px, 55vw, 240px);
+  }
 }
