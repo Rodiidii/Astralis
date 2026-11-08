@@ -23,8 +23,8 @@ test('les fiches utilisent le thème du personnage, sinon celui du jeu actif', (
 });
 
 test('le cache et les ressources de cette version sont identifiés pour le prochain lancement', () => {
-  assert.match(html, /content="1\.0\.33"/);
-  assert.equal(version.trim(), '1.0.33');
+  assert.match(html, /content="1\.0\.32"/);
+  assert.equal(version.trim(), '1.0.32');
   assert.match(html, /design-system\.css\?v=20261108-c0-2/);
   assert.match(html, /src\/design-system\.js\?v=20261108-c0-2/);
 });
