@@ -134,6 +134,9 @@
   .character-catalog-toolbar .collection-controls select { flex: 0 0 7.5rem; }
 }
 
+/* Remove the archive-card inset so the splash artwork covers the complete tile. */
+.character-catalog-grid .genshin-card.archive-card { padding: 0 !important; }
+
 /* The two official Genshin type icons sit with the name; the portrait stays clean. */
 .character-catalog-grid .genshin-card.archive-card .art-frame.unit-cinematic {
   background: transparent;

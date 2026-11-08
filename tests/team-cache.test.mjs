@@ -9,7 +9,7 @@ const [worker, html, css] = await Promise.all([
 ]);
 
 test('le service worker renouvelle le shell et précharge le style des équipes', () => {
-  assert.match(worker, /astralis-shell-v35/);
+  assert.match(worker, /astralis-shell-v36/);
   assert.match(worker, /'\/team-layout-fix\.css'/);
   assert.match(worker, /'\/design-system\.css'/);
   assert.match(worker, /'\/global-refresh\.css'/);
