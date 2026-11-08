@@ -137,3 +137,5 @@
 
 - Chantier 0/Équipes · Correctif cache ajouté : les ressources avec ?v= sont recherchées par URL exacte, le cache hors ligne ne sert d’ancienne version qu’en secours; cache shell incrémenté et requêtes CSS/JS versionnées renouvelées. Tests de contrat ajoutés; vérification navigateur après rechargement encore à faire.
 - Chantier 0 · Accents du jeu et du personnage appliqués au thème global et aux composants sémantiques; changement de jeu réapplique les préférences et la version/cache passent à 1.0.32/v29. Vérification : `node --check` sur les modules concernés et 20 tests Node réussis. Commit code : `2991dd6`.
+
+- Tranche de stabilisation 1.0.33 : corrigé le rendu des lignes du suivi de vœux qui utilisait un `result` hors portée; centralisé la classification de pity dans `src/wish-pulls.js`. Renforcé les règles d’alignement responsive des ressources de la barre et la stabilité des cartes d’équipe; cache shell v30 et ressources versionnées. Tests ciblés ajoutés; vérification complète en cours. Aucun critère large coché sans preuve visuelle.

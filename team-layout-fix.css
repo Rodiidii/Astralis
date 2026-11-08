@@ -237,3 +237,41 @@
     transition-duration: .01ms !important;
   }
 }
+
+/* Priorité explicite aux structures d’équipe : empêche les styles de fiche globaux
+   de transformer les quatre emplacements en une colonne ou d’ignorer hidden. */
+#app .teams-stack { display: grid; grid-template-columns: minmax(0, 1fr); gap: var(--custom-card-gap, 14px); min-width: 0; }
+#app .teams-stack .team-sheet { width: 100%; min-width: 0; overflow: clip; }
+#app .teams-stack .team-compact-roster {
+  display: grid !important;
+  grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
+  align-items: stretch;
+  width: 100%;
+}
+#app .teams-stack .team-sheet-details[hidden] { display: none !important; }
+#app .teams-stack .team-sheet-details:not([hidden]) { display: block; width: 100%; min-width: 0; }
+#app .teams-stack .team-roster {
+  display: grid !important;
+  grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
+  width: 100%;
+  min-width: 0;
+}
+#app .teams-stack .team-sheet-actions,
+#app .teams-stack .rotation-tools { min-width: 0; }
+#app .teams-stack .team-sheet-actions button,
+#app .teams-stack .team-details-toggle,
+#app .teams-stack .team-damage-toggle,
+#app .teams-stack .rotation-tools button,
+#app .teams-stack .skill-button,
+#app .teams-stack .rotation-step {
+  animation: none !important;
+  transform: none !important;
+  will-change: auto !important;
+}
+@media (max-width: 1059px) {
+  #app .teams-stack .team-roster { grid-template-columns: repeat(2, minmax(0, 1fr)) !important; }
+}
+@media (max-width: 650px) {
+  #app .teams-stack .team-compact-roster { grid-template-columns: repeat(4, minmax(0, 1fr)) !important; }
+  #app .teams-stack .team-roster { grid-template-columns: minmax(0, 1fr) !important; }
+}

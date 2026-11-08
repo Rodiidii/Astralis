@@ -1,22 +1,81 @@
-/* Alignement des ressources au profil dans la barre supérieure. */
-.topbar-actions{flex:1;min-width:0;}
-.topbar-resources{display:flex;align-items:center;gap:clamp(6px,.7vw,10px);margin-left:auto;min-width:0;}
-.topbar-resources .resource-chip,.topbar .topbar-profile{box-sizing:border-box;height:52px;min-height:52px;}
-.topbar .topbar-profile{display:inline-flex;align-items:center;}
-@media(max-width:1100px){
-  .topbar-resources .resource-chip,.topbar .topbar-profile{height:46px;min-height:46px;}
-  .topbar-resources .resource-chip{padding:3px 8px;}
-  .topbar .topbar-profile{padding:3px 9px 3px 4px;}
-  .topbar .topbar-profile>img,.topbar .topbar-profile>span{width:38px;height:38px;}
+/* Ressources à droite, après les actions et juste avant le profil. */
+.topbar {
+  display: flex !important;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--control-gap, 10px);
+  min-width: 0;
 }
-@media(max-width:760px){
-  .topbar-actions{width:auto;flex:1 1 auto;}
-  .topbar-resources{flex:0 1 auto;gap:3px;}
-  .topbar-resources .resource-chip,.topbar .topbar-profile{height:38px;min-height:38px;}
-  .topbar-resources .resource-chip{padding:2px 5px;}
-  .topbar-resources .resource-chip img{width:19px;height:19px;}
-  .topbar-resources .resource-chip b{font-size:9px;}
-  .topbar .topbar-profile{padding:2px;}
-  .topbar .topbar-profile>img,.topbar .topbar-profile>span{width:34px;height:34px;}
+.topbar > .game-tabs { flex: 0 0 auto; }
+.topbar-actions {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex: 1 1 auto;
+  gap: var(--control-gap, 10px);
+  min-width: 0;
 }
-@media(prefers-reduced-motion:reduce){.topbar-resources .resource-chip{transition:none;}}
+.topbar-actions > * { flex: 0 0 auto; }
+.topbar-resources {
+  display: flex;
+  align-items: center;
+  gap: clamp(6px, .7vw, 10px);
+  min-width: 0;
+  margin-left: auto;
+  flex: 0 0 auto;
+}
+.topbar-resources .resource-chip,
+.topbar .topbar-profile {
+  box-sizing: border-box;
+  height: 52px;
+  min-height: 52px;
+  flex: 0 0 auto;
+}
+.topbar-resources .resource-chip { font-variant-numeric: tabular-nums; }
+.topbar-resources .resource-chip b { font-variant-numeric: tabular-nums; }
+.topbar .topbar-profile { display: inline-flex; align-items: center; }
+@media (max-width: 1100px) {
+  .topbar-resources .resource-chip,
+  .topbar .topbar-profile { height: 46px; min-height: 46px; }
+  .topbar-resources .resource-chip { padding: 3px 8px; }
+  .topbar .topbar-profile { padding: 3px 9px 3px 4px; }
+  .topbar .topbar-profile > img,
+  .topbar .topbar-profile > span { width: 38px; height: 38px; }
+}
+@media (max-width: 760px) {
+  .topbar { flex-wrap: wrap; gap: 7px; }
+  .topbar > .game-tabs { width: 100%; }
+  .topbar-actions {
+    width: 100%;
+    flex: 1 1 100%;
+    justify-content: flex-start;
+    gap: 5px;
+    overflow-x: auto;
+    overflow-y: hidden;
+    scrollbar-width: none;
+    overscroll-behavior-inline: contain;
+    touch-action: pan-x;
+  }
+  .topbar-actions::-webkit-scrollbar { display: none; }
+  .topbar-resources { gap: 4px; }
+  .topbar-resources .resource-chip,
+  .topbar .topbar-profile { height: 40px; min-height: 40px; }
+  .topbar-resources .resource-chip { gap: 4px; padding: 2px 6px; }
+  .topbar-resources .resource-chip img { width: 19px; height: 19px; }
+  .topbar-resources .resource-chip b { font-size: 10px; }
+  .topbar .topbar-profile { padding: 2px 6px 2px 2px; }
+  .topbar .topbar-profile > img,
+  .topbar .topbar-profile > span { width: 34px; height: 34px; }
+}
+@media (max-width: 420px) {
+  .topbar-actions { gap: 4px; }
+  .topbar-actions > .quiet-btn { width: 36px; min-width: 36px; padding: 0; }
+  .topbar-resources { gap: 3px; }
+  .topbar-resources .resource-chip { gap: 3px; padding: 2px 4px; }
+  .topbar-resources .resource-chip img { width: 17px; height: 17px; }
+  .topbar-resources .resource-chip b { font-size: 9px; }
+  .topbar .topbar-profile > b { max-width: 48px; overflow: hidden; text-overflow: ellipsis; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .topbar-resources .resource-chip { transition: none; }
+}
