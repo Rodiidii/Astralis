@@ -139,3 +139,8 @@
 - Chantier 0 · Accents du jeu et du personnage appliqués au thème global et aux composants sémantiques; changement de jeu réapplique les préférences et la version/cache passent à 1.0.32/v29. Vérification : `node --check` sur les modules concernés et 20 tests Node réussis. Commit code : `2991dd6`.
 
 - Tranche publiée 1.0.32 : corrigé le rendu des lignes du suivi de vœux qui utilisait un `result` hors portée; centralisé la classification de pity dans `src/wish-pulls.js`. Renforcé les règles d’alignement responsive des ressources de la barre et la stabilité des cartes d’équipe; cache shell v30 et ressources versionnées. Vérifié : `node --check src/app.js`, `node --check src/wish-pulls.js`, 24 tests Node et 2 tests Python réussis, `git diff --check` propre. Commit code : `98cf407`. Aucune des cases du cahier large n’est déclarée terminée sur la seule base de tests structurels.
+
+## Correctif ciblé 1.0.33 — 2026-11-08
+- [x] Vœux & objectifs · Le titre et le compteur sont définis pour la navigation directe; cache applicatif renouvelé. Vérifié par tests et suite de régression. Commit : à renseigner après publication.
+- [x] Équipes · Les clics des commandes de la modale sont relayés au gestionnaire d’actions délégué. Vérifié par contrat de test et suite de régression. Commit : à renseigner après publication.
+- [x] Fiches personnage · Les balises couleur sûres et sauts de ligne sont rendus; les multiplicateurs sont filtrés au niveau 10. Vérifié par tests unitaires. Commit : à renseigner après publication.

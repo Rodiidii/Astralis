@@ -9,11 +9,12 @@ const [worker, html, css] = await Promise.all([
 ]);
 
 test('le service worker renouvelle le shell et précharge le style des équipes', () => {
-  assert.match(worker, /astralis-shell-v30/);
+  assert.match(worker, /astralis-shell-v31/);
   assert.match(worker, /'\/team-layout-fix\.css'/);
   assert.match(worker, /'\/design-system\.css'/);
   assert.match(worker, /'\/topbar-resources\.css'/);
   assert.match(worker, /'\/src\/wish-pulls\.js'/);
+  assert.match(worker, /'\/src\/character-content\.js'/);
 });
 
 test('les ressources versionnées sont cherchées exactement avant le repli hors ligne', () => {
@@ -24,7 +25,21 @@ test('les ressources versionnées sont cherchées exactement avant le repli hors
 
 test('l’index force le rechargement du CSS d’équipe et de son module', () => {
   assert.match(html, /team-layout-fix\.css\?v=20261108-team-compact-roster-4/);
-  assert.match(html, /src\/app\.js\?v=20261108-topbar-team-wishes-1/);
+  assert.match(html, /src\/app\.js\?v=20261108-wishes-team-kitlevel-2/);
+});
+
+test('la délégation de clics de la modale relaie les actions du builder d’équipe', async () => {
+  const app = await readFile(new URL('../src/app.js', import.meta.url), 'utf8');
+  assert.match(app, /host\.addEventListener\('click',\s*event\s*=>\s*\{[\s\S]*?event\.stopPropagation\(\);\s*root\.onclick\(event\)/);
+  assert.match(app, /host\.dataset\.actionsBound\s*=\s*'1'/);
+  assert.match(app, /root\.onclick\s*=\s*async event\s*=>/);
+});
+
+test('la route Vœux possède son libellé de page et son compteur', async () => {
+  const app = await readFile(new URL('../src/app.js', import.meta.url), 'utf8');
+  assert.match(app, /wishes:'Vœux & objectifs'/);
+  assert.match(app, /wishes:'objectifs et probabilités'/);
+  assert.match(app, /if\(state\.section==='wishes'\) return renderWishTracker\(\)/);
 });
 
 test('les équipes gardent une grille de portraits et une disposition adaptative', () => {

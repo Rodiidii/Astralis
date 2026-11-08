@@ -1,5 +1,6 @@
 import { getLocal, putLocal } from './persistence.js?v=20261107-stability-6';
 import { ic } from './icons.js?v=20261107-stability-6';
+import { talentValuesAtLevel } from './character-content.js?v=20261108-character-content-1';
 
 export const GAMES = {
   hsr: { label: 'Honkai: Star Rail', short: 'Star Rail', icon: ic('hsr'), accent: '#c1a7ff', source: 'StarRailStaticAPI' },
@@ -255,7 +256,7 @@ export async function characterDetails(game, character) {
         const raw=await json(`https://api.lunaris.moe/data/${version}/fr/char/${encodeURIComponent(character.id)}.json`,AbortSignal.timeout(25000));
         const info=raw.info||{},skillIcons=raw.icons||{},skills=raw.skills||{};
         const skillKeys=['normalattack','elementalskill','elementalburst'];
-        const skillTalents=skillKeys.map((key,index)=>{const value=skills[key];if(!value)return null;return {...value,name:value.name||key,unlock:['Attaque normale','Compétence élémentaire','Déchaînement élémentaire'][index],icon:value.icon?`https://api.lunaris.moe/data/assets/skills/${encodeURIComponent(value.icon)}.webp`:undefined,description:value.description||value.desc||'',values:value.multipliers?Object.entries(value.multipliers).map(([label,values])=>`${label} · ${Array.isArray(values)?values.join(' / '):values}`):[]};}).filter(Boolean);
+        const skillTalents=skillKeys.map((key,index)=>{const value=skills[key];if(!value)return null;return {...value,name:value.name||key,unlock:['Attaque normale','Compétence élémentaire','Déchaînement élémentaire'][index],icon:value.icon?`https://api.lunaris.moe/data/assets/skills/${encodeURIComponent(value.icon)}.webp`:undefined,description:value.description||value.desc||'',values:talentValuesAtLevel(value.multipliers,10)};}).filter(Boolean);
         const constellations=Array.from({length:6},(_,i)=>raw.constellations?.[`const${i+1}`]).filter(Boolean).map((value,i)=>({...value,name:`C${i+1} · ${value.name||''}`,icon:value.icon?`https://api.lunaris.moe/data/assets/skills/${encodeURIComponent(value.icon)}.webp`:undefined}));
         const attr=(info.attributes||[]).filter(x=>Number(x.level)===90).sort((a,b)=>Number(b.ascension)-Number(a.ascension))[0]||{};
         const icon=filename=>filename?`https://api.lunaris.moe/data/assets/skills/${encodeURIComponent(filename)}.webp`:undefined;
