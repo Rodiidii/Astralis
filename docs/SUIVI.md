@@ -4,7 +4,7 @@
 
 ## C — Chantier 0 : architecture visuelle et design system
 - [~] **Toutes pages ·** Fondation CSS à tokens sémantiques et contrôles communs ajoutée; migration visuelle complète encore en cours.
-- [ ] **Toutes pages ·** Une couleur par jeu et une couleur de personnage appliquée aux fiches.
+- [x] **Toutes pages ·** Accent du jeu actif utilisé par défaut; accent du personnage prioritaire dans son thème, et accent personnalisé toujours respecté. Vérifié par tests de contrat. `2991dd6`.
 - [~] **Toutes pages ·** Les styles ajoutés suivent les tokens configurables, le thème clair/sombre et `prefers-reduced-motion`; vérification visuelle globale à faire.
 - [~] **Design system ·** Boutons, champs, sélecteurs, onglets, cartes, panneaux et états ont des contrats documentés; composants graphiques restants à migrer.
 - [ ] **Toutes pages ·** Remplacer les composants natifs visuellement incohérents.
@@ -136,3 +136,4 @@
 - Chantier 0 tranche 2 : groupes latéraux repliables et tests de contrat de navigation, gabarits, scroll et mouvement réduit; vérification d’intégration navigateur à poursuivre.
 
 - Chantier 0/Équipes · Correctif cache ajouté : les ressources avec ?v= sont recherchées par URL exacte, le cache hors ligne ne sert d’ancienne version qu’en secours; cache shell incrémenté et requêtes CSS/JS versionnées renouvelées. Tests de contrat ajoutés; vérification navigateur après rechargement encore à faire.
+- Chantier 0 · Accents du jeu et du personnage appliqués au thème global et aux composants sémantiques; changement de jeu réapplique les préférences et la version/cache passent à 1.0.32/v29. Vérification : `node --check` sur les modules concernés et 20 tests Node réussis. Commit code : `2991dd6`.
