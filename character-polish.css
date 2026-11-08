@@ -105,3 +105,82 @@
   .character-catalog-grid .genshin-card.archive-card .art-frame.unit-cinematic .character-name-caption { right: .75rem; bottom: .75rem; left: .75rem; }
   .character-catalog-grid .genshin-card.archive-card .art-frame.unit-cinematic .character-card-avatar { flex-basis: 2.35rem; width: 2.35rem; height: 2.35rem; }
 }
+
+/* Keep Genshin catalogue filters in one compact row. */
+.collection-bar.character-catalog-toolbar {
+  display: grid;
+  grid-template-columns: max-content minmax(0, 1fr);
+  align-items: center;
+  gap: clamp(.55rem, 1vw, 1rem);
+}
+.character-catalog-toolbar .collection-copy { gap: .35rem; font-size: .78rem; }
+.character-catalog-toolbar .collection-controls {
+  min-width: 0;
+  flex-wrap: nowrap;
+  gap: clamp(.28rem, .55vw, .5rem);
+}
+.character-catalog-toolbar .search-box { min-width: 0; flex: 1 1 12rem; }
+.character-catalog-toolbar .collection-controls select {
+  min-width: 0;
+  max-width: 8.2rem;
+  flex: 0 1 8.2rem;
+  padding-right: 1.35rem;
+}
+.character-catalog-toolbar .filter-toggle,
+.character-catalog-toolbar .view-toggle { flex: 0 0 auto; white-space: nowrap; }
+@media (max-width: 1500px) {
+  .character-catalog-toolbar .collection-controls { overflow-x: auto; scrollbar-width: thin; padding-bottom: .15rem; }
+  .character-catalog-toolbar .search-box { flex: 0 0 14rem; }
+  .character-catalog-toolbar .collection-controls select { flex: 0 0 7.5rem; }
+}
+
+/* The two official Genshin type icons sit with the name; the portrait stays clean. */
+.character-catalog-grid .genshin-card.archive-card .art-frame.unit-cinematic {
+  background: transparent;
+}
+.character-catalog-grid .genshin-card.archive-card .art-frame.unit-cinematic .unit-backdrop {
+  display: none !important;
+}
+.character-catalog-grid .genshin-card.archive-card .art-frame.unit-cinematic .unit-portrait {
+  filter: none !important;
+  outline: 0 !important;
+  box-shadow: none !important;
+}
+.character-catalog-grid .genshin-card.archive-card .art-frame.unit-cinematic .character-name-caption {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: .65rem;
+}
+.character-catalog-grid .genshin-card.archive-card .character-name-caption h2 { flex: 0 1 auto; }
+.character-catalog-grid .genshin-card.archive-card .character-card-emblems {
+  position: static;
+  display: inline-flex;
+  align-items: center;
+  gap: .2rem;
+}
+.character-catalog-grid .genshin-card.archive-card .character-card-emblems > span {
+  width: 1.7rem;
+  height: 1.7rem;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  backdrop-filter: none;
+}
+.character-catalog-grid .genshin-card.archive-card .character-card-emblems img {
+  width: 1.55rem;
+  height: 1.55rem;
+  object-fit: contain;
+  filter: drop-shadow(0 1px 4px color-mix(in srgb, var(--bg, #111) 70%, transparent));
+}
+@media (max-width: 1050px) {
+  .collection-bar.character-catalog-toolbar { grid-template-columns: 1fr; gap: .45rem; }
+  .character-catalog-toolbar .collection-controls { overflow-x: auto; scrollbar-width: thin; padding-bottom: .15rem; }
+  .character-catalog-toolbar .search-box { flex: 0 0 14rem; }
+  .character-catalog-toolbar .collection-controls select { flex: 0 0 7.5rem; }
+}
+@media (max-width: 620px) {
+  .character-catalog-toolbar .collection-copy { font-size: .7rem; }
+  .character-catalog-toolbar .collection-controls { gap: .3rem; }
+  .character-catalog-toolbar .search-box { flex-basis: 12rem; height: 2.1rem; }
+}

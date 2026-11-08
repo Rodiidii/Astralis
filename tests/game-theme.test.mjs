@@ -25,23 +25,28 @@ test('les fiches utilisent le thème du personnage, sinon celui du jeu actif', (
 });
 
 test('le cache et les ressources de cette version sont identifiés pour le prochain lancement', () => {
-  assert.match(html, /content="1\.0\.36"/);
-  assert.equal(version.trim(), '1.0.36');
+  assert.match(html, /content="1\.0\.37"/);
+  assert.equal(version.trim(), '1.0.37');
   assert.match(html, /design-system\.css\?v=20261108-c0-2/);
   assert.match(html, /global-refresh\.css\?v=20261108-global-1/);
   assert.match(refresh, /prefers-reduced-motion:\s*reduce/);
   assert.match(refresh, /--ds-card-radius:\s*var\(--card-radius/);
   assert.match(refresh, /\.workspace\s*\{[^}]*overflow:\s*auto/s);
   assert.match(html, /src\/design-system\.js\?v=20261108-c0-2/);
-  assert.match(html, /character-polish\.css\?v=20261108-character-polish-2/);
-  assert.match(html, /src\/app\.js\?v=20261108-character-polish-2/);
+  assert.match(html, /character-polish\.css\?v=20261108-character-polish-4/);
+  assert.match(html, /src\/app\.js\?v=20261108-character-polish-3/);
 });
 
-test('les cartes Genshin cadrent le splash sur le visage et affichent avatar + nom sans libellé élément', () => {
-  assert.match(app, /const avatar=char\?avatarImage\(game,item\):''/);
-  assert.match(app, /character-name-caption.*character-card-avatar/s);
+test('les cartes Genshin cadrent le splash et affichent le nom avec les icônes élément et arme', () => {
+  assert.doesNotMatch(app, /character-card-avatar/);
+  assert.match(app, /character-name-caption.*character-card-emblems/s);
+  assert.match(app, /giElementIcon\(badge\)/);
+  assert.match(app, /giWeaponTypeIcon\(item\.weaponText\|\|item\.weapon\|\|item\.type\)/);
   assert.match(characterPolish, /\.character-catalog-grid \.genshin-card\.archive-card \.art-frame\.unit-cinematic \.unit-portrait/);
   assert.match(characterPolish, /transform: scale\(max\(1\.24,/);
   assert.match(characterPolish, /height: clamp\(340px, 31vw, 452px\)/);
   assert.match(characterPolish, /\.character-catalog-grid \.genshin-card\.archive-card \.art-frame\.unit-cinematic \.character-name-caption/);
+  assert.match(characterPolish, /filter: none !important/);
+  assert.match(characterPolish, /\.collection-bar\.character-catalog-toolbar[\s\S]*?grid-template-columns: max-content minmax\(0, 1fr\)/);
+  assert.match(characterPolish, /@media \(max-width: 1500px\)[\s\S]*?\.character-catalog-toolbar \.collection-controls \{ overflow-x: auto/);
 });
