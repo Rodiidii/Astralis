@@ -78,7 +78,9 @@ function Install-AstralisBrowser {
 function Open-AstralisApp {
     $browser = Find-AstralisBrowser
     if (-not $browser) { $browser = Install-AstralisBrowser }
-    Start-Process -FilePath $browser -ArgumentList @('--app=' + $appUrl, '--new-window')
+    $launchDirectory = $env:TEMP
+    if (-not $launchDirectory -or -not (Test-Path -LiteralPath $launchDirectory -PathType Container)) { $launchDirectory = $env:LOCALAPPDATA }
+    Start-Process -FilePath $browser -ArgumentList @('--app=' + $appUrl, '--new-window') -WorkingDirectory $launchDirectory
 }
 
 function Get-AstralisHealth {

@@ -55,6 +55,20 @@ def expected_instance(root: Path) -> str:
     return hashlib.sha256(str(root.resolve()).casefold().encode("utf-8")).hexdigest()[:12]
 
 
+def replace_with_retry(source: Path, destination: Path, attempts: int = 24) -> None:
+    """Retry transient Windows sharing violations while the server/browser releases paths."""
+    for attempt in range(attempts):
+        try:
+            os.replace(source, destination)
+            return
+        except OSError as exc:
+            if os.name != "nt" or getattr(exc, "winerror", None) not in {5, 32, 33} or attempt == attempts - 1:
+                if os.name == "nt" and getattr(exc, "winerror", None) in {5, 32, 33}:
+                    raise OSError(exc.errno, f"Windows garde le dossier Astralis ouvert. Ferme la fenêtre Astralis et l’Explorateur ouvert dans ce dossier, puis relance l’installation. ({exc})", str(source)) from exc
+                raise
+            time.sleep(min(0.25 * (attempt + 1), 1.0))
+
+
 def start_app(root: Path) -> None:
     launcher = root / "Lancer Astralis.bat"
     if not launcher.is_file():
@@ -176,14 +190,14 @@ def main() -> int:
                 break
             time.sleep(0.25)
 
-        os.replace(root, backup)
+        replace_with_retry(root, backup)
         move_preserved_data(backup, staging)
-        os.replace(staging, root)
+        replace_with_retry(staging, root)
         start_app(root)
         if not wait_for_new_app(version, root):
             # Retain both folders for recovery and restore the previous working copy.
-            os.replace(root, failed)
-            os.replace(backup, root)
+            replace_with_retry(root, failed)
+            replace_with_retry(backup, root)
             move_preserved_data(failed, root)
             start_app(root)
             raise RuntimeError("La nouvelle instance n’a pas confirmé son démarrage. L’ancienne version a été restaurée.")
@@ -199,11 +213,11 @@ def main() -> int:
                 recovery_source = root if root.exists() and (root / "VERSION").is_file() else staging
                 if recovery_source.exists():
                     if root.exists() and recovery_source == root:
-                        os.replace(root, failed)
+                        replace_with_retry(root, failed)
                         recovery_source = failed
                     move_preserved_data(recovery_source, backup)
                 if not root.exists():
-                    os.replace(backup, root)
+                    replace_with_retry(backup, root)
                     start_app(root)
             except Exception:
                 pass
