@@ -12,7 +12,8 @@
   color-scheme: dark;
 }
 html[data-theme="paper"] { color-scheme: light; }
-.app-frame { --ds-game-accent: var(--accent); --ds-character-accent: var(--theme-accent, var(--accent)); --control-radius: var(--card-radius, 12px); }
+.app-frame { --ds-game-accent: var(--game-accent, var(--accent)); --ds-page-accent: var(--ds-game-accent); --ds-character-accent: var(--ds-page-accent); --control-radius: var(--card-radius, 12px); }
+.app-frame.character-themed { --ds-page-accent: var(--theme-accent, var(--accent)); --ds-character-accent: var(--ds-page-accent); }
 
 /* Common controls */
 :is(button,input,select,textarea) { font: inherit; }
@@ -30,6 +31,11 @@ html[data-theme="paper"] { color-scheme: light; }
 .character-themed #page-content .page-hero { border-color: color-mix(in srgb,var(--ds-character-accent),var(--ds-stroke) 58%); }
 
 /* Four page template seams, filled by the current route without duplicate data work. */
+.app-frame:not(.character-themed) :is(.page-hero,.panel,.team-sheet,.archive-card,.task-card,.note-card) { border-color: color-mix(in srgb,var(--ds-page-accent) 24%,var(--ds-stroke)); }
+.app-frame:not(.character-themed) :is(.page-hero,.panel-heading,.section-toolbar) .eyebrow,
+.app-frame:not(.character-themed) :is(.section-title,.detail-title,.hero-stat strong) { color: var(--ds-page-accent); }
+.app-frame:not(.character-themed) :is(.game-tab.active,.game-choice.active) { border-color: color-mix(in srgb,var(--ds-page-accent) 58%,var(--ds-stroke)); box-shadow: inset 0 -2px var(--ds-page-accent); }
+.app-frame:not(.character-themed) :is(.button-primary,.resource-chip:focus-visible) { border-color: color-mix(in srgb,var(--ds-page-accent) 66%,var(--ds-stroke)); }
 #page-content[data-template="catalog"] { --template-columns: repeat(auto-fill,minmax(min(100%,13.5rem),1fr)); }
 #page-content[data-template="catalog"] .catalog-grid { grid-template-columns: var(--template-columns); }
 #page-content[data-template="tool"],#page-content[data-template="dashboard"],#page-content[data-template="detail"] { min-width: 0; }

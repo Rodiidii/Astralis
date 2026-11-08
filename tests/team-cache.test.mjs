@@ -9,7 +9,7 @@ const [worker, html, css] = await Promise.all([
 ]);
 
 test('le service worker renouvelle le shell et précharge le style des équipes', () => {
-  assert.match(worker, /astralis-shell-v28/);
+  assert.match(worker, /astralis-shell-v29/);
   assert.match(worker, /'\/team-layout-fix\.css'/);
   assert.match(worker, /'\/design-system\.css'/);
 });
@@ -22,7 +22,7 @@ test('les ressources versionnées sont cherchées exactement avant le repli hors
 
 test('l’index force le rechargement du CSS d’équipe et de son module', () => {
   assert.match(html, /team-layout-fix\.css\?v=20261108-team-compact-roster-3/);
-  assert.match(html, /src\/app\.js\?v=20261108-team-cache-refresh-1/);
+  assert.match(html, /src\/app\.js\?v=20261108-game-theme-1/);
 });
 
 test('les équipes gardent une grille de portraits et une disposition adaptative', () => {
