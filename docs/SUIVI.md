@@ -3,17 +3,17 @@
 États : `[ ]` à faire · `[~]` en cours · `[x]` fait et vérifié (hash requis) · `[!]` bloqué (raison + essai requis).
 
 ## C — Chantier 0 : architecture visuelle et design system
-- [ ] **Toutes pages ·** Nouveau fichier de tokens et composants avec palette, typographie, formes, matières et mouvements modernes, chaleureux, colorés, sans néon.
+- [~] **Toutes pages ·** Fondation CSS à tokens sémantiques et contrôles communs ajoutée; migration visuelle complète encore en cours.
 - [ ] **Toutes pages ·** Une couleur par jeu et une couleur de personnage appliquée aux fiches.
-- [ ] **Toutes pages ·** Préserver couleurs/accent configurables, thèmes clair/sombre et `prefers-reduced-motion`.
-- [ ] **Design system ·** Documenter et livrer bouton, champ, liste déroulante recherchable avec images, sélecteur, onglets, carte, tuile, badge, jauge, graphique, panneau latéral, tableau, état vide, squelette, notification.
+- [~] **Toutes pages ·** Les styles ajoutés suivent les tokens configurables, le thème clair/sombre et `prefers-reduced-motion`; vérification visuelle globale à faire.
+- [~] **Design system ·** Boutons, champs, sélecteurs, onglets, cartes, panneaux et états ont des contrats documentés; composants graphiques restants à migrer.
 - [ ] **Toutes pages ·** Remplacer les composants natifs visuellement incohérents.
-- [ ] **Architecture ·** Gabarit Catalogue réutilisable (filtres compacts, grille, fiche).
-- [ ] **Architecture ·** Gabarit Fiche détail réutilisable (en-tête immersif, onglets, sections, précédent/suivant).
-- [ ] **Architecture ·** Gabarit Outil réutilisable (saisies à gauche, résultats à droite).
-- [ ] **Architecture ·** Gabarit Tableau de bord réutilisable (grille modulaire personnalisable).
-- [ ] **Toutes fiches ·** Molette, tactile et clavier font défiler la fiche sans faire défiler le fond.
-- [ ] **Navigation ·** Menu latéral défilant aisément, sections repliables et recherche rapide Ctrl+K.
+- [~] **Architecture ·** Classification catalogue + grille fluide ajoutée; migration de toutes les pages en cours.
+- [~] **Architecture ·** Classification des fiches détail ajoutée; migration des fiches en cours.
+- [~] **Architecture ·** Classification outil ajoutée; migration des outils en cours.
+- [~] **Architecture ·** Classification tableau de bord ajoutée; gabarit et migration en cours.
+- [~] **Toutes fiches ·** Défilement contenu ajouté aux panneaux/modales et verrouillage du fond; vérification visuelle par type de fiche restante.
+- [~] **Navigation ·** Défilement tactile et recherche rapide Ctrl+K ajoutés; sections repliables restantes.
 - [ ] **Toutes pages ·** Ajouter introductions, aides, conseils et états vides utiles et mis en forme.
 - [ ] **Toutes pages ·** Migrer les pages vers les nouveaux gabarits.
 - [ ] **Qualité ·** Aucune erreur console après migration.
@@ -128,3 +128,7 @@
 - [ ] **Documentation ·** Créer `docs/AUTOMATISATION.md` avec sources, fréquences et panne.
 - [ ] **Qualité ·** Lancer la suite complète, corriger et archiver les captures correspondantes.
 - [ ] **Rapport ·** Rendre le bilan point par point fait/pas fait/raison et le décompte final ici.
+
+
+## Journal d'avancement
+- Chantier 0 tranche 1 : ajout du design system tokenisé, classification sémantique des pages, recherche du menu Ctrl+K, scroll tactile du rail et des fiches. Vérifications : node --check src/design-system.js, 9 tests Node et 2 tests Python réussis. Commit à renseigner après publication.
