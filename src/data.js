@@ -1,6 +1,6 @@
 import { getLocal, putLocal } from './persistence.js?v=20261107-stability-6';
 import { ic } from './icons.js?v=20261107-stability-6';
-import { talentValuesAtLevel } from './character-content.js?v=20261108-character-content-1';
+import { talentValuesAtLevel } from './character-content.js?v=20261108-character-polish-1';
 
 export const GAMES = {
   hsr: { label: 'Honkai: Star Rail', short: 'Star Rail', icon: ic('hsr'), accent: '#c1a7ff', source: 'StarRailStaticAPI' },
@@ -390,12 +390,17 @@ export function imageSet(game, item, category = item?._category || 'character') 
 
 export function splashImage(game, item) {
   if (game === 'gi' && item?._category === 'character') {
-    if (item?.preRelease && item?.images?.cover1) return item.images.cover1;
     const lunarisSplash = item?.images?.lunarisSplash || item?.images?.filename_gachaSplash;
-    if (lunarisSplash) return /^https?:\/\//i.test(lunarisSplash) ? lunarisSplash : `https://enka.network/ui/${encodeURIComponent(lunarisSplash)}.png`;
+    if (lunarisSplash) {
+      if (/^https?:\/\//i.test(lunarisSplash)) return lunarisSplash;
+      const filename = String(lunarisSplash).replace(/\.(?:png|webp)$/i, '');
+      return `https://api.lunaris.moe/data/assets/gachaimg/${encodeURIComponent(filename)}.png`;
+    }
     const iconName = item?.images?.filename_icon || '';
-    const gacha = iconName.replace('UI_AvatarIcon_', 'UI_Gacha_AvatarImg_');
-    return gacha && gacha !== iconName ? `https://enka.network/ui/${encodeURIComponent(gacha)}.png` : (item?.images?.cover1 || item?.images?.card || `https://genshin.jmp.blue/characters/${encodeURIComponent(item._id)}/gacha-splash`);
+    const gacha = iconName.replace(/^UI_Gacha_AvatarIcon_/i, 'UI_Gacha_AvatarImg_').replace(/^UI_AvatarIcon_/i, 'UI_Gacha_AvatarImg_');
+    return gacha && gacha !== iconName
+      ? `https://api.lunaris.moe/data/assets/gachaimg/${encodeURIComponent(gacha.replace(/\.\w+$/, ''))}.png`
+      : (item?.images?.cover1 || item?.images?.card || `https://genshin.jmp.blue/characters/${encodeURIComponent(item._id)}/gacha-splash`);
   }
   if (game === 'hsr' && item?._category === 'character' && item?.preview) return `https://vizualabstract.github.io/StarRailStaticAPI/assets/${item.preview}`;
   return imageSet(game, item)[0] || '';
@@ -406,12 +411,12 @@ export function splashImageCandidates(game, item) {
   if (!item || item._category !== 'character') return [primary, ...imageSet(game, item, 'character')].filter(Boolean);
   if (game === 'gi') {
     const id = encodeURIComponent(item._id || '');
-    if (item.preRelease && primary) return [...new Set([primary, item.images?.cover1, item.images?.card].filter(Boolean))];
     return [...new Set([
+      primary,
       item.images?.cover1,
       item.images?.card,
       `https://genshin.jmp.blue/characters/${id}/gacha-splash`,
-      primary,
+      (() => { const icon=String(item.images?.filename_icon||'').replace(/^UI_Gacha_AvatarIcon_/i,'UI_Gacha_AvatarImg_').replace(/^UI_AvatarIcon_/i,'UI_Gacha_AvatarImg_'); return icon&&icon!==item.images?.filename_icon?`https://enka.network/ui/${encodeURIComponent(icon.replace(/\.\w+$/,''))}.png`:''; })(),
     ].filter(Boolean))];
   }
   return [...new Set([primary].filter(Boolean))];

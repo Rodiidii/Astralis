@@ -5,7 +5,10 @@ function escapeText(value) {
 }
 
 export function renderGameText(value) {
-  const text = String(value ?? '').replace(/\\n/g, '\n').replace(/\r\n?/g, '\n');
+  const text = String(value ?? '')
+    .replace(/\\n/g, '\n')
+    .replace(/\r\n?/g, '\n')
+    .replace(/\{LINK#[^}]+\}([\s\S]*?)\{\/LINK\}/gi, '$1');
   let html = '', cursor = 0, openColors = 0;
   for (const match of text.matchAll(COLOR_TAG)) {
     html += escapeText(text.slice(cursor, match.index));
@@ -38,4 +41,24 @@ export function talentValuesAtLevel(multipliers, level = 10) {
     const shown = value == null ? '—' : Array.isArray(value) ? value.join(' / ') : String(value);
     return `${label} · Niv. ${level} : ${shown}`;
   });
+}
+
+export function skillValuesAtLevel(skill, fallback = [], level = 10) {
+  const attributes = skill?.attributes || skill?.combat?.attributes;
+  const parameters = attributes?.parameters;
+  if (Array.isArray(attributes?.labels) && parameters && typeof parameters === 'object') {
+    const keys = Object.keys(parameters);
+    const rows = attributes.labels.map((label, index) => {
+      const key = parameters[`param${index + 1}`] != null ? `param${index + 1}`
+        : parameters[`param${index}`] != null ? `param${index}` : keys[index];
+      return key ? [label, parameters[key]] : null;
+    }).filter(Boolean);
+    if (rows.length) return talentValuesAtLevel(Object.fromEntries(rows), level);
+  }
+  if (skill?.multipliers && typeof skill.multipliers === 'object') return talentValuesAtLevel(skill.multipliers, level);
+  if (Array.isArray(skill?.values) && skill.values.some(value => Array.isArray(value) || (value && typeof value === 'object'))) {
+    return talentValuesAtLevel(Object.fromEntries(skill.values.map((value, index) => [value.label || `Valeur ${index + 1}`, value.values || value.value || value])), level);
+  }
+  if (Array.isArray(skill?.values) && skill.values.length) return skill.values;
+  return Array.isArray(fallback) ? fallback : [];
 }

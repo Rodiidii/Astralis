@@ -1,0 +1,36 @@
+/* Genshin character catalogue and detail: themed through the active Astralis tokens. */
+.character-catalog-grid:not(.list-view) { grid-template-columns: repeat(3, minmax(0, 1fr)) !important; gap: var(--card-gap, 1.1rem) !important; align-items: stretch; }
+.character-catalog-grid .character-catalog-card { min-width: 0; overflow: clip; border-radius: var(--ds-card-radius, var(--radius-lg)); }
+.character-catalog-grid .character-catalog-card .art-frame.unit-cinematic { height: clamp(390px, 38vw, 570px); min-height: 0; aspect-ratio: 0.78; isolation: isolate; }
+.character-catalog-grid .character-catalog-card .unit-backdrop { object-position: center 22%; }
+.character-catalog-grid .character-catalog-card .unit-portrait { object-position: center var(--custom-splash-focus, 20%) !important; transform: scale(var(--custom-splash-zoom, 1.04)) !important; transform-origin: center 20%; }
+.character-catalog-grid .character-catalog-card .art-fade { inset: 48% 0 0; background: linear-gradient(180deg, transparent, color-mix(in srgb, var(--surface, var(--ds-surface)) 96%, transparent)); }
+.character-catalog-grid .character-catalog-card .art-caption { right: 1rem; bottom: .9rem; left: 1rem; padding: .85rem 1rem; border: 1px solid var(--line, var(--ds-line)); border-radius: var(--ds-control-radius, var(--radius-md)); background: color-mix(in srgb, var(--surface, var(--ds-surface)) 76%, transparent); backdrop-filter: blur(12px); }
+.character-catalog-grid .character-catalog-card .art-caption h2 { margin: .25rem 0 0; font-size: clamp(1.25rem, 1.7vw, 1.8rem); line-height: 1.05; color: var(--ink, var(--ds-ink)); }
+.character-catalog-grid .character-catalog-card .art-kicker { color: var(--muted, var(--ds-muted)); }
+.character-card-emblems { position: absolute; z-index: 5; top: .8rem; right: .8rem; display: grid; gap: .45rem; }
+.character-card-emblems > span { display: grid; width: 2.6rem; height: 2.6rem; place-items: center; border: 1px solid var(--line, var(--ds-line)); border-radius: 50%; background: color-mix(in srgb, var(--surface, var(--ds-surface)) 82%, transparent); backdrop-filter: blur(10px); }
+.character-card-emblems img { width: 1.55rem; height: 1.55rem; object-fit: contain; }
+.gi-character-detail { width: min(1120px, 96vw); max-height: min(94dvh, 1000px); overflow: auto; overscroll-behavior: contain; scrollbar-gutter: stable; }
+.gi-character-detail .detail-body { display: grid; gap: 1rem; }
+.gi-character-detail .detail-description { max-width: 78ch; line-height: 1.75; }
+.gi-character-detail .detail-stats { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: .65rem; }
+.gi-character-detail .detail-stats > span { position: relative; display: grid; grid-template-columns: 2rem minmax(0, 1fr); grid-template-rows: auto auto; align-items: center; gap: .15rem .65rem; min-width: 0; padding: .75rem; border: 1px solid var(--line, var(--ds-line)); border-radius: var(--ds-control-radius, var(--radius-md)); background: var(--surface-2, var(--ds-surface-soft)); }
+.gi-character-detail .detail-stats > span > :is(img, i) { grid-row: 1 / 3; width: 1.8rem; height: 1.8rem; display: grid; place-items: center; object-fit: contain; color: var(--accent, var(--ds-accent)); font-style: normal; }
+.gi-character-detail .detail-stats small { color: var(--muted, var(--ds-muted)); font-size: .72rem; line-height: 1.25; }
+.gi-character-detail .detail-stats b { color: var(--ink, var(--ds-ink)); font-variant-numeric: tabular-nums; font-size: .95rem; }
+.gi-character-detail .detail-tabs { display: flex; overflow-x: auto; gap: .4rem; scrollbar-width: thin; }
+.gi-character-detail .detail-tabs button { flex: 0 0 auto; }
+.gi-character-detail .detail-skill { display: grid; grid-template-columns: 3.5rem minmax(0, 1fr); gap: 1rem; padding: 1.1rem 0; border-bottom: 1px solid var(--line, var(--ds-line)); }
+.gi-character-detail .detail-skill-icon, .gi-character-detail .detail-skill-image { width: 3.2rem; height: 3.2rem; border-radius: var(--ds-control-radius, var(--radius-md)); object-fit: contain; }
+.gi-character-detail .detail-skill p { line-height: 1.7; }
+.gi-character-detail .talent-values { width: 100%; border-collapse: collapse; }
+.gi-character-detail .talent-values th { width: 34%; text-align: left; color: var(--muted, var(--ds-muted)); }
+.gi-character-detail .talent-values td { color: var(--accent, var(--ds-accent)); font-variant-numeric: tabular-nums; }
+.gi-character-detail .gi-base-stat-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: .7rem; }
+.gi-character-detail .gi-base-stat-grid article { padding: .9rem; border: 1px solid var(--line, var(--ds-line)); border-radius: var(--ds-control-radius, var(--radius-md)); background: var(--surface-2, var(--ds-surface-soft)); }
+.gi-character-detail .gi-base-stat-grid small { display: block; color: var(--muted, var(--ds-muted)); }
+.gi-character-detail .gi-base-stat-grid b { display: block; margin-top: .25rem; color: var(--ink, var(--ds-ink)); font-size: 1.2rem; font-variant-numeric: tabular-nums; }
+@media (max-width: 1050px) { .character-catalog-grid:not(.list-view) { grid-template-columns: repeat(2, minmax(0, 1fr)) !important; } .character-catalog-grid .character-catalog-card .art-frame.unit-cinematic { height: clamp(390px, 62vw, 570px); } }
+@media (max-width: 620px) { .character-catalog-grid:not(.list-view) { grid-template-columns: minmax(0, 1fr) !important; } .character-catalog-grid .character-catalog-card .art-frame.unit-cinematic { height: min(132vw, 650px); } .gi-character-detail .detail-stats { grid-template-columns: repeat(2, minmax(0, 1fr)); } .gi-character-detail .gi-base-stat-grid { grid-template-columns: 1fr; } }
+@media (prefers-reduced-motion: reduce) { .character-catalog-grid .character-catalog-card, .character-catalog-grid .unit-portrait { animation: none !important; transition: none !important; scroll-behavior: auto !important; } }
