@@ -18,7 +18,7 @@ jobs:
       - name: Build portable update archive
         shell: bash
         run: |
-          git fetch --tags
+          git fetch --tags --force
           current="${GITHUB_REF_NAME}"
           mapfile -t prior_tags < <(git tag --list 'v*' --sort=-version:refname | grep -Fvx "$current" | head -n 6)
           args=()
