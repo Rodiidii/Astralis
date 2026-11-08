@@ -1,4 +1,4 @@
-/* Astralis Design System — semantic aliases to user-selected site tokens. */
+/* Reusable shell and token aliases. */
 :root {
   --ds-canvas: var(--bg);
   --ds-panel: var(--surface);
@@ -7,96 +7,60 @@
   --ds-subtle: var(--muted);
   --ds-stroke: var(--line);
   --ds-focus: var(--accent);
-  --ds-space: clamp(0.7rem, 1vw, 1.15rem);
+  --ds-space: clamp(.7rem, 1vw, 1.15rem);
   --ds-shadow: 0 16px 44px color-mix(in srgb, var(--ink), transparent 92%);
   color-scheme: dark;
 }
 html[data-theme="paper"] { color-scheme: light; }
+.app-frame { --ds-game-accent: var(--accent); --ds-character-accent: var(--theme-accent, var(--accent)); --control-radius: var(--card-radius, 12px); }
 
-/* Shared control language; existing application classes keep their behavior. */
-:is(button, input, select, textarea) { font: inherit; }
-:is(button, input, select, textarea):focus-visible,
-[tabindex]:focus-visible { outline: 2px solid var(--ds-focus); outline-offset: 2px; }
-:is(.quiet-btn,.button-primary,.filter-toggle,.view-toggle,.game-choice,.game-tab,.rail-link,
-    .picker-option,.detail-tabs button,.team-sheet-actions button,.modal-close) {
-  border-radius: var(--control-radius, 999px);
-}
-:is(input:not([type="checkbox"]):not([type="radio"]),select,textarea) {
-  border-radius: var(--control-radius, 12px);
-  border-color: var(--ds-stroke);
-  color: var(--ds-text);
-}
-:is(.page-hero,.archive-card,.task-card,.note-card,.team-sheet,.modal-card,.detail-modal,
-    .panel,.card,.empty-state,.loading-skeleton,.toast-message) {
-  border-color: var(--ds-stroke);
-}
-:is(.page-hero,.archive-card,.task-card,.note-card,.team-sheet,.panel,.card) {
-  box-shadow: var(--ds-shadow);
-}
-:is(.archive-card,.task-card,.note-card,.team-sheet,.panel,.card,.page-hero) {
-  transition: border-color .18s ease, box-shadow .18s ease, transform .18s ease;
-}
-:is(.archive-card,.task-card,.note-card,.team-sheet,.panel,.card):hover {
-  border-color: color-mix(in srgb, var(--ds-focus), var(--ds-stroke) 60%);
-}
-:is(.quiet-btn,.button-primary,.filter-toggle,.view-toggle,.game-choice,.game-tab,.rail-link) {
-  transition: background-color .16s ease, border-color .16s ease, color .16s ease, transform .16s ease;
-}
-:is(.quiet-btn,.button-primary,.filter-toggle,.view-toggle,.game-choice,.game-tab,.rail-link):active {
-  transform: translateY(1px);
-}
+/* Common controls */
+:is(button,input,select,textarea) { font: inherit; }
+:is(button,input,select,textarea):focus-visible,[tabindex]:focus-visible { outline: 2px solid var(--ds-focus); outline-offset: 2px; }
+:is(.quiet-btn,.button-primary,.filter-toggle,.view-toggle,.game-choice,.game-tab,.rail-link,.picker-option,.detail-tabs button,.team-sheet-actions button,.modal-close) { border-radius: var(--control-radius, 999px); }
+:is(input:not([type="checkbox"]):not([type="radio"]),select,textarea) { border-radius: var(--control-radius, 12px); border-color: var(--ds-stroke); color: var(--ds-text); }
+:is(.page-hero,.archive-card,.task-card,.note-card,.team-sheet,.modal-card,.detail-modal,.panel,.card,.empty-state,.loading-skeleton,.toast-message) { border-color: var(--ds-stroke); }
+:is(.page-hero,.archive-card,.task-card,.note-card,.team-sheet,.panel,.card) { box-shadow: var(--ds-shadow); }
+:is(.archive-card,.task-card,.note-card,.team-sheet,.panel,.card,.page-hero) { transition: border-color .18s ease,box-shadow .18s ease,transform .18s ease; }
+:is(.archive-card,.task-card,.note-card,.team-sheet,.panel,.card):hover { border-color: color-mix(in srgb,var(--ds-focus),var(--ds-stroke) 60%); }
+:is(.quiet-btn,.button-primary,.filter-toggle,.view-toggle,.game-choice,.game-tab,.rail-link) { transition: background-color .16s ease,border-color .16s ease,color .16s ease,transform .16s ease; }
+:is(.quiet-btn,.button-primary,.filter-toggle,.view-toggle,.game-choice,.game-tab,.rail-link):active { transform: translateY(1px); }
+.game-tab.active,.game-choice.active { border-color: color-mix(in srgb,var(--ds-game-accent),var(--ds-stroke) 45%); }
+#page-content .eyebrow { color: var(--ds-character-accent); }
+.character-themed #page-content .page-hero { border-color: color-mix(in srgb,var(--ds-character-accent),var(--ds-stroke) 58%); }
 
-/* Page templates: classify existing page content without rebuilding it. */
-#page-content[data-template="catalog"] { --template-columns: repeat(auto-fill, minmax(min(100%, 13.5rem), 1fr)); }
+/* Four page template seams, filled by the current route without duplicate data work. */
+#page-content[data-template="catalog"] { --template-columns: repeat(auto-fill,minmax(min(100%,13.5rem),1fr)); }
 #page-content[data-template="catalog"] .catalog-grid { grid-template-columns: var(--template-columns); }
-#page-content[data-template="tool"] { min-width: 0; }
+#page-content[data-template="tool"],#page-content[data-template="dashboard"],#page-content[data-template="detail"] { min-width: 0; }
 #page-content[data-template="tool"] :is(.tool-layout,.calc-layout,.lab-layout) { min-width: 0; }
-#page-content[data-template="dashboard"] { min-width: 0; }
-#page-content[data-template="detail"] { min-width: 0; }
 
-/* Reliable wheel/touchpad scrolling in navigation and modal sheets. */
-.side-rail {
-  overflow-x: hidden;
-  overflow-y: auto;
-  overscroll-behavior: contain;
-  -webkit-overflow-scrolling: touch;
-  touch-action: pan-y;
-  scrollbar-gutter: stable;
-}
-.side-rail .rail-bottom { position: sticky; bottom: 0; flex: 0 0 auto; background: var(--surface); }
+/* Touchpad/wheel scrolling stays in the active rail or sheet. */
+.side-rail { overflow-x: hidden; overflow-y: auto; overscroll-behavior: contain; -webkit-overflow-scrolling: touch; touch-action: pan-y; scrollbar-gutter: stable; }
+.rail-group { width: 100%; flex: 0 0 auto; }
+.rail-group>summary { list-style: none; cursor: pointer; padding: 0 12px 9px; color: var(--muted); font-size: 9px; font-weight: 700; letter-spacing: .19em; }
+.rail-group>summary::-webkit-details-marker { display: none; }
+.rail-group>summary::after { content: '⌄'; float: right; color: var(--ds-subtle); letter-spacing: 0; transition: transform .18s ease; }
+.rail-group:not([open])>summary::after { transform: rotate(-90deg); }
+.rail-group>.game-list,.rail-group>.rail-nav { margin-bottom: .8rem; }
+.rail-bottom { position: sticky; bottom: 0; flex: 0 0 auto; background: var(--surface); }
 .modal-backdrop { position: fixed; inset: 0; overscroll-behavior: contain; touch-action: pan-y; }
-.modal-card,.detail-modal,.image-viewer {
-  max-height: min(92dvh, 60rem);
-  overflow: auto;
-  overscroll-behavior: contain;
-  -webkit-overflow-scrolling: touch;
-  touch-action: pan-y;
-  scrollbar-gutter: stable;
-}
-html.astralis-modal-open, html.astralis-modal-open body { overflow: hidden; }
+:is(.modal-card,.detail-modal,.image-viewer) { max-height: min(92dvh,60rem); overflow: auto; overscroll-behavior: contain; -webkit-overflow-scrolling: touch; touch-action: pan-y; scrollbar-gutter: stable; }
+html.astralis-modal-open,html.astralis-modal-open body { overflow: hidden; }
 
-/* Quick navigation search inserted into the rail by design-system.js. */
-.rail-quick-search { position: relative; margin: 0 0 1rem; }
-.rail-quick-search input {
-  width: 100%; min-height: 2.55rem; padding: .55rem .75rem .55rem 2.2rem;
-  border: 1px solid var(--ds-stroke); background: var(--ds-panel-raised); color: var(--ds-text);
-}
-.rail-quick-search::before { content: "⌕"; position: absolute; left: .75rem; top: 50%; transform: translateY(-50%); color: var(--ds-subtle); pointer-events: none; }
+/* Ctrl+K rail navigation search */
+.rail-quick-search { position: relative; margin: 0 0 1rem; flex: 0 0 auto; }
+.rail-quick-search input { width: 100%; min-height: 2.55rem; padding: .55rem 2.5rem .55rem 2.2rem; border: 1px solid var(--ds-stroke); background: var(--ds-panel-raised); color: var(--ds-text); }
+.rail-quick-search::before { content: '⌕'; position: absolute; left: .75rem; top: 50%; transform: translateY(-50%); color: var(--ds-subtle); pointer-events: none; }
 .rail-quick-search kbd { position: absolute; right: .55rem; top: 50%; transform: translateY(-50%); color: var(--ds-subtle); font-size: .68rem; }
-.side-rail [data-search-hidden="true"], .side-rail [data-search-empty="true"] { display: none !important; }
-
-@media (max-width: 760px) {
+.side-rail [data-search-hidden="true"],.side-rail [data-search-empty="true"] { display: none !important; }
+@media(max-width:760px) {
   .side-rail { max-height: 42dvh; }
   .side-rail .rail-bottom { position: static; }
   .rail-quick-search { flex: 1 0 100%; order: 3; margin: .25rem 0; }
   .rail-quick-search input { min-height: 2.2rem; }
-  .modal-card,.detail-modal,.image-viewer { max-height: calc(100dvh - 1rem); }
+  :is(.modal-card,.detail-modal,.image-viewer) { max-height: calc(100dvh - 1rem); }
 }
-@media (prefers-reduced-motion: reduce) {
+@media(prefers-reduced-motion:reduce) {
   *,*::before,*::after { scroll-behavior: auto !important; animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
 }
-
-.app-frame { --ds-game-accent: var(--accent); --ds-character-accent: var(--theme-accent, var(--accent)); }
-.game-tab.active,.game-choice.active { border-color: color-mix(in srgb, var(--ds-game-accent), var(--ds-stroke) 45%); }
-#page-content .eyebrow { color: var(--ds-character-accent); }
-.character-themed #page-content .page-hero { border-color: color-mix(in srgb, var(--ds-character-accent), var(--ds-stroke) 58%); }

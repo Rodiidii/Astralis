@@ -10,21 +10,34 @@ function classifyPage() {
   const host = document.querySelector('#page-content');
   if (!host) return;
   const section = currentSection();
-  const template = section === 'dashboard' ? 'dashboard'
+  const isDetail = !!document.querySelector('#modal-root .detail-modal');
+  host.dataset.template = isDetail ? 'detail'
+    : section === 'dashboard' ? 'dashboard'
     : CATALOG.has(section) ? 'catalog'
-    : TOOLS.has(section) ? 'tool'
-    : document.querySelector('#modal-root .detail-modal') ? 'detail' : 'catalog';
-  host.dataset.template = template;
+    : TOOLS.has(section) ? 'tool' : 'catalog';
   host.dataset.section = section;
+}
+function installRailGroups(rail) {
+  for (const label of [...rail.querySelectorAll('.rail-label')]) {
+    const content = label.nextElementSibling;
+    if (!content?.matches('.game-list,.rail-nav')) continue;
+    const group = document.createElement('details');
+    group.className = 'rail-group';
+    group.open = true;
+    const summary = document.createElement('summary');
+    summary.textContent = label.textContent.trim();
+    group.append(summary, content);
+    label.replaceWith(group);
+  }
 }
 function installSearch(rail) {
   if (activeRail === rail && searchNode?.isConnected) return;
   activeRail = rail;
+  installRailGroups(rail);
   const box = document.createElement('label');
   box.className = 'rail-quick-search';
   box.innerHTML = '<input type="search" aria-label="Rechercher une page" placeholder="Rechercher une page…" autocomplete="off"><kbd>Ctrl K</kbd>';
-  const brand = rail.querySelector('.brand');
-  brand?.insertAdjacentElement('afterend', box);
+  rail.querySelector('.brand')?.insertAdjacentElement('afterend', box);
   searchNode = box.querySelector('input');
   searchNode.addEventListener('input', () => filterRail(searchNode.value));
   searchNode.addEventListener('keydown', event => {
@@ -38,26 +51,26 @@ function filterRail(raw) {
   if (!activeRail) return;
   const query = raw.trim().normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLocaleLowerCase('fr');
   activeRail.querySelectorAll('.rail-link').forEach(link => {
-    const match = !query || link.textContent.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLocaleLowerCase('fr').includes(query);
-    link.dataset.searchHidden = String(!match);
+    const label = link.textContent.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLocaleLowerCase('fr');
+    link.dataset.searchHidden = String(!!query && !label.includes(query));
   });
-  activeRail.querySelectorAll('.rail-label').forEach(label => {
-    let next = label.nextElementSibling, visible = false;
-    while (next && !next.classList.contains('rail-label')) {
-      if (next.matches('.rail-nav') && [...next.querySelectorAll('.rail-link')].some(link => link.dataset.searchHidden !== 'true')) visible = true;
-      next = next.nextElementSibling;
-    }
-    label.dataset.searchEmpty = String(!visible);
+  activeRail.querySelectorAll('.rail-group').forEach(group => {
+    const links = [...group.querySelectorAll('.rail-link')];
+    const visible = links.length ? links.some(link => link.dataset.searchHidden !== 'true') : !!group.querySelector('.game-list');
+    group.dataset.searchEmpty = String(!visible);
+    if (query && visible) group.open = true;
   });
 }
 function sync() {
   const rail = document.querySelector('.side-rail');
   if (rail) installSearch(rail);
   classifyPage();
+  const activeGame = document.querySelector('.game-tab.active,.game-choice.active');
+  const gameAccent = activeGame ? getComputedStyle(activeGame).getPropertyValue('--g').trim() : '';
+  document.querySelector('.app-frame')?.style.setProperty('--ds-game-accent', gameAccent || 'var(--accent)');
   const modal = !!document.querySelector('#modal-root .modal-backdrop');
   document.documentElement.classList.toggle('astralis-modal-open', modal);
 }
-
 window.addEventListener('keydown', event => {
   if ((event.ctrlKey || event.metaKey) && event.key.toLowerCase() === 'k') {
     event.preventDefault();

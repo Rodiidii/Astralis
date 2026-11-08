@@ -13,7 +13,7 @@
 - [~] **Architecture ·** Classification outil ajoutée; migration des outils en cours.
 - [~] **Architecture ·** Classification tableau de bord ajoutée; gabarit et migration en cours.
 - [~] **Toutes fiches ·** Défilement contenu ajouté aux panneaux/modales et verrouillage du fond; vérification visuelle par type de fiche restante.
-- [~] **Navigation ·** Défilement tactile et recherche rapide Ctrl+K ajoutés; sections repliables restantes.
+- [~] **Navigation ·** Défilement tactile, recherche rapide Ctrl+K et sections repliables ajoutés; contrôle visuel réel restant.
 - [ ] **Toutes pages ·** Ajouter introductions, aides, conseils et états vides utiles et mis en forme.
 - [ ] **Toutes pages ·** Migrer les pages vers les nouveaux gabarits.
 - [ ] **Qualité ·** Aucune erreur console après migration.
@@ -131,4 +131,6 @@
 
 
 ## Journal d'avancement
-- Chantier 0 tranche 1 : ajout du design system tokenisé, classification sémantique des pages, recherche du menu Ctrl+K, scroll tactile du rail et des fiches. Vérifications : node --check src/design-system.js, 9 tests Node et 2 tests Python réussis. Commit à renseigner après publication.
+- Chantier 0 tranche 1 : ajout du design system tokenisé, classification sémantique des pages, recherche du menu Ctrl+K, scroll tactile du rail et des fiches. Vérifications : node --check src/design-system.js, 9 tests Node et 2 tests Python réussis. Commit initial: d41aadfb5e6fb7c7e658a74091c8d34139082593.
+
+- Chantier 0 tranche 2 : groupes latéraux repliables et tests de contrat de navigation, gabarits, scroll et mouvement réduit; vérification d’intégration navigateur à poursuivre.

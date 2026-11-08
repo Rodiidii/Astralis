@@ -21,4 +21,4 @@
 
 `src/design-system.js` annotates `#page-content` with `data-template` and `data-section` after route changes. `catalog` covers characters, weapons, sets, materials; `detail` covers modal detail sheets; `tool` covers team/build/lab/calcs/farm/endgame/profile/wishes tools; `dashboard` is the modular dashboard. These annotations are a migration seam: page-specific markup can move into these templates incrementally without changing route/state ownership.
 
-The rail search is injected once per rendered rail, supports accent-insensitive filtering and Enter-to-open, and Ctrl+K / Cmd+K focuses it. Modal scroll is contained and the page behind it is locked while the modal is open.
+The rail search is injected once per rendered rail, supports accent-insensitive filtering and Enter-to-open, and Ctrl+K / Cmd+K focuses it. The game/library sections are native collapsible details groups. Modal scroll is contained and the page behind it is locked while the modal is open.
