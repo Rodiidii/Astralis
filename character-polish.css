@@ -34,3 +34,74 @@
 @media (max-width: 1050px) { .character-catalog-grid:not(.list-view) { grid-template-columns: repeat(2, minmax(0, 1fr)) !important; } .character-catalog-grid .character-catalog-card .art-frame.unit-cinematic { height: clamp(390px, 62vw, 570px); } }
 @media (max-width: 620px) { .character-catalog-grid:not(.list-view) { grid-template-columns: minmax(0, 1fr) !important; } .character-catalog-grid .character-catalog-card .art-frame.unit-cinematic { height: min(132vw, 650px); } .gi-character-detail .detail-stats { grid-template-columns: repeat(2, minmax(0, 1fr)); } .gi-character-detail .gi-base-stat-grid { grid-template-columns: 1fr; } }
 @media (prefers-reduced-motion: reduce) { .character-catalog-grid .character-catalog-card, .character-catalog-grid .unit-portrait { animation: none !important; transition: none !important; scroll-behavior: auto !important; } }
+
+/* Genshin catalogue: full-bleed portrait, face-first crop, and an unboxed identity line. */
+.character-catalog-grid:not(.list-view) .genshin-card .art-frame.unit-cinematic {
+  height: clamp(340px, 31vw, 452px);
+  min-height: 0;
+  aspect-ratio: .77;
+  display: block;
+  isolation: isolate;
+}
+.character-catalog-grid .genshin-card.archive-card .art-frame.unit-cinematic .art-backdrop {
+  inset: 0;
+  width: 100%; height: 100%;
+  object-fit: cover;
+  object-position: center 18%;
+}
+.character-catalog-grid .genshin-card.archive-card .art-frame.unit-cinematic .unit-portrait {
+  inset: 0 !important;
+  width: 100% !important; height: 100% !important;
+  padding: 0 !important;
+  object-fit: cover !important;
+  object-position: center clamp(8%, calc(var(--custom-splash-focus, 22%) - 9%), 16%) !important;
+  transform: scale(max(1.24, var(--custom-splash-zoom, 1.08))) !important;
+  transform-origin: center 16%;
+  filter: drop-shadow(0 12px 22px color-mix(in srgb, var(--bg, #111) 58%, transparent));
+}
+.character-catalog-grid .genshin-card.archive-card .art-frame.unit-cinematic .art-fade {
+  inset: 62% 0 0;
+  background: linear-gradient(180deg, transparent 0%, color-mix(in srgb, var(--bg, #111) 42%, transparent) 38%, color-mix(in srgb, var(--bg, #111) 94%, transparent) 100%);
+}
+.character-catalog-grid .genshin-card.archive-card .art-frame.unit-cinematic .character-name-caption {
+  right: 1rem; bottom: .9rem; left: 1rem;
+  display: flex; align-items: center; gap: .72rem;
+  padding: 0;
+  border: 0; border-radius: 0;
+  background: none; backdrop-filter: none;
+  text-shadow: 0 2px 16px color-mix(in srgb, var(--bg, #111) 85%, transparent);
+}
+.character-catalog-grid .genshin-card.archive-card .art-frame.unit-cinematic .character-card-avatar {
+  display: block; flex: 0 0 2.7rem;
+  width: 2.7rem; height: 2.7rem;
+  border: 1px solid color-mix(in srgb, var(--accent, var(--ds-accent)) 68%, var(--line, #ffffff30));
+  border-radius: 50%; object-fit: cover;
+  background: var(--surface-2, var(--ds-surface-soft));
+  box-shadow: 0 4px 14px color-mix(in srgb, var(--bg, #111) 45%, transparent);
+}
+.character-catalog-grid .genshin-card.archive-card .art-frame.unit-cinematic .character-card-avatar.art-fallback { padding: .45rem; }
+.character-catalog-grid .genshin-card.archive-card .art-frame.unit-cinematic .character-name-caption h2 {
+  min-width: 0; margin: 0;
+  color: var(--ink, var(--ds-ink));
+  font: 700 clamp(1.25rem, 1.8vw, 1.8rem)/1.08 var(--sans, var(--ds-font));
+  letter-spacing: -.035em; overflow-wrap: anywhere;
+}
+.character-catalog-grid .genshin-card .art-kicker { display: none; }
+.gi-character-detail .gi-base-stat-grid article {
+  position: relative; overflow: hidden;
+  min-height: 5.4rem; padding: .95rem 1rem;
+  border-radius: var(--ds-card-radius, var(--radius-lg));
+  background: linear-gradient(145deg, color-mix(in srgb, var(--accent, var(--ds-accent)) 12%, var(--surface-2, var(--ds-surface-soft))), var(--surface, var(--ds-surface)));
+  box-shadow: inset 0 1px color-mix(in srgb, var(--ink, var(--ds-ink)) 8%, transparent);
+}
+.gi-character-detail .gi-base-stat-grid b { font-size: clamp(1.2rem, 2vw, 1.55rem); letter-spacing: -.025em; }
+.gi-character-detail .gi-ascension-stat { display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding: 1rem 1.1rem; border: 1px solid color-mix(in srgb, var(--accent, var(--ds-accent)) 38%, var(--line, var(--ds-line))); border-radius: var(--ds-card-radius, var(--radius-lg)); background: color-mix(in srgb, var(--accent, var(--ds-accent)) 9%, var(--surface-2, var(--ds-surface-soft))); }
+.gi-character-detail .gi-ascension-stat b { color: var(--accent, var(--ds-accent)); font-size: 1.25rem; font-variant-numeric: tabular-nums; }
+@media (max-width: 1050px) {
+  .character-catalog-grid:not(.list-view) .genshin-card .art-frame.unit-cinematic { height: clamp(330px, 46vw, 430px); }
+}
+@media (max-width: 620px) {
+  .character-catalog-grid:not(.list-view) .genshin-card .art-frame.unit-cinematic { height: min(116vw, 520px); }
+  .character-catalog-grid .genshin-card.archive-card .art-frame.unit-cinematic .character-name-caption { right: .75rem; bottom: .75rem; left: .75rem; }
+  .character-catalog-grid .genshin-card.archive-card .art-frame.unit-cinematic .character-card-avatar { flex-basis: 2.35rem; width: 2.35rem; height: 2.35rem; }
+}

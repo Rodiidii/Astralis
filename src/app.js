@@ -440,8 +440,10 @@ function renderPage() {
   if (state.rarity !== 'all') items = items.filter(item => rarity(item) === Number(state.rarity));
   if (state.ownedOnly) items = items.filter(item => Store.isOwned(state.game, item._id));
   if (state.section === 'favorites') items = items.filter(item => Store.isFavorite(state.game, item._category, item._id));
-  const releaseStamp=item=>{const raw=item.releaseDate||item.release_date||item.release||item.versionDate||item.sourceVersion||item.version||'';const time=Date.parse(raw);return Number.isFinite(time)?time:0};
-  items.sort((a,b)=>state.order==='rarity'?rarity(b)-rarity(a):state.order==='release'?releaseStamp(b)-releaseStamp(a)||String(b._id).localeCompare(String(a._id),undefined,{numeric:true}):a._name.localeCompare(b._name,'fr'));
+  const releaseStamp=item=>{const raw=String(item.releaseDate||item.release_date||item.release||item.versionDate||'').trim();if(!raw)return 0;const time=Date.parse(raw);return Number.isFinite(time)&&/\d{4}[-/]/.test(raw)?time:0};
+  const releaseVersion=item=>{const raw=String(item.sourceVersion||item.version||'');const match=raw.match(/(?:^|\D)(\d{1,3})\.(\d{1,3})(?:\.(\d{1,3}))?/);return match?[Number(match[1]),Number(match[2]),Number(match[3]||0)]:[]};
+  const compareRelease=(a,b)=>{const dated=releaseStamp(b)-releaseStamp(a);if(dated)return dated;const av=releaseVersion(a),bv=releaseVersion(b);for(let i=0;i<Math.max(av.length,bv.length);i++){const delta=(bv[i]||0)-(av[i]||0);if(delta)return delta;}return String(b._id).localeCompare(String(a._id),undefined,{numeric:true});};
+  items.sort((a,b)=>state.order==='rarity'?rarity(b)-rarity(a):state.order==='release'?compareRelease(a,b):a._name.localeCompare(b._name,'fr'));
   const visible = items;
   return `<section class="collection-bar"><div class="collection-copy"><b>${items.length}</b><span>fiches visibles</span><i>·</i><span>${all.length} au total</span></div><div class="collection-controls">
       <label class="search-box"><span>${ic('search')}</span><input id="catalog-search" value="${esc(state.query)}" placeholder="Personnage, région, élément…"><kbd>/</kbd></label>
@@ -467,10 +469,11 @@ function renderCatalogCard(item) {
   const images = char ? [...new Set([preferredSplash,...splashSources].filter(Boolean))] : imageSet(game,item);
   const owned = Store.isOwned(game, item._id), favorite = Store.isFavorite(game, item._category, item._id);
   const badge = item.preRelease ? `Annonce ${item.version||'à venir'}` : char ? (item.vision || item.element || item.path) : item.weapon || item.type;
+  const avatar=char?avatarImage(game,item):'';
   return `<article class="archive-card ${game === 'gi' && char ? 'genshin-card' : ''} ${char?'character-catalog-card':''} ${isCinematic?'cinematic-card':''} ${game}-card" data-rarity="${rarity(item)}" data-detail="${esc(item._id)}" data-item-category="${esc(item._category)}" style="--card-tint:${elementTint(badge)}">
     <div class="art-frame ${char?'unit-cinematic':''}">${isCinematic&&visual?img(skinSplash?[skinSplash,...splashSources]:splashSources,'art-backdrop unit-backdrop',`${item._name} · illustration`):''}${img(images,char?'art-main unit-portrait':'art-main',item._name)}<div class="art-fade"></div>${char?'':`<div class="art-grade">${rarity(item) ? stars(Math.min(5, rarity(item))) : ''}</div>`}${char&&game==='gi'?`<div class="character-card-emblems"><span title="${esc(frenchTerm(badge))}">${giElementIcon(badge)?img(giElementIcon(badge),'gi-element-icon',frenchTerm(badge)):emblem(frenchTerm(badge))}</span><span title="${esc(frenchTerm(item.weaponText||item.weapon||item.type))}">${giWeaponTypeIcon(item.weaponText||item.weapon||item.type)?img(giWeaponTypeIcon(item.weaponText||item.weapon||item.type),'gi-weapon-icon',frenchTerm(item.weaponText||item.weapon||item.type)):emblem(frenchTerm(item.weaponText||item.weapon||item.type))}</span></div>`:badge?`<div class="type-emblem" title="${esc(frenchTerm(badge))}">${emblem(frenchTerm(badge))}</div>`:''}
       <div class="art-actions"><button data-favorite="${esc(item._id)}" aria-label="Favori" title="Favori">${ic('heart',{fill:favorite})}</button><button data-owned="${esc(item._id)}" aria-label="Possédé" title="${owned ? 'Possédé' : 'Ajouter à ma collection'}">${owned ? ic('check') : ic('plus')}</button></div>
-      <div class="art-caption"><div class="art-kicker">${esc(element(item))} <span>·</span> ${esc(GAMES[game].short)}</div><h2>${esc(item._name)}</h2></div>
+      ${game==='gi'&&char?`<div class="art-caption character-name-caption">${img(avatar,'character-card-avatar',`${item._name} · icône`)}<h2>${esc(item._name)}</h2></div>`:`<div class="art-caption"><div class="art-kicker">${esc(element(item))} <span>·</span> ${esc(GAMES[game].short)}</div><h2>${esc(item._name)}</h2></div>`}
     </div></article>`;
 }
 

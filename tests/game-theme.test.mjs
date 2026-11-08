@@ -2,10 +2,11 @@ import assert from 'node:assert/strict';
 import { readFile } from 'node:fs/promises';
 import test from 'node:test';
 
-const [app, css, refresh, html, version] = await Promise.all([
+const [app, css, refresh, characterPolish, html, version] = await Promise.all([
   readFile(new URL('../src/app.js', import.meta.url), 'utf8'),
   readFile(new URL('../design-system.css', import.meta.url), 'utf8'),
   readFile(new URL('../global-refresh.css', import.meta.url), 'utf8'),
+  readFile(new URL('../character-polish.css', import.meta.url), 'utf8'),
   readFile(new URL('../index.html', import.meta.url), 'utf8'),
   readFile(new URL('../VERSION', import.meta.url), 'utf8'),
 ]);
@@ -24,12 +25,23 @@ test('les fiches utilisent le thème du personnage, sinon celui du jeu actif', (
 });
 
 test('le cache et les ressources de cette version sont identifiés pour le prochain lancement', () => {
-  assert.match(html, /content="1\.0\.34"/);
-  assert.equal(version.trim(), '1.0.34');
+  assert.match(html, /content="1\.0\.36"/);
+  assert.equal(version.trim(), '1.0.36');
   assert.match(html, /design-system\.css\?v=20261108-c0-2/);
   assert.match(html, /global-refresh\.css\?v=20261108-global-1/);
   assert.match(refresh, /prefers-reduced-motion:\s*reduce/);
   assert.match(refresh, /--ds-card-radius:\s*var\(--card-radius/);
   assert.match(refresh, /\.workspace\s*\{[^}]*overflow:\s*auto/s);
   assert.match(html, /src\/design-system\.js\?v=20261108-c0-2/);
+  assert.match(html, /character-polish\.css\?v=20261108-character-polish-2/);
+  assert.match(html, /src\/app\.js\?v=20261108-character-polish-2/);
+});
+
+test('les cartes Genshin cadrent le splash sur le visage et affichent avatar + nom sans libellé élément', () => {
+  assert.match(app, /const avatar=char\?avatarImage\(game,item\):''/);
+  assert.match(app, /character-name-caption.*character-card-avatar/s);
+  assert.match(characterPolish, /\.character-catalog-grid \.genshin-card\.archive-card \.art-frame\.unit-cinematic \.unit-portrait/);
+  assert.match(characterPolish, /transform: scale\(max\(1\.24,/);
+  assert.match(characterPolish, /height: clamp\(340px, 31vw, 452px\)/);
+  assert.match(characterPolish, /\.character-catalog-grid \.genshin-card\.archive-card \.art-frame\.unit-cinematic \.character-name-caption/);
 });
