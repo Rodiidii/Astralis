@@ -312,3 +312,23 @@
   width: 1.45rem; height: 1.45rem; vertical-align: middle; object-fit: contain;
 }
 .guide-source-list { display: block; margin-top: .2rem; color: var(--muted, var(--ds-muted)); font-size: .7rem; }
+
+
+/* Single authoritative edge-to-edge portrait rule: eliminate inherited gutters/seams. */
+.character-catalog-grid > .genshin-card.archive-card > .art-frame.unit-cinematic {
+  position: relative !important; display: block !important; box-sizing: border-box !important;
+  width: calc(100% + 2px) !important; max-width: none !important; min-width: 0 !important;
+  margin: 0 -1px !important; padding: 0 !important; border: 0 !important;
+  overflow: hidden !important; background: transparent !important;
+}
+.character-catalog-grid > .genshin-card.archive-card > .art-frame.unit-cinematic > .unit-portrait {
+  position: absolute !important; inset: -2px !important; display: block !important; box-sizing: border-box !important;
+  width: calc(100% + 4px) !important; height: calc(100% + 4px) !important;
+  min-width: 0 !important; max-width: none !important; margin: 0 !important; padding: 0 !important;
+  object-fit: cover !important; object-position: center 16% !important;
+  transform: scale(max(1.28, var(--custom-splash-zoom, 1.08))) !important; transform-origin: center 16% !important;
+}
+.detail-title .detail-weapon-type-icon {
+  display: inline-block; width: 2rem; height: 2rem; margin-inline-start: .45rem;
+  object-fit: contain; vertical-align: middle;
+}

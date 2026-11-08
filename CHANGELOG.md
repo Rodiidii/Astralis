@@ -1,3 +1,9 @@
+# 1.0.42 — 8 novembre 2026
+
+- Étend les correspondances Genshin.gg/GenshinFlex avec normalisation des accents, lecture tolérante de leur HTML et cache disque de secours.
+- Affiche la provenance et la date des recommandations ; une absence de résultat est présentée comme telle, sans prétendre qu’un équipement est incompatible.
+- Corrige le cadrage bord à bord des splash arts et affiche l’icône de type d’arme dans les fiches d’armes.
+
 # 1.0.18 — 7 novembre 2026
 
 - Rétablit un écran de lancement animé avec accueil personnalisé, heure/date locales, météo et messages de chargement.

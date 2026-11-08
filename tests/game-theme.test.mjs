@@ -25,16 +25,16 @@ test('les fiches utilisent le thème du personnage, sinon celui du jeu actif', (
 });
 
 test('le cache et les ressources de cette version sont identifiés pour le prochain lancement', () => {
-  assert.match(html, /content="1\.0\.41"/);
-  assert.equal(version.trim(), '1.0.41');
+  assert.match(html, /content="1\.0\.42"/);
+  assert.equal(version.trim(), '1.0.42');
   assert.match(html, /design-system\.css\?v=20261108-c0-2/);
   assert.match(html, /global-refresh\.css\?v=20261108-global-1/);
   assert.match(refresh, /prefers-reduced-motion:\s*reduce/);
   assert.match(refresh, /--ds-card-radius:\s*var\(--card-radius/);
   assert.match(refresh, /\.workspace\s*\{[^}]*overflow:\s*auto/s);
   assert.match(html, /src\/design-system\.js\?v=20261108-c0-2/);
-  assert.match(html, /character-polish\.css\?v=20261108-character-polish-8/);
-  assert.match(html, /src\/app\.js\?v=20261108-character-polish-5/);
+  assert.match(html, /character-polish\.css\?v=20261108-build-guides-1/);
+  assert.match(html, /src\/app\.js\?v=20261108-build-guides-1/);
 });
 
 test('les cartes Genshin cadrent le splash et affichent le nom avec les icônes élément et arme', () => {
@@ -54,4 +54,12 @@ test('les cartes Genshin cadrent le splash et affichent le nom avec les icônes 
   assert.match(characterPolish, /data-item-category="artifact"\][\s\S]*?object-fit: contain/);
   assert.match(characterPolish, /\.collection-bar\.character-catalog-toolbar[\s\S]*?grid-template-columns: max-content minmax\(0, 1fr\)/);
   assert.match(characterPolish, /@media \(max-width: 1500px\)[\s\S]*?\.character-catalog-toolbar \.collection-controls \{ overflow-x: auto/);
+});
+
+
+test('Genshin portraits fill their entire card and weapon detail has a type icon', () => {
+  assert.match(characterPolish, /\.character-catalog-grid > \.genshin-card\.archive-card > \.art-frame\.unit-cinematic\s*\{[^}]*width: calc\(100% \+ 2px\)[^}]*margin: 0 -1px/s);
+  assert.match(characterPolish, /\.art-frame\.unit-cinematic > \.unit-portrait\s*\{[^}]*object-fit: cover !important/s);
+  assert.match(app, /weaponTypeIcon = weaponType \? giWeaponTypeIcon\(weaponType\)/);
+  assert.match(app, /detail-weapon-type-icon/);
 });

@@ -5,6 +5,7 @@ import os
 import re
 import threading
 import time
+import unicodedata
 import hashlib
 import ipaddress
 import secrets
@@ -234,18 +235,22 @@ def fetch(url: str) -> bytes:
 
 _GI_ALIAS_CACHE: dict | None = None
 
+def _gi_build_token(value: object) -> str:
+    """Normalize localized names consistently (case, accents, punctuation)."""
+    return re.sub(r"[^a-z0-9]+", "", unicodedata.normalize("NFKD", str(value or "")).encode("ascii", "ignore").decode("ascii").casefold())
+
+
 def gi_name_aliases(kind: str, name: str) -> set[str]:
-    """Resolve localized catalog labels to the English names used by public guide indexes."""
+    """Resolve localized labels to public guide names without losing accents."""
     global _GI_ALIAS_CACHE
     if _GI_ALIAS_CACHE is None:
         try: _GI_ALIAS_CACHE = json.loads((Path(__file__).resolve().parent / "public" / "gi-name-aliases.json").read_text(encoding="utf-8"))
         except Exception: _GI_ALIAS_CACHE = {}
     group = {"character":"characters", "weapon":"weapons", "artifact":"artifacts"}.get(kind, kind)
-    token = re.sub(r"[^a-z0-9]+", "", name.casefold())
-    aliases = {name}
+    token, aliases = _gi_build_token(name), ({name} if name else set())
     for row in (_GI_ALIAS_CACHE.get(group, []) if isinstance(_GI_ALIAS_CACHE, dict) else []):
         candidates = (row.get("fr", []) or []) + (row.get("en", []) or [])
-        if any(re.sub(r"[^a-z0-9]+", "", str(candidate).casefold()) == token for candidate in candidates):
+        if any(_gi_build_token(candidate) == token for candidate in candidates):
             aliases.update(str(candidate) for candidate in candidates if candidate)
             break
     return aliases
@@ -253,140 +258,157 @@ def gi_name_aliases(kind: str, name: str) -> set[str]:
 _GI_BUILD_REVERSE_CACHE: tuple[float, list[dict]] | None = None
 _GI_FLEX_BUILD_CACHE: tuple[float, list[dict]] | None = None
 
+
+def _gi_class_values(html: str, class_name: str) -> list[str]:
+    values = []
+    for opening in re.finditer(r'<(?P<tag>[a-z][\w:-]*)\b(?P<attrs>[^>]*)>', html, re.I | re.S):
+        classes = re.search(r'\bclass\s*=\s*["\']([^"\']*)["\']', opening.group("attrs"), re.I)
+        if not classes or class_name not in classes.group(1).split(): continue
+        closing = re.search(r'</' + re.escape(opening.group("tag")) + r'\s*>', html[opening.end():], re.I)
+        if closing: values.append(html_text(html[opening.end():opening.end() + closing.start()]))
+    return values
+
+
+def _gi_class_blocks(html: str, class_name: str) -> list[str]:
+    starts = []
+    for opening in re.finditer(r'<(?P<tag>[a-z][\w:-]*)\b(?P<attrs>[^>]*)>', html, re.I | re.S):
+        classes = re.search(r'\bclass\s*=\s*["\']([^"\']*)["\']', opening.group("attrs"), re.I)
+        if classes and class_name in classes.group(1).split(): starts.append(opening)
+    return [html[m.start():(starts[i+1].start() if i+1 < len(starts) else len(html))] for i,m in enumerate(starts)]
+
+
+def _parse_genshin_gg_build_page(page: str) -> list[dict]:
+    """Extract published gear from Genshin.gg independent of attribute ordering."""
+    rows = []
+    for body in _gi_class_blocks(page, "builds-list-item"):
+        names, roles, gear = (_gi_class_values(body, key) for key in ("build-name", "build-role", "build-weapon-name"))
+        if not names: continue
+        image = re.search(r'<img\b[^>]*?\b(?:src|data-src)=["\']([^"\']+)', body, re.I | re.S)
+        profile = re.search(r'<a\b[^>]*href=["\'](/characters/[^"\']+)', body, re.I)
+        weapon = gear[0] if gear else ""
+        rows.append({"name":names[0], "role":roles[0] if roles else "", "weapon":weapon, "weapons":[weapon] if weapon else [], "sets":gear[1:], "icon":urljoin("https://genshin.gg/", unescape(image.group(1))) if image else "", "url":urljoin("https://genshin.gg/", profile.group(1)) if profile else "", "source":"Genshin.gg"})
+    return rows
+
+
 def _parse_genshinflex_build_page(page: str, slug: str) -> dict | None:
-    """Extract only gear explicitly listed in the public GenshinFlex build panel."""
-    section = re.search(r'<section\b[^>]*\bid=["\']build["\'][^>]*>(.*?)</section>', page, re.I | re.S)
-    if not section:
-        return None
+    """Extract gear, role and patch only when explicitly published by Flex."""
+    section = re.search(r'<section\b(?=[^>]*\bid=["\']build["\'])[^>]*>(.*?)</section>', page, re.I | re.S)
+    if not section: return None
     body = section.group(1)
     weapon_panel = re.search(r'<h3\b[^>]*>\s*Weapons\s*</h3>(.*?)(?=<h3\b|$)', body, re.I | re.S)
     artifact_panel = re.search(r'<h3\b[^>]*>\s*Artifacts\s*</h3>(.*?)(?=<h3\b|$)', body, re.I | re.S)
-    weapon_html = weapon_panel.group(1) if weapon_panel else ""
-    artifact_html = artifact_panel.group(1) if artifact_panel else ""
-    weapons = [html_text(value) for value in re.findall(r'<a\b[^>]*href=["\']/en/weapons/[^"\']+["\'][^>]*>\s*<b\b[^>]*>(.*?)</b>', weapon_html, re.I | re.S)]
+    weapon_html, artifact_html = (weapon_panel.group(1) if weapon_panel else ""), (artifact_panel.group(1) if artifact_panel else "")
+    anchor_pattern = r'<a\b(?=[^>]*\bhref=["\']/en/weapons/)[^>]*>(.*?)</a>'
+    weapons = [html_text(m.group(1)) for m in re.finditer(anchor_pattern, weapon_html, re.I | re.S)]
+    if not weapons: weapons = [html_text(v) for v in re.findall(r'<b\b[^>]*>(.*?)</b>', weapon_html, re.I | re.S)]
     sets = []
     for value in re.findall(r'<b\b[^>]*>(.*?)</b>', artifact_html, re.I | re.S):
         sets.extend(html_text(part) for part in re.split(r'\s*\+\s*', value) if html_text(part))
-    if not weapons and not sets:
-        return None
+    if not weapons and not sets: return None
     aliases = _GI_ALIAS_CACHE.get("characters", []) if isinstance(_GI_ALIAS_CACHE, dict) else []
-    slug_token = re.sub(r"[^a-z0-9]+", "", slug.casefold())
-    name = next((candidate for row in aliases for candidate in (row.get("en", []) or []) if re.sub(r"[^a-z0-9]+", "", str(candidate).casefold()) == slug_token), "")
-    name = name or slug.replace("-", " ").title()
-    return {"name": name, "role": "Build publié", "weapon": weapons[0] if weapons else "", "weapons": weapons, "sets": sets, "icon": "", "url": f"https://genshinflex.com/en/characters/{slug}/", "source": "GenshinFlex"}
+    name = next((candidate for row in aliases for candidate in (row.get("en", []) or []) if _gi_build_token(candidate) == _gi_build_token(slug)), "") or slug.replace("-", " ").title()
+    role = re.search(r'<p\b[^>]*>(.*?)</p>', body, re.I | re.S)
+    patch = re.search(r'\bpatch\s+([0-9]+(?:\.[0-9]+)+)', body, re.I)
+    return {"name":name, "role":html_text(role.group(1)) if role else "Build publié", "patch":patch.group(1) if patch else "", "weapon":weapons[0] if weapons else "", "weapons":list(dict.fromkeys(weapons)), "sets":list(dict.fromkeys(sets)), "icon":"", "url":f"https://genshinflex.com/en/characters/{slug}/", "source":"GenshinFlex"}
+
 
 def gi_genshinflex_build_index() -> list[dict]:
-    """Fetch public GenshinFlex build pages in parallel; cache a successful snapshot for 6h."""
+    """Fetch public Flex pages concurrently; refresh every 6h and retain stale data."""
     global _GI_FLEX_BUILD_CACHE, _GI_ALIAS_CACHE
     now = time.time()
     cache_file = Path(__file__).resolve().parent / ".cache" / "gi-flex-builds-v1.json"
     if _GI_FLEX_BUILD_CACHE is None:
         try:
             saved = json.loads(cache_file.read_text(encoding="utf-8"))
-            if now - float(saved.get("updatedAt", 0)) < 21600 and isinstance(saved.get("rows"), list):
-                _GI_FLEX_BUILD_CACHE = (float(saved["updatedAt"]), saved["rows"])
-        except Exception:
-            pass
-    if _GI_FLEX_BUILD_CACHE is not None and now - _GI_FLEX_BUILD_CACHE[0] < 21600:
-        return _GI_FLEX_BUILD_CACHE[1]
-    if _GI_ALIAS_CACHE is None:
-        gi_name_aliases("character", "")
+            if isinstance(saved.get("rows"), list): _GI_FLEX_BUILD_CACHE = (float(saved.get("updatedAt", 0)), saved["rows"])
+        except Exception: pass
+    if _GI_FLEX_BUILD_CACHE is not None and now - _GI_FLEX_BUILD_CACHE[0] < 21600: return _GI_FLEX_BUILD_CACHE[1]
+    if _GI_ALIAS_CACHE is None: gi_name_aliases("character", "")
     slugs = set()
     try:
         sitemap = fetch("https://genshinflex.com/sitemap.xml").decode("utf-8", "ignore")
         slugs.update(re.findall(r"https://genshinflex\.com/en/characters/([a-z0-9-]+)/?", sitemap, re.I))
     except Exception:
-        # Sitemap can be rate-limited; known public catalogue names are a safe fallback.
         for row in (_GI_ALIAS_CACHE or {}).get("characters", []):
-            for candidate in row.get("en", []) or []:
-                slugs.add(re.sub(r"[^a-z0-9]+", "-", candidate.casefold()).strip("-"))
+            for candidate in row.get("en", []) or []: slugs.add(re.sub(r"[^a-z0-9]+", "-", candidate.casefold()).strip("-"))
     urls = [(slug, f"https://genshinflex.com/en/characters/{slug}/") for slug in sorted(slugs) if slug]
     def load_page(entry):
         slug, url = entry
         try:
-            request = Request(url, headers={"User-Agent": "Mozilla/5.0 (compatible; Astralis/1.0)", "Accept": "text/html,*/*"})
-            with urlopen(request, timeout=7) as response:
-                page = response.read(2_000_000).decode("utf-8", "ignore")
+            request = Request(url, headers={"User-Agent":"Mozilla/5.0 (compatible; Astralis/1.0)", "Accept":"text/html,*/*"})
+            with urlopen(request, timeout=7) as response: page = response.read(2_000_000).decode("utf-8", "ignore")
             return _parse_genshinflex_build_page(page, slug)
-        except Exception:
-            return None
-    with ThreadPoolExecutor(max_workers=16) as pool:
-        rows = [row for row in pool.map(load_page, urls) if row]
+        except Exception: return None
+    with ThreadPoolExecutor(max_workers=16) as pool: rows = [row for row in pool.map(load_page, urls) if row]
     if rows:
         _GI_FLEX_BUILD_CACHE = (now, rows)
         try:
             cache_file.parent.mkdir(parents=True, exist_ok=True)
-            cache_file.write_text(json.dumps({"updatedAt": now, "rows": rows}, ensure_ascii=False), encoding="utf-8")
-        except OSError:
-            pass
-    elif _GI_FLEX_BUILD_CACHE is None:
-        raise RuntimeError("GenshinFlex n’a pas publié de pages de build accessibles pour le moment.")
-    return (_GI_FLEX_BUILD_CACHE or (now, []))[1]
+            cache_file.write_text(json.dumps({"updatedAt":now, "rows":rows}, ensure_ascii=False), encoding="utf-8")
+        except OSError: pass
+    elif _GI_FLEX_BUILD_CACHE is None: raise RuntimeError("GenshinFlex n’a pas publié de pages de build accessibles pour le moment.")
+    return _GI_FLEX_BUILD_CACHE[1]
+
 
 def gi_build_reverse_index() -> list[dict]:
-    """Merge all public Genshin.gg and GenshinFlex character build recommendations."""
+    """Merge public recommendations, keep an on-disk snapshot and tolerate outages."""
     global _GI_BUILD_REVERSE_CACHE
     now = time.time()
-    if _GI_BUILD_REVERSE_CACHE is None or now - _GI_BUILD_REVERSE_CACHE[0] > 21600:
-        rows = []
-        errors = []
+    cache_file = Path(__file__).resolve().parent / ".cache" / "gi-build-reverse-v2.json"
+    if _GI_BUILD_REVERSE_CACHE is None:
         try:
-            html = fetch("https://genshin.gg/builds/").decode("utf-8", "ignore")
-            starts = list(re.finditer(r'<div class="builds-list-item">', html, re.I))
-            for i, match in enumerate(starts):
-                end = starts[i+1].start() if i+1 < len(starts) else len(html)
-                body = html[match.start():end]
-                name = re.search(r'<div class="build-name">(.*?)</div>', body, re.I | re.S)
-                role = re.search(r'<div class="build-role">(.*?)</div>', body, re.I | re.S)
-                if not name: continue
-                image = re.search(r'<img\b[^>]*?(?:src|data-src)=["\']([^"\']+)', body, re.I | re.S)
-                gear = [html_text(x) for x in re.findall(r'<div class="build-weapon-name">(.*?)</div>', body, re.I | re.S)]
-                weapon = gear[0] if gear else ""
-                profile = re.search(r'<a href="(/characters/[^"]+)', body, re.I)
-                rows.append({"name": html_text(name.group(1)), "role": html_text(role.group(1)) if role else "", "weapon": weapon, "weapons": [weapon] if weapon else [], "sets": gear[1:], "icon": urljoin("https://genshin.gg/", unescape(image.group(1))) if image else "", "url": urljoin("https://genshin.gg/", profile.group(1)) if profile else "", "source": "Genshin.gg"})
-        except Exception as exc:
-            errors.append(exc)
-        try:
-            rows.extend(gi_genshinflex_build_index())
-        except Exception as exc:
-            errors.append(exc)
-        grouped = {}
-        for row in rows:
-            key = re.sub(r"[^a-z0-9]+", "", row.get("name", "").casefold())
-            if not key: continue
-            target = grouped.setdefault(key, {**row, "weapons": [], "sets": [], "roles": [], "sources": []})
-            for value in row.get("weapons", []) or ([row.get("weapon")] if row.get("weapon") else []):
-                if value and value not in target["weapons"]: target["weapons"].append(value)
-            for value in row.get("sets", []):
-                if value and value not in target["sets"]: target["sets"].append(value)
-            if row.get("role") and row["role"] not in target["roles"]: target["roles"].append(row["role"])
-            if row.get("source") and row["source"] not in target["sources"]: target["sources"].append(row["source"])
-            if row.get("icon") and not target.get("icon"): target["icon"] = row["icon"]
-            if row.get("url") and row.get("source") == "Genshin.gg": target["url"] = row["url"]
-        merged = list(grouped.values())
-        for row in merged:
-            row["weapon"] = row["weapons"][0] if row["weapons"] else ""
-            row["role"] = " · ".join(row.pop("roles")) or "Build publié"
-            row["sources"] = row["sources"]
-        if not merged and errors:
-            raise RuntimeError("Genshin.gg et GenshinFlex sont momentanément indisponibles.") from errors[0]
+            saved = json.loads(cache_file.read_text(encoding="utf-8"))
+            if isinstance(saved.get("rows"), list): _GI_BUILD_REVERSE_CACHE = (float(saved.get("updatedAt", 0)), saved["rows"])
+        except Exception: pass
+    if _GI_BUILD_REVERSE_CACHE is not None and now - _GI_BUILD_REVERSE_CACHE[0] < 21600: return _GI_BUILD_REVERSE_CACHE[1]
+    rows, errors = [], []
+    try: rows.extend(_parse_genshin_gg_build_page(fetch("https://genshin.gg/builds/").decode("utf-8", "ignore")))
+    except Exception as exc: errors.append(exc)
+    try: rows.extend(gi_genshinflex_build_index())
+    except Exception as exc: errors.append(exc)
+    grouped = {}
+    for row in rows:
+        key = _gi_build_token(row.get("name", ""))
+        if not key: continue
+        target = grouped.setdefault(key, {**row, "weapons":[], "sets":[], "roles":[], "sources":[], "patches":[]})
+        for value in row.get("weapons", []) or ([row.get("weapon")] if row.get("weapon") else []):
+            if value and value not in target["weapons"]: target["weapons"].append(value)
+        for value in row.get("sets", []):
+            if value and value not in target["sets"]: target["sets"].append(value)
+        for field, collection in (("role","roles"),("source","sources"),("patch","patches")):
+            value = row.get(field)
+            if value and value not in target[collection]: target[collection].append(value)
+        if row.get("icon") and not target.get("icon"): target["icon"] = row["icon"]
+        if row.get("url") and row.get("source") == "Genshin.gg": target["url"] = row["url"]
+    merged = list(grouped.values())
+    for row in merged:
+        row["weapon"] = row["weapons"][0] if row["weapons"] else ""
+        row["role"] = " · ".join(row.pop("roles")) or "Build publié"
+        row["patch"] = " · ".join(row.pop("patches"))
+    if not merged:
+        if _GI_BUILD_REVERSE_CACHE is not None and _GI_BUILD_REVERSE_CACHE[1]: return _GI_BUILD_REVERSE_CACHE[1]
+        if errors: raise RuntimeError("Genshin.gg et GenshinFlex sont momentanément indisponibles.") from errors[0]
+    if merged:
         _GI_BUILD_REVERSE_CACHE = (now, merged)
-    return (_GI_BUILD_REVERSE_CACHE or (0, []))[1]
+        try:
+            cache_file.parent.mkdir(parents=True, exist_ok=True)
+            cache_file.write_text(json.dumps({"updatedAt":now, "rows":merged}, ensure_ascii=False), encoding="utf-8")
+        except OSError: pass
+    elif _GI_BUILD_REVERSE_CACHE is None: _GI_BUILD_REVERSE_CACHE = (now, [])
+    return _GI_BUILD_REVERSE_CACHE[1]
+
 
 def gi_compatible_build_rows(rows: list[dict], kind: str, aliases: set[str]) -> list[dict]:
-    """Return every distinct character with an explicit source recommendation."""
-    tokens = {re.sub(r"[^a-z0-9]+", "", value.casefold()) for value in aliases}
-    matches = []
-    seen = set()
+    """Return every distinct published recommendation using accent-insensitive aliases."""
+    tokens = {_gi_build_token(value) for value in aliases if _gi_build_token(value)}
+    matches, seen = [], set()
     for row in rows:
         candidates = (row.get("weapons") or [row.get("weapon", "")]) if kind == "weapon" else row.get("sets", [])
-        if not any(re.sub(r"[^a-z0-9]+", "", str(value).casefold()) in tokens for value in candidates):
-            continue
-        token = re.sub(r"[^a-z0-9]+", "", row.get("name", "").casefold())
-        if token and token not in seen:
-            seen.add(token)
-            matches.append(row)
+        if not any(_gi_build_token(value) in tokens for value in candidates): continue
+        token = _gi_build_token(row.get("name", ""))
+        if token and token not in seen: seen.add(token); matches.append(row)
     return matches
+
 
 _GI_TEAM_GUIDE_CACHE: tuple[float, list[dict]] | None = None
 
@@ -1273,10 +1295,11 @@ class Handler(SimpleHTTPRequestHandler):
                 entry = cache.get(key); payload = entry[1] if entry and now-entry[0] < 21600 and not refresh else None
             if payload is None:
                 try:
-                    aliases = {re.sub(r"[^a-z0-9]+", "", value.casefold()) for value in gi_name_aliases("weapon" if kind == "weapon" else "artifact", name)}
+                    aliases = {_gi_build_token(value) for value in gi_name_aliases("weapon" if kind == "weapon" else "artifact", name)}
                     rows = gi_build_reverse_index()
                     matches = gi_compatible_build_rows(rows, kind, aliases)
-                    result = {"item": name, "kind": kind, "source": "Genshin.gg · GenshinFlex", "sourceUrl": "https://genshin.gg/builds/", "sources": ["https://genshin.gg/builds/", "https://genshinflex.com/en/about/"], "updatedAt": now, "characters": matches}
+                    used_sources = list(dict.fromkeys(source for row in matches for source in row.get("sources", [])))
+                    result = {"item": name, "kind": kind, "source": " · ".join(used_sources) or "Guides communautaires", "sourceUrl": "https://genshin.gg/builds/", "sources": used_sources, "updatedAt": now, "characters": matches, "coverage": "published-recommendations"}
                     payload = json.dumps(result, ensure_ascii=False).encode("utf-8")
                     with cache_lock: cache[key] = (now, payload)
                 except Exception as exc:
