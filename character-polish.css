@@ -136,16 +136,40 @@
 
 /* Remove the archive-card inset so the splash artwork covers the complete tile. */
 .character-catalog-grid .genshin-card.archive-card { padding: 0 !important; }
-.character-catalog-grid .genshin-card.archive-card { border-right: 0 !important; }
 
 /* The two official Genshin type icons sit with the name; the portrait stays clean. */
 .character-catalog-grid .genshin-card.archive-card .art-frame.unit-cinematic {
   background: transparent;
+  box-sizing: border-box;
+  width: 100%;
+  overflow: hidden;
+  padding: 0 !important;
 }
 .character-catalog-grid .genshin-card.archive-card .art-frame.unit-cinematic .unit-backdrop {
-  display: none !important;
+  position: absolute;
+  inset: -2px !important;
+  width: calc(100% + 4px) !important;
+  max-width: none !important;
+  height: calc(100% + 4px) !important;
+  display: block !important;
+  object-fit: cover !important;
+  object-position: center 18% !important;
+  transform: scale(1.035);
+  filter: blur(8px) saturate(.9) brightness(.68);
+  opacity: .82;
+  z-index: 0;
 }
 .character-catalog-grid .genshin-card.archive-card .art-frame.unit-cinematic .unit-portrait {
+  position: absolute;
+  inset: -2px !important;
+  width: calc(100% + 4px) !important;
+  max-width: none !important;
+  height: calc(100% + 4px) !important;
+  object-fit: cover !important;
+  object-position: center clamp(8%, calc(var(--custom-splash-focus, 22%) - 9%), 16%) !important;
+  transform: scale(max(1.24, var(--custom-splash-zoom, 1.08))) !important;
+  transform-origin: center 16%;
+  z-index: 1;
   filter: none !important;
   outline: 0 !important;
   box-shadow: none !important;
@@ -176,6 +200,14 @@
   height: 1.55rem;
   object-fit: contain;
   filter: drop-shadow(0 1px 4px color-mix(in srgb, var(--bg, #111) 70%, transparent));
+}
+.catalog-grid > .archive-card[data-item-category="weapon"] .art-kicker .gi-weapon-type-icon {
+  display: inline-block;
+  width: 1.25rem;
+  height: 1.25rem;
+  margin: 0 .15rem -.3rem 0;
+  object-fit: contain;
+  filter: drop-shadow(0 2px 5px color-mix(in srgb, var(--accent, var(--ds-accent)) 34%, transparent));
 }
 @media (max-width: 1050px) {
   .collection-bar.character-catalog-toolbar { grid-template-columns: 1fr; gap: .45rem; }
@@ -260,3 +292,23 @@
     height: clamp(190px, 55vw, 240px);
   }
 }
+
+/* Full-bleed Genshin splash: eliminate inherited card gutters at every edge. */
+.character-catalog-grid > .genshin-card.archive-card { width: 100%; min-width: 0; padding: 0 !important; }
+.character-catalog-grid > .genshin-card.archive-card > .art-frame.unit-cinematic {
+  position: relative; display: block; width: 100%; min-width: 0; margin: 0;
+  padding: 0 !important; border: 0; box-sizing: border-box; overflow: hidden;
+  background: var(--surface, var(--ds-surface));
+}
+.character-catalog-grid > .genshin-card.archive-card > .art-frame.unit-cinematic > .unit-portrait {
+  position: absolute !important; inset: -3px !important;
+  display: block; width: calc(100% + 6px) !important; min-width: 0; max-width: none !important;
+  height: calc(100% + 6px) !important; margin: 0 !important; padding: 0 !important;
+  object-fit: cover !important; object-position: center 16% !important;
+  transform: scale(max(1.28, var(--custom-splash-zoom, 1.08))) !important;
+  transform-origin: center 16%;
+}
+.catalog-grid > .archive-card[data-item-category="weapon"] .gi-weapon-type-icon {
+  width: 1.45rem; height: 1.45rem; vertical-align: middle; object-fit: contain;
+}
+.guide-source-list { display: block; margin-top: .2rem; color: var(--muted, var(--ds-muted)); font-size: .7rem; }

@@ -25,16 +25,16 @@ test('les fiches utilisent le thème du personnage, sinon celui du jeu actif', (
 });
 
 test('le cache et les ressources de cette version sont identifiés pour le prochain lancement', () => {
-  assert.match(html, /content="1\.0\.39"/);
-  assert.equal(version.trim(), '1.0.39');
+  assert.match(html, /content="1\.0\.41"/);
+  assert.equal(version.trim(), '1.0.41');
   assert.match(html, /design-system\.css\?v=20261108-c0-2/);
   assert.match(html, /global-refresh\.css\?v=20261108-global-1/);
   assert.match(refresh, /prefers-reduced-motion:\s*reduce/);
   assert.match(refresh, /--ds-card-radius:\s*var\(--card-radius/);
   assert.match(refresh, /\.workspace\s*\{[^}]*overflow:\s*auto/s);
   assert.match(html, /src\/design-system\.js\?v=20261108-c0-2/);
-  assert.match(html, /character-polish\.css\?v=20261108-character-polish-6/);
-  assert.match(html, /src\/app\.js\?v=20261108-character-polish-3/);
+  assert.match(html, /character-polish\.css\?v=20261108-character-polish-8/);
+  assert.match(html, /src\/app\.js\?v=20261108-character-polish-5/);
 });
 
 test('les cartes Genshin cadrent le splash et affichent le nom avec les icônes élément et arme', () => {
@@ -48,7 +48,8 @@ test('les cartes Genshin cadrent le splash et affichent le nom avec les icônes 
   assert.match(characterPolish, /\.character-catalog-grid \.genshin-card\.archive-card \.art-frame\.unit-cinematic \.character-name-caption/);
   assert.match(characterPolish, /filter: none !important/);
   assert.match(characterPolish, /\.character-catalog-grid \.genshin-card\.archive-card \{ padding: 0 !important; \}/);
-  assert.match(characterPolish, /\.character-catalog-grid \.genshin-card\.archive-card \{ border-right: 0 !important; \}/);
+  assert.match(characterPolish, /\.character-catalog-grid \.genshin-card\.archive-card \.art-frame\.unit-cinematic\s*\{[^}]*overflow: hidden/s);
+  assert.match(characterPolish, /\.unit-portrait\s*\{[^}]*max-width: none !important/s);
   assert.match(characterPolish, /data-item-category="weapon"\][\s\S]*?height: clamp\(205px, 19vw, 278px\)/);
   assert.match(characterPolish, /data-item-category="artifact"\][\s\S]*?object-fit: contain/);
   assert.match(characterPolish, /\.collection-bar\.character-catalog-toolbar[\s\S]*?grid-template-columns: max-content minmax\(0, 1fr\)/);
