@@ -343,3 +343,9 @@ Source : pièce jointe de l’utilisateur et référence cartes-apercu (8).html.
 - [ ] 13. VÉRIFICATION FINALE ET PUBLICATION · Compare `docs/INVENTAIRE.md` à l'application finale : aucune fonctionnalité perdue.
 - [ ] 13. VÉRIFICATION FINALE ET PUBLICATION · Mets à jour `docs/SUIVI.md` (toutes les cases `[x]` ou `[!]` avec raison), `docs/NOUVEAUTES.md`, `docs/AUTOMATISATION.md`, `docs/AUDIT-CARTES.md`, `docs/COMPAGNONS.md`, `docs/INSTALLER-SUR-IPHONE.md`, ainsi que les captures dans `docs/captures/`.
 - [ ] 13. VÉRIFICATION FINALE ET PUBLICATION · PUBLIE TOUT sur GitHub (commit final + push), puis donne ta réponse finale selon la règle 10 de la section 0.
+
+## Correctif ciblé 1.0.42 — 8 novembre 2026
+- [x] Catalogue Genshin · Le splash remplit le cadre sans liseré droit visible; cadrage du visage conservé. Vérifié par test de contrat CSS/DOM. `da422c59cfc200bca75c1539a99f0ded9ec9eb62`.
+- [x] Fiche d'arme · Le type d'arme est représenté par l'icône locale correspondante, avec repli texte si le type ne peut être reconnu. Vérifié par test de contrat. `da422c59cfc200bca75c1539a99f0ded9ec9eb62`.
+- [x] Guides et compatibilité Genshin · Parsing des builds Genshin.gg/GenshinFlex tolérant à l'ordre des attributs HTML, normalisation accents/ponctuation, recommandations multi-sources, cache disque et indication honnête de couverture. Vérifié par 7 tests Python et parsing réel (128 entrées Genshin.gg, Mualani GenshinFlex). `da422c59cfc200bca75c1539a99f0ded9ec9eb62`.
+- Limite connue : « 100 % » des combinaisons n'est pas garanti par les sites sources; seules leurs recommandations publiées sont affichées, sans inventer de compatibilités.
