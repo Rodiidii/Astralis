@@ -9,13 +9,14 @@ const [worker, html, css] = await Promise.all([
 ]);
 
 test('le service worker renouvelle le shell et précharge le style des équipes', () => {
-  assert.match(worker, /astralis-shell-v40/);
+  assert.match(worker, /astralis-shell-v41/);
   assert.match(worker, /'\/team-layout-fix\.css'/);
   assert.match(worker, /'\/design-system\.css'/);
   assert.match(worker, /'\/global-refresh\.css'/);
   assert.match(worker, /'\/topbar-resources\.css'/);
   assert.match(worker, /'\/src\/wish-pulls\.js'/);
   assert.match(worker, /'\/src\/character-content\.js'/);
+  assert.match(worker, /'\/src\/rich-text\.js'/);
 });
 
 test('les ressources versionnées sont cherchées exactement avant le repli hors ligne', () => {
@@ -26,7 +27,7 @@ test('les ressources versionnées sont cherchées exactement avant le repli hors
 
 test('l’index force le rechargement du CSS d’équipe et de son module', () => {
   assert.match(html, /team-layout-fix\.css\?v=20261108-team-compact-roster-4/);
-  assert.match(html, /src\/app\.js\?v=20261108-character-polish-5/);
+  assert.match(html, /src\/app\.js\?v=20261109-rich-text-1/);
 });
 
 test('la délégation de clics de la modale relaie les actions du builder d’équipe', async () => {

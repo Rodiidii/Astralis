@@ -1,27 +1,5 @@
-const COLOR_TAG = /<color=(#[\da-f]{6}(?:[\da-f]{2})?)>|<\/color>|\n/ig;
-
-function escapeText(value) {
-  return String(value).replace(/[&<>"']/g, character => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[character]);
-}
-
-export function renderGameText(value) {
-  const text = String(value ?? '')
-    .replace(/\\n/g, '\n')
-    .replace(/\r\n?/g, '\n')
-    .replace(/\{LINK#[^}]+\}([\s\S]*?)\{\/LINK\}/gi, '$1');
-  let html = '', cursor = 0, openColors = 0;
-  for (const match of text.matchAll(COLOR_TAG)) {
-    html += escapeText(text.slice(cursor, match.index));
-    const token = match[0];
-    if (token === '\n') html += '<br>';
-    else if (match[1]) { html += `<span style="color:${match[1]}">`; openColors++; }
-    else if (openColors) { html += '</span>'; openColors--; }
-    cursor = match.index + token.length;
-  }
-  html += escapeText(text.slice(cursor));
-  while (openColors-- > 0) html += '</span>';
-  return html;
-}
+export { renderGameText } from './rich-text.js';
+import { renderGameText } from './rich-text.js';
 
 function levelTen(value) {
   if (Array.isArray(value)) return value.length >= 10 ? value[9] : value.length === 1 ? value[0] : value.join(' / ');

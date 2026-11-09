@@ -349,3 +349,7 @@ Source : pièce jointe de l’utilisateur et référence cartes-apercu (8).html.
 - [x] Fiche d'arme · Le type d'arme est représenté par l'icône locale correspondante, avec repli texte si le type ne peut être reconnu. Vérifié par test de contrat. `da422c59cfc200bca75c1539a99f0ded9ec9eb62`.
 - [x] Guides et compatibilité Genshin · Parsing des builds Genshin.gg/GenshinFlex tolérant à l'ordre des attributs HTML, normalisation accents/ponctuation, recommandations multi-sources, cache disque et indication honnête de couverture. Vérifié par 7 tests Python et parsing réel (128 entrées Genshin.gg, Mualani GenshinFlex). `da422c59cfc200bca75c1539a99f0ded9ec9eb62`.
 - Limite connue : « 100 % » des combinaisons n'est pas garanti par les sites sources; seules leurs recommandations publiées sont affichées, sans inventer de compatibilités.
+
+
+### Avancement 2026-11-09 — rendu des descriptions de kit
+- [~] **Textes de jeu ·** Module src/rich-text.js ajouté avec liste de balises autorisées, échappement du HTML non autorisé, couleurs alpha, retours à la ligne, sprites et substitution des paramètres de niveau 10. La fiche de personnage lui transmet désormais les paramètres du kit; intégration aux autres pages et balayage complet des données restent à faire. Vérification : 36 tests Node et 9 tests Python passent.

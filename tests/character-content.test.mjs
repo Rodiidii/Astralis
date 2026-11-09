@@ -21,3 +21,26 @@ test('les multiplicateurs Lunaris issus des paramètres affichent uniquement le 
   const skill = { attributes: { labels: ['DGT 1er coup'], parameters: { param1: Array.from({ length: 15 }, (_, index) => `${index + 1}%`) } } };
   assert.deepEqual(skillValuesAtLevel(skill), ['DGT 1er coup · Niv. 10 : 10%']);
 });
+
+test('le formatage gère paragraphes, alpha, styles et paramètres de niveau', () => {
+  const source = '<color=#FFD780FF>Attaque normale</color>\\nEnchaîne.\\n\\n<b>Puissance</b> : {param1:F1P}';
+  const html = renderGameText(source, { level: 10, parameters: { param1: Array.from({ length: 15 }, (_, i) => (i + 1) / 100) } });
+  assert.equal(html, '<span style="color:#FFD780FF">Attaque normale</span><br>Enchaîne.<br><br><b>Puissance</b> : 10,0%');
+  assert.doesNotMatch(html, /<color|\\\\n|\{param/i);
+});
+
+test('les balises autorisées restent sûres et les balises inconnues sont échappées', () => {
+  const html = renderGameText('<i>italique</i> <u>souligné</u> <size=999>grand</size> <sprite=ElementPyro> <img src=x onerror=alert(1)>');
+  assert.equal(html, '<i>italique</i> <u>souligné</u> <span style="font-size:48px">grand</span> <span class="game-sprite" role="img" aria-label="ElementPyro">✦</span> &lt;img src=x onerror=alert(1)&gt;');
+  assert.doesNotMatch(html, /<img/i);
+  assert.match(html, /&lt;img src=x onerror=alert\(1\)&gt;/i);
+});
+
+test('un paramètre inconnu ne laisse pas une séquence brute dans le texte', () => {
+  assert.equal(renderGameText('DGT {PARAM_INCONNU:F1P}'), 'DGT —');
+});
+
+test('les sprites nommés et les paramètres déjà exprimés en pourcentage sont rendus correctement', () => {
+  const html = renderGameText('<sprite name=ElementPyro> {param1:F1P}', { parameters: { param1: ['12.5%'] } });
+  assert.equal(html, '<span class="game-sprite" role="img" aria-label="ElementPyro">✦</span> 12,5%');
+});
