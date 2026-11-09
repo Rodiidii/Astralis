@@ -1,3 +1,9 @@
+# 1.0.46 — 9 novembre 2026
+
+- Étend le Laboratoire de dégâts : import GOOD avec aperçu et dédoublonnage, filtres de sets/stats, contraintes de priorité, comparaison de build, analyse de sensibilité et résultats d’optimisation.
+- Rend les calculs de dégâts et de réactions vérifiables ; les données manquantes restent explicitement non confirmées.
+- Ajoute des tests de référence pour les formules, l’inventaire et l’optimiseur.
+
 # 1.0.42 — 8 novembre 2026
 
 - Étend les correspondances Genshin.gg/GenshinFlex avec normalisation des accents, lecture tolérante de leur HTML et cache disque de secours.
