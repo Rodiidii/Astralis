@@ -1,0 +1,22 @@
+{
+  "schemaVersion": 1,
+  "games": {
+    "gi": {
+      "lunaris": {
+        "versionUrl": "https://api.lunaris.moe/data/version.json",
+        "dataTemplate": "https://api.lunaris.moe/data/{version}/{file}"
+      },
+      "genshinDb": {
+        "apiBase": "https://genshin-db-api.vercel.app/api/v5"
+      }
+    },
+    "hsr": {
+      "catalogBase": "/data/hsr",
+      "supplemental": "assets/data/hsr-nanoka-{file}.json"
+    },
+    "ww": {
+      "catalogBase": "/data/ww",
+      "materials": "assets/data/ww-items.json"
+    }
+  }
+}

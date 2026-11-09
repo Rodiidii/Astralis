@@ -1,6 +1,7 @@
 import { getLocal, putLocal } from './persistence.js?v=20261107-stability-6';
 import { ic } from './icons.js?v=20261107-stability-6';
 import { talentValuesAtLevel } from './character-content.js?v=20261108-character-polish-1';
+import { importSources } from './import-sources.js?v=20261109-sources-1';
 
 export const GAMES = {
   hsr: { label: 'Honkai: Star Rail', short: 'Star Rail', icon: ic('hsr'), accent: '#c1a7ff', source: 'StarRailStaticAPI' },
@@ -27,7 +28,11 @@ function cleanCatalogRows(rows) {
     return !retiredPreviewIds.has(id) && !(row?.preRelease && ['mitya', 'lily', 'starsealed-edict'].some(key => id === key || name === key));
   });
 }
-function cacheTtl(){try{const days=Number(JSON.parse(localStorage.getItem('astralis:preferences')||'{}').dataRefreshDays)||1;return Math.max(1,Math.min(30,days))*24*60*60*1000;}catch{return 24*60*60*1000;}}
+const DATA_REFRESH_INTERVAL = 6 * 60 * 60 * 1000;
+function cacheTtl(){return DATA_REFRESH_INTERVAL;}
+const syncLogKey='astralis:data-sync-log';
+function recordSync(entry){const row={at:Date.now(),...entry};try{const rows=JSON.parse(localStorage.getItem(syncLogKey)||'[]');localStorage.setItem(syncLogKey,JSON.stringify([row,...(Array.isArray(rows)?rows:[])].slice(0,100)));}catch{}if(typeof window!=='undefined')window.dispatchEvent(new CustomEvent('astralis:data-sync',{detail:row}));return row;}
+export function dataSyncLog(){try{const rows=JSON.parse(localStorage.getItem(syncLogKey)||'[]');return Array.isArray(rows)?rows:[];}catch{return [];}}
 const MAX_JSON_BYTES = 16 * 1024 * 1024;
 
 export const slugify = value => String(value ?? '')
@@ -82,7 +87,7 @@ async function json(url, signal) {
     const joined = new Uint8Array(total); let offset = 0;
     for (const chunk of chunks) { joined.set(chunk, offset); offset += chunk.byteLength; }
     payload = new TextDecoder().decode(joined);
-  } else payload = await response.text();
+  } else { payload = await response.text(); if (new TextEncoder().encode(payload).byteLength > MAX_JSON_BYTES) throw new Error('Mise à jour ignorée : la base dépasse la limite locale de 16 Mo.'); }
   const result = JSON.parse(payload);
   if (result?.error) throw new Error(result.detail || result.error);
   return result;
@@ -109,7 +114,8 @@ export async function catalog(game, category, { force = false } = {}) {
             catalogCache.set(key, { items, savedAt: Date.now() });
             putLocal('cache', `catalog:${key}`, { items, savedAt: Date.now(), source: GAMES[game].source }).catch(() => {});
             window.dispatchEvent(new CustomEvent('astralis:catalog-updated', { detail: key }));
-          }).catch(() => {}).finally(() => refreshing.delete(key));
+            recordSync({game,category,status:'ok',count:items.length,background:true});
+          }).catch(error => {recordSync({game,category,status:'error',message:String(error?.message||error),background:true});}).finally(() => refreshing.delete(key));
           refreshing.set(key, refresh);
         }
         if (cleanItems.length !== saved.items.length) putLocal('cache', `catalog:${key}`, { ...saved, items: cleanItems }).catch(() => {});
@@ -123,19 +129,20 @@ export async function catalog(game, category, { force = false } = {}) {
     const savedAt = Date.now();
     catalogCache.set(key, { items, savedAt });
     putLocal('cache', `catalog:${key}`, { items, savedAt, source: GAMES[game].source }).catch(() => {});
+    recordSync({game,category,status:'ok',count:items.length,source:GAMES[game]?.source||game});
     return items;
-  }).catch(error => { if (cached?.items && !force) { catalogCache.set(key, cached); return cached.items; } catalogCache.delete(key); throw error; });
+  }).catch(error => { recordSync({game,category,status:'error',message:String(error?.message||error)}); if (cached?.items && !force) { catalogCache.set(key, cached); return cached.items; } catalogCache.delete(key); throw error; });
   catalogCache.set(key, { pending });
   return pending;
 }
 
-async function fetchLunarisGi(category) {
-  const meta=await json('https://api.lunaris.moe/data/version.json',AbortSignal.timeout(20000));
+async function fetchLunarisGi(category, source) {
+  const meta=await json(source.versionUrl,AbortSignal.timeout(20000));
   const version=String(meta?.version||'');
   if(!/^\d+\.\d+\.\d+$/.test(version))throw new Error('Version Lunaris invalide.');
   const file=category==='character'?'charlist.json':category==='weapon'?'weaponlist.json':category==='artifact'?'artifactlist.json':null;
   if(!file)return null;
-  const raw=await json(`https://api.lunaris.moe/data/${version}/${file}`,AbortSignal.timeout(30000));
+  const raw=await json(source.dataTemplate.replace('{version}',encodeURIComponent(version)).replace('{file}',encodeURIComponent(file)),AbortSignal.timeout(30000));
   const rows=Object.entries(raw||{}).map(([id,row])=>{
     const rarity=String(row.qualityType||'').includes('ORANGE')?5:String(row.qualityType||'').includes('PURPLE')?4:Number(row.rarity)||0;
     if(category==='character')return {id,name:row.frName||row.enName||row.chsName, enName:row.enName,rarity,element:row.element,weaponType:row.weaponType,version,sourceVersion:version,images:{filename_icon:row.CardImg||`UI_Gacha_AvatarIcon_${row.enName}`,filename_gachaSplash:row.GachaImg||`UI_Gacha_AvatarImg_${row.enName}`,lunarisIcon:row.CardImg,lunarisSplash:row.GachaImg},introduction:row.description||'',description:row.description||'',ascensionStats:row.ascensionStats||{}};
@@ -146,20 +153,22 @@ async function fetchLunarisGi(category) {
 }
 
 async function fetchCatalog(game, category, force) {
+  const sources=await importSources();
   let data;
   if (game === 'gi') {
     const file = category === 'character' ? 'characters' : category === 'weapon' ? 'weapons' : category === 'artifact' ? 'artifacts' : category==='material'?'materials':'';
     if (file) {
-      const lunaris=await fetchLunarisGi(category).catch(()=>null);
+      const lunaris=await fetchLunarisGi(category,sources.games.gi.lunaris).catch(()=>null);
       const endpoint = file;
-      const url = `https://genshin-db-api.vercel.app/api/v5/${endpoint}?query=names&matchCategories=true&verboseCategories=true&queryLanguages=french&resultLanguage=French`;
+      const url = `${sources.games.gi.genshinDb.apiBase}/${endpoint}?query=names&matchCategories=true&verboseCategories=true&queryLanguages=french&resultLanguage=French`;
       const secondary=await json(url, AbortSignal.timeout(30000)).catch(()=>null);
       if(lunaris?.items?.length){
         const normName=value=>String(value||'').normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase().replace(/[^a-z0-9]/g,'');
         const extras=Array.isArray(secondary)?secondary:Object.values(secondary||{});
         const byName=new Map(extras.map(row=>[normName(row.name||row.enName),row]));
         data=lunaris.items.map(row=>({...((byName.get(normName(row.enName))||byName.get(normName(row.name)))||{}),...row,images:{...((byName.get(normName(row.enName))||{}).images||{}),...(row.images||{})}}));
-      } else data=secondary||await json(`assets/data/gi-${file}.json`,AbortSignal.timeout(30000));
+      } else if(secondary)data=secondary;
+      else data=await json(`assets/data/gi-${file}.json`,AbortSignal.timeout(30000));
       // The live database has French text; the bundled Hakushin-era export is
       // retained only as a complete source for stable icon filenames and costs.
       try {
@@ -181,16 +190,16 @@ async function fetchCatalog(game, category, force) {
   } else if (game === 'hsr') {
     const file = category === 'character' ? 'character' : category === 'weapon' ? 'lightcone' : category === 'artifact' ? 'relicset' : category==='material'?'item':'';
     if (file) {
-      const supplemental = await json(`assets/data/hsr-nanoka-${file}.json`, AbortSignal.timeout(30000));
-      const base = ['character','weapon','artifact'].includes(category) ? await json(`/data/hsr/${category}${force ? '?refresh=1' : ''}`, AbortSignal.timeout(30000)).catch(() => ({})) : {};
+      const supplemental = await json(sources.games.hsr.supplemental.replace('{file}',encodeURIComponent(file)), AbortSignal.timeout(30000));
+      const base = ['character','weapon','artifact'].includes(category) ? await json(`${sources.games.hsr.catalogBase}/${category}${force ? '?refresh=1' : ''}`, AbortSignal.timeout(30000)).catch(() => ({})) : {};
       const merged = { ...supplemental, ...base };
       data = Object.fromEntries(Object.entries(merged).map(([id, value]) => {
         const nanoka = supplemental[id] || {};
         return [id, { ...value, id, name: value.name || nanoka.item_name || nanoka.fr || nanoka.en, nanokaIcon: nanoka.icon, item_figure_icon_path:nanoka.item_figure_icon_path, en: nanoka.en, path: value.path || nanoka.baseType, element: value.element || nanoka.damageType, baseType: nanoka.baseType, damageType: nanoka.damageType, rarity: nanoka.rank?.match(/Type(\d+)/)?.[1] || ({SuperRare:5,VeryRare:4,Rare:3,Normal:2,NotNormal:1})[nanoka.rarity] || value.rarity }];
       }));
-    } else data = await json(`/data/${game}/${category}${force ? '?refresh=1' : ''}`, AbortSignal.timeout(30000));
-  } else if (game === 'ww' && category==='material') data=await json('assets/data/ww-items.json',AbortSignal.timeout(30000));
-  else data = await json(`/data/${game}/${category}${force || game === 'ww' ? '?refresh=1' : ''}`, AbortSignal.timeout(30000));
+    } else data = await json(`${sources.games.hsr.catalogBase}/${category}${force ? '?refresh=1' : ''}`, AbortSignal.timeout(30000));
+  } else if (game === 'ww' && category==='material') data=await json(sources.games.ww.materials,AbortSignal.timeout(30000));
+  else data = await json(`${sources.games[game]?.catalogBase||`/data/${game}`}/${category}${force || game === 'ww' ? '?refresh=1' : ''}`, AbortSignal.timeout(30000));
     const entries = Array.isArray(data) ? data.map((value, index) => [value?.id ?? index, value]) : Object.entries(data || {});
     const items = entries.map(([id, value]) => normalize(game, category, value, id))
       .filter(item => item._name && item._name !== 'Sans nom' && !/^\s*\.{2,}\s*$/.test(item._name));

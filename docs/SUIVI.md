@@ -357,3 +357,6 @@ Source : pièce jointe de l’utilisateur et référence cartes-apercu (8).html.
 ### Avancement 2026-11-09 — laboratoire de dégâts, recherche d'attaques
 - [~] **Laboratoire ·** Recherche indexée une seule fois dans les talents chargés, accents/casse normalisés, alias anglais et fautes courantes tolérées; ajout direct à la rotation avec icône et sélection du personnage. Styles responsifs et mouvement réduit. Tests ciblés à valider sur vraies données et interface avant de cocher le critère global.
 - Version 1.0.44 préparée; les autres chantiers du cahier restent ouverts.
+
+### Avancement 2026-11-09 — synchronisation des catalogues
+- [~] **Import de données (chantier I) ·** Synchronisation du jeu actif cadencée à 6 h, bouton de synchro sur les quatre catégories, manifeste `import-sources.json` validé avec secours local, plafond JSON 16 Mio, journal des succès/échecs, cache gardé si une source tombe. Vérifié : `node --check` sur les modules modifiés, `node --test tests/*.test.mjs` (41/41), `git diff --check`. Le service de synchronisation reste dépendant des catalogues réellement servis par les sources; couverture HSR/Wuwa et file de validation des personnages restent incomplètes.
