@@ -353,3 +353,7 @@ Source : pièce jointe de l’utilisateur et référence cartes-apercu (8).html.
 
 ### Avancement 2026-11-09 — rendu des descriptions de kit
 - [~] **Textes de jeu ·** Module src/rich-text.js ajouté avec liste de balises autorisées, échappement du HTML non autorisé, couleurs alpha, retours à la ligne, sprites et substitution des paramètres de niveau 10. La fiche de personnage lui transmet désormais les paramètres du kit; intégration aux autres pages et balayage complet des données restent à faire. Vérification : 36 tests Node et 9 tests Python passent.
+
+### Avancement 2026-11-09 — laboratoire de dégâts, recherche d'attaques
+- [~] **Laboratoire ·** Recherche indexée une seule fois dans les talents chargés, accents/casse normalisés, alias anglais et fautes courantes tolérées; ajout direct à la rotation avec icône et sélection du personnage. Styles responsifs et mouvement réduit. Tests ciblés à valider sur vraies données et interface avant de cocher le critère global.
+- Version 1.0.44 préparée; les autres chantiers du cahier restent ouverts.

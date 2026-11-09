@@ -3,6 +3,7 @@ import assert from 'node:assert/strict';
 import { RESISTANCE_MULTIPLIER, DEFENSE_MULTIPLIER, calculateHit, finalStats } from '../src/damage-engine.js';
 import { normalizeGoodArtifact, validateArtifact, pruneDominatedArtifacts } from '../src/artifact-model.js';
 import { evaluateDamageStats, optimizeArtifacts } from '../src/optimizer.js';
+import { buildAttackSearchIndex, attackMatches, foldAttackQuery } from '../src/lab-page.js';
 
 test('résistance et défense utilisent les formules Genshin',()=>{
   assert.equal(RESISTANCE_MULTIPLIER(.1),.9);
@@ -45,6 +46,18 @@ test('un bonus 4 pièces cumule aussi le bonus 2 pièces',()=>{
   const input={baseStats:{atk:1000,critRate:0,critDmg:0},bonuses:{},setEffects:{A:{two:{atkPct:18},four:{dmgBonus:35}}},hit:{baseStat:'atk',talentMultiplier:1,attackerLevel:90,enemyLevel:100,enemyResistance:.1}};
   const result=evaluateDamageStats(input,{},new Map([['A',4]]));
   assert.equal(result.bonuses.atkPct,18);assert.equal(result.stats.dmgBonus,35);assert.equal(result.stats.atk,1180);
+});
+test('index de talents construit une fois et recherche accents, alias anglais et fautes',()=>{
+  const character={_id:'char-1',_name:'Personnage test'};
+  const index=buildAttackSearchIndex([
+    {id:'skill-1',character,name:'Réaction de Vaporisation',nameEn:'Vaporize Reaction',kind:'Compétence',description:'Inflige des dégâts Pyro.'},
+    {id:'skill-2',character:{_id:'char-2',_name:'Autre'},name:'Lame stellaire',kind:'Attaque',description:'Frappe rapide.'}
+  ]);
+  assert.equal(foldAttackQuery('Vaporisation Éclât'), 'vaporisation eclat');
+  assert.equal(attackMatches(index,'vaporisation')[0].id,'skill-1');
+  assert.equal(attackMatches(index,'vaporize')[0].id,'skill-1');
+  assert.equal(attackMatches(index,'vaporisaton')[0].id,'skill-1');
+  assert.equal(attackMatches(index,'vaporisation')[0].character._name,'Personnage test');
 });
 test('le bonus élémentaire sélectionné influe sur le résultat optimisé',()=>{
   const input={baseStats:{atk:1000,critRate:0,critDmg:0},bonuses:{},hit:{baseStat:'atk',talentMultiplier:1,attackerLevel:90,enemyLevel:100,enemyResistance:.1,elementKey:'pyro'}};

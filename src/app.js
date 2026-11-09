@@ -6,7 +6,7 @@ import { ic, stars, emblemIcon } from './icons.js?v=20261107-stability-6';
 import { LORE_REGIONS, LORE_FACTIONS, LORE_AGES, LORE_ENTITIES } from './lore.js?v=20261107-stability-6';
 import { ASSISTANT_FEATURES, ASSISTANT_GROUPS, ASSISTANT_PROFILE_KEY, ASSISTANT_PROFILES_KEY, ASSISTANT_SUGGESTIONS, readAssistantProfile, readAssistantProfiles, saveAssistantProfile, selectAssistantProfile, addAssistantProfile, deleteAssistantProfile, assistantReply, characterNudge } from './assistant.js?v=20261107-stability-6';
 import { BINDER_CARDS, BINDER_CHARACTERS } from './collection-data.js?v=20261107-stability-6';
-import { renderDamageLab, initDamageLab } from './lab-page.js?v=20261107-lab-2';
+import { renderDamageLab, initDamageLab } from './lab-page.js?v=20261109-lab-search-1';
 import { wishPullPresentation } from './wish-pulls.js?v=20261108-wish-presentation-1';
 
 const root = document.querySelector('#app');

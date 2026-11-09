@@ -25,8 +25,8 @@ test('les fiches utilisent le thème du personnage, sinon celui du jeu actif', (
 });
 
 test('le cache et les ressources de cette version sont identifiés pour le prochain lancement', () => {
-  assert.match(html, /content="1\.0\.43"/);
-  assert.equal(version.trim(), '1.0.43');
+  assert.match(html, /content="1\.0\.44"/);
+  assert.equal(version.trim(), '1.0.44');
   assert.match(html, /design-system\.css\?v=20261108-c0-2/);
   assert.match(html, /global-refresh\.css\?v=20261108-global-1/);
   assert.match(refresh, /prefers-reduced-motion:\s*reduce/);
@@ -34,7 +34,7 @@ test('le cache et les ressources de cette version sont identifiés pour le proch
   assert.match(refresh, /\.workspace\s*\{[^}]*overflow:\s*auto/s);
   assert.match(html, /src\/design-system\.js\?v=20261108-c0-2/);
   assert.match(html, /character-polish\.css\?v=20261108-build-guides-1/);
-  assert.match(html, /src\/app\.js\?v=20261109-rich-text-1/);
+  assert.match(html, /src\/app\.js\?v=20261109-lab-search-1/);
 });
 
 test('les cartes Genshin cadrent le splash et affichent le nom avec les icônes élément et arme', () => {
