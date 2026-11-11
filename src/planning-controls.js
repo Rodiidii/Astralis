@@ -2,7 +2,7 @@ let specialtyCache;
 import {simulateWishOrder} from './wish-simulation.js?v=80';
 import {simulateFarm} from './farm-simulator.js?v=20261111-tiers-1';
 
-import {periodIncome,orderedGuarantees,forecastVersions,forecastBannerDate} from './planning-rules.js?v=82';
+import {incomeBreakdown,periodIncome,orderedGuarantees,forecastVersions,forecastBannerDate} from './planning-rules.js?v=82';
 const escape=value=>String(value??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 function read(key,fallback={}){try{return JSON.parse(localStorage.getItem(key)||JSON.stringify(fallback));}catch{return fallback;}}
 class TalentTargets extends (globalThis.HTMLElement||class {}){
@@ -70,7 +70,7 @@ class WishObjectives extends (globalThis.HTMLElement||class {}){
   this.querySelector('[data-soft-result]').textContent=need+' vœux jusqu’au seuil choisi · manque '+missing+' vœux ('+Math.max(0,(need-Math.max(0,Number(plan.wishes)||0))*160-Math.max(0,Number(plan.currentPrimos??plan.primos)||0))+' primogemmes).';
   const result=periodIncome(this.data.income);
   this.querySelector('[data-income-result]').textContent=result.error||result.primos.toLocaleString('fr-FR')+' primogemmes + '+result.wishes+' vœux · '+result.patches+' versions commencées dans la période · événements le 3e et le 4e dimanche, puis le 5e mercredi après lancement (J18/J25/J35).';
-  this.querySelector('[data-income-ledger]').innerHTML=result.ledger.map(row=>'<p>'+row.date+' · '+escape(row.label)+' · '+row.primos+' primogemmes + '+row.wishes+' vœux</p>').join('');
+  this.querySelector('[data-income-ledger]').innerHTML='<table class="income-summary-table"><caption>Origine du budget estimé</caption><thead><tr><th>Source</th><th>Primos</th><th>Vœux</th></tr></thead><tbody>'+incomeBreakdown(result.ledger).map(row=>'<tr><th>'+escape(row.label)+'</th><td>'+row.primos.toLocaleString('fr-FR')+'</td><td>'+row.wishes+'</td></tr>').join('')+'</tbody></table>'+result.ledger.map(row=>'<p>'+row.date+' · '+escape(row.label)+' · '+row.primos+' primogemmes + '+row.wishes+' vœux</p>').join('');
  }
 }
 if(typeof customElements!=='undefined'){customElements.define('farm-talent-targets',TalentTargets);customElements.define('wish-objectives',WishObjectives);}

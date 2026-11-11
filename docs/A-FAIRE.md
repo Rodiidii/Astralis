@@ -100,13 +100,11 @@ Règles et détails : [MISSION-AUTONOME-COMPLETE.md](MISSION-AUTONOME-COMPLETE.m
 
 - [ ] **RESTE-044** — Spécialités : capacité du monde sourcée, repousse 48 h, nombre de passages, stocks partagés, pas de capacité inventée.
 
-- [ ] **RESTE-046** — Solde = destinées + floor(primos/160), restes conservés. Solde éditable à son emplacement, gains journaliers crédités une seule fois et historisés.
 
 - [ ] **RESTE-047** — Objectifs : pity/garantie/radiance actualisables, seuils personnels 80 perso/65 arme demandés, copies/constellations/raffinements actuels et cibles, ordre de plusieurs objectifs et déficit de garantie. Dates versions/phases estimées jusqu’à 8.8 clairement signalées.
 
 - [ ] **RESTE-048** — Deux graphes (solde réel / réel + estimation), probabilités par objectif, scénarios de pertes de 50/50 et Capture de radiance documentée, pas de garantie inventée.
 
-- [ ] **RESTE-049** — Revenus période : 60/jour +90 si Faveur ; cycle 42 j depuis 04/11/2026 puis 16/12/2026 ; code live +300 le deuxième vendredi avant prochaine MAJ ; +450 à J7 ; +40 à J20 ; boutique 5 vœux le 1er ; Théâtre le 1er et Abysses le 16 avec montants moyens saisis ; événements troisième dimanche +1000, quatrième dimanche +420, cinquième mercredi après lancement +420 ; autres +140/MAJ, +500 et 2 vœux/MAJ ; cartes environ 3000 selon scénario ; cadeaux/multis/primos libres saisissables ; transfert vers graphe théorique.
 
 - [ ] **RESTE-052** — Actualités officielles séparées des sessions/objectifs de farm ; calendrier compact avec plages événements/bannières/endgames, MAJ, compteurs et rafraîchissement ; historiques/prochaines rotations si vraiment publiés, pas de composition copiée pour remplir.
 

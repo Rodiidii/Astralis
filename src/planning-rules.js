@@ -14,6 +14,11 @@ export function craftDeficits(required,owned){
  }
  return {missing,surplus};
 }
+export function incomeBreakdown(ledger=[]){
+ const groups=new Map();
+ for(const row of ledger){const label=/Commissions/.test(row.label)?'Quotidiennes et Faveur':/Exploration/.test(row.label)?'Exploration':/Ajouts personnels|offerte/.test(row.label)?'Ajouts et cadeaux':/Théâtre|Abysses/.test(row.label)?'Endgames':/Boutique/.test(row.label)?'Boutique':/récompenses|Récompenses|Codes/.test(row.label)?'Versions et codes':'Événements';const group=groups.get(label)||{label,primos:0,wishes:0};group.primos+=Number(row.primos)||0;group.wishes+=Number(row.wishes)||0;groups.set(label,group);}
+ return [...groups.values()].filter(row=>row.primos||row.wishes);
+}
 export function periodIncome(options){
  const start=dateNumber(options.start),end=dateNumber(options.end);
  if(!Number.isFinite(start)||!Number.isFinite(end)||end<start||end-start>DAY*3650)return {error:'Choisis une période valide de dix ans maximum.',primos:0,wishes:0,ledger:[]};

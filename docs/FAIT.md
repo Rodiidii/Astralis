@@ -707,3 +707,31 @@ Fiches de récolte détaillées livrées : image, quantité restante, capacité 
 ## FARM-JOURNEE-20261111
 
 Détail accessible de chaque journée livré avec sessions complètes, matériaux, personnages, résine et accès à la planification. Vérification navigateur et 202 tests unitaires réussis. Le lancement mobile WebKit et le rechargement hors ligne Chromium passent avec le nouveau module de calendrier.
+
+## RESTE-046 · 2026-11-11T16:15:56+01:00
+
+- [x] **RESTE-046** — Solde = destinées + floor(primos/160), restes conservés. Solde éditable à son emplacement, gains journaliers crédités une seule fois et historisés.
+
+# Vœux et revenus de période
+
+204 tests unitaires réussis. `tests/wallet-period.test.mjs` vérifie la formule destinées + floor(primos/160), les restes, la priorité d’un solde explicitement nul sur une ancienne valeur, les nombres invalides et le crédit quotidien historisé une seule fois.
+
+La période du 4 novembre au 16 décembre 2026 est testée sur les échéances demandées : commissions/Faveur, deux débuts de versions, J7, J20, dimanches, mercredi J35, codes le 4 décembre, boutique/théâtre le 1er et abysses le 16, exploration et ajouts personnels. Le tableau par origine s’additionne exactement aux primogemmes et vœux du résultat. Les scénarios de cartes/cadeaux restent personnels, visibles et désactivables ; les totaux sont transférables au budget théorique.
+
+Le parcours `tests/rest_workshop_browser.py` vérifie les champs de solde, l’ajout des gains, le refus du deuxième clic quotidien, le reset mensuel, les journaux et comparaisons ainsi que les cases des scénarios. Les corrections de solde sont exclues des gains. Le nouveau tableau décompose le budget par source. Les règles de revenus sont celles du scénario explicitement demandé, pas une certification d’annonces futures du jeu.
+
+Les calculs probabilistes de tous les scénarios et la Capture de radiance restent un chantier distinct ; cette validation ne clôture pas RESTE-047/048.
+
+## RESTE-049 · 2026-11-11T16:15:56+01:00
+
+- [x] **RESTE-049** — Revenus période : 60/jour +90 si Faveur ; cycle 42 j depuis 04/11/2026 puis 16/12/2026 ; code live +300 le deuxième vendredi avant prochaine MAJ ; +450 à J7 ; +40 à J20 ; boutique 5 vœux le 1er ; Théâtre le 1er et Abysses le 16 avec montants moyens saisis ; événements troisième dimanche +1000, quatrième dimanche +420, cinquième mercredi après lancement +420 ; autres +140/MAJ, +500 et 2 vœux/MAJ ; cartes environ 3000 selon scénario ; cadeaux/multis/primos libres saisissables ; transfert vers graphe théorique.
+
+# Vœux et revenus de période
+
+204 tests unitaires réussis. `tests/wallet-period.test.mjs` vérifie la formule destinées + floor(primos/160), les restes, la priorité d’un solde explicitement nul sur une ancienne valeur, les nombres invalides et le crédit quotidien historisé une seule fois.
+
+La période du 4 novembre au 16 décembre 2026 est testée sur les échéances demandées : commissions/Faveur, deux débuts de versions, J7, J20, dimanches, mercredi J35, codes le 4 décembre, boutique/théâtre le 1er et abysses le 16, exploration et ajouts personnels. Le tableau par origine s’additionne exactement aux primogemmes et vœux du résultat. Les scénarios de cartes/cadeaux restent personnels, visibles et désactivables ; les totaux sont transférables au budget théorique.
+
+Le parcours `tests/rest_workshop_browser.py` vérifie les champs de solde, l’ajout des gains, le refus du deuxième clic quotidien, le reset mensuel, les journaux et comparaisons ainsi que les cases des scénarios. Les corrections de solde sont exclues des gains. Le nouveau tableau décompose le budget par source. Les règles de revenus sont celles du scénario explicitement demandé, pas une certification d’annonces futures du jeu.
+
+Les calculs probabilistes de tous les scénarios et la Capture de radiance restent un chantier distinct ; cette validation ne clôture pas RESTE-047/048.

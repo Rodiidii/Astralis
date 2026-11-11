@@ -24,11 +24,12 @@ def main():
    seed={'astralis:active-game':'gi','astralis:gi:assistant-profile':json.dumps({'enabled':False,'proactive':False}),'astralis:gi:farm-roster':json.dumps([{'id':'furina','active':True}]),'astralis:gi:wish-plan':json.dumps({'wishes':3,'currentPrimos':100,'characterPity':60,'characterGuarantee':True,'theatreGain':1000,'abyssGain':800,'history':[]})}
    page.add_init_script('for(const [key,value]of Object.entries('+json.dumps(seed)+'))localStorage.setItem(key,value)')
    page.goto(base,wait_until='domcontentloaded');page.wait_for_selector('#astralis-launch-screen',state='detached')
-   page.locator('[data-nav=wishes]').first.click();page.wait_for_selector('wish-wallet')
+   page.locator('[data-nav=wishes]').first.evaluate('(el)=>el.click()');page.wait_for_selector('wish-wallet')
    page.locator('[data-wallet=currentPrimos]').fill('3200');page.locator('[data-wallet=currentPrimos]').press('Tab');page.wait_for_function("JSON.parse(localStorage.getItem('astralis:gi:wish-plan')).currentPrimos===3200")
    page.locator('[data-reward=daily]').click();page.wait_for_function("JSON.parse(localStorage.getItem('astralis:gi:wish-plan')).currentPrimos===3260")
    page.locator('[data-reward=daily]').click();expect(page.locator('wish-wallet [role=status]')).to_contain_text('déjà enregistrée')
    page.locator('[data-reward=reset]').click();page.wait_for_function("JSON.parse(localStorage.getItem('astralis:gi:wish-plan')).wishes===8")
+   expect(page.locator('.income-summary-table tbody tr')).not_to_have_count(0)
    expect(page.locator('.wish-donut')).to_have_count(2);assert page.locator('.wish-history-chart rect').count()==30
    expect(page.locator('.wish-period-comparisons article')).to_have_count(2)
    expect(page.locator('.wish-period-comparisons')).to_contain_text('Cette semaine')
