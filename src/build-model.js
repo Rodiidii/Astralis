@@ -8,11 +8,11 @@ export function normalizeEnkaArtifact(item,index=0) {
     .map(artifactStatKey).find(key=>typeof key==='string'&&!/^\d+$/.test(key))||'';
   const substats=(flat.reliquarySubstats||[]).map(row=>({
     type:artifactStatKey(row.appendPropId??row.appendPropID??row.statType),
-    value:Number(row.statValue??row.propValue),
-  })).filter(row=>row.type&&Number.isFinite(row.value));
+    value:row.statValue??row.propValue,
+  })).filter(row=>row.type&&row.value!=null&&row.value!==''&&Number.isFinite(Number(row.value))).map(row=>({...row,value:Number(row.value)}));
   const slot={EQUIP_BRACER:'flower',EQUIP_NECKLACE:'plume',EQUIP_SHOES:'sands',EQUIP_RING:'goblet',EQUIP_DRESS:'circlet'}[flat.equipType]||ARTIFACT_SLOTS[index];
   const level=Number(item?.reliquary?.level);
-  const mainValue=Number(raw.statValue??raw.propValue);
+  const rawMain=raw.statValue??raw.propValue,mainValue=rawMain==null||rawMain===''?NaN:Number(rawMain);
   const piece={
     slot,slotIndex:ARTIFACT_SLOTS.indexOf(slot),mainType:type,mainValue:Number.isFinite(mainValue)?mainValue:'',
     rarity:Number(flat.rankLevel)||5,level:Number.isFinite(level)?Math.max(0,level-1):'',
@@ -44,10 +44,10 @@ export function levelStatRow(data,level=90,ascended=true) {
 export function pieceSubstats(piece={}) {
   // Editable fields have precedence over a source snapshot.
   if([0,1,2,3].some(i=>Object.hasOwn(piece,'sub'+i+'Type'))){
-    return [0,1,2,3].map(i=>({type:piece['sub'+i+'Type'],value:Number(piece['sub'+i+'Value'])}))
-      .filter(row=>row.type&&Number.isFinite(row.value));
+    return [0,1,2,3].map(i=>({type:piece['sub'+i+'Type'],value:piece['sub'+i+'Value']}))
+      .filter(row=>row.type&&row.value!=null&&row.value!==''&&Number.isFinite(Number(row.value))).map(row=>({...row,value:Number(row.value)}));
   }
-  return (piece.substats||[]).map(row=>({...row,value:Number(row.value)}));
+  return (piece.substats||[]).filter(row=>row.type&&row.value!=null&&row.value!==''&&Number.isFinite(Number(row.value))).map(row=>({...row,value:Number(row.value)}));
 }
 
 export function equippedStatVector(pieces=[]) {
@@ -101,4 +101,22 @@ export function teamCombatStats(totals,buffs=[]){
  if(!totals)return null;
  const bonuses={};for(const row of buffs){if(row.active===false||!row.type||!Number.isFinite(Number(row.value)))continue;bonuses[row.type]=(bonuses[row.type]||0)+Number(row.value);}
  return applyTeamStatBonuses(totals,bonuses);
+}
+
+function canonical(value){
+ if(Array.isArray(value))return value.map(canonical);
+ if(value&&typeof value==='object')return Object.fromEntries(Object.keys(value).sort().map(key=>[key,canonical(value[key])]));
+ return value;
+}
+/** An observed Enka total is valid only for the combat configuration it describes. */
+export function enkaReferenceConfiguration(build={}){
+ return JSON.stringify(canonical({character:String(build.character??''),weapon:String(build.weapon??''),
+  level:Number(build.level)||90,weaponLevel:Number(build.weaponLevelValue)||90,ascended:build.ascended!==false,
+  weaponAscended:build.weaponAscended!==false,refinement:Number(build.weaponRefinement)||1,
+  constellation:String(build.constellation??'C0'),set:String(build.set??''),set2:String(build.set2??''),setMode:build.setMode||'four',
+  sets:(build.pieces||[]).map(piece=>String(piece?.set??'')),gear:equippedStatVector(build.pieces||[]),conditions:build.tcSettings||{}}));
+}
+export function enkaReferenceValid(build={}){
+ return !!build.enkaBaseStats&&['hp','atk','def'].every(key=>Number.isFinite(Number(build.enkaBaseStats[key]))&&Number(build.enkaBaseStats[key])>0)&&
+  typeof build.enkaReference?.configuration==='string'&&build.enkaReference.configuration===enkaReferenceConfiguration(build);
 }

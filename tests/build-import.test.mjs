@@ -47,3 +47,16 @@ test('buffs: nature, cumuls, désactivation et expiration',()=>{
  const p={buffs:[{type:'atkPct',value:20,stacks:2,duration:5},{type:'burstDmg',value:30,active:true},{type:'critRate',value:15,active:false}]};
  assert.deepEqual(activeBuffBonuses(p,0),{atkPct:40,burstDmg:30});assert.deepEqual(activeBuffBonuses(p,5),{burstDmg:30});
 });
+
+test('Enka conserve les principales sablier/coupe/diadème et toutes les sous-stats',()=>{
+ for(const[equipType,prop,value,key]of [['EQUIP_SHOES','FIGHT_PROP_CHARGE_EFFICIENCY',51.8,'er'],['EQUIP_RING','FIGHT_PROP_WATER_ADD_HURT',46.6,'hydroDmg'],['EQUIP_DRESS','FIGHT_PROP_CRITICAL_HURT',62.2,'critDmg']]){
+  const piece=normalizeEnkaArtifact({reliquary:{mainPropId:15008,level:21},flat:{equipType,reliquaryMainstat:{mainPropId:prop,statValue:value},reliquarySubstats:[{appendPropId:'FIGHT_PROP_ATTACK_PERCENT',statValue:10.5},{appendPropId:'FIGHT_PROP_HP',statValue:299},{appendPropId:'FIGHT_PROP_CRITICAL',statValue:7.8},{appendPropId:'FIGHT_PROP_ELEMENT_MASTERY',statValue:23}]}});
+  assert.equal(piece.mainType,key);assert.equal(piece.mainValue,value);assert.equal(piece.substats.length,4);assert.equal(piece.substats[0].value,10.5);
+ }
+});
+test('les valeurs de statistiques absentes restent absentes, sans zéro artificiel',()=>{
+ const piece=normalizeEnkaArtifact({flat:{reliquaryMainstat:{mainPropId:'FIGHT_PROP_CRITICAL',statValue:null,propValue:null},reliquarySubstats:[{appendPropId:'FIGHT_PROP_ATTACK',statValue:null,propValue:null}]}});
+ assert.equal(piece.mainValue,'');assert.equal(piece.substats.length,0);
+ assert.deepEqual(pieceSubstats({sub0Type:'atkPct',sub0Value:''}),[]);
+ assert.deepEqual(pieceSubstats({substats:[{type:'atkPct',value:null}]}),[]);
+});

@@ -4,21 +4,9 @@ Source de travail courante. Un point n’est déplacé vers FAIT.md qu’après 
 
 Règles et détails : [MISSION-AUTONOME-COMPLETE.md](MISSION-AUTONOME-COMPLETE.md). Historique des clôtures : [FAIT.md](FAIT.md).
 
-
-
-
-
-
-
 - [ ] **P0-FARM-04 — Revalider toute la page.** Considérer la page comme non acceptée visuellement. Reprendre les autres exigences de farm ci-dessous : portraits, objectifs compacts, talents individuels, synthèse, priorités, hebdomadaires, calendrier, récoltes, export. Prouver les changements dans la page réellement utilisée, après vérification du serveur et du cache.
 
-
-
-- [ ] **P0-BUILD-01 — Statistiques toujours erronées.** Le dernier message dit exactement « Statistiques du personnage dans son build toujours à » ; la valeur finale n’a pas été écrite. Ne pas inventer « 0 », « 14 k ATQ » ou une autre valeur comme nouvelle observation. Reproduire les anomalies de statistiques déjà signalées, comparer base/arme/artéfacts/sets/buffs/Enka et corriger la cause. Aucun zéro fictif si une donnée manque.
-
 - [ ] **P0-BUILD-02 — Cohérence des vues.** Vérifier les mêmes statistiques dans Mes builds, la fiche personnelle, l’équipe, le laboratoire et le PNG ; contrôler les pourcentages/plats, bonus élémentaires et doubles applications. Tester les changements d’arme, de pièce et de build, puis la persistance après rechargement.
-
-
 
 - [ ] **P0-QA-01 — Preuves.** Fournir captures comparées de ces quatre pages, inspection des images réellement chargées, résultats numériques de référence, interactions et exports réels. Reprendre les cas qui échouent ; ne pas réutiliser une ancienne capture pour prouver une modification nouvelle.
 
@@ -94,11 +82,7 @@ Règles et détails : [MISSION-AUTONOME-COMPLETE.md](MISSION-AUTONOME-COMPLETE.m
 
 - [ ] **RESTE-030** — Textes propres au vrai kit de chaque personnage, noms/effets/coûts et règles de rareté, pas un texte générique commun. Accessibilité, 100+ cartes fluides, effets hors écran suspendus, mouvement réduit.
 
-- [ ] **RESTE-031** — Corriger durablement scintillement/disparition des équipes, boutons inactifs et listes de sets/pièces qui se referment lors des chargements ; chargements d’images stables, sans boucle placeholder/image/vide.
-
 - [ ] **RESTE-032** — Splashs proportionnés et nets ; statistiques simples et vraies ; sous-stats de toutes les pièces déjà équipées visibles ; artéfacts existants importables dans le build.
-
-- [ ] **RESTE-033** — Import Enka : principales de coupe/sablier/diadème exactes, bonus élémentaires non nuls, sous-stats exactes, pas de double comptage ni ATQ aberrante ; export artifactStatKey et démarrage sans erreur.
 
 - [ ] **RESTE-034** — Propriété : constellation possédée pour chaque personnage et nombre possédé pour chaque arme. Passifs/constellations complets, dont conditions Hexerei ; Aino a son splash adapté.
 
@@ -112,7 +96,6 @@ Règles et détails : [MISSION-AUTONOME-COMPLETE.md](MISSION-AUTONOME-COMPLETE.m
 
 - [ ] **RESTE-039** — Stock partagé, priorités par personnage, talents actuels/cibles individuellement ; synthèse 3:1 pour livres et matériaux de monstres APRÈS réservation des besoins de tous les personnages.
 
-
 - [ ] **RESTE-041** — Calendrier : vrais portraits/icônes, philosophies pour les aptitudes, boss normaux/EXP/Mora/artéfacts/hebdomadaires visibles. Plantes hors cases à résine, couronnes non farmables. Repli de liste par défaut, jours valides de talents bleus, jour estimé de fin vert.
 
 - [ ] **RESTE-042** — Scénarios 0–4 jours d’artéfacts/semaine, dates par personnage, recalcul au changement de stock ou de planning manuel ; priorité réordonnable par glisser-déposer.
@@ -121,7 +104,6 @@ Règles et détails : [MISSION-AUTONOME-COMPLETE.md](MISSION-AUTONOME-COMPLETE.m
 
 - [ ] **RESTE-044** — Spécialités : capacité du monde sourcée, repousse 48 h, nombre de passages, stocks partagés, pas de capacité inventée.
 
-
 - [ ] **RESTE-046** — Solde = destinées + floor(primos/160), restes conservés. Solde éditable à son emplacement, gains journaliers crédités une seule fois et historisés.
 
 - [ ] **RESTE-047** — Objectifs : pity/garantie/radiance actualisables, seuils personnels 80 perso/65 arme demandés, copies/constellations/raffinements actuels et cibles, ordre de plusieurs objectifs et déficit de garantie. Dates versions/phases estimées jusqu’à 8.8 clairement signalées.
@@ -129,8 +111,6 @@ Règles et détails : [MISSION-AUTONOME-COMPLETE.md](MISSION-AUTONOME-COMPLETE.m
 - [ ] **RESTE-048** — Deux graphes (solde réel / réel + estimation), probabilités par objectif, scénarios de pertes de 50/50 et Capture de radiance documentée, pas de garantie inventée.
 
 - [ ] **RESTE-049** — Revenus période : 60/jour +90 si Faveur ; cycle 42 j depuis 04/11/2026 puis 16/12/2026 ; code live +300 le deuxième vendredi avant prochaine MAJ ; +450 à J7 ; +40 à J20 ; boutique 5 vœux le 1er ; Théâtre le 1er et Abysses le 16 avec montants moyens saisis ; événements troisième dimanche +1000, quatrième dimanche +420, cinquième mercredi après lancement +420 ; autres +140/MAJ, +500 et 2 vœux/MAJ ; cartes environ 3000 selon scénario ; cadeaux/multis/primos libres saisissables ; transfert vers graphe théorique.
-
-
 
 - [ ] **RESTE-052** — Actualités officielles séparées des sessions/objectifs de farm ; calendrier compact avec plages événements/bannières/endgames, MAJ, compteurs et rafraîchissement ; historiques/prochaines rotations si vraiment publiés, pas de composition copiée pour remplir.
 
@@ -220,13 +200,11 @@ Règles et détails : [MISSION-AUTONOME-COMPLETE.md](MISSION-AUTONOME-COMPLETE.m
 
 - [ ] **RESTE-095** — Garantie de récupérer tous les exports et prochaines rotations malgré des sources indisponibles ; les fichiers précédents sont conservés, mais l’indisponibilité n’est pas résolue.
 
-
 - [ ] **RESTE-097** — Hébergement gratuit HTTPS déployé pour cette application avec les routes dépendant du serveur.
 
 - [ ] **RESTE-098** — Remplacement/hébergement gratuit des fonctions de server.py nécessaires à l’iPhone.
 
 - [ ] **RESTE-099** — Validation WebKit/iPhone de l’installation, du démarrage autonome et du fonctionnement hors ligne.
-
 
 - [ ] **RESTE-101** — Parcours complet de sauvegarde/restauration et rappels pour les données locales de l’iPhone.
 
@@ -258,15 +236,11 @@ Règles et détails : [MISSION-AUTONOME-COMPLETE.md](MISSION-AUTONOME-COMPLETE.m
 
 - [ ] **RESTE-115** — Ampleur/qualité finale des effets par région et fluidité sur la machine de l’utilisateur : pas validées exhaustivement dans toutes les personnalisations, tailles, destinations et configurations.
 
-
 - [ ] **RESTE-117** — Couverture des matériaux, jours de domaine, boss et spécialités pour tous les personnages et futurs ajouts : non certifiée exhaustive.
 
 - [ ] **RESTE-118** — Dates fondées sur des rendements moyens et hypothèses ; mobs/couronnes sont supposés disponibles et certaines conversions hebdomadaires supposées possibles.
 
-
 - [ ] **RESTE-120** — Les graphes sont basés sur une simulation reproductible de 6 000 essais et des courbes communautaires, pas une énumération exacte de toutes les branches de résultats.
-
-
 
 - [ ] **RESTE-123** — Les cinq fiches de la référence HTML sont intégrées et testées. La demande initiale de trois modèles par type, trois orientations et clair/sombre ne coexiste pas entièrement avec ces modèles : plusieurs options sont verrouillées pour respecter la référence.
 

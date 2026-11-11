@@ -38,8 +38,8 @@ def main():
     if engine=='chromium':
      # Verify that the installed shell contains the entry point and essential assets.
      page.evaluate('''async()=>{await navigator.serviceWorker.ready;}''')
-     page.wait_for_function("async()=>{const cache=await caches.open('astralis-shell-v93');return !!(await cache.match('/index.html'))&&!!(await cache.match('/src/app.js'))&&!!(await cache.match('/assets/pwa/icon-192.png'));}",timeout=180000)
-     local=page.evaluate('''async()=>{const c=await caches.open('astralis-shell-v93');return (await c.keys()).length;}''')
+     page.wait_for_function("async()=>{const cache=await caches.open('astralis-shell-v94');return !!(await cache.match('/index.html'))&&!!(await cache.match('/src/app.js'))&&!!(await cache.match('/assets/pwa/icon-192.png'));}",timeout=180000)
+     local=page.evaluate('''async()=>{const c=await caches.open('astralis-shell-v94');return (await c.keys()).length;}''')
      assert local>30,local
      # Wait for the load event to finish registration before testing navigation offline.
      page.reload(wait_until='domcontentloaded');page.wait_for_selector('#astralis-launch-screen',state='detached')

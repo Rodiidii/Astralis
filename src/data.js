@@ -1,3 +1,4 @@
+import {equipmentArtwork} from './equipment-art.js';
 import {CHARACTER_SPLASHES} from './character-splashes.js';
 import {CHARACTER_SKILL_ICONS} from './character-skill-icons.js';
 import { getLocal, putLocal } from './persistence.js?v=20261107-stability-6';
@@ -394,10 +395,12 @@ export function imageSet(game, item, category = item?._category || 'character') 
     ].filter(Boolean);
     }
     if (category === 'weapon') return [
+      equipmentArtwork(item?.images?.filename_icon),
       item?.images?.filename_icon && `https://enka.network/ui/${encodeURIComponent(item.images.filename_icon)}.png`,
       item?.images?.filename_icon && `https://gi.yatta.moe/assets/UI/${encodeURIComponent(item.images.filename_icon)}.png`,
       item?.images?.['mihoyo_icon'], item?.images?.icon, item?.images?.['hoyowiki_icon'], `https://genshin.jmp.blue/weapons/${id}/icon.png`, `https://genshin.jmp.blue/weapons/${id}/icon`].filter(Boolean);
     if (category === 'artifact') return [
+      equipmentArtwork(item?.images?.filename_flower||item?.images?.filename_circlet),
       item?.images?.filename_flower && `https://enka.network/ui/${encodeURIComponent(item.images.filename_flower)}.png`,
       item?.images?.filename_flower && `https://gi.yatta.moe/assets/UI/${encodeURIComponent(item.images.filename_flower)}.png`,
       item?.images?.flower, item?.images?.circlet, `https://genshin.jmp.blue/artifacts/${id}/flower-of-life`].filter(Boolean);
