@@ -1,0 +1,33 @@
+{
+  "schemaVersion": 1,
+  "releases": [
+    {
+      "id": "2026-11-11-atelier-1",
+      "date": "2026-11-11",
+      "title": "Un atelier plus fiable",
+      "summary": "Corrections des builds, du farm et des sauvegardes.",
+      "changes": [
+        {
+          "area": "Builds et équipes",
+          "text": "Visuels locaux de personnages et équipement, icônes de rotation, statistiques corrigées et sélecteurs qui conservent leur état."
+        },
+        {
+          "area": "Plan de farm",
+          "text": "Livres calculés par rareté, stocks partagés, talents individuels, détails de journées et fiches de récolte."
+        },
+        {
+          "area": "Vœux",
+          "text": "Compteur et budgets détaillés, objectifs de copies cohérents et budget périmé signalé avant actualisation des graphes."
+        },
+        {
+          "area": "Sauvegarde",
+          "text": "Objectifs, talents et réglages de farm inclus dans le fichier portable, avec rappel d’export configurable."
+        }
+      ],
+      "limits": [
+        "Les probabilités détaillées et tous les effets complexes du laboratoire restent en cours de validation.",
+        "L’installation et la restauration sur un iPhone physique restent à vérifier."
+      ]
+    }
+  ]
+}

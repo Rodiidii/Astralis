@@ -753,3 +753,15 @@ Données auparavant absentes ajoutées à la sauvegarde portable : objectifs de 
 Rappel local d’export après sept jours ou en l’absence d’export, désactivable et reportable de 24 h. Suppression du rappel après téléchargement déclenché. Guide iPhone enrichi.
 
 Validation : 215 tests unitaires réussis et `tests/backup_browser.py` réussi avec téléchargement réel, import du fichier, comparaison des données restaurées et interactions du rappel. Détails dans `docs/VALIDATION-SAUVEGARDE-20261111.md`. RESTE-101 reste ouvert pour l’essai sur iPhone physique et les limites de restauration globale.
+
+## RESTE-093 · 2026-11-11T16:44:32+01:00
+
+- [x] **RESTE-093** — Fenêtre Quoi de neuf complète, automatique et revoyable, alimentée par changelog.json ; ce fichier n’est pas présent.
+
+# Quoi de neuf — validation
+
+`changelog.json` alimente un module distinct du journal des données de jeu existant. Les nouveautés sont accessibles depuis la barre supérieure pour tous les jeux. Une annonce non modale est proposée après démarrage lorsqu’une entrée n’a pas encore été lue ; elle ne bloque pas les actions en cours. La fenêtre est réouvrable à tout moment, utilisable au clavier et conserve la mémoire de lecture par identifiant.
+
+Le contenu précise aussi les travaux encore ouverts. Le fichier et le module entrent dans le cache du service worker. Un chargement indisponible affiche un repli lisible sans bloquer l’application. La documentation de maintenance est dans `NOUVEAUTES.md`.
+
+217 tests unitaires réussis ; `tests/release_notes_browser.py` réussi : annonce, ouverture, Escape, mémorisation, réouverture, retour du focus, largeur mobile et repli réseau. Les entrées invalides et identifiants répétés sont filtrés. Cette livraison ne prétend pas résoudre le journal exhaustif de toutes les données des trois jeux.

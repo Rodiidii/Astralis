@@ -188,7 +188,6 @@ Règles et détails : [MISSION-AUTONOME-COMPLETE.md](MISSION-AUTONOME-COMPLETE.m
 
 - [ ] **RESTE-092** — Journal exhaustif de toutes les valeurs/descriptions de tous les jeux, par version. Un journal de différences Genshin existe, sans garantir cette couverture intégrale.
 
-- [ ] **RESTE-093** — Fenêtre Quoi de neuf complète, automatique et revoyable, alimentée par changelog.json ; ce fichier n’est pas présent.
 
 - [ ] **RESTE-094** — Téléchargement Celestia périodique lorsque le serveur local est fermé. L’automatisation actuelle fonctionne pendant son ouverture.
 
