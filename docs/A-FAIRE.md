@@ -19,7 +19,6 @@ Règles et détails : [MISSION-AUTONOME-COMPLETE.md](MISSION-AUTONOME-COMPLETE.m
 - [ ] **P0-BUILD-02 — Cohérence des vues.** Vérifier les mêmes statistiques dans Mes builds, la fiche personnelle, l’équipe, le laboratoire et le PNG ; contrôler les pourcentages/plats, bonus élémentaires et doubles applications. Tester les changements d’arme, de pièce et de build, puis la persistance après rechargement.
 
 
-- [ ] **P0-PERSO-02 — Finitions visuelles.** Améliorer aussi le reste de la fiche : hiérarchie, tailles de textes, espacements, couleurs, séparations, informations utiles et défilement. Pas seulement assombrir l’image.
 
 - [ ] **P0-QA-01 — Preuves.** Fournir captures comparées de ces quatre pages, inspection des images réellement chargées, résultats numériques de référence, interactions et exports réels. Reprendre les cas qui échouent ; ne pas réutiliser une ancienne capture pour prouver une modification nouvelle.
 
@@ -113,7 +112,6 @@ Règles et détails : [MISSION-AUTONOME-COMPLETE.md](MISSION-AUTONOME-COMPLETE.m
 
 - [ ] **RESTE-039** — Stock partagé, priorités par personnage, talents actuels/cibles individuellement ; synthèse 3:1 pour livres et matériaux de monstres APRÈS réservation des besoins de tous les personnages.
 
-- [ ] **RESTE-040** — Priorités : talents, boss normal, EXP, Mora, artéfacts. Hebdomadaires en supplément des journées les moins urgentes, une réclamation par boss/semaine et personnage ; gérer les boss partagés sans inventer des runs supplémentaires.
 
 - [ ] **RESTE-041** — Calendrier : vrais portraits/icônes, philosophies pour les aptitudes, boss normaux/EXP/Mora/artéfacts/hebdomadaires visibles. Plantes hors cases à résine, couronnes non farmables. Repli de liste par défaut, jours valides de talents bleus, jour estimé de fin vert.
 
@@ -123,7 +121,6 @@ Règles et détails : [MISSION-AUTONOME-COMPLETE.md](MISSION-AUTONOME-COMPLETE.m
 
 - [ ] **RESTE-044** — Spécialités : capacité du monde sourcée, repousse 48 h, nombre de passages, stocks partagés, pas de capacité inventée.
 
-- [ ] **RESTE-045** — Coûts exacts d’élévation/EXP et chaque niveau, pas une interpolation depuis la Mora. Les coûts et totaux utilisateur figurent aussi dans l’annexe Buffs/imports/corrections.
 
 - [ ] **RESTE-046** — Solde = destinées + floor(primos/160), restes conservés. Solde éditable à son emplacement, gains journaliers crédités une seule fois et historisés.
 
@@ -266,12 +263,10 @@ Règles et détails : [MISSION-AUTONOME-COMPLETE.md](MISSION-AUTONOME-COMPLETE.m
 
 - [ ] **RESTE-118** — Dates fondées sur des rendements moyens et hypothèses ; mobs/couronnes sont supposés disponibles et certaines conversions hebdomadaires supposées possibles.
 
-- [ ] **RESTE-119** — Réordonnancement pratique par glisser-déposer des personnages du planning : conformité à la dernière demande à finaliser ; les flèches et le classement existent.
 
 - [ ] **RESTE-120** — Les graphes sont basés sur une simulation reproductible de 6 000 essais et des courbes communautaires, pas une énumération exacte de toutes les branches de résultats.
 
 
-- [ ] **RESTE-122** — Les cartes d’exploration alternées et cadeaux de versions demandés comme hypothèse personnelle ne sont plus activés automatiquement ; leur nombre est saisi explicitement. Ce choix diffère de la dernière règle d’autocalcul demandée.
 
 - [ ] **RESTE-123** — Les cinq fiches de la référence HTML sont intégrées et testées. La demande initiale de trois modèles par type, trois orientations et clair/sombre ne coexiste pas entièrement avec ces modèles : plusieurs options sont verrouillées pour respecter la référence.
 

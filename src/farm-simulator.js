@@ -48,7 +48,7 @@ export function simulateFarm({characters,materials,inventory={},start,artifactDa
  }
  jobs.splice(0,jobs.length,...groupedJobs.values());
  const harvests=passive.filter(job=>job.kind==='specialty').map(job=>{const source=specialties[job.id],capacity=Number(source?.capacity)||0;return {...job,capacity,cycles:capacity?Math.ceil(job.count/capacity):null,source:source?.source};});
- const discounts=new Map(),artifactWeeks=new Map(),weeklySlots=new Map(),reserved=new Set(reservedDates),incomeCycle=new Map();
+ const discounts=new Map(),artifactWeeks=new Map(),weeklySlots=new Map(),reserved=new Set(reservedDates);
  const initial=new Date(start+'T12:00:00');
  if(!Number.isFinite(initial.getTime()))return {sessions:[],dates:{},unresolved:passive};
  const priority={talent:0,boss:1,xp:2,mora:3,weekly:5};
@@ -68,18 +68,19 @@ export function simulateFarm({characters,materials,inventory={},start,artifactDa
   }
   if(!weeklySlots.has(week)){
    const days=Array.from({length:7},(_,index)=>{const target=new Date(weekStart);target.setDate(target.getDate()+index);const candidates=pending.filter(job=>job.kind!=='weekly'&&(!job.days.length||job.days.includes(index)));return {day:index,available:target>=initial&&!reserved.has(target.toLocaleDateString('sv-SE')),urgency:artifactWeeks.get(week).has(index)?100001:candidates.length?Math.min(...candidates.map(job=>job.rank*10+priority[job.kind])):100000};}).filter(row=>row.available);
-   days.sort((a,b)=>b.urgency-a.urgency||a.day-b.day);weeklySlots.set(week,new Set(days.slice(0,3).map(row=>row.day)));
+   days.sort((a,b)=>b.urgency-a.urgency||a.day-b.day);const bosses=new Set(pending.filter(job=>job.kind==='weekly').map(job=>job.item?.sources?.[0]||job.id)).size;weeklySlots.set(week,new Set(days.slice(0,bosses).map(row=>row.day)));
   }
   const artifact=artifactWeeks.get(week).has(weekday);
-  if(reserved.has(date))continue;let primary=artifact?{kind:'artifact',person:characters[0]?.id}:eligible[0];if(primary&&['xp','mora'].includes(primary.kind)){const cycle=incomeCycle.get(primary.person)||0,wanted=cycle%3===2?'mora':'xp';primary=eligible.find(job=>job.person===primary.person&&job.kind===wanted)||primary;incomeCycle.set(primary.person,cycle+1);}
-  const supplementary=pending.filter(job=>job.kind==='weekly'&&(discounts.get(week)||0)<3&&!weeklyCharacters.has(week+':'+job.person)&&!weeklyDone.has(week+':'+(job.item?.sources?.[0]||job.id))).sort((a,b)=>a.rank-b.rank)[0];
+  if(reserved.has(date))continue;const primary=artifact?{kind:'artifact',person:characters[0]?.id}:eligible[0];
+  const supplementary=pending.filter(job=>job.kind==='weekly'&&!weeklyCharacters.has(week+':'+job.person)&&!weeklyDone.has(week+':'+(job.item?.sources?.[0]||job.id))).sort((a,b)=>a.rank-b.rank)[0];
   const entry={date,kind:primary?.kind||'rest',characterIds:primary?[primary.person]:[],materialIds:primary?.id&&primary.id!=='xp'?(primary.materialIds||[primary.id]):[],supplements:[],auto:true};
   // Weekly claims accompany the least urgent main activity of the week.
   if(supplementary&&weeklySlots.get(week).has(weekday)){
    let drops=2.5;const boss=supplementary.item?.sources?.[0]||supplementary.id;
-   for(const job of [supplementary]){const use=Math.min(drops,job.units);if(use>0)weeklyCharacters.add(week+':'+job.person);job.units-=use;drops-=use;if(drops<=0)break;}
-   weeklyDone.add(week+':'+(supplementary.item?.sources?.[0]||supplementary.id));
-   entry.supplements.push({id:supplementary.id,person:supplementary.person});entry.materialIds.push(...(supplementary.materialIds||[supplementary.id]));entry.characterIds=[...new Set([...entry.characterIds,supplementary.person])];entry.weeklyResin=(discounts.get(week)||0)<3?30:60;discounts.set(week,(discounts.get(week)||0)+1);
+   const shared=pending.filter(job=>job.kind==='weekly'&&(job.item?.sources?.[0]||job.id)===boss&&!weeklyCharacters.has(week+':'+job.person)).sort((a,b)=>a.rank-b.rank);
+   for(const job of shared){const use=Math.min(drops,job.units);if(use<=0)continue;job.units-=use;drops-=use;weeklyCharacters.add(week+':'+job.person);entry.supplements.push({id:job.id,person:job.person});entry.materialIds.push(...(job.materialIds||[job.id]));entry.characterIds=[...new Set([...entry.characterIds,job.person])];if(drops<=0)break;}
+   weeklyDone.add(week+':'+boss);
+   entry.materialIds=[...new Set(entry.materialIds)];entry.weeklyResin=(discounts.get(week)||0)<3?30:60;discounts.set(week,(discounts.get(week)||0)+1);
   }
   if(primary&&primary.kind!=='artifact'){
    const scale=entry.supplements.length?(180-entry.weeklyResin)/180:1,capacity={talent:92,boss:15.75,xp:1102500,mora:540000}[primary.kind]*scale;

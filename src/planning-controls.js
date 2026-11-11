@@ -95,23 +95,6 @@ class FarmForecasts extends (globalThis.HTMLElement||class {}){
    config.enabled=true;config.signature=JSON.stringify(data)+config.start+config.artifactDays;localStorage.setItem('astralis:gi:farm-simulation',JSON.stringify(config));
    document.dispatchEvent(new CustomEvent('astralis:planning-changed'));
   };
-  this.ondragstart=event=>{
-   const row=event.target.closest('[data-farm-rank]');
-   if(row)event.dataTransfer.setData('application/x-astralis-farm-rank',row.dataset.farmRank);
-  };
-  this.ondragover=event=>{
-   if(event.target.closest('[data-farm-rank]')&&event.dataTransfer.types.includes('application/x-astralis-farm-rank'))event.preventDefault();
-  };
-  this.ondrop=event=>{
-   const row=event.target.closest('[data-farm-rank]'),rank=event.dataTransfer.getData('application/x-astralis-farm-rank');
-   if(!row||!rank)return;
-   const from=Number(rank),to=Number(row.dataset.farmRank),ids=data.characters.map(c=>c.id);
-   if(!Number.isInteger(from)||from<0||from>=ids.length||from===to)return;
-   event.preventDefault();
-   ids.splice(to,0,...ids.splice(from,1));
-   localStorage.setItem('astralis:gi:farm-priority',JSON.stringify(ids));
-   document.dispatchEvent(new CustomEvent('astralis:planning-changed'));
-  };
   this.onclick=event=>{
    const button=event.target.closest('button');if(!button)return;
    if(button.dataset.priority!==undefined){const ids=data.characters.map(c=>c.id),from=Number(button.dataset.priority),to=from+Number(button.dataset.offset);if(to<0||to>=ids.length)return;[ids[from],ids[to]]=[ids[to],ids[from]];localStorage.setItem('astralis:gi:farm-priority',JSON.stringify(ids));document.dispatchEvent(new CustomEvent('astralis:planning-changed'));}
