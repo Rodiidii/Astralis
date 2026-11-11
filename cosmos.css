@@ -107,14 +107,15 @@ astralis-planet canvas{display:block;width:100%;height:100%}.planet-fallback{bac
 .teyvat-system{isolation:isolate}
 .teyvat-orbit-overlay{position:absolute;inset:0;z-index:3;pointer-events:none}
 .teyvat-orbit{position:absolute;left:50%;top:50%;display:block;border:1px solid #e8f2ff2b;border-radius:50%;transform-origin:center;animation:teyvatOrbitLoop var(--orbit-duration) linear infinite;will-change:transform}
-.moon-track{width:68%;height:56%;border-color:color-mix(in srgb,var(--moon-color) 30%,transparent);border-style:dotted}
+.moon-track{width:68%;height:56%;border-color:color-mix(in srgb,var(--moon-color) 48%,transparent);border-style:dotted;animation-name:teyvatMoonOrbitReverse}
 .moon-track-2{width:78%;height:64%}.moon-track-3{width:88%;height:72%}
 .moon-track-1{--orbit-tilt:-18deg}.moon-track-2{--orbit-tilt:-18deg}.moon-track-3{--orbit-tilt:-18deg}
-.moon-track i{position:absolute;left:50%;top:0;width:11px;height:11px;border-radius:50%;background:radial-gradient(circle at 30% 25%,white 0 10%,var(--moon-color) 35% 67%,#17202b 100%);box-shadow:0 0 10px color-mix(in srgb,var(--moon-color) 82%,transparent);transform:translate(-50%,-50%)}
-.moon-track-2 i{width:9px;height:9px}.moon-track-3 i{width:7px;height:7px}
+.moon-track i{position:absolute;left:50%;top:0;width:13px;height:13px;border:1px solid #fff9;border-radius:50%;background:radial-gradient(circle at 30% 25%,white 0 10%,var(--moon-color) 35% 67%,#17202b 100%);box-shadow:0 0 7px #fff9,0 0 14px color-mix(in srgb,var(--moon-color) 95%,transparent);transform:translate(-50%,-50%)}
+.moon-track-2 i{width:11px;height:11px}.moon-track-3 i{width:9px;height:9px}
 .relic-track{width:86%;height:70%;border-color:color-mix(in srgb,var(--relic-accent) 27%,transparent);border-style:dashed}
 .relic-track-2{width:94%;height:78%}.relic-track-3{width:100%;height:84%}
-.relic-track img{position:absolute;left:50%;top:0;width:21px;height:21px;object-fit:contain;padding:2px;border:1px solid color-mix(in srgb,var(--relic-accent) 62%,white);border-radius:50%;background:#111321d9;box-shadow:0 0 12px color-mix(in srgb,var(--relic-accent) 62%,transparent);transform:translate(-50%,-50%)}
-.relic-track-2 img{width:19px;height:19px}.relic-track-3 img{width:17px;height:17px}
+.relic-track img{position:absolute;left:50%;top:0;width:35px;height:35px;object-fit:contain;padding:0;border:1px solid color-mix(in srgb,var(--relic-accent) 78%,white);border-radius:50%;background:radial-gradient(circle at 35% 25%,#fff9,color-mix(in srgb,var(--relic-accent) 48%,#111321) 45%,#101321 100%);box-shadow:0 0 8px #fff9,0 0 19px color-mix(in srgb,var(--relic-accent) 90%,transparent),inset 0 0 7px #fff6;filter:drop-shadow(0 2px 2px #000);transform:translate(-50%,-50%)}
+.relic-track-2 img{width:32px;height:32px}.relic-track-3 img{width:29px;height:29px}
+@keyframes teyvatMoonOrbitReverse{from{transform:translate(-50%,-50%) rotateX(62deg) rotateZ(var(--orbit-tilt,0deg)) rotate(0deg)}to{transform:translate(-50%,-50%) rotateX(62deg) rotateZ(var(--orbit-tilt,0deg)) rotate(-360deg)}}
 @keyframes teyvatOrbitLoop{from{transform:translate(-50%,-50%) rotateX(62deg) rotateZ(var(--orbit-tilt,0deg)) rotate(0deg)}to{transform:translate(-50%,-50%) rotateX(62deg) rotateZ(var(--orbit-tilt,0deg)) rotate(360deg)}}
 @media(prefers-reduced-motion:reduce){.teyvat-orbit{animation:none}}
