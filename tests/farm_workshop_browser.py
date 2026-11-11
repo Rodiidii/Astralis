@@ -48,6 +48,9 @@ def main():
    page.locator('.farm-calendar').scroll_into_view_if_needed();page.locator('.farm-month-grid img').evaluate_all('nodes=>nodes.forEach(n=>n.loading="eager")');page.wait_for_function("[...document.querySelectorAll('.farm-month-grid img')].every(i=>i.complete&&i.naturalWidth>0)")
    page.screenshot(path=str(out/'after-calendar.png'),animations='disabled')
    assert not page.locator('.farm-calendar-lines').evaluate('(el)=>el.open')
+   page.locator('.farm-calendar-day[data-date="'+first_date+'"] .farm-day-open').click();dialog=page.locator('.farm-day-dialog');expect(dialog).to_be_visible();expect(dialog.locator('article')).not_to_have_count(0);dialog.get_by_role('button',name='Fermer la journée').click();expect(dialog).to_have_count(0)
+   expect(page.locator('.farm-harvest-card')).not_to_have_count(0);expect(page.locator('.farm-harvest-card').first).to_contain_text('Repousse 48 h')
+
    print('Step: calendar rendered',flush=True)
    # Reserve a date manually. Later re-computations must leave it free of auto sessions.
    planned_date=sessions[0]['date'];page.locator('#farm-calendar-date').fill(planned_date);page.locator('[data-action=farm-schedule]').click()

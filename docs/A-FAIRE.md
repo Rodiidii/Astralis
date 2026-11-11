@@ -95,7 +95,6 @@ Règles et détails : [MISSION-AUTONOME-COMPLETE.md](MISSION-AUTONOME-COMPLETE.m
 - [ ] **RESTE-038** — Configs/Team exports JSON fournis et Celestia : téléchargement dans le projet, vérification périodique, badge Nouveau sur ajout/changement jusqu’à consultation, imports persistés et équipe éditable. Les restrictions des sources ne doivent pas effacer les exports valides.
 
 
-- [ ] **RESTE-041** — Calendrier : vrais portraits/icônes, philosophies pour les aptitudes, boss normaux/EXP/Mora/artéfacts/hebdomadaires visibles. Plantes hors cases à résine, couronnes non farmables. Repli de liste par défaut, jours valides de talents bleus, jour estimé de fin vert.
 
 
 

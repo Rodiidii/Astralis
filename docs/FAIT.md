@@ -683,3 +683,27 @@ Les besoins hors résine sont explicitement affichés et donnent accès au stock
 Une récolte dont la capacité manque ne reçoit plus de date finale même si une autre récolte du même personnage est connue. Le dépassement de 730 jours est explicite. Les besoins hors résine restent signalés séparément.
 
 Validation : 199 tests unitaires réussis ; parcours `tests/farm_workshop_browser.py` réussi, avec téléchargement PNG identique à l’aperçu et copie presse-papiers. Preuves détaillées dans `docs/VALIDATION-FARM-TIERS-20261111.md`. Les exigences globales RESTE-044/117/118 ne sont pas clôturées par cette correction ciblée.
+
+## RESTE-041 · 2026-11-11T16:10:03+01:00
+
+- [x] **RESTE-041** — Calendrier : vrais portraits/icônes, philosophies pour les aptitudes, boss normaux/EXP/Mora/artéfacts/hebdomadaires visibles. Plantes hors cases à résine, couronnes non farmables. Repli de liste par défaut, jours valides de talents bleus, jour estimé de fin vert.
+
+# Calendrier et récoltes — vérification du 11 novembre 2026
+
+Plusieurs corrections livrées ensemble :
+
+1. Les sessions mixtes EXP/artéfacts + hebdomadaire conservent les icônes des deux activités, dans le calendrier comme dans la liste. Les spécialités locales et couronnes sont exclues des icônes à résine. Les IDs numériques de personnages sont résolus aussi.
+2. Chaque jour dispose d’un bouton accessible au clavier ouvrant toutes les sessions, les personnages, les matériaux et la résine hebdomadaire. Le bouton de planification remplit la date du formulaire. La fermeture remet le focus sur le jour.
+3. Les récoltes s’affichent en fiches avec image locale, besoin restant, capacité par passage, passages cumulés, date estimée et lien source officiel. Le premier passage et la repousse de 48 h sont explicites. Une capacité inconnue ne reçoit pas de date.
+
+Validation : 202 tests unitaires réussis, dont trois nouveaux tests de présentation des sessions ; `tests/farm_workshop_browser.py` réussi avec ouverture/fermeture d’une journée, fiches de récolte, talents, inventaire, calendrier, priorité, mobile et PNG téléchargé identique à l’aperçu avec presse-papiers. La liste reste pliée par défaut et les dates de talents/fin gardent leurs repères visuels.
+
+Le registre des capacités existantes reste sourcé dans `data/local-specialties.json`. Cette passe améliore leur présentation mais ne prétend pas certifier l’exhaustivité de tous les personnages futurs. L’audit complet des spécialités reste ouvert.
+
+## FARM-RECOLTES-PRESENTATION-20261111
+
+Fiches de récolte détaillées livrées : image, quantité restante, capacité sourcée, passages cumulés, date, lien carte et hypothèse de premier passage. Vérifiées dans `tests/farm_workshop_browser.py`. RESTE-044 demeure ouvert pour la vérification exhaustive des capacités.
+
+## FARM-JOURNEE-20261111
+
+Détail accessible de chaque journée livré avec sessions complètes, matériaux, personnages, résine et accès à la planification. Vérification navigateur et 202 tests unitaires réussis. Le lancement mobile WebKit et le rechargement hors ligne Chromium passent avec le nouveau module de calendrier.
