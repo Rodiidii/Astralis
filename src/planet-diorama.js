@@ -195,7 +195,7 @@ export function createRegionalModel(region,tint,geography=regionalGeography(regi
 }
 function fallback(world){
  if(world.dataset.engine==='local-fallback')return false;
- world.diorama?.dispose();world.diorama=null;world.canvas.classList.remove('regional-diorama');world.canvas.width=world.canvas.height=world.size;world.ctx=world.canvas.getContext('2d');world.relief=null;world.dataset.engine='local-fallback';return false;
+ world.diorama?.dispose();world.diorama=null;world.canvas.classList.remove('regional-diorama');world.canvas.width=world.canvas.height=world.size;world.ctx=world.canvas.getContext('2d');world.relief?.remove();world.relief=null;world.dataset.engine='local-fallback';return false;
 }
 export function drawRegionalModel(world,now){
  if(failed)return fallback(world);

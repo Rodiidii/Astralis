@@ -1,10 +1,22 @@
 
 const palettes={mondstadt:['#207c90','#77bd8b'],liyue:['#8f7a55','#e6bd58'],inazuma:['#603c85','#b576a9'],sumeru:['#588a42','#d6b775'],fontaine:['#397e96','#99b7a0'],primordial:['#175773','#63bacb'],natlan:['#776944','#cb6745'],nodkrai:['#6b6481','#9aaea0'],snezhnaya:['#48768d','#e1e9e8']};
+function reliefCanvas(world){if(!world.relief){const canvas=document.createElement('canvas');canvas.className='planet-relief';canvas.width=canvas.height=world.size*1.6;canvas.setAttribute('aria-hidden','true');canvas.style.cssText='position:absolute;inset:0;z-index:4;width:100%;height:100%;pointer-events:none;border-radius:50%';world.append(canvas);world.relief=canvas;}return world.relief;}
+export function drawSumeruStormOverlay(world,now){
+ const canvas=reliefCanvas(world),ctx=canvas.getContext('2d'),size=canvas.width,center=size/2,r=world.size/2,time=matchMedia('(prefers-reduced-motion: reduce)').matches?0:now/1000;
+ ctx.clearRect(0,0,size,size);
+ const project=(longitude,latitude,height=0)=>{const a=longitude+world.angle*2*Math.PI,z=Math.cos(latitude)*Math.cos(a),radius=r*(1+height);return{x:center+Math.sin(a)*Math.cos(latitude)*radius,y:center+Math.sin(latitude)*radius,z};};
+ const storm=project(2+Math.sin(time*.16)*.58,.3+Math.sin(time*.11+1.1)*.2,.16);if(storm.z<.02)return;
+ const x=storm.x,y=storm.y,scale=r/56;ctx.save();ctx.translate(x,y);ctx.globalCompositeOperation='screen';
+ const glow=ctx.createRadialGradient(0,0,1,0,0,18*scale);glow.addColorStop(0,'#ffe6a0b5');glow.addColorStop(.45,'#dcb36b64');glow.addColorStop(1,'#c6913a00');ctx.fillStyle=glow;ctx.beginPath();ctx.ellipse(0,0,17*scale,21*scale,0,0,Math.PI*2);ctx.fill();
+ ctx.globalCompositeOperation='source-over';ctx.fillStyle='#e7c27c75';ctx.beginPath();ctx.moveTo(-2*scale,-17*scale);ctx.bezierCurveTo(-2*scale,-10*scale,-9*scale,1*scale,-7*scale,7*scale);ctx.quadraticCurveTo(0,12*scale,7*scale,7*scale);ctx.bezierCurveTo(9*scale,1*scale,2*scale,-10*scale,2*scale,-17*scale);ctx.closePath();ctx.fill();
+ for(let i=0;i<5;i++){const phase=time*1.7+i*1.19,rx=(3+i*1.35)*scale,ry=(2+i*.85)*scale;ctx.beginPath();ctx.ellipse(Math.sin(phase)*3*scale,(i-2)*3.3*scale,rx,ry,phase*.28,phase,phase+Math.PI*1.62);ctx.strokeStyle=i%2?'#fff0bfcc':'#d4a451dd';ctx.lineWidth=Math.max(.8,1.15*scale);ctx.shadowColor='#ffd57b';ctx.shadowBlur=4*scale;ctx.stroke();}
+ for(let i=0;i<18;i++){const age=(time*.32+i/18)%1,a=age*8*Math.PI+i*2.4,dist=(4+age*16)*scale;ctx.beginPath();ctx.arc(Math.cos(a)*dist,(-12+age*23)*scale,Math.max(.6,1.15*(1-age)*scale),0,Math.PI*2);ctx.fillStyle=i%2?'#ffe9ae':'#c79849';ctx.fill();}
+ ctx.restore();
+}
 export function drawPlanetRelief(world,now){
  const region=world.getAttribute('region');if(!palettes[region])return;
- if(!world.relief){
-  const canvas=document.createElement('canvas');canvas.className='planet-relief';canvas.width=canvas.height=world.size*1.6;canvas.setAttribute('aria-hidden','true');world.append(canvas);world.relief=canvas;
- }
+ if(world.dataset.engine==='webgl-diorama'){if(region==='sumeru')drawSumeruStormOverlay(world,now);return;}
+ reliefCanvas(world);
  const canvas=world.relief,ctx=canvas.getContext('2d'),size=canvas.width,center=size/2,r=world.size/2;
  ctx.clearRect(0,0,size,size);
  const motion=!matchMedia('(prefers-reduced-motion: reduce)').matches,time=motion?now/1000:0;
