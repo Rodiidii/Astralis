@@ -62,7 +62,7 @@ function scoreBuild(input, artifactStats, counts, rows, objective) {
   if (objective === 'damage' || objective === 'dps' || !objective) {
     const damage = evaluateDamageStats(input, artifactStats, counts);
     if (!damage.ok) return null;
-    const score = objective === 'dps' ? damage.total / Math.max(.01, Number(input.rotationDuration) || 1) : damage.total;
+    const score = objective === 'dps' ? damage.total / Number(input.rotationDuration) : damage.total;
     return { score, result: damage, rows: [...rows] };
   }
   const final = finalStats(input.baseStats || {}, mergedBonuses(input.bonuses, artifactStats, counts, input.setEffects));
@@ -140,6 +140,7 @@ export function prepareArtifactPools(inventory = [], filters = {}) {
 /** Recherche exacte top-N, avec maxima suffixes immuables et borne optimiste pour dégâts/DPS. */
 export async function optimizeArtifacts(options = {}) {
   const { inventory = [], input = {}, topN = 5, currentIds = [], cancelled = () => false, onProgress = () => {}, filters = {}, objective = 'damage' } = options;
+  if(objective==='dps'&&(!Number.isFinite(Number(input.rotationDuration))||Number(input.rotationDuration)<=0))return {results:[],combinations:0,rawCombinations:0,visited:0,pruned:0,elapsedMs:0,exact:true,error:'Indique une durée de rotation strictement positive pour optimiser le DPS.'};
   const started = globalThis.performance?.now?.() ?? Date.now();
   const top = Math.max(1, Math.min(50, Number(topN) || 5));
   const prepared = prepareArtifactPools(inventory, filters), { source, conflicts } = prepared;

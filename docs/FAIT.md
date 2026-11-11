@@ -785,3 +785,7 @@ Les tests portent sur le formulaire et les données enregistrées. La validation
 ## EQUIPER-ARTEFACT-POSSEDE-20261111
 
 Sélection de set compatible avec les identifiants numériques/noms, remplacement correct de l’image et des sous-stats, copie indépendante de l’inventaire et vérification d’emplacement. 221 tests unitaires réussis ; `tests/artifact_equip_browser.py` réussi pour l’équipement d’une coupe Cryo avec quatre sous-stats, recalcul et persistance après rechargement. Preuves dans `docs/VALIDATION-EQUIPER-ARTEFACT-20261111.md`. Le point global RESTE-032 reste ouvert pour ses autres exigences.
+
+## LAB-REFERENCE-GAINS-20261111
+
+Comparaison partagée entre vues, signes et unités respectés, référence chiffrée visible, état explicite si référence non positive/inconnue. Optimisation DPS sans durée positive refusée au lieu de supposer une seconde. Cinq tests ciblés dont un classement top 5 comparé à 243 combinaisons brutes et un test de rendu. Parcours navigateur laboratoire/rotation/PNG réussi. Détails dans `docs/VALIDATION-LAB-COMPARAISON-20261111.md`. Les grands chantiers P0-LAB-02/03/05 restent ouverts.

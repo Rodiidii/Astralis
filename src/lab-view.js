@@ -1,3 +1,4 @@
+import {compareLabScores,labReferenceScore} from './lab-comparison.js';
 import './lab-import-config.js?v=84';
 import {ATTACK_KINDS,attackOptions,setEffectOptions,effectSetting,weaponEffectOptions} from './lab-config.js?v=84';
 import { LAB_REACTIONS, LAB_BUFF_TYPES, talentValueRows } from './lab-actions.js?v=84';
@@ -181,10 +182,10 @@ export function renderLabWorkspace(context,p) {
 export function renderLabResults(context,p,results,baseline,error) {
   if(!results.length) return '<div class="lab-empty"><h4>Aucun assemblage compatible</h4><p>'+esc(error||'Les contraintes écartent toutes les combinaisons. Retire une contrainte minimale ou assouplis les filtres.')+'</p></div>';
   const scoreUnit={damage:'DGT',dps:'DPS',hp:'PV',atk:'ATQ',def:'DÉF'}[p.objective]||'';
-  const reference=p.objective==='damage'?baseline?.total:p.objective==='dps'&&Number(p.rotationSeconds)>0?baseline?.total/Number(p.rotationSeconds):context.currentStats?.[p.objective];
+  const reference=labReferenceScore(p,baseline,context.currentStats);
   return results.map((result,index)=>{
     const pieces=ARTIFACT_SLOTS.map(slot=>result.rows.map(id=>context.inventory.find(piece=>String(piece.id)===String(id))).find(piece=>piece?.slot===slot));
-    const gain=baseline?.ok&&reference>0?(result.score-reference)/reference*100:null;
+    const comparison=compareLabScores(reference,result.score),gain=comparison.percent;
     const stats=result.result?.stats||result.stats;
     const counts=new Map();
     for(const piece of pieces.filter(Boolean))counts.set(piece.setKey,(counts.get(piece.setKey)||0)+1);
@@ -192,7 +193,7 @@ export function renderLabResults(context,p,results,baseline,error) {
     try { effects=JSON.parse(p.setEffects||'{}'); } catch {}
     const missingEffects=[...counts].filter(([key,count])=>count>=2&&!effects[key]);
     return '<article class="lab-build-result"><header><div><span class="lab-result-rank">'+String(index+1).padStart(2,'0')+'</span><div><span class="eyebrow">'+(index===0?'MEILLEUR ASSEMBLAGE':'ALTERNATIVE')+'</span><h4>'+fmt(result.score)+' <small>'+scoreUnit+'</small></h4></div></div>'+
-      (gain==null?'':'<span class="lab-result-gain">'+(gain>=0?'+':'')+fmt(gain)+' %<small>vs build actuel</small></span>')+'</header>'+
+      (gain==null?'<span class="lab-result-gain is-unknown">'+esc(comparison.label)+'</span>':'<span class="lab-result-gain">'+(gain>=0?'+':'')+fmt(gain)+' %<small>référence : '+fmt(reference)+' '+scoreUnit+'</small></span>')+'</header>'+
       renderEquipment(context,p,pieces)+
       (stats?'<div class="lab-result-stat-grid">'+['hp','atk','def','em','critRate','critDmg','er'].map(key=>'<div><span>'+statIcon(key)+esc(LAB_STAT_LABELS[key])+'</span><b>'+esc(labStatValue(key,stats[key]))+'</b></div>').join('')+'</div>':'')+
       (missingEffects.length?'<p class="lab-note lab-result-caveat">Effets de sets à renseigner · le classement utilise les statistiques des pièces et les bonus saisis.</p>':'')+

@@ -1,3 +1,4 @@
+import {compareLabScores} from './lab-comparison.js';
 import {complexEffects} from './complex-effects.js';
 import {effectCatalog} from './lab-effect-catalog.js';
 import {drawPoster, posterBitmap, previewPng} from './poster-export.js?v=84';
@@ -289,11 +290,11 @@ async function compareCurrent(root,p) {
 
 function renderComparison(root,before,after) {
   const delta=after.total-before.total,max=Math.max(1,before.total,after.total);
-  const gain=before.total?delta/before.total*100:null;
+  const comparison=compareLabScores(before.total,after.total),gain=comparison.percent;
   root.querySelector('[data-lab-comparison]').innerHTML=
     [['Build de référence',before.total],['Configuration comparée',after.total]].map(([label,value],index)=>
       '<div class="lab-compare-row '+(index?'is-after':'')+'"><span>'+label+'</span><div><i style="--bar:'+Math.max(1,value/max*100)+'%"></i></div><b>'+fmt(value)+'</b></div>').join('')+
-    '<strong class="lab-delta">'+(delta>=0?'+':'')+fmt(delta)+(gain==null?'':' · '+(gain>=0?'+':'')+fmt(gain)+' %')+'</strong>'+
+    '<strong class="lab-delta">'+(delta>=0?'+':'')+fmt(delta)+(gain==null?' · '+esc(comparison.label):' · '+(gain>=0?'+':'')+fmt(gain)+' %')+'</strong>'+
     '<div class="lab-stat-cascade">'+['hp','atk','def','em','critRate','critDmg','er'].map(key=>{
       const a=before.stats?.[key],b=after.stats?.[key];
       if(a==null||b==null||Math.abs(a-b)<.001)return '';
