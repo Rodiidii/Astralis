@@ -4,9 +4,9 @@ import test from 'node:test';
 
 const [app, css, refresh, characterPolish, html, version] = await Promise.all([
   readFile(new URL('../src/app.js', import.meta.url), 'utf8'),
-  readFile(new URL('../design-system.css', import.meta.url), 'utf8'),
-  readFile(new URL('../global-refresh.css', import.meta.url), 'utf8'),
-  readFile(new URL('../character-polish.css', import.meta.url), 'utf8'),
+  readFile(new URL('../styles/design-system.css', import.meta.url), 'utf8'),
+  readFile(new URL('../styles/global-refresh.css', import.meta.url), 'utf8'),
+  readFile(new URL('../styles/character-polish.css', import.meta.url), 'utf8'),
   readFile(new URL('../index.html', import.meta.url), 'utf8'),
   readFile(new URL('../VERSION', import.meta.url), 'utf8'),
 ]);

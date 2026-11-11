@@ -2,6 +2,34 @@
   "schemaVersion": 1,
   "releases": [
     {
+      "id": "2026-11-11-css-release-1",
+      "date": "2026-11-11",
+      "title": "Un atelier mieux rangé et des planètes animées",
+      "summary": "Feuilles de style regroupées, mouvements orbitaux réparés et nuages de Snezhnaya allégés.",
+      "changes": [
+        {
+          "area": "Organisation",
+          "text": "Les styles globaux sont regroupés dans styles/ ; ressources et cache hors ligne suivent le nouvel emplacement."
+        },
+        {
+          "area": "Tableau de bord",
+          "text": "Les lunes et les trois objets orbitaux du globe central tournent à nouveau ; le rendu alterne équitablement entre les planètes visibles."
+        },
+        {
+          "area": "Snezhnaya",
+          "text": "Le voile nuageux est allégé ; la tempête de neige est conservée."
+        },
+        {
+          "area": "Mise à jour",
+          "text": "Le cache hors ligne est renouvelé pour charger les feuilles déplacées sous styles/."
+        }
+      ],
+      "limits": [
+        "Les profils, réglages et sauvegardes du navigateur restent locaux et ne font pas partie de la release.",
+        "Les feuilles des modèles de cartes et de fiches restent avec leurs ressources dédiées dans assets/."
+      ]
+    },
+    {
       "id": "2026-11-11-atelier-1",
       "date": "2026-11-11",
       "title": "Un atelier plus fiable",

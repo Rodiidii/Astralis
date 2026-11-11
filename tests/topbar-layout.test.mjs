@@ -4,7 +4,7 @@ import test from 'node:test';
 
 const [app, css, html] = await Promise.all([
   readFile(new URL('../src/app.js', import.meta.url), 'utf8'),
-  readFile(new URL('../topbar-resources.css', import.meta.url), 'utf8'),
+  readFile(new URL('../styles/topbar-resources.css', import.meta.url), 'utf8'),
   readFile(new URL('../index.html', import.meta.url), 'utf8'),
 ]);
 

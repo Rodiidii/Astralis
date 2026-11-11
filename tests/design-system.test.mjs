@@ -4,7 +4,7 @@ import test from 'node:test';
 
 const [js, css] = await Promise.all([
   readFile(new URL('../src/design-system.js', import.meta.url), 'utf8'),
-  readFile(new URL('../design-system.css', import.meta.url), 'utf8'),
+  readFile(new URL('../styles/design-system.css', import.meta.url), 'utf8'),
 ]);
 
 test('la navigation rapide est accessible au clavier et tolère les accents', () => {

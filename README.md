@@ -119,8 +119,8 @@ Les ressources communautaires Skowt sont accessibles par son site; Skowt n’exp
 ## Structure
 
 - `index.html` : point d’entrée.
-- `styles.css` : thème, cartes, fiches, responsive et atelier d’équipe.
-- `design.css` : couche visuelle « Aurore » (barre latérale, barre du haut, bandeau, tableau de bord, cartes), chargée après `styles.css`.
+- `styles/` : feuilles de style globales regroupées ; leur ordre de chargement reste défini dans `index.html`.
+- `assets/` : feuilles propres aux modèles de fiche, conservées avec leurs ressources locales.
 - `src/icons.js` : jeu d’icônes SVG intégré (plus de glyphes dépendant des polices).
 - `src/app.js` : interface et interactions.
 - `src/data.js` : normalisation des trois bases, détails, compétences et stratégies d’images de secours.

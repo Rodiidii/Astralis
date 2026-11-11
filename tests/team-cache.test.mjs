@@ -5,15 +5,15 @@ import test from 'node:test';
 const [worker, html, css] = await Promise.all([
   readFile(new URL('../sw.js', import.meta.url), 'utf8'),
   readFile(new URL('../index.html', import.meta.url), 'utf8'),
-  readFile(new URL('../team-layout-fix.css', import.meta.url), 'utf8'),
+  readFile(new URL('../styles/team-layout-fix.css', import.meta.url), 'utf8'),
 ]);
 
 test('le service worker renouvelle le shell et précharge le style des équipes', () => {
   assert.match(worker, /astralis-shell-v\d+/);
-  assert.match(worker, /'\/team-layout-fix\.css'/);
-  assert.match(worker, /'\/design-system\.css'/);
-  assert.match(worker, /'\/global-refresh\.css'/);
-  assert.match(worker, /'\/topbar-resources\.css'/);
+  assert.match(worker, /'\/styles\/team-layout-fix\.css'/);
+  assert.match(worker, /'\/styles\/design-system\.css'/);
+  assert.match(worker, /'\/styles\/global-refresh\.css'/);
+  assert.match(worker, /'\/styles\/topbar-resources\.css'/);
   assert.match(worker, /'\/src\/wish-pulls\.js'/);
   assert.match(worker, /'\/src\/character-content\.js'/);
   assert.match(worker, /'\/src\/rich-text\.js'/);
@@ -26,8 +26,8 @@ test('les ressources versionnées sont cherchées exactement avant le repli hors
 });
 
 test('l’index force le rechargement du CSS d’équipe et de son module', () => {
-  assert.match(html, /team-layout-fix\.css\?v=20261108-team-compact-roster-4/);
-  assert.match(html, /lab\.css\?v=[a-zA-Z0-9-]+/);
+  assert.match(html, /styles\/team-layout-fix\.css\?v=20261108-team-compact-roster-4/);
+  assert.match(html, /styles\/lab\.css\?v=[a-zA-Z0-9-]+/);
   assert.match(html, /src\/app\.js\?v=[a-zA-Z0-9-]+/);
 });
 

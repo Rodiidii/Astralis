@@ -78,7 +78,7 @@
 
 /* ── Classeur : emplacements ── */
 .binder-card.rarity-astral { filter: drop-shadow(0 0 14px rgba(190,120,255,.8)); }
-.binder-flip-back.is-astral { background: linear-gradient(rgba(5,3,13,.72), rgba(5,3,13,.88)), url("assets/fanarts/obsidian-astral-scene.png") center / cover; color: #ffe9a8; }
+.binder-flip-back.is-astral { background: linear-gradient(rgba(5,3,13,.72), rgba(5,3,13,.88)), url("../assets/fanarts/obsidian-astral-scene.png") center / cover; color: #ffe9a8; }
 
 /* ── Sceau d'Éclipse (page booster) ── */
 .astral-seal { display: flex; gap: 18px; align-items: center; margin: 14px 0; padding: 16px 18px; border-radius: 18px; border: 1px solid rgba(190,140,255,.4);

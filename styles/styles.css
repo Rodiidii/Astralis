@@ -102,7 +102,7 @@ html[data-theme="paper"] .source-card a,html[data-theme="paper"] .optimizer-cred
 @media(max-width:700px){.dashboard-welcome,.optimizer-intro,.data-status-banner{align-items:flex-start;flex-direction:column}.dashboard-metrics{grid-template-columns:repeat(2,minmax(0,1fr))}.dashboard-bottom{grid-template-columns:1fr}.theme-options{grid-template-columns:repeat(2,minmax(0,1fr))}.optimizer-frame-wrap{height:75vh;min-height:520px}.dashboard-favorites{grid-template-columns:repeat(2,minmax(0,1fr))}}
 
 /* Astralis Studio: personal planning tools and restrained character artwork motion. */
-@font-face{font-family:Inter;src:url('./assets/fonts/inter-latin.woff2') format('woff2');font-style:normal;font-weight:100 900;font-display:swap}
+@font-face{font-family:Inter;src:url('../assets/fonts/inter-latin.woff2') format('woff2');font-style:normal;font-weight:100 900;font-display:swap}
 .cinematic-card .art-frame{isolation:isolate;background:radial-gradient(ellipse at 50% 72%,color-mix(in srgb,var(--card-tint),transparent 67%),transparent 70%),linear-gradient(155deg,#202027,#101014)}
 .cinematic-card .art-backdrop{position:absolute;z-index:0;inset:-4%;width:108%;height:108%;object-fit:cover;object-position:center 23%;filter:blur(13px) saturate(.82) brightness(.43);opacity:.58;transform:scale(1.08);transition:transform 850ms cubic-bezier(.2,.65,.25,1),filter 850ms,opacity 650ms}
 .hsr-card.cinematic-card .art-backdrop{object-position:center 18%;filter:blur(8px) saturate(.9) brightness(.48);opacity:.72}

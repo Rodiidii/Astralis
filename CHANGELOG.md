@@ -1,3 +1,8 @@
+# 1.0.47 — 11 novembre 2026
+
+- Regroupe les feuilles de style globales dans `styles/`, avec chargement, cache hors ligne et ressources liées mis à jour.
+- Répare l’animation des lunes et des trois objets orbitaux du globe central, y compris quand plusieurs planètes sont affichées.
+- Allège les nuages de Snezhnaya tout en conservant sa tempête de neige.
 # 1.0.46 — 9 novembre 2026
 
 - Étend le Laboratoire de dégâts : import GOOD avec aperçu et dédoublonnage, filtres de sets/stats, contraintes de priorité, comparaison de build, analyse de sensibilité et résultats d’optimisation.

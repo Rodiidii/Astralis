@@ -18,7 +18,7 @@ cardAssetsReady.then(manifest=>{ASTRALIS_CARD_ARTWORKS=manifest.ASTRALIS_CARD_AR
 const designReady=Promise.all([
  fetch('/assets/card-design/reference.json').then(r=>{if(!r.ok)throw Error('Modèles de référence absents');return r.json()}),
  fetch('/assets/card-design/reference.css').then(r=>{if(!r.ok)throw Error('Styles de référence absents');return r.text()}),
- fetch('/card-runtime.css?v=20261109-cards-2').then(r=>{if(!r.ok)throw Error('Styles de consultation absents');return r.text()}),
+ fetch('/styles/card-runtime.css?v=20261109-cards-2').then(r=>{if(!r.ok)throw Error('Styles de consultation absents');return r.text()}),
 ]).then(([reference,css,runtime])=>{
  // Chromium does not register @property declarations from a shadow stylesheet.
  // Register the reference's angle properties so its edge gradients stay identical.
