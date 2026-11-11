@@ -235,6 +235,6 @@ L’endgame est récupéré de GenshinFlex à l’ouverture du tableau de bord p
 
 1. Créer une release GitHub publique et y joindre `Astralis-Update.zip` et `Astralis-Update.zip.sha256` (générés par `python scripts/build_release.py`).
 2. Dans Astralis → Réglages, entrer le dépôt au format `proprietaire/astralis`, puis vérifier les mises à jour.
-3. Les autres installations téléchargent la release depuis ce dépôt et appliquent les fichiers après vérification SHA-256. Le serveur redémarre automatiquement.
+3. Les autres installations téléchargent la release depuis ce dépôt et appliquent les fichiers après vérification SHA-256. Le serveur redémarre automatiquement, puis la fenêtre Astralis déjà ouverte se recharge avec la nouvelle version.
 
 Les mises à jour sont récupérées depuis les **GitHub Releases**, pas depuis la branche Git. Publier chaque nouvelle version sous un tag différent et conserver les deux assets exigés. Le dépôt doit être public pour éviter de stocker un jeton GitHub sur les PC distants. Les profils du navigateur et le coffre HoYoLAB DPAPI ne font pas partie des archives de mise à jour.

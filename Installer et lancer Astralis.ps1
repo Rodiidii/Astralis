@@ -1,3 +1,5 @@
+param([switch]$ServerOnly)
+
 $ErrorActionPreference = 'Stop'
 
 $root = Split-Path -Parent $MyInvocation.MyCommand.Path
@@ -291,7 +293,8 @@ if (-not $ready) {
 
 Add-AstralisShortcut
 
-Open-AstralisApp
+if (-not $ServerOnly) { Open-AstralisApp }
 
-Write-Host "Astralis $expectedVersion est lance depuis $root. Instance: $expectedInstance."
+if ($ServerOnly) { Write-Host "Service Astralis $expectedVersion redémarré pour recharger la fenêtre existante." }
+else { Write-Host "Astralis $expectedVersion est lance depuis $root. Instance: $expectedInstance." }
 

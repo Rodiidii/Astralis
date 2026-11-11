@@ -69,10 +69,15 @@ def replace_with_retry(source: Path, destination: Path, attempts: int = 24) -> N
             time.sleep(min(0.25 * (attempt + 1), 1.0))
 
 
-def start_app(root: Path) -> None:
+def start_app(root: Path, *, server_only: bool = False) -> None:
     launcher = root / "Lancer Astralis.bat"
     if not launcher.is_file():
         raise FileNotFoundError("Le lanceur Windows est absent de la nouvelle version.")
+    if server_only:
+        command = ["powershell.exe", "-NoProfile", "-ExecutionPolicy", "Bypass", "-File", str(root / "Installer et lancer Astralis.ps1"), "-ServerOnly"]
+        flags = getattr(subprocess, "CREATE_NEW_PROCESS_GROUP", 0) | getattr(subprocess, "DETACHED_PROCESS", 0) | getattr(subprocess, "CREATE_NO_WINDOW", 0)
+        subprocess.Popen(command, cwd=str(root), stdin=subprocess.DEVNULL, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL, creationflags=flags, close_fds=True)
+        return
     subprocess.Popen(["cmd.exe", "/c", "start", "", str(launcher)], cwd=str(root), stdin=subprocess.DEVNULL, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL, creationflags=getattr(subprocess, "CREATE_NEW_PROCESS_GROUP", 0) | getattr(subprocess, "DETACHED_PROCESS", 0), close_fds=True)
 
 
@@ -193,7 +198,8 @@ def main() -> int:
         replace_with_retry(root, backup)
         move_preserved_data(backup, staging)
         replace_with_retry(staging, root)
-        start_app(root)
+        # Keep the existing app window. Its updater poll reloads it once the new server is ready.
+        start_app(root, server_only=True)
         if not wait_for_new_app(version, root):
             # Retain both folders for recovery and restore the previous working copy.
             replace_with_retry(root, failed)
