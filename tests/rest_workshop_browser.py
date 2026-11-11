@@ -9,7 +9,7 @@ def main():
  threading.Thread(target=server.serve_forever,daemon=True).start();base=f'http://127.0.0.1:{server.server_port}'
  try:
   with sync_playwright() as p:
-   browser=p.chromium.launch();page=browser.new_page(viewport={'width':1440,'height':1000},service_workers='block');page.set_default_timeout(60000);errors=[];page.on('pageerror',lambda e:errors.append(str(e)))
+   browser=p.chromium.launch();page=browser.new_page(viewport={'width':1440,'height':1000},service_workers='block');page.set_default_timeout(60000);errors=[];page.on('pageerror',lambda e:(errors.append(str(e)),print('PAGE ERROR',str(e),flush=True)))
    def route(r):
     url=r.request.url;path=urlsplit(url).path
     if path=='/api/gi/news':r.fulfill(json={'articles':[{'id':'real','title':'Annonce officielle de test','link':'https://genshin.hoyoverse.com/fr/news/1','date':'Tue, 10 Nov 2026 18:00:00 GMT','category':'news'},{'id':'fake','kind':'farm','title':'Mora inventé','date':'2026-11-10','link':'https://example.com'}]})
@@ -24,12 +24,20 @@ def main():
    seed={'astralis:active-game':'gi','astralis:gi:assistant-profile':json.dumps({'enabled':False,'proactive':False}),'astralis:gi:farm-roster':json.dumps([{'id':'furina','active':True}]),'astralis:gi:wish-plan':json.dumps({'wishes':3,'currentPrimos':100,'characterPity':60,'characterGuarantee':True,'theatreGain':1000,'abyssGain':800,'history':[]})}
    page.add_init_script('for(const [key,value]of Object.entries('+json.dumps(seed)+'))localStorage.setItem(key,value)')
    page.goto(base,wait_until='domcontentloaded');page.wait_for_selector('#astralis-launch-screen',state='detached')
-   page.locator('[data-nav=wishes]').first.evaluate('(el)=>el.click()');page.wait_for_selector('wish-wallet')
+   page.locator('[data-nav=wishes]').first.click();page.wait_for_selector('wish-wallet')
    page.locator('[data-wallet=currentPrimos]').fill('3200');page.locator('[data-wallet=currentPrimos]').press('Tab');page.wait_for_function("JSON.parse(localStorage.getItem('astralis:gi:wish-plan')).currentPrimos===3200")
    page.locator('[data-reward=daily]').click();page.wait_for_function("JSON.parse(localStorage.getItem('astralis:gi:wish-plan')).currentPrimos===3260")
    page.locator('[data-reward=daily]').click();expect(page.locator('wish-wallet [role=status]')).to_contain_text('déjà enregistrée')
    page.locator('[data-reward=reset]').click();page.wait_for_function("JSON.parse(localStorage.getItem('astralis:gi:wish-plan')).wishes===8")
    expect(page.locator('.income-summary-table tbody tr')).not_to_have_count(0)
+   page.locator('wish-objectives [data-add]').click();page.locator('[data-target="0"][data-field=name]').fill('Contrôle objectif');page.locator('[data-target="0"][data-field=name]').press('Tab')
+   page.locator('.goal-ownership summary').first.click()
+   page.locator('[data-target="0"][data-field=currentC]').fill('2');page.locator('[data-target="0"][data-field=currentC]').press('Tab')
+   page.locator('[data-target="0"][data-field=targetC]').fill('4');page.locator('[data-target="0"][data-field=targetC]').press('Tab')
+   expect(page.locator('[data-target="0"][data-field=copies]')).to_have_value('2');expect(page.locator('.wish-target-summary')).to_contain_text('2 copie(s) de personnage')
+   page.locator('[data-target="0"][data-field=copies]').fill('3');page.locator('[data-target="0"][data-field=copies]').press('Tab')
+   expect(page.locator('.wish-target-summary')).to_contain_text('3 copie(s) de personnage')
+
    expect(page.locator('.wish-donut')).to_have_count(2);assert page.locator('.wish-history-chart rect').count()==30
    expect(page.locator('.wish-period-comparisons article')).to_have_count(2)
    expect(page.locator('.wish-period-comparisons')).to_contain_text('Cette semaine')

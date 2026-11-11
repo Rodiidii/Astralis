@@ -735,3 +735,7 @@ La période du 4 novembre au 16 décembre 2026 est testée sur les échéances d
 Le parcours `tests/rest_workshop_browser.py` vérifie les champs de solde, l’ajout des gains, le refus du deuxième clic quotidien, le reset mensuel, les journaux et comparaisons ainsi que les cases des scénarios. Les corrections de solde sont exclues des gains. Le nouveau tableau décompose le budget par source. Les règles de revenus sont celles du scénario explicitement demandé, pas une certification d’annonces futures du jeu.
 
 Les calculs probabilistes de tous les scénarios et la Capture de radiance restent un chantier distinct ; cette validation ne clôture pas RESTE-047/048.
+
+## VOEUX-COPIES-20261111
+
+Normalisation commune des copies restant à obtenir pour les plafonds et la simulation. Constellations et raffinements possédés pris en compte, champs synchronisés, coûts et cumuls visibles. 208 tests unitaires et deux parcours navigateur réussis. Preuves dans `docs/VALIDATION-OBJECTIFS-20261111.md`. Les points RESTE-047/048 restent ouverts pour leur validation intégrale.

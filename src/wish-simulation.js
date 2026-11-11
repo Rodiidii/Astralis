@@ -1,6 +1,7 @@
+import {normalizeWishTarget} from './wish-targets.js';
 // Reproducible estimates. Soft pity and intermediate Radiance rates are community models.
 export function simulateWishOrder(targets,state={},trials=6000){
- const rows=targets.map(t=>({...t,copies:Math.max(0,Math.min(7,Math.floor(+t.copies||0))),refinements:Math.max(0,Math.min(5,Math.floor(+t.refinements||0)))}));
+ const rows=targets.map(normalizeWishTarget);
  let seed=721943;const random=()=>{seed^=seed<<13;seed^=seed>>>17;seed^=seed<<5;return (seed>>>0)/4294967296;};
  const samples=rows.map(()=>[]),losses=new Map();
  for(let run=0;run<trials;run++){

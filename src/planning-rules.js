@@ -1,3 +1,4 @@
+import {normalizeWishTarget} from './wish-targets.js';
 import {CHARACTER_LEVEL_EXP} from './character-level-costs.js';
 
 const DAY=86400000;
@@ -57,9 +58,9 @@ export function orderedGuarantees(targets,state={}){
  let characterGuarantee=!!state.characterGuarantee;
  const wishCount=Math.max(0,Math.floor(Number(state.wishes)||0)),primoCount=Math.max(0,Math.floor(Number(state.primos)||0));
  let budget=wishCount+Math.floor(primoCount/160),spent=0;
- return targets.map(target=>{
-  const copies=Math.max(0,Math.min(7,Number(target.copies)||0));
-  const refinements=Math.max(0,Math.min(5,Number(target.refinements)||0));
+ return targets.map(normalizeWishTarget).map(target=>{
+  const copies=target.copies;
+  const refinements=target.refinements;
   const characterCost=copies?90*(copies*2-(characterGuarantee?1:0))-characterPity:0;
   const weaponCost=refinements?160*refinements-weaponPity:0;
   if(copies){characterPity=0;characterGuarantee=false;}if(refinements)weaponPity=0;
