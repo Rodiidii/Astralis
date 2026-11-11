@@ -192,7 +192,7 @@ export function renderLabResults(context,p,results,baseline,error) {
     let effects={};
     try { effects=JSON.parse(p.setEffects||'{}'); } catch {}
     const missingEffects=[...counts].filter(([key,count])=>count>=2&&!effects[key]);
-    return '<article class="lab-build-result"><header><div><span class="lab-result-rank">'+String(index+1).padStart(2,'0')+'</span><div><span class="eyebrow">'+(index===0?'MEILLEUR ASSEMBLAGE':'ALTERNATIVE')+'</span><h4>'+fmt(result.score)+' <small>'+scoreUnit+'</small></h4></div></div>'+
+    return '<article class="lab-build-result"><header><div><span class="lab-result-rank">'+String(index+1).padStart(2,'0')+'</span><div><span class="eyebrow">'+(index===0?(p.searchComplete===false?'MEILLEUR TROUVÉ · RECHERCHE INTERROMPUE':'MEILLEUR ASSEMBLAGE'):'ALTERNATIVE')+'</span><h4>'+fmt(result.score)+' <small>'+scoreUnit+'</small></h4></div></div>'+
       (gain==null?'<span class="lab-result-gain is-unknown">'+esc(comparison.label)+'</span>':'<span class="lab-result-gain">'+(gain>=0?'+':'')+fmt(gain)+' %<small>référence : '+fmt(reference)+' '+scoreUnit+'</small></span>')+'</header>'+
       renderEquipment(context,p,pieces)+
       (stats?'<div class="lab-result-stat-grid">'+['hp','atk','def','em','critRate','critDmg','er'].map(key=>'<div><span>'+statIcon(key)+esc(LAB_STAT_LABELS[key])+'</span><b>'+esc(labStatValue(key,stats[key]))+'</b></div>').join('')+'</div>':'')+

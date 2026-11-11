@@ -789,3 +789,7 @@ Sélection de set compatible avec les identifiants numériques/noms, remplacemen
 ## LAB-REFERENCE-GAINS-20261111
 
 Comparaison partagée entre vues, signes et unités respectés, référence chiffrée visible, état explicite si référence non positive/inconnue. Optimisation DPS sans durée positive refusée au lieu de supposer une seconde. Cinq tests ciblés dont un classement top 5 comparé à 243 combinaisons brutes et un test de rendu. Parcours navigateur laboratoire/rotation/PNG réussi. Détails dans `docs/VALIDATION-LAB-COMPARAISON-20261111.md`. Les grands chantiers P0-LAB-02/03/05 restent ouverts.
+
+## OPTIMISEUR-RECHERCHE-COMPLEXE-20261111
+
+Bornes des coups simples désactivées pour effets complexes actifs et coups pondérés ; vecteurs complets conservés, annulation coopérative et stratégie explicite. Deux top 5 comparés à des recherches brutes, annulation testée, benchmark représentatif partiel 1 000/5 000 pièces publié. Preuves et limites dans `docs/VALIDATION-OPTIMISEUR-RECHERCHE-20261111.md`. Les points globaux restent ouverts.

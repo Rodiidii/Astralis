@@ -252,10 +252,10 @@ async function runOptimizer(root,p,weighted=[]) {
       labLastResults=out.results||[];
       root.querySelector('[data-lab-progress]').value=out.exact?100:99;
       metrics.textContent=(out.exact?'Recherche exacte terminée':'Recherche interrompue')+' · '+out.visited.toLocaleString('fr-FR')+
-        ' évaluées · '+out.pruned.toLocaleString('fr-FR')+' élaguées · '+fmt(out.elapsedMs)+' ms';
+        ' évaluées · '+out.pruned.toLocaleString('fr-FR')+' élaguées · '+fmt(out.elapsedMs)+' ms'+(out.diagnostic?.search==='exhaustive'?' · parcours exhaustif, sans borne d’élagage':'');
       if(out.elapsedMs>0)localStorage.setItem('astralis:gi:lab-speed:v1',String(Math.max(1,out.visited/(out.elapsedMs/1000))));
       const baseline=weighted.length?{ok:true,total:(await Promise.all(weighted.map(async row=>(await calculate(row.params)).total*row.weight))).reduce((a,b)=>a+b,0)}:await calculate(p);
-      resultBox.innerHTML=renderLabResults(viewContext(p),{...p,weightedResult:weighted.length>0},labLastResults,baseline,out.error);
+      resultBox.innerHTML=renderLabResults(viewContext(p),{...p,weightedResult:weighted.length>0,searchComplete:out.exact},labLastResults,baseline,out.error);
       finish();
     }
     if(message.type==='error') {metrics.textContent='Erreur de recherche · '+message.error;finish();}

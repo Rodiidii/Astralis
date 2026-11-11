@@ -1,0 +1,62 @@
+{
+  "date": "2026-11-11T16:09:28.430Z",
+  "method": "Inventaires déterministes variés ; annulation demandée à 350 ms. Mesure de réactivité et débit partiel, pas de preuve de résolution complète des grands inventaires.",
+  "reports": [
+    {
+      "size": 1000,
+      "mode": "single",
+      "uniqueStatVectors": 1000,
+      "elapsedMs": 420.07449999999994,
+      "exact": false,
+      "stopped": true,
+      "visited": 5792,
+      "pruned": 0,
+      "rawCombinations": 320000000000,
+      "results": 5,
+      "progressTicks": 8,
+      "search": "bounded"
+    },
+    {
+      "size": 1000,
+      "mode": "complex-rotation",
+      "uniqueStatVectors": 1000,
+      "elapsedMs": 428.82140000000004,
+      "exact": false,
+      "stopped": true,
+      "visited": 5491,
+      "pruned": 0,
+      "rawCombinations": 320000000000,
+      "results": 5,
+      "progressTicks": 9,
+      "search": "exhaustive"
+    },
+    {
+      "size": 5000,
+      "mode": "single",
+      "uniqueStatVectors": 5000,
+      "elapsedMs": 379.9683000000001,
+      "exact": false,
+      "stopped": true,
+      "visited": 4500,
+      "pruned": 0,
+      "rawCombinations": 1000000000000000,
+      "results": 5,
+      "progressTicks": 8,
+      "search": "bounded"
+    },
+    {
+      "size": 5000,
+      "mode": "complex-rotation",
+      "uniqueStatVectors": 5000,
+      "elapsedMs": 414.15229999999997,
+      "exact": false,
+      "stopped": true,
+      "visited": 3540,
+      "pruned": 0,
+      "rawCombinations": 1000000000000000,
+      "results": 5,
+      "progressTicks": 7,
+      "search": "exhaustive"
+    }
+  ]
+}

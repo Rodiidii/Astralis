@@ -153,7 +153,9 @@ export async function optimizeArtifacts(options = {}) {
   const empty = pools.findIndex(pool => !pool.length);
   if (empty >= 0) return { results: [], combinations: 0, rawCombinations, visited: 0, pruned: 0, elapsedMs: 0, exact: true, error: `Aucune pièce disponible : ${ARTIFACT_SLOTS[empty]}.`, diagnostic: { filtered: filtered.length, source: source.length, slotCounts: Object.fromEntries(ARTIFACT_SLOTS.map((slot, i) => [slot, pools[i].length])) } };
 
-  const ordered = pools.map((pool, i) => ({ slot: ARTIFACT_SLOTS[i], pool: pool.map(piece => ({ piece, vector: piece ? statVector(piece, input.relevantStats ? new Set(input.relevantStats) : null) : {} })) })).sort((a, b) => a.pool.length - b.pool.length);
+  const complex=!!Object.values(input.hit?.complexEffects||{}).some(effect=>effect?.enabled),weighted=!!input.weightedHits?.length;
+  const relevant=complex||weighted?null:input.relevantStats?new Set(input.relevantStats):null;
+  const ordered = pools.map((pool, i) => ({ slot: ARTIFACT_SLOTS[i], pool: pool.map(piece => ({ piece, vector: piece ? statVector(piece,relevant) : {} })) })).sort((a, b) => a.pool.length - b.pool.length);
   const chosen = Array(ARTIFACT_SLOTS.length).fill(null), running = {}, setCounts = new Map(), best = [], bestKeys = new Set();
   const setCeiling = positiveSetCeiling(input.setEffects), suffix = Array.from({ length: ordered.length + 1 }, () => ({}));
   for (let i = ordered.length - 1; i >= 0; i--) {
@@ -162,8 +164,8 @@ export async function optimizeArtifacts(options = {}) {
     suffix[i] = { ...suffix[i + 1] };
     add(suffix[i], max);
   }
-  const bounded = !input.weightedHits?.length && (objective === 'damage' || objective === 'dps');
-  let visited = 0, pruned = 0, stopped = false, lastTick = started;
+  const bounded = !complex&&!weighted&&(objective === 'damage' || objective === 'dps');
+  let visited = 0, nodes = 0, pruned = 0, stopped = false, lastTick = started;
   const requiredPossible = idx => (filters.requiredSets || []).every(key => (setCounts.get(key) || 0) + ordered.slice(idx).filter(({ pool }) => pool.some(item => item.piece?.setKey === key)).length >= 2);
   const consider = () => {
     const rows = chosen.filter(Boolean);
@@ -192,6 +194,8 @@ export async function optimizeArtifacts(options = {}) {
   const visit = async idx => {
     if (stopped) return;
     if (cancelled()) { stopped = true; return; }
+    nodes++;const tick=globalThis.performance?.now?.()??Date.now();
+    if(tick-lastTick>75){lastTick=tick;onProgress({visited,nodes,pruned,combinations,rawCombinations,done:false});await new Promise(resolve=>setTimeout(resolve,0));if(cancelled()){stopped=true;return;}}
     if (!requiredPossible(idx)) { pruned++; return; }
     if (idx === ordered.length) {
       visited++;
@@ -231,7 +235,7 @@ export async function optimizeArtifacts(options = {}) {
   await visit(0);
   const elapsedMs = (globalThis.performance?.now?.() ?? Date.now()) - started;
   onProgress({ visited, pruned, combinations, rawCombinations, done: true });
-  return { results: best.map(row => ({ ...row, rows: row.rows.map(piece => piece?.id ?? null) })), visited, pruned, combinations, rawCombinations, elapsedMs, exact: !stopped, stopped, piecesEliminated: Math.max(0, source.length - ordered.reduce((n, item) => n + item.pool.filter(Boolean).length, 0)), diagnostic: { filtered: filtered.length, source: source.length, slotCounts: prepared.counts }, error: best.length ? '' : diagnoseNoResults(filtered, filters) };
+  return { results: best.map(row => ({ ...row, rows: row.rows.map(piece => piece?.id ?? null) })), visited, pruned, combinations, rawCombinations, elapsedMs, exact: !stopped, stopped, piecesEliminated: Math.max(0, source.length - ordered.reduce((n, item) => n + item.pool.filter(Boolean).length, 0)), diagnostic: { filtered: filtered.length, source: source.length, slotCounts: prepared.counts, search:bounded?'bounded':'exhaustive', boundDisabledReason:complex?'complex-effects':weighted?'weighted-hits':null,nodes }, error: best.length ? '' : diagnoseNoResults(filtered, filters) };
 }
 function diagnoseNoResults(rows, filters) {
   if (!rows.length) return 'Les filtres retirent toutes les reliques. Assouplis niveau, sets ou exclusions.';

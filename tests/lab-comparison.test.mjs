@@ -29,5 +29,6 @@ test('classement top 5 identique à une recherche brute sur 243 assemblages vari
 test('les cartes affichent perte, référence chiffrée et état indisponible',()=>{
  const context={builds:[],inventory:[],sets:[],currentStats:{atk:100}},p={objective:'atk',setEffects:'{}'},results=[{score:80,rows:[],result:{stats:{atk:80}}}];
  const lower=renderLabResults(context,p,results,{ok:false},null);assert.match(lower,/-20/);assert.match(lower,/référence : 100 ATQ/);
+ const partial=renderLabResults(context,{...p,searchComplete:false},results,{ok:false},null);assert.match(partial,/MEILLEUR TROUVÉ · RECHERCHE INTERROMPUE/);assert.doesNotMatch(partial,/MEILLEUR ASSEMBLAGE/);
  const zero=renderLabResults({...context,currentStats:{atk:0}},p,results,{ok:true,total:0},null);assert.match(zero,/référence nulle ou négative/);assert.doesNotMatch(zero,/Infinity|NaN/);
 });
