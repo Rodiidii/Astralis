@@ -111,7 +111,7 @@ function sandstorm(model){
  const site=model.geography?.sites.find(site=>site.kind==='desert-vortex');
  const point=site?mapPoint(model.geography,site.u,site.v):{lon:.8,lat:-.25};
  const root=localRoot(model,point.lon,point.lat,site?mapHeight(model.geography,site.u,site.v):1.05);
- root.name='sandstorm';
+ root.name='sandstorm-traveler';
  const material=new T.ShaderMaterial({transparent:true,depthWrite:false,side:T.DoubleSide,
   uniforms:{time:{value:0}},vertexShader:'varying vec2 v;void main(){v=uv;gl_Position=projectionMatrix*modelViewMatrix*vec4(position,1.);}',
   fragmentShader:'varying vec2 v;uniform float time;void main(){float bands=.5+.5*sin(v.y*70.+v.x*18.-time*4.);float a=(.12+bands*.35)*sin(v.y*3.14159);gl_FragColor=vec4(.84,.65,.36,a);}'});
@@ -120,6 +120,8 @@ function sandstorm(model){
  const positions=new Float32Array(180*3),g=new T.BufferGeometry();g.setAttribute('position',new T.BufferAttribute(positions,3));
  const grains=new T.Points(g,new T.PointsMaterial({color:'#f1d09a',size:.013,transparent:true,opacity:.95,depthWrite:false}));root.add(grains);
  model.animated.push(t=>{
+  if(site){const u=Math.max(.03,Math.min(.97,site.u+Math.sin(t*.12)*.075)),v=Math.max(.03,Math.min(.97,site.v+Math.sin(t*.085+1)*.035)),moved=mapPoint(model.geography,u,v),n=axis(moved.lon,moved.lat);root.position.copy(n).multiplyScalar(Math.max(1.005,mapHeight(model.geography,u,v)));root.quaternion.setFromUnitVectors(UP,n);}
+  else{const lon=point.lon+Math.sin(t*.16)*.42,lat=point.lat+Math.sin(t*.11+1.1)*.14,n=axis(lon,lat);root.position.copy(n).multiplyScalar(1.05);root.quaternion.setFromUnitVectors(UP,n);}
   material.uniforms.time.value=t;funnel.rotation.y=t*.8;
   for(let i=0;i<180;i++){
    const h=(i/180+t*.19)%1,a=h*16+i*2.3+t*2,r=.035+h*.26;

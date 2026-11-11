@@ -1,11 +1,11 @@
-import {drawPlanetRelief} from './planet-relief.js?v=80';
+import {drawPlanetRelief} from './planet-relief.js?v=81';
 // Shared CPU sphere renderer: textured surfaces rotate; light and semantic icons stay fixed.
 // No remote textures or one-WebGL-context-per-widget limit.
 const ElementBase=globalThis.HTMLElement||class {};
 const active=new Set(),textures=new Map(),rotations=new Map();let timer;
 const photographic=new Map();
 let regionalRenderer,regionalLoading;
-function loadRegionalRenderer(){return regionalLoading||=(import('./planet-diorama.js?v=88').then(module=>{regionalRenderer=module.drawRegionalModel;return module;}));}
+function loadRegionalRenderer(){return regionalLoading||=(import('./planet-diorama.js?v=89').then(module=>{regionalRenderer=module.drawRegionalModel;return module;}));}
 // Replace only the near-white background connected to the image edges; snow stays snow.
 export function replaceMapBackground(rgba,w,h){
  const seen=new Uint8Array(w*h),queue=new Uint32Array(w*h);let head=0,tail=0;

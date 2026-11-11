@@ -30,7 +30,7 @@ export function drawPlanetRelief(world,now){
  if(region==='sumeru'){feature(.5,-.35,.32,'#659851',.18);feature(2,.3,.22,'#d9b66a',.14);}
  if(region==='sumeru'){
   const tree=project(.5,-.35,.27);if(tree.z>0){ctx.fillStyle='#4d6541';ctx.fillRect(tree.x-r*.018,tree.y,r*.035,r*.13);for(let i=0;i<5;i++){ctx.fillStyle=i%2?'#8ebf6d':'#4e915a';ctx.beginPath();ctx.ellipse(tree.x+Math.cos(i*1.26)*r*.065,tree.y+Math.sin(i*1.26)*r*.035,r*.085,r*.05,0,0,7);ctx.fill();}}
-  const storm=project(2,.3,.15);if(storm.z>0){ctx.strokeStyle='#eac88770';ctx.lineWidth=r*.018;for(let i=0;i<5;i++){ctx.beginPath();ctx.ellipse(storm.x+Math.sin(time+i)*r*.015,storm.y-i*r*.025,r*(.025+i*.009),r*.018,0,time+i,time+i+4.5);ctx.stroke();}}
+  const storm=project(2+Math.sin(time*.16)*.42,.3+Math.sin(time*.11+1.1)*.14,.15);if(storm.z>0){ctx.strokeStyle='#eac887a0';ctx.lineWidth=r*.024;for(let i=0;i<6;i++){ctx.beginPath();ctx.ellipse(storm.x+Math.sin(time*1.4+i)*r*.018,storm.y-i*r*.028,r*(.03+i*.01),r*.022,0,time+i,time+i+4.8);ctx.stroke();}}
  }
  if(region==='primordial'||region==='inazuma'){
   for(const lon of [.8,3.1]){const cloud=project(lon,-.55,.16);if(cloud.z<0)continue;for(let i=0;i<4;i++){ctx.fillStyle=region==='inazuma'?'#ae9ec085':'#b1d3df85';ctx.beginPath();ctx.ellipse(cloud.x+(i-1.5)*r*.045,cloud.y-Math.sin(i)*r*.025,r*.06,r*.035,0,0,7);ctx.fill();}}

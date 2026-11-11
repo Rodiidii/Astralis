@@ -1,7 +1,7 @@
 import * as T from '../assets/vendor/three/three.module.js';
 import {loadPlanetGeography,regionalGeography,geographicalSample} from './planet-geography.js';
 import {buildGeographicLandmarks} from './planet-landmarks.js';
-import {addRegionalWeather} from './planet-weather.js';
+import {addRegionalWeather} from './planet-weather.js?v=20261111-sandstorm-drift-1';
 import {addRulerSatellites,addCentralMoons} from './planet-rulers.js';
 
 // One GPU context shared by every DOM planet. Models contain geometry, never AI images.
@@ -139,7 +139,7 @@ function buildLandmarks(model){
   for(const lon of [.75,3.8]){const root=terrainAnchor(lon,-.1);const pyramid=mesh(root,new T.ConeGeometry(.33,.57,4),material('#d8ac65'));pyramid.position.y=.29;pyramid.rotation.y=Math.PI/4;pyramid.name='desert-pyramid';for(let i=0;i<3;i++){const tier=mesh(root,new T.CylinderGeometry(.27-i*.045,.31-i*.045,.08,4),material(i%2?'#e0bb79':'#bb8e52'));tier.rotation.y=Math.PI/4;tier.position.y=.015+i*.045;}}
   for(let i=0;i<24;i++){const lon=-.4-i*.21,lat=Math.sin(i*2)*.55;tree(terrainAnchor(lon,lat),.5,'#4c9d63');}
   const storm=terrainAnchor(.9,-.25),vortex=new T.Group();storm.add(vortex);vortex.name='sandstorm';const helix=Array.from({length:121},(_,i)=>{const h=i/120,a=h*Math.PI*7,r=.035+h*.08;return [Math.cos(a)*r,.02+h*.36,Math.sin(a)*r];});const spiral=line(vortex,helix,'#ddb978',.007);spiral.material.opacity=.32;
-  const grains=new T.InstancedMesh(new T.IcosahedronGeometry(.005,0),material('#e4c58b'),60),dummy=new T.Object3D();vortex.add(grains);model.animated.push(t=>{vortex.rotation.y=t*.7;for(let i=0;i<60;i++){const h=(i/60+t*.23)%1,a=h*Math.PI*7+i*.2,r=.035+h*.09;dummy.position.set(Math.cos(a)*r,.02+h*.36,Math.sin(a)*r);dummy.updateMatrix();grains.setMatrixAt(i,dummy.matrix);}grains.instanceMatrix.needsUpdate=true;});
+  const grains=new T.InstancedMesh(new T.IcosahedronGeometry(.005,0),material('#e4c58b'),60),dummy=new T.Object3D();vortex.add(grains);model.animated.push(t=>{const lon=.9+Math.sin(t*.16)*.42,lat=-.25+Math.sin(t*.11+1.1)*.14,n=normal(lon,lat);storm.position.copy(n).multiplyScalar(Math.max(1.006,landField(n.x,n.y,n.z,region).height));storm.quaternion.setFromUnitVectors(Y,n);vortex.rotation.y=t*.7;for(let i=0;i<60;i++){const h=(i/60+t*.23)%1,a=h*Math.PI*7+i*.2,r=.035+h*.09;dummy.position.set(Math.cos(a)*r,.02+h*.36,Math.sin(a)*r);dummy.updateMatrix();grains.setMatrixAt(i,dummy.matrix);}grains.instanceMatrix.needsUpdate=true;});
   weather(model,'fireflies');
  }
  if(region==='fontaine'){
