@@ -100,3 +100,5 @@ farm-talent-targets .farm-goal-row label{display:grid;grid-template-columns:minm
 .income-summary-table{width:100%;border-collapse:collapse;font-size:12px;margin:16px 0}.income-summary-table caption{text-align:left;font-weight:600;padding:12px 0}.income-summary-table th,.income-summary-table td{padding:10px;border-bottom:1px solid var(--line)}.income-summary-table th{text-align:left}.income-summary-table td{text-align:right;font-variant-numeric:tabular-nums}
 
 .wish-target-summary{display:grid;gap:8px;padding:18px;margin:12px 0;border:1px solid var(--line);border-radius:14px;background:var(--surface-2)}.wish-target-summary>b{font-size:16px}.wish-target-summary>span,.wish-target-summary p{font-size:12px;color:var(--muted);margin:0}.wish-target-summary strong{font-size:13px;color:var(--accent);font-variant-numeric:tabular-nums}
+
+.wish-budget-status{padding:14px 18px;background:var(--surface-2);border:1px solid var(--line);border-radius:12px;font-size:12px;line-height:1.65;color:var(--muted)}.wish-budget-status[data-stale=true]{border-color:var(--accent);color:var(--ink)}

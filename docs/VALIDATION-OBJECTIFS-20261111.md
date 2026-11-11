@@ -9,3 +9,9 @@ Chaque étape affiche son nombre de copies, son coût, le cumul et le financemen
 208 tests unitaires réussis, dont quatre nouveaux cas dans `tests/wish-targets.test.mjs`. Les taux de Radiance et les scénarios probabilistes exhaustifs ne sont pas modifiés ni certifiés par cette correction. RESTE-047/048 restent ouverts pour leur validation complète.
 
 Validation navigateur : `tests/rest_workshop_browser.py` réussi après relance ; `tests/wish_targets_browser.py` valide aussi le composant réel, la synchronisation bidirectionnelle copies/constellations et la persistance après rechargement.
+
+## Budget théorique enregistré
+
+La période du budget appliqué est désormais persistée. Une modification des revenus ou des dates indique que le budget des graphes doit être actualisé ; le dernier budget reste visible et utilisé explicitement. Une période invalide bloque l’application. Un ancien budget sans période n’est pas présenté comme à jour.
+
+Trois tests dans `tests/wish-theory.test.mjs` couvrent les états absent/zéro appliqué/périmé/invalide. Le test navigateur `tests/wish_targets_browser.py` vérifie que modifier les revenus conserve les graphes jusqu’à application, que le bouton actualise effectivement leur budget et qu’une période invalide désactive le bouton.

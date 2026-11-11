@@ -739,3 +739,7 @@ Les calculs probabilistes de tous les scénarios et la Capture de radiance reste
 ## VOEUX-COPIES-20261111
 
 Normalisation commune des copies restant à obtenir pour les plafonds et la simulation. Constellations et raffinements possédés pris en compte, champs synchronisés, coûts et cumuls visibles. 208 tests unitaires et deux parcours navigateur réussis. Preuves dans `docs/VALIDATION-OBJECTIFS-20261111.md`. Les points RESTE-047/048 restent ouverts pour leur validation intégrale.
+
+## VOEUX-BUDGET-PERIODE-20261111
+
+Budget théorique et période d’origine visibles et persistés. Estimation modifiée signalée, mise à jour explicite des graphes, période invalide bloquée. Tests unitaires et navigateur décrits dans `docs/VALIDATION-OBJECTIFS-20261111.md`. Aucun point global de probabilités n’est clôturé par cette correction.

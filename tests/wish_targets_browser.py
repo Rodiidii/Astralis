@@ -13,6 +13,11 @@ def main():
    page.locator('[data-field=copies]').fill('3');page.locator('[data-field=copies]').press('Tab');expect(page.locator('[data-field=targetC]')).to_have_value('5');expect(page.locator('.wish-target-summary')).to_contain_text('3 copie(s)')
    page.locator('.goal-ownership summary').click();page.locator('[data-field=targetC]').fill('6');page.locator('[data-field=targetC]').press('Tab');expect(page.locator('[data-field=copies]')).to_have_value('4')
    page.reload();page.evaluate("async()=>{await import('/src/planning-controls.js');document.body.innerHTML='<wish-objectives></wish-objectives>'}");expect(page.locator('[data-field=copies]')).to_have_value('4');assert not errors,errors
+   page.locator('[data-apply-theory]').click();expect(page.locator('[data-theory-status]')).to_have_attribute('data-stale','false')
+   before=page.locator('.wish-order-graph figcaption').last.inner_text();field=page.locator('[data-income=extraPrimos]');field.fill('3200');field.press('Tab');expect(page.locator('[data-theory-status]')).to_have_attribute('data-stale','true');assert page.locator('.wish-order-graph figcaption').last.inner_text()==before
+   page.locator('[data-apply-theory]').click();expect(page.locator('[data-theory-status]')).to_have_attribute('data-stale','false');assert page.locator('.wish-order-graph figcaption').last.inner_text()!=before
+   page.locator('[data-income=end]').fill('2020-01-01');page.locator('[data-income=end]').press('Tab');expect(page.locator('[data-apply-theory]')).to_be_disabled()
+   assert not errors,errors
    browser.close();print('Objectifs : copies et constellations synchronisées, synthèse et persistance validées.',flush=True)
  finally:server.shutdown();server.server_close()
 if __name__=='__main__':main()
