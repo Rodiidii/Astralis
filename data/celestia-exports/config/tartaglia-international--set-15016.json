@@ -1,0 +1,605 @@
+{
+  "name": "International",
+  "description": "Celestia",
+  "targets": [
+    {
+      "weight": 1,
+      "path": [
+        "skill",
+        "stanceDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "eleMas": 120,
+        "atk_": 20
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "skill",
+        "normal1"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "eleMas": 120,
+        "atk_": 30,
+        "all_dmg_": 30
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "skill",
+        "riptideSlash"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "eleMas": 120,
+        "atk_": 30
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "skill",
+        "stanceDmg"
+      ],
+      "hitMode": "avgHit",
+      "reaction": "vaporize",
+      "bonusStats": {
+        "eleMas": 120,
+        "atk_": 30,
+        "all_dmg_": 43.16,
+        "atk": 1050.758,
+        "hydro_enemyRes_": -40
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "burst",
+        "rangedDmg"
+      ],
+      "hitMode": "avgHit",
+      "reaction": "vaporize",
+      "bonusStats": {
+        "eleMas": 120,
+        "atk_": 30,
+        "all_dmg_": 43.16,
+        "atk": 1050.758,
+        "hydro_enemyRes_": -40
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "skill",
+        "normal1"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "eleMas": 120,
+        "atk_": 48,
+        "all_dmg_": 73.16,
+        "atk": 1050.758,
+        "hydro_enemyRes_": -40
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "skill",
+        "riptideSlash"
+      ],
+      "hitMode": "avgHit",
+      "reaction": "vaporize",
+      "bonusStats": {
+        "eleMas": 120,
+        "atk_": 48,
+        "all_dmg_": 43.16,
+        "atk": 1050.758,
+        "hydro_enemyRes_": -40
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "skill",
+        "normal2"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "eleMas": 120,
+        "atk_": 48,
+        "all_dmg_": 73.16,
+        "atk": 1050.758,
+        "hydro_enemyRes_": -40
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "skill",
+        "charged1"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 30,
+        "atk": 1050.758,
+        "all_dmg_": 68.36,
+        "hydro_enemyRes_": -40
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "skill",
+        "charged2"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 48,
+        "atk": 1050.758,
+        "all_dmg_": 68.36,
+        "hydro_enemyRes_": -40
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "skill",
+        "normal1"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 48,
+        "atk": 1050.758,
+        "all_dmg_": 68.36,
+        "hydro_enemyRes_": -40
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "skill",
+        "normal2"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 48,
+        "atk": 1050.758,
+        "all_dmg_": 68.36,
+        "hydro_enemyRes_": -40
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "skill",
+        "charged1"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 48,
+        "atk": 1050.758,
+        "all_dmg_": 68.36,
+        "hydro_enemyRes_": -40
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "skill",
+        "riptideSlash"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 48,
+        "atk": 1050.758,
+        "all_dmg_": 38.36,
+        "hydro_enemyRes_": -40
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "skill",
+        "charged2"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 48,
+        "atk": 1050.758,
+        "all_dmg_": 68.36,
+        "hydro_enemyRes_": -40
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "skill",
+        "normal1"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 48,
+        "atk": 1050.758,
+        "all_dmg_": 68.36,
+        "hydro_enemyRes_": -40
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "skill",
+        "charged1"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 48,
+        "atk": 1050.758,
+        "all_dmg_": 68.36,
+        "hydro_enemyRes_": -40
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "skill",
+        "charged2"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 48,
+        "atk": 1050.758,
+        "all_dmg_": 68.36,
+        "hydro_enemyRes_": -40
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "skill",
+        "normal1"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 48,
+        "atk": 1050.758,
+        "all_dmg_": 68.36,
+        "hydro_enemyRes_": -40
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "skill",
+        "normal2"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 48,
+        "atk": 1050.758,
+        "all_dmg_": 68.36,
+        "hydro_enemyRes_": -40
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "skill",
+        "riptideSlash"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 48,
+        "atk": 1050.758,
+        "all_dmg_": 38.36,
+        "hydro_enemyRes_": -40
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "skill",
+        "charged1"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 48,
+        "atk": 1050.758,
+        "all_dmg_": 68.36
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "skill",
+        "charged2"
+      ],
+      "hitMode": "avgHit",
+      "reaction": "vaporize",
+      "bonusStats": {
+        "atk_": 48,
+        "atk": 1050.758,
+        "all_dmg_": 68.36
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "skill",
+        "normal1"
+      ],
+      "hitMode": "avgHit",
+      "reaction": "vaporize",
+      "bonusStats": {
+        "atk_": 48,
+        "atk": 1050.758,
+        "all_dmg_": 68.36
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "skill",
+        "normal2"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 48,
+        "atk": 1050.758,
+        "all_dmg_": 68.36,
+        "enerRech_": 22.546
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "skill",
+        "charged1"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 48,
+        "atk": 1050.758,
+        "all_dmg_": 68.36,
+        "enerRech_": 22.546
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "skill",
+        "riptideSlash"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 48,
+        "atk": 1050.758,
+        "all_dmg_": 38.36,
+        "enerRech_": 22.546
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "skill",
+        "charged2"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 48,
+        "atk": 1050.758,
+        "all_dmg_": 68.36,
+        "enerRech_": 22.546
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "skill",
+        "normal1"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 48,
+        "atk": 1050.758,
+        "all_dmg_": 68.36,
+        "enerRech_": 20.714
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "skill",
+        "charged1"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 48,
+        "all_dmg_": 68.36,
+        "enerRech_": 20.714
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "skill",
+        "charged2"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 48,
+        "all_dmg_": 68.36,
+        "enerRech_": 20.714
+      },
+      "description": ""
+    },
+    {
+      "weight": 1.0556,
+      "path": [
+        "charged",
+        "aimedCharged"
+      ],
+      "hitMode": "avgHit",
+      "reaction": "vaporize",
+      "infusionAura": "hydro",
+      "bonusStats": {
+        "eleMas": 120,
+        "atk_": 48,
+        "all_dmg_": 68.36,
+        "enerRech_": 20.714,
+        "hydro_enemyRes_": -40
+      },
+      "description": ""
+    },
+    {
+      "weight": 1.0556,
+      "path": [
+        "charged",
+        "flashDmg"
+      ],
+      "hitMode": "avgHit",
+      "infusionAura": "hydro",
+      "bonusStats": {
+        "eleMas": 120,
+        "atk_": 30,
+        "all_dmg_": 68.36,
+        "enerRech_": 20.714,
+        "hydro_enemyRes_": -40
+      },
+      "description": ""
+    },
+    {
+      "weight": 1.0556,
+      "path": [
+        "charged",
+        "flashDmg"
+      ],
+      "hitMode": "avgHit",
+      "infusionAura": "hydro",
+      "bonusStats": {
+        "eleMas": 120,
+        "atk_": 30,
+        "all_dmg_": 68.36,
+        "enerRech_": 20.714,
+        "hydro_enemyRes_": -40
+      },
+      "description": ""
+    },
+    {
+      "weight": 1.0556,
+      "path": [
+        "charged",
+        "flashDmg"
+      ],
+      "hitMode": "avgHit",
+      "infusionAura": "hydro",
+      "bonusStats": {
+        "eleMas": 120,
+        "atk_": 30,
+        "all_dmg_": 68.36,
+        "enerRech_": 20.714,
+        "hydro_enemyRes_": -40
+      },
+      "description": ""
+    },
+    {
+      "weight": 1.0556,
+      "path": [
+        "charged",
+        "aimedCharged"
+      ],
+      "hitMode": "avgHit",
+      "reaction": "vaporize",
+      "infusionAura": "hydro",
+      "bonusStats": {
+        "eleMas": 120,
+        "atk_": 30,
+        "hydro_enemyRes_": -40,
+        "all_dmg_": 30
+      },
+      "description": ""
+    },
+    {
+      "weight": 1.0556,
+      "path": [
+        "charged",
+        "flashDmg"
+      ],
+      "hitMode": "avgHit",
+      "infusionAura": "hydro",
+      "bonusStats": {
+        "eleMas": 120,
+        "atk_": 30,
+        "hydro_enemyRes_": -40,
+        "all_dmg_": 30
+      },
+      "description": ""
+    },
+    {
+      "weight": 1.0556,
+      "path": [
+        "charged",
+        "flashDmg"
+      ],
+      "hitMode": "avgHit",
+      "infusionAura": "hydro",
+      "bonusStats": {
+        "eleMas": 120,
+        "atk_": 30,
+        "hydro_enemyRes_": -40,
+        "all_dmg_": 30
+      },
+      "description": ""
+    },
+    {
+      "weight": 1.0556,
+      "path": [
+        "charged",
+        "flashDmg"
+      ],
+      "hitMode": "avgHit",
+      "infusionAura": "hydro",
+      "bonusStats": {
+        "eleMas": 120,
+        "atk_": 30,
+        "hydro_enemyRes_": -40,
+        "all_dmg_": 30
+      },
+      "description": ""
+    }
+  ]
+}

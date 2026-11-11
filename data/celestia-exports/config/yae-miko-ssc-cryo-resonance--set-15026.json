@@ -1,0 +1,66 @@
+{
+  "name": "Off-field Stellar-Conduct",
+  "description": "Celestia",
+  "targets": [
+    {
+      "weight": 12,
+      "path": [
+        "skill",
+        "dmg3"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 28,
+        "eleMas": 50,
+        "all_dmg_": 48,
+        "critRate_": 7.5
+      },
+      "description": ""
+    },
+    {
+      "weight": 6,
+      "path": [
+        "lockedPassive",
+        "dmg3"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 28,
+        "eleMas": 50,
+        "all_dmg_": 48,
+        "critRate_": 7.5
+      },
+      "description": ""
+    },
+    {
+      "weight": 6,
+      "path": [
+        "lockedPassive",
+        "dmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 28,
+        "eleMas": 50,
+        "stellarconduct_baseDmg_": 14,
+        "stellarconduct_dmg_": 146
+      },
+      "description": ""
+    },
+    {
+      "weight": 2,
+      "path": [
+        "passive1",
+        "stellarDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 28,
+        "eleMas": 50,
+        "stellarconduct_baseDmg_": 14,
+        "stellarconduct_dmg_": 146
+      },
+      "description": ""
+    }
+  ]
+}

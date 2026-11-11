@@ -1,0 +1,776 @@
+{
+  "name": "Hex Hyper (C2)",
+  "description": "Celestia",
+  "lastEdit": 1794351003659,
+  "conditional": {
+    "resonance": {},
+    "reaction": {}
+  },
+  "enemyOverride": {
+    "enemyLevel": 100,
+    "enemyDefIgn_": 0,
+    "enemyDefRed_": 0,
+    "pyro_enemyRes_": 10,
+    "hydro_enemyRes_": 10,
+    "electro_enemyRes_": 10,
+    "cryo_enemyRes_": 10,
+    "anemo_enemyRes_": 10,
+    "geo_enemyRes_": 10,
+    "dendro_enemyRes_": 10,
+    "physical_enemyRes_": 10
+  },
+  "loadoutData": [
+    {
+      "key": "Navia",
+      "name": "Navia (Celestia)",
+      "description": "",
+      "hitMode": "avgHit",
+      "infusionAura": "",
+      "bonusStats": {},
+      "conditional": {
+        "Navia": {
+          "a1AfterSkill": "on"
+        }
+      },
+      "customMultiTargets": [
+        {
+          "name": "Hex Hyper (C2)",
+          "description": "Celestia",
+          "targets": [
+            {
+              "weight": 0.7346,
+              "path": [
+                "burst",
+                "supportDmg"
+              ],
+              "hitMode": "avgHit",
+              "bonusStats": {
+                "atk_": 65,
+                "atk": 548.791,
+                "geo_enemyRes_": -91,
+                "all_dmg_": 90
+              },
+              "description": ""
+            },
+            {
+              "weight": 0.3643,
+              "path": [
+                "burst",
+                "supportDmg"
+              ],
+              "hitMode": "avgHit",
+              "bonusStats": {
+                "atk_": 65,
+                "atk": 548.791,
+                "geo_enemyRes_": -91,
+                "all_dmg_": 90
+              },
+              "description": ""
+            },
+            {
+              "weight": 0.4091,
+              "path": [
+                "skill",
+                "bladeDmg"
+              ],
+              "hitMode": "avgHit",
+              "bonusStats": {
+                "atk_": 65,
+                "atk": 548.791,
+                "geo_enemyRes_": -91,
+                "all_dmg_": 90,
+                "critRate_": 36
+              },
+              "description": ""
+            },
+            {
+              "weight": 1,
+              "path": [
+                "burst",
+                "skillDmg"
+              ],
+              "hitMode": "avgHit",
+              "bonusStats": {
+                "atk_": 65,
+                "atk": 548.791,
+                "geo_enemyRes_": -91,
+                "all_dmg_": 145
+              },
+              "description": ""
+            },
+            {
+              "weight": 2.1053,
+              "path": [
+                "skill",
+                "totalShardDmg"
+              ],
+              "hitMode": "avgHit",
+              "bonusStats": {
+                "atk_": 65,
+                "atk": 548.791,
+                "all_dmg_": 226,
+                "geo_enemyRes_": -91,
+                "critRate_": 36
+              },
+              "description": ""
+            },
+            {
+              "weight": 0.9874,
+              "path": [
+                "burst",
+                "supportDmg"
+              ],
+              "hitMode": "avgHit",
+              "bonusStats": {
+                "atk_": 65,
+                "atk": 548.791,
+                "geo_enemyRes_": -91,
+                "all_dmg_": 145
+              },
+              "description": ""
+            },
+            {
+              "weight": 0.9874,
+              "path": [
+                "burst",
+                "supportDmg"
+              ],
+              "hitMode": "avgHit",
+              "bonusStats": {
+                "atk_": 65,
+                "atk": 548.791,
+                "geo_enemyRes_": -91,
+                "all_dmg_": 145
+              },
+              "description": ""
+            },
+            {
+              "weight": 1,
+              "path": [
+                "normal",
+                "0"
+              ],
+              "hitMode": "avgHit",
+              "infusionAura": "geo",
+              "bonusStats": {
+                "atk": 848.791,
+                "atk_": 65,
+                "geo_enemyRes_": -91,
+                "all_dmg_": 145
+              },
+              "description": ""
+            },
+            {
+              "weight": 0.9874,
+              "path": [
+                "burst",
+                "supportDmg"
+              ],
+              "hitMode": "avgHit",
+              "bonusStats": {
+                "atk": 848.791,
+                "atk_": 65,
+                "geo_enemyRes_": -91,
+                "all_dmg_": 145
+              },
+              "description": ""
+            },
+            {
+              "weight": 1.0909,
+              "path": [
+                "skill",
+                "bladeDmg"
+              ],
+              "hitMode": "avgHit",
+              "bonusStats": {
+                "atk": 848.791,
+                "atk_": 65,
+                "all_dmg_": 190,
+                "geo_enemyRes_": -91,
+                "critRate_": 36
+              },
+              "description": ""
+            },
+            {
+              "weight": 1,
+              "path": [
+                "normal",
+                "1"
+              ],
+              "hitMode": "avgHit",
+              "infusionAura": "geo",
+              "bonusStats": {
+                "atk": 848.791,
+                "atk_": 65,
+                "geo_enemyRes_": -91,
+                "all_dmg_": 145
+              },
+              "description": ""
+            },
+            {
+              "weight": 0.9874,
+              "path": [
+                "burst",
+                "supportDmg"
+              ],
+              "hitMode": "avgHit",
+              "bonusStats": {
+                "atk": 848.791,
+                "atk_": 65,
+                "geo_enemyRes_": -91,
+                "all_dmg_": 145
+              },
+              "description": ""
+            },
+            {
+              "weight": 1,
+              "path": [
+                "normal",
+                "0"
+              ],
+              "hitMode": "avgHit",
+              "infusionAura": "geo",
+              "bonusStats": {
+                "atk": 848.791,
+                "atk_": 65,
+                "geo_enemyRes_": -91,
+                "all_dmg_": 145
+              },
+              "description": ""
+            },
+            {
+              "weight": 0.9874,
+              "path": [
+                "burst",
+                "supportDmg"
+              ],
+              "hitMode": "avgHit",
+              "bonusStats": {
+                "atk": 848.791,
+                "atk_": 65,
+                "geo_enemyRes_": -91,
+                "all_dmg_": 145
+              },
+              "description": ""
+            },
+            {
+              "weight": 1,
+              "path": [
+                "normal",
+                "1"
+              ],
+              "hitMode": "avgHit",
+              "infusionAura": "geo",
+              "bonusStats": {
+                "atk": 848.791,
+                "atk_": 65,
+                "geo_enemyRes_": -91,
+                "all_dmg_": 145
+              },
+              "description": ""
+            },
+            {
+              "weight": 0.9874,
+              "path": [
+                "burst",
+                "supportDmg"
+              ],
+              "hitMode": "avgHit",
+              "bonusStats": {
+                "atk": 848.791,
+                "atk_": 65,
+                "geo_enemyRes_": -91,
+                "all_dmg_": 145
+              },
+              "description": ""
+            },
+            {
+              "weight": 1,
+              "path": [
+                "normal",
+                "0"
+              ],
+              "hitMode": "avgHit",
+              "infusionAura": "geo",
+              "bonusStats": {
+                "atk": 848.791,
+                "atk_": 65,
+                "geo_enemyRes_": -91,
+                "all_dmg_": 145
+              },
+              "description": ""
+            },
+            {
+              "weight": 0.9874,
+              "path": [
+                "burst",
+                "supportDmg"
+              ],
+              "hitMode": "avgHit",
+              "bonusStats": {
+                "atk": 848.791,
+                "atk_": 65,
+                "geo_enemyRes_": -91,
+                "all_dmg_": 145
+              },
+              "description": ""
+            },
+            {
+              "weight": 1,
+              "path": [
+                "normal",
+                "1"
+              ],
+              "hitMode": "avgHit",
+              "infusionAura": "geo",
+              "bonusStats": {
+                "atk": 848.791,
+                "atk_": 65,
+                "geo_enemyRes_": -91,
+                "all_dmg_": 145
+              },
+              "description": ""
+            },
+            {
+              "weight": 0.9874,
+              "path": [
+                "burst",
+                "supportDmg"
+              ],
+              "hitMode": "avgHit",
+              "bonusStats": {
+                "atk": 848.791,
+                "atk_": 65,
+                "geo_enemyRes_": -91,
+                "all_dmg_": 145
+              },
+              "description": ""
+            },
+            {
+              "weight": 0.9874,
+              "path": [
+                "burst",
+                "supportDmg"
+              ],
+              "hitMode": "avgHit",
+              "bonusStats": {
+                "atk_": 65,
+                "atk": 548.791,
+                "geo_enemyRes_": -91,
+                "all_dmg_": 130
+              },
+              "description": ""
+            },
+            {
+              "weight": 0.3703,
+              "path": [
+                "burst",
+                "supportDmg"
+              ],
+              "hitMode": "avgHit",
+              "bonusStats": {
+                "atk_": 65,
+                "atk": 548.791,
+                "geo_enemyRes_": -91,
+                "all_dmg_": 145
+              },
+              "description": ""
+            },
+            {
+              "weight": 0.3643,
+              "path": [
+                "burst",
+                "supportDmg"
+              ],
+              "hitMode": "avgHit",
+              "bonusStats": {
+                "atk_": 65,
+                "atk": 548.791,
+                "geo_enemyRes_": -91,
+                "all_dmg_": 145
+              },
+              "description": ""
+            },
+            {
+              "weight": 0.9815,
+              "path": [
+                "burst",
+                "supportDmg"
+              ],
+              "hitMode": "avgHit",
+              "bonusStats": {
+                "atk_": 65,
+                "atk": 548.791,
+                "geo_enemyRes_": -91,
+                "all_dmg_": 145
+              },
+              "description": ""
+            },
+            {
+              "weight": 2.1053,
+              "path": [
+                "skill",
+                "totalShardDmg"
+              ],
+              "hitMode": "avgHit",
+              "bonusStats": {
+                "atk_": 65,
+                "atk": 548.791,
+                "all_dmg_": 226,
+                "geo_enemyRes_": -91,
+                "critRate_": 36
+              },
+              "description": ""
+            },
+            {
+              "weight": 0.3643,
+              "path": [
+                "burst",
+                "supportDmg"
+              ],
+              "hitMode": "avgHit",
+              "bonusStats": {
+                "atk_": 65,
+                "atk": 548.791,
+                "geo_enemyRes_": -91,
+                "all_dmg_": 145
+              },
+              "description": ""
+            },
+            {
+              "weight": 0.9874,
+              "path": [
+                "burst",
+                "supportDmg"
+              ],
+              "hitMode": "avgHit",
+              "bonusStats": {
+                "atk_": 65,
+                "atk": 548.791,
+                "geo_enemyRes_": -91,
+                "all_dmg_": 145
+              },
+              "description": ""
+            },
+            {
+              "weight": 0.9874,
+              "path": [
+                "burst",
+                "supportDmg"
+              ],
+              "hitMode": "avgHit",
+              "bonusStats": {
+                "atk_": 65,
+                "atk": 548.791,
+                "geo_enemyRes_": -91,
+                "all_dmg_": 145
+              },
+              "description": ""
+            },
+            {
+              "weight": 1,
+              "path": [
+                "normal",
+                "0"
+              ],
+              "hitMode": "avgHit",
+              "infusionAura": "geo",
+              "bonusStats": {
+                "atk_": 65,
+                "atk": 659.416,
+                "geo_enemyRes_": -91,
+                "all_dmg_": 145
+              },
+              "description": ""
+            },
+            {
+              "weight": 0.9874,
+              "path": [
+                "burst",
+                "supportDmg"
+              ],
+              "hitMode": "avgHit",
+              "bonusStats": {
+                "atk_": 65,
+                "atk": 659.416,
+                "geo_enemyRes_": -91,
+                "all_dmg_": 145
+              },
+              "description": ""
+            },
+            {
+              "weight": 1,
+              "path": [
+                "normal",
+                "1"
+              ],
+              "hitMode": "avgHit",
+              "infusionAura": "geo",
+              "bonusStats": {
+                "atk_": 65,
+                "atk": 659.416,
+                "geo_enemyRes_": -91,
+                "all_dmg_": 145
+              },
+              "description": ""
+            },
+            {
+              "weight": 0.9874,
+              "path": [
+                "burst",
+                "supportDmg"
+              ],
+              "hitMode": "avgHit",
+              "bonusStats": {
+                "atk_": 65,
+                "atk": 659.416,
+                "geo_enemyRes_": -91,
+                "all_dmg_": 145
+              },
+              "description": ""
+            },
+            {
+              "weight": 1,
+              "path": [
+                "normal",
+                "0"
+              ],
+              "hitMode": "avgHit",
+              "infusionAura": "geo",
+              "bonusStats": {
+                "atk_": 65,
+                "atk": 659.416,
+                "geo_enemyRes_": -91,
+                "all_dmg_": 145
+              },
+              "description": ""
+            },
+            {
+              "weight": 1,
+              "path": [
+                "normal",
+                "1"
+              ],
+              "hitMode": "avgHit",
+              "infusionAura": "geo",
+              "bonusStats": {
+                "atk": 848.791,
+                "atk_": 65,
+                "geo_enemyRes_": -91,
+                "all_dmg_": 145
+              },
+              "description": ""
+            },
+            {
+              "weight": 0.9874,
+              "path": [
+                "burst",
+                "supportDmg"
+              ],
+              "hitMode": "avgHit",
+              "bonusStats": {
+                "atk_": 65,
+                "atk": 659.416,
+                "geo_enemyRes_": -91,
+                "all_dmg_": 145
+              },
+              "description": ""
+            },
+            {
+              "weight": 0.9815,
+              "path": [
+                "burst",
+                "supportDmg"
+              ],
+              "hitMode": "avgHit",
+              "bonusStats": {
+                "atk": 848.791,
+                "atk_": 65,
+                "geo_enemyRes_": -91,
+                "all_dmg_": 145
+              },
+              "description": ""
+            },
+            {
+              "weight": 1,
+              "path": [
+                "normal",
+                "0"
+              ],
+              "hitMode": "avgHit",
+              "infusionAura": "geo",
+              "bonusStats": {
+                "atk": 848.791,
+                "atk_": 65,
+                "geo_enemyRes_": -91,
+                "all_dmg_": 145
+              },
+              "description": ""
+            },
+            {
+              "weight": 0.7895,
+              "path": [
+                "skill",
+                "totalShardDmg"
+              ],
+              "hitMode": "avgHit",
+              "bonusStats": {
+                "atk": 848.791,
+                "atk_": 65,
+                "geo_enemyRes_": -91,
+                "all_dmg_": 181,
+                "critRate_": 36
+              },
+              "description": ""
+            },
+            {
+              "weight": 1,
+              "path": [
+                "normal",
+                "1"
+              ],
+              "hitMode": "avgHit",
+              "infusionAura": "geo",
+              "bonusStats": {
+                "atk": 848.791,
+                "atk_": 65,
+                "geo_enemyRes_": -91,
+                "all_dmg_": 145
+              },
+              "description": ""
+            },
+            {
+              "weight": 0.623,
+              "path": [
+                "burst",
+                "supportDmg"
+              ],
+              "hitMode": "avgHit",
+              "bonusStats": {
+                "atk": 848.791,
+                "atk_": 65,
+                "geo_enemyRes_": -91,
+                "all_dmg_": 145
+              },
+              "description": ""
+            },
+            {
+              "weight": 0.3643,
+              "path": [
+                "burst",
+                "supportDmg"
+              ],
+              "hitMode": "avgHit",
+              "bonusStats": {
+                "atk": 848.791,
+                "atk_": 65,
+                "geo_enemyRes_": -91,
+                "all_dmg_": 145
+              },
+              "description": ""
+            },
+            {
+              "weight": 0.5283,
+              "path": [
+                "burst",
+                "supportDmg"
+              ],
+              "hitMode": "avgHit",
+              "bonusStats": {
+                "atk": 848.791,
+                "atk_": 65,
+                "geo_enemyRes_": -91,
+                "all_dmg_": 145
+              },
+              "description": ""
+            }
+          ]
+        }
+      ],
+      "optConfig": {
+        "optimizationTarget": [
+          "custom",
+          "0"
+        ]
+      },
+      "buildTcs": [
+        {
+          "name": "Celestia",
+          "description": "The leaderboard reference build.",
+          "characterKey": "Navia",
+          "character": {
+            "level": 90,
+            "ascension": 6,
+            "constellation": 2,
+            "talent": {
+              "auto": 10,
+              "skill": 10,
+              "burst": 10
+            }
+          },
+          "weapon": {
+            "key": "Verdict",
+            "level": 90,
+            "ascension": 6,
+            "refinement": 1
+          },
+          "artifact": {
+            "sets": {
+              "NighttimeWhispersInTheEchoingWoods": 5
+            },
+            "slots": {
+              "flower": {
+                "level": 20,
+                "rarity": 5,
+                "statKey": "hp"
+              },
+              "plume": {
+                "level": 20,
+                "rarity": 5,
+                "statKey": "atk"
+              },
+              "sands": {
+                "level": 20,
+                "rarity": 5,
+                "statKey": "atk_"
+              },
+              "goblet": {
+                "level": 20,
+                "rarity": 5,
+                "statKey": "geo_dmg_"
+              },
+              "circlet": {
+                "level": 20,
+                "rarity": 5,
+                "statKey": "critDMG_"
+              }
+            },
+            "substats": {
+              "type": "max",
+              "rarity": 5,
+              "stats": {
+                "atk_": 9.91,
+                "def": 39.35,
+                "def_": 12.39,
+                "enerRech_": 33.03,
+                "critRate_": 36.16,
+                "critDMG_": 59.83,
+                "hp": 507.88,
+                "hp_": 9.91,
+                "eleMas": 39.63,
+                "atk": 33.07
+              }
+            }
+          },
+          "optimization": {
+            "distributedSubstats": 0,
+            "maxSubstats": {}
+          }
+        }
+      ]
+    },
+    null,
+    null,
+    null
+  ]
+}

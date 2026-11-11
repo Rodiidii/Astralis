@@ -1,0 +1,102 @@
+{
+  "category": {
+    "id": "cyno-whale-ssc",
+    "name": "Whale SSC",
+    "kind": "normal"
+  },
+  "child": {
+    "constellation": 6,
+    "characterLevel": 90,
+    "talents": {
+      "burst": 13,
+      "skill": 13,
+      "normal": 10
+    },
+    "baseTalents": {
+      "burst": 10,
+      "skill": 10,
+      "normal": 10
+    },
+    "weaponId": 13511,
+    "refinement": 5
+  },
+  "reference": {
+    "source": "ceilingStandard"
+  },
+  "goConditions": {
+    "Cyno": {
+      "afterBurst": "on",
+      "lockRevelation": "on",
+      "lockStellarRadianceSc": "on"
+    },
+    "reaction": {
+      "polestarStacks": "9"
+    }
+  },
+  "characterBonusStats": {
+    "atk_": 28,
+    "eleMas": 473
+  },
+  "enemy": {
+    "level": 100,
+    "res": 0.1
+  },
+  "issues": [
+    {
+      "code": "characterBonusStats",
+      "stats": [
+        {
+          "buff": "\"I Must See the Snow Swan's Unseen Dream for Myself, She Thought\"",
+          "key": "atk_",
+          "value": 28.000000000000004
+        },
+        {
+          "buff": "Baseline Stress Test (Steady State)",
+          "key": "eleMas",
+          "value": 150
+        },
+        {
+          "buff": "The Matter That Slumbers Beyond Inertness (Steady State)",
+          "key": "eleMas",
+          "value": 123
+        },
+        {
+          "buff": "Yae Miko — C2 EM (4 stacks)",
+          "key": "eleMas",
+          "value": 200
+        }
+      ]
+    },
+    {
+      "code": "selfScaling",
+      "buffs": [
+        "Heat Haze at Horizon's End"
+      ]
+    },
+    {
+      "code": "goSwitch",
+      "switches": [
+        {
+          "condition": [
+            "Cyno",
+            "afterBurst",
+            "on"
+          ],
+          "source": {
+            "type": "character"
+          },
+          "buffs": [
+            "Sacred Rite: Wolf's Swiftness"
+          ]
+        }
+      ]
+    },
+    {
+      "code": "setEffects",
+      "setIds": [
+        15046
+      ]
+    }
+  ],
+  "teamIssues": []
+}

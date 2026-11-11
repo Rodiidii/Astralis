@@ -1,0 +1,709 @@
+{
+  "name": "Whale SSC",
+  "description": "Celestia",
+  "lastEdit": 1794351166022,
+  "conditional": {
+    "resonance": {},
+    "reaction": {}
+  },
+  "enemyOverride": {
+    "enemyLevel": 100,
+    "enemyDefIgn_": 0,
+    "enemyDefRed_": 0,
+    "pyro_enemyRes_": 10,
+    "hydro_enemyRes_": 10,
+    "electro_enemyRes_": 10,
+    "cryo_enemyRes_": 10,
+    "anemo_enemyRes_": 10,
+    "geo_enemyRes_": 10,
+    "dendro_enemyRes_": 10,
+    "physical_enemyRes_": 10
+  },
+  "loadoutData": [
+    {
+      "key": "Cyno",
+      "name": "Cyno (Celestia)",
+      "description": "",
+      "hitMode": "avgHit",
+      "infusionAura": "",
+      "bonusStats": {
+        "atk_": 28,
+        "eleMas": 473
+      },
+      "conditional": {
+        "Cyno": {
+          "afterBurst": "on",
+          "lockRevelation": "on",
+          "lockStellarRadianceSc": "on"
+        },
+        "reaction": {
+          "polestarStacks": "9"
+        }
+      },
+      "customMultiTargets": [
+        {
+          "name": "Whale SSC",
+          "description": "Celestia",
+          "targets": [
+            {
+              "weight": 1,
+              "path": [
+                "skill",
+                "riteDmg"
+              ],
+              "hitMode": "avgHit",
+              "bonusStats": {
+                "eleMas": 200,
+                "atk": 2228.083,
+                "all_dmg_": 105,
+                "electro_enemyRes_": -40,
+                "critDMG_": 40
+              },
+              "description": ""
+            },
+            {
+              "weight": 1,
+              "path": [
+                "passive1",
+                "boltStellarDmg"
+              ],
+              "hitMode": "avgHit",
+              "bonusStats": {
+                "eleMas": 200,
+                "stellarconduct_baseDmg_": 28,
+                "atk": 2228.083,
+                "stellarconduct_specialDmg_": 45,
+                "electro_enemyRes_": -40,
+                "stellarconduct_dmg_": 176,
+                "critDMG_": 40
+              },
+              "description": ""
+            },
+            {
+              "weight": 1,
+              "path": [
+                "passive1",
+                "boltStellarDmg"
+              ],
+              "hitMode": "avgHit",
+              "bonusStats": {
+                "eleMas": 200,
+                "stellarconduct_baseDmg_": 28,
+                "atk": 2228.083,
+                "stellarconduct_specialDmg_": 45,
+                "electro_enemyRes_": -40,
+                "stellarconduct_dmg_": 208,
+                "critDMG_": 40
+              },
+              "description": ""
+            },
+            {
+              "weight": 1,
+              "path": [
+                "passive1",
+                "boltStellarDmg"
+              ],
+              "hitMode": "avgHit",
+              "bonusStats": {
+                "eleMas": 200,
+                "stellarconduct_baseDmg_": 28,
+                "atk": 2228.083,
+                "stellarconduct_specialDmg_": 45,
+                "electro_enemyRes_": -40,
+                "stellarconduct_dmg_": 224,
+                "critDMG_": 40
+              },
+              "description": ""
+            },
+            {
+              "weight": 2,
+              "path": [
+                "burst",
+                "normal_0"
+              ],
+              "hitMode": "avgHit",
+              "bonusStats": {
+                "eleMas": 200,
+                "atk": 2228.083,
+                "electro_enemyRes_": -40,
+                "all_dmg_": 90,
+                "critDMG_": 40
+              },
+              "description": ""
+            },
+            {
+              "weight": 2,
+              "path": [
+                "burst",
+                "normal_1"
+              ],
+              "hitMode": "avgHit",
+              "bonusStats": {
+                "eleMas": 200,
+                "atk": 2228.083,
+                "electro_enemyRes_": -40,
+                "all_dmg_": 100,
+                "critDMG_": 40
+              },
+              "description": ""
+            },
+            {
+              "weight": 1,
+              "path": [
+                "burst",
+                "normal_2"
+              ],
+              "hitMode": "avgHit",
+              "bonusStats": {
+                "eleMas": 200,
+                "atk": 2228.083,
+                "electro_enemyRes_": -40,
+                "all_dmg_": 100,
+                "critDMG_": 40
+              },
+              "description": ""
+            },
+            {
+              "weight": 1,
+              "path": [
+                "burst",
+                "normal_2"
+              ],
+              "hitMode": "avgHit",
+              "bonusStats": {
+                "eleMas": 200,
+                "atk": 2228.083,
+                "electro_enemyRes_": -40,
+                "all_dmg_": 110,
+                "critDMG_": 40
+              },
+              "description": ""
+            },
+            {
+              "weight": 1,
+              "path": [
+                "burst",
+                "normal_3"
+              ],
+              "hitMode": "avgHit",
+              "bonusStats": {
+                "eleMas": 200,
+                "atk": 2228.083,
+                "electro_enemyRes_": -40,
+                "all_dmg_": 110,
+                "critDMG_": 40
+              },
+              "description": ""
+            },
+            {
+              "weight": 1,
+              "path": [
+                "burst",
+                "normal_3"
+              ],
+              "hitMode": "avgHit",
+              "bonusStats": {
+                "eleMas": 200,
+                "atk": 2228.083,
+                "all_dmg_": 120,
+                "electro_enemyRes_": -40,
+                "critDMG_": 40
+              },
+              "description": ""
+            },
+            {
+              "weight": 1,
+              "path": [
+                "burst",
+                "normal_3"
+              ],
+              "hitMode": "avgHit",
+              "bonusStats": {
+                "eleMas": 200,
+                "atk": 2228.083,
+                "all_dmg_": 120,
+                "electro_enemyRes_": -40,
+                "critDMG_": 40
+              },
+              "description": ""
+            },
+            {
+              "weight": 1,
+              "path": [
+                "burst",
+                "normal_3"
+              ],
+              "hitMode": "avgHit",
+              "bonusStats": {
+                "eleMas": 200,
+                "atk": 2228.083,
+                "all_dmg_": 120,
+                "electro_enemyRes_": -40,
+                "critDMG_": 40
+              },
+              "description": ""
+            },
+            {
+              "weight": 1,
+              "path": [
+                "burst",
+                "normal_0"
+              ],
+              "hitMode": "avgHit",
+              "bonusStats": {
+                "eleMas": 200,
+                "atk": 2228.083,
+                "all_dmg_": 120,
+                "electro_enemyRes_": -40,
+                "critDMG_": 40
+              },
+              "description": ""
+            },
+            {
+              "weight": 1,
+              "path": [
+                "burst",
+                "normal_1"
+              ],
+              "hitMode": "avgHit",
+              "bonusStats": {
+                "eleMas": 200,
+                "atk": 2228.083,
+                "all_dmg_": 120,
+                "electro_enemyRes_": -40,
+                "critDMG_": 40
+              },
+              "description": ""
+            },
+            {
+              "weight": 1,
+              "path": [
+                "skill",
+                "riteDmg"
+              ],
+              "hitMode": "avgHit",
+              "bonusStats": {
+                "eleMas": 200,
+                "atk": 2228.083,
+                "all_dmg_": 155,
+                "electro_enemyRes_": -40,
+                "critDMG_": 40
+              },
+              "description": ""
+            },
+            {
+              "weight": 8,
+              "path": [
+                "passive1",
+                "boltStellarDmg"
+              ],
+              "hitMode": "avgHit",
+              "bonusStats": {
+                "eleMas": 200,
+                "stellarconduct_baseDmg_": 28,
+                "atk": 2228.083,
+                "stellarconduct_specialDmg_": 45,
+                "electro_enemyRes_": -40,
+                "stellarconduct_dmg_": 240,
+                "critDMG_": 40
+              },
+              "description": ""
+            },
+            {
+              "weight": 2,
+              "path": [
+                "burst",
+                "normal_0"
+              ],
+              "hitMode": "avgHit",
+              "bonusStats": {
+                "eleMas": 200,
+                "atk": 2228.083,
+                "all_dmg_": 120,
+                "electro_enemyRes_": -40,
+                "critDMG_": 40
+              },
+              "description": ""
+            },
+            {
+              "weight": 2,
+              "path": [
+                "burst",
+                "normal_1"
+              ],
+              "hitMode": "avgHit",
+              "bonusStats": {
+                "eleMas": 200,
+                "atk": 2228.083,
+                "all_dmg_": 120,
+                "electro_enemyRes_": -40,
+                "critDMG_": 40
+              },
+              "description": ""
+            },
+            {
+              "weight": 2,
+              "path": [
+                "burst",
+                "normal_2"
+              ],
+              "hitMode": "avgHit",
+              "bonusStats": {
+                "eleMas": 200,
+                "atk": 2228.083,
+                "all_dmg_": 120,
+                "electro_enemyRes_": -40,
+                "critDMG_": 40
+              },
+              "description": ""
+            },
+            {
+              "weight": 1,
+              "path": [
+                "burst",
+                "normal_3"
+              ],
+              "hitMode": "avgHit",
+              "bonusStats": {
+                "eleMas": 200,
+                "atk": 2228.083,
+                "all_dmg_": 120,
+                "electro_enemyRes_": -40,
+                "critDMG_": 40
+              },
+              "description": ""
+            },
+            {
+              "weight": 1,
+              "path": [
+                "burst",
+                "normal_3"
+              ],
+              "hitMode": "avgHit",
+              "bonusStats": {
+                "eleMas": 200,
+                "atk": 2228.083,
+                "all_dmg_": 120,
+                "electro_enemyRes_": -40,
+                "critDMG_": 40
+              },
+              "description": ""
+            },
+            {
+              "weight": 1,
+              "path": [
+                "burst",
+                "normal_3"
+              ],
+              "hitMode": "avgHit",
+              "bonusStats": {
+                "eleMas": 200,
+                "atk": 2228.083,
+                "all_dmg_": 120,
+                "electro_enemyRes_": -40,
+                "critDMG_": 40
+              },
+              "description": ""
+            },
+            {
+              "weight": 1,
+              "path": [
+                "burst",
+                "normal_3"
+              ],
+              "hitMode": "avgHit",
+              "bonusStats": {
+                "eleMas": 200,
+                "atk": 2228.083,
+                "all_dmg_": 120,
+                "electro_enemyRes_": -40,
+                "critDMG_": 40
+              },
+              "description": ""
+            },
+            {
+              "weight": 1,
+              "path": [
+                "skill",
+                "riteDmg"
+              ],
+              "hitMode": "avgHit",
+              "bonusStats": {
+                "eleMas": 200,
+                "atk": 2228.083,
+                "all_dmg_": 155,
+                "electro_enemyRes_": -40,
+                "critDMG_": 40
+              },
+              "description": ""
+            },
+            {
+              "weight": 7,
+              "path": [
+                "passive1",
+                "boltStellarDmg"
+              ],
+              "hitMode": "avgHit",
+              "bonusStats": {
+                "eleMas": 200,
+                "stellarconduct_baseDmg_": 28,
+                "atk": 2228.083,
+                "stellarconduct_specialDmg_": 45,
+                "electro_enemyRes_": -40,
+                "stellarconduct_dmg_": 240,
+                "critDMG_": 40
+              },
+              "description": ""
+            },
+            {
+              "weight": 2,
+              "path": [
+                "burst",
+                "normal_0"
+              ],
+              "hitMode": "avgHit",
+              "bonusStats": {
+                "eleMas": 200,
+                "atk": 2228.083,
+                "all_dmg_": 120,
+                "electro_enemyRes_": -40,
+                "critDMG_": 40
+              },
+              "description": ""
+            },
+            {
+              "weight": 2,
+              "path": [
+                "burst",
+                "normal_1"
+              ],
+              "hitMode": "avgHit",
+              "bonusStats": {
+                "eleMas": 200,
+                "atk": 2228.083,
+                "all_dmg_": 120,
+                "electro_enemyRes_": -40,
+                "critDMG_": 40
+              },
+              "description": ""
+            },
+            {
+              "weight": 2,
+              "path": [
+                "burst",
+                "normal_2"
+              ],
+              "hitMode": "avgHit",
+              "bonusStats": {
+                "eleMas": 200,
+                "atk": 2228.083,
+                "all_dmg_": 120,
+                "electro_enemyRes_": -40,
+                "critDMG_": 40
+              },
+              "description": ""
+            },
+            {
+              "weight": 1,
+              "path": [
+                "burst",
+                "normal_3"
+              ],
+              "hitMode": "avgHit",
+              "bonusStats": {
+                "eleMas": 200,
+                "atk": 2228.083,
+                "all_dmg_": 120,
+                "electro_enemyRes_": -40,
+                "critDMG_": 40
+              },
+              "description": ""
+            },
+            {
+              "weight": 1,
+              "path": [
+                "burst",
+                "normal_3"
+              ],
+              "hitMode": "avgHit",
+              "bonusStats": {
+                "eleMas": 200,
+                "atk": 2228.083,
+                "all_dmg_": 120,
+                "electro_enemyRes_": -40,
+                "critDMG_": 40
+              },
+              "description": ""
+            },
+            {
+              "weight": 1,
+              "path": [
+                "burst",
+                "normal_3"
+              ],
+              "hitMode": "avgHit",
+              "bonusStats": {
+                "eleMas": 200,
+                "atk": 2228.083,
+                "all_dmg_": 120,
+                "electro_enemyRes_": -40,
+                "critDMG_": 40
+              },
+              "description": ""
+            },
+            {
+              "weight": 1,
+              "path": [
+                "burst",
+                "normal_3"
+              ],
+              "hitMode": "avgHit",
+              "bonusStats": {
+                "eleMas": 200,
+                "atk": 2228.083,
+                "all_dmg_": 120,
+                "electro_enemyRes_": -40,
+                "critDMG_": 40
+              },
+              "description": ""
+            },
+            {
+              "weight": 1,
+              "path": [
+                "skill",
+                "riteDmg"
+              ],
+              "hitMode": "avgHit",
+              "bonusStats": {
+                "eleMas": 200,
+                "atk": 2228.083,
+                "all_dmg_": 155,
+                "electro_enemyRes_": -40,
+                "critDMG_": 40
+              },
+              "description": ""
+            },
+            {
+              "weight": 4,
+              "path": [
+                "passive1",
+                "boltStellarDmg"
+              ],
+              "hitMode": "avgHit",
+              "bonusStats": {
+                "eleMas": 200,
+                "stellarconduct_baseDmg_": 28,
+                "atk": 2228.083,
+                "stellarconduct_specialDmg_": 45,
+                "electro_enemyRes_": -40,
+                "stellarconduct_dmg_": 240,
+                "critDMG_": 40
+              },
+              "description": ""
+            },
+            {
+              "weight": 1,
+              "path": [
+                "burst",
+                "normal_0"
+              ],
+              "hitMode": "avgHit",
+              "bonusStats": {
+                "eleMas": 200,
+                "atk": 2228.083,
+                "all_dmg_": 120,
+                "electro_enemyRes_": -40,
+                "critDMG_": 40
+              },
+              "description": ""
+            }
+          ]
+        }
+      ],
+      "optConfig": {
+        "optimizationTarget": [
+          "custom",
+          "0"
+        ]
+      },
+      "buildTcs": [
+        {
+          "name": "Celestia",
+          "description": "The leaderboard reference build.",
+          "characterKey": "Cyno",
+          "character": {
+            "level": 90,
+            "ascension": 6,
+            "constellation": 6,
+            "talent": {
+              "auto": 10,
+              "skill": 10,
+              "burst": 10
+            }
+          },
+          "weapon": {
+            "key": "StaffOfTheScarletSands",
+            "level": 90,
+            "ascension": 6,
+            "refinement": 5
+          },
+          "artifact": {
+            "sets": {
+              "GildedDreams": 5
+            },
+            "slots": {
+              "flower": {
+                "level": 20,
+                "rarity": 5,
+                "statKey": "hp"
+              },
+              "plume": {
+                "level": 20,
+                "rarity": 5,
+                "statKey": "atk"
+              },
+              "sands": {
+                "level": 20,
+                "rarity": 5,
+                "statKey": "eleMas"
+              },
+              "goblet": {
+                "level": 20,
+                "rarity": 5,
+                "statKey": "eleMas"
+              },
+              "circlet": {
+                "level": 20,
+                "rarity": 5,
+                "statKey": "critDMG_"
+              }
+            },
+            "substats": {
+              "type": "max",
+              "rarity": 5,
+              "stats": {
+                "def": 39.35,
+                "def_": 12.39,
+                "eleMas": 100.24,
+                "critRate_": 36.16,
+                "critDMG_": 66.05,
+                "hp": 507.88,
+                "hp_": 9.91,
+                "enerRech_": 11.01,
+                "atk": 33.07,
+                "atk_": 9.91
+              }
+            }
+          },
+          "optimization": {
+            "distributedSubstats": 0,
+            "maxSubstats": {}
+          }
+        }
+      ]
+    },
+    null,
+    null,
+    null
+  ]
+}

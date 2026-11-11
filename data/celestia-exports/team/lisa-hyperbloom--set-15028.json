@@ -1,0 +1,231 @@
+{
+  "name": "Hyperbloom",
+  "description": "Celestia",
+  "lastEdit": 1794351139953,
+  "conditional": {
+    "resonance": {},
+    "reaction": {}
+  },
+  "enemyOverride": {
+    "enemyLevel": 100,
+    "enemyDefIgn_": 0,
+    "enemyDefRed_": 0,
+    "pyro_enemyRes_": 10,
+    "hydro_enemyRes_": 10,
+    "electro_enemyRes_": 10,
+    "cryo_enemyRes_": 10,
+    "anemo_enemyRes_": 10,
+    "geo_enemyRes_": 10,
+    "dendro_enemyRes_": 10,
+    "physical_enemyRes_": 10
+  },
+  "loadoutData": [
+    {
+      "key": "Lisa",
+      "name": "Lisa (Celestia)",
+      "description": "",
+      "hitMode": "avgHit",
+      "infusionAura": "",
+      "bonusStats": {},
+      "conditional": {},
+      "customMultiTargets": [
+        {
+          "name": "Hyperbloom",
+          "description": "Celestia",
+          "targets": [
+            {
+              "weight": 1,
+              "path": [
+                "skill",
+                "stack0"
+              ],
+              "hitMode": "avgHit",
+              "reaction": "aggravate",
+              "bonusStats": {
+                "hp_": 25,
+                "eleMas": 200,
+                "enemyDefRed_": 15
+              },
+              "description": ""
+            },
+            {
+              "weight": 36,
+              "path": [
+                "burst",
+                "tick"
+              ],
+              "hitMode": "avgHit",
+              "bonusStats": {
+                "hp_": 25,
+                "eleMas": 200,
+                "enemyDefRed_": 15
+              },
+              "description": ""
+            },
+            {
+              "weight": 6,
+              "path": [
+                "burst",
+                "tick"
+              ],
+              "hitMode": "avgHit",
+              "reaction": "aggravate",
+              "bonusStats": {
+                "hp_": 25,
+                "eleMas": 200,
+                "enemyDefRed_": 15
+              },
+              "description": ""
+            },
+            {
+              "weight": 1,
+              "path": [
+                "reaction",
+                "hyperbloom"
+              ],
+              "hitMode": "avgHit",
+              "bonusStats": {
+                "hp_": 25,
+                "eleMas": 200,
+                "enemyDefRed_": 15,
+                "dendro_enemyRes_": -30,
+                "hyperbloom_dmg_": 20
+              },
+              "description": ""
+            },
+            {
+              "weight": 1,
+              "path": [
+                "reaction",
+                "hyperbloom"
+              ],
+              "hitMode": "avgHit",
+              "bonusStats": {
+                "hp_": 25,
+                "eleMas": 200,
+                "enemyDefRed_": 15,
+                "dendro_enemyRes_": -30,
+                "hyperbloom_dmg_": 30
+              },
+              "description": ""
+            },
+            {
+              "weight": 22,
+              "path": [
+                "reaction",
+                "hyperbloom"
+              ],
+              "hitMode": "avgHit",
+              "bonusStats": {
+                "hp_": 25,
+                "eleMas": 200,
+                "enemyDefRed_": 15,
+                "dendro_enemyRes_": -30,
+                "hyperbloom_dmg_": 40
+              },
+              "description": ""
+            },
+            {
+              "weight": 3,
+              "path": [
+                "reaction",
+                "electrocharged"
+              ],
+              "hitMode": "avgHit",
+              "bonusStats": {
+                "hp_": 25,
+                "eleMas": 200,
+                "enemyDefRed_": 15
+              },
+              "description": ""
+            }
+          ]
+        }
+      ],
+      "optConfig": {
+        "optimizationTarget": [
+          "custom",
+          "0"
+        ]
+      },
+      "buildTcs": [
+        {
+          "name": "Celestia",
+          "description": "The leaderboard reference build.",
+          "characterKey": "Lisa",
+          "character": {
+            "level": 90,
+            "ascension": 6,
+            "constellation": 6,
+            "talent": {
+              "auto": 10,
+              "skill": 10,
+              "burst": 10
+            }
+          },
+          "weapon": {
+            "key": "EtherlightSpindlelute",
+            "level": 90,
+            "ascension": 6,
+            "refinement": 5
+          },
+          "artifact": {
+            "sets": {
+              "FlowerOfParadiseLost": 5
+            },
+            "slots": {
+              "flower": {
+                "level": 20,
+                "rarity": 5,
+                "statKey": "hp"
+              },
+              "plume": {
+                "level": 20,
+                "rarity": 5,
+                "statKey": "atk"
+              },
+              "sands": {
+                "level": 20,
+                "rarity": 5,
+                "statKey": "eleMas"
+              },
+              "goblet": {
+                "level": 20,
+                "rarity": 5,
+                "statKey": "electro_dmg_"
+              },
+              "circlet": {
+                "level": 20,
+                "rarity": 5,
+                "statKey": "eleMas"
+              }
+            },
+            "substats": {
+              "type": "max",
+              "rarity": 5,
+              "stats": {
+                "atk_": 15.16,
+                "def": 39.35,
+                "def_": 12.39,
+                "eleMas": 158.52,
+                "critRate_": 39.66,
+                "critDMG_": 33.41,
+                "hp": 507.88,
+                "hp_": 9.91,
+                "enerRech_": 11.01,
+                "atk": 33.07
+              }
+            }
+          },
+          "optimization": {
+            "distributedSubstats": 0,
+            "maxSubstats": {}
+          }
+        }
+      ]
+    },
+    null,
+    null,
+    null
+  ]
+}

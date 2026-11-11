@@ -1,0 +1,111 @@
+{
+  "name": "F2P Melt",
+  "description": "Celestia",
+  "targets": [
+    {
+      "weight": 1,
+      "path": [
+        "burst",
+        "smashDmg"
+      ],
+      "hitMode": "avgHit",
+      "reaction": "melt",
+      "bonusStats": {
+        "eleMas": 120,
+        "all_dmg_": 102.5,
+        "critRate_": 12.75
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "skill",
+        "cloudstriderDmg"
+      ],
+      "hitMode": "avgHit",
+      "reaction": "melt",
+      "bonusStats": {
+        "eleMas": 120,
+        "all_dmg_": 77.5,
+        "critRate_": 12.75
+      },
+      "description": ""
+    },
+    {
+      "weight": 3,
+      "path": [
+        "skill",
+        "cloudstriderDmg"
+      ],
+      "hitMode": "avgHit",
+      "reaction": "melt",
+      "bonusStats": {
+        "eleMas": 120,
+        "all_dmg_": 102.5,
+        "critRate_": 12.75
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "skill",
+        "cloudstriderDmg"
+      ],
+      "hitMode": "avgHit",
+      "reaction": "melt",
+      "bonusStats": {
+        "eleMas": 120,
+        "all_dmg_": 102.5,
+        "critRate_": 12.75
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "skill",
+        "cloudstriderDmg"
+      ],
+      "hitMode": "avgHit",
+      "reaction": "melt",
+      "bonusStats": {
+        "eleMas": 120,
+        "all_dmg_": 102.5,
+        "critRate_": 12.75
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "skill",
+        "cloudstriderDmg"
+      ],
+      "hitMode": "avgHit",
+      "reaction": "melt",
+      "bonusStats": {
+        "eleMas": 120,
+        "all_dmg_": 102.5,
+        "critRate_": 12.75
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "skill",
+        "cloudstriderDmg"
+      ],
+      "hitMode": "avgHit",
+      "reaction": "melt",
+      "bonusStats": {
+        "eleMas": 120,
+        "all_dmg_": 102.5,
+        "critRate_": 12.75
+      },
+      "description": ""
+    }
+  ]
+}

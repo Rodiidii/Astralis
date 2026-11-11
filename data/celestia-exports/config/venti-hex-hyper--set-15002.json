@@ -1,0 +1,140 @@
+{
+  "name": "Hex Hyper",
+  "description": "Celestia",
+  "targets": [
+    {
+      "weight": 1,
+      "path": [
+        "skill",
+        "press"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "all_dmg_": 90,
+        "anemo_enemyRes_": -35
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "skill",
+        "press"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "all_dmg_": 140,
+        "anemo_enemyRes_": -35
+      },
+      "description": ""
+    },
+    {
+      "weight": 27,
+      "path": [
+        "burst",
+        "base"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "all_dmg_": 140,
+        "anemo_enemyRes_": -35
+      },
+      "description": ""
+    },
+    {
+      "weight": 20.25,
+      "path": [
+        "burst",
+        "absorb"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "all_dmg_": 140,
+        "pyro_enemyRes_": -75
+      },
+      "description": ""
+    },
+    {
+      "weight": 8,
+      "path": [
+        "normal",
+        "hex0"
+      ],
+      "hitMode": "avgHit",
+      "infusionAura": "anemo",
+      "bonusStats": {
+        "all_dmg_": 140,
+        "anemo_enemyRes_": -35
+      },
+      "description": ""
+    },
+    {
+      "weight": 4,
+      "path": [
+        "normal",
+        "hex1"
+      ],
+      "hitMode": "avgHit",
+      "infusionAura": "anemo",
+      "bonusStats": {
+        "all_dmg_": 140,
+        "anemo_enemyRes_": -35
+      },
+      "description": ""
+    },
+    {
+      "weight": 4,
+      "path": [
+        "normal",
+        "hex4"
+      ],
+      "hitMode": "avgHit",
+      "infusionAura": "anemo",
+      "bonusStats": {
+        "all_dmg_": 140,
+        "anemo_enemyRes_": -35
+      },
+      "description": ""
+    },
+    {
+      "weight": 8,
+      "path": [
+        "normal",
+        "hex3"
+      ],
+      "hitMode": "avgHit",
+      "infusionAura": "anemo",
+      "bonusStats": {
+        "all_dmg_": 140,
+        "anemo_enemyRes_": -35
+      },
+      "description": ""
+    },
+    {
+      "weight": 4,
+      "path": [
+        "normal",
+        "hex2"
+      ],
+      "hitMode": "avgHit",
+      "infusionAura": "anemo",
+      "bonusStats": {
+        "all_dmg_": 140,
+        "anemo_enemyRes_": -35
+      },
+      "description": ""
+    },
+    {
+      "weight": 16,
+      "path": [
+        "reaction",
+        "pyroSwirl"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "pyro_enemyRes_": -75
+      },
+      "description": ""
+    }
+  ]
+}

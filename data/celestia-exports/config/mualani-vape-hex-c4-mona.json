@@ -1,0 +1,108 @@
+{
+  "name": "Hex Vape C4 Mona",
+  "description": "Celestia",
+  "targets": [
+    {
+      "weight": 0.5,
+      "path": [
+        "skill",
+        "surgingDmg"
+      ],
+      "hitMode": "avgHit",
+      "reaction": "vaporize",
+      "bonusStats": {
+        "eleMas": 245.786,
+        "all_dmg_": 193.714,
+        "critRate_": 15,
+        "vaporize_dmg_": 15,
+        "hydro_enemyRes_": -40
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.5,
+      "path": [
+        "skill",
+        "surgingDmg"
+      ],
+      "hitMode": "avgHit",
+      "reaction": "vaporize",
+      "bonusStats": {
+        "eleMas": 245.786,
+        "all_dmg_": 193.714,
+        "critRate_": 15,
+        "vaporize_dmg_": 15,
+        "hydro_enemyRes_": -40
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.5,
+      "path": [
+        "skill",
+        "surgingDmg"
+      ],
+      "hitMode": "avgHit",
+      "reaction": "vaporize",
+      "bonusStats": {
+        "eleMas": 195.786,
+        "all_dmg_": 133.714,
+        "vaporize_dmg_": 15,
+        "hydro_enemyRes_": -40
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.5,
+      "path": [
+        "burst",
+        "dmg"
+      ],
+      "hitMode": "avgHit",
+      "reaction": "vaporize",
+      "bonusStats": {
+        "eleMas": 245.786,
+        "all_dmgInc": 12571.901,
+        "all_dmg_": 169.714,
+        "critRate_": 15,
+        "vaporize_dmg_": 15,
+        "hydro_enemyRes_": -40
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.5,
+      "path": [
+        "skill",
+        "surgingDmg"
+      ],
+      "hitMode": "avgHit",
+      "reaction": "vaporize",
+      "bonusStats": {
+        "eleMas": 245.786,
+        "all_dmg_": 215.714,
+        "critRate_": 15,
+        "vaporize_dmg_": 15,
+        "hydro_enemyRes_": -40
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.5,
+      "path": [
+        "skill",
+        "surgingDmg"
+      ],
+      "hitMode": "avgHit",
+      "reaction": "vaporize",
+      "bonusStats": {
+        "eleMas": 245.786,
+        "all_dmg_": 197.714,
+        "critRate_": 15,
+        "vaporize_dmg_": 15,
+        "hydro_enemyRes_": -40
+      },
+      "description": ""
+    }
+  ]
+}

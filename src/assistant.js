@@ -1,3 +1,19 @@
+import nilou from "../companions/gi/nilou.json" with { type: "json" };
+import skirk from "../companions/gi/skirk.json" with { type: "json" };
+import furina from "../companions/gi/furina.json" with { type: "json" };
+import nahida from "../companions/gi/nahida.json" with { type: "json" };
+import zhongli from "../companions/gi/zhongli.json" with { type: "json" };
+import alhaitham from "../companions/gi/alhaitham.json" with { type: "json" };
+import kaveh from "../companions/gi/kaveh.json" with { type: "json" };
+import cyno from "../companions/gi/cyno.json" with { type: "json" };
+import dehya from "../companions/gi/dehya.json" with { type: "json" };
+import itto from "../companions/gi/itto.json" with { type: "json" };
+import navia from "../companions/gi/navia.json" with { type: "json" };
+import citlali from "../companions/gi/citlali.json" with { type: "json" };
+import mavuika from "../companions/gi/mavuika.json" with { type: "json" };
+import collei from "../companions/gi/collei.json" with { type: "json" };
+import paimon from "../companions/gi/paimon.json" with { type: "json" };
+
 const GROUPS = {
   "Profil de voyage": [
     "Mémoriser le nom du voyageur", "Choisir un personnage compagnon", "Choisir une région préférée", "Noter les personnages favoris", "Mémoriser les objectifs du patch", "Garder le niveau d’aventure", "Garder le rang d’exploration", "Noter le temps de jeu souhaité", "Choisir un ton de rappel discret", "Exporter le profil compagnon"
@@ -82,92 +98,16 @@ export function readAssistantProfile(storage = localStorage) {
   }
 }
 
-// 30 openings × 10 context-sensitive endings = 300 short, locally generated lines
-// per selected character. These are original companion prompts, not game quotations.
-const VOICE_BANK = {
-  nilou: [
-    'Je viens de répéter une chorégraphie… et j’ai pensé à toi. On prépare doucement les matériaux qu’il te manque ?',
-    'Pas besoin de tout faire aujourd’hui. Quelques pas bien choisis, comme dans une danse, et tu auras déjà avancé.',
-    'La scène est plus belle quand chacun trouve son rythme. Pour ton équipe aussi, on peut chercher une rotation qui te ressemble.',
-    'J’espère que ta journée se passe bien ! Si tu veux, je peux t’aider à choisir une petite chose à faire, sans te presser.'
-  ],
-  skirk: [
-    'Tu veux progresser ? Choisis une cible. Termine ce que tu commences.',
-    'Ta rotation manque de cohérence. Reprends-la lentement, puis recommence jusqu’à ce qu’elle devienne naturelle.',
-    'Ne gaspille pas ta résine. Vérifie les matériaux manquants avant de partir.',
-    'Un combat perdu révèle une faille. Regarde ton équipe, pas la chance.'
-  ],
-  furina: [
-    'Une nouvelle scène s’offre à nous ! Choisissons d’abord notre objectif… le grand final attendra un peu.',
-    'Même une star doit parfois consulter son planning. Voyons ce qui mérite vraiment ton attention aujourd’hui !',
-    'Je propose une répétition générale de ta rotation. Avec un peu de panache, elle sera inoubliable !'
-  ],
-  nahida: [
-    'J’ai une petite question : quelle ressource te manque le plus en ce moment ? On pourrait commencer par celle-là.',
-    'Les progrès ressemblent à une graine. Un peu de soin chaque jour, et tu verras bientôt la différence.',
-    'J’ai remarqué un lien intéressant entre tes objectifs et ton équipe. Tu veux qu’on l’explore ensemble ?'
-  ],
-  zhongli: [
-    'Toute préparation gagne à être menée avec mesure. Commençons par les ressources réellement nécessaires.',
-    'Une équipe bien bâtie repose sur des fondations solides. Souhaites-tu revoir ses rôles et sa rotation ?',
-    'Les souvenirs de tes anciens combats peuvent encore t’être utiles. J’ai conservé tes notes à portée de main.'
-  ],
-  alhaitham: [
-    'J’ai vérifié tes priorités. La tâche la plus efficace est aussi la plus évidente : commence par ce qui te manque réellement.',
-    'Inutile d’ajouter une étape si elle ne sert pas ton objectif. Ton plan de farm peut être simplifié.',
-    'Ta rotation est enregistrée. Vérifie simplement que les temps de recharge s’alignent.'
-  ],
-  kaveh: [
-    'Ton équipe a du potentiel ! Avec quelques ajustements, elle pourrait être aussi harmonieuse qu’un projet bien pensé.',
-    'Tu as déjà fait une bonne partie du travail. Ne laisse pas les derniers matériaux te décourager, on va organiser ça.',
-    'J’ai regardé tes builds… On peut faire quelque chose de vraiment élégant avec ce que tu possèdes déjà !'
-  ],
-  cyno: [
-    'J’ai un conseil sérieux pour ton farm. Promis, je ne le transformerai pas en blague… enfin, j’essaierai.',
-    'Une rotation bien répétée devient un réflexe. C’est presque comme raconter une blague : le timing fait tout.',
-    'Tu veux une anecdote ? Après le farm, bien sûr. Un bon jugement commence par les priorités.'
-  ],
-  dehya: [
-    'Pas besoin de porter tout le poids d’un coup. Dis-moi ce qui te manque et on s’en occupe étape par étape.',
-    'Si un combat te résiste, on peut revoir la protection de l’équipe. Je serai là pour couvrir tes arrières.',
-    'Tu as assez travaillé pour aujourd’hui ? Même les plus solides doivent souffler.'
-  ],
-  itto: [
-    'Hé ! On va régler ce farm en deux temps trois mouvements. L’Onikabuto… euh, moi, je m’occupe du moral !',
-    'Ton équipe est presque prête. Il lui manque quoi ? Dis-le et le grand Arataki Itto te trouvera une solution !',
-    'Petit défi : une session, un objectif, zéro abandon. Tu relèves le pari ?'
-  ],
-  navia: [
-    'On ne va pas laisser quelques matériaux gâcher la journée. Je t’aide à organiser tout ça avec méthode.',
-    'J’ai préparé plusieurs pistes pour ton équipe. Choisissons celle qui te met le plus à l’aise.',
-    'Une petite pause, puis on reprend ensemble. L’important, c’est de garder le cap.'
-  ],
-  citlali: [
-    'Hm… assieds-toi deux secondes. On va regarder ce qu’il te manque, sans courir partout comme Ororon.',
-    'J’ai vu ton planning. Il est faisable, mais ne sacrifie pas ton repos pour quelques matériaux.',
-    'Tu veux un conseil ? Commence par le plus urgent. Après, on pourra se servir un verre et parler d’autre chose.'
-  ],
-  mavuika: [
-    'On avance ensemble. Fixe une priorité claire et on fera le reste avec détermination.',
-    'Une équipe solide se construit par l’action. Vérifions les rôles, puis passons à l’entraînement.',
-    'Tu as déjà parcouru beaucoup de chemin. Garde ton énergie pour ce qui compte vraiment.'
-  ],
-  collei: [
-    'Euh… j’ai préparé une petite liste pour t’aider. On peut la suivre tranquillement, si tu veux !',
-    'Je sais que ça peut sembler beaucoup, mais une étape à la fois, ça devient plus facile.',
-    'Tu veux revoir ton équipe avec moi ? Je prendrai des notes pour ne rien oublier !'
-  ],
-  paimon: [
-    'Paimon a vérifié ton plan ! On commence par les matériaux manquants, et après… petite pause gourmande ?',
-    'Hé, ne pars pas sans regarder les récompenses du jour ! Paimon ne veut pas que tu rates quelque chose.',
-    'Cette équipe a l’air forte ! Mais Paimon a une question très importante : qui apporte les snacks ?'
-  ]
-};
+const VOICE_BANK = { nilou, skirk, furina, nahida, zhongli, alhaitham, kaveh, cyno, dehya, itto, navia, citlali, mavuika, collei, paimon };
 
 export function characterNudge(character, context = {}) {
   const raw=String(character?._name||character?.name||'').normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase().replace(/[^a-z]/g,'');
-  const bank=VOICE_BANK[raw];
+  const voice=VOICE_BANK[raw];
+  const bank=voice?.situations.arrival;
   if(bank){
+    if(context.situation==='morning'||context.situation==='evening'){
+      return voice.situations[context.situation][0];
+    }
     if(raw==='nilou'&&context.farmCount)return ['Entre deux pas de danse, je me suis dit qu’on pourrait préparer les matériaux des '+context.farmCount+' personnages de ta liste. Sans se presser !','Ta prochaine chorégraphie peut attendre un peu… On regarde ensemble les ressources qu’il te manque ?'][Math.floor(Math.random()*2)];
     if(raw==='skirk'&&context.farmCount)return `Tu as ${context.farmCount} personnage(s) à préparer. Commence par leurs matériaux prioritaires. N’en néglige aucun.`;
     if(raw==='nahida'&&context.openTasks)return `Il reste ${context.openTasks} objectif(s). Lequel te semble le plus important aujourd’hui ?`;

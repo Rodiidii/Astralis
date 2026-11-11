@@ -1,0 +1,146 @@
+{
+  "category": {
+    "id": "alhaitham-fischl-quickbloom",
+    "name": "Fischl Quickbloom",
+    "kind": "normal"
+  },
+  "child": {
+    "constellation": 0,
+    "characterLevel": 90,
+    "talents": {
+      "burst": 10,
+      "skill": 10,
+      "normal": 10
+    },
+    "baseTalents": {
+      "burst": 10,
+      "skill": 10,
+      "normal": 10
+    },
+    "weaponId": 11512,
+    "refinement": 1
+  },
+  "reference": {
+    "source": "ceilingStandard"
+  },
+  "goConditions": {
+    "Alhaitham": {
+      "withMirrors": "on"
+    },
+    "LightOfFoliarIncision": {
+      "afterNormalEle": "on"
+    }
+  },
+  "characterBonusStats": {
+    "eleMas": 160
+  },
+  "enemy": {
+    "level": 100,
+    "res": 0.1
+  },
+  "issues": [
+    {
+      "code": "characterBonusStats",
+      "stats": [
+        {
+          "buff": "Silken Moon's Serenade · 4pc Silken Moon Team Lunarbloom Window",
+          "key": "eleMas",
+          "value": 60
+        },
+        {
+          "buff": "Dendro Resonance EM",
+          "key": "eleMas",
+          "value": 50
+        },
+        {
+          "buff": "Dendro Resonance EM · Burning/Quicken/Bloom",
+          "key": "eleMas",
+          "value": 30
+        },
+        {
+          "buff": "Dendro Resonance EM · Aggravate/Spread/Hyperbloom/Burgeon",
+          "key": "eleMas",
+          "value": 20
+        }
+      ]
+    },
+    {
+      "code": "goSwitch",
+      "switches": [
+        {
+          "condition": [
+            "Alhaitham",
+            "withMirrors",
+            "on"
+          ],
+          "source": {
+            "type": "character"
+          },
+          "buffs": [
+            "Mysteries Laid Bare"
+          ]
+        },
+        {
+          "condition": [
+            "LightOfFoliarIncision",
+            "afterNormalEle",
+            "on"
+          ],
+          "source": {
+            "type": "weapon",
+            "weaponId": 11512
+          },
+          "buffs": [
+            "Whitemoon Bristle"
+          ]
+        }
+      ]
+    },
+    {
+      "code": "setEffects",
+      "setIds": [
+        15026
+      ]
+    }
+  ],
+  "teamIssues": [
+    {
+      "code": "goSwitch",
+      "switches": [
+        {
+          "condition": [
+            "Alhaitham",
+            "withMirrors",
+            "on"
+          ],
+          "source": {
+            "type": "character"
+          },
+          "buffs": [
+            "Mysteries Laid Bare"
+          ]
+        },
+        {
+          "condition": [
+            "LightOfFoliarIncision",
+            "afterNormalEle",
+            "on"
+          ],
+          "source": {
+            "type": "weapon",
+            "weaponId": 11512
+          },
+          "buffs": [
+            "Whitemoon Bristle"
+          ]
+        }
+      ]
+    },
+    {
+      "code": "setEffects",
+      "setIds": [
+        15026
+      ]
+    }
+  ]
+}

@@ -1,0 +1,77 @@
+{
+  "name": "Lunar-Crystallize",
+  "description": "Celestia",
+  "targets": [
+    {
+      "weight": 1,
+      "path": [
+        "skill",
+        "holdDMG"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 20,
+        "geo_enemyRes_": -56,
+        "all_dmg_": 55
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.5,
+      "path": [
+        "skill",
+        "stele"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 20,
+        "geo_enemyRes_": -56,
+        "all_dmg_": 55
+      },
+      "description": ""
+    },
+    {
+      "weight": 30,
+      "path": [
+        "skill",
+        "resonance"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 20,
+        "geo_enemyRes_": -56,
+        "all_dmg_": 55
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.5,
+      "path": [
+        "burst",
+        "dmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 20,
+        "geo_enemyRes_": -56,
+        "all_dmg_": 55
+      },
+      "description": ""
+    },
+    {
+      "weight": 5.7,
+      "path": [
+        "reaction",
+        "lunarcrystallize"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 20,
+        "lunarcrystallize_baseDmg_": 7,
+        "lunarcrystallize_dmg_": 40,
+        "geo_enemyRes_": -56
+      },
+      "description": ""
+    }
+  ]
+}

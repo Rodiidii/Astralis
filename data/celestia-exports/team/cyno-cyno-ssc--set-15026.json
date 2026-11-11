@@ -1,0 +1,741 @@
+{
+  "name": "SSC",
+  "description": "Celestia",
+  "lastEdit": 1794351075433,
+  "conditional": {
+    "resonance": {},
+    "reaction": {}
+  },
+  "enemyOverride": {
+    "enemyLevel": 100,
+    "enemyDefIgn_": 0,
+    "enemyDefRed_": 0,
+    "pyro_enemyRes_": 10,
+    "hydro_enemyRes_": 10,
+    "electro_enemyRes_": 10,
+    "cryo_enemyRes_": 10,
+    "anemo_enemyRes_": 10,
+    "geo_enemyRes_": 10,
+    "dendro_enemyRes_": 10,
+    "physical_enemyRes_": 10
+  },
+  "loadoutData": [
+    {
+      "key": "Cyno",
+      "name": "Cyno (Celestia)",
+      "description": "",
+      "hitMode": "avgHit",
+      "infusionAura": "",
+      "bonusStats": {},
+      "conditional": {
+        "Cyno": {
+          "afterBurst": "on",
+          "lockRevelation": "on",
+          "lockStellarRadianceSc": "on"
+        },
+        "reaction": {
+          "polestarStacks": "10"
+        }
+      },
+      "customMultiTargets": [
+        {
+          "name": "SSC",
+          "description": "Celestia",
+          "targets": [
+            {
+              "weight": 1,
+              "path": [
+                "skill",
+                "riteDmg"
+              ],
+              "hitMode": "avgHit",
+              "bonusStats": {
+                "eleMas": 300,
+                "atk_": 70.032,
+                "atk": 816.388,
+                "all_dmg_": 35
+              },
+              "description": ""
+            },
+            {
+              "weight": 2,
+              "path": [
+                "burst",
+                "normal_0"
+              ],
+              "hitMode": "avgHit",
+              "bonusStats": {
+                "eleMas": 300,
+                "atk_": 70.032,
+                "atk": 816.388
+              },
+              "description": ""
+            },
+            {
+              "weight": 2,
+              "path": [
+                "burst",
+                "normal_1"
+              ],
+              "hitMode": "avgHit",
+              "bonusStats": {
+                "eleMas": 300,
+                "atk_": 70.032,
+                "atk": 816.388
+              },
+              "description": ""
+            },
+            {
+              "weight": 2,
+              "path": [
+                "burst",
+                "normal_2"
+              ],
+              "hitMode": "avgHit",
+              "bonusStats": {
+                "eleMas": 300,
+                "atk_": 70.032,
+                "atk": 816.388
+              },
+              "description": ""
+            },
+            {
+              "weight": 2,
+              "path": [
+                "burst",
+                "normal_3"
+              ],
+              "hitMode": "avgHit",
+              "bonusStats": {
+                "eleMas": 300,
+                "atk_": 70.032,
+                "atk": 816.388
+              },
+              "description": ""
+            },
+            {
+              "weight": 2,
+              "path": [
+                "burst",
+                "normal_3"
+              ],
+              "hitMode": "avgHit",
+              "bonusStats": {
+                "eleMas": 300,
+                "atk_": 70.032,
+                "atk": 816.388
+              },
+              "description": ""
+            },
+            {
+              "weight": 1,
+              "path": [
+                "burst",
+                "normal_0"
+              ],
+              "hitMode": "avgHit",
+              "bonusStats": {
+                "eleMas": 300,
+                "atk_": 70.032,
+                "atk": 816.388
+              },
+              "description": ""
+            },
+            {
+              "weight": 1,
+              "path": [
+                "burst",
+                "normal_1"
+              ],
+              "hitMode": "avgHit",
+              "bonusStats": {
+                "eleMas": 300,
+                "atk_": 70.032,
+                "atk": 816.388
+              },
+              "description": ""
+            },
+            {
+              "weight": 1,
+              "path": [
+                "skill",
+                "riteDmg"
+              ],
+              "hitMode": "avgHit",
+              "bonusStats": {
+                "eleMas": 300,
+                "atk_": 70.032,
+                "atk": 816.388,
+                "all_dmg_": 35
+              },
+              "description": ""
+            },
+            {
+              "weight": 3,
+              "path": [
+                "passive1",
+                "boltStellarDmg"
+              ],
+              "hitMode": "avgHit",
+              "bonusStats": {
+                "eleMas": 300,
+                "atk_": 70.032,
+                "atk": 816.388,
+                "stellarconduct_dmg_": 40
+              },
+              "description": ""
+            },
+            {
+              "weight": 2,
+              "path": [
+                "burst",
+                "normal_0"
+              ],
+              "hitMode": "avgHit",
+              "bonusStats": {
+                "eleMas": 300,
+                "atk_": 70.032,
+                "atk": 816.388
+              },
+              "description": ""
+            },
+            {
+              "weight": 2,
+              "path": [
+                "burst",
+                "normal_1"
+              ],
+              "hitMode": "avgHit",
+              "bonusStats": {
+                "eleMas": 300,
+                "atk_": 70.032,
+                "atk": 816.388
+              },
+              "description": ""
+            },
+            {
+              "weight": 2,
+              "path": [
+                "burst",
+                "normal_2"
+              ],
+              "hitMode": "avgHit",
+              "bonusStats": {
+                "eleMas": 300,
+                "atk_": 70.032,
+                "atk": 816.388
+              },
+              "description": ""
+            },
+            {
+              "weight": 2,
+              "path": [
+                "burst",
+                "normal_3"
+              ],
+              "hitMode": "avgHit",
+              "bonusStats": {
+                "eleMas": 300,
+                "atk_": 70.032,
+                "atk": 816.388
+              },
+              "description": ""
+            },
+            {
+              "weight": 2,
+              "path": [
+                "burst",
+                "normal_3"
+              ],
+              "hitMode": "avgHit",
+              "bonusStats": {
+                "eleMas": 300,
+                "atk_": 70.032,
+                "atk": 816.388
+              },
+              "description": ""
+            },
+            {
+              "weight": 1,
+              "path": [
+                "skill",
+                "riteDmg"
+              ],
+              "hitMode": "avgHit",
+              "bonusStats": {
+                "eleMas": 300,
+                "atk_": 70.032,
+                "atk": 816.388,
+                "all_dmg_": 35
+              },
+              "description": ""
+            },
+            {
+              "weight": 3,
+              "path": [
+                "passive1",
+                "boltStellarDmg"
+              ],
+              "hitMode": "avgHit",
+              "bonusStats": {
+                "eleMas": 300,
+                "atk_": 70.032,
+                "atk": 816.388,
+                "stellarconduct_dmg_": 40
+              },
+              "description": ""
+            },
+            {
+              "weight": 2,
+              "path": [
+                "burst",
+                "normal_0"
+              ],
+              "hitMode": "avgHit",
+              "bonusStats": {
+                "eleMas": 300,
+                "atk_": 70.032,
+                "atk": 816.388
+              },
+              "description": ""
+            },
+            {
+              "weight": 2,
+              "path": [
+                "burst",
+                "normal_1"
+              ],
+              "hitMode": "avgHit",
+              "bonusStats": {
+                "eleMas": 300,
+                "atk_": 70.032,
+                "atk": 816.388
+              },
+              "description": ""
+            },
+            {
+              "weight": 2,
+              "path": [
+                "burst",
+                "normal_2"
+              ],
+              "hitMode": "avgHit",
+              "bonusStats": {
+                "eleMas": 300,
+                "atk_": 70.032,
+                "atk": 816.388
+              },
+              "description": ""
+            },
+            {
+              "weight": 2,
+              "path": [
+                "burst",
+                "normal_3"
+              ],
+              "hitMode": "avgHit",
+              "bonusStats": {
+                "eleMas": 300,
+                "atk_": 70.032,
+                "atk": 816.388
+              },
+              "description": ""
+            },
+            {
+              "weight": 2,
+              "path": [
+                "burst",
+                "normal_3"
+              ],
+              "hitMode": "avgHit",
+              "bonusStats": {
+                "eleMas": 300,
+                "atk_": 70.032,
+                "atk": 816.388
+              },
+              "description": ""
+            },
+            {
+              "weight": 1,
+              "path": [
+                "skill",
+                "riteDmg"
+              ],
+              "hitMode": "avgHit",
+              "bonusStats": {
+                "eleMas": 300,
+                "atk_": 70.032,
+                "atk": 816.388,
+                "all_dmg_": 35
+              },
+              "description": ""
+            },
+            {
+              "weight": 3,
+              "path": [
+                "passive1",
+                "boltStellarDmg"
+              ],
+              "hitMode": "avgHit",
+              "bonusStats": {
+                "eleMas": 300,
+                "atk_": 70.032,
+                "atk": 816.388,
+                "stellarconduct_dmg_": 40
+              },
+              "description": ""
+            }
+          ]
+        }
+      ],
+      "optConfig": {
+        "optimizationTarget": [
+          "custom",
+          "0"
+        ]
+      },
+      "buildTcs": [
+        {
+          "name": "Celestia",
+          "description": "The leaderboard reference build.",
+          "characterKey": "Cyno",
+          "character": {
+            "level": 90,
+            "ascension": 6,
+            "constellation": 1,
+            "talent": {
+              "auto": 10,
+              "skill": 10,
+              "burst": 10
+            }
+          },
+          "weapon": {
+            "key": "StaffOfTheScarletSands",
+            "level": 90,
+            "ascension": 6,
+            "refinement": 1
+          },
+          "artifact": {
+            "sets": {
+              "GildedDreams": 5
+            },
+            "slots": {
+              "flower": {
+                "level": 20,
+                "rarity": 5,
+                "statKey": "hp"
+              },
+              "plume": {
+                "level": 20,
+                "rarity": 5,
+                "statKey": "atk"
+              },
+              "sands": {
+                "level": 20,
+                "rarity": 5,
+                "statKey": "eleMas"
+              },
+              "goblet": {
+                "level": 20,
+                "rarity": 5,
+                "statKey": "eleMas"
+              },
+              "circlet": {
+                "level": 20,
+                "rarity": 5,
+                "statKey": "critDMG_"
+              }
+            },
+            "substats": {
+              "type": "max",
+              "rarity": 5,
+              "stats": {
+                "def": 39.35,
+                "def_": 12.39,
+                "eleMas": 118.89,
+                "critRate_": 33.05,
+                "critDMG_": 66.05,
+                "hp": 507.88,
+                "hp_": 9.91,
+                "enerRech_": 11.01,
+                "atk": 33.07,
+                "atk_": 9.91
+              }
+            }
+          },
+          "optimization": {
+            "distributedSubstats": 0,
+            "maxSubstats": {}
+          }
+        }
+      ]
+    },
+    {
+      "key": "Odette",
+      "name": "Odette (Celestia)",
+      "description": "",
+      "hitMode": "avgHit",
+      "infusionAura": "",
+      "bonusStats": {},
+      "conditional": {
+        "Odette": {
+          "a1TeamSplendor": "4"
+        },
+        "HeartOfTheFurnace": {
+          "4Stellar": "on"
+        }
+      },
+      "customMultiTargets": [],
+      "buildTcs": [
+        {
+          "name": "Celestia",
+          "description": "Celestia teammate assumption (85% of the maximum).",
+          "characterKey": "Odette",
+          "character": {
+            "level": 90,
+            "ascension": 6,
+            "constellation": 0,
+            "talent": {
+              "auto": 10,
+              "skill": 10,
+              "burst": 10
+            }
+          },
+          "weapon": {
+            "key": "ExaiphanesBlade",
+            "level": 90,
+            "ascension": 6,
+            "refinement": 1
+          },
+          "artifact": {
+            "sets": {
+              "HeartOfTheFurnace": 4
+            },
+            "slots": {
+              "flower": {
+                "level": 20,
+                "rarity": 5,
+                "statKey": "hp"
+              },
+              "plume": {
+                "level": 20,
+                "rarity": 5,
+                "statKey": "atk"
+              },
+              "sands": {
+                "level": 20,
+                "rarity": 5,
+                "statKey": "atk_"
+              },
+              "goblet": {
+                "level": 20,
+                "rarity": 5,
+                "statKey": "atk_"
+              },
+              "circlet": {
+                "level": 20,
+                "rarity": 5,
+                "statKey": "critDMG_"
+              }
+            },
+            "substats": {
+              "type": "max",
+              "rarity": 5,
+              "stats": {
+                "hp": 507.88,
+                "atk": 165.4,
+                "def": 39.36,
+                "hp_": 9.92,
+                "atk_": 39.68,
+                "def_": 12.4,
+                "eleMas": 39.64,
+                "enerRech_": 11.02,
+                "critRate_": 19.86,
+                "critDMG_": 26.48
+              }
+            }
+          },
+          "optimization": {
+            "distributedSubstats": 0,
+            "maxSubstats": {}
+          }
+        }
+      ]
+    },
+    {
+      "key": "YaeMiko",
+      "name": "YaeMiko (Celestia)",
+      "description": "",
+      "hitMode": "avgHit",
+      "infusionAura": "",
+      "bonusStats": {},
+      "conditional": {
+        "YaeMiko": {
+          "c1": "on",
+          "lockRevelation": "on"
+        }
+      },
+      "customMultiTargets": [],
+      "buildTcs": [
+        {
+          "name": "Celestia",
+          "description": "Celestia teammate assumption (85% of the maximum).",
+          "characterKey": "YaeMiko",
+          "character": {
+            "level": 90,
+            "ascension": 6,
+            "constellation": 1,
+            "talent": {
+              "auto": 10,
+              "skill": 10,
+              "burst": 10
+            }
+          },
+          "weapon": {
+            "key": "KagurasVerity",
+            "level": 90,
+            "ascension": 6,
+            "refinement": 1
+          },
+          "artifact": {
+            "sets": {
+              "DisenchantmentInDeepShadow": 4
+            },
+            "slots": {
+              "flower": {
+                "level": 20,
+                "rarity": 5,
+                "statKey": "hp"
+              },
+              "plume": {
+                "level": 20,
+                "rarity": 5,
+                "statKey": "atk"
+              },
+              "sands": {
+                "level": 20,
+                "rarity": 5,
+                "statKey": "atk_"
+              },
+              "goblet": {
+                "level": 20,
+                "rarity": 5,
+                "statKey": "atk_"
+              },
+              "circlet": {
+                "level": 20,
+                "rarity": 5,
+                "statKey": "critDMG_"
+              }
+            },
+            "substats": {
+              "type": "max",
+              "rarity": 5,
+              "stats": {
+                "hp": 1015.76,
+                "atk": 33.08,
+                "def": 39.36,
+                "hp_": 9.92,
+                "atk_": 9.92,
+                "def_": 12.4,
+                "eleMas": 39.64,
+                "enerRech_": 11.02,
+                "critRate_": 39.72,
+                "critDMG_": 66.2
+              }
+            }
+          },
+          "optimization": {
+            "distributedSubstats": 0,
+            "maxSubstats": {}
+          }
+        }
+      ]
+    },
+    {
+      "key": "Alyosha",
+      "name": "Alyosha (Celestia)",
+      "description": "",
+      "hitMode": "avgHit",
+      "infusionAura": "",
+      "bonusStats": {},
+      "conditional": {},
+      "customMultiTargets": [],
+      "buildTcs": [
+        {
+          "name": "Celestia",
+          "description": "Celestia teammate assumption (85% of the maximum).",
+          "characterKey": "Alyosha",
+          "character": {
+            "level": 90,
+            "ascension": 6,
+            "constellation": 6,
+            "talent": {
+              "auto": 10,
+              "skill": 10,
+              "burst": 10
+            }
+          },
+          "weapon": {
+            "key": "BeginnersProtector",
+            "level": 90,
+            "ascension": 6,
+            "refinement": 1
+          },
+          "artifact": {
+            "sets": {
+              "NoblesseOblige": 4
+            },
+            "slots": {
+              "flower": {
+                "level": 20,
+                "rarity": 5,
+                "statKey": "hp"
+              },
+              "plume": {
+                "level": 20,
+                "rarity": 5,
+                "statKey": "atk"
+              },
+              "sands": {
+                "level": 20,
+                "rarity": 5,
+                "statKey": "enerRech_"
+              },
+              "goblet": {
+                "level": 20,
+                "rarity": 5,
+                "statKey": "atk_"
+              },
+              "circlet": {
+                "level": 20,
+                "rarity": 5,
+                "statKey": "atk_"
+              }
+            },
+            "substats": {
+              "type": "max",
+              "rarity": 5,
+              "stats": {
+                "hp": 507.88,
+                "atk": 33.08,
+                "def": 39.36,
+                "hp_": 9.92,
+                "atk_": 9.92,
+                "def_": 12.4,
+                "eleMas": 39.64,
+                "enerRech_": 11.02,
+                "critRate_": 39.72,
+                "critDMG_": 79.44
+              }
+            }
+          },
+          "optimization": {
+            "distributedSubstats": 0,
+            "maxSubstats": {}
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -246,6 +246,25 @@ export async function hsrCharacterRanks(){
   return hsrRankCache;
 }
 
+
+let talentCostRequest;
+async function characterTalentCosts(character) {
+ talentCostRequest ||= fetch('./data/gi-talent-costs.json').then(r=>r.ok?r.json():{}).catch(()=>({}));
+ const snapshot=await talentCostRequest;
+ const traveler = ['10000005','10000007'].includes(String(character.id)) || /^traveler-/.test(character._id);
+ if (traveler) {
+  const element = slugify(character.vision || character.elementText || character.element || '').replace(/[^a-z]/g,'');
+  const key = /^traveler-(?:anemo|geo|electro|dendro|hydro|pyro)$/.test(character._id) ? character._id : 'traveler-' + element;
+  if (snapshot[key]?.costs) return snapshot[key].costs;
+ }
+ if(snapshot[String(character.id)]?.costs)return snapshot[String(character.id)].costs;
+ try {
+  const params=new URLSearchParams({query:character.name||character._name,queryLanguages:'french',resultLanguage:'French'});
+  const data=await json('https://genshin-db-api.vercel.app/api/v5/talents?'+params,AbortSignal.timeout(15000));
+  return data?.costs||{};
+ }catch{return {};}
+}
+
 export async function characterDetails(game, character) {
   const key = `${game}:${character._id}`;
   // Never fuzzy-query unreleased characters: wait for a connected public source rather than fabricating kit data.
@@ -255,7 +274,7 @@ export async function characterDetails(game, character) {
     return details;
   }
   if (detailCache.has(key)) return detailCache.get(key);
-  try{const saved=await getLocal('cache',`detail:studio69:${key}`);if(saved?.items&&Date.now()-(Number(saved.savedAt)||0)<cacheTtl()){detailCache.set(key,saved.items);return saved.items;}}catch{}
+  try{const saved=await getLocal('cache',`detail:studio84:${key}`);if(saved?.items&&Date.now()-(Number(saved.savedAt)||0)<cacheTtl()){detailCache.set(key,saved.items);return saved.items;}}catch{}
   let details = character;
   if (game === 'gi') {
     if(/^\d+$/.test(String(character.id||''))){
@@ -269,8 +288,8 @@ export async function characterDetails(game, character) {
         const constellations=Array.from({length:6},(_,i)=>raw.constellations?.[`const${i+1}`]).filter(Boolean).map((value,i)=>({...value,name:`C${i+1} · ${value.name||''}`,icon:value.icon?`https://api.lunaris.moe/data/assets/skills/${encodeURIComponent(value.icon)}.webp`:undefined}));
         const attr=(info.attributes||[]).filter(x=>Number(x.level)===90).sort((a,b)=>Number(b.ascension)-Number(a.ascension))[0]||{};
         const icon=filename=>filename?`https://api.lunaris.moe/data/assets/skills/${encodeURIComponent(filename)}.webp`:undefined;
-        details={...character,...info,levelStats:info.attributes,baseStats:{hp:attr.hp,attack:attr.atk,defense:attr.def},skillTalents,passives:Object.values(skills).filter(x=>x&&(/passive|utility/i.test(String(x.type||x.name||'')))),constellations,kitVersion:`Lunaris ${version}`,source:'Lunaris'};
-        detailCache.set(key,details);putLocal('cache',`detail:studio69:${key}`,{items:details,savedAt:Date.now(),source:'Lunaris'}).catch(()=>{});return details;
+        details={...character,...info,talentCosts:await characterTalentCosts(character),levelStats:info.attributes,baseStats:{hp:attr.hp,attack:attr.attack??attr.atk,defense:attr.defense??attr.def},skillTalents,passives:Object.values(raw.passives||{}).filter(x=>x?.name&&x?.description).map(value=>({...value,icon:icon(value.icon)})),constellations,kitVersion:`Lunaris ${version}`,source:'Lunaris'};
+        detailCache.set(key,details);putLocal('cache',`detail:studio84:${key}`,{items:details,savedAt:Date.now(),source:'Lunaris'}).catch(()=>{});return details;
       }catch{/* fallback below: Genshin-DB remains a rescue source */}
     }
     const options = `query=${encodeURIComponent(character.name || character._name)}&matchCategories=true&verboseCategories=true&queryLanguages=french&resultLanguage=French`;
@@ -281,7 +300,7 @@ export async function characterDetails(game, character) {
       levelStatsFor('characters',character).catch(()=>null),
     ]);
     const skillTalents=['combat1','combat2','combat3'].map(key=>talentValues?.[key]).filter(Boolean);
-    details = { ...character, description:character.description, levelStats, talentValues, skillTalents:skillTalents.map((skill,index)=>{const legacy=`https://genshin.jmp.blue/characters/${encodeURIComponent(character._id)}/talent-${['na','skill','burst'][index]}`;const filename=talentValues?.images?.[`filename_combat${index+1}`];return {...skill,icon:filename?`https://enka.network/ui/${encodeURIComponent(filename)}.png`:legacy,iconFallbacks:[legacy]}}), talentCosts:talentValues?.costs||{}, passives:['passive1','passive2','passive3'].map(key=>talentValues?.[key]).filter(Boolean), constellations:constellations?['c1','c2','c3','c4','c5','c6'].map((key,index)=>constellations[key]&&({name:`Constellation ${index+1} · ${constellations[key].name}`,description:constellations[key].description,icon:`https://genshin.jmp.blue/characters/${encodeURIComponent(character._id)}/constellation-${index+1}`,level:10})).filter(Boolean):[] };
+    details = { ...character, description:character.description, levelStats, talentValues, skillTalents:skillTalents.map((skill,index)=>{const legacy=`https://genshin.jmp.blue/characters/${encodeURIComponent(character._id)}/talent-${['na','skill','burst'][index]}`;const filename=talentValues?.images?.[`filename_combat${index+1}`];return {...skill,icon:filename?`https://enka.network/ui/${encodeURIComponent(filename)}.png`:legacy,iconFallbacks:[legacy]}}), talentCosts:talentValues?.costs||await characterTalentCosts(character), passives:['passive1','passive2','passive3'].map(key=>talentValues?.[key]).filter(Boolean), constellations:constellations?['c1','c2','c3','c4','c5','c6'].map((key,index)=>constellations[key]&&({name:`Constellation ${index+1} · ${constellations[key].name}`,description:constellations[key].description,icon:`https://genshin.jmp.blue/characters/${encodeURIComponent(character._id)}/constellation-${index+1}`,level:10})).filter(Boolean):[] };
   }
   if (game === 'ww'&&!character.preRelease) details = { ...character, ...await json(`/detail/ww/character/${encodeURIComponent(character.apiId||character._id)}`, AbortSignal.timeout(25000)) };
   if (game === 'hsr') {
@@ -310,7 +329,7 @@ export async function characterDetails(game, character) {
     details = { ...character, kit, eidolons:eidolons.length?eidolons:nanokaRanks };
   }
   detailCache.set(key, details);
-  putLocal('cache',`detail:studio69:${key}`,{items:details,savedAt:Date.now()}).catch(()=>{});
+  putLocal('cache',`detail:studio84:${key}`,{items:details,savedAt:Date.now()}).catch(()=>{});
   return details;
 }
 
@@ -399,6 +418,8 @@ export function imageSet(game, item, category = item?._category || 'character') 
 
 export function splashImage(game, item) {
   if (game === 'gi' && item?._category === 'character') {
+    if(item._id==='alhaitham')return './assets/genshin/splashes/alhaitham.png';
+    if(item._id==='aino'||String(item.id)==='10000121')return './assets/genshin/splashes/aino.webp';
     const lunarisSplash = item?.images?.lunarisSplash || item?.images?.filename_gachaSplash;
     if (lunarisSplash) {
       if (/^https?:\/\//i.test(lunarisSplash)) return lunarisSplash;

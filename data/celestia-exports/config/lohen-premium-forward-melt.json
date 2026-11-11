@@ -1,0 +1,62 @@
+{
+  "name": "Citlali Forward Melt",
+  "description": "Celestia",
+  "targets": [
+    {
+      "weight": 10.7059,
+      "path": [
+        "skill",
+        "0"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 25,
+        "all_dmg_": 244,
+        "critRate_": 35
+      },
+      "description": ""
+    },
+    {
+      "weight": 21.4118,
+      "path": [
+        "skill",
+        "chargedDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 25,
+        "all_dmg_": 244,
+        "critRate_": 35
+      },
+      "description": ""
+    },
+    {
+      "weight": 14.7778,
+      "path": [
+        "skill",
+        "etchDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 25,
+        "all_dmg_": 204,
+        "critRate_": 35
+      },
+      "description": ""
+    },
+    {
+      "weight": 4.2,
+      "path": [
+        "burst",
+        "burstDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 25,
+        "all_dmg_": 204,
+        "critRate_": 35
+      },
+      "description": ""
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "name": "Hydro Cube Solo CA Nuke",
+  "description": "Celestia",
+  "targets": [
+    {
+      "weight": 1,
+      "path": [
+        "charged",
+        "dmg"
+      ],
+      "hitMode": "critHit",
+      "reaction": "vaporize",
+      "infusionAura": "pyro",
+      "bonusStats": {
+        "all_dmg_": 50
+      },
+      "description": ""
+    }
+  ]
+}

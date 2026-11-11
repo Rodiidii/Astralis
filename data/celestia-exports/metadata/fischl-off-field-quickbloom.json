@@ -1,0 +1,87 @@
+{
+  "category": {
+    "id": "fischl-off-field-quickbloom",
+    "name": "Off-field Quickbloom",
+    "kind": "normal"
+  },
+  "child": {
+    "constellation": 6,
+    "characterLevel": 90,
+    "talents": {
+      "burst": 13,
+      "skill": 13,
+      "normal": 10
+    },
+    "baseTalents": {
+      "burst": 10,
+      "skill": 10,
+      "normal": 10
+    },
+    "weaponId": 15402,
+    "refinement": 5
+  },
+  "reference": {
+    "source": "ceilingStandard"
+  },
+  "goConditions": null,
+  "characterBonusStats": {
+    "eleMas": 350
+  },
+  "enemy": {
+    "level": 100,
+    "res": 0.1
+  },
+  "issues": [
+    {
+      "code": "skippedLines",
+      "reason": "manual",
+      "lines": 5,
+      "share": 0.23672823579302998
+    },
+    {
+      "code": "characterBonusStats",
+      "stats": [
+        {
+          "buff": "Dendro Resonance EM",
+          "key": "eleMas",
+          "value": 50
+        },
+        {
+          "buff": "Dendro Resonance EM · Burning/Quicken/Bloom",
+          "key": "eleMas",
+          "value": 30
+        },
+        {
+          "buff": "Dendro Resonance EM · Aggravate/Spread/Hyperbloom/Burgeon",
+          "key": "eleMas",
+          "value": 20
+        },
+        {
+          "buff": "Compassion Illuminated",
+          "key": "eleMas",
+          "value": 250
+        }
+      ]
+    },
+    {
+      "code": "setEffects",
+      "setIds": [
+        15044
+      ]
+    }
+  ],
+  "teamIssues": [
+    {
+      "code": "skippedLines",
+      "reason": "manual",
+      "lines": 5,
+      "share": 0.23672823579302998
+    },
+    {
+      "code": "setEffects",
+      "setIds": [
+        15044
+      ]
+    }
+  ]
+}

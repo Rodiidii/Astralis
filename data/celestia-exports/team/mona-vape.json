@@ -1,0 +1,1170 @@
+{
+  "name": "Vape",
+  "description": "Celestia",
+  "lastEdit": 1794349039031,
+  "conditional": {
+    "resonance": {},
+    "reaction": {}
+  },
+  "enemyOverride": {
+    "enemyLevel": 100,
+    "enemyDefIgn_": 0,
+    "enemyDefRed_": 0,
+    "pyro_enemyRes_": 10,
+    "hydro_enemyRes_": 10,
+    "electro_enemyRes_": 10,
+    "cryo_enemyRes_": 10,
+    "anemo_enemyRes_": 10,
+    "geo_enemyRes_": 10,
+    "dendro_enemyRes_": 10,
+    "physical_enemyRes_": 10
+  },
+  "loadoutData": [
+    {
+      "key": "Mona",
+      "name": "Mona (Celestia)",
+      "description": "",
+      "hitMode": "avgHit",
+      "infusionAura": "",
+      "bonusStats": {},
+      "conditional": {},
+      "customMultiTargets": [
+        {
+          "name": "Vape",
+          "description": "Celestia",
+          "targets": [
+            {
+              "weight": 0.3757,
+              "path": [
+                "normal",
+                "0"
+              ],
+              "hitMode": "avgHit",
+              "reaction": "vaporize",
+              "bonusStats": {
+                "atk": 711.494,
+                "eleMas": 80,
+                "atk_": 25,
+                "vaporize_dmg_": 15,
+                "all_dmg_": 87.664,
+                "critRate_": 20
+              },
+              "description": ""
+            },
+            {
+              "weight": 0.5,
+              "path": [
+                "normal",
+                "1"
+              ],
+              "hitMode": "avgHit",
+              "bonusStats": {
+                "atk": 711.494,
+                "eleMas": 80,
+                "atk_": 25,
+                "all_dmg_": 88.364,
+                "critRate_": 20
+              },
+              "description": ""
+            },
+            {
+              "weight": 0.5,
+              "path": [
+                "skill",
+                "dot"
+              ],
+              "hitMode": "avgHit",
+              "bonusStats": {
+                "atk": 711.494,
+                "eleMas": 80,
+                "atk_": 25,
+                "all_dmg_": 85.714,
+                "critRate_": 20
+              },
+              "description": ""
+            },
+            {
+              "weight": 0.0814,
+              "path": [
+                "charged",
+                "dmg"
+              ],
+              "hitMode": "avgHit",
+              "bonusStats": {
+                "atk": 711.494,
+                "eleMas": 80,
+                "atk_": 25,
+                "all_dmg_": 88.384,
+                "critRate_": 20
+              },
+              "description": ""
+            },
+            {
+              "weight": 0.0992,
+              "path": [
+                "charged",
+                "dmg"
+              ],
+              "hitMode": "avgHit",
+              "bonusStats": {
+                "atk": 711.494,
+                "eleMas": 80,
+                "atk_": 25,
+                "all_dmg_": 89.834,
+                "critRate_": 20
+              },
+              "description": ""
+            },
+            {
+              "weight": 0.5,
+              "path": [
+                "skill",
+                "dot"
+              ],
+              "hitMode": "avgHit",
+              "bonusStats": {
+                "atk": 711.494,
+                "eleMas": 80,
+                "atk_": 25,
+                "all_dmg_": 85.714,
+                "critRate_": 20
+              },
+              "description": ""
+            },
+            {
+              "weight": 0.5,
+              "path": [
+                "skill",
+                "dot"
+              ],
+              "hitMode": "avgHit",
+              "bonusStats": {
+                "atk": 711.494,
+                "eleMas": 80,
+                "atk_": 25,
+                "critRate_": 35,
+                "all_dmg_": 140,
+                "critDMG_": 15
+              },
+              "description": ""
+            },
+            {
+              "weight": 0.5,
+              "path": [
+                "burst",
+                "dmg"
+              ],
+              "hitMode": "avgHit",
+              "bonusStats": {
+                "atk": 711.494,
+                "eleMas": 80,
+                "atk_": 25,
+                "critRate_": 35,
+                "all_dmg_": 137.38,
+                "critDMG_": 15
+              },
+              "description": ""
+            },
+            {
+              "weight": 0.5,
+              "path": [
+                "skill",
+                "dot"
+              ],
+              "hitMode": "avgHit",
+              "bonusStats": {
+                "atk": 711.494,
+                "eleMas": 80,
+                "atk_": 25,
+                "critRate_": 35,
+                "all_dmg_": 140,
+                "critDMG_": 15
+              },
+              "description": ""
+            },
+            {
+              "weight": 0.5,
+              "path": [
+                "skill",
+                "dmg"
+              ],
+              "hitMode": "avgHit",
+              "bonusStats": {
+                "atk": 711.494,
+                "eleMas": 80,
+                "atk_": 25,
+                "critRate_": 35,
+                "all_dmg_": 152.455,
+                "critDMG_": 15
+              },
+              "description": ""
+            },
+            {
+              "weight": 0.5414,
+              "path": [
+                "normal",
+                "0"
+              ],
+              "hitMode": "avgHit",
+              "reaction": "vaporize",
+              "bonusStats": {
+                "atk": 711.494,
+                "eleMas": 281.684,
+                "atk_": 73,
+                "vaporize_dmg_": 15,
+                "all_dmg_": 150.932,
+                "hydro_enemyRes_": -40,
+                "critRate_": 34.156,
+                "critDMG_": 14.156
+              },
+              "description": ""
+            },
+            {
+              "weight": 0.2006,
+              "path": [
+                "charged",
+                "dmg"
+              ],
+              "hitMode": "avgHit",
+              "reaction": "vaporize",
+              "bonusStats": {
+                "eleMas": 281.684,
+                "atk_": 71.5,
+                "atk": 411.494,
+                "vaporize_dmg_": 15,
+                "critRate_": 35,
+                "all_dmg_": 180.357,
+                "critDMG_": 15,
+                "hydro_enemyRes_": -40
+              },
+              "description": ""
+            },
+            {
+              "weight": 0.9747,
+              "path": [
+                "charged",
+                "dmg"
+              ],
+              "hitMode": "avgHit",
+              "reaction": "vaporize",
+              "bonusStats": {
+                "atk": 711.494,
+                "eleMas": 278.684,
+                "atk_": 73,
+                "vaporize_dmg_": 15,
+                "all_dmg_": 265.902,
+                "hydro_enemyRes_": -40,
+                "critRate_": 34.156,
+                "critDMG_": 14.156
+              },
+              "description": ""
+            },
+            {
+              "weight": 0.9747,
+              "path": [
+                "charged",
+                "dmg"
+              ],
+              "hitMode": "avgHit",
+              "reaction": "vaporize",
+              "bonusStats": {
+                "atk": 711.494,
+                "eleMas": 281.684,
+                "atk_": 73,
+                "vaporize_dmg_": 15,
+                "all_dmg_": 230.752,
+                "hydro_enemyRes_": -40,
+                "critRate_": 34.156,
+                "critDMG_": 14.156
+              },
+              "description": ""
+            },
+            {
+              "weight": 0.027,
+              "path": [
+                "charged",
+                "dmg"
+              ],
+              "hitMode": "avgHit",
+              "bonusStats": {
+                "atk": 711.494,
+                "eleMas": 231.684,
+                "atk_": 73,
+                "all_dmg_": 100.857,
+                "hydro_enemyRes_": -40,
+                "critRate_": 20
+              },
+              "description": ""
+            },
+            {
+              "weight": 0.9747,
+              "path": [
+                "charged",
+                "dmg"
+              ],
+              "hitMode": "avgHit",
+              "reaction": "vaporize",
+              "bonusStats": {
+                "atk": 711.494,
+                "eleMas": 281.684,
+                "atk_": 73,
+                "all_dmg_": 216.152,
+                "hydro_enemyRes_": -40,
+                "critRate_": 34.156,
+                "vaporize_dmg_": 14.156,
+                "critDMG_": 14.156
+              },
+              "description": ""
+            },
+            {
+              "weight": 0.9747,
+              "path": [
+                "charged",
+                "dmg"
+              ],
+              "hitMode": "avgHit",
+              "reaction": "vaporize",
+              "bonusStats": {
+                "atk": 711.494,
+                "eleMas": 231.684,
+                "atk_": 73,
+                "all_dmg_": 277.982,
+                "critRate_": 34.156,
+                "vaporize_dmg_": 14.156,
+                "critDMG_": 14.156,
+                "hydro_enemyRes_": -37.75
+              },
+              "description": ""
+            },
+            {
+              "weight": 0.5414,
+              "path": [
+                "normal",
+                "0"
+              ],
+              "hitMode": "avgHit",
+              "reaction": "vaporize",
+              "bonusStats": {
+                "atk": 711.494,
+                "eleMas": 231.684,
+                "atk_": 25,
+                "all_dmg_": 94.664,
+                "critRate_": 20,
+                "vaporize_dmg_": 14.156
+              },
+              "description": ""
+            },
+            {
+              "weight": 0.5,
+              "path": [
+                "normal",
+                "1"
+              ],
+              "hitMode": "avgHit",
+              "bonusStats": {
+                "atk": 711.494,
+                "eleMas": 231.684,
+                "atk_": 25,
+                "all_dmg_": 95.379,
+                "critRate_": 20
+              },
+              "description": ""
+            },
+            {
+              "weight": 0.5,
+              "path": [
+                "skill",
+                "dot"
+              ],
+              "hitMode": "avgHit",
+              "bonusStats": {
+                "atk": 711.494,
+                "eleMas": 231.684,
+                "atk_": 25,
+                "all_dmg_": 92.429,
+                "critRate_": 20
+              },
+              "description": ""
+            },
+            {
+              "weight": 0.0872,
+              "path": [
+                "charged",
+                "dmg"
+              ],
+              "hitMode": "avgHit",
+              "bonusStats": {
+                "atk": 711.494,
+                "eleMas": 231.684,
+                "atk_": 25,
+                "all_dmg_": 81.213,
+                "critRate_": 20
+              },
+              "description": ""
+            },
+            {
+              "weight": 0.0723,
+              "path": [
+                "charged",
+                "dmg"
+              ],
+              "hitMode": "avgHit",
+              "bonusStats": {
+                "atk": 711.494,
+                "eleMas": 231.684,
+                "atk_": 25,
+                "all_dmg_": 79.813,
+                "critRate_": 20
+              },
+              "description": ""
+            },
+            {
+              "weight": 0.5,
+              "path": [
+                "skill",
+                "dot"
+              ],
+              "hitMode": "avgHit",
+              "bonusStats": {
+                "atk": 711.494,
+                "eleMas": 231.684,
+                "atk_": 25,
+                "all_dmg_": 87.143,
+                "critRate_": 20
+              },
+              "description": ""
+            },
+            {
+              "weight": 0.5,
+              "path": [
+                "skill",
+                "dot"
+              ],
+              "hitMode": "avgHit",
+              "bonusStats": {
+                "atk": 711.494,
+                "eleMas": 231.684,
+                "atk_": 25,
+                "critRate_": 35,
+                "all_dmg_": 147.143,
+                "critDMG_": 15
+              },
+              "description": ""
+            },
+            {
+              "weight": 0.5,
+              "path": [
+                "burst",
+                "dmg"
+              ],
+              "hitMode": "avgHit",
+              "bonusStats": {
+                "atk": 711.494,
+                "eleMas": 80,
+                "atk_": 25,
+                "critRate_": 35,
+                "all_dmg_": 142.723,
+                "critDMG_": 15
+              },
+              "description": ""
+            },
+            {
+              "weight": 0.5,
+              "path": [
+                "skill",
+                "dot"
+              ],
+              "hitMode": "avgHit",
+              "bonusStats": {
+                "atk": 711.494,
+                "eleMas": 231.684,
+                "atk_": 25,
+                "critRate_": 35,
+                "all_dmg_": 147.143,
+                "critDMG_": 15
+              },
+              "description": ""
+            },
+            {
+              "weight": 0.5,
+              "path": [
+                "skill",
+                "dmg"
+              ],
+              "hitMode": "avgHit",
+              "bonusStats": {
+                "atk": 711.494,
+                "eleMas": 231.684,
+                "atk_": 25,
+                "critRate_": 35,
+                "all_dmg_": 152.857,
+                "critDMG_": 15
+              },
+              "description": ""
+            },
+            {
+              "weight": 0.5414,
+              "path": [
+                "normal",
+                "0"
+              ],
+              "hitMode": "avgHit",
+              "reaction": "vaporize",
+              "bonusStats": {
+                "atk": 711.494,
+                "eleMas": 281.684,
+                "atk_": 25,
+                "vaporize_dmg_": 15,
+                "critRate_": 35,
+                "all_dmg_": 148.014,
+                "critDMG_": 15,
+                "hydro_enemyRes_": -40
+              },
+              "description": ""
+            },
+            {
+              "weight": 0.1886,
+              "path": [
+                "charged",
+                "dmg"
+              ],
+              "hitMode": "avgHit",
+              "reaction": "vaporize",
+              "bonusStats": {
+                "eleMas": 281.684,
+                "atk_": 25,
+                "atk": 411.494,
+                "vaporize_dmg_": 15,
+                "critRate_": 35,
+                "all_dmg_": 195.714,
+                "critDMG_": 15,
+                "hydro_enemyRes_": -40
+              },
+              "description": ""
+            },
+            {
+              "weight": 0.3828,
+              "path": [
+                "normal",
+                "0"
+              ],
+              "hitMode": "avgHit",
+              "bonusStats": {
+                "atk": 711.494,
+                "eleMas": 281.684,
+                "atk_": 25,
+                "critRate_": 35,
+                "all_dmg_": 145.714,
+                "critDMG_": 15,
+                "hydro_enemyRes_": -40
+              },
+              "description": ""
+            },
+            {
+              "weight": 0.5,
+              "path": [
+                "normal",
+                "1"
+              ],
+              "hitMode": "avgHit",
+              "bonusStats": {
+                "atk": 711.494,
+                "eleMas": 281.684,
+                "atk_": 25,
+                "critRate_": 35,
+                "all_dmg_": 145.714,
+                "critDMG_": 15,
+                "hydro_enemyRes_": -40
+              },
+              "description": ""
+            },
+            {
+              "weight": 0.1194,
+              "path": [
+                "charged",
+                "dmg"
+              ],
+              "hitMode": "avgHit",
+              "reaction": "vaporize",
+              "bonusStats": {
+                "atk": 711.494,
+                "eleMas": 218.526,
+                "atk_": 25,
+                "vaporize_dmg_": 15,
+                "critRate_": 35,
+                "all_dmg_": 295.814,
+                "critDMG_": 15,
+                "hydro_enemyRes_": -40
+              },
+              "description": ""
+            },
+            {
+              "weight": 0.1886,
+              "path": [
+                "charged",
+                "dmg"
+              ],
+              "hitMode": "avgHit",
+              "reaction": "vaporize",
+              "bonusStats": {
+                "atk": 711.494,
+                "eleMas": 281.684,
+                "atk_": 25,
+                "vaporize_dmg_": 15,
+                "critRate_": 35,
+                "all_dmg_": 286.784,
+                "critDMG_": 15,
+                "hydro_enemyRes_": -40
+              },
+              "description": ""
+            },
+            {
+              "weight": 0.696,
+              "path": [
+                "charged",
+                "dmg"
+              ],
+              "hitMode": "avgHit",
+              "reaction": "vaporize",
+              "bonusStats": {
+                "atk": 711.494,
+                "eleMas": 246.369,
+                "atk_": 25,
+                "vaporize_dmg_": 15,
+                "critRate_": 35,
+                "all_dmg_": 274.874,
+                "critDMG_": 15,
+                "hydro_enemyRes_": -40
+              },
+              "description": ""
+            },
+            {
+              "weight": 0.696,
+              "path": [
+                "charged",
+                "dmg"
+              ],
+              "hitMode": "avgHit",
+              "reaction": "vaporize",
+              "bonusStats": {
+                "atk": 711.494,
+                "eleMas": 281.684,
+                "atk_": 25,
+                "vaporize_dmg_": 15,
+                "critRate_": 35,
+                "all_dmg_": 268.384,
+                "critDMG_": 15,
+                "hydro_enemyRes_": -40
+              },
+              "description": ""
+            },
+            {
+              "weight": 0.696,
+              "path": [
+                "charged",
+                "dmg"
+              ],
+              "hitMode": "avgHit",
+              "reaction": "vaporize",
+              "bonusStats": {
+                "atk": 711.494,
+                "eleMas": 281.684,
+                "atk_": 25,
+                "vaporize_dmg_": 15,
+                "critRate_": 35,
+                "all_dmg_": 223.694,
+                "critDMG_": 15,
+                "hydro_enemyRes_": -40
+              },
+              "description": ""
+            },
+            {
+              "weight": 0.696,
+              "path": [
+                "charged",
+                "dmg"
+              ],
+              "hitMode": "avgHit",
+              "reaction": "vaporize",
+              "bonusStats": {
+                "atk": 711.494,
+                "eleMas": 80,
+                "atk_": 25,
+                "vaporize_dmg_": 15,
+                "critRate_": 35,
+                "all_dmg_": 268.414,
+                "critDMG_": 15,
+                "hydro_enemyRes_": -40
+              },
+              "description": ""
+            },
+            {
+              "weight": 0.1172,
+              "path": [
+                "normal",
+                "0"
+              ],
+              "hitMode": "avgHit",
+              "bonusStats": {
+                "atk": 711.494,
+                "eleMas": 80,
+                "atk_": 25,
+                "all_dmg_": 86.534,
+                "critRate_": 20
+              },
+              "description": ""
+            },
+            {
+              "weight": 0.9468,
+              "path": [
+                "charged",
+                "dmg"
+              ],
+              "hitMode": "avgHit",
+              "reaction": "vaporize",
+              "bonusStats": {
+                "atk": 711.494,
+                "eleMas": 281.684,
+                "atk_": 73,
+                "vaporize_dmg_": 15,
+                "critRate_": 35,
+                "all_dmg_": 258.817,
+                "critDMG_": 15,
+                "hydro_enemyRes_": -40
+              },
+              "description": ""
+            },
+            {
+              "weight": 0.2948,
+              "path": [
+                "charged",
+                "dmg"
+              ],
+              "hitMode": "avgHit",
+              "bonusStats": {
+                "atk": 711.494,
+                "eleMas": 281.684,
+                "atk_": 25,
+                "critRate_": 35,
+                "all_dmg_": 153.394,
+                "critDMG_": 15,
+                "hydro_enemyRes_": -40
+              },
+              "description": ""
+            },
+            {
+              "weight": 0.2948,
+              "path": [
+                "charged",
+                "dmg"
+              ],
+              "hitMode": "avgHit",
+              "bonusStats": {
+                "atk": 711.494,
+                "eleMas": 281.684,
+                "atk_": 25,
+                "critRate_": 35,
+                "all_dmg_": 266.854,
+                "critDMG_": 15,
+                "hydro_enemyRes_": -40
+              },
+              "description": ""
+            },
+            {
+              "weight": 0.2948,
+              "path": [
+                "charged",
+                "dmg"
+              ],
+              "hitMode": "avgHit",
+              "bonusStats": {
+                "atk": 711.494,
+                "eleMas": 281.684,
+                "atk_": 25,
+                "critRate_": 35,
+                "all_dmg_": 222.444,
+                "critDMG_": 15,
+                "hydro_enemyRes_": -40
+              },
+              "description": ""
+            },
+            {
+              "weight": 0.3815,
+              "path": [
+                "charged",
+                "dmg"
+              ],
+              "hitMode": "avgHit",
+              "bonusStats": {
+                "atk": 711.494,
+                "eleMas": 80,
+                "atk_": 25,
+                "critRate_": 35,
+                "all_dmg_": 268.244,
+                "critDMG_": 15,
+                "hydro_enemyRes_": -40
+              },
+              "description": ""
+            },
+            {
+              "weight": 0.0602,
+              "path": [
+                "charged",
+                "dmg"
+              ],
+              "hitMode": "avgHit",
+              "reaction": "vaporize",
+              "bonusStats": {
+                "atk": 711.494,
+                "eleMas": 80,
+                "atk_": 25,
+                "vaporize_dmg_": 15,
+                "critRate_": 35,
+                "all_dmg_": 268.414,
+                "critDMG_": 15,
+                "hydro_enemyRes_": -40
+              },
+              "description": ""
+            }
+          ]
+        }
+      ],
+      "optConfig": {
+        "optimizationTarget": [
+          "custom",
+          "0"
+        ]
+      },
+      "buildTcs": [
+        {
+          "name": "Celestia",
+          "description": "The leaderboard reference build.",
+          "characterKey": "Mona",
+          "character": {
+            "level": 90,
+            "ascension": 6,
+            "constellation": 6,
+            "talent": {
+              "auto": 10,
+              "skill": 10,
+              "burst": 10
+            }
+          },
+          "weapon": {
+            "key": "LostPrayerToTheSacredWinds",
+            "level": 90,
+            "ascension": 6,
+            "refinement": 1
+          },
+          "artifact": {
+            "sets": {
+              "ADayCarvedFromRisingWinds": 5
+            },
+            "slots": {
+              "flower": {
+                "level": 20,
+                "rarity": 5,
+                "statKey": "hp"
+              },
+              "plume": {
+                "level": 20,
+                "rarity": 5,
+                "statKey": "atk"
+              },
+              "sands": {
+                "level": 20,
+                "rarity": 5,
+                "statKey": "enerRech_"
+              },
+              "goblet": {
+                "level": 20,
+                "rarity": 5,
+                "statKey": "hydro_dmg_"
+              },
+              "circlet": {
+                "level": 20,
+                "rarity": 5,
+                "statKey": "critDMG_"
+              }
+            },
+            "substats": {
+              "type": "max",
+              "rarity": 5,
+              "stats": {
+                "atk_": 25.07,
+                "def": 39.35,
+                "def_": 12.39,
+                "enerRech_": 22.02,
+                "critRate_": 26.44,
+                "critDMG_": 66.05,
+                "hp": 507.88,
+                "hp_": 9.91,
+                "eleMas": 60.61,
+                "atk": 33.07
+              }
+            }
+          },
+          "optimization": {
+            "distributedSubstats": 0,
+            "maxSubstats": {}
+          }
+        }
+      ]
+    },
+    {
+      "key": "Nicole",
+      "name": "Nicole (Celestia)",
+      "description": "",
+      "hitMode": "avgHit",
+      "infusionAura": "",
+      "bonusStats": {},
+      "conditional": {},
+      "customMultiTargets": [],
+      "buildTcs": [
+        {
+          "name": "Celestia",
+          "description": "Celestia teammate assumption (85% of the maximum).",
+          "characterKey": "Nicole",
+          "character": {
+            "level": 90,
+            "ascension": 6,
+            "constellation": 0,
+            "talent": {
+              "auto": 10,
+              "skill": 10,
+              "burst": 10
+            }
+          },
+          "weapon": {
+            "key": "FavoniusCodex",
+            "level": 90,
+            "ascension": 6,
+            "refinement": 5
+          },
+          "artifact": {
+            "sets": {
+              "CelestialGift": 4
+            },
+            "slots": {
+              "flower": {
+                "level": 20,
+                "rarity": 5,
+                "statKey": "hp"
+              },
+              "plume": {
+                "level": 20,
+                "rarity": 5,
+                "statKey": "atk"
+              },
+              "sands": {
+                "level": 20,
+                "rarity": 5,
+                "statKey": "atk_"
+              },
+              "goblet": {
+                "level": 20,
+                "rarity": 5,
+                "statKey": "atk_"
+              },
+              "circlet": {
+                "level": 20,
+                "rarity": 5,
+                "statKey": "critRate_"
+              }
+            },
+            "substats": {
+              "type": "max",
+              "rarity": 5,
+              "stats": {
+                "hp": 507.88,
+                "atk": 33.08,
+                "def": 39.36,
+                "hp_": 9.92,
+                "atk_": 34.72,
+                "def_": 12.4,
+                "eleMas": 39.64,
+                "enerRech_": 49.59,
+                "critRate_": 33.1,
+                "critDMG_": 13.24
+              }
+            }
+          },
+          "optimization": {
+            "distributedSubstats": 0,
+            "maxSubstats": {}
+          }
+        }
+      ]
+    },
+    {
+      "key": "Sucrose",
+      "name": "Sucrose (Celestia)",
+      "description": "",
+      "hitMode": "avgHit",
+      "infusionAura": "",
+      "bonusStats": {},
+      "conditional": {},
+      "customMultiTargets": [],
+      "buildTcs": [
+        {
+          "name": "Celestia",
+          "description": "Celestia teammate assumption (85% of the maximum).",
+          "characterKey": "Sucrose",
+          "character": {
+            "level": 90,
+            "ascension": 6,
+            "constellation": 6,
+            "talent": {
+              "auto": 10,
+              "skill": 10,
+              "burst": 10
+            }
+          },
+          "weapon": {
+            "key": "ThrillingTalesOfDragonSlayers",
+            "level": 90,
+            "ascension": 6,
+            "refinement": 5
+          },
+          "artifact": {
+            "sets": {
+              "ViridescentVenerer": 4
+            },
+            "slots": {
+              "flower": {
+                "level": 20,
+                "rarity": 5,
+                "statKey": "hp"
+              },
+              "plume": {
+                "level": 20,
+                "rarity": 5,
+                "statKey": "atk"
+              },
+              "sands": {
+                "level": 20,
+                "rarity": 5,
+                "statKey": "eleMas"
+              },
+              "goblet": {
+                "level": 20,
+                "rarity": 5,
+                "statKey": "eleMas"
+              },
+              "circlet": {
+                "level": 20,
+                "rarity": 5,
+                "statKey": "eleMas"
+              }
+            },
+            "substats": {
+              "type": "max",
+              "rarity": 5,
+              "stats": {
+                "hp": 507.88,
+                "atk": 33.08,
+                "def": 39.36,
+                "hp_": 9.92,
+                "atk_": 9.92,
+                "def_": 12.4,
+                "eleMas": 118.92,
+                "enerRech_": 55.1,
+                "critRate_": 19.86,
+                "critDMG_": 39.72
+              }
+            }
+          },
+          "optimization": {
+            "distributedSubstats": 0,
+            "maxSubstats": {}
+          }
+        }
+      ]
+    },
+    {
+      "key": "Mavuika",
+      "name": "Mavuika (Celestia)",
+      "description": "",
+      "hitMode": "avgHit",
+      "infusionAura": "",
+      "bonusStats": {},
+      "conditional": {},
+      "customMultiTargets": [],
+      "buildTcs": [
+        {
+          "name": "Celestia",
+          "description": "Celestia teammate assumption (85% of the maximum).",
+          "characterKey": "Mavuika",
+          "character": {
+            "level": 90,
+            "ascension": 6,
+            "constellation": 0,
+            "talent": {
+              "auto": 10,
+              "skill": 10,
+              "burst": 10
+            }
+          },
+          "weapon": {
+            "key": "FavoniusGreatsword",
+            "level": 90,
+            "ascension": 6,
+            "refinement": 5
+          },
+          "artifact": {
+            "sets": {
+              "ScrollOfTheHeroOfCinderCity": 4
+            },
+            "slots": {
+              "flower": {
+                "level": 20,
+                "rarity": 5,
+                "statKey": "hp"
+              },
+              "plume": {
+                "level": 20,
+                "rarity": 5,
+                "statKey": "atk"
+              },
+              "sands": {
+                "level": 20,
+                "rarity": 5,
+                "statKey": "atk_"
+              },
+              "goblet": {
+                "level": 20,
+                "rarity": 5,
+                "statKey": "pyro_dmg_"
+              },
+              "circlet": {
+                "level": 20,
+                "rarity": 5,
+                "statKey": "critRate_"
+              }
+            },
+            "substats": {
+              "type": "max",
+              "rarity": 5,
+              "stats": {
+                "hp": 1015.76,
+                "atk": 33.08,
+                "def": 39.36,
+                "hp_": 9.92,
+                "atk_": 9.92,
+                "def_": 12.4,
+                "eleMas": 39.64,
+                "enerRech_": 11.02,
+                "critRate_": 33.1,
+                "critDMG_": 79.44
+              }
+            }
+          },
+          "optimization": {
+            "distributedSubstats": 0,
+            "maxSubstats": {}
+          }
+        }
+      ]
+    }
+  ]
+}

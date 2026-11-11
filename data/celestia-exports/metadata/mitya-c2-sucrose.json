@@ -1,0 +1,31 @@
+{
+  "category": {
+    "id": "mitya-c2-sucrose",
+    "name": "C2 Premium",
+    "kind": "normal"
+  },
+  "child": {
+    "constellation": 2,
+    "characterLevel": 90,
+    "talents": {
+      "burst": 10,
+      "skill": 10,
+      "normal": 10
+    },
+    "baseTalents": {
+      "burst": 10,
+      "skill": 10,
+      "normal": 10
+    },
+    "weaponId": 14525,
+    "refinement": 1
+  },
+  "reference": {
+    "source": "ceilingStandard"
+  },
+  "goConditions": null,
+  "characterBonusStats": null,
+  "enemy": null,
+  "issues": [],
+  "teamIssues": []
+}

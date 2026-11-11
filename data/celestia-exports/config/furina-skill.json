@@ -1,0 +1,58 @@
+{
+  "name": "Skill DMG",
+  "description": "Celestia",
+  "targets": [
+    {
+      "weight": 5.6,
+      "path": [
+        "skill",
+        "crabDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "hp_": 28,
+        "all_dmg_": 74
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "skill",
+        "bubbleDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "hp_": 28,
+        "all_dmg_": 74
+      },
+      "description": ""
+    },
+    {
+      "weight": 8.4,
+      "path": [
+        "skill",
+        "usherDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "hp_": 28,
+        "all_dmg_": 74
+      },
+      "description": ""
+    },
+    {
+      "weight": 22.4,
+      "path": [
+        "skill",
+        "chevalDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "hp_": 28,
+        "all_dmg_": 74
+      },
+      "description": ""
+    }
+  ]
+}

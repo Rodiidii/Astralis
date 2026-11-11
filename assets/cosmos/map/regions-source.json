@@ -1,0 +1,424 @@
+{
+  "basis": 1400,
+  "regions": {
+    "mondstadt": {
+      "area": 1,
+      "box": [
+        824,
+        513,
+        1014,
+        704
+      ],
+      "name": "Mondstadt",
+      "sites": [
+        [
+          "Mondstadt",
+          921,
+          610,
+          "wind-city",
+          0.14
+        ],
+        [
+          "Monts Dosdragon",
+          894,
+          653,
+          "snow-peak",
+          0.36
+        ],
+        [
+          "Antre de Stormterror",
+          874,
+          591,
+          "ruined-tower",
+          0.16
+        ],
+        [
+          "Domaine de l’Aurore",
+          884,
+          631,
+          "manor",
+          0.07
+        ]
+      ]
+    },
+    "liyue": {
+      "area": 2,
+      "box": [
+        746,
+        585,
+        975,
+        771
+      ],
+      "name": "Liyue",
+      "sites": [
+        [
+          "Port de Liyue",
+          885,
+          715,
+          "harbor",
+          0.15
+        ],
+        [
+          "Gouffre",
+          802,
+          725,
+          "chasm",
+          0.14
+        ],
+        [
+          "Mont Aocang",
+          828,
+          664,
+          "stone-peak",
+          0.28
+        ],
+        [
+          "Mont Hulao",
+          816,
+          678,
+          "stone-peak",
+          0.3
+        ],
+        [
+          "Village de Qingce",
+          859,
+          642,
+          "village",
+          0.07
+        ],
+        [
+          "Vallon Chenyu",
+          807,
+          638,
+          "stone-peak",
+          0.18
+        ],
+        [
+          "Chambre de Jade",
+          876,
+          710,
+          "jade-chamber",
+          0.1
+        ]
+      ]
+    },
+    "inazuma": {
+      "area": 3,
+      "box": [
+        865,
+        752,
+        1117,
+        986
+      ],
+      "name": "Inazuma",
+      "sites": [
+        [
+          "Cité d’Inazuma · Tenshukaku",
+          1052,
+          828,
+          "japan-city",
+          0.14
+        ],
+        [
+          "Sanctuaire de Narukami",
+          1042,
+          810,
+          "shrine",
+          0.13
+        ],
+        [
+          "Ritou",
+          1027,
+          799,
+          "village",
+          0.07
+        ],
+        [
+          "Sangonomiya",
+          911,
+          852,
+          "coral-palace",
+          0.14
+        ],
+        [
+          "Tatarasuna",
+          988,
+          851,
+          "forge",
+          0.1
+        ],
+        [
+          "Île de Seirai",
+          1048,
+          894,
+          "thunder-peak",
+          0.24
+        ],
+        [
+          "Île de Tsurumi",
+          992,
+          946,
+          "ruined-tower",
+          0.09
+        ]
+      ]
+    },
+    "sumeru": {
+      "area": 4,
+      "box": [
+        604,
+        635,
+        852,
+        870
+      ],
+      "name": "Sumeru",
+      "sites": [
+        [
+          "Cité de Sumeru · Arbre divin",
+          789,
+          741,
+          "tree-city",
+          0.3
+        ],
+        [
+          "Port Ormos",
+          795,
+          788,
+          "harbor",
+          0.1
+        ],
+        [
+          "Mausolée du roi Deshret",
+          688,
+          746,
+          "pyramid",
+          0.24
+        ],
+        [
+          "Mont Damavand",
+          704,
+          704,
+          "desert-vortex",
+          0.32
+        ],
+        [
+          "Ruines de Gurabad",
+          724,
+          732,
+          "pyramid",
+          0.12
+        ],
+        [
+          "Caravansérail Ribat",
+          760,
+          764,
+          "village",
+          0.08
+        ]
+      ]
+    },
+    "fontaine": {
+      "area": 8,
+      "box": [
+        659,
+        497,
+        827,
+        687
+      ],
+      "name": "Fontaine",
+      "sites": [
+        [
+          "Cour de Fontaine",
+          750,
+          560,
+          "fontaine-city",
+          0.21
+        ],
+        [
+          "Opéra Épiclèse",
+          773,
+          591,
+          "opera",
+          0.12
+        ],
+        [
+          "Tour d’Ipsissimus",
+          742,
+          628,
+          "water-tower",
+          0.2
+        ],
+        [
+          "Port Romaritime",
+          768,
+          651,
+          "harbor",
+          0.09
+        ],
+        [
+          "Institut de recherche",
+          753,
+          533,
+          "ruined-tower",
+          0.13
+        ],
+        [
+          "Pétrichor",
+          712,
+          648,
+          "village",
+          0.06
+        ]
+      ]
+    },
+    "natlan": {
+      "area": 11,
+      "box": [
+        283,
+        613,
+        656,
+        888
+      ],
+      "name": "Natlan",
+      "sites": [
+        [
+          "Stade du sanctifeu",
+          539,
+          806,
+          "stadium",
+          0.15
+        ],
+        [
+          "Volcan de Tollan",
+          499,
+          830,
+          "volcano",
+          0.38
+        ],
+        [
+          "Maîtres du vent nocturne",
+          486,
+          773,
+          "village",
+          0.08
+        ],
+        [
+          "Enfants des échos",
+          596,
+          788,
+          "canyon",
+          0.15
+        ],
+        [
+          "Canopée · Scions",
+          581,
+          825,
+          "tree-city",
+          0.14
+        ],
+        [
+          "Peuple des sources",
+          546,
+          846,
+          "village",
+          0.08
+        ],
+        [
+          "Plaine d’Atocpan",
+          487,
+          792,
+          "canyon",
+          0.16
+        ]
+      ]
+    },
+    "nodkrai": {
+      "area": 13,
+      "box": [
+        438,
+        445,
+        610,
+        686
+      ],
+      "name": "Nod-Krai",
+      "sites": [
+        [
+          "Bureau de conception expérimentale de kuuvahki · Paha",
+          512,
+          587,
+          "fatui-base",
+          0.2
+        ],
+        [
+          "Nasha · Lempo",
+          533,
+          650,
+          "northern-town",
+          0.09
+        ],
+        [
+          "Sanctuaire de givrelune · Hiisi",
+          484,
+          638,
+          "moon-shrine",
+          0.13
+        ],
+        [
+          "Phare côtier",
+          543,
+          623,
+          "lighthouse",
+          0.12
+        ],
+        [
+          "Ruines lunaires du Nord",
+          511,
+          473,
+          "moon-shrine",
+          0.11
+        ]
+      ]
+    },
+    "snezhnaya": {
+      "area": 16,
+      "box": [
+        524,
+        267,
+        875,
+        460
+      ],
+      "name": "Snezhnaya",
+      "sites": [
+        [
+          "Novokitezhgrad",
+          740,
+          327,
+          "ice-city",
+          0.17
+        ],
+        [
+          "Port Belovodye",
+          592,
+          398,
+          "harbor",
+          0.12
+        ],
+        [
+          "Pic des Ailes",
+          798,
+          336,
+          "snow-peak",
+          0.35
+        ],
+        [
+          "Massif occidental",
+          620,
+          349,
+          "snow-peak",
+          0.29
+        ]
+      ]
+    }
+  },
+  "placement": "Schematic landmark locations registered against the official 7.2 surface map. Elevation is estimated, not an exported game heightfield."
+}

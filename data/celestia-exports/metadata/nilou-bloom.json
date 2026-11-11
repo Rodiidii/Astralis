@@ -1,0 +1,107 @@
+{
+  "category": {
+    "id": "nilou-bloom",
+    "name": "Bloom",
+    "kind": "normal"
+  },
+  "child": {
+    "constellation": 0,
+    "characterLevel": 90,
+    "talents": {
+      "burst": 10,
+      "skill": 10,
+      "normal": 10
+    },
+    "baseTalents": {
+      "burst": 10,
+      "skill": 10,
+      "normal": 10
+    },
+    "weaponId": 11511,
+    "refinement": 1
+  },
+  "reference": {
+    "source": "ceilingStandard"
+  },
+  "goConditions": null,
+  "characterBonusStats": {
+    "eleMas": 329.19,
+    "hp_": 25
+  },
+  "enemy": {
+    "level": 100,
+    "res": 0.1
+  },
+  "issues": [
+    {
+      "code": "skippedLines",
+      "reason": "gain",
+      "lines": 2,
+      "share": 0.4468745247141787
+    },
+    {
+      "code": "characterBonusStats",
+      "stats": [
+        {
+          "buff": "Gift of the Woods",
+          "key": "eleMas",
+          "value": 60
+        },
+        {
+          "buff": "Hydro Resonance",
+          "key": "hp_",
+          "value": 25
+        },
+        {
+          "buff": "Dendro Resonance EM",
+          "key": "eleMas",
+          "value": 50
+        },
+        {
+          "buff": "Dendro Resonance EM · Burning/Quicken/Bloom",
+          "key": "eleMas",
+          "value": 30
+        },
+        {
+          "buff": "Compassion Illuminated",
+          "key": "eleMas",
+          "value": 189.19
+        }
+      ]
+    },
+    {
+      "code": "selfScaling",
+      "buffs": [
+        "Sunken Song of the Sands",
+        "Dreamy Dance of Aeons"
+      ]
+    },
+    {
+      "code": "setEffects",
+      "setIds": [
+        15028
+      ]
+    }
+  ],
+  "teamIssues": [
+    {
+      "code": "skippedLines",
+      "reason": "gain",
+      "lines": 2,
+      "share": 0.4468745247141787
+    },
+    {
+      "code": "selfScaling",
+      "buffs": [
+        "Sunken Song of the Sands",
+        "Dreamy Dance of Aeons"
+      ]
+    },
+    {
+      "code": "setEffects",
+      "setIds": [
+        15028
+      ]
+    }
+  ]
+}

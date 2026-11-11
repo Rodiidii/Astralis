@@ -1,0 +1,100 @@
+{
+  "name": "Freeze",
+  "description": "Celestia",
+  "targets": [
+    {
+      "weight": 1,
+      "path": [
+        "charged",
+        "frostflake"
+      ],
+      "hitMode": "avgHit",
+      "infusionAura": "cryo",
+      "bonusStats": {
+        "atk_": 40,
+        "all_dmg_": 160.87,
+        "cryo_enemyRes_": -55,
+        "critRate_": 55
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "charged",
+        "frostflakeBloom"
+      ],
+      "hitMode": "avgHit",
+      "infusionAura": "cryo",
+      "bonusStats": {
+        "atk_": 40,
+        "all_dmg_": 160.87,
+        "cryo_enemyRes_": -55,
+        "critRate_": 55
+      },
+      "description": ""
+    },
+    {
+      "weight": 4,
+      "path": [
+        "skill",
+        "dmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 40,
+        "all_dmg_": 70.87,
+        "cryo_enemyRes_": -55,
+        "critRate_": 55
+      },
+      "description": ""
+    },
+    {
+      "weight": 20,
+      "path": [
+        "burst",
+        "dmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 40,
+        "all_dmg_": 95.87,
+        "cryo_enemyRes_": -55,
+        "critRate_": 55
+      },
+      "description": ""
+    },
+    {
+      "weight": 4,
+      "path": [
+        "charged",
+        "frostflake"
+      ],
+      "hitMode": "avgHit",
+      "infusionAura": "cryo",
+      "bonusStats": {
+        "atk_": 40,
+        "all_dmg_": 160.87,
+        "critRate_": 75,
+        "cryo_enemyRes_": -55
+      },
+      "description": ""
+    },
+    {
+      "weight": 4,
+      "path": [
+        "charged",
+        "frostflakeBloom"
+      ],
+      "hitMode": "avgHit",
+      "infusionAura": "cryo",
+      "bonusStats": {
+        "atk_": 40,
+        "all_dmg_": 160.87,
+        "critRate_": 75,
+        "cryo_enemyRes_": -55
+      },
+      "description": ""
+    }
+  ]
+}

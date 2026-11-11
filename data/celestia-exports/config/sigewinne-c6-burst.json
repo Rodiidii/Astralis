@@ -1,0 +1,51 @@
+{
+  "name": "C6 Burst",
+  "description": "Celestia",
+  "targets": [
+    {
+      "weight": 8,
+      "path": [
+        "skill",
+        "dmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "hp_": 40,
+        "all_dmg_": 148,
+        "hydro_enemyRes_": -71,
+        "critRate_": 36
+      },
+      "description": ""
+    },
+    {
+      "weight": 2,
+      "path": [
+        "skill",
+        "bladeDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "hp_": 40,
+        "all_dmg_": 148,
+        "hydro_enemyRes_": -71,
+        "critRate_": 36
+      },
+      "description": ""
+    },
+    {
+      "weight": 14,
+      "path": [
+        "burst",
+        "spoutDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "hp_": 40,
+        "all_dmg_": 184,
+        "hydro_enemyRes_": -71,
+        "critRate_": 64
+      },
+      "description": ""
+    }
+  ]
+}

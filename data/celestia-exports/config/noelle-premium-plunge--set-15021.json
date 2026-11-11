@@ -1,0 +1,700 @@
+{
+  "name": "Premium Plunge",
+  "description": "Celestia",
+  "targets": [
+    {
+      "weight": 0.5,
+      "path": [
+        "burst",
+        "burstDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "def_": 24,
+        "atk_": 20,
+        "all_dmg_": 229,
+        "geo_enemyRes_": -56
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.5,
+      "path": [
+        "burst",
+        "skillDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "def_": 24,
+        "atk_": 20,
+        "all_dmg_": 229,
+        "geo_enemyRes_": -56
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.3384,
+      "path": [
+        "plunging",
+        "dmg"
+      ],
+      "hitMode": "avgHit",
+      "infusionAura": "geo",
+      "bonusStats": {
+        "def_": 24,
+        "atk_": 20,
+        "all_dmg_": 257,
+        "geo_enemyRes_": -56,
+        "critRate_": 6
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.5,
+      "path": [
+        "plunging",
+        "high"
+      ],
+      "hitMode": "avgHit",
+      "infusionAura": "geo",
+      "bonusStats": {
+        "def_": 24,
+        "atk_": 20,
+        "all_dmgInc": 18000,
+        "all_dmg_": 257,
+        "geo_enemyRes_": -56,
+        "critRate_": 6
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.3647,
+      "path": [
+        "plunging",
+        "dmg"
+      ],
+      "hitMode": "avgHit",
+      "infusionAura": "geo",
+      "bonusStats": {
+        "def_": 24,
+        "atk_": 20,
+        "all_dmg_": 257,
+        "geo_enemyRes_": -56,
+        "critRate_": 6
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.5,
+      "path": [
+        "plunging",
+        "high"
+      ],
+      "hitMode": "avgHit",
+      "infusionAura": "geo",
+      "bonusStats": {
+        "def_": 24,
+        "atk_": 20,
+        "all_dmgInc": 18000,
+        "all_dmg_": 257,
+        "geo_enemyRes_": -56,
+        "critRate_": 6
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.358,
+      "path": [
+        "plunging",
+        "dmg"
+      ],
+      "hitMode": "avgHit",
+      "infusionAura": "geo",
+      "bonusStats": {
+        "def_": 24,
+        "atk_": 20,
+        "all_dmg_": 257,
+        "geo_enemyRes_": -56,
+        "critRate_": 6
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.5,
+      "path": [
+        "plunging",
+        "high"
+      ],
+      "hitMode": "avgHit",
+      "infusionAura": "geo",
+      "bonusStats": {
+        "def_": 24,
+        "atk_": 20,
+        "all_dmgInc": 18000,
+        "all_dmg_": 257,
+        "geo_enemyRes_": -56,
+        "critRate_": 6
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.358,
+      "path": [
+        "plunging",
+        "dmg"
+      ],
+      "hitMode": "avgHit",
+      "infusionAura": "geo",
+      "bonusStats": {
+        "def_": 24,
+        "atk_": 20,
+        "all_dmg_": 257,
+        "geo_enemyRes_": -56,
+        "critRate_": 6
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.5,
+      "path": [
+        "plunging",
+        "high"
+      ],
+      "hitMode": "avgHit",
+      "infusionAura": "geo",
+      "bonusStats": {
+        "def_": 24,
+        "atk_": 20,
+        "all_dmgInc": 18000,
+        "all_dmg_": 257,
+        "geo_enemyRes_": -56,
+        "critRate_": 6
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.3127,
+      "path": [
+        "plunging",
+        "dmg"
+      ],
+      "hitMode": "avgHit",
+      "infusionAura": "geo",
+      "bonusStats": {
+        "def_": 24,
+        "atk_": 20,
+        "all_dmg_": 257,
+        "geo_enemyRes_": -56,
+        "critRate_": 6
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.5,
+      "path": [
+        "plunging",
+        "high"
+      ],
+      "hitMode": "avgHit",
+      "infusionAura": "geo",
+      "bonusStats": {
+        "def_": 24,
+        "atk_": 20,
+        "all_dmgInc": 18000,
+        "all_dmg_": 257,
+        "geo_enemyRes_": -56,
+        "critRate_": 6
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.358,
+      "path": [
+        "plunging",
+        "dmg"
+      ],
+      "hitMode": "avgHit",
+      "infusionAura": "geo",
+      "bonusStats": {
+        "def_": 24,
+        "atk_": 20,
+        "all_dmg_": 257,
+        "geo_enemyRes_": -56,
+        "critRate_": 5.96
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.5,
+      "path": [
+        "plunging",
+        "high"
+      ],
+      "hitMode": "avgHit",
+      "infusionAura": "geo",
+      "bonusStats": {
+        "def_": 24,
+        "atk_": 20,
+        "all_dmgInc": 18000,
+        "all_dmg_": 257,
+        "geo_enemyRes_": -56,
+        "critRate_": 4.78
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.3647,
+      "path": [
+        "plunging",
+        "dmg"
+      ],
+      "hitMode": "avgHit",
+      "infusionAura": "geo",
+      "bonusStats": {
+        "def_": 24,
+        "atk_": 20,
+        "all_dmg_": 257,
+        "geo_enemyRes_": -56,
+        "critRate_": 4.5
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.5,
+      "path": [
+        "plunging",
+        "high"
+      ],
+      "hitMode": "avgHit",
+      "infusionAura": "geo",
+      "bonusStats": {
+        "def_": 24,
+        "atk_": 20,
+        "all_dmgInc": 18000,
+        "all_dmg_": 257,
+        "geo_enemyRes_": -56,
+        "critRate_": 4.53
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.3189,
+      "path": [
+        "plunging",
+        "dmg"
+      ],
+      "hitMode": "avgHit",
+      "infusionAura": "geo",
+      "bonusStats": {
+        "def_": 24,
+        "atk_": 20,
+        "all_dmg_": 257,
+        "geo_enemyRes_": -56,
+        "critRate_": 4.41
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.5,
+      "path": [
+        "plunging",
+        "high"
+      ],
+      "hitMode": "avgHit",
+      "infusionAura": "geo",
+      "bonusStats": {
+        "def_": 24,
+        "atk_": 15.95,
+        "all_dmgInc": 18000,
+        "all_dmg_": 257,
+        "geo_enemyRes_": -56,
+        "critRate_": 4.51
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.5,
+      "path": [
+        "normal",
+        "0"
+      ],
+      "hitMode": "avgHit",
+      "infusionAura": "geo",
+      "bonusStats": {
+        "def_": 24,
+        "all_dmg_": 154.32,
+        "geo_enemyRes_": -56
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.5,
+      "path": [
+        "normal",
+        "1"
+      ],
+      "hitMode": "avgHit",
+      "infusionAura": "geo",
+      "bonusStats": {
+        "def_": 24,
+        "all_dmg_": 149.25,
+        "geo_enemyRes_": -56
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.5,
+      "path": [
+        "burst",
+        "burstDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "def_": 24,
+        "atk_": 20,
+        "all_dmg_": 229,
+        "geo_enemyRes_": -56
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.5,
+      "path": [
+        "burst",
+        "skillDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "def_": 24,
+        "atk_": 20,
+        "all_dmg_": 229,
+        "geo_enemyRes_": -56
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.3518,
+      "path": [
+        "plunging",
+        "dmg"
+      ],
+      "hitMode": "avgHit",
+      "infusionAura": "geo",
+      "bonusStats": {
+        "def_": 24,
+        "atk_": 20,
+        "all_dmg_": 257,
+        "geo_enemyRes_": -56,
+        "critRate_": 6
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.5,
+      "path": [
+        "plunging",
+        "high"
+      ],
+      "hitMode": "avgHit",
+      "infusionAura": "geo",
+      "bonusStats": {
+        "def_": 24,
+        "atk_": 20,
+        "all_dmgInc": 18000,
+        "all_dmg_": 257,
+        "geo_enemyRes_": -56,
+        "critRate_": 6
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.358,
+      "path": [
+        "plunging",
+        "dmg"
+      ],
+      "hitMode": "avgHit",
+      "infusionAura": "geo",
+      "bonusStats": {
+        "def_": 24,
+        "atk_": 20,
+        "all_dmg_": 257,
+        "geo_enemyRes_": -56,
+        "critRate_": 5.96
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.5,
+      "path": [
+        "plunging",
+        "high"
+      ],
+      "hitMode": "avgHit",
+      "infusionAura": "geo",
+      "bonusStats": {
+        "def_": 24,
+        "atk_": 20,
+        "all_dmgInc": 18000,
+        "all_dmg_": 257,
+        "geo_enemyRes_": -56,
+        "critRate_": 6
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.4038,
+      "path": [
+        "plunging",
+        "dmg"
+      ],
+      "hitMode": "avgHit",
+      "infusionAura": "geo",
+      "bonusStats": {
+        "def_": 24,
+        "atk_": 20,
+        "all_dmg_": 257,
+        "geo_enemyRes_": -56,
+        "critRate_": 6
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.5,
+      "path": [
+        "plunging",
+        "high"
+      ],
+      "hitMode": "avgHit",
+      "infusionAura": "geo",
+      "bonusStats": {
+        "def_": 24,
+        "atk_": 20,
+        "all_dmgInc": 18000,
+        "all_dmg_": 257,
+        "geo_enemyRes_": -56,
+        "critRate_": 6
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.358,
+      "path": [
+        "plunging",
+        "dmg"
+      ],
+      "hitMode": "avgHit",
+      "infusionAura": "geo",
+      "bonusStats": {
+        "def_": 24,
+        "atk_": 20,
+        "all_dmg_": 257,
+        "geo_enemyRes_": -56,
+        "critRate_": 5.96
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.5,
+      "path": [
+        "plunging",
+        "high"
+      ],
+      "hitMode": "avgHit",
+      "infusionAura": "geo",
+      "bonusStats": {
+        "def_": 24,
+        "atk_": 20,
+        "all_dmgInc": 18000,
+        "all_dmg_": 257,
+        "geo_enemyRes_": -56,
+        "critRate_": 6
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.3714,
+      "path": [
+        "plunging",
+        "dmg"
+      ],
+      "hitMode": "avgHit",
+      "infusionAura": "geo",
+      "bonusStats": {
+        "def_": 24,
+        "atk_": 20,
+        "all_dmg_": 257,
+        "geo_enemyRes_": -56,
+        "critRate_": 5.96
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.5,
+      "path": [
+        "plunging",
+        "high"
+      ],
+      "hitMode": "avgHit",
+      "infusionAura": "geo",
+      "bonusStats": {
+        "def_": 24,
+        "atk_": 20,
+        "all_dmgInc": 18000,
+        "all_dmg_": 257,
+        "geo_enemyRes_": -56,
+        "critRate_": 6
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.3323,
+      "path": [
+        "plunging",
+        "dmg"
+      ],
+      "hitMode": "avgHit",
+      "infusionAura": "geo",
+      "bonusStats": {
+        "def_": 24,
+        "atk_": 20,
+        "all_dmg_": 257,
+        "geo_enemyRes_": -56,
+        "critRate_": 5.96
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.5,
+      "path": [
+        "plunging",
+        "high"
+      ],
+      "hitMode": "avgHit",
+      "infusionAura": "geo",
+      "bonusStats": {
+        "def_": 24,
+        "atk_": 20,
+        "all_dmgInc": 18000,
+        "all_dmg_": 257,
+        "geo_enemyRes_": -56,
+        "critRate_": 4.76
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.3714,
+      "path": [
+        "plunging",
+        "dmg"
+      ],
+      "hitMode": "avgHit",
+      "infusionAura": "geo",
+      "bonusStats": {
+        "def_": 24,
+        "atk_": 20,
+        "all_dmg_": 257,
+        "geo_enemyRes_": -56,
+        "critRate_": 4.04
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.5,
+      "path": [
+        "plunging",
+        "high"
+      ],
+      "hitMode": "avgHit",
+      "infusionAura": "geo",
+      "bonusStats": {
+        "def_": 24,
+        "atk_": 20,
+        "all_dmgInc": 18000,
+        "all_dmg_": 257,
+        "geo_enemyRes_": -56,
+        "critRate_": 4.08
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.18,
+      "path": [
+        "plunging",
+        "dmg"
+      ],
+      "hitMode": "avgHit",
+      "infusionAura": "geo",
+      "bonusStats": {
+        "def_": 24,
+        "atk_": 20,
+        "all_dmg_": 257,
+        "geo_enemyRes_": -56,
+        "critRate_": 4.08
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.5,
+      "path": [
+        "plunging",
+        "high"
+      ],
+      "hitMode": "avgHit",
+      "infusionAura": "geo",
+      "bonusStats": {
+        "def_": 24,
+        "atk_": 15.7,
+        "all_dmgInc": 18000,
+        "all_dmg_": 257,
+        "geo_enemyRes_": -56,
+        "critRate_": 4.05
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.5,
+      "path": [
+        "skill",
+        "dmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "def_": 24,
+        "all_dmg_": 130.28,
+        "geo_enemyRes_": -56
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.5,
+      "path": [
+        "normal",
+        "0"
+      ],
+      "hitMode": "avgHit",
+      "infusionAura": "geo",
+      "bonusStats": {
+        "def_": 24,
+        "all_dmg_": 129,
+        "geo_enemyRes_": -56
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.5,
+      "path": [
+        "normal",
+        "1"
+      ],
+      "hitMode": "avgHit",
+      "infusionAura": "geo",
+      "bonusStats": {
+        "def_": 24,
+        "all_dmg_": 150.52,
+        "geo_enemyRes_": -56
+      },
+      "description": ""
+    }
+  ]
+}

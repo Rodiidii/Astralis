@@ -1,0 +1,177 @@
+{
+  "name": "Skill DMG",
+  "description": "Celestia",
+  "lastEdit": 1794351017845,
+  "conditional": {
+    "resonance": {},
+    "reaction": {}
+  },
+  "enemyOverride": {
+    "enemyLevel": 100,
+    "enemyDefIgn_": 0,
+    "enemyDefRed_": 0,
+    "pyro_enemyRes_": 10,
+    "hydro_enemyRes_": 10,
+    "electro_enemyRes_": 10,
+    "cryo_enemyRes_": 10,
+    "anemo_enemyRes_": 10,
+    "geo_enemyRes_": 10,
+    "dendro_enemyRes_": 10,
+    "physical_enemyRes_": 10
+  },
+  "loadoutData": [
+    {
+      "key": "Linnea",
+      "name": "Linnea (Celestia)",
+      "description": "",
+      "hitMode": "avgHit",
+      "infusionAura": "",
+      "bonusStats": {
+        "def": 200
+      },
+      "conditional": {},
+      "customMultiTargets": [
+        {
+          "name": "Skill DMG",
+          "description": "Celestia",
+          "targets": [
+            {
+              "weight": 5,
+              "path": [
+                "skill",
+                "hammerDmg"
+              ],
+              "hitMode": "avgHit",
+              "bonusStats": {
+                "eleMas": 200,
+                "lunarcrystallize_baseDmg_": 35,
+                "geo_enemyRes_": -50,
+                "critRate_": 10,
+                "critDMG_": 30,
+                "lunarcrystallize_dmg_": 100
+              },
+              "description": ""
+            },
+            {
+              "weight": 10,
+              "path": [
+                "skill",
+                "pummelerDmg"
+              ],
+              "hitMode": "avgHit",
+              "bonusStats": {
+                "eleMas": 200,
+                "geo_enemyRes_": -50,
+                "critRate_": 10,
+                "critDMG_": 30,
+                "all_dmg_": 55
+              },
+              "description": ""
+            },
+            {
+              "weight": 10.9735,
+              "path": [
+                "reaction",
+                "lunarcrystallize"
+              ],
+              "hitMode": "avgHit",
+              "bonusStats": {
+                "eleMas": 200,
+                "lunarcrystallize_baseDmg_": 35,
+                "geo_enemyRes_": -50,
+                "critRate_": 10,
+                "critDMG_": 30,
+                "lunarcrystallize_dmg_": 100
+              },
+              "description": ""
+            }
+          ]
+        }
+      ],
+      "optConfig": {
+        "optimizationTarget": [
+          "custom",
+          "0"
+        ]
+      },
+      "buildTcs": [
+        {
+          "name": "Celestia",
+          "description": "The leaderboard reference build.",
+          "characterKey": "Linnea",
+          "character": {
+            "level": 90,
+            "ascension": 6,
+            "constellation": 0,
+            "talent": {
+              "auto": 10,
+              "skill": 10,
+              "burst": 10
+            }
+          },
+          "weapon": {
+            "key": "GoldenFrostboundOath",
+            "level": 90,
+            "ascension": 6,
+            "refinement": 1
+          },
+          "artifact": {
+            "sets": {
+              "AubadeOfMorningstarAndMoon": 5
+            },
+            "slots": {
+              "flower": {
+                "level": 20,
+                "rarity": 5,
+                "statKey": "hp"
+              },
+              "plume": {
+                "level": 20,
+                "rarity": 5,
+                "statKey": "atk"
+              },
+              "sands": {
+                "level": 20,
+                "rarity": 5,
+                "statKey": "def_"
+              },
+              "goblet": {
+                "level": 20,
+                "rarity": 5,
+                "statKey": "def_"
+              },
+              "circlet": {
+                "level": 20,
+                "rarity": 5,
+                "statKey": "critRate_"
+              }
+            },
+            "substats": {
+              "type": "max",
+              "rarity": 5,
+              "stats": {
+                "def": 39.35,
+                "def_": 24.78,
+                "critRate_": 33.05,
+                "critDMG_": 79.26,
+                "hp": 507.88,
+                "hp_": 9.91,
+                "enerRech_": 11.01,
+                "eleMas": 39.63,
+                "atk": 33.07,
+                "atk_": 9.91
+              }
+            }
+          },
+          "optimization": {
+            "distributedSubstats": 0,
+            "maxSubstats": {}
+          }
+        }
+      ]
+    },
+    null,
+    null,
+    null
+  ]
+}

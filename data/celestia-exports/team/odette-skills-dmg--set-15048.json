@@ -1,0 +1,223 @@
+{
+  "name": "Skill DMG",
+  "description": "Celestia",
+  "lastEdit": 1794350976706,
+  "conditional": {
+    "resonance": {},
+    "reaction": {}
+  },
+  "enemyOverride": {
+    "enemyLevel": 100,
+    "enemyDefIgn_": 0,
+    "enemyDefRed_": 0,
+    "pyro_enemyRes_": 10,
+    "hydro_enemyRes_": 10,
+    "electro_enemyRes_": 10,
+    "cryo_enemyRes_": 10,
+    "anemo_enemyRes_": 10,
+    "geo_enemyRes_": 10,
+    "dendro_enemyRes_": 10,
+    "physical_enemyRes_": 10
+  },
+  "loadoutData": [
+    {
+      "key": "Odette",
+      "name": "Odette (Celestia)",
+      "description": "",
+      "hitMode": "avgHit",
+      "infusionAura": "",
+      "bonusStats": {},
+      "conditional": {
+        "WhitelakeFrostfeather": {
+          "passive": "3"
+        },
+        "HeartOfTheFurnace": {
+          "4Stellar": "on"
+        },
+        "reaction": {
+          "polestarStacks": "9"
+        },
+        "Odette": {
+          "a0StellarRadiance": "sc"
+        }
+      },
+      "customMultiTargets": [
+        {
+          "name": "Skill DMG",
+          "description": "Celestia",
+          "targets": [
+            {
+              "weight": 1,
+              "path": [
+                "skill",
+                "skillDmg"
+              ],
+              "hitMode": "avgHit",
+              "bonusStats": {
+                "critRate_": 15
+              },
+              "description": ""
+            },
+            {
+              "weight": 1,
+              "path": [
+                "skill",
+                "codaStellarconductDmg"
+              ],
+              "hitMode": "avgHit",
+              "bonusStats": {
+                "stellarconduct_dmg_": 60,
+                "critRate_": 15
+              },
+              "description": ""
+            },
+            {
+              "weight": 5,
+              "path": [
+                "skill",
+                "plumeDmg"
+              ],
+              "hitMode": "avgHit",
+              "bonusStats": {
+                "critRate_": 15
+              },
+              "description": ""
+            },
+            {
+              "weight": 5,
+              "path": [
+                "skill",
+                "plumeStellarconductDmg"
+              ],
+              "hitMode": "avgHit",
+              "bonusStats": {
+                "critRate_": 15
+              },
+              "description": ""
+            },
+            {
+              "weight": 5,
+              "path": [
+                "skill",
+                "wingDmg"
+              ],
+              "hitMode": "avgHit",
+              "bonusStats": {
+                "critRate_": 15
+              },
+              "description": ""
+            },
+            {
+              "weight": 5,
+              "path": [
+                "skill",
+                "wingStellarconductDmg"
+              ],
+              "hitMode": "avgHit",
+              "bonusStats": {
+                "critRate_": 15
+              },
+              "description": ""
+            },
+            {
+              "weight": 4,
+              "path": [
+                "skill",
+                "codaDotDmg"
+              ],
+              "hitMode": "avgHit",
+              "bonusStats": {
+                "critRate_": 15
+              },
+              "description": ""
+            }
+          ]
+        }
+      ],
+      "optConfig": {
+        "optimizationTarget": [
+          "custom",
+          "0"
+        ]
+      },
+      "buildTcs": [
+        {
+          "name": "Celestia",
+          "description": "The leaderboard reference build.",
+          "characterKey": "Odette",
+          "character": {
+            "level": 90,
+            "ascension": 6,
+            "constellation": 0,
+            "talent": {
+              "auto": 10,
+              "skill": 10,
+              "burst": 10
+            }
+          },
+          "weapon": {
+            "key": "WhitelakeFrostfeather",
+            "level": 90,
+            "ascension": 6,
+            "refinement": 1
+          },
+          "artifact": {
+            "sets": {
+              "HeartOfTheFurnace": 5
+            },
+            "slots": {
+              "flower": {
+                "level": 20,
+                "rarity": 5,
+                "statKey": "hp"
+              },
+              "plume": {
+                "level": 20,
+                "rarity": 5,
+                "statKey": "atk"
+              },
+              "sands": {
+                "level": 20,
+                "rarity": 5,
+                "statKey": "eleMas"
+              },
+              "goblet": {
+                "level": 20,
+                "rarity": 5,
+                "statKey": "atk_"
+              },
+              "circlet": {
+                "level": 20,
+                "rarity": 5,
+                "statKey": "critDMG_"
+              }
+            },
+            "substats": {
+              "type": "max",
+              "rarity": 5,
+              "stats": {
+                "atk_": 49.55,
+                "def": 39.35,
+                "def_": 12.39,
+                "eleMas": 39.63,
+                "critRate_": 39.66,
+                "critDMG_": 26.42,
+                "hp": 507.88,
+                "hp_": 9.91,
+                "enerRech_": 11.01,
+                "atk": 33.07
+              }
+            }
+          },
+          "optimization": {
+            "distributedSubstats": 0,
+            "maxSubstats": {}
+          }
+        }
+      ]
+    },
+    null,
+    null,
+    null
+  ]
+}

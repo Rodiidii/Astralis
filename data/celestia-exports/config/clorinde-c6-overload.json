@@ -1,0 +1,845 @@
+{
+  "name": "C6 Overload",
+  "description": "Celestia",
+  "targets": [
+    {
+      "weight": 1,
+      "path": [
+        "skill",
+        "thrust3Dmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "all_dmgInc": 2700,
+        "electro_enemyRes_": -75,
+        "critRate_": 20,
+        "all_dmg_": 78.425
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "skill",
+        "thrust3Dmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "all_dmgInc": 2700,
+        "electro_enemyRes_": -75,
+        "critRate_": 20,
+        "all_dmg_": 78.425
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "skill",
+        "thrust3Dmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "all_dmgInc": 2700,
+        "electro_enemyRes_": -75,
+        "critRate_": 20,
+        "all_dmg_": 78.425
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "constellation1",
+        "dmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "all_dmgInc": 2700,
+        "electro_enemyRes_": -75,
+        "critRate_": 20,
+        "all_dmg_": 78.425
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "constellation1",
+        "dmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "all_dmgInc": 2700,
+        "electro_enemyRes_": -75,
+        "critRate_": 20,
+        "all_dmg_": 78.425
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.9949,
+      "path": [
+        "skill",
+        "piercingDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "all_dmgInc": 2700,
+        "electro_enemyRes_": -75,
+        "critRate_": 20,
+        "all_dmg_": 78.425
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.9949,
+      "path": [
+        "skill",
+        "piercingDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "all_dmgInc": 2700,
+        "electro_enemyRes_": -75,
+        "critRate_": 20,
+        "all_dmg_": 133.325
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.9949,
+      "path": [
+        "skill",
+        "piercingDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "all_dmgInc": 2700,
+        "electro_enemyRes_": -75,
+        "critRate_": 20,
+        "all_dmg_": 172.425
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "skill",
+        "bladeDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "electro_enemyRes_": -75,
+        "critRate_": 20,
+        "all_dmg_": 172.35
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "skill",
+        "thrust3Dmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "all_dmgInc": 2700,
+        "electro_enemyRes_": -75,
+        "critRate_": 20,
+        "all_dmg_": 172.35
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "skill",
+        "thrust3Dmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "all_dmgInc": 2700,
+        "electro_enemyRes_": -75,
+        "critRate_": 20,
+        "all_dmg_": 172.35
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "skill",
+        "thrust3Dmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "all_dmgInc": 2700,
+        "electro_enemyRes_": -75,
+        "critRate_": 20,
+        "all_dmg_": 172.35
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.9949,
+      "path": [
+        "skill",
+        "piercingDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "all_dmgInc": 2700,
+        "electro_enemyRes_": -75,
+        "critRate_": 20,
+        "all_dmg_": 172.35
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "constellation1",
+        "dmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "all_dmgInc": 2700,
+        "electro_enemyRes_": -75,
+        "critRate_": 20,
+        "all_dmg_": 175.15
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "constellation1",
+        "dmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "all_dmgInc": 2700,
+        "electro_enemyRes_": -75,
+        "critRate_": 20,
+        "all_dmg_": 175.15
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.9949,
+      "path": [
+        "skill",
+        "piercingDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "all_dmgInc": 2700,
+        "electro_enemyRes_": -75,
+        "critRate_": 20,
+        "all_dmg_": 175.15
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.9949,
+      "path": [
+        "skill",
+        "piercingDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "all_dmgInc": 2700,
+        "electro_enemyRes_": -75,
+        "critRate_": 20,
+        "all_dmg_": 182.15
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "skill",
+        "thrust3Dmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "all_dmgInc": 2700,
+        "electro_enemyRes_": -75,
+        "critRate_": 20,
+        "all_dmg_": 182.15
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "skill",
+        "thrust3Dmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "all_dmgInc": 2700,
+        "electro_enemyRes_": -75,
+        "critRate_": 20,
+        "all_dmg_": 182.15
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "skill",
+        "thrust3Dmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "all_dmgInc": 2700,
+        "electro_enemyRes_": -75,
+        "critRate_": 20,
+        "all_dmg_": 182.15
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.9949,
+      "path": [
+        "skill",
+        "piercingDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "all_dmgInc": 2700,
+        "electro_enemyRes_": -75,
+        "critRate_": 20,
+        "all_dmg_": 189.55
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "constellation1",
+        "dmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "all_dmgInc": 2700,
+        "electro_enemyRes_": -75,
+        "critRate_": 20,
+        "all_dmg_": 189.55
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "constellation1",
+        "dmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "all_dmgInc": 2700,
+        "electro_enemyRes_": -75,
+        "critRate_": 20,
+        "all_dmg_": 189.55
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.9949,
+      "path": [
+        "skill",
+        "piercingDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "all_dmgInc": 2700,
+        "electro_enemyRes_": -75,
+        "critRate_": 20,
+        "all_dmg_": 192.15
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.9949,
+      "path": [
+        "skill",
+        "piercingDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "all_dmgInc": 2700,
+        "electro_enemyRes_": -75,
+        "critRate_": 20,
+        "all_dmg_": 192.15
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "skill",
+        "thrust3Dmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "all_dmgInc": 2700,
+        "electro_enemyRes_": -75,
+        "critRate_": 20,
+        "all_dmg_": 192.15
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "skill",
+        "thrust3Dmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "all_dmgInc": 2700,
+        "electro_enemyRes_": -75,
+        "critRate_": 20,
+        "all_dmg_": 192.15
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "skill",
+        "thrust3Dmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "all_dmgInc": 2700,
+        "electro_enemyRes_": -75,
+        "critRate_": 20,
+        "all_dmg_": 192.15
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.9949,
+      "path": [
+        "skill",
+        "piercingDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "all_dmgInc": 2700,
+        "electro_enemyRes_": -75,
+        "critRate_": 20,
+        "all_dmg_": 202.15
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.9949,
+      "path": [
+        "skill",
+        "piercingDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "all_dmgInc": 2700,
+        "electro_enemyRes_": -75,
+        "critRate_": 20,
+        "all_dmg_": 202.15
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "constellation1",
+        "dmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "all_dmgInc": 2700,
+        "electro_enemyRes_": -75,
+        "critRate_": 20,
+        "all_dmg_": 202.15
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "constellation1",
+        "dmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "all_dmgInc": 2700,
+        "electro_enemyRes_": -75,
+        "critRate_": 20,
+        "all_dmg_": 202.15
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.9949,
+      "path": [
+        "skill",
+        "piercingDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "all_dmgInc": 2700,
+        "electro_enemyRes_": -75,
+        "critRate_": 20,
+        "all_dmg_": 202.15
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "skill",
+        "thrust3Dmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "all_dmgInc": 2700,
+        "electro_enemyRes_": -75,
+        "critRate_": 20,
+        "all_dmg_": 209.35
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "skill",
+        "thrust3Dmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "all_dmgInc": 2700,
+        "electro_enemyRes_": -75,
+        "critRate_": 20,
+        "all_dmg_": 209.35
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "skill",
+        "thrust3Dmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "all_dmgInc": 2700,
+        "electro_enemyRes_": -75,
+        "critRate_": 20,
+        "all_dmg_": 209.35
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.9949,
+      "path": [
+        "skill",
+        "piercingDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "all_dmgInc": 2700,
+        "electro_enemyRes_": -75,
+        "critRate_": 20,
+        "all_dmg_": 211.95
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.9949,
+      "path": [
+        "skill",
+        "piercingDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "all_dmgInc": 2700,
+        "electro_enemyRes_": -75,
+        "critRate_": 20,
+        "all_dmg_": 211.95
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "skill",
+        "thrust3Dmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "all_dmgInc": 2700,
+        "electro_enemyRes_": -75,
+        "critRate_": 20,
+        "all_dmg_": 211.95
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "skill",
+        "thrust3Dmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "all_dmgInc": 2700,
+        "electro_enemyRes_": -75,
+        "critRate_": 20,
+        "all_dmg_": 211.95
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "skill",
+        "thrust3Dmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "all_dmgInc": 2700,
+        "electro_enemyRes_": -75,
+        "critRate_": 20,
+        "all_dmg_": 211.95
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "constellation1",
+        "dmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "all_dmgInc": 2700,
+        "electro_enemyRes_": -75,
+        "critRate_": 20,
+        "all_dmg_": 211.95
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "constellation1",
+        "dmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "all_dmgInc": 2700,
+        "electro_enemyRes_": -75,
+        "critRate_": 20,
+        "all_dmg_": 211.95
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.9949,
+      "path": [
+        "skill",
+        "piercingDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "all_dmgInc": 2700,
+        "electro_enemyRes_": -75,
+        "critRate_": 20,
+        "all_dmg_": 211.95
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.9949,
+      "path": [
+        "skill",
+        "piercingDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "all_dmgInc": 2700,
+        "electro_enemyRes_": -75,
+        "critRate_": 20,
+        "all_dmg_": 211.95
+      },
+      "description": ""
+    },
+    {
+      "weight": 1.5819,
+      "path": [
+        "skill",
+        "piercingDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "all_dmgInc": 2700,
+        "electro_enemyRes_": -75,
+        "critRate_": 20,
+        "all_dmg_": 211.95
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "skill",
+        "thrust3Dmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "all_dmgInc": 2700,
+        "electro_enemyRes_": -75,
+        "critRate_": 20,
+        "all_dmg_": 211.65
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "skill",
+        "thrust3Dmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "all_dmgInc": 2700,
+        "electro_enemyRes_": -75,
+        "critRate_": 20,
+        "all_dmg_": 211.65
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "skill",
+        "thrust3Dmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "all_dmgInc": 2700,
+        "electro_enemyRes_": -75,
+        "critRate_": 20,
+        "all_dmg_": 211.65
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "burst",
+        "skillDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "all_dmgInc": 2700,
+        "electro_enemyRes_": -75,
+        "critRate_": 20,
+        "all_dmg_": 201.6
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "burst",
+        "skillDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "all_dmgInc": 2700,
+        "electro_enemyRes_": -75,
+        "critRate_": 20,
+        "all_dmg_": 201.6
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "burst",
+        "skillDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "all_dmgInc": 2700,
+        "electro_enemyRes_": -75,
+        "critRate_": 20,
+        "all_dmg_": 201.6
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "burst",
+        "skillDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "all_dmgInc": 2700,
+        "electro_enemyRes_": -75,
+        "critRate_": 20,
+        "all_dmg_": 201.6
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "burst",
+        "skillDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "all_dmgInc": 2700,
+        "electro_enemyRes_": -75,
+        "critRate_": 20,
+        "all_dmg_": 201.6
+      },
+      "description": ""
+    },
+    {
+      "weight": 3,
+      "path": [
+        "constellation6",
+        "dmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "all_dmgInc": 2700,
+        "electro_enemyRes_": -75,
+        "all_dmg_": 182,
+        "critRate_": 20
+      },
+      "description": ""
+    },
+    {
+      "weight": 2,
+      "path": [
+        "constellation6",
+        "dmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "all_dmgInc": 2700,
+        "electro_enemyRes_": -75,
+        "all_dmg_": 182,
+        "critRate_": 20
+      },
+      "description": ""
+    }
+  ]
+}

@@ -1,0 +1,27 @@
+{
+  "name": "Nuke",
+  "description": "Celestia",
+  "targets": [
+    {
+      "weight": 1,
+      "path": [
+        "charged",
+        "frostflakeBloom"
+      ],
+      "hitMode": "critHit",
+      "reaction": "melt",
+      "infusionAura": "cryo",
+      "bonusStats": {
+        "eleMas": 350.096,
+        "all_dmgInc": 12006.844,
+        "all_dmg_": 343,
+        "enemyDefIgn_": 40,
+        "cryo_enemyRes_": -60.4,
+        "enemyDefRed_": 30,
+        "critDMG_": 74,
+        "critRate_": 20
+      },
+      "description": ""
+    }
+  ]
+}

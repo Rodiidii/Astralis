@@ -1,0 +1,236 @@
+{
+  "name": "Quickbloom",
+  "description": "Celestia",
+  "targets": [
+    {
+      "weight": 3,
+      "path": [
+        "burst",
+        "normal_0"
+      ],
+      "hitMode": "avgHit",
+      "reaction": "aggravate",
+      "bonusStats": {
+        "eleMas": 200,
+        "atk_": 20,
+        "aggravate_dmg_": 33.393,
+        "all_dmg_": 62.5
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "burst",
+        "normal_1"
+      ],
+      "hitMode": "avgHit",
+      "reaction": "aggravate",
+      "bonusStats": {
+        "eleMas": 200,
+        "atk_": 20,
+        "aggravate_dmg_": 33.393,
+        "all_dmg_": 62.5
+      },
+      "description": ""
+    },
+    {
+      "weight": 2,
+      "path": [
+        "burst",
+        "normal_2"
+      ],
+      "hitMode": "avgHit",
+      "reaction": "aggravate",
+      "bonusStats": {
+        "eleMas": 200,
+        "atk_": 20,
+        "aggravate_dmg_": 33.393,
+        "all_dmg_": 62.5
+      },
+      "description": ""
+    },
+    {
+      "weight": 1.5,
+      "path": [
+        "burst",
+        "normal_3"
+      ],
+      "hitMode": "avgHit",
+      "reaction": "aggravate",
+      "bonusStats": {
+        "eleMas": 200,
+        "atk_": 20,
+        "aggravate_dmg_": 33.393,
+        "all_dmg_": 62.5
+      },
+      "description": ""
+    },
+    {
+      "weight": 1.5,
+      "path": [
+        "burst",
+        "normal_3"
+      ],
+      "hitMode": "avgHit",
+      "reaction": "aggravate",
+      "bonusStats": {
+        "eleMas": 200,
+        "atk_": 20,
+        "aggravate_dmg_": 33.393,
+        "all_dmg_": 62.5
+      },
+      "description": ""
+    },
+    {
+      "weight": 4,
+      "path": [
+        "skill",
+        "riteDmg"
+      ],
+      "hitMode": "avgHit",
+      "reaction": "aggravate",
+      "bonusStats": {
+        "eleMas": 200,
+        "atk_": 20,
+        "aggravate_dmg_": 33.393,
+        "all_dmg_": 62.5
+      },
+      "description": ""
+    },
+    {
+      "weight": 3,
+      "path": [
+        "skill",
+        "riteDmg"
+      ],
+      "hitMode": "avgHit",
+      "reaction": "aggravate",
+      "bonusStats": {
+        "eleMas": 200,
+        "atk_": 20,
+        "aggravate_dmg_": 33.393,
+        "all_dmg_": 97.5
+      },
+      "description": ""
+    },
+    {
+      "weight": 3,
+      "path": [
+        "passive1",
+        "boltDmg"
+      ],
+      "hitMode": "avgHit",
+      "reaction": "aggravate",
+      "bonusStats": {
+        "eleMas": 200,
+        "atk_": 20,
+        "aggravate_dmg_": 33.393,
+        "all_dmg_": 62.5
+      },
+      "description": ""
+    },
+    {
+      "weight": 4,
+      "path": [
+        "burst",
+        "normal_0"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "eleMas": 200,
+        "atk_": 20,
+        "all_dmg_": 62.5
+      },
+      "description": ""
+    },
+    {
+      "weight": 6,
+      "path": [
+        "burst",
+        "normal_1"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "eleMas": 200,
+        "atk_": 20,
+        "all_dmg_": 62.5
+      },
+      "description": ""
+    },
+    {
+      "weight": 5,
+      "path": [
+        "burst",
+        "normal_2"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "eleMas": 200,
+        "atk_": 20,
+        "all_dmg_": 62.5
+      },
+      "description": ""
+    },
+    {
+      "weight": 3.5,
+      "path": [
+        "burst",
+        "normal_3"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "eleMas": 200,
+        "atk_": 20,
+        "all_dmg_": 62.5
+      },
+      "description": ""
+    },
+    {
+      "weight": 3.5,
+      "path": [
+        "burst",
+        "normal_3"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "eleMas": 200,
+        "atk_": 20,
+        "all_dmg_": 62.5
+      },
+      "description": ""
+    },
+    {
+      "weight": 6,
+      "path": [
+        "passive1",
+        "boltDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "eleMas": 200,
+        "atk_": 20,
+        "all_dmg_": 62.5
+      },
+      "description": ""
+    },
+    {
+      "weight": 13,
+      "path": [
+        "reaction",
+        "hyperbloom"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "eleMas": 200,
+        "atk_": 20,
+        "hyperbloom_dmg_": 83.481,
+        "hyperbloom_dmgInc": 7067.648,
+        "dendro_enemyRes_": -55,
+        "hyperbloom_critRate_": 15,
+        "hyperbloom_critDMG_": 100
+      },
+      "description": ""
+    }
+  ]
+}

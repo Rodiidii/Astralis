@@ -1,0 +1,31 @@
+{
+  "category": {
+    "id": "traveler-cryo-stellar-swirl-burst-dps",
+    "name": "SSW Burst",
+    "kind": "normal"
+  },
+  "child": {
+    "constellation": 6,
+    "characterLevel": 90,
+    "talents": {
+      "burst": 13,
+      "skill": 13,
+      "normal": 10
+    },
+    "baseTalents": {
+      "burst": 10,
+      "skill": 10,
+      "normal": 10
+    },
+    "weaponId": 11521,
+    "refinement": 5
+  },
+  "reference": {
+    "source": "ceilingStandard"
+  },
+  "goConditions": null,
+  "characterBonusStats": null,
+  "enemy": null,
+  "issues": [],
+  "teamIssues": []
+}

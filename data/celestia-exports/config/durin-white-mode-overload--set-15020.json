@@ -1,0 +1,103 @@
+{
+  "name": "White Flame Overload",
+  "description": "Celestia",
+  "targets": [
+    {
+      "weight": 1,
+      "path": [
+        "skill",
+        "purityDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 37.5,
+        "pyro_enemyRes_": -75,
+        "all_dmg_": 112
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "burst",
+        "purityDmg1"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 37.5,
+        "pyro_enemyRes_": -75,
+        "all_dmg_": 112
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "burst",
+        "purityDmg2"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 37.5,
+        "pyro_enemyRes_": -75,
+        "all_dmg_": 112
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "burst",
+        "purityDmg3"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 37.5,
+        "pyro_enemyRes_": -75,
+        "all_dmg_": 112
+      },
+      "description": ""
+    },
+    {
+      "weight": 17.5,
+      "path": [
+        "burst",
+        "whiteDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 15,
+        "pyro_enemyRes_": -75,
+        "all_dmg_": 112
+      },
+      "description": ""
+    },
+    {
+      "weight": 7,
+      "path": [
+        "burst",
+        "whiteDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 15,
+        "pyro_enemyRes_": -75,
+        "all_dmg_": 112
+      },
+      "description": ""
+    },
+    {
+      "weight": 6,
+      "path": [
+        "reaction",
+        "overloaded"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 37.5,
+        "pyro_enemyRes_": -75
+      },
+      "description": ""
+    }
+  ]
+}

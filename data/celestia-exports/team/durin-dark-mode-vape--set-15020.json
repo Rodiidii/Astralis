@@ -1,0 +1,274 @@
+{
+  "name": "Dark Vape",
+  "description": "Celestia",
+  "lastEdit": 1794350983007,
+  "conditional": {
+    "resonance": {},
+    "reaction": {}
+  },
+  "enemyOverride": {
+    "enemyLevel": 100,
+    "enemyDefIgn_": 0,
+    "enemyDefRed_": 0,
+    "pyro_enemyRes_": 10,
+    "hydro_enemyRes_": 10,
+    "electro_enemyRes_": 10,
+    "cryo_enemyRes_": 10,
+    "anemo_enemyRes_": 10,
+    "geo_enemyRes_": 10,
+    "dendro_enemyRes_": 10,
+    "physical_enemyRes_": 10
+  },
+  "loadoutData": [
+    {
+      "key": "Durin",
+      "name": "Durin (Celestia)",
+      "description": "",
+      "hitMode": "avgHit",
+      "infusionAura": "",
+      "bonusStats": {
+        "atk_": 25,
+        "atk": 548.791
+      },
+      "conditional": {
+        "AthameArtis": {
+          "burstHit": "on"
+        }
+      },
+      "customMultiTargets": [
+        {
+          "name": "Dark Vape",
+          "description": "Celestia",
+          "targets": [
+            {
+              "weight": 1,
+              "path": [
+                "skill",
+                "darkDmg1"
+              ],
+              "hitMode": "avgHit",
+              "bonusStats": {
+                "atk": 300,
+                "atk_": 15,
+                "all_dmg_": 40
+              },
+              "description": ""
+            },
+            {
+              "weight": 1,
+              "path": [
+                "skill",
+                "darkDmg2"
+              ],
+              "hitMode": "avgHit",
+              "bonusStats": {
+                "atk": 300,
+                "atk_": 15,
+                "all_dmg_": 40
+              },
+              "description": ""
+            },
+            {
+              "weight": 1,
+              "path": [
+                "skill",
+                "darkDmg3"
+              ],
+              "hitMode": "avgHit",
+              "bonusStats": {
+                "atk": 300,
+                "atk_": 15,
+                "all_dmg_": 40
+              },
+              "description": ""
+            },
+            {
+              "weight": 1,
+              "path": [
+                "burst",
+                "darkDmg1"
+              ],
+              "hitMode": "avgHit",
+              "reaction": "vaporize",
+              "bonusStats": {
+                "atk": 300,
+                "atk_": 15,
+                "vaporize_dmg_": 70,
+                "all_dmg_": 40
+              },
+              "description": ""
+            },
+            {
+              "weight": 1,
+              "path": [
+                "burst",
+                "darkDmg2"
+              ],
+              "hitMode": "avgHit",
+              "bonusStats": {
+                "atk": 300,
+                "atk_": 15,
+                "all_dmg_": 40
+              },
+              "description": ""
+            },
+            {
+              "weight": 1,
+              "path": [
+                "burst",
+                "darkDmg3"
+              ],
+              "hitMode": "avgHit",
+              "bonusStats": {
+                "atk": 300,
+                "atk_": 15,
+                "all_dmg_": 40
+              },
+              "description": ""
+            },
+            {
+              "weight": 8.75,
+              "path": [
+                "burst",
+                "decayDmg"
+              ],
+              "hitMode": "avgHit",
+              "reaction": "vaporize",
+              "bonusStats": {
+                "atk_": 15,
+                "all_dmg_": 53,
+                "vaporize_dmg_": 70
+              },
+              "description": ""
+            },
+            {
+              "weight": 2,
+              "path": [
+                "burst",
+                "decayDmg"
+              ],
+              "hitMode": "avgHit",
+              "reaction": "vaporize",
+              "bonusStats": {
+                "atk_": 15,
+                "all_dmg_": 53,
+                "vaporize_dmg_": 70
+              },
+              "description": ""
+            },
+            {
+              "weight": 8.75,
+              "path": [
+                "burst",
+                "decayDmg"
+              ],
+              "hitMode": "avgHit",
+              "bonusStats": {
+                "atk_": 15,
+                "all_dmg_": 53
+              },
+              "description": ""
+            },
+            {
+              "weight": 1,
+              "path": [
+                "burst",
+                "decayDmg"
+              ],
+              "hitMode": "avgHit",
+              "bonusStats": {
+                "atk_": 15,
+                "all_dmg_": 53
+              },
+              "description": ""
+            }
+          ]
+        }
+      ],
+      "optConfig": {
+        "optimizationTarget": [
+          "custom",
+          "0"
+        ]
+      },
+      "buildTcs": [
+        {
+          "name": "Celestia",
+          "description": "The leaderboard reference build.",
+          "characterKey": "Durin",
+          "character": {
+            "level": 90,
+            "ascension": 6,
+            "constellation": 0,
+            "talent": {
+              "auto": 10,
+              "skill": 10,
+              "burst": 10
+            }
+          },
+          "weapon": {
+            "key": "AthameArtis",
+            "level": 90,
+            "ascension": 6,
+            "refinement": 1
+          },
+          "artifact": {
+            "sets": {
+              "EmblemOfSeveredFate": 5
+            },
+            "slots": {
+              "flower": {
+                "level": 20,
+                "rarity": 5,
+                "statKey": "hp"
+              },
+              "plume": {
+                "level": 20,
+                "rarity": 5,
+                "statKey": "atk"
+              },
+              "sands": {
+                "level": 20,
+                "rarity": 5,
+                "statKey": "atk_"
+              },
+              "goblet": {
+                "level": 20,
+                "rarity": 5,
+                "statKey": "pyro_dmg_"
+              },
+              "circlet": {
+                "level": 20,
+                "rarity": 5,
+                "statKey": "critDMG_"
+              }
+            },
+            "substats": {
+              "type": "max",
+              "rarity": 5,
+              "stats": {
+                "atk_": 15.16,
+                "def": 39.35,
+                "def_": 12.39,
+                "critRate_": 39.66,
+                "critDMG_": 66.05,
+                "hp": 507.88,
+                "hp_": 9.91,
+                "enerRech_": 11.01,
+                "eleMas": 60.61,
+                "atk": 33.07
+              }
+            }
+          },
+          "optimization": {
+            "distributedSubstats": 0,
+            "maxSubstats": {}
+          }
+        }
+      ]
+    },
+    null,
+    null,
+    null
+  ]
+}

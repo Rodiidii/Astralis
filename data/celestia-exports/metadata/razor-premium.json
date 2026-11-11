@@ -1,0 +1,155 @@
+{
+  "category": {
+    "id": "razor-premium",
+    "name": "Hex Combo",
+    "kind": "normal"
+  },
+  "child": {
+    "constellation": 6,
+    "characterLevel": 90,
+    "talents": {
+      "burst": 13,
+      "skill": 13,
+      "normal": 10
+    },
+    "baseTalents": {
+      "burst": 10,
+      "skill": 10,
+      "normal": 10
+    },
+    "weaponId": 12502,
+    "refinement": 1
+  },
+  "reference": {
+    "source": "ceilingStandard"
+  },
+  "goConditions": {
+    "Razor": {
+      "C4": "on",
+      "lockHomework": "on"
+    }
+  },
+  "characterBonusStats": {
+    "atk": 848.791,
+    "atk_": 62.541
+  },
+  "enemy": {
+    "level": 100,
+    "res": 0.1
+  },
+  "issues": [
+    {
+      "code": "skippedLines",
+      "reason": "teammate",
+      "lines": 1,
+      "share": 0.25454126308906677
+    },
+    {
+      "code": "characterBonusStats",
+      "stats": [
+        {
+          "buff": "Methexis",
+          "key": "atk",
+          "value": 300
+        },
+        {
+          "buff": "Pyro Resonance",
+          "key": "atk_",
+          "value": 25
+        },
+        {
+          "buff": "Grace of Kenosis (% of Nicole's ATK)",
+          "key": "atk",
+          "value": 548.7914632081548
+        },
+        {
+          "buff": "Chevreuse A4 ATK (Pyro/Electro)",
+          "key": "atk_",
+          "value": 37.54054972703511
+        }
+      ]
+    },
+    {
+      "code": "goSwitch",
+      "switches": [
+        {
+          "condition": [
+            "Razor",
+            "C4",
+            "on"
+          ],
+          "source": {
+            "type": "character"
+          },
+          "buffs": [
+            "Claw and Thunder"
+          ]
+        },
+        {
+          "condition": [
+            "Razor",
+            "lockHomework",
+            "on"
+          ],
+          "source": {
+            "type": "character"
+          },
+          "buffs": [
+            "Hexerei: Secret Rite"
+          ]
+        }
+      ]
+    },
+    {
+      "code": "setEffects",
+      "setIds": [
+        15044
+      ]
+    }
+  ],
+  "teamIssues": [
+    {
+      "code": "skippedLines",
+      "reason": "teammate",
+      "lines": 1,
+      "share": 0.25454126308906677
+    },
+    {
+      "code": "goSwitch",
+      "switches": [
+        {
+          "condition": [
+            "Razor",
+            "C4",
+            "on"
+          ],
+          "source": {
+            "type": "character"
+          },
+          "buffs": [
+            "Claw and Thunder"
+          ]
+        },
+        {
+          "condition": [
+            "Razor",
+            "lockHomework",
+            "on"
+          ],
+          "source": {
+            "type": "character"
+          },
+          "buffs": [
+            "Hexerei: Secret Rite"
+          ]
+        }
+      ]
+    },
+    {
+      "code": "setEffects",
+      "setIds": [
+        15044
+      ]
+    }
+  ]
+}

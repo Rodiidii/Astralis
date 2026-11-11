@@ -1,0 +1,327 @@
+{
+  "name": "Hex",
+  "description": "Celestia",
+  "targets": [
+    {
+      "weight": 1,
+      "path": [
+        "normal",
+        "0"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "def_": 24,
+        "atk": -2005.26,
+        "all_dmg_": 15
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "normal",
+        "0"
+      ],
+      "hitMode": "avgHit",
+      "infusionAura": "geo",
+      "bonusStats": {
+        "def_": 24,
+        "atk": 548.421,
+        "geo_enemyRes_": -91,
+        "all_dmg_": 119
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "skill",
+        "dmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "def_": 24,
+        "atk": 548.421,
+        "geo_enemyRes_": -91,
+        "all_dmg_": 119
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "normal",
+        "1"
+      ],
+      "hitMode": "avgHit",
+      "infusionAura": "geo",
+      "bonusStats": {
+        "atk": 848.421,
+        "def_": 24,
+        "geo_enemyRes_": -91,
+        "all_dmg_": 119
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "normal",
+        "2"
+      ],
+      "hitMode": "avgHit",
+      "infusionAura": "geo",
+      "bonusStats": {
+        "atk": 848.421,
+        "def_": 24,
+        "geo_enemyRes_": -91,
+        "all_dmg_": 119
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "charged",
+        "akSlash"
+      ],
+      "hitMode": "avgHit",
+      "infusionAura": "geo",
+      "bonusStats": {
+        "atk": 848.421,
+        "def_": 24,
+        "geo_enemyRes_": -91,
+        "all_dmg_": 119
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "charged",
+        "akSlash"
+      ],
+      "hitMode": "avgHit",
+      "infusionAura": "geo",
+      "bonusStats": {
+        "atk": 848.421,
+        "def_": 24,
+        "geo_enemyRes_": -91,
+        "all_dmg_": 119
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "charged",
+        "akSlash"
+      ],
+      "hitMode": "avgHit",
+      "infusionAura": "geo",
+      "bonusStats": {
+        "atk": 848.421,
+        "def_": 24,
+        "geo_enemyRes_": -91,
+        "all_dmg_": 119
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "charged",
+        "akSlash"
+      ],
+      "hitMode": "avgHit",
+      "infusionAura": "geo",
+      "bonusStats": {
+        "atk": 848.421,
+        "def_": 24,
+        "geo_enemyRes_": -91,
+        "all_dmg_": 119
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "charged",
+        "akFinal"
+      ],
+      "hitMode": "avgHit",
+      "infusionAura": "geo",
+      "bonusStats": {
+        "atk": 848.421,
+        "def_": 24,
+        "geo_enemyRes_": -91,
+        "all_dmg_": 104
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "normal",
+        "0"
+      ],
+      "hitMode": "avgHit",
+      "infusionAura": "geo",
+      "bonusStats": {
+        "def_": 24,
+        "geo_enemyRes_": -91,
+        "all_dmg_": 64
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "normal",
+        "1"
+      ],
+      "hitMode": "avgHit",
+      "infusionAura": "geo",
+      "bonusStats": {
+        "def_": 24,
+        "geo_enemyRes_": -91,
+        "all_dmg_": 64
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "normal",
+        "2"
+      ],
+      "hitMode": "avgHit",
+      "infusionAura": "geo",
+      "bonusStats": {
+        "def_": 24,
+        "geo_enemyRes_": -91,
+        "all_dmg_": 64
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "normal",
+        "3"
+      ],
+      "hitMode": "avgHit",
+      "infusionAura": "geo",
+      "bonusStats": {
+        "def_": 24,
+        "geo_enemyRes_": -91,
+        "all_dmg_": 64
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "charged",
+        "akSlash"
+      ],
+      "hitMode": "avgHit",
+      "infusionAura": "geo",
+      "bonusStats": {
+        "def_": 24,
+        "geo_enemyRes_": -91,
+        "all_dmg_": 64
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "charged",
+        "akSlash"
+      ],
+      "hitMode": "avgHit",
+      "infusionAura": "geo",
+      "bonusStats": {
+        "def_": 24,
+        "geo_enemyRes_": -91,
+        "all_dmg_": 64
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "charged",
+        "akSlash"
+      ],
+      "hitMode": "avgHit",
+      "infusionAura": "geo",
+      "bonusStats": {
+        "def_": 24,
+        "geo_enemyRes_": -91,
+        "all_dmg_": 64
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "charged",
+        "akSlash"
+      ],
+      "hitMode": "avgHit",
+      "infusionAura": "geo",
+      "bonusStats": {
+        "def_": 24,
+        "geo_enemyRes_": -91,
+        "all_dmg_": 64
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "charged",
+        "akFinal"
+      ],
+      "hitMode": "avgHit",
+      "infusionAura": "geo",
+      "bonusStats": {
+        "def_": 24,
+        "geo_enemyRes_": -91,
+        "all_dmg_": 64
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "skill",
+        "dmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "def_": 24,
+        "geo_enemyRes_": -91,
+        "all_dmg_": 64
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "charged",
+        "akFinal"
+      ],
+      "hitMode": "avgHit",
+      "infusionAura": "geo",
+      "bonusStats": {
+        "def_": 24,
+        "all_dmg_": 64,
+        "geo_enemyRes_": -20
+      },
+      "description": ""
+    }
+  ]
+}

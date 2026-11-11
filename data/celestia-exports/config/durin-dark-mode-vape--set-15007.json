@@ -1,0 +1,148 @@
+{
+  "name": "Dark Vape",
+  "description": "Celestia",
+  "targets": [
+    {
+      "weight": 1,
+      "path": [
+        "skill",
+        "darkDmg1"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk": 300,
+        "atk_": 35,
+        "all_dmg_": 40
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "skill",
+        "darkDmg2"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk": 300,
+        "atk_": 35,
+        "all_dmg_": 40
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "skill",
+        "darkDmg3"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk": 300,
+        "atk_": 35,
+        "all_dmg_": 40
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "burst",
+        "darkDmg1"
+      ],
+      "hitMode": "avgHit",
+      "reaction": "vaporize",
+      "bonusStats": {
+        "atk": 300,
+        "atk_": 35,
+        "vaporize_dmg_": 70,
+        "all_dmg_": 40
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "burst",
+        "darkDmg2"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk": 300,
+        "atk_": 35,
+        "all_dmg_": 40
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "burst",
+        "darkDmg3"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk": 300,
+        "atk_": 35,
+        "all_dmg_": 40
+      },
+      "description": ""
+    },
+    {
+      "weight": 8.75,
+      "path": [
+        "burst",
+        "decayDmg"
+      ],
+      "hitMode": "avgHit",
+      "reaction": "vaporize",
+      "bonusStats": {
+        "atk_": 35,
+        "all_dmg_": 53,
+        "vaporize_dmg_": 70
+      },
+      "description": ""
+    },
+    {
+      "weight": 2,
+      "path": [
+        "burst",
+        "decayDmg"
+      ],
+      "hitMode": "avgHit",
+      "reaction": "vaporize",
+      "bonusStats": {
+        "atk_": 35,
+        "all_dmg_": 53,
+        "vaporize_dmg_": 70
+      },
+      "description": ""
+    },
+    {
+      "weight": 8.75,
+      "path": [
+        "burst",
+        "decayDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 35,
+        "all_dmg_": 53
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "burst",
+        "decayDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 35,
+        "all_dmg_": 53
+      },
+      "description": ""
+    }
+  ]
+}

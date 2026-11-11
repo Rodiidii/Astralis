@@ -1,0 +1,52 @@
+{
+  "name": "C6 Premium",
+  "description": "Celestia",
+  "targets": [
+    {
+      "weight": 3,
+      "path": [
+        "skill",
+        "surgingDmg"
+      ],
+      "hitMode": "avgHit",
+      "reaction": "vaporize",
+      "bonusStats": {
+        "all_dmgInc": 38307.131,
+        "all_dmg_": 206,
+        "enemyDefRed_": 20,
+        "hydro_enemyRes_": -85
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "skill",
+        "surgingDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "all_dmgInc": 38307.131,
+        "all_dmg_": 206,
+        "enemyDefRed_": 20,
+        "hydro_enemyRes_": -85
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.5,
+      "path": [
+        "burst",
+        "dmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "all_dmgInc": 2756.469,
+        "all_dmg_": 206,
+        "enemyDefRed_": 20,
+        "hydro_enemyRes_": -85
+      },
+      "description": ""
+    }
+  ]
+}

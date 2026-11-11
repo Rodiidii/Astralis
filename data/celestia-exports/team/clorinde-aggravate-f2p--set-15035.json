@@ -1,0 +1,693 @@
+{
+  "name": "Aggravate F2P",
+  "description": "Celestia",
+  "lastEdit": 1794351013136,
+  "conditional": {
+    "resonance": {},
+    "reaction": {}
+  },
+  "enemyOverride": {
+    "enemyLevel": 100,
+    "enemyDefIgn_": 0,
+    "enemyDefRed_": 0,
+    "pyro_enemyRes_": 10,
+    "hydro_enemyRes_": 10,
+    "electro_enemyRes_": 10,
+    "cryo_enemyRes_": 10,
+    "anemo_enemyRes_": 10,
+    "geo_enemyRes_": 10,
+    "dendro_enemyRes_": 10,
+    "physical_enemyRes_": 10
+  },
+  "loadoutData": [
+    {
+      "key": "Clorinde",
+      "name": "Clorinde (Celestia)",
+      "description": "",
+      "hitMode": "avgHit",
+      "infusionAura": "",
+      "bonusStats": {},
+      "conditional": {
+        "Clorinde": {
+          "a1Reactions": "3"
+        }
+      },
+      "customMultiTargets": [
+        {
+          "name": "Aggravate F2P",
+          "description": "Celestia",
+          "targets": [
+            {
+              "weight": 0.5,
+              "path": [
+                "skill",
+                "piercingDmg"
+              ],
+              "hitMode": "avgHit",
+              "reaction": "aggravate",
+              "bonusStats": {
+                "eleMas": 156.312,
+                "atk_": 48,
+                "all_dmg_": 135.714,
+                "electro_enemyRes_": -40
+              },
+              "description": ""
+            },
+            {
+              "weight": 0.5,
+              "path": [
+                "skill",
+                "piercingDmg"
+              ],
+              "hitMode": "avgHit",
+              "bonusStats": {
+                "eleMas": 156.312,
+                "atk_": 48,
+                "all_dmg_": 153.714,
+                "electro_enemyRes_": -40,
+                "critRate_": 10
+              },
+              "description": ""
+            },
+            {
+              "weight": 4.5,
+              "path": [
+                "skill",
+                "piercingDmg"
+              ],
+              "hitMode": "avgHit",
+              "bonusStats": {
+                "eleMas": 156.312,
+                "atk_": 48,
+                "all_dmg_": 171.714,
+                "critRate_": 20,
+                "electro_enemyRes_": -40
+              },
+              "description": ""
+            },
+            {
+              "weight": 3.5,
+              "path": [
+                "skill",
+                "piercingDmg"
+              ],
+              "hitMode": "avgHit",
+              "reaction": "aggravate",
+              "bonusStats": {
+                "eleMas": 156.312,
+                "atk_": 48,
+                "all_dmg_": 171.714,
+                "critRate_": 20,
+                "electro_enemyRes_": -40
+              },
+              "description": ""
+            },
+            {
+              "weight": 6,
+              "path": [
+                "skill",
+                "thrust3Dmg"
+              ],
+              "hitMode": "avgHit",
+              "bonusStats": {
+                "eleMas": 156.312,
+                "atk_": 48,
+                "all_dmg_": 171.714,
+                "critRate_": 20,
+                "electro_enemyRes_": -40
+              },
+              "description": ""
+            },
+            {
+              "weight": 3,
+              "path": [
+                "skill",
+                "thrust3Dmg"
+              ],
+              "hitMode": "avgHit",
+              "reaction": "aggravate",
+              "bonusStats": {
+                "eleMas": 156.312,
+                "atk_": 48,
+                "all_dmg_": 171.714,
+                "critRate_": 20,
+                "electro_enemyRes_": -40
+              },
+              "description": ""
+            },
+            {
+              "weight": 6,
+              "path": [
+                "constellation1",
+                "dmg"
+              ],
+              "hitMode": "avgHit",
+              "bonusStats": {
+                "eleMas": 156.312,
+                "atk_": 48,
+                "all_dmg_": 171.714,
+                "critRate_": 20,
+                "electro_enemyRes_": -40
+              },
+              "description": ""
+            },
+            {
+              "weight": 1.5,
+              "path": [
+                "burst",
+                "skillDmg"
+              ],
+              "hitMode": "avgHit",
+              "bonusStats": {
+                "eleMas": 156.312,
+                "atk_": 48,
+                "all_dmg_": 171.714,
+                "critRate_": 20,
+                "electro_enemyRes_": -40
+              },
+              "description": ""
+            },
+            {
+              "weight": 1,
+              "path": [
+                "burst",
+                "skillDmg"
+              ],
+              "hitMode": "avgHit",
+              "reaction": "aggravate",
+              "bonusStats": {
+                "eleMas": 156.312,
+                "atk_": 48,
+                "all_dmg_": 171.714,
+                "critRate_": 20,
+                "electro_enemyRes_": -40
+              },
+              "description": ""
+            },
+            {
+              "weight": 0.5,
+              "path": [
+                "skill",
+                "thrust3Dmg"
+              ],
+              "hitMode": "avgHit",
+              "reaction": "aggravate",
+              "bonusStats": {
+                "eleMas": 156.312,
+                "atk_": 48,
+                "all_dmg_": 171.714,
+                "critRate_": 20,
+                "electro_enemyRes_": -40
+              },
+              "description": ""
+            },
+            {
+              "weight": 1,
+              "path": [
+                "skill",
+                "thrust3Dmg"
+              ],
+              "hitMode": "avgHit",
+              "bonusStats": {
+                "eleMas": 156.312,
+                "atk_": 48,
+                "all_dmg_": 171.714,
+                "critRate_": 20,
+                "electro_enemyRes_": -40
+              },
+              "description": ""
+            },
+            {
+              "weight": 0.5,
+              "path": [
+                "skill",
+                "piercingDmg"
+              ],
+              "hitMode": "avgHit",
+              "reaction": "aggravate",
+              "bonusStats": {
+                "eleMas": 156.312,
+                "atk_": 48,
+                "all_dmg_": 171.714,
+                "critRate_": 20,
+                "electro_enemyRes_": -40
+              },
+              "description": ""
+            },
+            {
+              "weight": 5,
+              "path": [
+                "skill",
+                "piercingDmg"
+              ],
+              "hitMode": "avgHit",
+              "bonusStats": {
+                "eleMas": 156.312,
+                "atk_": 48,
+                "all_dmg_": 171.714,
+                "critRate_": 20,
+                "electro_enemyRes_": -40
+              },
+              "description": ""
+            },
+            {
+              "weight": 3.5,
+              "path": [
+                "skill",
+                "piercingDmg"
+              ],
+              "hitMode": "avgHit",
+              "reaction": "aggravate",
+              "bonusStats": {
+                "eleMas": 156.312,
+                "atk_": 48,
+                "all_dmg_": 171.714,
+                "critRate_": 20,
+                "electro_enemyRes_": -40
+              },
+              "description": ""
+            },
+            {
+              "weight": 5,
+              "path": [
+                "skill",
+                "thrust3Dmg"
+              ],
+              "hitMode": "avgHit",
+              "bonusStats": {
+                "eleMas": 156.312,
+                "atk_": 48,
+                "all_dmg_": 171.714,
+                "critRate_": 20,
+                "electro_enemyRes_": -40
+              },
+              "description": ""
+            },
+            {
+              "weight": 2.5,
+              "path": [
+                "skill",
+                "thrust3Dmg"
+              ],
+              "hitMode": "avgHit",
+              "reaction": "aggravate",
+              "bonusStats": {
+                "eleMas": 156.312,
+                "atk_": 48,
+                "all_dmg_": 171.714,
+                "critRate_": 20,
+                "electro_enemyRes_": -40
+              },
+              "description": ""
+            },
+            {
+              "weight": 5.5,
+              "path": [
+                "constellation1",
+                "dmg"
+              ],
+              "hitMode": "avgHit",
+              "bonusStats": {
+                "eleMas": 156.312,
+                "atk_": 48,
+                "all_dmg_": 171.714,
+                "critRate_": 20,
+                "electro_enemyRes_": -40
+              },
+              "description": ""
+            },
+            {
+              "weight": 1.5,
+              "path": [
+                "burst",
+                "skillDmg"
+              ],
+              "hitMode": "avgHit",
+              "bonusStats": {
+                "eleMas": 156.312,
+                "atk_": 48,
+                "all_dmg_": 171.714,
+                "critRate_": 20,
+                "electro_enemyRes_": -40
+              },
+              "description": ""
+            },
+            {
+              "weight": 1,
+              "path": [
+                "burst",
+                "skillDmg"
+              ],
+              "hitMode": "avgHit",
+              "reaction": "aggravate",
+              "bonusStats": {
+                "eleMas": 156.312,
+                "atk_": 48,
+                "all_dmg_": 171.714,
+                "critRate_": 20,
+                "electro_enemyRes_": -40
+              },
+              "description": ""
+            }
+          ]
+        }
+      ],
+      "optConfig": {
+        "optimizationTarget": [
+          "custom",
+          "0"
+        ]
+      },
+      "buildTcs": [
+        {
+          "name": "Celestia",
+          "description": "The leaderboard reference build.",
+          "characterKey": "Clorinde",
+          "character": {
+            "level": 90,
+            "ascension": 6,
+            "constellation": 1,
+            "talent": {
+              "auto": 10,
+              "skill": 10,
+              "burst": 10
+            }
+          },
+          "weapon": {
+            "key": "Absolution",
+            "level": 90,
+            "ascension": 6,
+            "refinement": 1
+          },
+          "artifact": {
+            "sets": {
+              "FragmentOfHarmonicWhimsy": 5
+            },
+            "slots": {
+              "flower": {
+                "level": 20,
+                "rarity": 5,
+                "statKey": "hp"
+              },
+              "plume": {
+                "level": 20,
+                "rarity": 5,
+                "statKey": "atk"
+              },
+              "sands": {
+                "level": 20,
+                "rarity": 5,
+                "statKey": "atk_"
+              },
+              "goblet": {
+                "level": 20,
+                "rarity": 5,
+                "statKey": "electro_dmg_"
+              },
+              "circlet": {
+                "level": 20,
+                "rarity": 5,
+                "statKey": "critRate_"
+              }
+            },
+            "substats": {
+              "type": "max",
+              "rarity": 5,
+              "stats": {
+                "atk_": 34.98,
+                "def": 39.35,
+                "def_": 12.39,
+                "critRate_": 22.94,
+                "critDMG_": 79.26,
+                "hp": 507.88,
+                "hp_": 9.91,
+                "enerRech_": 11.01,
+                "eleMas": 39.63,
+                "atk": 33.07
+              }
+            }
+          },
+          "optimization": {
+            "distributedSubstats": 0,
+            "maxSubstats": {}
+          }
+        }
+      ]
+    },
+    {
+      "key": "Sucrose",
+      "name": "Sucrose (Celestia)",
+      "description": "",
+      "hitMode": "avgHit",
+      "infusionAura": "",
+      "bonusStats": {},
+      "conditional": {},
+      "customMultiTargets": [],
+      "buildTcs": [
+        {
+          "name": "Celestia",
+          "description": "Celestia teammate assumption (85% of the maximum).",
+          "characterKey": "Sucrose",
+          "character": {
+            "level": 90,
+            "ascension": 6,
+            "constellation": 6,
+            "talent": {
+              "auto": 10,
+              "skill": 10,
+              "burst": 10
+            }
+          },
+          "weapon": {
+            "key": "ThrillingTalesOfDragonSlayers",
+            "level": 90,
+            "ascension": 6,
+            "refinement": 5
+          },
+          "artifact": {
+            "sets": {
+              "ViridescentVenerer": 4
+            },
+            "slots": {
+              "flower": {
+                "level": 20,
+                "rarity": 5,
+                "statKey": "hp"
+              },
+              "plume": {
+                "level": 20,
+                "rarity": 5,
+                "statKey": "atk"
+              },
+              "sands": {
+                "level": 20,
+                "rarity": 5,
+                "statKey": "enerRech_"
+              },
+              "goblet": {
+                "level": 20,
+                "rarity": 5,
+                "statKey": "eleMas"
+              },
+              "circlet": {
+                "level": 20,
+                "rarity": 5,
+                "statKey": "eleMas"
+              }
+            },
+            "substats": {
+              "type": "max",
+              "rarity": 5,
+              "stats": {
+                "hp": 507.88,
+                "atk": 33.08,
+                "def": 39.36,
+                "hp_": 9.92,
+                "atk_": 9.92,
+                "def_": 12.4,
+                "eleMas": 158.56,
+                "enerRech_": 49.59,
+                "critRate_": 19.86,
+                "critDMG_": 33.1
+              }
+            }
+          },
+          "optimization": {
+            "distributedSubstats": 0,
+            "maxSubstats": {}
+          }
+        }
+      ]
+    },
+    {
+      "key": "Kirara",
+      "name": "Kirara (Celestia)",
+      "description": "",
+      "hitMode": "avgHit",
+      "infusionAura": "",
+      "bonusStats": {},
+      "conditional": {},
+      "customMultiTargets": [],
+      "buildTcs": [
+        {
+          "name": "Celestia",
+          "description": "Celestia teammate assumption (85% of the maximum).",
+          "characterKey": "Kirara",
+          "character": {
+            "level": 90,
+            "ascension": 6,
+            "constellation": 6,
+            "talent": {
+              "auto": 10,
+              "skill": 10,
+              "burst": 10
+            }
+          },
+          "weapon": {
+            "key": "SapwoodBlade",
+            "level": 90,
+            "ascension": 6,
+            "refinement": 5
+          },
+          "artifact": {
+            "sets": {
+              "ScrollOfTheHeroOfCinderCity": 4
+            },
+            "slots": {
+              "flower": {
+                "level": 20,
+                "rarity": 5,
+                "statKey": "hp"
+              },
+              "plume": {
+                "level": 20,
+                "rarity": 5,
+                "statKey": "atk"
+              },
+              "sands": {
+                "level": 20,
+                "rarity": 5,
+                "statKey": "hp_"
+              },
+              "goblet": {
+                "level": 20,
+                "rarity": 5,
+                "statKey": "hp_"
+              },
+              "circlet": {
+                "level": 20,
+                "rarity": 5,
+                "statKey": "hp_"
+              }
+            },
+            "substats": {
+              "type": "max",
+              "rarity": 5,
+              "stats": {
+                "hp": 507.88,
+                "atk": 33.08,
+                "def": 39.36,
+                "hp_": 9.92,
+                "atk_": 9.92,
+                "def_": 12.4,
+                "eleMas": 39.64,
+                "enerRech_": 11.02,
+                "critRate_": 39.72,
+                "critDMG_": 79.44
+              }
+            }
+          },
+          "optimization": {
+            "distributedSubstats": 0,
+            "maxSubstats": {}
+          }
+        }
+      ]
+    },
+    {
+      "key": "Fischl",
+      "name": "Fischl (Celestia)",
+      "description": "",
+      "hitMode": "avgHit",
+      "infusionAura": "",
+      "bonusStats": {},
+      "conditional": {},
+      "customMultiTargets": [],
+      "buildTcs": [
+        {
+          "name": "Celestia",
+          "description": "Celestia teammate assumption (85% of the maximum).",
+          "characterKey": "Fischl",
+          "character": {
+            "level": 90,
+            "ascension": 6,
+            "constellation": 6,
+            "talent": {
+              "auto": 10,
+              "skill": 10,
+              "burst": 10
+            }
+          },
+          "weapon": {
+            "key": "TheStringless",
+            "level": 90,
+            "ascension": 6,
+            "refinement": 5
+          },
+          "artifact": {
+            "sets": {
+              "CelestialGift": 4
+            },
+            "slots": {
+              "flower": {
+                "level": 20,
+                "rarity": 5,
+                "statKey": "hp"
+              },
+              "plume": {
+                "level": 20,
+                "rarity": 5,
+                "statKey": "atk"
+              },
+              "sands": {
+                "level": 20,
+                "rarity": 5,
+                "statKey": "atk_"
+              },
+              "goblet": {
+                "level": 20,
+                "rarity": 5,
+                "statKey": "electro_dmg_"
+              },
+              "circlet": {
+                "level": 20,
+                "rarity": 5,
+                "statKey": "critRate_"
+              }
+            },
+            "substats": {
+              "type": "max",
+              "rarity": 5,
+              "stats": {
+                "hp": 1015.76,
+                "atk": 33.08,
+                "def": 39.36,
+                "hp_": 9.92,
+                "atk_": 9.92,
+                "def_": 12.4,
+                "eleMas": 39.64,
+                "enerRech_": 11.02,
+                "critRate_": 33.1,
+                "critDMG_": 79.44
+              }
+            }
+          },
+          "optimization": {
+            "distributedSubstats": 0,
+            "maxSubstats": {}
+          }
+        }
+      ]
+    }
+  ]
+}

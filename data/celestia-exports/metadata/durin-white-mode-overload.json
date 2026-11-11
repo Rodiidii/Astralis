@@ -1,0 +1,134 @@
+{
+  "category": {
+    "id": "durin-white-mode-overload",
+    "name": "White Flame Overload",
+    "kind": "normal"
+  },
+  "child": {
+    "constellation": 0,
+    "characterLevel": 90,
+    "talents": {
+      "burst": 10,
+      "skill": 10,
+      "normal": 10
+    },
+    "baseTalents": {
+      "burst": 10,
+      "skill": 10,
+      "normal": 10
+    },
+    "weaponId": 11518,
+    "refinement": 1
+  },
+  "reference": {
+    "source": "ceilingStandard"
+  },
+  "goConditions": {
+    "AthameArtis": {
+      "burstHit": "on"
+    }
+  },
+  "characterBonusStats": {
+    "atk_": 85.041
+  },
+  "enemy": {
+    "level": 100,
+    "res": 0.1
+  },
+  "issues": [
+    {
+      "code": "characterBonusStats",
+      "stats": [
+        {
+          "buff": "Evernight Raven — Secret Rite doubled (after an Overloaded)",
+          "key": "atk_",
+          "value": 22.5
+        },
+        {
+          "buff": "Pyro Resonance",
+          "key": "atk_",
+          "value": 25
+        },
+        {
+          "buff": "Chevreuse A4 ATK (Pyro/Electro)",
+          "key": "atk_",
+          "value": 37.54054972703511
+        }
+      ]
+    },
+    {
+      "code": "selfScaling",
+      "buffs": [
+        "A4 Primordial Fusion — 3% of the original DMG per 100 ATK, 75% cap"
+      ]
+    },
+    {
+      "code": "goSwitch",
+      "switches": [
+        {
+          "condition": [
+            "AthameArtis",
+            "burstHit",
+            "on"
+          ],
+          "source": {
+            "type": "weapon",
+            "weaponId": 11518
+          },
+          "buffs": [
+            "Day King's Splendor Solis"
+          ]
+        }
+      ]
+    },
+    {
+      "code": "setEffects",
+      "setIds": [
+        15044
+      ]
+    }
+  ],
+  "teamIssues": [
+    {
+      "code": "characterBonusStats",
+      "stats": [
+        {
+          "buff": "Pyro Resonance",
+          "key": "atk_",
+          "value": 25
+        }
+      ]
+    },
+    {
+      "code": "selfScaling",
+      "buffs": [
+        "A4 Primordial Fusion — 3% of the original DMG per 100 ATK, 75% cap"
+      ]
+    },
+    {
+      "code": "goSwitch",
+      "switches": [
+        {
+          "condition": [
+            "AthameArtis",
+            "burstHit",
+            "on"
+          ],
+          "source": {
+            "type": "weapon",
+            "weaponId": 11518
+          },
+          "buffs": [
+            "Day King's Splendor Solis"
+          ]
+        }
+      ]
+    },
+    {
+      "code": "setEffects",
+      "setIds": [
+        15044
+      ]
+    }
+  ]
+}

@@ -1,0 +1,551 @@
+{
+  "name": "Burst DPS",
+  "description": "Celestia",
+  "targets": [
+    {
+      "weight": 1,
+      "path": [
+        "normal",
+        "0"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "all_dmg_": 25.87,
+        "critRate_": -100,
+        "hydro_enemyRes_": -40
+      },
+      "description": ""
+    },
+    {
+      "weight": 1.0056,
+      "path": [
+        "skill",
+        "dmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "all_dmg_": 25.87,
+        "critRate_": -100,
+        "hydro_enemyRes_": -40
+      },
+      "description": ""
+    },
+    {
+      "weight": 1.0056,
+      "path": [
+        "skill",
+        "dmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "all_dmg_": 25.87,
+        "critRate_": -100,
+        "hydro_enemyRes_": -40
+      },
+      "description": ""
+    },
+    {
+      "weight": 1.0056,
+      "path": [
+        "skill",
+        "dmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "all_dmg_": 27.21,
+        "critRate_": -100,
+        "hydro_enemyRes_": -40
+      },
+      "description": ""
+    },
+    {
+      "weight": 1.0056,
+      "path": [
+        "skill",
+        "dmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "all_dmg_": 34.12,
+        "critRate_": -100,
+        "hydro_enemyRes_": -40
+      },
+      "description": ""
+    },
+    {
+      "weight": 1.0056,
+      "path": [
+        "skill",
+        "dmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "all_dmg_": 45.73,
+        "critRate_": -100,
+        "hydro_enemyRes_": -40
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "normal",
+        "0"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "all_dmg_": 65.12,
+        "all_dmgInc": 5189.944,
+        "critRate_": -100,
+        "hydro_enemyRes_": -40
+      },
+      "description": ""
+    },
+    {
+      "weight": 1.0056,
+      "path": [
+        "skill",
+        "dmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "all_dmg_": 64.7,
+        "all_dmgInc": 5276.695,
+        "critRate_": -100,
+        "hydro_enemyRes_": -40
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "burst",
+        "dmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "all_dmg_": 74.32,
+        "critRate_": -100,
+        "hydro_enemyRes_": -40
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "normal",
+        "0"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "all_dmgInc": 8699.048,
+        "all_dmg_": 77.92,
+        "critRate_": -100,
+        "hydro_enemyRes_": -40
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "normal",
+        "1"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "all_dmgInc": 8699.048,
+        "all_dmg_": 79.59,
+        "critRate_": -100,
+        "hydro_enemyRes_": -40
+      },
+      "description": ""
+    },
+    {
+      "weight": 1.0056,
+      "path": [
+        "skill",
+        "dmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "all_dmg_": 83.42,
+        "all_dmgInc": 5563.862,
+        "critRate_": -100,
+        "hydro_enemyRes_": -40
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "normal",
+        "0"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "all_dmgInc": 8699.048,
+        "all_dmg_": 84.59,
+        "critRate_": -100,
+        "hydro_enemyRes_": -40
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "normal",
+        "1"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "all_dmgInc": 8699.048,
+        "all_dmg_": 86.7,
+        "critRate_": -100,
+        "hydro_enemyRes_": -40
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "normal",
+        "0"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "all_dmgInc": 8699.048,
+        "all_dmg_": 96.15,
+        "critRate_": -100,
+        "hydro_enemyRes_": -40
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "normal",
+        "1"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "all_dmgInc": 8699.048,
+        "all_dmg_": 99.57,
+        "critRate_": -100,
+        "hydro_enemyRes_": -40
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "normal",
+        "0"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "all_dmgInc": 8699.048,
+        "all_dmg_": 102.32,
+        "critRate_": -100,
+        "hydro_enemyRes_": -40
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "normal",
+        "1"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "all_dmgInc": 8699.048,
+        "all_dmg_": 107.32,
+        "critRate_": -100,
+        "hydro_enemyRes_": -40
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.9744,
+      "path": [
+        "skill",
+        "dmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "all_dmgInc": 5743.341,
+        "all_dmg_": 107.05,
+        "critRate_": -100,
+        "hydro_enemyRes_": -40
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "normal",
+        "0"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "all_dmgInc": 8699.048,
+        "all_dmg_": 108.44,
+        "critRate_": -100,
+        "hydro_enemyRes_": -40
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "normal",
+        "1"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "all_dmgInc": 8699.048,
+        "all_dmg_": 108.49,
+        "critRate_": -100,
+        "hydro_enemyRes_": -40
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "normal",
+        "0"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "all_dmgInc": 8699.048,
+        "all_dmg_": 112.6,
+        "critRate_": -100,
+        "hydro_enemyRes_": -40
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "normal",
+        "1"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "all_dmgInc": 8699.048,
+        "all_dmg_": 113.84,
+        "critRate_": -100,
+        "hydro_enemyRes_": -40
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "normal",
+        "0"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "all_dmgInc": 8699.048,
+        "all_dmg_": 119.37,
+        "critRate_": -100,
+        "hydro_enemyRes_": -40
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.9744,
+      "path": [
+        "skill",
+        "dmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "all_dmgInc": 5743.341,
+        "all_dmg_": 123.1,
+        "critRate_": -100,
+        "hydro_enemyRes_": -40
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "normal",
+        "1"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "all_dmgInc": 8699.048,
+        "all_dmg_": 123.41,
+        "critRate_": -100,
+        "hydro_enemyRes_": -40
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "normal",
+        "0"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "all_dmgInc": 8699.048,
+        "all_dmg_": 123.62,
+        "critRate_": -100,
+        "hydro_enemyRes_": -40
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "normal",
+        "1"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "all_dmgInc": 8699.048,
+        "all_dmg_": 127.76,
+        "critRate_": -100,
+        "hydro_enemyRes_": -40
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "normal",
+        "0"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "all_dmgInc": 8699.048,
+        "all_dmg_": 129.25,
+        "critRate_": -100,
+        "hydro_enemyRes_": -40
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "normal",
+        "1"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "all_dmgInc": 8699.048,
+        "all_dmg_": 130.78,
+        "critRate_": -100,
+        "hydro_enemyRes_": -40
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.9744,
+      "path": [
+        "skill",
+        "dmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "all_dmgInc": 5743.341,
+        "all_dmg_": 137.72,
+        "critRate_": -100,
+        "hydro_enemyRes_": -40
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "normal",
+        "0"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "all_dmgInc": 8699.048,
+        "all_dmg_": 138.31,
+        "critRate_": -100,
+        "hydro_enemyRes_": -40
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "normal",
+        "1"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "all_dmgInc": 8699.048,
+        "all_dmg_": 138.68,
+        "critRate_": -100,
+        "hydro_enemyRes_": -40
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "normal",
+        "0"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "all_dmgInc": 8699.048,
+        "all_dmg_": 143.87,
+        "critRate_": -100,
+        "hydro_enemyRes_": -40
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "normal",
+        "1"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "all_dmgInc": 8699.048,
+        "all_dmg_": 143.87,
+        "critRate_": -100,
+        "hydro_enemyRes_": -40
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.9744,
+      "path": [
+        "skill",
+        "dmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "all_dmg_": 100.87,
+        "critRate_": -100
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.0634,
+      "path": [
+        "skill",
+        "dmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "all_dmg_": 25.87,
+        "critRate_": -100,
+        "hydro_enemyRes_": -40
+      },
+      "description": ""
+    }
+  ]
+}

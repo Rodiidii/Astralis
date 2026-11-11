@@ -1,0 +1,56 @@
+{
+  "name": "Skill DMG",
+  "description": "Celestia",
+  "targets": [
+    {
+      "weight": 5,
+      "path": [
+        "skill",
+        "hammerDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "eleMas": 200,
+        "lunarcrystallize_baseDmg_": 35,
+        "geo_enemyRes_": -50,
+        "critRate_": 10,
+        "critDMG_": 30,
+        "lunarcrystallize_dmg_": 100
+      },
+      "description": ""
+    },
+    {
+      "weight": 10,
+      "path": [
+        "skill",
+        "pummelerDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "eleMas": 200,
+        "geo_enemyRes_": -50,
+        "critRate_": 10,
+        "critDMG_": 30,
+        "all_dmg_": 55
+      },
+      "description": ""
+    },
+    {
+      "weight": 10.9735,
+      "path": [
+        "reaction",
+        "lunarcrystallize"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "eleMas": 200,
+        "lunarcrystallize_baseDmg_": 35,
+        "geo_enemyRes_": -50,
+        "critRate_": 10,
+        "critDMG_": 30,
+        "lunarcrystallize_dmg_": 100
+      },
+      "description": ""
+    }
+  ]
+}

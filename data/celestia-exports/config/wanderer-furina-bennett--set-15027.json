@@ -1,0 +1,116 @@
+{
+  "name": "Furina Bennett",
+  "description": "Celestia",
+  "targets": [
+    {
+      "weight": 1,
+      "path": [
+        "skill",
+        "dmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "all_dmg_": 113.25,
+        "anemo_enemyRes_": -30,
+        "critDMG_": 40
+      },
+      "description": ""
+    },
+    {
+      "weight": 9,
+      "path": [
+        "normal",
+        "0"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "all_dmgInc": 208.266,
+        "all_dmg_": 153.25,
+        "anemo_enemyRes_": -30,
+        "critDMG_": 40
+      },
+      "description": ""
+    },
+    {
+      "weight": 7,
+      "path": [
+        "normal",
+        "1"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "all_dmg_": 153.25,
+        "anemo_enemyRes_": -30,
+        "critDMG_": 40
+      },
+      "description": ""
+    },
+    {
+      "weight": 4,
+      "path": [
+        "charged",
+        "dmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "all_dmgInc": 208.266,
+        "all_dmg_": 153.25,
+        "anemo_enemyRes_": -30,
+        "critDMG_": 40
+      },
+      "description": ""
+    },
+    {
+      "weight": 5,
+      "path": [
+        "burst",
+        "dmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "all_dmg_": 113.25,
+        "anemo_enemyRes_": -30,
+        "critDMG_": 40
+      },
+      "description": ""
+    },
+    {
+      "weight": 1.3011,
+      "path": [
+        "normal",
+        "0"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "all_dmg_": 153.25,
+        "anemo_enemyRes_": -30,
+        "critDMG_": 40
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "plunging",
+        "low"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "all_dmg_": 153.25,
+        "anemo_enemyRes_": -30,
+        "critDMG_": 40
+      },
+      "description": ""
+    },
+    {
+      "weight": 11,
+      "path": [
+        "reaction",
+        "hydroSwirl"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {},
+      "description": ""
+    }
+  ]
+}

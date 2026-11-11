@@ -1,0 +1,238 @@
+{
+  "name": "C6 Vape",
+  "description": "Celestia",
+  "targets": [
+    {
+      "weight": 1,
+      "path": [
+        "skill",
+        "skillDmg"
+      ],
+      "hitMode": "avgHit",
+      "reaction": "vaporize",
+      "bonusStats": {
+        "hp_": 40,
+        "all_dmg_": 62.66,
+        "eleMas": 255.834,
+        "hydro_enemyRes_": -40
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "skill",
+        "dance1Dmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "hp_": 40,
+        "all_dmg_": 66.16,
+        "eleMas": 255.834,
+        "hydro_enemyRes_": -40
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "skill",
+        "dance2Dmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "hp_": 40,
+        "all_dmg_": 73.16,
+        "eleMas": 255.834,
+        "hydro_enemyRes_": -40
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "skill",
+        "moonDmg"
+      ],
+      "hitMode": "avgHit",
+      "reaction": "vaporize",
+      "bonusStats": {
+        "hp_": 40,
+        "all_dmg_": 76.66,
+        "eleMas": 255.834,
+        "hydro_enemyRes_": -40
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "skill",
+        "dance1Dmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "hp_": 40,
+        "all_dmg_": 83.66,
+        "eleMas": 255.834,
+        "hydro_enemyRes_": -40
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "skill",
+        "dance2Dmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "hp_": 40,
+        "all_dmg_": 90.66,
+        "eleMas": 255.834,
+        "hydro_enemyRes_": -40
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "burst",
+        "skillDmg"
+      ],
+      "hitMode": "avgHit",
+      "reaction": "vaporize",
+      "bonusStats": {
+        "hp_": 40,
+        "all_dmg_": 144.16,
+        "eleMas": 255.834,
+        "hydro_enemyRes_": -40
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "skill",
+        "moonDmg"
+      ],
+      "hitMode": "avgHit",
+      "reaction": "vaporize",
+      "bonusStats": {
+        "hp_": 40,
+        "all_dmg_": 101.16,
+        "eleMas": 255.834,
+        "hydro_enemyRes_": -40
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "skill",
+        "dance1Dmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "hp_": 40,
+        "all_dmg_": 101.16,
+        "eleMas": 255.834,
+        "hydro_enemyRes_": -40
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "skill",
+        "dance2Dmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "hp_": 40,
+        "all_dmg_": 101.16,
+        "eleMas": 255.834,
+        "hydro_enemyRes_": -40
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "skill",
+        "moonDmg"
+      ],
+      "hitMode": "avgHit",
+      "reaction": "vaporize",
+      "bonusStats": {
+        "hp_": 40,
+        "all_dmg_": 101.16,
+        "eleMas": 255.834,
+        "hydro_enemyRes_": -40
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "burst",
+        "aeonDmg"
+      ],
+      "hitMode": "avgHit",
+      "reaction": "vaporize",
+      "bonusStats": {
+        "hp_": 40,
+        "all_dmg_": 151.16,
+        "eleMas": 255.834,
+        "hydro_enemyRes_": -40
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "skill",
+        "dance1Dmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "hp_": 40,
+        "all_dmg_": 101.16,
+        "eleMas": 255.834,
+        "hydro_enemyRes_": -40
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "skill",
+        "dance2Dmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "hp_": 40,
+        "all_dmg_": 101.16,
+        "eleMas": 255.834,
+        "hydro_enemyRes_": -40
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "skill",
+        "moonDmg"
+      ],
+      "hitMode": "avgHit",
+      "reaction": "vaporize",
+      "bonusStats": {
+        "hp_": 40,
+        "all_dmg_": 101.16,
+        "eleMas": 255.834,
+        "hydro_enemyRes_": -40
+      },
+      "description": ""
+    }
+  ]
+}

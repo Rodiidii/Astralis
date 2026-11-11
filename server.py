@@ -714,9 +714,20 @@ def wuthering_cards(category: str) -> bytes:
     return json.dumps(cards, ensure_ascii=False).encode("utf-8")
 
 
+def genshinflex_calendar_rows() -> list[dict]:
+    page = fetch("https://genshinflex.com/en/calendar/").decode("utf-8", errors="replace")
+    match = re.search(r'<script[^>]+id="cal-data"[^>]*>(.*?)</script>', page, re.I | re.S)
+    if not match:
+        raise ValueError("Le calendrier public ne fournit pas ses données structurées.")
+    allowed = {"event", "char-banner", "weapon-banner", "version", "theater", "abyss", "onslaught"}
+    fields = ("id", "kind", "title", "start", "end", "image", "icons", "primogems", "description", "source")
+    return [{key: row.get(key) for key in fields} for row in json.loads(match.group(1))
+            if row.get("kind") in allowed and row.get("start") and row.get("end")]
+
+
 def genshin_events() -> bytes:
     # Calendar API exposes structured, localized rewards. Keep only active/upcoming
-    # in-game activities that actually list Primogems, and include banners separately.
+    # in-game activities with published dates, including non-Primogem rewards.
     try:
         payload = json.loads(fetch("https://api.ennead.cc/mihoyo/genshin/calendar?lang=fr-fr"))
         now = int(time.time())
@@ -736,14 +747,13 @@ def genshin_events() -> bytes:
             special = row.get("special_reward") or {}
             primo_rows = [r for r in [*rewards, special] if "primo" in str(r.get("name", "")).casefold() and int(r.get("amount") or 0) > 0]
             primogems = sum(int(r.get("amount") or 0) for r in primo_rows)
-            if not primogems: continue
             title = str(row.get("name") or "Événement Genshin")
             item_kind = "onslaught" if "hardchallenge" in str(row.get("type_name", "")).casefold() else "event"
             events.append({"id": f"ennead:event:{row.get('id', title)}", "kind": item_kind, "title": title,
                 "start": iso(row.get("start_time")), "end": iso(row.get("end_time")), "image": row.get("image_url", ""),
                 "icons": [], "primogems": primogems, "description": str(row.get("description") or ""),
                 "source": {"title": "Calendrier HoYoverse via Ennead API", "url": "https://api.ennead.cc/mihoyo/genshin/calendar?lang=fr-fr"},
-                "rewards": [{"name": r.get("name"), "amount": r.get("amount"), "icon": r.get("icon", "")} for r in primo_rows], "type": row.get("type_name", "")})
+                "rewards": [{"name": r.get("name"), "amount": r.get("amount"), "icon": r.get("icon", "")} for r in rewards], "type": row.get("type_name", "")})
         for row in payload.get("banners", []):
             end = int(row.get("end_time") or 0)
             if not end or end < now: continue
@@ -752,7 +762,7 @@ def genshin_events() -> bytes:
             end_utc=datetime.fromtimestamp(end,timezone.utc)
             end_local=datetime(end_utc.year,end_utc.month,end_utc.day,18,tzinfo=paris_tz(end_utc.year,end_utc.month,end_utc.day))
             events.append({"id": f"ennead:banner:{row.get('id', row.get('name', ''))}", "kind": kind, "title": str(row.get("name") or "Vœux"),
-                "start": iso(row.get("start_time")), "end": end_local.astimezone(timezone.utc).isoformat().replace("+00:00","Z"), "image": "",
+                "start": iso(row.get("start_time")), "end": iso(row.get("end_time")), "image": "",
                 "icons": [{"name": x.get("name", ""), "src": x.get("icon", ""), "rarity": x.get("rarity")} for x in featured], "primogems": None,
                 "description": " · ".join(x.get("name", "") for x in featured), "source": {"title": "Calendrier HoYoverse via Ennead API", "url": "https://api.ennead.cc/mihoyo/genshin/calendar?lang=fr-fr"}})
         # Ennead supplies live banners and published 4★. Gacha Tracker lists announced
@@ -791,16 +801,25 @@ def genshin_events() -> bytes:
                 events.append({"id":f"gacha-tracker:{version}:phase-{phase}:characters","kind":"char-banner","title":f"Bannière de personnages · phase {phase}","start":start_iso,"end":end_dt.astimezone(timezone.utc).isoformat().replace("+00:00","Z"),"image":"","icons":[{"name":name,"src":"","rarity":5} for name in names],"primogems":None,"description":" · ".join(names),"source":{"title":"Gacha Tracker · phase annoncée (dates susceptibles d’évoluer)","url":"https://gacha-tracker.com/genshin/banners"}})
         except Exception:
             pass
+        try:
+            # Ennead can publish event rewards while omitting endgame windows and patch starts.
+            for row in genshinflex_calendar_rows():
+                kind = row["kind"]
+                if kind not in {"theater", "abyss", "onslaught", "version", "char-banner", "weapon-banner"}:
+                    continue
+                same_window = any(event.get("kind") == kind
+                                  and str(event.get("start", ""))[:10] == str(row["start"])[:10]
+                                  and (kind not in {"char-banner", "weapon-banner"} or not event.get("icons"))
+                                  for event in events)
+                if not same_window:
+                    events.append(row)
+        except (ValueError, OSError, TypeError):
+            pass
         events.sort(key=lambda x: x.get("start", ""))
-        return json.dumps({"updatedAt": time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime()), "source": "Ennead + calendrier des bannières annoncées", "events": events}, ensure_ascii=False).encode("utf-8")
+        return json.dumps({"updatedAt": time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime()), "source": "Ennead, GenshinFlex et calendrier des bannières annoncées", "events": events}, ensure_ascii=False).encode("utf-8")
     except Exception:
         pass
-    # GenshinFlex remains a fallback if the structured calendar API is unavailable.
-    page = fetch("https://genshinflex.com/en/calendar/").decode("utf-8", errors="replace")
-    match = re.search(r'<script[^>]+id="cal-data"[^>]*>(.*?)</script>', page, re.I | re.S)
-    if not match: raise ValueError("Le calendrier public ne fournit pas ses données structurées.")
-    rows = json.loads(match.group(1))
-    events = [{"id": x.get("id"), "kind": x.get("kind"), "title": x.get("title"), "start": x.get("start"), "end": x.get("end"), "image": x.get("image"), "icons": x.get("icons", []), "primogems": x.get("primogems"), "description": x.get("description", ""), "source": x.get("source", {})} for x in rows if x.get("kind") in {"event", "char-banner", "weapon-banner", "version", "theater", "abyss", "onslaught"}]
+    events = genshinflex_calendar_rows()
     return json.dumps({"updatedAt": time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime()), "source": "GenshinFlex calendar · données officielles des annonces", "events": events}, ensure_ascii=False).encode("utf-8")
 
 
@@ -984,9 +1003,40 @@ def theater_db_icon(name: str) -> str:
     return icon
 
 def genshin_endgame() -> bytes:
-    abyss = fetch(ENDGAME_URLS[0]).decode("utf-8", errors="replace")
-    theater = fetch(ENDGAME_URLS[1]).decode("utf-8", errors="replace")
-    onslaught = fetch(ENDGAME_URLS[2]).decode("utf-8", errors="replace")
+    def page(url):
+        try:
+            return fetch(url).decode("utf-8", errors="replace")
+        except OSError:
+            return ""
+
+    with ThreadPoolExecutor(max_workers=4) as pool:
+        pages = [pool.submit(page, url) for url in ENDGAME_URLS]
+        calendar = pool.submit(genshinflex_calendar_rows)
+        abyss, theater, onslaught = [future.result() for future in pages]
+        try:
+            windows = calendar.result()
+        except (OSError, ValueError, TypeError):
+            windows = []
+    if not any((abyss, theater, onslaught)):
+        raise OSError("Les trois pages de rotation sont indisponibles.")
+
+    def match_window(kind, raw_period):
+        date_parts = re.findall(r"([A-Za-z]+)\s+(\d{1,2})", raw_period)
+        if len(date_parts) != 2:
+            return {}
+        try:
+            dates = [datetime.strptime(f"{month} {day} 2000", "%B %d %Y").strftime("%m-%d") for month, day in date_parts]
+        except ValueError:
+            return {}
+        matches = [row for row in windows if row["kind"] == kind and
+                   [row["start"][5:10], row["end"][5:10]] == dates]
+        if not matches:
+            return {}
+        now = datetime.now().isoformat(timespec="minutes")
+        match = min(matches, key=lambda row: abs((datetime.fromisoformat(row["start"][:16]) -
+                                                   datetime.fromisoformat(now)).days))
+        return {"start": match["start"], "end": match["end"]}
+
     blessing_match = re.search(r'<div class="panel blessing"[^>]*>.*?<p[^>]*>(.*?)</p>', abyss, re.I | re.S)
     floors = []
     sections = list(re.finditer(r'<section id="floor-(\d+)" class="floor"[^>]*>(.*?)(?=<section id="floor-\d+" class="floor"|</main>)', abyss, re.I | re.S))
@@ -1073,7 +1123,6 @@ def genshin_endgame() -> bytes:
     for english, french in (("Abyssal Moon blessing:", "Bénédiction de la lune abyssale :"), ("Disorder", "Bonus de trouble"), ("Superconduct", "Supraconduction"), ("Frozen", "Gel"), ("Shatter", "Brisé"), ("Time left over", "Temps restant")):
         blessing_text = blessing_text.replace(english, french)
     on_title_match = re.search(r'<h1[^>]*>.*?</h1>\s*<p class="muted"[^>]*>(.*?)</p>', onslaught, re.I | re.S)
-    on_period_match = re.search(r'<b[^>]+data-until="([^"]+)"', onslaught, re.I)
     on_date_match = re.search(r'<span class="muted small"[^>]*>([A-Za-z]+\s+\d+\s*[—-]+\s*[A-Za-z]+\s+\d+)</span>', onslaught, re.I)
     on_elements = []
     intro = re.search(r'<div class="row"[^>]*>(.*?)(?=<div class="panel when"|</header>)', onslaught, re.I | re.S)
@@ -1099,8 +1148,16 @@ def genshin_endgame() -> bytes:
         weak = re.search(r'<div class="weak"[^>]*>(.*?)</div>', body, re.I | re.S)
         advantages = [html_text(x) for x in re.findall(r'<span class="chip gold"[^>]*>(.*?)</span>', weak.group(1), re.I | re.S)] if weak else []
         on_bosses.append({"stage": stage_no, "name": html_text(stage_title.group(1)) if stage_title else f"Combat {stage_no}", "enemies": enemies, "advantages": advantages})
-    onslaught_data = {"title": (re.search(r"Version\s+([\d.]+)", html_text(on_title_match.group(1)), re.I) and f"Version {re.search(r'Version\s+([\d.]+)', html_text(on_title_match.group(1)), re.I).group(1)} · rotation actuelle") if on_title_match else "Carnage chtonien", "period": french_months(html_text(on_date_match.group(1))) if on_date_match else "", "endAt": on_period_match.group(1) if on_period_match else "", "elements": on_elements, "bosses": on_bosses}
+    abyss_period = re.search(r'<span class="muted small"[^>]*>([A-Za-z]+\s+\d+\s*[—-]+\s*[A-Za-z]+\s+\d+)</span>', abyss, re.I)
+    raw_periods = {
+        "abyss": html_text(abyss_period.group(1)) if abyss_period else "",
+        "theater": html_text(period_match.group(1)) if period_match else "",
+        "onslaught": html_text(on_date_match.group(1)) if on_date_match else "",
+    }
+    published = {kind: match_window(kind, text) for kind, text in raw_periods.items()}
+    onslaught_data = {"title": (re.search(r"Version\s+([\d.]+)", html_text(on_title_match.group(1)), re.I) and f"Version {re.search(r'Version\s+([\d.]+)', html_text(on_title_match.group(1)), re.I).group(1)} · rotation publiée") if on_title_match else "Carnage chtonien", "period": french_months(html_text(on_date_match.group(1))) if on_date_match else "", "endAt": published["onslaught"].get("end", ""), "elements": on_elements, "bosses": on_bosses}
     result = {"updatedAt": time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime()),
+              "windows": published,
               "blessing": blessing_text,
               "floors": floors,
               "theater": {"title": french_months(html_text(title_match.group(1))) if title_match else "Théâtre de l’imaginarium",
@@ -1119,15 +1176,29 @@ class Handler(SimpleHTTPRequestHandler):
     def do_POST(self) -> None:
         global _HOYOLAB_RESIN_CACHE
         path = urlsplit(self.path).path
-        if path not in {"/api/hoyolab/credentials", "/api/hoyolab/disconnect", "/api/update/install"}:
+        if path not in {"/api/hoyolab/credentials", "/api/hoyolab/disconnect", "/api/update/install", "/api/lab/team-export"}:
             self.send_json(404, {"error":"Route inconnue."}); return
         origin = self.headers.get("Origin", "")
         if not _is_local_origin(origin):
             self.send_json(403, {"error":"Origine refusée."}); return
         try:
             length = int(self.headers.get("Content-Length", "0"))
-            if length < 1 or length > 8192: raise ValueError("Taille de requête invalide.")
+            if length < 1 or length > (2_000_000 if path == "/api/lab/team-export" else 8192): raise ValueError("Taille de requête invalide.")
             body = json.loads(self.rfile.read(length))
+            if path == "/api/lab/team-export":
+                if body.get("format") != "astralis-team" or not isinstance(body.get("name"), str) or not isinstance(body.get("team"), dict):
+                    raise ValueError("Export d’équipe Astralis invalide.")
+                members = body["team"].get("members", [])
+                if not isinstance(members, list) or not 1 <= len(members) <= 4:
+                    raise ValueError("L’équipe doit contenir un à quatre emplacements.")
+                payload = json.dumps(body, ensure_ascii=False, indent=2)
+                name = hashlib.sha256(payload.encode("utf-8")).hexdigest()[:24]+".json"
+                folder = Path(__file__).resolve().parent / "data" / "lab-user-exports"
+                folder.mkdir(parents=True, exist_ok=True)
+                temporary = folder / (name+".tmp")
+                temporary.write_text(payload, encoding="utf-8")
+                temporary.replace(folder / name)
+                self.send_json(200, {"ok": True, "file": "data/lab-user-exports/"+name}); return
             if path == "/api/update/install":
                 repo = str(body.get("repo", "")).strip()
                 tag = str(body.get("tag", "")).strip()
@@ -1466,7 +1537,7 @@ class Handler(SimpleHTTPRequestHandler):
         if path == "/api/gi/events":
             key = "gi/events"; now = time.time()
             with cache_lock:
-                entry = cache.get(key); payload = entry[1] if entry and now-entry[0] < 3600 else None
+                entry = cache.get(key); payload = entry[1] if entry and now-entry[0] < 3600 and not refresh else None
             if payload is None:
                 try:
                     payload = genshin_events()
@@ -1479,7 +1550,7 @@ class Handler(SimpleHTTPRequestHandler):
             now = time.time()
             ttl = 1800 if path.endswith("/news") else 3600
             with cache_lock:
-                entry = cache.get(key); payload = entry[1] if entry and now-entry[0] < ttl else None
+                entry = cache.get(key); payload = entry[1] if entry and now-entry[0] < ttl and not refresh else None
             if payload is None:
                 try:
                     payload = genshin_news() if path.endswith("/news") else genshin_tierlist_status()
@@ -1681,7 +1752,10 @@ class Handler(SimpleHTTPRequestHandler):
 
 
 if __name__ == "__main__":
+    if os.name == "nt":
+        ThreadingHTTPServer.allow_reuse_address = False
+    server = ThreadingHTTPServer((HOST, PORT), Handler)
     print(f"Astralis lancé sur http://{HOST}:{PORT}")
-    ThreadingHTTPServer((HOST, PORT), Handler).serve_forever()
+    server.serve_forever()
 
 

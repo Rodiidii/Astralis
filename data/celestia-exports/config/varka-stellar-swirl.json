@@ -1,0 +1,209 @@
+{
+  "name": "Stellar Swirl",
+  "description": "Celestia",
+  "targets": [
+    {
+      "weight": 1,
+      "path": [
+        "skill",
+        "skillDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "eleMas": 120,
+        "atk_": 25,
+        "all_dmg_": 110,
+        "critRate_": 35
+      },
+      "description": ""
+    },
+    {
+      "weight": 17.6,
+      "path": [
+        "skill",
+        "na1"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "eleMas": 120,
+        "atk_": 25,
+        "all_dmg_": 110,
+        "cryo_enemyRes_": -40,
+        "critRate_": 35
+      },
+      "description": ""
+    },
+    {
+      "weight": 4.4,
+      "path": [
+        "skill",
+        "na21"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "eleMas": 120,
+        "atk_": 25,
+        "all_dmg_": 110,
+        "cryo_enemyRes_": -40,
+        "critRate_": 35
+      },
+      "description": ""
+    },
+    {
+      "weight": 4.4,
+      "path": [
+        "skill",
+        "na22"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "eleMas": 120,
+        "atk_": 25,
+        "all_dmg_": 110,
+        "critRate_": 35
+      },
+      "description": ""
+    },
+    {
+      "weight": 2.2,
+      "path": [
+        "skill",
+        "na31"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "eleMas": 120,
+        "atk_": 25,
+        "all_dmg_": 110,
+        "cryo_enemyRes_": -40,
+        "critRate_": 35
+      },
+      "description": ""
+    },
+    {
+      "weight": 2.2,
+      "path": [
+        "skill",
+        "na32"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "eleMas": 120,
+        "atk_": 25,
+        "all_dmg_": 110,
+        "critRate_": 35
+      },
+      "description": ""
+    },
+    {
+      "weight": 2.2,
+      "path": [
+        "skill",
+        "na41"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "eleMas": 120,
+        "atk_": 25,
+        "all_dmg_": 110,
+        "cryo_enemyRes_": -40,
+        "critRate_": 35
+      },
+      "description": ""
+    },
+    {
+      "weight": 2.2,
+      "path": [
+        "skill",
+        "na42"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "eleMas": 120,
+        "atk_": 25,
+        "all_dmg_": 110,
+        "critRate_": 35
+      },
+      "description": ""
+    },
+    {
+      "weight": 11,
+      "path": [
+        "skill",
+        "ca1"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "eleMas": 120,
+        "atk_": 25,
+        "all_dmg_": 110,
+        "cryo_enemyRes_": -40,
+        "critRate_": 35
+      },
+      "description": ""
+    },
+    {
+      "weight": 11,
+      "path": [
+        "skill",
+        "ca2"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "eleMas": 120,
+        "atk_": 25,
+        "all_dmg_": 110,
+        "critRate_": 35
+      },
+      "description": ""
+    },
+    {
+      "weight": 4.4,
+      "path": [
+        "skill",
+        "fourWind1"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "eleMas": 120,
+        "atk_": 25,
+        "all_dmg_": 110,
+        "cryo_enemyRes_": -40,
+        "critRate_": 35
+      },
+      "description": ""
+    },
+    {
+      "weight": 4.4,
+      "path": [
+        "skill",
+        "fourWind2"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "eleMas": 120,
+        "atk_": 25,
+        "all_dmg_": 110,
+        "critRate_": 35
+      },
+      "description": ""
+    },
+    {
+      "weight": 4.8,
+      "path": [
+        "reaction",
+        "stellarswirl_vortex1"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "eleMas": 120,
+        "atk_": 25,
+        "stellarswirl_baseDmg_": 21,
+        "stellarswirl_dmg_": 110,
+        "cryo_enemyRes_": -40,
+        "critRate_": 35
+      },
+      "description": ""
+    }
+  ]
+}

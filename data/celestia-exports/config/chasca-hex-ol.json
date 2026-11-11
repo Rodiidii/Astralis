@@ -1,0 +1,240 @@
+{
+  "name": "Iansan Overload",
+  "description": "Celestia",
+  "targets": [
+    {
+      "weight": 0.25,
+      "path": [
+        "passive2",
+        "electro"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 24,
+        "electro_enemyRes_": -35,
+        "all_dmg_": 113,
+        "critRate_": -40
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.25,
+      "path": [
+        "passive2",
+        "pyro"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 24,
+        "pyro_enemyRes_": -35,
+        "all_dmg_": 153,
+        "critRate_": -40
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.25,
+      "path": [
+        "passive2",
+        "electro"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk": 300,
+        "atk_": 24,
+        "electro_enemyRes_": -35,
+        "all_dmg_": 113
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.75,
+      "path": [
+        "passive2",
+        "pyro"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk": 300,
+        "atk_": 24,
+        "pyro_enemyRes_": -35,
+        "all_dmg_": 153
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "skill",
+        "activationDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 24,
+        "anemo_enemyRes_": -35,
+        "all_dmg_": 65
+      },
+      "description": ""
+    },
+    {
+      "weight": 2.25,
+      "path": [
+        "skill",
+        "shellDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 24,
+        "anemo_enemyRes_": -35,
+        "all_dmg_": 113
+      },
+      "description": ""
+    },
+    {
+      "weight": 9.25,
+      "path": [
+        "skill",
+        "shellDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk": 300,
+        "atk_": 24,
+        "anemo_enemyRes_": -35,
+        "all_dmg_": 113
+      },
+      "description": ""
+    },
+    {
+      "weight": 2.25,
+      "path": [
+        "skill",
+        "shiningShellDmg_pyro"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 24,
+        "all_dmg_": 188,
+        "pyro_enemyRes_": -35
+      },
+      "description": ""
+    },
+    {
+      "weight": 9.25,
+      "path": [
+        "skill",
+        "shiningShellDmg_pyro"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk": 300,
+        "atk_": 24,
+        "all_dmg_": 188,
+        "pyro_enemyRes_": -35
+      },
+      "description": ""
+    },
+    {
+      "weight": 1.25,
+      "path": [
+        "skill",
+        "shiningShellDmg_electro"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 24,
+        "all_dmg_": 148,
+        "electro_enemyRes_": -35
+      },
+      "description": ""
+    },
+    {
+      "weight": 5.25,
+      "path": [
+        "skill",
+        "shiningShellDmg_electro"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk": 300,
+        "atk_": 24,
+        "all_dmg_": 148,
+        "electro_enemyRes_": -35
+      },
+      "description": ""
+    },
+    {
+      "weight": 3.75,
+      "path": [
+        "reaction",
+        "overloaded"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk": 300,
+        "atk_": 24,
+        "pyro_enemyRes_": -35
+      },
+      "description": ""
+    },
+    {
+      "weight": 6.25,
+      "path": [
+        "reaction",
+        "pyroSwirl"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk": 300,
+        "atk_": 24,
+        "pyro_enemyRes_": -35
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.5,
+      "path": [
+        "burst",
+        "galeSplittingDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk": 300,
+        "atk_": 24,
+        "anemo_enemyRes_": -35,
+        "all_dmg_": 89
+      },
+      "description": ""
+    },
+    {
+      "weight": 2,
+      "path": [
+        "burst",
+        "radiantDmg_pyro"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk": 300,
+        "atk_": 24,
+        "pyro_enemyRes_": -35,
+        "all_dmg_": 129
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "burst",
+        "radiantDmg_electro"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk": 300,
+        "atk_": 24,
+        "electro_enemyRes_": -35,
+        "all_dmg_": 89
+      },
+      "description": ""
+    }
+  ]
+}

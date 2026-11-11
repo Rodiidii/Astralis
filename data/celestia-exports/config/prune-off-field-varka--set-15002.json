@@ -1,0 +1,69 @@
+{
+  "name": "Off-field Varka",
+  "description": "Celestia",
+  "targets": [
+    {
+      "weight": 1,
+      "path": [
+        "skill",
+        "ringDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 60,
+        "atk": 650,
+        "enerRech_": 48,
+        "anemo_enemyRes_": -35,
+        "all_dmg_": 40
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "burst",
+        "skillDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 60,
+        "atk": 650,
+        "enerRech_": 48,
+        "anemo_enemyRes_": -35,
+        "all_dmg_": 40
+      },
+      "description": ""
+    },
+    {
+      "weight": 8,
+      "path": [
+        "burst",
+        "bellDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 60,
+        "atk": 350,
+        "enerRech_": 48,
+        "anemo_enemyRes_": -35,
+        "all_dmg_": 40
+      },
+      "description": ""
+    },
+    {
+      "weight": 10,
+      "path": [
+        "reaction",
+        "pyroSwirl"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 60,
+        "atk": 650,
+        "enerRech_": 48,
+        "pyro_enemyRes_": -75
+      },
+      "description": ""
+    }
+  ]
+}

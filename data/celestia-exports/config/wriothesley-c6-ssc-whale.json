@@ -1,0 +1,684 @@
+{
+  "name": "Whale SSC C6",
+  "description": "Celestia",
+  "targets": [
+    {
+      "weight": 1,
+      "path": [
+        "skill",
+        "enhanced_0"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "eleMas": 320,
+        "atk_": 6,
+        "all_dmg_": 154,
+        "cryo_enemyRes_": -45,
+        "enemyDefIgn_": 40,
+        "critRate_": 16
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "skill",
+        "enhanced_1"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "eleMas": 320,
+        "atk_": 12,
+        "all_dmg_": 154,
+        "cryo_enemyRes_": -45,
+        "enemyDefIgn_": 40,
+        "critRate_": 16
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "passive1",
+        "hit3"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "eleMas": 320,
+        "atk_": 18,
+        "stellarconduct_baseDmg_": 14,
+        "stellarconduct_specialDmg_": 25,
+        "cryo_enemyRes_": -45,
+        "stellarconduct_dmg_": 244,
+        "enemyDefIgn_": 40,
+        "critRate_": 16
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "skill",
+        "enhanced_3"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "eleMas": 200,
+        "atk_": 24,
+        "all_dmg_": 154,
+        "cryo_enemyRes_": -45,
+        "enemyDefIgn_": 40,
+        "critRate_": 16
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "skill",
+        "enhanced_3"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 30,
+        "eleMas": 200,
+        "all_dmg_": 154,
+        "cryo_enemyRes_": -45,
+        "enemyDefIgn_": 40,
+        "critRate_": 16
+      },
+      "description": ""
+    },
+    {
+      "weight": 1.5,
+      "path": [
+        "passive1",
+        "hit5"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 30,
+        "eleMas": 320,
+        "stellarconduct_baseDmg_": 14,
+        "stellarconduct_specialDmg_": 25,
+        "cryo_enemyRes_": -45,
+        "stellarconduct_dmg_": 244,
+        "enemyDefIgn_": 40,
+        "critRate_": 16
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.3,
+      "path": [
+        "passive1",
+        "hit5"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 30,
+        "eleMas": 320,
+        "stellarconduct_baseDmg_": 14,
+        "stellarconduct_specialDmg_": 25,
+        "cryo_enemyRes_": -45,
+        "stellarconduct_dmg_": 244,
+        "enemyDefIgn_": 40,
+        "critRate_": 16
+      },
+      "description": ""
+    },
+    {
+      "weight": 1.5,
+      "path": [
+        "passive1",
+        "lusterDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 30,
+        "eleMas": 320,
+        "stellarconduct_baseDmg_": 14,
+        "stellarconduct_specialDmg_": 25,
+        "cryo_enemyRes_": -45,
+        "stellarconduct_dmg_": 294,
+        "enemyDefIgn_": 40,
+        "critRate_": 16
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.3,
+      "path": [
+        "passive1",
+        "lusterDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 30,
+        "eleMas": 320,
+        "stellarconduct_baseDmg_": 14,
+        "stellarconduct_specialDmg_": 25,
+        "cryo_enemyRes_": -45,
+        "stellarconduct_dmg_": 294,
+        "enemyDefIgn_": 40,
+        "critRate_": 16
+      },
+      "description": ""
+    },
+    {
+      "weight": 2,
+      "path": [
+        "skill",
+        "enhanced_0"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 30,
+        "eleMas": 200,
+        "all_dmg_": 154,
+        "cryo_enemyRes_": -45,
+        "enemyDefIgn_": 40,
+        "critRate_": 31
+      },
+      "description": ""
+    },
+    {
+      "weight": 2,
+      "path": [
+        "skill",
+        "enhanced_1"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 30,
+        "atk": 300,
+        "eleMas": 200,
+        "all_dmg_": 154,
+        "cryo_enemyRes_": -45,
+        "enemyDefIgn_": 40,
+        "critRate_": 31
+      },
+      "description": ""
+    },
+    {
+      "weight": 3,
+      "path": [
+        "passive1",
+        "hit3"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 30,
+        "atk": 300,
+        "eleMas": 320,
+        "stellarconduct_baseDmg_": 14,
+        "stellarconduct_specialDmg_": 25,
+        "cryo_enemyRes_": -45,
+        "stellarconduct_dmg_": 244,
+        "enemyDefIgn_": 40,
+        "critRate_": 31
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "skill",
+        "enhanced_3"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 30,
+        "atk": 300,
+        "eleMas": 200,
+        "all_dmg_": 154,
+        "cryo_enemyRes_": -45,
+        "enemyDefIgn_": 40,
+        "critRate_": 31
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "skill",
+        "enhanced_3"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 30,
+        "atk": 300,
+        "eleMas": 200,
+        "all_dmg_": 154,
+        "cryo_enemyRes_": -45,
+        "enemyDefIgn_": 40,
+        "critRate_": 31
+      },
+      "description": ""
+    },
+    {
+      "weight": 3,
+      "path": [
+        "passive1",
+        "hit5"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 30,
+        "atk": 300,
+        "eleMas": 320,
+        "stellarconduct_baseDmg_": 14,
+        "stellarconduct_specialDmg_": 25,
+        "cryo_enemyRes_": -45,
+        "stellarconduct_dmg_": 294,
+        "enemyDefIgn_": 40,
+        "critRate_": 31
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.6,
+      "path": [
+        "passive1",
+        "hit5"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 30,
+        "atk": 300,
+        "eleMas": 320,
+        "stellarconduct_baseDmg_": 14,
+        "stellarconduct_specialDmg_": 25,
+        "cryo_enemyRes_": -45,
+        "stellarconduct_dmg_": 294,
+        "enemyDefIgn_": 40,
+        "critRate_": 31
+      },
+      "description": ""
+    },
+    {
+      "weight": 3,
+      "path": [
+        "passive1",
+        "lusterDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 30,
+        "atk": 300,
+        "eleMas": 320,
+        "stellarconduct_baseDmg_": 14,
+        "stellarconduct_specialDmg_": 25,
+        "cryo_enemyRes_": -45,
+        "stellarconduct_dmg_": 294,
+        "enemyDefIgn_": 40,
+        "critRate_": 31
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.6,
+      "path": [
+        "passive1",
+        "lusterDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 30,
+        "atk": 300,
+        "eleMas": 320,
+        "stellarconduct_baseDmg_": 14,
+        "stellarconduct_specialDmg_": 25,
+        "cryo_enemyRes_": -45,
+        "stellarconduct_dmg_": 294,
+        "enemyDefIgn_": 40,
+        "critRate_": 31
+      },
+      "description": ""
+    },
+    {
+      "weight": 2,
+      "path": [
+        "skill",
+        "enhanced_0"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 30,
+        "atk": 300,
+        "eleMas": 200,
+        "all_dmg_": 154,
+        "cryo_enemyRes_": -45,
+        "enemyDefIgn_": 40,
+        "critRate_": 31
+      },
+      "description": ""
+    },
+    {
+      "weight": 2,
+      "path": [
+        "skill",
+        "enhanced_1"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 30,
+        "atk": 300,
+        "eleMas": 200,
+        "all_dmg_": 154,
+        "cryo_enemyRes_": -45,
+        "enemyDefIgn_": 40,
+        "critRate_": 31
+      },
+      "description": ""
+    },
+    {
+      "weight": 3,
+      "path": [
+        "passive1",
+        "hit3"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 30,
+        "atk": 300,
+        "eleMas": 320,
+        "stellarconduct_baseDmg_": 14,
+        "stellarconduct_specialDmg_": 25,
+        "cryo_enemyRes_": -45,
+        "stellarconduct_dmg_": 244,
+        "enemyDefIgn_": 40,
+        "critRate_": 31
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "skill",
+        "enhanced_3"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 30,
+        "atk": 300,
+        "eleMas": 200,
+        "all_dmg_": 154,
+        "cryo_enemyRes_": -45,
+        "enemyDefIgn_": 40,
+        "critRate_": 31
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "skill",
+        "enhanced_3"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 30,
+        "atk": 300,
+        "eleMas": 200,
+        "all_dmg_": 154,
+        "cryo_enemyRes_": -45,
+        "enemyDefIgn_": 40,
+        "critRate_": 31
+      },
+      "description": ""
+    },
+    {
+      "weight": 1.5,
+      "path": [
+        "passive1",
+        "hit5"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 30,
+        "atk": 300,
+        "eleMas": 320,
+        "stellarconduct_baseDmg_": 14,
+        "stellarconduct_specialDmg_": 25,
+        "cryo_enemyRes_": -45,
+        "stellarconduct_dmg_": 294,
+        "enemyDefIgn_": 40,
+        "critRate_": 31
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.3,
+      "path": [
+        "passive1",
+        "hit5"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 30,
+        "atk": 300,
+        "eleMas": 320,
+        "stellarconduct_baseDmg_": 14,
+        "stellarconduct_specialDmg_": 25,
+        "cryo_enemyRes_": -45,
+        "stellarconduct_dmg_": 294,
+        "enemyDefIgn_": 40,
+        "critRate_": 31
+      },
+      "description": ""
+    },
+    {
+      "weight": 1.5,
+      "path": [
+        "passive1",
+        "lusterDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 30,
+        "atk": 300,
+        "eleMas": 200,
+        "stellarconduct_baseDmg_": 14,
+        "stellarconduct_specialDmg_": 25,
+        "cryo_enemyRes_": -45,
+        "stellarconduct_dmg_": 294,
+        "enemyDefIgn_": 40,
+        "critRate_": 31
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.3,
+      "path": [
+        "passive1",
+        "lusterDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 30,
+        "atk": 300,
+        "eleMas": 200,
+        "stellarconduct_baseDmg_": 14,
+        "stellarconduct_specialDmg_": 25,
+        "cryo_enemyRes_": -45,
+        "stellarconduct_dmg_": 294,
+        "enemyDefIgn_": 40,
+        "critRate_": 31
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "skill",
+        "enhanced_0"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 30,
+        "atk": 300,
+        "eleMas": 200,
+        "all_dmg_": 154,
+        "cryo_enemyRes_": -45,
+        "enemyDefIgn_": 40,
+        "critRate_": 31
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "skill",
+        "enhanced_1"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 30,
+        "atk": 300,
+        "eleMas": 200,
+        "all_dmg_": 154,
+        "cryo_enemyRes_": -45,
+        "enemyDefIgn_": 40,
+        "critRate_": 16
+      },
+      "description": ""
+    },
+    {
+      "weight": 1.5,
+      "path": [
+        "passive1",
+        "hit3"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 30,
+        "atk": 300,
+        "eleMas": 200,
+        "stellarconduct_baseDmg_": 14,
+        "stellarconduct_specialDmg_": 25,
+        "cryo_enemyRes_": -45,
+        "stellarconduct_dmg_": 244,
+        "enemyDefIgn_": 40,
+        "critRate_": 31
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "skill",
+        "enhanced_3"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 30,
+        "atk": 300,
+        "eleMas": 200,
+        "all_dmg_": 154,
+        "cryo_enemyRes_": -45,
+        "enemyDefIgn_": 40,
+        "critRate_": 31
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "skill",
+        "enhanced_3"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 30,
+        "atk": 300,
+        "eleMas": 200,
+        "all_dmg_": 154,
+        "cryo_enemyRes_": -45,
+        "enemyDefIgn_": 40,
+        "critRate_": 31
+      },
+      "description": ""
+    },
+    {
+      "weight": 1.5,
+      "path": [
+        "passive1",
+        "hit5"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 30,
+        "atk": 300,
+        "eleMas": 200,
+        "stellarconduct_baseDmg_": 14,
+        "stellarconduct_specialDmg_": 25,
+        "cryo_enemyRes_": -45,
+        "stellarconduct_dmg_": 294,
+        "enemyDefIgn_": 40,
+        "critRate_": 31
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.3,
+      "path": [
+        "passive1",
+        "hit5"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 30,
+        "atk": 300,
+        "eleMas": 200,
+        "stellarconduct_baseDmg_": 14,
+        "stellarconduct_specialDmg_": 25,
+        "cryo_enemyRes_": -45,
+        "stellarconduct_dmg_": 294,
+        "enemyDefIgn_": 40,
+        "critRate_": 31
+      },
+      "description": ""
+    },
+    {
+      "weight": 1.5,
+      "path": [
+        "passive1",
+        "lusterDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 30,
+        "atk": 300,
+        "eleMas": 200,
+        "stellarconduct_baseDmg_": 14,
+        "stellarconduct_specialDmg_": 25,
+        "cryo_enemyRes_": -45,
+        "stellarconduct_dmg_": 294,
+        "enemyDefIgn_": 40,
+        "critRate_": 31
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.3,
+      "path": [
+        "passive1",
+        "lusterDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 30,
+        "atk": 300,
+        "eleMas": 200,
+        "stellarconduct_baseDmg_": 14,
+        "stellarconduct_specialDmg_": 25,
+        "cryo_enemyRes_": -45,
+        "stellarconduct_dmg_": 294,
+        "enemyDefIgn_": 40,
+        "critRate_": 31
+      },
+      "description": ""
+    }
+  ]
+}

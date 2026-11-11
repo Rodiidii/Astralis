@@ -1,0 +1,1330 @@
+{
+  "name": "C6 Combo",
+  "description": "Celestia",
+  "targets": [
+    {
+      "weight": 1.0005,
+      "path": [
+        "burst",
+        "throwDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "hp_": 122,
+        "enerRech_": 20.714,
+        "critRate_": 36,
+        "all_dmg_": 160,
+        "hydro_enemyRes_": -76
+      },
+      "description": ""
+    },
+    {
+      "weight": 1.0005,
+      "path": [
+        "burst",
+        "throwDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "hp_": 122,
+        "enerRech_": 20.714,
+        "critRate_": 36,
+        "all_dmg_": 160,
+        "hydro_enemyRes_": -76
+      },
+      "description": ""
+    },
+    {
+      "weight": 1.0005,
+      "path": [
+        "burst",
+        "throwDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "hp_": 122,
+        "enerRech_": 20.714,
+        "critRate_": 36,
+        "all_dmg_": 160,
+        "hydro_enemyRes_": -76
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "burst",
+        "pressDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "hp_": 122,
+        "eleMas": 200,
+        "all_dmg_": 195.25,
+        "enerRech_": 23.032,
+        "critRate_": 12,
+        "hydro_enemyRes_": -76
+      },
+      "description": ""
+    },
+    {
+      "weight": 1.0007,
+      "path": [
+        "constellation2",
+        "arrowDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "hp_": 122,
+        "eleMas": 200,
+        "all_dmg_": 200.23,
+        "enerRech_": 23.032,
+        "critRate_": 12,
+        "hydro_enemyRes_": -76
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "constellation6",
+        "barbDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "hp_": 122,
+        "eleMas": 200,
+        "all_dmg_": 200.23,
+        "enerRech_": 23.032,
+        "critRate_": 12,
+        "hydro_enemyRes_": -76
+      },
+      "description": ""
+    },
+    {
+      "weight": 1.0005,
+      "path": [
+        "burst",
+        "throwDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "hp_": 122,
+        "eleMas": 200,
+        "all_dmg_": 200.23,
+        "enerRech_": 23.032,
+        "critRate_": 12,
+        "hydro_enemyRes_": -76
+      },
+      "description": ""
+    },
+    {
+      "weight": 1.0005,
+      "path": [
+        "burst",
+        "throwDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "hp_": 122,
+        "eleMas": 200,
+        "all_dmg_": 200.31,
+        "enerRech_": 23.032,
+        "critRate_": 12,
+        "hydro_enemyRes_": -76
+      },
+      "description": ""
+    },
+    {
+      "weight": 1.0005,
+      "path": [
+        "burst",
+        "throwDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "hp_": 122,
+        "eleMas": 200,
+        "all_dmg_": 200.31,
+        "enerRech_": 23.032,
+        "critRate_": 12,
+        "hydro_enemyRes_": -76
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "skill",
+        "dmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "hp_": 122,
+        "eleMas": 200,
+        "all_dmg_": 201.62,
+        "enerRech_": 23.032,
+        "critRate_": 36,
+        "hydro_enemyRes_": -76
+      },
+      "description": ""
+    },
+    {
+      "weight": 1.0005,
+      "path": [
+        "burst",
+        "throwDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "hp_": 122,
+        "eleMas": 200,
+        "all_dmg_": 204.95,
+        "enerRech_": 23.032,
+        "critRate_": 36,
+        "hydro_enemyRes_": -76
+      },
+      "description": ""
+    },
+    {
+      "weight": 1.0005,
+      "path": [
+        "burst",
+        "throwDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "hp_": 122,
+        "eleMas": 200,
+        "all_dmg_": 204.95,
+        "enerRech_": 23.032,
+        "critRate_": 36,
+        "hydro_enemyRes_": -76
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "constellation6",
+        "barbDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "hp_": 122,
+        "eleMas": 200,
+        "all_dmg_": 205.29,
+        "enerRech_": 23.082,
+        "critRate_": 36,
+        "hydro_enemyRes_": -76
+      },
+      "description": ""
+    },
+    {
+      "weight": 1.0005,
+      "path": [
+        "burst",
+        "throwDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "hp_": 122,
+        "eleMas": 200,
+        "all_dmg_": 206.36,
+        "enerRech_": 23.032,
+        "critRate_": 36,
+        "hydro_enemyRes_": -76
+      },
+      "description": ""
+    },
+    {
+      "weight": 1.0005,
+      "path": [
+        "burst",
+        "throwDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "hp_": 122,
+        "eleMas": 200,
+        "all_dmg_": 206.36,
+        "enerRech_": 23.082,
+        "critRate_": 36,
+        "hydro_enemyRes_": -76
+      },
+      "description": ""
+    },
+    {
+      "weight": 1.0005,
+      "path": [
+        "burst",
+        "throwDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "hp_": 122,
+        "eleMas": 200,
+        "all_dmg_": 206.36,
+        "enerRech_": 23.082,
+        "critRate_": 36,
+        "hydro_enemyRes_": -76
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "constellation6",
+        "barbDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "hp_": 122,
+        "eleMas": 200,
+        "all_dmg_": 206.36,
+        "enerRech_": 23.532,
+        "critRate_": 36,
+        "hydro_enemyRes_": -76
+      },
+      "description": ""
+    },
+    {
+      "weight": 1.0005,
+      "path": [
+        "burst",
+        "throwDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "hp_": 122,
+        "eleMas": 200,
+        "all_dmg_": 206.36,
+        "enerRech_": 23.082,
+        "critRate_": 36,
+        "hydro_enemyRes_": -76
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "constellation6",
+        "barbDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "hp_": 122,
+        "eleMas": 200,
+        "all_dmg_": 214.36,
+        "enerRech_": 24.033,
+        "critRate_": 36,
+        "hydro_enemyRes_": -76
+      },
+      "description": ""
+    },
+    {
+      "weight": 1.0007,
+      "path": [
+        "constellation2",
+        "arrowDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "hp_": 122,
+        "eleMas": 200,
+        "all_dmg_": 214.36,
+        "enerRech_": 24.033,
+        "critRate_": 36,
+        "hydro_enemyRes_": -76
+      },
+      "description": ""
+    },
+    {
+      "weight": 1.0005,
+      "path": [
+        "burst",
+        "throwDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "hp_": 122,
+        "eleMas": 200,
+        "all_dmg_": 214.36,
+        "enerRech_": 24.033,
+        "critRate_": 36,
+        "hydro_enemyRes_": -76
+      },
+      "description": ""
+    },
+    {
+      "weight": 1.0005,
+      "path": [
+        "burst",
+        "throwDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "hp_": 122,
+        "eleMas": 200,
+        "all_dmg_": 214.36,
+        "enerRech_": 24.033,
+        "critRate_": 36,
+        "hydro_enemyRes_": -76
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "constellation6",
+        "barbDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "hp_": 122,
+        "eleMas": 200,
+        "all_dmg_": 214.36,
+        "enerRech_": 24.033,
+        "critRate_": 36,
+        "hydro_enemyRes_": -76
+      },
+      "description": ""
+    },
+    {
+      "weight": 1.0005,
+      "path": [
+        "burst",
+        "throwDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "hp_": 122,
+        "eleMas": 200,
+        "all_dmg_": 214.36,
+        "enerRech_": 24.033,
+        "critRate_": 36,
+        "hydro_enemyRes_": -76
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "constellation6",
+        "barbDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "hp_": 122,
+        "eleMas": 200,
+        "all_dmg_": 217.86,
+        "enerRech_": 24.033,
+        "critRate_": 36,
+        "hydro_enemyRes_": -76
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.9815,
+      "path": [
+        "burst",
+        "throwDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "hp_": 122,
+        "eleMas": 200,
+        "all_dmg_": 206.36,
+        "enerRech_": 24.014,
+        "critRate_": 36,
+        "hydro_enemyRes_": -76
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.9815,
+      "path": [
+        "burst",
+        "throwDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "hp_": 122,
+        "eleMas": 200,
+        "all_dmg_": 206.36,
+        "enerRech_": 24.014,
+        "critRate_": 36,
+        "hydro_enemyRes_": -76
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.9815,
+      "path": [
+        "burst",
+        "throwDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "hp_": 122,
+        "eleMas": 200,
+        "all_dmg_": 206.36,
+        "enerRech_": 24.014,
+        "critRate_": 36,
+        "hydro_enemyRes_": -76
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.9757,
+      "path": [
+        "constellation2",
+        "arrowDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "hp_": 122,
+        "all_dmg_": 206.36,
+        "critRate_": 36,
+        "hydro_enemyRes_": -76
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.038,
+      "path": [
+        "burst",
+        "throwDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "hp_": 122,
+        "eleMas": 66.667,
+        "all_dmg_": 206.36,
+        "critRate_": 36,
+        "hydro_enemyRes_": -76
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.9755,
+      "path": [
+        "burst",
+        "throwDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "hp_": 122,
+        "all_dmg_": 206.36,
+        "critRate_": 36,
+        "hydro_enemyRes_": -76
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.038,
+      "path": [
+        "burst",
+        "throwDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "hp_": 122,
+        "eleMas": 66.667,
+        "all_dmg_": 206.36,
+        "critRate_": 36,
+        "hydro_enemyRes_": -76
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.9755,
+      "path": [
+        "burst",
+        "throwDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "hp_": 122,
+        "all_dmg_": 206.36,
+        "critRate_": 36,
+        "hydro_enemyRes_": -76
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.038,
+      "path": [
+        "burst",
+        "throwDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "hp_": 122,
+        "eleMas": 66.667,
+        "all_dmg_": 206.36,
+        "critRate_": 36,
+        "hydro_enemyRes_": -76
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.9755,
+      "path": [
+        "burst",
+        "throwDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "hp_": 122,
+        "all_dmg_": 228.36,
+        "critRate_": 36,
+        "hydro_enemyRes_": -76
+      },
+      "description": ""
+    },
+    {
+      "weight": 1.0005,
+      "path": [
+        "burst",
+        "throwDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "hp_": 122,
+        "all_dmg_": 223.86,
+        "critRate_": 36,
+        "hydro_enemyRes_": -76
+      },
+      "description": ""
+    },
+    {
+      "weight": 1.0005,
+      "path": [
+        "burst",
+        "throwDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "hp_": 122,
+        "all_dmg_": 223.86,
+        "critRate_": 36,
+        "hydro_enemyRes_": -76
+      },
+      "description": ""
+    },
+    {
+      "weight": 1.0005,
+      "path": [
+        "burst",
+        "throwDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "hp_": 122,
+        "all_dmg_": 223.86,
+        "critRate_": 36,
+        "hydro_enemyRes_": -76
+      },
+      "description": ""
+    },
+    {
+      "weight": 1.0078,
+      "path": [
+        "normal",
+        "0"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "hp_": 122,
+        "critRate_": 36,
+        "all_dmg_": 142
+      },
+      "description": ""
+    },
+    {
+      "weight": 1.0084,
+      "path": [
+        "normal",
+        "1"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "hp_": 122,
+        "critRate_": 36,
+        "all_dmg_": 145.5
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.9757,
+      "path": [
+        "constellation2",
+        "arrowDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "hp_": 122,
+        "all_dmg_": 223.86,
+        "critRate_": 36,
+        "hydro_enemyRes_": -76
+      },
+      "description": ""
+    },
+    {
+      "weight": 1.0005,
+      "path": [
+        "burst",
+        "throwDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "hp_": 122,
+        "all_dmg_": 227.36,
+        "critRate_": 36,
+        "hydro_enemyRes_": -76
+      },
+      "description": ""
+    },
+    {
+      "weight": 1.0005,
+      "path": [
+        "burst",
+        "throwDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "hp_": 122,
+        "all_dmg_": 227.36,
+        "critRate_": 36,
+        "hydro_enemyRes_": -76
+      },
+      "description": ""
+    },
+    {
+      "weight": 1.0005,
+      "path": [
+        "burst",
+        "throwDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "hp_": 122,
+        "all_dmg_": 227.36,
+        "critRate_": 36,
+        "hydro_enemyRes_": -76
+      },
+      "description": ""
+    },
+    {
+      "weight": 1.0084,
+      "path": [
+        "normal",
+        "2"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "hp_": 122,
+        "enerRech_": 24.033,
+        "critRate_": 36,
+        "all_dmg_": 145.5
+      },
+      "description": ""
+    },
+    {
+      "weight": 1.0104,
+      "path": [
+        "normal",
+        "3"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "hp_": 122,
+        "enerRech_": 24.033,
+        "critRate_": 36,
+        "all_dmg_": 149
+      },
+      "description": ""
+    },
+    {
+      "weight": 1.0005,
+      "path": [
+        "burst",
+        "throwDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "hp_": 122,
+        "all_dmg_": 230.86,
+        "enerRech_": 24.033,
+        "critRate_": 36,
+        "hydro_enemyRes_": -76
+      },
+      "description": ""
+    },
+    {
+      "weight": 1.0104,
+      "path": [
+        "normal",
+        "3"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "hp_": 122,
+        "enerRech_": 24.033,
+        "critRate_": 36,
+        "all_dmg_": 149
+      },
+      "description": ""
+    },
+    {
+      "weight": 1.0005,
+      "path": [
+        "burst",
+        "throwDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "hp_": 122,
+        "all_dmg_": 230.86,
+        "enerRech_": 24.033,
+        "critRate_": 36,
+        "hydro_enemyRes_": -76
+      },
+      "description": ""
+    },
+    {
+      "weight": 1.0005,
+      "path": [
+        "burst",
+        "throwDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "hp_": 122,
+        "all_dmg_": 230.86,
+        "enerRech_": 24.033,
+        "critRate_": 36,
+        "hydro_enemyRes_": -76
+      },
+      "description": ""
+    },
+    {
+      "weight": 1.0078,
+      "path": [
+        "normal",
+        "0"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "hp_": 122,
+        "enerRech_": 23.958,
+        "critRate_": 36,
+        "all_dmg_": 152.5
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.9757,
+      "path": [
+        "constellation2",
+        "arrowDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "hp_": 122,
+        "all_dmg_": 230.86,
+        "enerRech_": 24.033,
+        "critRate_": 36,
+        "hydro_enemyRes_": -76
+      },
+      "description": ""
+    },
+    {
+      "weight": 1.0005,
+      "path": [
+        "burst",
+        "throwDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "hp_": 122,
+        "all_dmg_": 234.36,
+        "enerRech_": 23.958,
+        "critRate_": 36,
+        "hydro_enemyRes_": -76
+      },
+      "description": ""
+    },
+    {
+      "weight": 1.0005,
+      "path": [
+        "burst",
+        "throwDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "hp_": 122,
+        "all_dmg_": 234.36,
+        "enerRech_": 23.958,
+        "critRate_": 36,
+        "hydro_enemyRes_": -76
+      },
+      "description": ""
+    },
+    {
+      "weight": 1.0084,
+      "path": [
+        "normal",
+        "1"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "hp_": 122,
+        "enerRech_": 23.507,
+        "critRate_": 36,
+        "all_dmg_": 152.5
+      },
+      "description": ""
+    },
+    {
+      "weight": 1.0005,
+      "path": [
+        "burst",
+        "throwDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "hp_": 122,
+        "all_dmg_": 234.36,
+        "enerRech_": 23.958,
+        "critRate_": 36,
+        "hydro_enemyRes_": -76
+      },
+      "description": ""
+    },
+    {
+      "weight": 1.0084,
+      "path": [
+        "normal",
+        "2"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "hp_": 122,
+        "enerRech_": 23.082,
+        "critRate_": 36,
+        "all_dmg_": 152.5
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.9945,
+      "path": [
+        "burst",
+        "throwDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "hp_": 122,
+        "all_dmg_": 237.86,
+        "enerRech_": 23.044,
+        "critRate_": 36,
+        "hydro_enemyRes_": -76
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.9945,
+      "path": [
+        "burst",
+        "throwDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "hp_": 122,
+        "all_dmg_": 237.86,
+        "enerRech_": 23.044,
+        "critRate_": 36,
+        "hydro_enemyRes_": -76
+      },
+      "description": ""
+    },
+    {
+      "weight": 1.0044,
+      "path": [
+        "normal",
+        "3"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "hp_": 122,
+        "enerRech_": 23.044,
+        "critRate_": 36,
+        "all_dmg_": 156
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.9945,
+      "path": [
+        "burst",
+        "throwDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "hp_": 122,
+        "all_dmg_": 237.86,
+        "enerRech_": 23.044,
+        "critRate_": 36,
+        "hydro_enemyRes_": -76
+      },
+      "description": ""
+    },
+    {
+      "weight": 1.0044,
+      "path": [
+        "normal",
+        "3"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "hp_": 122,
+        "enerRech_": 23.044,
+        "critRate_": 36,
+        "all_dmg_": 156
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.9757,
+      "path": [
+        "constellation2",
+        "arrowDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "hp_": 122,
+        "all_dmg_": 237.86,
+        "enerRech_": 23.083,
+        "critRate_": 36,
+        "hydro_enemyRes_": -76
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.9815,
+      "path": [
+        "burst",
+        "throwDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "hp_": 122,
+        "all_dmg_": 241.36,
+        "enerRech_": 23.07,
+        "critRate_": 36,
+        "hydro_enemyRes_": -76
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.9815,
+      "path": [
+        "burst",
+        "throwDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "hp_": 122,
+        "all_dmg_": 241.36,
+        "enerRech_": 23.07,
+        "critRate_": 36,
+        "hydro_enemyRes_": -76
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.9815,
+      "path": [
+        "burst",
+        "throwDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "hp_": 122,
+        "all_dmg_": 241.36,
+        "enerRech_": 23.07,
+        "critRate_": 36,
+        "hydro_enemyRes_": -76
+      },
+      "description": ""
+    },
+    {
+      "weight": 1.0018,
+      "path": [
+        "normal",
+        "0"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "hp_": 122,
+        "enerRech_": 23.019,
+        "critRate_": 36,
+        "all_dmg_": 159.5
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "skill",
+        "dmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "hp_": 122,
+        "all_dmg_": 241.36,
+        "enerRech_": 20.714,
+        "critRate_": 36,
+        "hydro_enemyRes_": -76
+      },
+      "description": ""
+    },
+    {
+      "weight": 1.0005,
+      "path": [
+        "burst",
+        "throwDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "hp_": 122,
+        "all_dmg_": 241.36,
+        "enerRech_": 20.714,
+        "critRate_": 36,
+        "hydro_enemyRes_": -76
+      },
+      "description": ""
+    },
+    {
+      "weight": 1.0005,
+      "path": [
+        "burst",
+        "throwDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "hp_": 122,
+        "all_dmg_": 241.36,
+        "enerRech_": 20.714,
+        "critRate_": 36,
+        "hydro_enemyRes_": -76
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.9826,
+      "path": [
+        "normal",
+        "0"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "hp_": 122,
+        "enerRech_": 20.714,
+        "critRate_": 36,
+        "all_dmg_": 163
+      },
+      "description": ""
+    },
+    {
+      "weight": 1.0005,
+      "path": [
+        "burst",
+        "throwDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "hp_": 122,
+        "all_dmg_": 241.36,
+        "enerRech_": 20.714,
+        "critRate_": 36,
+        "hydro_enemyRes_": -76
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.9815,
+      "path": [
+        "burst",
+        "throwDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "hp_": 122,
+        "all_dmg_": 244.86,
+        "enerRech_": 20.714,
+        "critRate_": 36,
+        "hydro_enemyRes_": -76
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.9815,
+      "path": [
+        "burst",
+        "throwDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "hp_": 122,
+        "all_dmg_": 244.86,
+        "enerRech_": 20.714,
+        "critRate_": 36,
+        "hydro_enemyRes_": -76
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.9815,
+      "path": [
+        "burst",
+        "throwDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "hp_": 122,
+        "all_dmg_": 244.86,
+        "enerRech_": 20.714,
+        "critRate_": 36,
+        "hydro_enemyRes_": -76
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.9832,
+      "path": [
+        "normal",
+        "1"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "hp_": 122,
+        "enerRech_": 20.714,
+        "critRate_": 36,
+        "all_dmg_": 163
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.9832,
+      "path": [
+        "normal",
+        "2"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "hp_": 122,
+        "enerRech_": 20.714,
+        "critRate_": 36,
+        "all_dmg_": 166.5
+      },
+      "description": ""
+    },
+    {
+      "weight": 1.0958,
+      "path": [
+        "constellation2",
+        "arrowDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "hp_": 122,
+        "all_dmg_": 244.86,
+        "enerRech_": 20.714,
+        "critRate_": 36,
+        "hydro_enemyRes_": -76
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.9755,
+      "path": [
+        "burst",
+        "throwDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "hp_": 122,
+        "all_dmg_": 244.86,
+        "enerRech_": 20.714,
+        "critRate_": 36,
+        "hydro_enemyRes_": -76
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.9755,
+      "path": [
+        "burst",
+        "throwDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "hp_": 122,
+        "all_dmg_": 244.86,
+        "enerRech_": 20.714,
+        "critRate_": 36,
+        "hydro_enemyRes_": -76
+      },
+      "description": ""
+    },
+    {
+      "weight": 1.1756,
+      "path": [
+        "burst",
+        "throwDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "hp_": 122,
+        "all_dmg_": 244.86,
+        "enerRech_": 20.714,
+        "critRate_": 36,
+        "hydro_enemyRes_": -76
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.9852,
+      "path": [
+        "normal",
+        "3"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "hp_": 122,
+        "enerRech_": 20.714,
+        "critRate_": 36,
+        "all_dmg_": 166.5
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.9852,
+      "path": [
+        "normal",
+        "3"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "hp_": 122,
+        "enerRech_": 20.714,
+        "critRate_": 36,
+        "all_dmg_": 170
+      },
+      "description": ""
+    }
+  ]
+}

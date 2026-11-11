@@ -1,0 +1,46 @@
+{
+  "name": "Hybrid",
+  "description": "Celestia",
+  "targets": [
+    {
+      "weight": 1,
+      "path": [
+        "skill",
+        "holdDMG"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {},
+      "description": ""
+    },
+    {
+      "weight": 0.5,
+      "path": [
+        "skill",
+        "stele"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {},
+      "description": ""
+    },
+    {
+      "weight": 9,
+      "path": [
+        "skill",
+        "resonance"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {},
+      "description": ""
+    },
+    {
+      "weight": 0.5,
+      "path": [
+        "burst",
+        "dmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {},
+      "description": ""
+    }
+  ]
+}

@@ -1,0 +1,146 @@
+{
+  "name": "Premium",
+  "description": "Celestia",
+  "targets": [
+    {
+      "weight": 1,
+      "path": [
+        "burst",
+        "smashDmg"
+      ],
+      "hitMode": "avgHit",
+      "reaction": "melt",
+      "bonusStats": {
+        "atk_": 48,
+        "atk": 498.899,
+        "pyro_enemyRes_": -20,
+        "all_dmgInc": 1200,
+        "all_dmg_": 60
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "skill",
+        "cloudstriderDmg"
+      ],
+      "hitMode": "avgHit",
+      "reaction": "melt",
+      "bonusStats": {
+        "atk_": 48,
+        "all_dmgInc": 8738.526,
+        "atk": 498.899,
+        "pyro_enemyRes_": -20,
+        "critRate_": 4,
+        "all_dmg_": 67.5
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "skill",
+        "cloudstriderDmg"
+      ],
+      "hitMode": "avgHit",
+      "reaction": "melt",
+      "bonusStats": {
+        "atk": 798.899,
+        "atk_": 48,
+        "all_dmgInc": 8738.526,
+        "pyro_enemyRes_": -20,
+        "critRate_": 4,
+        "all_dmg_": 75
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "skill",
+        "cloudstriderDmg"
+      ],
+      "hitMode": "avgHit",
+      "reaction": "melt",
+      "bonusStats": {
+        "atk": 798.899,
+        "atk_": 48,
+        "all_dmgInc": 8738.526,
+        "pyro_enemyRes_": -20,
+        "critRate_": 4,
+        "all_dmg_": 82.5
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "skill",
+        "cloudstriderDmg"
+      ],
+      "hitMode": "avgHit",
+      "reaction": "melt",
+      "bonusStats": {
+        "atk": 798.899,
+        "atk_": 48,
+        "all_dmgInc": 8738.526,
+        "pyro_enemyRes_": -20,
+        "critRate_": 4,
+        "all_dmg_": 82.5
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "skill",
+        "cloudstriderDmg"
+      ],
+      "hitMode": "avgHit",
+      "reaction": "melt",
+      "bonusStats": {
+        "atk": 798.899,
+        "atk_": 48,
+        "all_dmgInc": 8738.526,
+        "pyro_enemyRes_": -20,
+        "critRate_": 4,
+        "all_dmg_": 82.5
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "skill",
+        "cloudstriderDmg"
+      ],
+      "hitMode": "avgHit",
+      "reaction": "melt",
+      "bonusStats": {
+        "atk": 798.899,
+        "pyro_enemyRes_": -20,
+        "critRate_": 4,
+        "all_dmgInc": 1200,
+        "all_dmg_": 82.5
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "skill",
+        "cloudstriderDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk": 798.899,
+        "pyro_enemyRes_": -20,
+        "all_dmgInc": 1200,
+        "all_dmg_": 82.5,
+        "critRate_": 3.33
+      },
+      "description": ""
+    }
+  ]
+}

@@ -1,0 +1,115 @@
+{
+  "category": {
+    "id": "sethos-aggravate",
+    "name": "Aggravate",
+    "kind": "normal"
+  },
+  "child": {
+    "constellation": 6,
+    "characterLevel": 90,
+    "talents": {
+      "burst": 13,
+      "skill": 10,
+      "normal": 13
+    },
+    "baseTalents": {
+      "burst": 10,
+      "skill": 10,
+      "normal": 10
+    },
+    "weaponId": 15514,
+    "refinement": 1
+  },
+  "reference": {
+    "source": "ceilingStandard"
+  },
+  "goConditions": {
+    "Sethos": {
+      "a4Sandshade": "on"
+    }
+  },
+  "characterBonusStats": {
+    "eleMas": 623.786
+  },
+  "enemy": {
+    "level": 100,
+    "res": 0.1
+  },
+  "issues": [
+    {
+      "code": "characterBonusStats",
+      "stats": [
+        {
+          "buff": "Catalyst Conversion",
+          "key": "eleMas",
+          "value": 50
+        },
+        {
+          "buff": "Instructor 4pc EM",
+          "key": "eleMas",
+          "value": 120
+        },
+        {
+          "buff": "Mollis Favonius",
+          "key": "eleMas",
+          "value": 203.78640000000007
+        },
+        {
+          "buff": "Compassion Illuminated",
+          "key": "eleMas",
+          "value": 250
+        }
+      ]
+    },
+    {
+      "code": "goSwitch",
+      "switches": [
+        {
+          "condition": [
+            "Sethos",
+            "a4Sandshade",
+            "on"
+          ],
+          "source": {
+            "type": "character"
+          },
+          "buffs": [
+            "The Sand King's Boon"
+          ]
+        }
+      ]
+    },
+    {
+      "code": "setEffects",
+      "setIds": [
+        15003
+      ]
+    }
+  ],
+  "teamIssues": [
+    {
+      "code": "goSwitch",
+      "switches": [
+        {
+          "condition": [
+            "Sethos",
+            "a4Sandshade",
+            "on"
+          ],
+          "source": {
+            "type": "character"
+          },
+          "buffs": [
+            "The Sand King's Boon"
+          ]
+        }
+      ]
+    },
+    {
+      "code": "setEffects",
+      "setIds": [
+        15003
+      ]
+    }
+  ]
+}

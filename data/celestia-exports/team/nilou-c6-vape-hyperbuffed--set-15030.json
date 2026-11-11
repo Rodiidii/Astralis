@@ -1,0 +1,611 @@
+{
+  "name": "C6 Vape",
+  "description": "Celestia",
+  "lastEdit": 1794351161152,
+  "conditional": {
+    "resonance": {},
+    "reaction": {}
+  },
+  "enemyOverride": {
+    "enemyLevel": 100,
+    "enemyDefIgn_": 0,
+    "enemyDefRed_": 0,
+    "pyro_enemyRes_": 10,
+    "hydro_enemyRes_": 10,
+    "electro_enemyRes_": 10,
+    "cryo_enemyRes_": 10,
+    "anemo_enemyRes_": 10,
+    "geo_enemyRes_": 10,
+    "dendro_enemyRes_": 10,
+    "physical_enemyRes_": 10
+  },
+  "loadoutData": [
+    {
+      "key": "Nilou",
+      "name": "Nilou (Celestia)",
+      "description": "",
+      "hitMode": "avgHit",
+      "infusionAura": "",
+      "bonusStats": {},
+      "conditional": {
+        "KeyOfKhajNisut": {
+          "afterSkill": "1"
+        }
+      },
+      "customMultiTargets": [
+        {
+          "name": "C6 Vape",
+          "description": "Celestia",
+          "targets": [
+            {
+              "weight": 1,
+              "path": [
+                "skill",
+                "skillDmg"
+              ],
+              "hitMode": "avgHit",
+              "reaction": "vaporize",
+              "bonusStats": {
+                "hp_": 80,
+                "eleMas": 575.834,
+                "all_dmg_": 62.66,
+                "hydro_enemyRes_": -40
+              },
+              "description": ""
+            },
+            {
+              "weight": 1,
+              "path": [
+                "skill",
+                "dance1Dmg"
+              ],
+              "hitMode": "avgHit",
+              "bonusStats": {
+                "hp_": 80,
+                "eleMas": 575.834,
+                "all_dmg_": 66.16,
+                "hydro_enemyRes_": -40
+              },
+              "description": ""
+            },
+            {
+              "weight": 1,
+              "path": [
+                "skill",
+                "dance2Dmg"
+              ],
+              "hitMode": "avgHit",
+              "bonusStats": {
+                "hp_": 80,
+                "eleMas": 575.834,
+                "all_dmg_": 73.16,
+                "hydro_enemyRes_": -40
+              },
+              "description": ""
+            },
+            {
+              "weight": 1,
+              "path": [
+                "skill",
+                "moonDmg"
+              ],
+              "hitMode": "avgHit",
+              "reaction": "vaporize",
+              "bonusStats": {
+                "hp_": 80,
+                "eleMas": 575.834,
+                "all_dmg_": 76.66,
+                "hydro_enemyRes_": -40
+              },
+              "description": ""
+            },
+            {
+              "weight": 1,
+              "path": [
+                "skill",
+                "dance1Dmg"
+              ],
+              "hitMode": "avgHit",
+              "bonusStats": {
+                "hp_": 80,
+                "eleMas": 575.834,
+                "all_dmg_": 83.66,
+                "hydro_enemyRes_": -40
+              },
+              "description": ""
+            },
+            {
+              "weight": 1,
+              "path": [
+                "skill",
+                "dance2Dmg"
+              ],
+              "hitMode": "avgHit",
+              "bonusStats": {
+                "hp_": 80,
+                "eleMas": 575.834,
+                "all_dmg_": 90.66,
+                "hydro_enemyRes_": -40
+              },
+              "description": ""
+            },
+            {
+              "weight": 1,
+              "path": [
+                "burst",
+                "skillDmg"
+              ],
+              "hitMode": "avgHit",
+              "reaction": "vaporize",
+              "bonusStats": {
+                "hp_": 80,
+                "eleMas": 575.834,
+                "all_dmg_": 144.16,
+                "hydro_enemyRes_": -40
+              },
+              "description": ""
+            },
+            {
+              "weight": 1,
+              "path": [
+                "skill",
+                "moonDmg"
+              ],
+              "hitMode": "avgHit",
+              "reaction": "vaporize",
+              "bonusStats": {
+                "hp_": 80,
+                "eleMas": 575.834,
+                "all_dmg_": 101.16,
+                "hydro_enemyRes_": -40
+              },
+              "description": ""
+            },
+            {
+              "weight": 1,
+              "path": [
+                "skill",
+                "dance1Dmg"
+              ],
+              "hitMode": "avgHit",
+              "bonusStats": {
+                "hp_": 80,
+                "eleMas": 575.834,
+                "all_dmg_": 101.16,
+                "hydro_enemyRes_": -40
+              },
+              "description": ""
+            },
+            {
+              "weight": 1,
+              "path": [
+                "skill",
+                "dance2Dmg"
+              ],
+              "hitMode": "avgHit",
+              "bonusStats": {
+                "hp_": 80,
+                "eleMas": 575.834,
+                "all_dmg_": 101.16,
+                "hydro_enemyRes_": -40
+              },
+              "description": ""
+            },
+            {
+              "weight": 1,
+              "path": [
+                "skill",
+                "moonDmg"
+              ],
+              "hitMode": "avgHit",
+              "reaction": "vaporize",
+              "bonusStats": {
+                "hp_": 80,
+                "eleMas": 575.834,
+                "all_dmg_": 101.16,
+                "hydro_enemyRes_": -40
+              },
+              "description": ""
+            },
+            {
+              "weight": 1,
+              "path": [
+                "burst",
+                "aeonDmg"
+              ],
+              "hitMode": "avgHit",
+              "reaction": "vaporize",
+              "bonusStats": {
+                "hp_": 80,
+                "eleMas": 575.834,
+                "all_dmg_": 151.16,
+                "hydro_enemyRes_": -40
+              },
+              "description": ""
+            },
+            {
+              "weight": 1,
+              "path": [
+                "skill",
+                "dance1Dmg"
+              ],
+              "hitMode": "avgHit",
+              "bonusStats": {
+                "hp_": 80,
+                "eleMas": 575.834,
+                "all_dmg_": 101.16,
+                "hydro_enemyRes_": -40
+              },
+              "description": ""
+            },
+            {
+              "weight": 1,
+              "path": [
+                "skill",
+                "dance2Dmg"
+              ],
+              "hitMode": "avgHit",
+              "bonusStats": {
+                "hp_": 80,
+                "eleMas": 575.834,
+                "all_dmg_": 101.16,
+                "hydro_enemyRes_": -40
+              },
+              "description": ""
+            },
+            {
+              "weight": 1,
+              "path": [
+                "skill",
+                "moonDmg"
+              ],
+              "hitMode": "avgHit",
+              "reaction": "vaporize",
+              "bonusStats": {
+                "hp_": 80,
+                "eleMas": 575.834,
+                "all_dmg_": 101.16,
+                "hydro_enemyRes_": -40
+              },
+              "description": ""
+            }
+          ]
+        }
+      ],
+      "optConfig": {
+        "optimizationTarget": [
+          "custom",
+          "0"
+        ]
+      },
+      "buildTcs": [
+        {
+          "name": "Celestia",
+          "description": "The leaderboard reference build.",
+          "characterKey": "Nilou",
+          "character": {
+            "level": 90,
+            "ascension": 6,
+            "constellation": 6,
+            "talent": {
+              "auto": 10,
+              "skill": 10,
+              "burst": 10
+            }
+          },
+          "weapon": {
+            "key": "KeyOfKhajNisut",
+            "level": 90,
+            "ascension": 6,
+            "refinement": 5
+          },
+          "artifact": {
+            "sets": {
+              "VourukashasGlow": 5
+            },
+            "slots": {
+              "flower": {
+                "level": 20,
+                "rarity": 5,
+                "statKey": "hp"
+              },
+              "plume": {
+                "level": 20,
+                "rarity": 5,
+                "statKey": "atk"
+              },
+              "sands": {
+                "level": 20,
+                "rarity": 5,
+                "statKey": "hp_"
+              },
+              "goblet": {
+                "level": 20,
+                "rarity": 5,
+                "statKey": "hydro_dmg_"
+              },
+              "circlet": {
+                "level": 20,
+                "rarity": 5,
+                "statKey": "critRate_"
+              }
+            },
+            "substats": {
+              "type": "max",
+              "rarity": 5,
+              "stats": {
+                "hp_": 19.82,
+                "def": 39.35,
+                "def_": 12.39,
+                "critRate_": 33.05,
+                "critDMG_": 79.26,
+                "hp": 507.88,
+                "enerRech_": 11.01,
+                "eleMas": 39.63,
+                "atk": 33.07,
+                "atk_": 9.91
+              }
+            }
+          },
+          "optimization": {
+            "distributedSubstats": 0,
+            "maxSubstats": {}
+          }
+        }
+      ]
+    },
+    {
+      "key": "KaedeharaKazuha",
+      "name": "KaedeharaKazuha (Celestia)",
+      "description": "",
+      "hitMode": "avgHit",
+      "infusionAura": "",
+      "bonusStats": {},
+      "conditional": {},
+      "customMultiTargets": [],
+      "buildTcs": [
+        {
+          "name": "Celestia",
+          "description": "Celestia teammate assumption (85% of the maximum).",
+          "characterKey": "KaedeharaKazuha",
+          "character": {
+            "level": 90,
+            "ascension": 6,
+            "constellation": 2,
+            "talent": {
+              "auto": 10,
+              "skill": 10,
+              "burst": 10
+            }
+          },
+          "weapon": {
+            "key": "XiphosMoonlight",
+            "level": 90,
+            "ascension": 6,
+            "refinement": 5
+          },
+          "artifact": {
+            "sets": {
+              "ViridescentVenerer": 4
+            },
+            "slots": {
+              "flower": {
+                "level": 20,
+                "rarity": 5,
+                "statKey": "hp"
+              },
+              "plume": {
+                "level": 20,
+                "rarity": 5,
+                "statKey": "atk"
+              },
+              "sands": {
+                "level": 20,
+                "rarity": 5,
+                "statKey": "eleMas"
+              },
+              "goblet": {
+                "level": 20,
+                "rarity": 5,
+                "statKey": "eleMas"
+              },
+              "circlet": {
+                "level": 20,
+                "rarity": 5,
+                "statKey": "eleMas"
+              }
+            },
+            "substats": {
+              "type": "max",
+              "rarity": 5,
+              "stats": {
+                "hp": 2539.4,
+                "atk": 33.08,
+                "def": 39.36,
+                "hp_": 9.92,
+                "atk_": 9.92,
+                "def_": 12.4,
+                "eleMas": 118.92,
+                "enerRech_": 11.02,
+                "critRate_": 19.86,
+                "critDMG_": 39.72
+              }
+            }
+          },
+          "optimization": {
+            "distributedSubstats": 0,
+            "maxSubstats": {}
+          }
+        }
+      ]
+    },
+    {
+      "key": "Yelan",
+      "name": "Yelan (Celestia)",
+      "description": "",
+      "hitMode": "avgHit",
+      "infusionAura": "",
+      "bonusStats": {},
+      "conditional": {},
+      "customMultiTargets": [],
+      "buildTcs": [
+        {
+          "name": "Celestia",
+          "description": "Celestia teammate assumption (85% of the maximum).",
+          "characterKey": "Yelan",
+          "character": {
+            "level": 90,
+            "ascension": 6,
+            "constellation": 4,
+            "talent": {
+              "auto": 10,
+              "skill": 10,
+              "burst": 10
+            }
+          },
+          "weapon": {
+            "key": "FavoniusWarbow",
+            "level": 90,
+            "ascension": 6,
+            "refinement": 5
+          },
+          "artifact": {
+            "sets": {},
+            "slots": {
+              "flower": {
+                "level": 20,
+                "rarity": 5,
+                "statKey": "hp"
+              },
+              "plume": {
+                "level": 20,
+                "rarity": 5,
+                "statKey": "atk"
+              },
+              "sands": {
+                "level": 20,
+                "rarity": 5,
+                "statKey": "hp_"
+              },
+              "goblet": {
+                "level": 20,
+                "rarity": 5,
+                "statKey": "hydro_dmg_"
+              },
+              "circlet": {
+                "level": 20,
+                "rarity": 5,
+                "statKey": "critRate_"
+              }
+            },
+            "substats": {
+              "type": "max",
+              "rarity": 5,
+              "stats": {
+                "hp": 1015.76,
+                "atk": 33.08,
+                "def": 39.36,
+                "hp_": 9.92,
+                "atk_": 9.92,
+                "def_": 12.4,
+                "eleMas": 39.64,
+                "enerRech_": 11.02,
+                "critRate_": 33.1,
+                "critDMG_": 79.44
+              }
+            }
+          },
+          "optimization": {
+            "distributedSubstats": 0,
+            "maxSubstats": {}
+          }
+        }
+      ]
+    },
+    {
+      "key": "Xiangling",
+      "name": "Xiangling (Celestia)",
+      "description": "",
+      "hitMode": "avgHit",
+      "infusionAura": "",
+      "bonusStats": {},
+      "conditional": {},
+      "customMultiTargets": [],
+      "buildTcs": [
+        {
+          "name": "Celestia",
+          "description": "Celestia teammate assumption (85% of the maximum).",
+          "characterKey": "Xiangling",
+          "character": {
+            "level": 90,
+            "ascension": 6,
+            "constellation": 6,
+            "talent": {
+              "auto": 10,
+              "skill": 10,
+              "burst": 10
+            }
+          },
+          "weapon": {
+            "key": "FavoniusLance",
+            "level": 90,
+            "ascension": 6,
+            "refinement": 5
+          },
+          "artifact": {
+            "sets": {
+              "Instructor": 4
+            },
+            "slots": {
+              "flower": {
+                "level": 16,
+                "rarity": 4,
+                "statKey": "hp"
+              },
+              "plume": {
+                "level": 16,
+                "rarity": 4,
+                "statKey": "atk"
+              },
+              "sands": {
+                "level": 16,
+                "rarity": 4,
+                "statKey": "enerRech_"
+              },
+              "goblet": {
+                "level": 16,
+                "rarity": 4,
+                "statKey": "pyro_dmg_"
+              },
+              "circlet": {
+                "level": 20,
+                "rarity": 5,
+                "statKey": "critRate_"
+              }
+            },
+            "substats": {
+              "type": "max",
+              "rarity": 4,
+              "stats": {
+                "hp": 426.62,
+                "atk": 27.79,
+                "def": 33.06,
+                "hp_": 8.33,
+                "atk_": 8.33,
+                "def_": 10.42,
+                "eleMas": 33.3,
+                "enerRech_": 37.03,
+                "critRate_": 22.24,
+                "critDMG_": 11.12
+              }
+            }
+          },
+          "optimization": {
+            "distributedSubstats": 0,
+            "maxSubstats": {}
+          }
+        }
+      ]
+    }
+  ]
+}

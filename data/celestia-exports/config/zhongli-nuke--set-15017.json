@@ -1,0 +1,25 @@
+{
+  "name": "Nuke",
+  "description": "Celestia",
+  "targets": [
+    {
+      "weight": 1,
+      "path": [
+        "burst",
+        "dmg"
+      ],
+      "hitMode": "critHit",
+      "bonusStats": {
+        "enerRech_": 20,
+        "atk_": 20,
+        "all_dmgInc": 9249.415,
+        "all_dmg_": 329.2,
+        "enemyDefIgn_": 40,
+        "geo_enemyRes_": -145,
+        "enemyDefRed_": 30,
+        "critDMG_": 24
+      },
+      "description": ""
+    }
+  ]
+}

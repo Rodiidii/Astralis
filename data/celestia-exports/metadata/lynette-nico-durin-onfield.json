@@ -1,0 +1,129 @@
+{
+  "category": {
+    "id": "lynette-nico-durin-onfield",
+    "name": "Hex Combo",
+    "kind": "normal"
+  },
+  "child": {
+    "constellation": 6,
+    "characterLevel": 90,
+    "talents": {
+      "burst": 13,
+      "skill": 13,
+      "normal": 10
+    },
+    "baseTalents": {
+      "burst": 10,
+      "skill": 10,
+      "normal": 10
+    },
+    "weaponId": 11509,
+    "refinement": 1
+  },
+  "reference": {
+    "source": "ceilingStandard"
+  },
+  "goConditions": {
+    "Lynette": {
+      "burstAbsorb": "pyro",
+      "c6AfterThrust": "on"
+    }
+  },
+  "characterBonusStats": null,
+  "enemy": {
+    "level": 100,
+    "res": 0.1
+  },
+  "issues": [
+    {
+      "code": "skippedLines",
+      "reason": "teammate",
+      "lines": 2,
+      "share": 0.055870392155453565
+    },
+    {
+      "code": "goSwitch",
+      "switches": [
+        {
+          "condition": [
+            "Lynette",
+            "burstAbsorb",
+            "pyro"
+          ],
+          "source": {
+            "type": "character"
+          },
+          "buffs": [
+            "Props Positively Prepped"
+          ]
+        },
+        {
+          "condition": [
+            "Lynette",
+            "c6AfterThrust",
+            "on"
+          ],
+          "source": {
+            "type": "character"
+          },
+          "buffs": [
+            "Watchful Eye"
+          ]
+        }
+      ]
+    },
+    {
+      "code": "setEffects",
+      "setIds": [
+        15044,
+        15045
+      ]
+    }
+  ],
+  "teamIssues": [
+    {
+      "code": "skippedLines",
+      "reason": "teammate",
+      "lines": 2,
+      "share": 0.055870392155453565
+    },
+    {
+      "code": "goSwitch",
+      "switches": [
+        {
+          "condition": [
+            "Lynette",
+            "burstAbsorb",
+            "pyro"
+          ],
+          "source": {
+            "type": "character"
+          },
+          "buffs": [
+            "Props Positively Prepped"
+          ]
+        },
+        {
+          "condition": [
+            "Lynette",
+            "c6AfterThrust",
+            "on"
+          ],
+          "source": {
+            "type": "character"
+          },
+          "buffs": [
+            "Watchful Eye"
+          ]
+        }
+      ]
+    },
+    {
+      "code": "setEffects",
+      "setIds": [
+        15044,
+        15045
+      ]
+    }
+  ]
+}

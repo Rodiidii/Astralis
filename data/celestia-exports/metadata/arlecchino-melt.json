@@ -1,0 +1,144 @@
+{
+  "category": {
+    "id": "arlecchino-melt",
+    "name": "Citlali Melt",
+    "kind": "normal"
+  },
+  "child": {
+    "constellation": 0,
+    "characterLevel": 90,
+    "talents": {
+      "burst": 10,
+      "skill": 10,
+      "normal": 10
+    },
+    "baseTalents": {
+      "burst": 10,
+      "skill": 10,
+      "normal": 10
+    },
+    "weaponId": 13512,
+    "refinement": 1
+  },
+  "reference": {
+    "source": "ceilingStandard"
+  },
+  "goConditions": {
+    "Arlecchino": {
+      "bondPercent": "115"
+    }
+  },
+  "characterBonusStats": {
+    "atk_": 25,
+    "atk": 121.508
+  },
+  "enemy": {
+    "level": 100,
+    "res": 0.1
+  },
+  "issues": [
+    {
+      "code": "characterBonusStats",
+      "stats": [
+        {
+          "buff": "Pyro Resonance",
+          "key": "atk_",
+          "value": 25
+        },
+        {
+          "buff": "Wildling Nightstar",
+          "key": "atk",
+          "value": 121.50777600000002
+        }
+      ]
+    },
+    {
+      "code": "selfScaling",
+      "buffs": [
+        "Masque of the Red Death — extra Normal Attack DMG"
+      ]
+    },
+    {
+      "code": "goSwitch",
+      "switches": [
+        {
+          "condition": [
+            "Arlecchino",
+            "bondPercent",
+            "30"
+          ],
+          "source": {
+            "type": "character"
+          },
+          "buffs": [
+            "The Balemoon Alone May Know"
+          ]
+        },
+        {
+          "condition": [
+            "Arlecchino",
+            "bondPercent",
+            "115"
+          ],
+          "source": {
+            "type": "character"
+          },
+          "buffs": [
+            "Bond of Life"
+          ]
+        }
+      ]
+    },
+    {
+      "code": "setEffects",
+      "setIds": [
+        15035
+      ]
+    }
+  ],
+  "teamIssues": [
+    {
+      "code": "selfScaling",
+      "buffs": [
+        "Masque of the Red Death — extra Normal Attack DMG"
+      ]
+    },
+    {
+      "code": "goSwitch",
+      "switches": [
+        {
+          "condition": [
+            "Arlecchino",
+            "bondPercent",
+            "30"
+          ],
+          "source": {
+            "type": "character"
+          },
+          "buffs": [
+            "The Balemoon Alone May Know"
+          ]
+        },
+        {
+          "condition": [
+            "Arlecchino",
+            "bondPercent",
+            "115"
+          ],
+          "source": {
+            "type": "character"
+          },
+          "buffs": [
+            "Bond of Life"
+          ]
+        }
+      ]
+    },
+    {
+      "code": "setEffects",
+      "setIds": [
+        15035
+      ]
+    }
+  ]
+}

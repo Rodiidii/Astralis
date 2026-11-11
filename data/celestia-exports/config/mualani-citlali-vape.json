@@ -1,0 +1,82 @@
+{
+  "name": "Citlali Vape",
+  "description": "Celestia",
+  "targets": [
+    {
+      "weight": 1,
+      "path": [
+        "skill",
+        "surgingDmg"
+      ],
+      "hitMode": "avgHit",
+      "reaction": "vaporize",
+      "bonusStats": {
+        "eleMas": 120,
+        "all_dmg_": 128,
+        "hydro_enemyRes_": -56
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.5,
+      "path": [
+        "burst",
+        "dmg"
+      ],
+      "hitMode": "avgHit",
+      "reaction": "vaporize",
+      "bonusStats": {
+        "eleMas": 120,
+        "all_dmgInc": 10981.583,
+        "all_dmg_": 80,
+        "hydro_enemyRes_": -56
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.5,
+      "path": [
+        "skill",
+        "surgingDmg"
+      ],
+      "hitMode": "avgHit",
+      "reaction": "vaporize",
+      "bonusStats": {
+        "eleMas": 120,
+        "all_dmg_": 128,
+        "hydro_enemyRes_": -56
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "skill",
+        "surgingDmg"
+      ],
+      "hitMode": "avgHit",
+      "reaction": "vaporize",
+      "bonusStats": {
+        "eleMas": 120,
+        "all_dmg_": 128,
+        "hydro_enemyRes_": -56
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.5,
+      "path": [
+        "skill",
+        "surgingDmg"
+      ],
+      "hitMode": "avgHit",
+      "reaction": "vaporize",
+      "bonusStats": {
+        "eleMas": 120,
+        "all_dmg_": 128,
+        "hydro_enemyRes_": -56
+      },
+      "description": ""
+    }
+  ]
+}

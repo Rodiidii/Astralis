@@ -1,0 +1,138 @@
+{
+  "name": "Premium DMG",
+  "description": "Celestia",
+  "targets": [
+    {
+      "weight": 1,
+      "path": [
+        "skill",
+        "prismStellarDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "stellarconduct_baseDmg_": 14,
+        "critRate_": 31,
+        "stellarconduct_dmg_": 258
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "skill",
+        "prismStellarDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "stellarconduct_baseDmg_": 14,
+        "critRate_": 31,
+        "stellarconduct_dmg_": 258
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "skill",
+        "prismStellarDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "stellarconduct_baseDmg_": 14,
+        "critRate_": 31,
+        "stellarconduct_dmg_": 258
+      },
+      "description": ""
+    },
+    {
+      "weight": 9,
+      "path": [
+        "charged",
+        "beamStellarDmg"
+      ],
+      "hitMode": "avgHit",
+      "infusionAura": "cryo",
+      "bonusStats": {
+        "stellarconduct_baseDmg_": 14,
+        "critRate_": 31,
+        "stellarconduct_dmg_": 258
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "burst",
+        "rayStellarDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "stellarconduct_baseDmg_": 14,
+        "critRate_": 31,
+        "stellarconduct_dmg_": 258
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "burst",
+        "bombardDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "critRate_": 31
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "burst",
+        "bombardDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "critRate_": 31
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "burst",
+        "bombardDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "critRate_": 31
+      },
+      "description": ""
+    },
+    {
+      "weight": 27,
+      "path": [
+        "charged",
+        "sweepDmg"
+      ],
+      "hitMode": "avgHit",
+      "infusionAura": "cryo",
+      "bonusStats": {
+        "critRate_": 31
+      },
+      "description": ""
+    },
+    {
+      "weight": 3,
+      "path": [
+        "skill",
+        "prismDmg1"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "critRate_": 31
+      },
+      "description": ""
+    }
+  ]
+}

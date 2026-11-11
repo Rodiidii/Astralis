@@ -1,0 +1,75 @@
+{
+  "name": "Aggravate",
+  "description": "Celestia",
+  "targets": [
+    {
+      "weight": 2,
+      "path": [
+        "skill",
+        "dmg"
+      ],
+      "hitMode": "avgHit",
+      "reaction": "aggravate",
+      "bonusStats": {
+        "all_dmg_": 75.714,
+        "electro_enemyRes_": -40
+      },
+      "description": ""
+    },
+    {
+      "weight": 8,
+      "path": [
+        "burst",
+        "dusk_0"
+      ],
+      "hitMode": "avgHit",
+      "reaction": "aggravate",
+      "bonusStats": {
+        "all_dmg_": 123.714,
+        "electro_enemyRes_": -40
+      },
+      "description": ""
+    },
+    {
+      "weight": 8,
+      "path": [
+        "burst",
+        "dusk_1"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "all_dmg_": 123.714,
+        "electro_enemyRes_": -40
+      },
+      "description": ""
+    },
+    {
+      "weight": 8,
+      "path": [
+        "burst",
+        "dusk_2"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "all_dmg_": 123.714,
+        "electro_enemyRes_": -40
+      },
+      "description": ""
+    },
+    {
+      "weight": 2,
+      "path": [
+        "charged",
+        "shadow"
+      ],
+      "hitMode": "avgHit",
+      "reaction": "aggravate",
+      "infusionAura": "electro",
+      "bonusStats": {
+        "all_dmg_": 123.714,
+        "electro_enemyRes_": -40
+      },
+      "description": ""
+    }
+  ]
+}

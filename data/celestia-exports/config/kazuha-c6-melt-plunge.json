@@ -1,0 +1,540 @@
+{
+  "name": "C6 Melt Plunge",
+  "description": "Celestia",
+  "targets": [
+    {
+      "weight": 1,
+      "path": [
+        "burst",
+        "dmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "eleMas": 200,
+        "atk_": 20,
+        "all_dmgInc": 2756.469,
+        "all_dmg_": 56
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "burst",
+        "dm14Cryo"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 20,
+        "all_dmg_": 40,
+        "cryo_enemyRes_": -40
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "burst",
+        "dot"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 20
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "normal",
+        "0"
+      ],
+      "hitMode": "avgHit",
+      "infusionAura": "pyro",
+      "bonusStats": {
+        "eleMas": 320,
+        "atk_": 60,
+        "all_dmg_": 430.492,
+        "all_dmgInc": 2756.469,
+        "atk": 1110.932,
+        "pyro_enemyRes_": -80
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "skill",
+        "press"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "eleMas": 320,
+        "atk_": 60,
+        "all_dmgInc": 2756.469,
+        "atk": 1110.932,
+        "all_dmg_": 56
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "burst",
+        "dm14Cryo"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 20,
+        "all_dmgInc": 2756.469,
+        "all_dmg_": 96,
+        "cryo_enemyRes_": -40
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "burst",
+        "dot"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 20,
+        "all_dmgInc": 2756.469,
+        "all_dmg_": 56
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "plunging",
+        "dmg"
+      ],
+      "hitMode": "avgHit",
+      "infusionAura": "anemo",
+      "bonusStats": {
+        "eleMas": 320,
+        "atk_": 60,
+        "all_dmg_": 395.492,
+        "all_dmgInc": 2756.469,
+        "atk": 1110.932,
+        "critRate_": 6
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "plunging",
+        "high"
+      ],
+      "hitMode": "avgHit",
+      "infusionAura": "anemo",
+      "bonusStats": {
+        "eleMas": 320,
+        "atk_": 60,
+        "all_dmg_": 395.492,
+        "all_dmgInc": 2756.469,
+        "atk": 1110.932,
+        "critRate_": 6
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "plunging",
+        "dmg"
+      ],
+      "hitMode": "avgHit",
+      "infusionAura": "pyro",
+      "bonusStats": {
+        "eleMas": 320,
+        "atk_": 60,
+        "all_dmg_": 555.99,
+        "all_dmgInc": 2756.469,
+        "atk": 1110.932,
+        "pyro_enemyRes_": -80,
+        "critRate_": 6
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "plunging",
+        "high"
+      ],
+      "hitMode": "avgHit",
+      "reaction": "melt",
+      "infusionAura": "pyro",
+      "bonusStats": {
+        "eleMas": 320,
+        "atk_": 60,
+        "all_dmg_": 555.99,
+        "all_dmgInc": 20756.469,
+        "atk": 1110.932,
+        "pyro_enemyRes_": -80,
+        "critRate_": 6
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "burst",
+        "dm14Cryo"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 20,
+        "all_dmgInc": 2756.469,
+        "all_dmg_": 96,
+        "cryo_enemyRes_": -40
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "burst",
+        "dot"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 20,
+        "all_dmg_": 56
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "plunging",
+        "high"
+      ],
+      "hitMode": "avgHit",
+      "reaction": "melt",
+      "infusionAura": "pyro",
+      "bonusStats": {
+        "eleMas": 320,
+        "atk_": 60,
+        "all_dmg_": 555.99,
+        "all_dmgInc": 18000,
+        "atk": 1110.932,
+        "pyro_enemyRes_": -80,
+        "critRate_": 6
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "plunging",
+        "dmg"
+      ],
+      "hitMode": "avgHit",
+      "infusionAura": "pyro",
+      "bonusStats": {
+        "eleMas": 320,
+        "atk_": 60,
+        "all_dmg_": 555.99,
+        "atk": 1110.932,
+        "pyro_enemyRes_": -80,
+        "critRate_": 6
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "plunging",
+        "high"
+      ],
+      "hitMode": "avgHit",
+      "reaction": "melt",
+      "infusionAura": "pyro",
+      "bonusStats": {
+        "eleMas": 320,
+        "atk_": 60,
+        "all_dmg_": 555.99,
+        "all_dmgInc": 18000,
+        "atk": 1110.932,
+        "pyro_enemyRes_": -80,
+        "critRate_": 6
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "burst",
+        "dm14Cryo"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 20,
+        "all_dmg_": 96,
+        "cryo_enemyRes_": -40
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "burst",
+        "dot"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 20,
+        "all_dmg_": 56
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "plunging",
+        "high"
+      ],
+      "hitMode": "avgHit",
+      "reaction": "melt",
+      "infusionAura": "pyro",
+      "bonusStats": {
+        "eleMas": 320,
+        "atk_": 60,
+        "all_dmg_": 555.99,
+        "all_dmgInc": 18000,
+        "atk": 1110.932,
+        "pyro_enemyRes_": -80,
+        "critRate_": 6
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "skill",
+        "press"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "eleMas": 320,
+        "atk_": 60,
+        "atk": 1110.932,
+        "all_dmg_": 56
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "plunging",
+        "dmg"
+      ],
+      "hitMode": "avgHit",
+      "infusionAura": "anemo",
+      "bonusStats": {
+        "eleMas": 320,
+        "atk_": 40,
+        "all_dmg_": 395.492,
+        "atk": 1110.932,
+        "critRate_": 6
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "plunging",
+        "high"
+      ],
+      "hitMode": "avgHit",
+      "infusionAura": "anemo",
+      "bonusStats": {
+        "eleMas": 320,
+        "atk_": 40,
+        "all_dmg_": 395.492,
+        "atk": 1110.932,
+        "critRate_": 6
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "burst",
+        "dm14Cryo"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 20,
+        "all_dmg_": 96,
+        "cryo_enemyRes_": -40
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "burst",
+        "dot"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 20,
+        "all_dmg_": 56
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "plunging",
+        "dmg"
+      ],
+      "hitMode": "avgHit",
+      "infusionAura": "pyro",
+      "bonusStats": {
+        "atk_": 40,
+        "all_dmg_": 479.19,
+        "atk": 1110.932,
+        "pyro_enemyRes_": -80,
+        "critRate_": 6
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "plunging",
+        "high"
+      ],
+      "hitMode": "avgHit",
+      "reaction": "melt",
+      "infusionAura": "pyro",
+      "bonusStats": {
+        "atk_": 40,
+        "all_dmg_": 479.19,
+        "all_dmgInc": 18000,
+        "atk": 1110.932,
+        "pyro_enemyRes_": -80,
+        "critRate_": 6
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "plunging",
+        "high"
+      ],
+      "hitMode": "avgHit",
+      "reaction": "melt",
+      "infusionAura": "pyro",
+      "bonusStats": {
+        "atk_": 40,
+        "all_dmg_": 446.492,
+        "all_dmgInc": 20756.469,
+        "atk": 1110.932,
+        "pyro_enemyRes_": -80,
+        "critRate_": 6
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "skill",
+        "press"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {},
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "plunging",
+        "dmg"
+      ],
+      "hitMode": "avgHit",
+      "infusionAura": "anemo",
+      "bonusStats": {
+        "all_dmg_": 243.492,
+        "critRate_": 6
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "plunging",
+        "high"
+      ],
+      "hitMode": "avgHit",
+      "infusionAura": "anemo",
+      "bonusStats": {
+        "all_dmg_": 243.492,
+        "critRate_": 6
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.6,
+      "path": [
+        "reaction",
+        "anemoSwirl"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "eleMas": 320,
+        "atk_": 20
+      },
+      "description": ""
+    },
+    {
+      "weight": 1.2,
+      "path": [
+        "reaction",
+        "anemoSwirl"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "eleMas": 320,
+        "atk_": 60,
+        "atk": 1110.932
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.6,
+      "path": [
+        "reaction",
+        "anemoSwirl"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "eleMas": 320,
+        "atk_": 20
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.6,
+      "path": [
+        "reaction",
+        "anemoSwirl"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 20,
+        "eleMas": 120
+      },
+      "description": ""
+    }
+  ]
+}

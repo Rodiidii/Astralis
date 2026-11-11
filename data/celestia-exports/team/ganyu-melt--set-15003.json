@@ -1,0 +1,1720 @@
+{
+  "name": "Melt",
+  "description": "Celestia",
+  "lastEdit": 1794351035566,
+  "conditional": {
+    "resonance": {},
+    "reaction": {}
+  },
+  "enemyOverride": {
+    "enemyLevel": 100,
+    "enemyDefIgn_": 0,
+    "enemyDefRed_": 0,
+    "pyro_enemyRes_": 10,
+    "hydro_enemyRes_": 10,
+    "electro_enemyRes_": 10,
+    "cryo_enemyRes_": 10,
+    "anemo_enemyRes_": 10,
+    "geo_enemyRes_": 10,
+    "dendro_enemyRes_": 10,
+    "physical_enemyRes_": 10
+  },
+  "loadoutData": [
+    {
+      "key": "Ganyu",
+      "name": "Ganyu (Celestia)",
+      "description": "",
+      "hitMode": "avgHit",
+      "infusionAura": "",
+      "bonusStats": {},
+      "conditional": {},
+      "customMultiTargets": [
+        {
+          "name": "Melt",
+          "description": "Celestia",
+          "targets": [
+            {
+              "weight": 0.5143,
+              "path": [
+                "skill",
+                "dmg"
+              ],
+              "hitMode": "avgHit",
+              "reaction": "melt",
+              "bonusStats": {
+                "atk": 548.791,
+                "all_dmg_": 40
+              },
+              "description": ""
+            },
+            {
+              "weight": 0.1162,
+              "path": [
+                "burst",
+                "dmg"
+              ],
+              "hitMode": "avgHit",
+              "reaction": "melt",
+              "bonusStats": {
+                "atk": 848.791,
+                "all_dmg_": 40
+              },
+              "description": ""
+            },
+            {
+              "weight": 0.5166,
+              "path": [
+                "burst",
+                "dmg"
+              ],
+              "hitMode": "avgHit",
+              "reaction": "melt",
+              "bonusStats": {
+                "atk": 848.791,
+                "all_dmg_": 40
+              },
+              "description": ""
+            },
+            {
+              "weight": 0.3827,
+              "path": [
+                "burst",
+                "dmg"
+              ],
+              "hitMode": "avgHit",
+              "bonusStats": {
+                "atk": 848.791,
+                "all_dmg_": 40
+              },
+              "description": ""
+            },
+            {
+              "weight": 0.1916,
+              "path": [
+                "burst",
+                "dmg"
+              ],
+              "hitMode": "avgHit",
+              "bonusStats": {
+                "atk": 848.791,
+                "all_dmg_": 40
+              },
+              "description": ""
+            },
+            {
+              "weight": 0.445,
+              "path": [
+                "charged",
+                "frostflake"
+              ],
+              "hitMode": "avgHit",
+              "reaction": "melt",
+              "infusionAura": "cryo",
+              "bonusStats": {
+                "atk": 548.791,
+                "all_dmg_": 68
+              },
+              "description": ""
+            },
+            {
+              "weight": 0.0646,
+              "path": [
+                "burst",
+                "dmg"
+              ],
+              "hitMode": "avgHit",
+              "reaction": "melt",
+              "bonusStats": {
+                "atk": 848.791,
+                "all_dmg_": 40
+              },
+              "description": ""
+            },
+            {
+              "weight": 0.3516,
+              "path": [
+                "burst",
+                "dmg"
+              ],
+              "hitMode": "avgHit",
+              "bonusStats": {
+                "atk": 848.791,
+                "all_dmg_": 40
+              },
+              "description": ""
+            },
+            {
+              "weight": 0.5089,
+              "path": [
+                "charged",
+                "frostflakeBloom"
+              ],
+              "hitMode": "avgHit",
+              "reaction": "melt",
+              "infusionAura": "cryo",
+              "bonusStats": {
+                "atk": 548.791,
+                "all_dmg_": 92
+              },
+              "description": ""
+            },
+            {
+              "weight": 0.3291,
+              "path": [
+                "burst",
+                "dmg"
+              ],
+              "hitMode": "avgHit",
+              "reaction": "melt",
+              "bonusStats": {
+                "atk": 848.791,
+                "all_dmg_": 40
+              },
+              "description": ""
+            },
+            {
+              "weight": 0.1541,
+              "path": [
+                "burst",
+                "dmg"
+              ],
+              "hitMode": "avgHit",
+              "bonusStats": {
+                "atk": 848.791,
+                "all_dmg_": 40
+              },
+              "description": ""
+            },
+            {
+              "weight": 0.0805,
+              "path": [
+                "burst",
+                "dmg"
+              ],
+              "hitMode": "avgHit",
+              "bonusStats": {
+                "atk": 848.791,
+                "all_dmg_": 40
+              },
+              "description": ""
+            },
+            {
+              "weight": 0.2707,
+              "path": [
+                "charged",
+                "frostflake"
+              ],
+              "hitMode": "avgHit",
+              "infusionAura": "cryo",
+              "bonusStats": {
+                "atk": 848.791,
+                "all_dmg_": 68,
+                "critRate_": 20
+              },
+              "description": ""
+            },
+            {
+              "weight": 0.0188,
+              "path": [
+                "burst",
+                "dmg"
+              ],
+              "hitMode": "avgHit",
+              "bonusStats": {
+                "atk": 848.791,
+                "all_dmg_": 40
+              },
+              "description": ""
+            },
+            {
+              "weight": 0.4326,
+              "path": [
+                "charged",
+                "frostflakeBloom"
+              ],
+              "hitMode": "avgHit",
+              "reaction": "melt",
+              "infusionAura": "cryo",
+              "bonusStats": {
+                "atk": 848.791,
+                "all_dmg_": 92,
+                "critRate_": 20
+              },
+              "description": ""
+            },
+            {
+              "weight": 0.4938,
+              "path": [
+                "burst",
+                "dmg"
+              ],
+              "hitMode": "avgHit",
+              "bonusStats": {
+                "atk": 848.791,
+                "all_dmg_": 40
+              },
+              "description": ""
+            },
+            {
+              "weight": 0.2898,
+              "path": [
+                "burst",
+                "dmg"
+              ],
+              "hitMode": "avgHit",
+              "bonusStats": {
+                "atk": 848.791,
+                "all_dmg_": 40
+              },
+              "description": ""
+            },
+            {
+              "weight": 0.1421,
+              "path": [
+                "burst",
+                "dmg"
+              ],
+              "hitMode": "avgHit",
+              "reaction": "melt",
+              "bonusStats": {
+                "atk": 848.791,
+                "all_dmg_": 40
+              },
+              "description": ""
+            },
+            {
+              "weight": 0.0494,
+              "path": [
+                "burst",
+                "dmg"
+              ],
+              "hitMode": "avgHit",
+              "bonusStats": {
+                "atk": 848.791,
+                "all_dmg_": 40
+              },
+              "description": ""
+            },
+            {
+              "weight": 0.4265,
+              "path": [
+                "charged",
+                "frostflake"
+              ],
+              "hitMode": "avgHit",
+              "reaction": "melt",
+              "infusionAura": "cryo",
+              "bonusStats": {
+                "atk": 848.791,
+                "all_dmg_": 68,
+                "critRate_": 20
+              },
+              "description": ""
+            },
+            {
+              "weight": 0.431,
+              "path": [
+                "skill",
+                "dmg"
+              ],
+              "hitMode": "avgHit",
+              "reaction": "melt",
+              "bonusStats": {
+                "atk": 548.791,
+                "all_dmg_": 40
+              },
+              "description": ""
+            },
+            {
+              "weight": 0.0188,
+              "path": [
+                "burst",
+                "dmg"
+              ],
+              "hitMode": "avgHit",
+              "bonusStats": {
+                "atk": 848.791,
+                "all_dmg_": 40
+              },
+              "description": ""
+            },
+            {
+              "weight": 0.5089,
+              "path": [
+                "charged",
+                "frostflakeBloom"
+              ],
+              "hitMode": "avgHit",
+              "reaction": "melt",
+              "infusionAura": "cryo",
+              "bonusStats": {
+                "atk": 848.791,
+                "all_dmg_": 92,
+                "critRate_": 20
+              },
+              "description": ""
+            },
+            {
+              "weight": 0.155,
+              "path": [
+                "burst",
+                "dmg"
+              ],
+              "hitMode": "avgHit",
+              "reaction": "melt",
+              "bonusStats": {
+                "atk": 848.791,
+                "all_dmg_": 40
+              },
+              "description": ""
+            },
+            {
+              "weight": 0.0059,
+              "path": [
+                "burst",
+                "dmg"
+              ],
+              "hitMode": "avgHit",
+              "bonusStats": {
+                "atk": 848.791,
+                "all_dmg_": 40
+              },
+              "description": ""
+            },
+            {
+              "weight": 0.3949,
+              "path": [
+                "charged",
+                "frostflake"
+              ],
+              "hitMode": "avgHit",
+              "reaction": "melt",
+              "infusionAura": "cryo",
+              "bonusStats": {
+                "atk": 848.791,
+                "all_dmg_": 48,
+                "critRate_": 20
+              },
+              "description": ""
+            },
+            {
+              "weight": 0.5089,
+              "path": [
+                "charged",
+                "frostflakeBloom"
+              ],
+              "hitMode": "avgHit",
+              "reaction": "melt",
+              "infusionAura": "cryo",
+              "bonusStats": {
+                "atk": 848.791,
+                "all_dmg_": 72,
+                "critRate_": 20
+              },
+              "description": ""
+            },
+            {
+              "weight": 0.5017,
+              "path": [
+                "charged",
+                "frostflake"
+              ],
+              "hitMode": "avgHit",
+              "reaction": "melt",
+              "infusionAura": "cryo",
+              "bonusStats": {
+                "atk": 848.791,
+                "all_dmg_": 48,
+                "critRate_": 20
+              },
+              "description": ""
+            },
+            {
+              "weight": 0.5089,
+              "path": [
+                "charged",
+                "frostflakeBloom"
+              ],
+              "hitMode": "avgHit",
+              "reaction": "melt",
+              "infusionAura": "cryo",
+              "bonusStats": {
+                "atk": 848.791,
+                "all_dmg_": 72,
+                "critRate_": 20
+              },
+              "description": ""
+            },
+            {
+              "weight": 0.5143,
+              "path": [
+                "skill",
+                "dmg"
+              ],
+              "hitMode": "avgHit",
+              "reaction": "melt",
+              "bonusStats": {
+                "atk": 848.791,
+                "all_dmg_": 40
+              },
+              "description": ""
+            },
+            {
+              "weight": 0.5017,
+              "path": [
+                "charged",
+                "frostflake"
+              ],
+              "hitMode": "avgHit",
+              "reaction": "melt",
+              "infusionAura": "cryo",
+              "bonusStats": {
+                "atk": 848.791,
+                "all_dmg_": 48,
+                "critRate_": 20
+              },
+              "description": ""
+            },
+            {
+              "weight": 0.5089,
+              "path": [
+                "charged",
+                "frostflakeBloom"
+              ],
+              "hitMode": "avgHit",
+              "reaction": "melt",
+              "infusionAura": "cryo",
+              "bonusStats": {
+                "atk": 848.791,
+                "all_dmg_": 72,
+                "critRate_": 20
+              },
+              "description": ""
+            },
+            {
+              "weight": 0.5143,
+              "path": [
+                "skill",
+                "dmg"
+              ],
+              "hitMode": "avgHit",
+              "reaction": "melt",
+              "bonusStats": {
+                "atk": 848.791,
+                "all_dmg_": 40
+              },
+              "description": ""
+            },
+            {
+              "weight": 0.5017,
+              "path": [
+                "charged",
+                "frostflake"
+              ],
+              "hitMode": "avgHit",
+              "reaction": "melt",
+              "infusionAura": "cryo",
+              "bonusStats": {
+                "atk": 848.791,
+                "all_dmg_": 48,
+                "critRate_": 20
+              },
+              "description": ""
+            },
+            {
+              "weight": 0.5089,
+              "path": [
+                "charged",
+                "frostflakeBloom"
+              ],
+              "hitMode": "avgHit",
+              "reaction": "melt",
+              "infusionAura": "cryo",
+              "bonusStats": {
+                "atk": 848.791,
+                "all_dmg_": 72,
+                "critRate_": 20
+              },
+              "description": ""
+            },
+            {
+              "weight": 0.5143,
+              "path": [
+                "skill",
+                "dmg"
+              ],
+              "hitMode": "avgHit",
+              "reaction": "melt",
+              "bonusStats": {
+                "atk": 548.791,
+                "all_dmg_": 40
+              },
+              "description": ""
+            },
+            {
+              "weight": 0.5017,
+              "path": [
+                "charged",
+                "frostflake"
+              ],
+              "hitMode": "avgHit",
+              "reaction": "melt",
+              "infusionAura": "cryo",
+              "bonusStats": {
+                "atk": 548.791,
+                "all_dmg_": 48
+              },
+              "description": ""
+            },
+            {
+              "weight": 0.5089,
+              "path": [
+                "charged",
+                "frostflakeBloom"
+              ],
+              "hitMode": "avgHit",
+              "reaction": "melt",
+              "infusionAura": "cryo",
+              "bonusStats": {
+                "atk": 548.791,
+                "all_dmg_": 72
+              },
+              "description": ""
+            },
+            {
+              "weight": 0.5017,
+              "path": [
+                "charged",
+                "frostflake"
+              ],
+              "hitMode": "avgHit",
+              "reaction": "melt",
+              "infusionAura": "cryo",
+              "bonusStats": {
+                "atk": 848.791,
+                "all_dmg_": 48,
+                "critRate_": 20
+              },
+              "description": ""
+            },
+            {
+              "weight": 0.5089,
+              "path": [
+                "charged",
+                "frostflakeBloom"
+              ],
+              "hitMode": "avgHit",
+              "reaction": "melt",
+              "infusionAura": "cryo",
+              "bonusStats": {
+                "atk": 848.791,
+                "all_dmg_": 72,
+                "critRate_": 20
+              },
+              "description": ""
+            },
+            {
+              "weight": 0.5017,
+              "path": [
+                "charged",
+                "frostflake"
+              ],
+              "hitMode": "avgHit",
+              "reaction": "melt",
+              "infusionAura": "cryo",
+              "bonusStats": {
+                "atk": 848.791,
+                "all_dmg_": 48,
+                "critRate_": 20
+              },
+              "description": ""
+            },
+            {
+              "weight": 0.5143,
+              "path": [
+                "skill",
+                "dmg"
+              ],
+              "hitMode": "avgHit",
+              "reaction": "melt",
+              "bonusStats": {
+                "atk": 548.791,
+                "all_dmg_": 40
+              },
+              "description": ""
+            },
+            {
+              "weight": 0.5089,
+              "path": [
+                "charged",
+                "frostflakeBloom"
+              ],
+              "hitMode": "avgHit",
+              "reaction": "melt",
+              "infusionAura": "cryo",
+              "bonusStats": {
+                "atk": 848.791,
+                "all_dmg_": 72,
+                "critRate_": 20
+              },
+              "description": ""
+            },
+            {
+              "weight": 0.5017,
+              "path": [
+                "charged",
+                "frostflake"
+              ],
+              "hitMode": "avgHit",
+              "reaction": "melt",
+              "infusionAura": "cryo",
+              "bonusStats": {
+                "atk": 848.791,
+                "all_dmg_": 48,
+                "critRate_": 20
+              },
+              "description": ""
+            },
+            {
+              "weight": 0.5089,
+              "path": [
+                "charged",
+                "frostflakeBloom"
+              ],
+              "hitMode": "avgHit",
+              "reaction": "melt",
+              "infusionAura": "cryo",
+              "bonusStats": {
+                "atk": 848.791,
+                "all_dmg_": 72,
+                "critRate_": 20
+              },
+              "description": ""
+            },
+            {
+              "weight": 0.5017,
+              "path": [
+                "charged",
+                "frostflake"
+              ],
+              "hitMode": "avgHit",
+              "reaction": "melt",
+              "infusionAura": "cryo",
+              "bonusStats": {
+                "atk": 848.791,
+                "all_dmg_": 48,
+                "critRate_": 20
+              },
+              "description": ""
+            },
+            {
+              "weight": 0.4784,
+              "path": [
+                "charged",
+                "frostflakeBloom"
+              ],
+              "hitMode": "avgHit",
+              "reaction": "melt",
+              "infusionAura": "cryo",
+              "bonusStats": {
+                "atk": 848.791,
+                "all_dmg_": 72,
+                "critRate_": 20
+              },
+              "description": ""
+            },
+            {
+              "weight": 0.5143,
+              "path": [
+                "skill",
+                "dmg"
+              ],
+              "hitMode": "avgHit",
+              "reaction": "melt",
+              "bonusStats": {
+                "atk": 848.791,
+                "all_dmg_": 40
+              },
+              "description": ""
+            },
+            {
+              "weight": 0.4834,
+              "path": [
+                "skill",
+                "dmg"
+              ],
+              "hitMode": "avgHit",
+              "reaction": "melt",
+              "bonusStats": {
+                "atk": 848.791,
+                "all_dmg_": 40
+              },
+              "description": ""
+            },
+            {
+              "weight": 0.1052,
+              "path": [
+                "burst",
+                "dmg"
+              ],
+              "hitMode": "avgHit",
+              "bonusStats": {
+                "atk": 848.791,
+                "all_dmg_": 40
+              },
+              "description": ""
+            },
+            {
+              "weight": 0.1291,
+              "path": [
+                "burst",
+                "dmg"
+              ],
+              "hitMode": "avgHit",
+              "reaction": "melt",
+              "bonusStats": {
+                "atk": 848.791,
+                "all_dmg_": 40
+              },
+              "description": ""
+            },
+            {
+              "weight": 0.4197,
+              "path": [
+                "burst",
+                "dmg"
+              ],
+              "hitMode": "avgHit",
+              "bonusStats": {
+                "atk": 848.791,
+                "all_dmg_": 40
+              },
+              "description": ""
+            },
+            {
+              "weight": 0.0123,
+              "path": [
+                "burst",
+                "dmg"
+              ],
+              "hitMode": "avgHit",
+              "bonusStats": {
+                "atk": 848.791,
+                "all_dmg_": 40
+              },
+              "description": ""
+            },
+            {
+              "weight": 0.0775,
+              "path": [
+                "burst",
+                "dmg"
+              ],
+              "hitMode": "avgHit",
+              "reaction": "melt",
+              "bonusStats": {
+                "atk": 848.791,
+                "all_dmg_": 40
+              },
+              "description": ""
+            },
+            {
+              "weight": 0.0455,
+              "path": [
+                "burst",
+                "dmg"
+              ],
+              "hitMode": "avgHit",
+              "reaction": "melt",
+              "bonusStats": {
+                "atk": 848.791,
+                "all_dmg_": 40
+              },
+              "description": ""
+            },
+            {
+              "weight": 0.1234,
+              "path": [
+                "burst",
+                "dmg"
+              ],
+              "hitMode": "avgHit",
+              "bonusStats": {
+                "atk": 848.791,
+                "all_dmg_": 40
+              },
+              "description": ""
+            },
+            {
+              "weight": 0.1545,
+              "path": [
+                "burst",
+                "dmg"
+              ],
+              "hitMode": "avgHit",
+              "bonusStats": {
+                "atk": 848.791,
+                "all_dmg_": 40
+              },
+              "description": ""
+            },
+            {
+              "weight": 0.0123,
+              "path": [
+                "burst",
+                "dmg"
+              ],
+              "hitMode": "avgHit",
+              "bonusStats": {
+                "atk": 848.791,
+                "all_dmg_": 40
+              },
+              "description": ""
+            },
+            {
+              "weight": 0.0842,
+              "path": [
+                "burst",
+                "dmg"
+              ],
+              "hitMode": "avgHit",
+              "reaction": "melt",
+              "bonusStats": {
+                "atk": 848.791,
+                "all_dmg_": 40
+              },
+              "description": ""
+            },
+            {
+              "weight": 0.0258,
+              "path": [
+                "burst",
+                "dmg"
+              ],
+              "hitMode": "avgHit",
+              "reaction": "melt",
+              "bonusStats": {
+                "atk": 848.791,
+                "all_dmg_": 40
+              },
+              "description": ""
+            },
+            {
+              "weight": 0.0517,
+              "path": [
+                "burst",
+                "dmg"
+              ],
+              "hitMode": "avgHit",
+              "reaction": "melt",
+              "bonusStats": {
+                "atk": 848.791,
+                "all_dmg_": 40
+              },
+              "description": ""
+            },
+            {
+              "weight": 0.0741,
+              "path": [
+                "burst",
+                "dmg"
+              ],
+              "hitMode": "avgHit",
+              "bonusStats": {
+                "atk": 848.791,
+                "all_dmg_": 40
+              },
+              "description": ""
+            },
+            {
+              "weight": 0.0544,
+              "path": [
+                "charged",
+                "frostflake"
+              ],
+              "hitMode": "avgHit",
+              "infusionAura": "cryo",
+              "bonusStats": {
+                "atk": 548.791,
+                "all_dmg_": 68
+              },
+              "description": ""
+            },
+            {
+              "weight": 0.1488,
+              "path": [
+                "burst",
+                "dmg"
+              ],
+              "hitMode": "avgHit",
+              "reaction": "melt",
+              "bonusStats": {
+                "atk": 848.791,
+                "all_dmg_": 40
+              },
+              "description": ""
+            },
+            {
+              "weight": 0.1792,
+              "path": [
+                "burst",
+                "dmg"
+              ],
+              "hitMode": "avgHit",
+              "bonusStats": {
+                "atk": 848.791,
+                "all_dmg_": 40
+              },
+              "description": ""
+            },
+            {
+              "weight": 0.2134,
+              "path": [
+                "burst",
+                "dmg"
+              ],
+              "hitMode": "avgHit",
+              "reaction": "melt",
+              "bonusStats": {
+                "atk": 848.791,
+                "all_dmg_": 40
+              },
+              "description": ""
+            },
+            {
+              "weight": 0.0517,
+              "path": [
+                "burst",
+                "dmg"
+              ],
+              "hitMode": "avgHit",
+              "reaction": "melt",
+              "bonusStats": {
+                "atk": 848.791,
+                "all_dmg_": 40
+              },
+              "description": ""
+            },
+            {
+              "weight": 0.2198,
+              "path": [
+                "charged",
+                "frostflake"
+              ],
+              "hitMode": "avgHit",
+              "reaction": "melt",
+              "infusionAura": "cryo",
+              "bonusStats": {
+                "atk": 848.791,
+                "all_dmg_": 68,
+                "critRate_": 20
+              },
+              "description": ""
+            },
+            {
+              "weight": 0.0212,
+              "path": [
+                "burst",
+                "dmg"
+              ],
+              "hitMode": "avgHit",
+              "reaction": "melt",
+              "bonusStats": {
+                "atk": 848.791,
+                "all_dmg_": 40
+              },
+              "description": ""
+            },
+            {
+              "weight": 0.0435,
+              "path": [
+                "burst",
+                "dmg"
+              ],
+              "hitMode": "avgHit",
+              "bonusStats": {
+                "atk": 848.791,
+                "all_dmg_": 40
+              },
+              "description": ""
+            },
+            {
+              "weight": 0.0723,
+              "path": [
+                "charged",
+                "frostflake"
+              ],
+              "hitMode": "avgHit",
+              "infusionAura": "cryo",
+              "bonusStats": {
+                "atk": 848.791,
+                "all_dmg_": 68,
+                "critRate_": 20
+              },
+              "description": ""
+            },
+            {
+              "weight": 0.0494,
+              "path": [
+                "burst",
+                "dmg"
+              ],
+              "hitMode": "avgHit",
+              "bonusStats": {
+                "atk": 848.791,
+                "all_dmg_": 40
+              },
+              "description": ""
+            },
+            {
+              "weight": 0.1026,
+              "path": [
+                "charged",
+                "frostflake"
+              ],
+              "hitMode": "avgHit",
+              "infusionAura": "cryo",
+              "bonusStats": {
+                "atk": 848.791,
+                "all_dmg_": 48,
+                "critRate_": 20
+              },
+              "description": ""
+            },
+            {
+              "weight": 0.0188,
+              "path": [
+                "burst",
+                "dmg"
+              ],
+              "hitMode": "avgHit",
+              "bonusStats": {
+                "atk": 848.791,
+                "all_dmg_": 40
+              },
+              "description": ""
+            },
+            {
+              "weight": 0.0356,
+              "path": [
+                "burst",
+                "dmg"
+              ],
+              "hitMode": "avgHit",
+              "bonusStats": {
+                "atk": 848.791,
+                "all_dmg_": 40
+              },
+              "description": ""
+            },
+            {
+              "weight": 0.5166,
+              "path": [
+                "burst",
+                "dmg"
+              ],
+              "hitMode": "avgHit",
+              "reaction": "melt",
+              "bonusStats": {
+                "atk": 848.791,
+                "all_dmg_": 40
+              },
+              "description": ""
+            },
+            {
+              "weight": 0.4938,
+              "path": [
+                "burst",
+                "dmg"
+              ],
+              "hitMode": "avgHit",
+              "bonusStats": {
+                "atk": 848.791,
+                "all_dmg_": 40
+              },
+              "description": ""
+            },
+            {
+              "weight": 0.3703,
+              "path": [
+                "burst",
+                "dmg"
+              ],
+              "hitMode": "avgHit",
+              "bonusStats": {
+                "atk": 848.791,
+                "all_dmg_": 40
+              },
+              "description": ""
+            },
+            {
+              "weight": 0.2066,
+              "path": [
+                "burst",
+                "dmg"
+              ],
+              "hitMode": "avgHit",
+              "reaction": "melt",
+              "bonusStats": {
+                "atk": 848.791,
+                "all_dmg_": 40
+              },
+              "description": ""
+            },
+            {
+              "weight": 0.4066,
+              "path": [
+                "burst",
+                "dmg"
+              ],
+              "hitMode": "avgHit",
+              "reaction": "melt",
+              "bonusStats": {
+                "atk": 848.791,
+                "all_dmg_": 40
+              },
+              "description": ""
+            },
+            {
+              "weight": 0.0805,
+              "path": [
+                "burst",
+                "dmg"
+              ],
+              "hitMode": "avgHit",
+              "bonusStats": {
+                "atk": 848.791,
+                "all_dmg_": 40
+              },
+              "description": ""
+            },
+            {
+              "weight": 0.2286,
+              "path": [
+                "burst",
+                "dmg"
+              ],
+              "hitMode": "avgHit",
+              "bonusStats": {
+                "atk": 848.791,
+                "all_dmg_": 40
+              },
+              "description": ""
+            },
+            {
+              "weight": 0.1669,
+              "path": [
+                "burst",
+                "dmg"
+              ],
+              "hitMode": "avgHit",
+              "bonusStats": {
+                "atk": 848.791,
+                "all_dmg_": 40
+              },
+              "description": ""
+            },
+            {
+              "weight": 0.0775,
+              "path": [
+                "burst",
+                "dmg"
+              ],
+              "hitMode": "avgHit",
+              "reaction": "melt",
+              "bonusStats": {
+                "atk": 848.791,
+                "all_dmg_": 40
+              },
+              "description": ""
+            },
+            {
+              "weight": 0.0196,
+              "path": [
+                "burst",
+                "dmg"
+              ],
+              "hitMode": "avgHit",
+              "reaction": "melt",
+              "bonusStats": {
+                "atk": 848.791,
+                "all_dmg_": 40
+              },
+              "description": ""
+            },
+            {
+              "weight": 0.037,
+              "path": [
+                "burst",
+                "dmg"
+              ],
+              "hitMode": "avgHit",
+              "bonusStats": {
+                "atk": 848.791,
+                "all_dmg_": 40
+              },
+              "description": ""
+            },
+            {
+              "weight": 0.0741,
+              "path": [
+                "burst",
+                "dmg"
+              ],
+              "hitMode": "avgHit",
+              "bonusStats": {
+                "atk": 848.791,
+                "all_dmg_": 40
+              },
+              "description": ""
+            },
+            {
+              "weight": 0.1359,
+              "path": [
+                "burst",
+                "dmg"
+              ],
+              "hitMode": "avgHit",
+              "reaction": "melt",
+              "bonusStats": {
+                "atk": 848.791,
+                "all_dmg_": 40
+              },
+              "description": ""
+            },
+            {
+              "weight": 0.3549,
+              "path": [
+                "burst",
+                "dmg"
+              ],
+              "hitMode": "avgHit",
+              "reaction": "melt",
+              "bonusStats": {
+                "atk": 848.791,
+                "all_dmg_": 40
+              },
+              "description": ""
+            },
+            {
+              "weight": 0.0904,
+              "path": [
+                "burst",
+                "dmg"
+              ],
+              "hitMode": "avgHit",
+              "reaction": "melt",
+              "bonusStats": {
+                "atk": 848.791,
+                "all_dmg_": 40
+              },
+              "description": ""
+            },
+            {
+              "weight": 0.4938,
+              "path": [
+                "burst",
+                "dmg"
+              ],
+              "hitMode": "avgHit",
+              "bonusStats": {
+                "atk": 848.791,
+                "all_dmg_": 40
+              },
+              "description": ""
+            },
+            {
+              "weight": 0.2098,
+              "path": [
+                "burst",
+                "dmg"
+              ],
+              "hitMode": "avgHit",
+              "bonusStats": {
+                "atk": 848.791,
+                "all_dmg_": 40
+              },
+              "description": ""
+            },
+            {
+              "weight": 0.0196,
+              "path": [
+                "burst",
+                "dmg"
+              ],
+              "hitMode": "avgHit",
+              "reaction": "melt",
+              "bonusStats": {
+                "atk": 848.791,
+                "all_dmg_": 40
+              },
+              "description": ""
+            },
+            {
+              "weight": 0.0311,
+              "path": [
+                "burst",
+                "dmg"
+              ],
+              "hitMode": "avgHit",
+              "bonusStats": {
+                "atk": 848.791,
+                "all_dmg_": 40
+              },
+              "description": ""
+            },
+            {
+              "weight": 0.0494,
+              "path": [
+                "burst",
+                "dmg"
+              ],
+              "hitMode": "avgHit",
+              "bonusStats": {
+                "atk": 848.791,
+                "all_dmg_": 40
+              },
+              "description": ""
+            }
+          ]
+        }
+      ],
+      "optConfig": {
+        "optimizationTarget": [
+          "custom",
+          "0"
+        ]
+      },
+      "buildTcs": [
+        {
+          "name": "Celestia",
+          "description": "The leaderboard reference build.",
+          "characterKey": "Ganyu",
+          "character": {
+            "level": 90,
+            "ascension": 6,
+            "constellation": 0,
+            "talent": {
+              "auto": 10,
+              "skill": 10,
+              "burst": 10
+            }
+          },
+          "weapon": {
+            "key": "AmosBow",
+            "level": 90,
+            "ascension": 6,
+            "refinement": 1
+          },
+          "artifact": {
+            "sets": {
+              "WanderersTroupe": 5
+            },
+            "slots": {
+              "flower": {
+                "level": 20,
+                "rarity": 5,
+                "statKey": "hp"
+              },
+              "plume": {
+                "level": 20,
+                "rarity": 5,
+                "statKey": "atk"
+              },
+              "sands": {
+                "level": 20,
+                "rarity": 5,
+                "statKey": "eleMas"
+              },
+              "goblet": {
+                "level": 20,
+                "rarity": 5,
+                "statKey": "cryo_dmg_"
+              },
+              "circlet": {
+                "level": 20,
+                "rarity": 5,
+                "statKey": "critRate_"
+              }
+            },
+            "substats": {
+              "type": "max",
+              "rarity": 5,
+              "stats": {
+                "def": 39.35,
+                "def_": 12.39,
+                "eleMas": 79.26,
+                "critRate_": 33.05,
+                "critDMG_": 79.26,
+                "hp": 507.88,
+                "hp_": 9.91,
+                "enerRech_": 11.01,
+                "atk": 33.07,
+                "atk_": 9.91
+              }
+            }
+          },
+          "optimization": {
+            "distributedSubstats": 0,
+            "maxSubstats": {}
+          }
+        }
+      ]
+    },
+    {
+      "key": "Nicole",
+      "name": "Nicole (Celestia)",
+      "description": "",
+      "hitMode": "avgHit",
+      "infusionAura": "",
+      "bonusStats": {},
+      "conditional": {},
+      "customMultiTargets": [],
+      "buildTcs": [
+        {
+          "name": "Celestia",
+          "description": "Celestia teammate assumption (85% of the maximum).",
+          "characterKey": "Nicole",
+          "character": {
+            "level": 90,
+            "ascension": 6,
+            "constellation": 0,
+            "talent": {
+              "auto": 10,
+              "skill": 10,
+              "burst": 10
+            }
+          },
+          "weapon": {
+            "key": "OathswornEye",
+            "level": 90,
+            "ascension": 6,
+            "refinement": 5
+          },
+          "artifact": {
+            "sets": {
+              "CelestialGift": 4
+            },
+            "slots": {
+              "flower": {
+                "level": 20,
+                "rarity": 5,
+                "statKey": "hp"
+              },
+              "plume": {
+                "level": 20,
+                "rarity": 5,
+                "statKey": "atk"
+              },
+              "sands": {
+                "level": 20,
+                "rarity": 5,
+                "statKey": "atk_"
+              },
+              "goblet": {
+                "level": 20,
+                "rarity": 5,
+                "statKey": "atk_"
+              },
+              "circlet": {
+                "level": 20,
+                "rarity": 5,
+                "statKey": "atk_"
+              }
+            },
+            "substats": {
+              "type": "max",
+              "rarity": 5,
+              "stats": {
+                "hp": 507.88,
+                "atk": 165.4,
+                "def": 39.36,
+                "hp_": 9.92,
+                "atk_": 29.76,
+                "def_": 12.4,
+                "eleMas": 39.64,
+                "enerRech_": 11.02,
+                "critRate_": 19.86,
+                "critDMG_": 39.72
+              }
+            }
+          },
+          "optimization": {
+            "distributedSubstats": 0,
+            "maxSubstats": {}
+          }
+        }
+      ]
+    },
+    {
+      "key": "Durin",
+      "name": "Durin (Celestia)",
+      "description": "",
+      "hitMode": "avgHit",
+      "infusionAura": "",
+      "bonusStats": {},
+      "conditional": {},
+      "customMultiTargets": [],
+      "buildTcs": [
+        {
+          "name": "Celestia",
+          "description": "Celestia teammate assumption (85% of the maximum).",
+          "characterKey": "Durin",
+          "character": {
+            "level": 90,
+            "ascension": 6,
+            "constellation": 0,
+            "talent": {
+              "auto": 10,
+              "skill": 10,
+              "burst": 10
+            }
+          },
+          "weapon": {
+            "key": "WolfFang",
+            "level": 90,
+            "ascension": 6,
+            "refinement": 5
+          },
+          "artifact": {
+            "sets": {
+              "ADayCarvedFromRisingWinds": 4
+            },
+            "slots": {
+              "flower": {
+                "level": 20,
+                "rarity": 5,
+                "statKey": "hp"
+              },
+              "plume": {
+                "level": 20,
+                "rarity": 5,
+                "statKey": "atk"
+              },
+              "sands": {
+                "level": 20,
+                "rarity": 5,
+                "statKey": "atk_"
+              },
+              "goblet": {
+                "level": 20,
+                "rarity": 5,
+                "statKey": "pyro_dmg_"
+              },
+              "circlet": {
+                "level": 20,
+                "rarity": 5,
+                "statKey": "critDMG_"
+              }
+            },
+            "substats": {
+              "type": "max",
+              "rarity": 5,
+              "stats": {
+                "hp": 507.88,
+                "atk": 165.4,
+                "def": 39.36,
+                "hp_": 9.92,
+                "atk_": 49.6,
+                "def_": 12.4,
+                "eleMas": 39.64,
+                "enerRech_": 11.02,
+                "critRate_": 19.86,
+                "critDMG_": 13.24
+              }
+            }
+          },
+          "optimization": {
+            "distributedSubstats": 0,
+            "maxSubstats": {}
+          }
+        }
+      ]
+    },
+    {
+      "key": "Emilie",
+      "name": "Emilie (Celestia)",
+      "description": "",
+      "hitMode": "avgHit",
+      "infusionAura": "",
+      "bonusStats": {},
+      "conditional": {},
+      "customMultiTargets": [],
+      "buildTcs": [
+        {
+          "name": "Celestia",
+          "description": "Celestia teammate assumption (85% of the maximum).",
+          "characterKey": "Emilie",
+          "character": {
+            "level": 90,
+            "ascension": 6,
+            "constellation": 0,
+            "talent": {
+              "auto": 10,
+              "skill": 10,
+              "burst": 10
+            }
+          },
+          "weapon": {
+            "key": "Deathmatch",
+            "level": 90,
+            "ascension": 6,
+            "refinement": 5
+          },
+          "artifact": {
+            "sets": {
+              "UnfinishedReverie": 4
+            },
+            "slots": {
+              "flower": {
+                "level": 20,
+                "rarity": 5,
+                "statKey": "hp"
+              },
+              "plume": {
+                "level": 20,
+                "rarity": 5,
+                "statKey": "atk"
+              },
+              "sands": {
+                "level": 20,
+                "rarity": 5,
+                "statKey": "atk_"
+              },
+              "goblet": {
+                "level": 20,
+                "rarity": 5,
+                "statKey": "dendro_dmg_"
+              },
+              "circlet": {
+                "level": 20,
+                "rarity": 5,
+                "statKey": "critDMG_"
+              }
+            },
+            "substats": {
+              "type": "max",
+              "rarity": 5,
+              "stats": {
+                "hp": 1015.76,
+                "atk": 33.08,
+                "def": 39.36,
+                "hp_": 9.92,
+                "atk_": 9.92,
+                "def_": 12.4,
+                "eleMas": 39.64,
+                "enerRech_": 11.02,
+                "critRate_": 39.72,
+                "critDMG_": 66.2
+              }
+            }
+          },
+          "optimization": {
+            "distributedSubstats": 0,
+            "maxSubstats": {}
+          }
+        }
+      ]
+    }
+  ]
+}

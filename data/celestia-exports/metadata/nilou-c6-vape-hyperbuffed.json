@@ -1,0 +1,130 @@
+{
+  "category": {
+    "id": "nilou-c6-vape-hyperbuffed",
+    "name": "C6 Vape",
+    "kind": "normal"
+  },
+  "child": {
+    "constellation": 6,
+    "characterLevel": 90,
+    "talents": {
+      "burst": 13,
+      "skill": 13,
+      "normal": 10
+    },
+    "baseTalents": {
+      "burst": 10,
+      "skill": 10,
+      "normal": 10
+    },
+    "weaponId": 11511,
+    "refinement": 5
+  },
+  "reference": {
+    "source": "ceilingStandard"
+  },
+  "goConditions": {
+    "KeyOfKhajNisut": {
+      "afterSkill": "1"
+    }
+  },
+  "characterBonusStats": {
+    "hp_": 65,
+    "eleMas": 320
+  },
+  "enemy": {
+    "level": 100,
+    "res": 0.1
+  },
+  "issues": [
+    {
+      "code": "characterBonusStats",
+      "stats": [
+        {
+          "buff": "Bait-and-Switch",
+          "key": "hp_",
+          "value": 40
+        },
+        {
+          "buff": "Yamaarashi Tailwind",
+          "key": "eleMas",
+          "value": 200
+        },
+        {
+          "buff": "Instructor 4pc EM",
+          "key": "eleMas",
+          "value": 120
+        },
+        {
+          "buff": "Hydro Resonance",
+          "key": "hp_",
+          "value": 25
+        }
+      ]
+    },
+    {
+      "code": "selfScaling",
+      "buffs": [
+        "Sunken Song of the Sands"
+      ]
+    },
+    {
+      "code": "goSwitch",
+      "switches": [
+        {
+          "condition": [
+            "KeyOfKhajNisut",
+            "afterSkill",
+            "1"
+          ],
+          "source": {
+            "type": "weapon",
+            "weaponId": 11511
+          },
+          "buffs": [
+            "Sunken Song of the Sands"
+          ]
+        }
+      ]
+    },
+    {
+      "code": "setEffects",
+      "setIds": [
+        14003
+      ]
+    }
+  ],
+  "teamIssues": [
+    {
+      "code": "selfScaling",
+      "buffs": [
+        "Sunken Song of the Sands"
+      ]
+    },
+    {
+      "code": "goSwitch",
+      "switches": [
+        {
+          "condition": [
+            "KeyOfKhajNisut",
+            "afterSkill",
+            "1"
+          ],
+          "source": {
+            "type": "weapon",
+            "weaponId": 11511
+          },
+          "buffs": [
+            "Sunken Song of the Sands"
+          ]
+        }
+      ]
+    },
+    {
+      "code": "setEffects",
+      "setIds": [
+        14003
+      ]
+    }
+  ]
+}

@@ -1,0 +1,123 @@
+{
+  "category": {
+    "id": "keqing-overload-c6",
+    "name": "C6 Chevreuse Overload",
+    "kind": "normal"
+  },
+  "child": {
+    "constellation": 6,
+    "characterLevel": 90,
+    "talents": {
+      "burst": 13,
+      "skill": 13,
+      "normal": 10
+    },
+    "baseTalents": {
+      "burst": 10,
+      "skill": 10,
+      "normal": 10
+    },
+    "weaponId": 11522,
+    "refinement": 1
+  },
+  "reference": {
+    "source": "ceilingStandard"
+  },
+  "goConditions": {
+    "Keqing": {
+      "afterRecast": "afterRecast"
+    }
+  },
+  "characterBonusStats": {
+    "atk": 875.996,
+    "atk_": 61.271
+  },
+  "enemy": {
+    "level": 100,
+    "res": 0.1
+  },
+  "issues": [
+    {
+      "code": "skippedLines",
+      "reason": "teammate",
+      "lines": 2,
+      "share": 0.0616615275762034
+    },
+    {
+      "code": "characterBonusStats",
+      "stats": [
+        {
+          "buff": "\"I Will Guide You and Show You the Path You Should Tread\"",
+          "key": "atk",
+          "value": 300
+        },
+        {
+          "buff": "Pyro Resonance",
+          "key": "atk_",
+          "value": 25
+        },
+        {
+          "buff": "Grace of Kenosis (% of Nicole's ATK)",
+          "key": "atk",
+          "value": 575.9957275621548
+        },
+        {
+          "buff": "Chevreuse A4 ATK (Pyro/Electro)",
+          "key": "atk_",
+          "value": 36.27084972703511
+        }
+      ]
+    },
+    {
+      "code": "goSwitch",
+      "switches": [
+        {
+          "condition": [
+            "Keqing",
+            "afterRecast",
+            "afterRecast"
+          ],
+          "source": {
+            "type": "character"
+          },
+          "buffs": [
+            "Aristocratic Dignity"
+          ]
+        }
+      ]
+    }
+  ],
+  "teamIssues": [
+    {
+      "code": "skippedLines",
+      "reason": "teammate",
+      "lines": 2,
+      "share": 0.061918038713231816
+    },
+    {
+      "code": "goSwitch",
+      "switches": [
+        {
+          "condition": [
+            "Keqing",
+            "afterRecast",
+            "afterRecast"
+          ],
+          "source": {
+            "type": "character"
+          },
+          "buffs": [
+            "Aristocratic Dignity"
+          ]
+        }
+      ]
+    },
+    {
+      "code": "setEffects",
+      "setIds": [
+        15044,
+        15005
+      ]
+    }
+  ]
+}

@@ -1,0 +1,106 @@
+{
+  "category": {
+    "id": "ganyu-nuke",
+    "name": "Nuke",
+    "kind": "nuke"
+  },
+  "child": {
+    "constellation": 0,
+    "characterLevel": 90,
+    "talents": {
+      "burst": 10,
+      "skill": 10,
+      "normal": 10
+    },
+    "baseTalents": {
+      "burst": 10,
+      "skill": 10,
+      "normal": 10
+    },
+    "weaponId": 15502,
+    "refinement": 1
+  },
+  "reference": {
+    "source": "ceilingStandard"
+  },
+  "goConditions": null,
+  "characterBonusStats": {
+    "atk": 2316.721,
+    "atk_": 93
+  },
+  "enemy": {
+    "level": 90,
+    "res": -1.4
+  },
+  "issues": [
+    {
+      "code": "characterBonusStats",
+      "stats": [
+        {
+          "buff": "Methexis",
+          "key": "atk",
+          "value": 300
+        },
+        {
+          "buff": "\"I Will Guide You and Show You the Path You Should Tread\"",
+          "key": "atk",
+          "value": 300
+        },
+        {
+          "buff": "Gilded Hall ATK",
+          "key": "atk",
+          "value": 372
+        },
+        {
+          "buff": "Noblesse Oblige 4pc",
+          "key": "atk_",
+          "value": 20
+        },
+        {
+          "buff": "Pyro Resonance",
+          "key": "atk_",
+          "value": 25
+        },
+        {
+          "buff": "Grace of Kenosis (% of Nicole's ATK)",
+          "key": "atk",
+          "value": 708
+        },
+        {
+          "buff": "Waters in Full Splendor",
+          "key": "atk",
+          "value": 636.7209055576895
+        },
+        {
+          "buff": "Rondo of Slumber",
+          "key": "atk_",
+          "value": 48
+        }
+      ]
+    },
+    {
+      "code": "setEffects",
+      "setIds": [
+        15019
+      ]
+    }
+  ],
+  "teamIssues": [
+    {
+      "code": "characterBonusStats",
+      "stats": [
+        {
+          "buff": "Gilded Hall ATK",
+          "key": "atk",
+          "value": 372
+        }
+      ]
+    },
+    {
+      "code": "setEffects",
+      "setIds": [
+        15019
+      ]
+    }
+  ]
+}

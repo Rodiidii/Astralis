@@ -1,0 +1,216 @@
+[
+  {
+    "id": "alice",
+    "name": "Alice",
+    "region": "Autres",
+    "faction": "Hexenzirkel",
+    "page": "Alice",
+    "aliases": [
+      "Alice",
+      "A"
+    ],
+    "portrait": "./assets/relations/lore/alice.webp",
+    "image": "https://static.wikia.nocookie.net/gensin-impact/images/4/40/NPC_Alice.png/revision/latest/scale-to-width-down/124?cb=20251219155802"
+  },
+  {
+    "id": "dottore",
+    "name": "Il Dottore",
+    "region": "Snezhnaya",
+    "faction": "Fatui",
+    "page": "Dottore",
+    "aliases": [
+      "Dottore",
+      "Il Dottore",
+      "The Doctor",
+      "Le Docteur",
+      "Zandik"
+    ],
+    "portrait": "./assets/relations/lore/dottore.webp",
+    "image": "https://static.wikia.nocookie.net/gensin-impact/images/1/10/NPC_Il_Dottore.png/revision/latest/scale-to-width-down/100?cb=20230627163347"
+  },
+  {
+    "id": "dainsleif",
+    "name": "Dainsleif",
+    "region": "Khaenri’ah",
+    "faction": "Garde royale de Khaenri’ah",
+    "page": "Dainsleif",
+    "aliases": [
+      "Dainsleif",
+      "Dain",
+      "Twilight Sword"
+    ],
+    "portrait": "./assets/relations/lore/dainsleif.webp",
+    "image": "https://static.wikia.nocookie.net/gensin-impact/images/a/a0/Dainsleif_Card.png/revision/latest/scale-to-width-down/71?cb=20260725020702"
+  },
+  {
+    "id": "capitano",
+    "name": "Il Capitano",
+    "region": "Snezhnaya",
+    "faction": "Fatui",
+    "page": "Capitano",
+    "aliases": [
+      "Capitano",
+      "Il Capitano",
+      "The Captain",
+      "Le Capitaine",
+      "Thrain"
+    ],
+    "portrait": "./assets/media/lore-characters/capitano.webp"
+  },
+  {
+    "id": "ronova",
+    "name": "Ronova",
+    "region": "Autres",
+    "faction": "Ombres des Principes célestes",
+    "page": "Ronova",
+    "aliases": [
+      "Ronova",
+      "Ruler of Death",
+      "Ombre de la Mort"
+    ],
+    "portrait": "./assets/media/lore-characters/ronova.png"
+  },
+  {
+    "id": "paimon",
+    "name": "Paimon",
+    "region": "Autres",
+    "page": "Paimon",
+    "aliases": [
+      "Paimon"
+    ],
+    "portrait": "./assets/relations/lore/paimon.png",
+    "image": "https://static.wikia.nocookie.net/gensin-impact/images/7/79/NPC_Paimon.png/revision/latest/scale-to-width-down/101?cb=20231207143716"
+  },
+  {
+    "id": "istaroth",
+    "name": "Istaroth",
+    "region": "Autres",
+    "faction": "Ombres des Principes célestes",
+    "page": "Istaroth",
+    "aliases": [
+      "Istaroth",
+      "Kairos",
+      "Ruler of Time"
+    ],
+    "portrait": "./assets/media/lore-characters/istaroth.jpg"
+  },
+  {
+    "id": "pierro",
+    "name": "Pierro",
+    "region": "Snezhnaya",
+    "faction": "Fatui",
+    "page": "Pierro",
+    "aliases": [
+      "Pierro",
+      "The Jester",
+      "Le Bouffon"
+    ],
+    "portrait": "./assets/relations/lore/pierro.webp",
+    "image": "https://static.wikia.nocookie.net/gensin-impact/images/6/6c/NPC_Pierro.png/revision/latest/scale-to-width-down/105?cb=20260813045251"
+  },
+  {
+    "id": "rhinedottir",
+    "name": "Rhinedottir",
+    "region": "Khaenri’ah",
+    "faction": "Hexenzirkel",
+    "page": "Rhinedottir",
+    "aliases": [
+      "Rhinedottir",
+      "Gold",
+      "Or"
+    ],
+    "portrait": "./assets/relations/lore/rhinedottir.webp",
+    "image": "https://static.wikia.nocookie.net/gensin-impact/images/8/82/NPC_Rhinedottir.png/revision/latest/scale-to-width-down/102?cb=20260924065043"
+  },
+  {
+    "id": "tsaritsa",
+    "name": "La Tsarine",
+    "region": "Snezhnaya",
+    "faction": "Fatui",
+    "page": "Anastasya",
+    "aliases": [
+      "Tsaritsa",
+      "The Tsaritsa",
+      "La Tsaritsa",
+      "Her Majesty the Tsaritsa",
+      "La Tsarine",
+      "Tsarine",
+      "Anastasya",
+      "Anastasia",
+      "Anastasya Feodorovna Snezhnaya"
+    ],
+    "portrait": "./assets/relations/lore/tsaritsa.webp",
+    "image": "https://static.wikia.nocookie.net/gensin-impact/images/a/a2/Anastasya_Card.png/revision/latest/scale-to-width-down/75?cb=20261106040227"
+  },
+  {
+    "id": "danica",
+    "name": "Danica",
+    "region": "Snezhnaya",
+    "page": "Danica",
+    "aliases": [
+      "Danica",
+      "Danica Postelnitskaya"
+    ],
+    "portrait": "./assets/relations/lore/danica.webp"
+  },
+  {
+    "id": "focalors",
+    "name": "Focalors",
+    "region": "Fontaine",
+    "page": "Focalors",
+    "aliases": [
+      "Focalors"
+    ],
+    "portrait": "./assets/relations/lore/focalors.webp"
+  },
+  {
+    "id": "noy",
+    "name": "Noy",
+    "region": "Snezhnaya",
+    "page": "Noy",
+    "aliases": [
+      "Noy"
+    ],
+    "portrait": "./assets/relations/lore/noy.webp"
+  },
+  {
+    "id": "pantalone",
+    "name": "Pantalone",
+    "region": "Snezhnaya",
+    "page": "Pantalone",
+    "faction": "Fatui",
+    "aliases": [
+      "Pantalone",
+      "Regrator",
+      "The Regrator"
+    ],
+    "portrait": "./assets/relations/lore/pantalone.webp"
+  },
+  {
+    "id": "pulcinella",
+    "name": "Pulcinella",
+    "region": "Snezhnaya",
+    "page": "Pulcinella",
+    "faction": "Fatui",
+    "aliases": [
+      "Pulcinella",
+      "The Rooster",
+      "Le Coq"
+    ],
+    "portrait": "./assets/relations/lore/pulcinella.webp"
+  },
+  {
+    "id": "signora",
+    "name": "La Signora",
+    "region": "Snezhnaya",
+    "page": "Signora",
+    "faction": "Fatui",
+    "aliases": [
+      "Signora",
+      "La Signora",
+      "Rosalyne",
+      "The Fair Lady"
+    ],
+    "portrait": "./assets/relations/lore/signora.webp"
+  }
+]

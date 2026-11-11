@@ -1,0 +1,92 @@
+{
+  "category": {
+    "id": "yae-miko-off-field-triple-cryo-stellar-conduct",
+    "name": "Triple Cryo Off-field Stellar-Conduct",
+    "kind": "normal"
+  },
+  "child": {
+    "constellation": 0,
+    "characterLevel": 90,
+    "talents": {
+      "burst": 10,
+      "skill": 10,
+      "normal": 10
+    },
+    "baseTalents": {
+      "burst": 10,
+      "skill": 10,
+      "normal": 10
+    },
+    "weaponId": 14509,
+    "refinement": 1
+  },
+  "reference": {
+    "source": "ceilingStandard"
+  },
+  "goConditions": {
+    "YaeMiko": {
+      "lockRevelation": "on",
+      "lockStellarRadianceSc": "on"
+    },
+    "reaction": {
+      "polestarStacks": "9"
+    }
+  },
+  "characterBonusStats": null,
+  "enemy": {
+    "level": 100,
+    "res": 0.1
+  },
+  "issues": [
+    {
+      "code": "goSwitch",
+      "switches": [
+        {
+          "condition": [
+            "YaeMiko",
+            "lockRevelation",
+            "on"
+          ],
+          "source": {
+            "type": "character"
+          },
+          "buffs": [
+            "Enlightened Blessing"
+          ]
+        }
+      ]
+    },
+    {
+      "code": "setEffects",
+      "setIds": [
+        15046
+      ]
+    }
+  ],
+  "teamIssues": [
+    {
+      "code": "goSwitch",
+      "switches": [
+        {
+          "condition": [
+            "YaeMiko",
+            "lockRevelation",
+            "on"
+          ],
+          "source": {
+            "type": "character"
+          },
+          "buffs": [
+            "Enlightened Blessing"
+          ]
+        }
+      ]
+    },
+    {
+      "code": "setEffects",
+      "setIds": [
+        15046
+      ]
+    }
+  ]
+}

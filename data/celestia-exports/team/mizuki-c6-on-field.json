@@ -1,0 +1,696 @@
+{
+  "name": "C6 Dreamdrifter",
+  "description": "Celestia",
+  "lastEdit": 1794349131966,
+  "conditional": {
+    "resonance": {},
+    "reaction": {}
+  },
+  "enemyOverride": {
+    "enemyLevel": 100,
+    "enemyDefIgn_": 0,
+    "enemyDefRed_": 0,
+    "pyro_enemyRes_": 10,
+    "hydro_enemyRes_": 10,
+    "electro_enemyRes_": 10,
+    "cryo_enemyRes_": 10,
+    "anemo_enemyRes_": 10,
+    "geo_enemyRes_": 10,
+    "dendro_enemyRes_": 10,
+    "physical_enemyRes_": 10
+  },
+  "loadoutData": [
+    {
+      "key": "YumemizukiMizuki",
+      "name": "YumemizukiMizuki (Celestia)",
+      "description": "",
+      "hitMode": "avgHit",
+      "infusionAura": "",
+      "bonusStats": {
+        "eleMas": 120
+      },
+      "conditional": {
+        "YumemizukiMizuki": {
+          "a4Phec": "on",
+          "skillDream": "on",
+          "lockRevelation": "on",
+          "lockStellarRadiance": "ss"
+        },
+        "SunnyMorningSleepIn": {
+          "swirl": "on",
+          "afterSkill": "on",
+          "afterBurst": "on"
+        }
+      },
+      "customMultiTargets": [
+        {
+          "name": "C6 Dreamdrifter",
+          "description": "Celestia",
+          "targets": [
+            {
+              "weight": 1,
+              "path": [
+                "skill",
+                "skillDmg"
+              ],
+              "hitMode": "avgHit",
+              "bonusStats": {
+                "atk_": 62,
+                "eleMas": 280.959
+              },
+              "description": ""
+            },
+            {
+              "weight": 3.2,
+              "path": [
+                "skill",
+                "contDmg"
+              ],
+              "hitMode": "avgHit",
+              "bonusStats": {
+                "atk_": 62,
+                "eleMas": 280.959,
+                "critRate_": 15
+              },
+              "description": ""
+            },
+            {
+              "weight": 2.56,
+              "path": [
+                "skill",
+                "contDmg"
+              ],
+              "hitMode": "avgHit",
+              "bonusStats": {
+                "atk_": 62,
+                "eleMas": 280.959
+              },
+              "description": ""
+            },
+            {
+              "weight": 2.56,
+              "path": [
+                "skill",
+                "contDmg"
+              ],
+              "hitMode": "avgHit",
+              "bonusStats": {
+                "atk_": 62,
+                "eleMas": 280.959,
+                "all_dmgInc": 19143.223,
+                "critRate_": 15
+              },
+              "description": ""
+            },
+            {
+              "weight": 1.92,
+              "path": [
+                "constellation1",
+                "ssDmg"
+              ],
+              "hitMode": "avgHit",
+              "bonusStats": {
+                "atk_": 62,
+                "eleMas": 280.959,
+                "stellarswirl_baseDmg_": 7,
+                "stellarswirl_dmg_": 60,
+                "stellarswirl_critRate_": 10,
+                "stellarswirl_critDMG_": 20,
+                "critRate_": 15
+              },
+              "description": ""
+            },
+            {
+              "weight": 2.56,
+              "path": [
+                "lockedPassive",
+                "skillContSsDmg"
+              ],
+              "hitMode": "avgHit",
+              "bonusStats": {
+                "atk_": 62,
+                "eleMas": 280.959,
+                "stellarswirl_baseDmg_": 7,
+                "stellarswirl_dmg_": 60,
+                "stellarswirl_critRate_": 10,
+                "stellarswirl_critDMG_": 20,
+                "critRate_": 15
+              },
+              "description": ""
+            },
+            {
+              "weight": 0.5,
+              "path": [
+                "burst",
+                "skillDmg"
+              ],
+              "hitMode": "avgHit",
+              "bonusStats": {
+                "atk_": 62,
+                "eleMas": 280.959,
+                "critRate_": 15
+              },
+              "description": ""
+            },
+            {
+              "weight": 0.76,
+              "path": [
+                "burst",
+                "shockwaveDmg"
+              ],
+              "hitMode": "avgHit",
+              "bonusStats": {
+                "atk_": 62,
+                "eleMas": 280.959,
+                "critRate_": 15
+              },
+              "description": ""
+            },
+            {
+              "weight": 0.76,
+              "path": [
+                "burst",
+                "shockwaveDmg"
+              ],
+              "hitMode": "avgHit",
+              "bonusStats": {
+                "atk_": 62,
+                "eleMas": 280.959
+              },
+              "description": ""
+            },
+            {
+              "weight": 3.456,
+              "path": [
+                "reaction",
+                "stellarswirl"
+              ],
+              "hitMode": "avgHit",
+              "bonusStats": {
+                "atk_": 62,
+                "eleMas": 280.959,
+                "stellarswirl_baseDmg_": 7,
+                "stellarswirl_dmg_": 60,
+                "stellarswirl_critRate_": 10,
+                "stellarswirl_critDMG_": 20,
+                "critRate_": 15
+              },
+              "description": ""
+            },
+            {
+              "weight": 1.152,
+              "path": [
+                "reaction",
+                "stellarswirl"
+              ],
+              "hitMode": "avgHit",
+              "bonusStats": {
+                "atk_": 62,
+                "eleMas": 280.959,
+                "stellarswirl_baseDmg_": 7,
+                "stellarswirl_dmgInc": 10528.772,
+                "stellarswirl_dmg_": 60,
+                "stellarswirl_critRate_": 10,
+                "stellarswirl_critDMG_": 20,
+                "critRate_": 15
+              },
+              "description": ""
+            },
+            {
+              "weight": 0.7814,
+              "path": [
+                "reaction",
+                "stellarswirl_vortex1"
+              ],
+              "hitMode": "avgHit",
+              "bonusStats": {
+                "atk_": 62,
+                "eleMas": 280.959,
+                "stellarswirl_baseDmg_": 7,
+                "stellarswirl_dmg_": 60,
+                "stellarswirl_critRate_": 10,
+                "stellarswirl_critDMG_": 20,
+                "cryo_enemyRes_": -40,
+                "critRate_": 15
+              },
+              "description": ""
+            },
+            {
+              "weight": 0.3663,
+              "path": [
+                "reaction",
+                "stellarswirl_vortex1"
+              ],
+              "hitMode": "avgHit",
+              "bonusStats": {
+                "atk_": 62,
+                "eleMas": 280.959,
+                "stellarswirl_baseDmg_": 7,
+                "stellarswirl_dmg_": 60,
+                "stellarswirl_critRate_": 10,
+                "stellarswirl_critDMG_": 20,
+                "critRate_": 15
+              },
+              "description": ""
+            },
+            {
+              "weight": 1.8,
+              "path": [
+                "skill",
+                "contDmg"
+              ],
+              "hitMode": "avgHit",
+              "bonusStats": {
+                "atk_": 62,
+                "eleMas": 280.959,
+                "critRate_": 15
+              },
+              "description": ""
+            },
+            {
+              "weight": 1.44,
+              "path": [
+                "skill",
+                "contDmg"
+              ],
+              "hitMode": "avgHit",
+              "bonusStats": {
+                "atk_": 62,
+                "eleMas": 280.959
+              },
+              "description": ""
+            },
+            {
+              "weight": 1.44,
+              "path": [
+                "skill",
+                "contDmg"
+              ],
+              "hitMode": "avgHit",
+              "bonusStats": {
+                "atk_": 62,
+                "eleMas": 280.959,
+                "all_dmgInc": 19143.223,
+                "critRate_": 15
+              },
+              "description": ""
+            },
+            {
+              "weight": 1.08,
+              "path": [
+                "constellation1",
+                "ssDmg"
+              ],
+              "hitMode": "avgHit",
+              "bonusStats": {
+                "atk_": 62,
+                "eleMas": 280.959,
+                "stellarswirl_baseDmg_": 7,
+                "stellarswirl_dmg_": 60,
+                "stellarswirl_critRate_": 10,
+                "stellarswirl_critDMG_": 20,
+                "critRate_": 15
+              },
+              "description": ""
+            },
+            {
+              "weight": 1.44,
+              "path": [
+                "lockedPassive",
+                "skillContSsDmg"
+              ],
+              "hitMode": "avgHit",
+              "bonusStats": {
+                "atk_": 62,
+                "eleMas": 280.959,
+                "stellarswirl_baseDmg_": 7,
+                "stellarswirl_dmg_": 60,
+                "stellarswirl_critRate_": 10,
+                "stellarswirl_critDMG_": 20,
+                "critRate_": 15
+              },
+              "description": ""
+            },
+            {
+              "weight": 1.24,
+              "path": [
+                "burst",
+                "shockwaveDmg"
+              ],
+              "hitMode": "avgHit",
+              "bonusStats": {
+                "atk_": 62,
+                "eleMas": 280.959,
+                "critRate_": 15
+              },
+              "description": ""
+            },
+            {
+              "weight": 1.24,
+              "path": [
+                "burst",
+                "shockwaveDmg"
+              ],
+              "hitMode": "avgHit",
+              "bonusStats": {
+                "atk_": 62,
+                "eleMas": 280.959
+              },
+              "description": ""
+            },
+            {
+              "weight": 1.944,
+              "path": [
+                "reaction",
+                "stellarswirl"
+              ],
+              "hitMode": "avgHit",
+              "bonusStats": {
+                "atk_": 62,
+                "eleMas": 280.959,
+                "stellarswirl_baseDmg_": 7,
+                "stellarswirl_dmg_": 60,
+                "stellarswirl_critRate_": 10,
+                "stellarswirl_critDMG_": 20,
+                "critRate_": 15
+              },
+              "description": ""
+            },
+            {
+              "weight": 0.648,
+              "path": [
+                "reaction",
+                "stellarswirl"
+              ],
+              "hitMode": "avgHit",
+              "bonusStats": {
+                "atk_": 62,
+                "eleMas": 280.959,
+                "stellarswirl_baseDmg_": 7,
+                "stellarswirl_dmgInc": 10528.772,
+                "stellarswirl_dmg_": 60,
+                "stellarswirl_critRate_": 10,
+                "stellarswirl_critDMG_": 20,
+                "critRate_": 15
+              },
+              "description": ""
+            },
+            {
+              "weight": 0.693,
+              "path": [
+                "reaction",
+                "stellarswirl_vortex1"
+              ],
+              "hitMode": "avgHit",
+              "bonusStats": {
+                "atk_": 62,
+                "eleMas": 280.959,
+                "stellarswirl_baseDmg_": 7,
+                "stellarswirl_dmg_": 60,
+                "stellarswirl_critRate_": 10,
+                "stellarswirl_critDMG_": 20,
+                "cryo_enemyRes_": -40,
+                "critRate_": 15
+              },
+              "description": ""
+            },
+            {
+              "weight": 0.3248,
+              "path": [
+                "reaction",
+                "stellarswirl_vortex1"
+              ],
+              "hitMode": "avgHit",
+              "bonusStats": {
+                "atk_": 62,
+                "eleMas": 280.959,
+                "stellarswirl_baseDmg_": 7,
+                "stellarswirl_dmg_": 60,
+                "stellarswirl_critRate_": 10,
+                "stellarswirl_critDMG_": 20,
+                "critRate_": 15
+              },
+              "description": ""
+            }
+          ]
+        }
+      ],
+      "optConfig": {
+        "optimizationTarget": [
+          "custom",
+          "0"
+        ]
+      },
+      "buildTcs": [
+        {
+          "name": "Celestia",
+          "description": "The leaderboard reference build.",
+          "characterKey": "YumemizukiMizuki",
+          "character": {
+            "level": 90,
+            "ascension": 6,
+            "constellation": 6,
+            "talent": {
+              "auto": 10,
+              "skill": 10,
+              "burst": 10
+            }
+          },
+          "weapon": {
+            "key": "SunnyMorningSleepIn",
+            "level": 90,
+            "ascension": 6,
+            "refinement": 1
+          },
+          "artifact": {
+            "sets": {
+              "GildedDreams": 5
+            },
+            "slots": {
+              "flower": {
+                "level": 20,
+                "rarity": 5,
+                "statKey": "hp"
+              },
+              "plume": {
+                "level": 20,
+                "rarity": 5,
+                "statKey": "atk"
+              },
+              "sands": {
+                "level": 20,
+                "rarity": 5,
+                "statKey": "eleMas"
+              },
+              "goblet": {
+                "level": 20,
+                "rarity": 5,
+                "statKey": "eleMas"
+              },
+              "circlet": {
+                "level": 20,
+                "rarity": 5,
+                "statKey": "critRate_"
+              }
+            },
+            "substats": {
+              "type": "max",
+              "rarity": 5,
+              "stats": {
+                "def": 39.35,
+                "def_": 12.39,
+                "eleMas": 158.52,
+                "critRate_": 19.83,
+                "critDMG_": 79.26,
+                "hp": 507.88,
+                "hp_": 9.91,
+                "enerRech_": 11.01,
+                "atk": 33.07,
+                "atk_": 9.91
+              }
+            }
+          },
+          "optimization": {
+            "distributedSubstats": 0,
+            "maxSubstats": {}
+          }
+        }
+      ]
+    },
+    {
+      "key": "Sucrose",
+      "name": "Sucrose (Celestia)",
+      "description": "",
+      "hitMode": "avgHit",
+      "infusionAura": "",
+      "bonusStats": {},
+      "conditional": {},
+      "customMultiTargets": [],
+      "buildTcs": [
+        {
+          "name": "Celestia",
+          "description": "Celestia teammate assumption (85% of the maximum).",
+          "characterKey": "Sucrose",
+          "character": {
+            "level": 90,
+            "ascension": 6,
+            "constellation": 6,
+            "talent": {
+              "auto": 10,
+              "skill": 10,
+              "burst": 10
+            }
+          },
+          "weapon": {
+            "key": "ThrillingTalesOfDragonSlayers",
+            "level": 90,
+            "ascension": 6,
+            "refinement": 5
+          },
+          "artifact": {
+            "sets": {
+              "Instructor": 4
+            },
+            "slots": {
+              "flower": {
+                "level": 16,
+                "rarity": 4,
+                "statKey": "hp"
+              },
+              "plume": {
+                "level": 16,
+                "rarity": 4,
+                "statKey": "atk"
+              },
+              "sands": {
+                "level": 20,
+                "rarity": 5,
+                "statKey": "eleMas"
+              },
+              "goblet": {
+                "level": 16,
+                "rarity": 4,
+                "statKey": "eleMas"
+              },
+              "circlet": {
+                "level": 16,
+                "rarity": 4,
+                "statKey": "eleMas"
+              }
+            },
+            "substats": {
+              "type": "max",
+              "rarity": 4,
+              "stats": {
+                "hp": 426.62,
+                "atk": 27.79,
+                "def": 33.06,
+                "hp_": 8.33,
+                "atk_": 8.33,
+                "def_": 10.42,
+                "eleMas": 99.89,
+                "enerRech_": 9.26,
+                "critRate_": 27.8,
+                "critDMG_": 11.12
+              }
+            }
+          },
+          "optimization": {
+            "distributedSubstats": 0,
+            "maxSubstats": {}
+          }
+        }
+      ]
+    },
+    {
+      "key": "Odette",
+      "name": "Odette (Celestia)",
+      "description": "",
+      "hitMode": "avgHit",
+      "infusionAura": "",
+      "bonusStats": {},
+      "conditional": {
+        "HeartOfTheFurnace": {
+          "4Stellar": "on"
+        }
+      },
+      "customMultiTargets": [],
+      "buildTcs": [
+        {
+          "name": "Celestia",
+          "description": "Celestia teammate assumption (85% of the maximum).",
+          "characterKey": "Odette",
+          "character": {
+            "level": 90,
+            "ascension": 6,
+            "constellation": 0,
+            "talent": {
+              "auto": 10,
+              "skill": 10,
+              "burst": 10
+            }
+          },
+          "weapon": {
+            "key": "Emberwell",
+            "level": 90,
+            "ascension": 6,
+            "refinement": 5
+          },
+          "artifact": {
+            "sets": {
+              "HeartOfTheFurnace": 4
+            },
+            "slots": {
+              "flower": {
+                "level": 20,
+                "rarity": 5,
+                "statKey": "hp"
+              },
+              "plume": {
+                "level": 20,
+                "rarity": 5,
+                "statKey": "atk"
+              },
+              "sands": {
+                "level": 20,
+                "rarity": 5,
+                "statKey": "atk_"
+              },
+              "goblet": {
+                "level": 20,
+                "rarity": 5,
+                "statKey": "atk_"
+              },
+              "circlet": {
+                "level": 20,
+                "rarity": 5,
+                "statKey": "critDMG_"
+              }
+            },
+            "substats": {
+              "type": "max",
+              "rarity": 5,
+              "stats": {
+                "hp": 507.88,
+                "atk": 33.08,
+                "def": 39.36,
+                "hp_": 9.92,
+                "atk_": 39.68,
+                "def_": 12.4,
+                "eleMas": 39.64,
+                "enerRech_": 11.02,
+                "critRate_": 39.72,
+                "critDMG_": 39.72
+              }
+            }
+          },
+          "optimization": {
+            "distributedSubstats": 0,
+            "maxSubstats": {}
+          }
+        }
+      ]
+    },
+    null
+  ]
+}

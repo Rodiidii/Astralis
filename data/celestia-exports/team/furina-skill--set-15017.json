@@ -1,0 +1,179 @@
+{
+  "name": "Skill DMG",
+  "description": "Celestia",
+  "lastEdit": 1794350921027,
+  "conditional": {
+    "resonance": {},
+    "reaction": {}
+  },
+  "enemyOverride": {
+    "enemyLevel": 100,
+    "enemyDefIgn_": 0,
+    "enemyDefRed_": 0,
+    "pyro_enemyRes_": 10,
+    "hydro_enemyRes_": 10,
+    "electro_enemyRes_": 10,
+    "cryo_enemyRes_": 10,
+    "anemo_enemyRes_": 10,
+    "geo_enemyRes_": 10,
+    "dendro_enemyRes_": 10,
+    "physical_enemyRes_": 10
+  },
+  "loadoutData": [
+    {
+      "key": "Furina",
+      "name": "Furina (Celestia)",
+      "description": "",
+      "hitMode": "avgHit",
+      "infusionAura": "",
+      "bonusStats": {
+        "hp_": 25
+      },
+      "conditional": {},
+      "customMultiTargets": [
+        {
+          "name": "Skill DMG",
+          "description": "Celestia",
+          "targets": [
+            {
+              "weight": 5.6,
+              "path": [
+                "skill",
+                "crabDmg"
+              ],
+              "hitMode": "avgHit",
+              "bonusStats": {
+                "hp_": 28,
+                "all_dmg_": 74
+              },
+              "description": ""
+            },
+            {
+              "weight": 1,
+              "path": [
+                "skill",
+                "bubbleDmg"
+              ],
+              "hitMode": "avgHit",
+              "bonusStats": {
+                "hp_": 28,
+                "all_dmg_": 74
+              },
+              "description": ""
+            },
+            {
+              "weight": 8.4,
+              "path": [
+                "skill",
+                "usherDmg"
+              ],
+              "hitMode": "avgHit",
+              "bonusStats": {
+                "hp_": 28,
+                "all_dmg_": 74
+              },
+              "description": ""
+            },
+            {
+              "weight": 22.4,
+              "path": [
+                "skill",
+                "chevalDmg"
+              ],
+              "hitMode": "avgHit",
+              "bonusStats": {
+                "hp_": 28,
+                "all_dmg_": 74
+              },
+              "description": ""
+            }
+          ]
+        }
+      ],
+      "optConfig": {
+        "optimizationTarget": [
+          "custom",
+          "0"
+        ]
+      },
+      "buildTcs": [
+        {
+          "name": "Celestia",
+          "description": "The leaderboard reference build.",
+          "characterKey": "Furina",
+          "character": {
+            "level": 90,
+            "ascension": 6,
+            "constellation": 0,
+            "talent": {
+              "auto": 10,
+              "skill": 10,
+              "burst": 10
+            }
+          },
+          "weapon": {
+            "key": "SplendorOfTranquilWaters",
+            "level": 90,
+            "ascension": 6,
+            "refinement": 1
+          },
+          "artifact": {
+            "sets": {
+              "TenacityOfTheMillelith": 5
+            },
+            "slots": {
+              "flower": {
+                "level": 20,
+                "rarity": 5,
+                "statKey": "hp"
+              },
+              "plume": {
+                "level": 20,
+                "rarity": 5,
+                "statKey": "atk"
+              },
+              "sands": {
+                "level": 20,
+                "rarity": 5,
+                "statKey": "hp_"
+              },
+              "goblet": {
+                "level": 20,
+                "rarity": 5,
+                "statKey": "hydro_dmg_"
+              },
+              "circlet": {
+                "level": 20,
+                "rarity": 5,
+                "statKey": "critRate_"
+              }
+            },
+            "substats": {
+              "type": "max",
+              "rarity": 5,
+              "stats": {
+                "hp_": 25.07,
+                "def": 39.35,
+                "def_": 12.39,
+                "critRate_": 33.05,
+                "critDMG_": 73.04,
+                "hp": 507.88,
+                "enerRech_": 11.01,
+                "eleMas": 39.63,
+                "atk": 33.07,
+                "atk_": 9.91
+              }
+            }
+          },
+          "optimization": {
+            "distributedSubstats": 0,
+            "maxSubstats": {}
+          }
+        }
+      ]
+    },
+    null,
+    null,
+    null
+  ]
+}

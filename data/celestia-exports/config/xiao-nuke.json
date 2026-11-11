@@ -1,0 +1,25 @@
+{
+  "name": "Nuke",
+  "description": "Celestia",
+  "targets": [
+    {
+      "weight": 1,
+      "path": [
+        "plunging",
+        "high"
+      ],
+      "hitMode": "critHit",
+      "infusionAura": "anemo",
+      "bonusStats": {
+        "all_dmgInc": 25894.604,
+        "all_dmg_": 416.2,
+        "critRate_": 10,
+        "enemyDefIgn_": 40,
+        "anemo_enemyRes_": -60,
+        "enemyDefRed_": 30,
+        "critDMG_": 24
+      },
+      "description": ""
+    }
+  ]
+}

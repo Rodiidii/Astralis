@@ -1,0 +1,50 @@
+{
+  "category": {
+    "id": "dori-aggravate",
+    "name": "Aggravate",
+    "kind": "normal"
+  },
+  "child": {
+    "constellation": 6,
+    "characterLevel": 90,
+    "talents": {
+      "burst": 13,
+      "skill": 13,
+      "normal": 10
+    },
+    "baseTalents": {
+      "burst": 10,
+      "skill": 10,
+      "normal": 10
+    },
+    "weaponId": 12409,
+    "refinement": 5
+  },
+  "reference": {
+    "source": "ceilingStandard"
+  },
+  "goConditions": null,
+  "characterBonusStats": null,
+  "enemy": {
+    "level": 100,
+    "res": 0.1
+  },
+  "issues": [
+    {
+      "code": "setEffects",
+      "setIds": [
+        15026,
+        15045
+      ]
+    }
+  ],
+  "teamIssues": [
+    {
+      "code": "setEffects",
+      "setIds": [
+        15026,
+        15045
+      ]
+    }
+  ]
+}

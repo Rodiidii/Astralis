@@ -1,0 +1,77 @@
+{
+  "name": "Off-field Quickbloom",
+  "description": "Celestia",
+  "targets": [
+    {
+      "weight": 1,
+      "path": [
+        "skill",
+        "summonDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 45,
+        "critRate_": 20,
+        "all_dmg_": 75
+      },
+      "description": ""
+    },
+    {
+      "weight": 5,
+      "path": [
+        "skill",
+        "ozDmg"
+      ],
+      "hitMode": "avgHit",
+      "reaction": "aggravate",
+      "bonusStats": {
+        "atk_": 45,
+        "critRate_": 20,
+        "all_dmg_": 75
+      },
+      "description": ""
+    },
+    {
+      "weight": 18,
+      "path": [
+        "skill",
+        "ozDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 45,
+        "critRate_": 20,
+        "all_dmg_": 75
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "burst",
+        "dmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 45,
+        "critRate_": 20,
+        "all_dmg_": 75
+      },
+      "description": ""
+    },
+    {
+      "weight": 12,
+      "path": [
+        "reaction",
+        "hyperbloom"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 45,
+        "dendro_enemyRes_": -30,
+        "critRate_": 20
+      },
+      "description": ""
+    }
+  ]
+}

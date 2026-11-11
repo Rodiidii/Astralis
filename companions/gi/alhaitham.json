@@ -1,0 +1,17 @@
+{
+  "slug": "alhaitham",
+  "voice": "Direct et analytique",
+  "situations": {
+    "arrival": [
+      "J’ai vérifié tes priorités. La tâche la plus efficace est aussi la plus évidente : commence par ce qui te manque réellement.",
+      "Inutile d’ajouter une étape si elle ne sert pas ton objectif. Ton plan de farm peut être simplifié.",
+      "Ta rotation est enregistrée. Vérifie simplement que les temps de recharge s’alignent."
+    ],
+    "morning": [
+      "Tu es en avance. Tant mieux, on pourra décider quoi faire avant que les rappels se multiplient."
+    ],
+    "evening": [
+      "Le reste peut attendre demain. Écris où tu t’es arrêté, tu gagneras du temps à la reprise."
+    ]
+  }
+}

@@ -1,0 +1,137 @@
+{
+  "category": {
+    "id": "mualani-vape-hex-c4-mona",
+    "name": "Hex Vape C4 Mona",
+    "kind": "normal"
+  },
+  "child": {
+    "constellation": 0,
+    "characterLevel": 90,
+    "talents": {
+      "burst": 10,
+      "skill": 10,
+      "normal": 10
+    },
+    "baseTalents": {
+      "burst": 10,
+      "skill": 10,
+      "normal": 10
+    },
+    "weaponId": 14516,
+    "refinement": 1
+  },
+  "reference": {
+    "source": "ceilingStandard"
+  },
+  "goConditions": {
+    "ObsidianCodex": {
+      "2NightsoulBlessing": "on",
+      "4NightsoulConsume": "on"
+    }
+  },
+  "characterBonusStats": {
+    "eleMas": 80,
+    "hp_": 25
+  },
+  "enemy": {
+    "level": 100,
+    "res": 0.1
+  },
+  "issues": [
+    {
+      "code": "characterBonusStats",
+      "stats": [
+        {
+          "buff": "Lunar Chain",
+          "key": "eleMas",
+          "value": 80
+        },
+        {
+          "buff": "Hydro Resonance",
+          "key": "hp_",
+          "value": 25
+        }
+      ]
+    },
+    {
+      "code": "selfScaling",
+      "buffs": [
+        "Natlan's Greatest Guide"
+      ]
+    },
+    {
+      "code": "goSwitch",
+      "switches": [
+        {
+          "condition": [
+            "ObsidianCodex",
+            "2NightsoulBlessing",
+            "on"
+          ],
+          "source": {
+            "type": "set",
+            "setId": 15038
+          },
+          "buffs": [
+            "Obsidian Codex"
+          ]
+        },
+        {
+          "condition": [
+            "ObsidianCodex",
+            "4NightsoulConsume",
+            "on"
+          ],
+          "source": {
+            "type": "set",
+            "setId": 15038
+          },
+          "buffs": [
+            "Obsidian Codex"
+          ]
+        }
+      ]
+    }
+  ],
+  "teamIssues": [
+    {
+      "code": "selfScaling",
+      "buffs": [
+        "Natlan's Greatest Guide"
+      ]
+    },
+    {
+      "code": "goSwitch",
+      "switches": [
+        {
+          "condition": [
+            "ObsidianCodex",
+            "2NightsoulBlessing",
+            "on"
+          ],
+          "source": {
+            "type": "set",
+            "setId": 15038
+          },
+          "buffs": [
+            "Obsidian Codex"
+          ]
+        },
+        {
+          "condition": [
+            "ObsidianCodex",
+            "4NightsoulConsume",
+            "on"
+          ],
+          "source": {
+            "type": "set",
+            "setId": 15038
+          },
+          "buffs": [
+            "Obsidian Codex"
+          ]
+        }
+      ]
+    }
+  ]
+}

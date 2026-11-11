@@ -1,0 +1,144 @@
+{
+  "name": "Lunar Shrapnel",
+  "description": "Celestia",
+  "targets": [
+    {
+      "weight": 1,
+      "path": [
+        "burst",
+        "skillDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 40,
+        "eleMas": 120,
+        "geo_enemyRes_": -50,
+        "all_dmg_": 90
+      },
+      "description": ""
+    },
+    {
+      "weight": 17,
+      "path": [
+        "burst",
+        "supportDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 40,
+        "eleMas": 120,
+        "geo_enemyRes_": -50,
+        "all_dmg_": 102.5
+      },
+      "description": ""
+    },
+    {
+      "weight": 2,
+      "path": [
+        "skill",
+        "totalShardDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 40,
+        "eleMas": 120,
+        "geo_enemyRes_": -50,
+        "all_dmg_": 196
+      },
+      "description": ""
+    },
+    {
+      "weight": 2,
+      "path": [
+        "skill",
+        "totalShardDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 40,
+        "eleMas": 120,
+        "geo_enemyRes_": -50,
+        "all_dmg_": 193.5
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.6667,
+      "path": [
+        "skill",
+        "totalShardDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 40,
+        "eleMas": 120,
+        "geo_enemyRes_": -50,
+        "all_dmg_": 176
+      },
+      "description": ""
+    },
+    {
+      "weight": 1.3333,
+      "path": [
+        "skill",
+        "bladeDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 40,
+        "eleMas": 120,
+        "geo_enemyRes_": -50,
+        "all_dmg_": 176
+      },
+      "description": ""
+    },
+    {
+      "weight": 6,
+      "path": [
+        "normal",
+        "0"
+      ],
+      "hitMode": "avgHit",
+      "infusionAura": "geo",
+      "bonusStats": {
+        "atk_": 40,
+        "eleMas": 120,
+        "geo_enemyRes_": -50,
+        "all_dmg_": 140
+      },
+      "description": ""
+    },
+    {
+      "weight": 6,
+      "path": [
+        "normal",
+        "1"
+      ],
+      "hitMode": "avgHit",
+      "infusionAura": "geo",
+      "bonusStats": {
+        "atk_": 40,
+        "eleMas": 120,
+        "geo_enemyRes_": -50,
+        "all_dmg_": 140
+      },
+      "description": ""
+    },
+    {
+      "weight": 13.1037,
+      "path": [
+        "reaction",
+        "lunarcrystallize"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 40,
+        "eleMas": 120,
+        "lunarcrystallize_baseDmg_": 21,
+        "lunarcrystallize_dmg_": 59.308,
+        "geo_enemyRes_": -50
+      },
+      "description": ""
+    }
+  ]
+}

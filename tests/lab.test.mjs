@@ -114,3 +114,30 @@ test('rotation inconnue garde total et DPS non confirmés au lieu de compter zé
 test('inventaire de référence des sous-stats comprend les paliers de roll',()=>{
  assert.deepEqual(ARTIFACT_SUBSTAT_MAX,{hpFlat:298.75,atkFlat:19.45,defFlat:23.15,hpPct:5.83,atkPct:5.83,defPct:7.29,em:23.31,er:6.48,critRate:3.89,critDmg:7.77});
 });
+
+test('GOOD sans valeur principale restaure chaque bonus élémentaire au niveau réel', () => {
+  const elements = ['pyro','hydro','cryo','electro','anemo','geo','dendro'];
+  for (const element of elements) {
+    for (const [rarity, level, expected] of [[5,0,7], [5,1,9], [5,19,44.6], [5,20,46.6], [4,0,6.3], [4,16,34.8]]) {
+      const piece = normalizeGoodArtifact({
+        id: element, setKey: 'TestSet', slotKey: 'goblet', rarity, level,
+        mainStatKey: element+'_dmg_', substats: [],
+      });
+      assert.equal(piece.mainType, element+'Dmg');
+      assert.equal(piece.mainValue, expected);
+    }
+  }
+});
+
+test('les anciens zéros sont réparés et les valeurs explicites positives sont conservées', () => {
+  const legacy = {id:'old',slot:'goblet',setKey:'TestSet',rarity:5,level:20,mainType:'hydroDmg',mainValue:0,substats:[]};
+  assert.equal(normalizeGoodArtifact(legacy).mainValue,46.6);
+  assert.equal(legacy.mainValue,0);
+  assert.equal(normalizeGoodArtifact({...legacy,mainValue:42.7}).mainValue,42.7);
+  assert.equal(normalizeGoodArtifact({...legacy,level:21}).mainValue,0);
+  assert.equal(normalizeGoodArtifact({...legacy,mainType:'unknown'}).mainValue,0);
+  const raw = normalizeGoodArtifact({slotKey:'goblet',rarity:5,level:20,mainStatKey:'FIGHT_PROP_FIRE_ADD_HURT',substats:[{key:'atk_',value:5.8},{key:'critDMG_',value:7.8},{key:'enerRech_',value:6.5}]});
+  assert.equal(raw.mainType,'pyroDmg');
+  assert.equal(raw.mainValue,46.6);
+  assert.deepEqual(raw.substats.map(row=>row.type),['atkPct','critDmg','er']);
+});

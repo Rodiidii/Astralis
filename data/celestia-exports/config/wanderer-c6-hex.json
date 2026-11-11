@@ -1,0 +1,563 @@
+{
+  "name": "C6 Hex",
+  "description": "Celestia",
+  "targets": [
+    {
+      "weight": 1,
+      "path": [
+        "skill",
+        "dmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "all_dmgInc": 1817.314,
+        "all_dmg_": 186.25,
+        "anemo_enemyRes_": -90,
+        "critDMG_": 40,
+        "enemyDefIgn_": 40,
+        "enemyDefRed_": 30
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "normal",
+        "0"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "all_dmgInc": 1817.314,
+        "all_dmg_": 186.25,
+        "anemo_enemyRes_": -90,
+        "critDMG_": 40,
+        "enemyDefIgn_": 40,
+        "enemyDefRed_": 30,
+        "critRate_": 20
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "constellation6",
+        "0"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "all_dmgInc": 1817.314,
+        "all_dmg_": 205.45,
+        "anemo_enemyRes_": -90,
+        "critDMG_": 40,
+        "enemyDefIgn_": 40,
+        "enemyDefRed_": 30,
+        "critRate_": 20
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "normal",
+        "1"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "all_dmgInc": 1817.314,
+        "all_dmg_": 205.45,
+        "anemo_enemyRes_": -90,
+        "critDMG_": 40,
+        "enemyDefIgn_": 40,
+        "enemyDefRed_": 30,
+        "critRate_": 20
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "constellation6",
+        "1"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "all_dmgInc": 1817.314,
+        "all_dmg_": 224.65,
+        "anemo_enemyRes_": -90,
+        "critDMG_": 40,
+        "enemyDefIgn_": 40,
+        "enemyDefRed_": 30,
+        "critRate_": 20
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.5,
+      "path": [
+        "normal",
+        "2"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "all_dmgInc": 1817.314,
+        "all_dmg_": 224.65,
+        "anemo_enemyRes_": -90,
+        "critDMG_": 40,
+        "enemyDefIgn_": 40,
+        "enemyDefRed_": 30,
+        "critRate_": 20
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.5,
+      "path": [
+        "normal",
+        "2"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "all_dmgInc": 1817.314,
+        "all_dmg_": 224.65,
+        "anemo_enemyRes_": -90,
+        "critDMG_": 40,
+        "enemyDefIgn_": 40,
+        "enemyDefRed_": 30,
+        "critRate_": 20
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.5,
+      "path": [
+        "constellation6",
+        "2"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "all_dmgInc": 1817.314,
+        "all_dmg_": 234.25,
+        "anemo_enemyRes_": -90,
+        "critDMG_": 40,
+        "enemyDefIgn_": 40,
+        "enemyDefRed_": 30,
+        "critRate_": 20
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.5,
+      "path": [
+        "constellation6",
+        "2"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "all_dmgInc": 1817.314,
+        "all_dmg_": 234.25,
+        "anemo_enemyRes_": -90,
+        "critDMG_": 40,
+        "enemyDefIgn_": 40,
+        "enemyDefRed_": 30,
+        "critRate_": 20
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.5,
+      "path": [
+        "normal",
+        "2"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "all_dmgInc": 1817.314,
+        "all_dmg_": 234.25,
+        "anemo_enemyRes_": -90,
+        "critDMG_": 40,
+        "enemyDefIgn_": 40,
+        "enemyDefRed_": 30,
+        "critRate_": 20
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.5,
+      "path": [
+        "normal",
+        "2"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "all_dmgInc": 1817.314,
+        "all_dmg_": 234.25,
+        "anemo_enemyRes_": -90,
+        "critDMG_": 40,
+        "enemyDefIgn_": 40,
+        "enemyDefRed_": 30,
+        "critRate_": 20
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.5,
+      "path": [
+        "constellation6",
+        "2"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "all_dmgInc": 1817.314,
+        "all_dmg_": 253.45,
+        "anemo_enemyRes_": -90,
+        "critDMG_": 40,
+        "enemyDefIgn_": 40,
+        "enemyDefRed_": 30,
+        "critRate_": 20
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.5,
+      "path": [
+        "constellation6",
+        "2"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "all_dmgInc": 1817.314,
+        "all_dmg_": 253.45,
+        "anemo_enemyRes_": -90,
+        "critDMG_": 40,
+        "enemyDefIgn_": 40,
+        "enemyDefRed_": 30,
+        "critRate_": 20
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "normal",
+        "0"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "all_dmgInc": 1817.314,
+        "all_dmg_": 267.85,
+        "anemo_enemyRes_": -90,
+        "critDMG_": 40,
+        "enemyDefIgn_": 40,
+        "enemyDefRed_": 30,
+        "critRate_": 20
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "constellation6",
+        "0"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "all_dmgInc": 1817.314,
+        "all_dmg_": 282.25,
+        "anemo_enemyRes_": -90,
+        "critDMG_": 40,
+        "enemyDefIgn_": 40,
+        "enemyDefRed_": 30,
+        "critRate_": 20
+      },
+      "description": ""
+    },
+    {
+      "weight": 2,
+      "path": [
+        "normal",
+        "0"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "all_dmgInc": 1817.314,
+        "all_dmg_": 282.25,
+        "anemo_enemyRes_": -90,
+        "critDMG_": 40,
+        "enemyDefIgn_": 40,
+        "enemyDefRed_": 30,
+        "critRate_": 20
+      },
+      "description": ""
+    },
+    {
+      "weight": 2,
+      "path": [
+        "normal",
+        "1"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "all_dmgInc": 1817.314,
+        "all_dmg_": 282.25,
+        "anemo_enemyRes_": -90,
+        "critDMG_": 40,
+        "enemyDefIgn_": 40,
+        "enemyDefRed_": 30,
+        "critRate_": 20
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "normal",
+        "2"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "all_dmgInc": 1817.314,
+        "all_dmg_": 282.25,
+        "anemo_enemyRes_": -90,
+        "critDMG_": 40,
+        "enemyDefIgn_": 40,
+        "enemyDefRed_": 30,
+        "critRate_": 20
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "normal",
+        "2"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "all_dmgInc": 1817.314,
+        "all_dmg_": 282.25,
+        "anemo_enemyRes_": -90,
+        "critDMG_": 40,
+        "enemyDefIgn_": 40,
+        "enemyDefRed_": 30,
+        "critRate_": 20
+      },
+      "description": ""
+    },
+    {
+      "weight": 2,
+      "path": [
+        "constellation6",
+        "0"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "all_dmgInc": 1817.314,
+        "all_dmg_": 282.25,
+        "anemo_enemyRes_": -90,
+        "critDMG_": 40,
+        "enemyDefIgn_": 40,
+        "enemyDefRed_": 30,
+        "critRate_": 20
+      },
+      "description": ""
+    },
+    {
+      "weight": 2,
+      "path": [
+        "constellation6",
+        "1"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "all_dmgInc": 1817.314,
+        "all_dmg_": 282.25,
+        "anemo_enemyRes_": -90,
+        "critDMG_": 40,
+        "enemyDefIgn_": 40,
+        "enemyDefRed_": 30,
+        "critRate_": 20
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "constellation6",
+        "2"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "all_dmgInc": 1817.314,
+        "all_dmg_": 282.25,
+        "anemo_enemyRes_": -90,
+        "critDMG_": 40,
+        "enemyDefIgn_": 40,
+        "enemyDefRed_": 30,
+        "critRate_": 20
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "constellation6",
+        "2"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "all_dmgInc": 1817.314,
+        "all_dmg_": 282.25,
+        "anemo_enemyRes_": -90,
+        "critDMG_": 40,
+        "enemyDefIgn_": 40,
+        "enemyDefRed_": 30,
+        "critRate_": 20
+      },
+      "description": ""
+    },
+    {
+      "weight": 5,
+      "path": [
+        "normal",
+        "0"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "all_dmgInc": 1817.314,
+        "all_dmg_": 282.25,
+        "anemo_enemyRes_": -90,
+        "critDMG_": 40,
+        "enemyDefIgn_": 40,
+        "enemyDefRed_": 30,
+        "critRate_": 20
+      },
+      "description": ""
+    },
+    {
+      "weight": 6,
+      "path": [
+        "normal",
+        "1"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "all_dmgInc": 1817.314,
+        "all_dmg_": 282.25,
+        "anemo_enemyRes_": -90,
+        "critDMG_": 40,
+        "enemyDefIgn_": 40,
+        "enemyDefRed_": 30,
+        "critRate_": 20
+      },
+      "description": ""
+    },
+    {
+      "weight": 5,
+      "path": [
+        "normal",
+        "2"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "all_dmgInc": 1817.314,
+        "all_dmg_": 282.25,
+        "anemo_enemyRes_": -90,
+        "critDMG_": 40,
+        "enemyDefIgn_": 40,
+        "enemyDefRed_": 30,
+        "critRate_": 20
+      },
+      "description": ""
+    },
+    {
+      "weight": 5,
+      "path": [
+        "normal",
+        "2"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "all_dmgInc": 1817.314,
+        "all_dmg_": 282.25,
+        "anemo_enemyRes_": -90,
+        "critDMG_": 40,
+        "enemyDefIgn_": 40,
+        "enemyDefRed_": 30,
+        "critRate_": 20
+      },
+      "description": ""
+    },
+    {
+      "weight": 5,
+      "path": [
+        "constellation6",
+        "0"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "all_dmgInc": 1817.314,
+        "all_dmg_": 282.25,
+        "anemo_enemyRes_": -90,
+        "critDMG_": 40,
+        "enemyDefIgn_": 40,
+        "enemyDefRed_": 30,
+        "critRate_": 20
+      },
+      "description": ""
+    },
+    {
+      "weight": 6,
+      "path": [
+        "constellation6",
+        "1"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "all_dmgInc": 1817.314,
+        "all_dmg_": 282.25,
+        "anemo_enemyRes_": -90,
+        "critDMG_": 40,
+        "enemyDefIgn_": 40,
+        "enemyDefRed_": 30,
+        "critRate_": 20
+      },
+      "description": ""
+    },
+    {
+      "weight": 5,
+      "path": [
+        "constellation6",
+        "2"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "all_dmgInc": 1817.314,
+        "all_dmg_": 282.25,
+        "anemo_enemyRes_": -90,
+        "critDMG_": 40,
+        "enemyDefIgn_": 40,
+        "enemyDefRed_": 30,
+        "critRate_": 20
+      },
+      "description": ""
+    },
+    {
+      "weight": 5,
+      "path": [
+        "constellation6",
+        "2"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "all_dmgInc": 1817.314,
+        "all_dmg_": 282.25,
+        "anemo_enemyRes_": -90,
+        "critDMG_": 40,
+        "enemyDefIgn_": 40,
+        "enemyDefRed_": 30,
+        "critRate_": 20
+      },
+      "description": ""
+    }
+  ]
+}

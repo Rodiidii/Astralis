@@ -1,0 +1,97 @@
+.lore-dossier-chapters, .lore-evidence, .lore-filmography, .lore-event-journal {
+  min-width: 0;
+  margin-top: 20px;
+}
+.lore-character-profile .lore-character-copy { min-width: 0; }
+.lore-character-profile h2 { overflow-wrap: anywhere; }
+.lore-character-profile .lore-character-copy dl { grid-template-columns: minmax(6rem, auto) minmax(0, 1fr); }
+.lore-character-profile dd { overflow-wrap: anywhere; }
+.lore-character-visual.lore-npc-visual > img { object-fit: contain; padding: 14% 15% 23%; }
+.lore-region-insignia { width: 32px; height: 32px; object-fit: contain; }
+.lore-region-emblem .lore-region-insignia { width: clamp(44px, 8vw, 86px); height: auto; }
+.lore-character-hooks button { display: inline-flex; align-items: center; gap: 8px; }
+.lore-character-hooks .lore-region-insignia { width: 18px; height: 18px; }
+.lore-dossier-chapters .lore-biography { margin: 10px 0 0; padding: 13px 16px; }
+.lore-biography summary { cursor: pointer; font-weight: 650; }
+.lore-biography summary small { margin-inline-start: 6px; opacity: .72; font-weight: 400; }
+.lore-dossier-chapters p, .lore-event-copy p, .lore-quote-grid blockquote {
+  line-height: 1.7;
+  max-width: 76ch;
+  overflow-wrap: anywhere;
+}
+.lore-evidence h3:not(:first-of-type) { margin-top: 24px; }
+.lore-evidence .quiet-btn { margin-top: 12px; }
+.lore-unconfirmed {
+  display: inline-block;
+  padding: 2px 8px;
+  border: 1px solid color-mix(in srgb, currentColor 32%, transparent);
+  border-radius: 999px;
+  font-size: .75rem;
+}
+.lore-event-grid, .lore-film-grid, .lore-quote-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr));
+  gap: 14px;
+  margin-top: 14px;
+}
+.lore-event-entry, .lore-film, .lore-quote-grid figure {
+  min-width: 0;
+  margin: 0;
+  overflow: hidden;
+  border: 1px solid color-mix(in srgb, currentColor 19%, transparent);
+  border-radius: 14px;
+  background: color-mix(in srgb, currentColor 4%, transparent);
+}
+.lore-event-art, .lore-film-poster, .lore-film-frame {
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  background: radial-gradient(ellipse at 40% 15%, #423758, #161b30 70%);
+}
+.lore-event-art .lore-region-insignia, .lore-film-poster .lore-region-insignia { width: 25%; height: 60%; }
+.lore-event-artwork { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.lore-event-copy, .lore-film > div:last-child, .lore-quote-grid figure { padding: 14px 16px; }
+.lore-event-copy h4 { margin: 5px 0; font-size: 1.07rem; }
+.lore-event-copy summary { cursor: pointer; }
+.lore-event-journal select { max-width: 100%; margin-inline-start: 5px; }
+.lore-film { max-width: 690px; }
+.lore-film-poster { cursor: pointer; border: 0; padding: 0; }
+.lore-film-art { width: 50%; height: 88%; object-fit: contain; }
+.lore-film-poster > span {
+  position: absolute;
+  inset: auto 12px 12px auto;
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  border: 1px solid #ffebbf88;
+  border-radius: 50%;
+  color: #fff0d0;
+  background: #25213eeb;
+}
+.lore-film a { display: block; margin-top: 6px; }
+.lore-film-frame iframe { width: 100%; height: 100%; border: 0; }
+.lore-quote-grid blockquote { margin: 0 0 10px; }
+.lore-quote-grid figcaption { font-size: .83rem; }
+.lore-quest-list { display: grid; gap: 6px; padding-inline-start: 20px; }
+@media (max-width: 720px) {
+  .lore-character-profile { grid-template-columns: minmax(0, 1fr); }
+  .lore-character-profile .lore-character-visual { min-height: 330px; }
+  .lore-event-journal .lore-subhead { flex-wrap: wrap; }
+}
+
+.lore-film-type { position: absolute; inset: 12px auto auto 12px; border-radius: 999px; padding: 4px 10px; color: #fff0d0; background: #25213eee; }
+.lore-region-factions article + article { margin-top: 12px; }
+.lore-region-factions article p { margin: 6px 0 0; line-height: 1.55; }
+.lore-faction-members > div { min-width: 0; }
+.lore-faction-members > div > button { width: 100%; }
+.lore-region-factions, .lore-region-history { margin: 18px clamp(12px, 2vw, 24px); }
+
+
+.lore-full-dossier{min-width:0;overflow-wrap:anywhere}
+.lore-full-dossier .lore-dossier-art{display:block;width:100%;max-height:350px;object-fit:contain;margin-block:18px}
+.lore-full-dossier>section{max-width:76ch;margin:24px auto}
+.lore-full-dossier>nav{display:flex;flex-wrap:wrap;gap:10px}

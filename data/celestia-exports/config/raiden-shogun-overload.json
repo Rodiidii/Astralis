@@ -1,0 +1,704 @@
+{
+  "name": "Overload",
+  "description": "Celestia",
+  "targets": [
+    {
+      "weight": 1,
+      "path": [
+        "burst",
+        "dmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 20,
+        "atk": 1744.735,
+        "all_dmg_": 59,
+        "electro_enemyRes_": -40,
+        "critDMG_": 60,
+        "enemyDefIgn_": 60
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.4379,
+      "path": [
+        "skill",
+        "coorDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 20,
+        "atk": 1744.735,
+        "electro_enemyRes_": -40,
+        "critDMG_": 60,
+        "enemyDefIgn_": 60,
+        "all_dmg_": 32
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "burst",
+        "hit1"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 20,
+        "atk": 1744.735,
+        "all_dmg_": 59,
+        "electro_enemyRes_": -40,
+        "critDMG_": 60,
+        "enemyDefIgn_": 60
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.5629,
+      "path": [
+        "skill",
+        "coorDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 20,
+        "atk": 1744.735,
+        "electro_enemyRes_": -40,
+        "critDMG_": 60,
+        "enemyDefIgn_": 60,
+        "all_dmg_": 32
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "burst",
+        "hit2"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 20,
+        "atk": 1744.735,
+        "all_dmg_": 79,
+        "electro_enemyRes_": -40,
+        "critDMG_": 60,
+        "enemyDefIgn_": 60
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "burst",
+        "hit3"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 20,
+        "atk": 1744.735,
+        "all_dmg_": 79,
+        "electro_enemyRes_": -40,
+        "critDMG_": 60,
+        "enemyDefIgn_": 60
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.4379,
+      "path": [
+        "skill",
+        "coorDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 20,
+        "atk": 1744.735,
+        "electro_enemyRes_": -40,
+        "critDMG_": 60,
+        "enemyDefIgn_": 60,
+        "all_dmg_": 52
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "burst",
+        "hit41"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 20,
+        "atk": 1744.735,
+        "all_dmg_": 79,
+        "electro_enemyRes_": -40,
+        "critDMG_": 60,
+        "enemyDefIgn_": 60
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.5629,
+      "path": [
+        "skill",
+        "coorDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 20,
+        "atk": 1744.735,
+        "electro_enemyRes_": -40,
+        "critDMG_": 60,
+        "enemyDefIgn_": 60,
+        "all_dmg_": 52
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "burst",
+        "hit41"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 20,
+        "atk": 1744.735,
+        "all_dmg_": 79,
+        "electro_enemyRes_": -40,
+        "critDMG_": 60,
+        "enemyDefIgn_": 60
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "burst",
+        "hit1"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 20,
+        "atk": 1744.735,
+        "all_dmg_": 79,
+        "electro_enemyRes_": -40,
+        "critDMG_": 60,
+        "enemyDefIgn_": 60
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "skill",
+        "dmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 20,
+        "atk": 1744.735,
+        "electro_enemyRes_": -40,
+        "critDMG_": 60,
+        "enemyDefIgn_": 60,
+        "all_dmg_": 52
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.9999,
+      "path": [
+        "skill",
+        "coorDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 20,
+        "atk": 1744.735,
+        "electro_enemyRes_": -40,
+        "critDMG_": 60,
+        "enemyDefIgn_": 60,
+        "all_dmg_": 52
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "burst",
+        "hit2"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 20,
+        "atk": 1744.735,
+        "all_dmg_": 99,
+        "electro_enemyRes_": -40,
+        "critDMG_": 60,
+        "enemyDefIgn_": 60
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "burst",
+        "hit3"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 20,
+        "atk": 1744.735,
+        "all_dmg_": 99,
+        "electro_enemyRes_": -40,
+        "critDMG_": 60,
+        "enemyDefIgn_": 60
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "burst",
+        "hit41"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 20,
+        "atk": 1744.735,
+        "all_dmg_": 99,
+        "electro_enemyRes_": -40,
+        "critDMG_": 60,
+        "enemyDefIgn_": 60
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.9999,
+      "path": [
+        "skill",
+        "coorDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 20,
+        "atk": 1744.735,
+        "all_dmg_": 72,
+        "critDMG_": 60,
+        "enemyDefIgn_": 60,
+        "electro_enemyRes_": -33.75
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "burst",
+        "hit41"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 20,
+        "atk": 1744.735,
+        "all_dmg_": 99,
+        "critDMG_": 60,
+        "enemyDefIgn_": 60,
+        "electro_enemyRes_": -18.75
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "burst",
+        "hit1"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 20,
+        "atk": 1744.735,
+        "all_dmg_": 99,
+        "critDMG_": 60,
+        "enemyDefIgn_": 60
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "burst",
+        "hit2"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 20,
+        "atk": 1744.735,
+        "all_dmg_": 99,
+        "critDMG_": 60,
+        "enemyDefIgn_": 60
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.9999,
+      "path": [
+        "skill",
+        "coorDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 20,
+        "atk": 1744.735,
+        "all_dmg_": 72,
+        "critDMG_": 60,
+        "enemyDefIgn_": 60
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "burst",
+        "hit3"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 20,
+        "atk": 1744.735,
+        "all_dmg_": 99,
+        "critDMG_": 60,
+        "enemyDefIgn_": 60
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "burst",
+        "hit41"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk": 1050.758,
+        "all_dmg_": 99,
+        "enemyDefIgn_": 60
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "burst",
+        "hit41"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk": 1050.758,
+        "all_dmg_": 99,
+        "enemyDefIgn_": 60
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.9999,
+      "path": [
+        "skill",
+        "coorDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk": 1050.758,
+        "all_dmg_": 72,
+        "enemyDefIgn_": 60
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "burst",
+        "hit1"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk": 1050.758,
+        "all_dmg_": 99,
+        "enemyDefIgn_": 60
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "burst",
+        "hit2"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk": 1050.758,
+        "all_dmg_": 99,
+        "enemyDefIgn_": 60
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.9999,
+      "path": [
+        "skill",
+        "coorDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk": 1050.758,
+        "all_dmg_": 72,
+        "enemyDefIgn_": 60
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "burst",
+        "hit3"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk": 1050.758,
+        "all_dmg_": 99,
+        "enemyDefIgn_": 60
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "burst",
+        "hit41"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk": 1050.758,
+        "all_dmg_": 99,
+        "enemyDefIgn_": 60
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "burst",
+        "hit41"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "all_dmg_": 99,
+        "enemyDefIgn_": 60
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.9999,
+      "path": [
+        "skill",
+        "coorDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "all_dmg_": 72
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.9999,
+      "path": [
+        "skill",
+        "coorDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "electro_enemyRes_": -40,
+        "all_dmg_": 72
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.55,
+      "path": [
+        "reaction",
+        "overloaded"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "enerRech_": -21.75,
+        "atk_": -11.257,
+        "pyro_enemyRes_": -40,
+        "enemyDefIgn_": 60
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.55,
+      "path": [
+        "reaction",
+        "overloaded"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "enerRech_": -21.75,
+        "atk_": -11.257,
+        "pyro_enemyRes_": -40,
+        "enemyDefIgn_": 60
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.45,
+      "path": [
+        "reaction",
+        "overloaded"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "enerRech_": -21.75,
+        "atk_": -11.257,
+        "pyro_enemyRes_": -40,
+        "enemyDefIgn_": 60
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.45,
+      "path": [
+        "reaction",
+        "overloaded"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "enerRech_": -21.75,
+        "atk_": -11.257,
+        "pyro_enemyRes_": -40,
+        "enemyDefIgn_": 60
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.9999,
+      "path": [
+        "skill",
+        "coorDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "electro_enemyRes_": -40,
+        "all_dmg_": 72
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.9999,
+      "path": [
+        "skill",
+        "coorDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "electro_enemyRes_": -40,
+        "all_dmg_": 72,
+        "enerRech_": -30
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.9999,
+      "path": [
+        "skill",
+        "coorDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "electro_enemyRes_": -40,
+        "all_dmg_": 49,
+        "enerRech_": -30
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.9999,
+      "path": [
+        "skill",
+        "coorDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 20,
+        "electro_enemyRes_": -40,
+        "all_dmg_": 45.4,
+        "enerRech_": -30
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.9999,
+      "path": [
+        "skill",
+        "coorDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 20,
+        "electro_enemyRes_": -40,
+        "all_dmg_": 25.4,
+        "enerRech_": -30
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.9999,
+      "path": [
+        "skill",
+        "coorDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 20,
+        "electro_enemyRes_": -40,
+        "all_dmg_": 12,
+        "enerRech_": -30
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.9999,
+      "path": [
+        "skill",
+        "coorDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 20,
+        "electro_enemyRes_": -40,
+        "all_dmg_": 12,
+        "enerRech_": -30
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.9999,
+      "path": [
+        "skill",
+        "coorDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 20,
+        "atk": 1744.735,
+        "electro_enemyRes_": -40,
+        "critDMG_": 60,
+        "enemyDefIgn_": 60,
+        "all_dmg_": 32
+      },
+      "description": ""
+    }
+  ]
+}

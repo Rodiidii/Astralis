@@ -1,0 +1,134 @@
+{
+  "name": "Melt",
+  "description": "Celestia",
+  "targets": [
+    {
+      "weight": 0.335,
+      "path": [
+        "burst",
+        "dmg"
+      ],
+      "hitMode": "avgHit",
+      "reaction": "melt",
+      "bonusStats": {
+        "all_dmg_": 85.286,
+        "pyro_enemyRes_": -60
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.67,
+      "path": [
+        "burst",
+        "exp"
+      ],
+      "hitMode": "avgHit",
+      "reaction": "melt",
+      "bonusStats": {
+        "all_dmg_": 105.286,
+        "pyro_enemyRes_": -60
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.67,
+      "path": [
+        "burst",
+        "exp"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "all_dmg_": 105.286,
+        "pyro_enemyRes_": -60
+      },
+      "description": ""
+    },
+    {
+      "weight": 3,
+      "path": [
+        "normal",
+        "0"
+      ],
+      "hitMode": "avgHit",
+      "reaction": "melt",
+      "infusionAura": "pyro",
+      "bonusStats": {
+        "all_dmg_": 195.286,
+        "pyro_enemyRes_": -60
+      },
+      "description": ""
+    },
+    {
+      "weight": 3,
+      "path": [
+        "normal",
+        "0"
+      ],
+      "hitMode": "avgHit",
+      "infusionAura": "pyro",
+      "bonusStats": {
+        "all_dmg_": 195.286,
+        "pyro_enemyRes_": -60
+      },
+      "description": ""
+    },
+    {
+      "weight": 3,
+      "path": [
+        "normal",
+        "1"
+      ],
+      "hitMode": "avgHit",
+      "infusionAura": "pyro",
+      "bonusStats": {
+        "all_dmg_": 195.286,
+        "pyro_enemyRes_": -60
+      },
+      "description": ""
+    },
+    {
+      "weight": 3,
+      "path": [
+        "normal",
+        "2"
+      ],
+      "hitMode": "avgHit",
+      "reaction": "melt",
+      "infusionAura": "pyro",
+      "bonusStats": {
+        "all_dmg_": 195.286,
+        "pyro_enemyRes_": -60
+      },
+      "description": ""
+    },
+    {
+      "weight": 6,
+      "path": [
+        "normal",
+        "3"
+      ],
+      "hitMode": "avgHit",
+      "infusionAura": "pyro",
+      "bonusStats": {
+        "all_dmg_": 195.286,
+        "pyro_enemyRes_": -60
+      },
+      "description": ""
+    },
+    {
+      "weight": 3,
+      "path": [
+        "normal",
+        "4"
+      ],
+      "hitMode": "avgHit",
+      "reaction": "melt",
+      "infusionAura": "pyro",
+      "bonusStats": {
+        "all_dmg_": 195.286,
+        "pyro_enemyRes_": -60
+      },
+      "description": ""
+    }
+  ]
+}

@@ -1,0 +1,88 @@
+{
+  "category": {
+    "id": "xiao-hexf",
+    "name": "Hex Plunge",
+    "kind": "normal"
+  },
+  "child": {
+    "constellation": 1,
+    "characterLevel": 90,
+    "talents": {
+      "burst": 10,
+      "skill": 10,
+      "normal": 10
+    },
+    "baseTalents": {
+      "burst": 10,
+      "skill": 10,
+      "normal": 10
+    },
+    "weaponId": 13505,
+    "refinement": 1
+  },
+  "reference": {
+    "source": "ceilingStandard"
+  },
+  "goConditions": {
+    "Xiao": {
+      "inBurst": "inBurst"
+    }
+  },
+  "characterBonusStats": null,
+  "enemy": {
+    "level": 100,
+    "res": 0.1
+  },
+  "issues": [
+    {
+      "code": "goSwitch",
+      "switches": [
+        {
+          "condition": [
+            "Xiao",
+            "inBurst",
+            "inBurst"
+          ],
+          "source": {
+            "type": "character"
+          },
+          "buffs": [
+            "Bane of All Evil"
+          ]
+        }
+      ]
+    },
+    {
+      "code": "setEffects",
+      "setIds": [
+        15039
+      ]
+    }
+  ],
+  "teamIssues": [
+    {
+      "code": "goSwitch",
+      "switches": [
+        {
+          "condition": [
+            "Xiao",
+            "inBurst",
+            "inBurst"
+          ],
+          "source": {
+            "type": "character"
+          },
+          "buffs": [
+            "Bane of All Evil"
+          ]
+        }
+      ]
+    },
+    {
+      "code": "setEffects",
+      "setIds": [
+        15039
+      ]
+    }
+  ]
+}

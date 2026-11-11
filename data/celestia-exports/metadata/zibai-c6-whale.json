@@ -1,0 +1,105 @@
+{
+  "category": {
+    "id": "zibai-c6-whale",
+    "name": "Whale",
+    "kind": "normal"
+  },
+  "child": {
+    "constellation": 6,
+    "characterLevel": 90,
+    "talents": {
+      "burst": 13,
+      "skill": 13,
+      "normal": 10
+    },
+    "baseTalents": {
+      "burst": 10,
+      "skill": 10,
+      "normal": 10
+    },
+    "weaponId": 11519,
+    "refinement": 5
+  },
+  "reference": {
+    "source": "ceilingStandard"
+  },
+  "goConditions": {
+    "Zibai": {
+      "a1Moonfall": "on"
+    },
+    "LightbearingMoonshard": {
+      "passive": "on"
+    }
+  },
+  "characterBonusStats": {
+    "def_": 25,
+    "def": 385.399
+  },
+  "enemy": {
+    "level": 100,
+    "res": 0.1
+  },
+  "issues": [
+    {
+      "code": "characterBonusStats",
+      "stats": [
+        {
+          "buff": "Expert Instinct",
+          "key": "def_",
+          "value": 25
+        },
+        {
+          "buff": "Not in Lone Splendor",
+          "key": "def",
+          "value": 385.39936838652795
+        }
+      ]
+    },
+    {
+      "code": "selfScaling",
+      "buffs": [
+        "At Birth Are Souls Born, and in Death Leave But Husks"
+      ]
+    },
+    {
+      "code": "goSwitch",
+      "switches": [
+        {
+          "condition": [
+            "Zibai",
+            "a1Moonfall",
+            "on"
+          ],
+          "source": {
+            "type": "character"
+          },
+          "buffs": [
+            "A4 Layered Peaks — +60 EM per Hydro character in the team",
+            "A1 Selenic Descent — 2nd hit of Spirit Steed's Stride"
+          ]
+        },
+        {
+          "condition": [
+            "LightbearingMoonshard",
+            "passive",
+            "on"
+          ],
+          "source": {
+            "type": "weapon",
+            "weaponId": 11519
+          },
+          "buffs": [
+            "Legacy of Lang-Gan"
+          ]
+        }
+      ]
+    },
+    {
+      "code": "setEffects",
+      "setIds": [
+        15041
+      ]
+    }
+  ],
+  "teamIssues": []
+}

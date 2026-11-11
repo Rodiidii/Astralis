@@ -1,0 +1,70 @@
+{
+  "category": {
+    "id": "nahida-on-field-hb",
+    "name": "On-field Hyperbloom",
+    "kind": "normal"
+  },
+  "child": {
+    "constellation": 0,
+    "characterLevel": 90,
+    "talents": {
+      "burst": 10,
+      "skill": 10,
+      "normal": 10
+    },
+    "baseTalents": {
+      "burst": 10,
+      "skill": 10,
+      "normal": 10
+    },
+    "weaponId": 14511,
+    "refinement": 1
+  },
+  "reference": {
+    "source": "ceilingStandard"
+  },
+  "goConditions": null,
+  "characterBonusStats": {
+    "eleMas": 100
+  },
+  "enemy": {
+    "level": 100,
+    "res": 0.1
+  },
+  "issues": [
+    {
+      "code": "characterBonusStats",
+      "stats": [
+        {
+          "buff": "Dendro Resonance EM",
+          "key": "eleMas",
+          "value": 50
+        },
+        {
+          "buff": "Dendro Resonance EM · Burning/Quicken/Bloom",
+          "key": "eleMas",
+          "value": 30
+        },
+        {
+          "buff": "Dendro Resonance EM · Aggravate/Spread/Hyperbloom/Burgeon",
+          "key": "eleMas",
+          "value": 20
+        }
+      ]
+    },
+    {
+      "code": "setEffects",
+      "setIds": [
+        15032
+      ]
+    }
+  ],
+  "teamIssues": [
+    {
+      "code": "setEffects",
+      "setIds": [
+        15032
+      ]
+    }
+  ]
+}

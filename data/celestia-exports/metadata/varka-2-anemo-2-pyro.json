@@ -1,0 +1,124 @@
+{
+  "category": {
+    "id": "varka-2-anemo-2-pyro",
+    "name": "Pyro",
+    "kind": "normal"
+  },
+  "child": {
+    "constellation": 0,
+    "characterLevel": 90,
+    "talents": {
+      "burst": 10,
+      "skill": 10,
+      "normal": 10
+    },
+    "baseTalents": {
+      "burst": 10,
+      "skill": 10,
+      "normal": 10
+    },
+    "weaponId": 12515,
+    "refinement": 1
+  },
+  "reference": {
+    "source": "ceilingStandard"
+  },
+  "goConditions": {
+    "Varka": {
+      "a4Stacks": "4"
+    },
+    "GestOfTheMightyWolf": {
+      "stacks": "4"
+    }
+  },
+  "characterBonusStats": {
+    "atk": 1156.799,
+    "atk_": 93
+  },
+  "enemy": {
+    "level": 100,
+    "res": 0.1
+  },
+  "issues": [
+    {
+      "code": "characterBonusStats",
+      "stats": [
+        {
+          "buff": "And That's the Story! Share It With Your Friends!",
+          "key": "atk",
+          "value": 350
+        },
+        {
+          "buff": "Methexis",
+          "key": "atk",
+          "value": 300
+        },
+        {
+          "buff": "Heritage",
+          "key": "atk_",
+          "value": 48
+        },
+        {
+          "buff": "Noblesse Oblige 4pc",
+          "key": "atk_",
+          "value": 20
+        },
+        {
+          "buff": "Pyro Resonance",
+          "key": "atk_",
+          "value": 25
+        },
+        {
+          "buff": "Grace of Kenosis (% of Nicole's ATK)",
+          "key": "atk",
+          "value": 506.79885150508795
+        }
+      ]
+    },
+    {
+      "code": "selfScaling",
+      "buffs": [
+        "Dawn Wind's March"
+      ]
+    },
+    {
+      "code": "goSwitch",
+      "switches": [
+        {
+          "condition": [
+            "Varka",
+            "a4Stacks",
+            "4"
+          ],
+          "source": {
+            "type": "character"
+          },
+          "buffs": [
+            "Dawn Wind's March"
+          ]
+        },
+        {
+          "condition": [
+            "GestOfTheMightyWolf",
+            "stacks",
+            "4"
+          ],
+          "source": {
+            "type": "weapon",
+            "weaponId": 12515
+          },
+          "buffs": [
+            "Indomitable Chivalry"
+          ]
+        }
+      ]
+    },
+    {
+      "code": "setEffects",
+      "setIds": [
+        15044
+      ]
+    }
+  ],
+  "teamIssues": []
+}

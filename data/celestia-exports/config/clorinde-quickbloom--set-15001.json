@@ -1,0 +1,1828 @@
+{
+  "name": "Quickbloom",
+  "description": "Celestia",
+  "targets": [
+    {
+      "weight": 0.0694,
+      "path": [
+        "skill",
+        "thrust3Dmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 20,
+        "eleMas": 239.751,
+        "all_dmgInc": 1622.031,
+        "critRate_": 20,
+        "all_dmg_": 6.95
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.5066,
+      "path": [
+        "skill",
+        "thrust3Dmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 20,
+        "eleMas": 239.751,
+        "all_dmgInc": 1622.031,
+        "critRate_": 20,
+        "all_dmg_": 6.97
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.5066,
+      "path": [
+        "skill",
+        "thrust3Dmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 20,
+        "eleMas": 239.751,
+        "all_dmgInc": 1622.031,
+        "critRate_": 20,
+        "all_dmg_": 6.97
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.5055,
+      "path": [
+        "skill",
+        "piercingDmg"
+      ],
+      "hitMode": "avgHit",
+      "reaction": "aggravate",
+      "bonusStats": {
+        "atk_": 20,
+        "eleMas": 239.751,
+        "all_dmgInc": 1622.031,
+        "critRate_": 20,
+        "all_dmg_": 11.56
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.4973,
+      "path": [
+        "skill",
+        "piercingDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 20,
+        "eleMas": 239.751,
+        "all_dmgInc": 1622.031,
+        "critRate_": 20,
+        "all_dmg_": 27.59
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.4973,
+      "path": [
+        "skill",
+        "piercingDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 20,
+        "all_dmgInc": 1622.031,
+        "critRate_": 20,
+        "all_dmg_": 43.64
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.5,
+      "path": [
+        "skill",
+        "bladeDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 20,
+        "critRate_": 20,
+        "all_dmg_": 59.64
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.4822,
+      "path": [
+        "skill",
+        "thrust3Dmg"
+      ],
+      "hitMode": "avgHit",
+      "reaction": "aggravate",
+      "bonusStats": {
+        "atk_": 20,
+        "all_dmgInc": 1622.031,
+        "critRate_": 20,
+        "all_dmg_": 59.64
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.5066,
+      "path": [
+        "skill",
+        "thrust3Dmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 20,
+        "all_dmgInc": 1622.031,
+        "critRate_": 20,
+        "all_dmg_": 59.64
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.5066,
+      "path": [
+        "skill",
+        "thrust3Dmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 20,
+        "all_dmgInc": 1622.031,
+        "critRate_": 20,
+        "all_dmg_": 59.64
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.5055,
+      "path": [
+        "skill",
+        "piercingDmg"
+      ],
+      "hitMode": "avgHit",
+      "reaction": "aggravate",
+      "bonusStats": {
+        "atk_": 20,
+        "all_dmgInc": 1622.031,
+        "critRate_": 20,
+        "all_dmg_": 60.08
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.4973,
+      "path": [
+        "skill",
+        "piercingDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 20,
+        "all_dmgInc": 1622.031,
+        "critRate_": 20,
+        "all_dmg_": 61.63
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.4973,
+      "path": [
+        "skill",
+        "piercingDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 20,
+        "all_dmgInc": 1622.031,
+        "critRate_": 20,
+        "all_dmg_": 63.49
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.4822,
+      "path": [
+        "skill",
+        "thrust3Dmg"
+      ],
+      "hitMode": "avgHit",
+      "reaction": "aggravate",
+      "bonusStats": {
+        "atk_": 20,
+        "all_dmgInc": 1622.031,
+        "critRate_": 20,
+        "all_dmg_": 63.5
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.5066,
+      "path": [
+        "skill",
+        "thrust3Dmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 20,
+        "all_dmgInc": 1622.031,
+        "critRate_": 20,
+        "all_dmg_": 63.5
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.5066,
+      "path": [
+        "skill",
+        "thrust3Dmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 20,
+        "all_dmgInc": 1622.031,
+        "critRate_": 20,
+        "all_dmg_": 63.5
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.5055,
+      "path": [
+        "skill",
+        "piercingDmg"
+      ],
+      "hitMode": "avgHit",
+      "reaction": "aggravate",
+      "bonusStats": {
+        "atk_": 20,
+        "all_dmgInc": 1622.031,
+        "critRate_": 20,
+        "all_dmg_": 64.99
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.4973,
+      "path": [
+        "skill",
+        "piercingDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 20,
+        "all_dmgInc": 1622.031,
+        "critRate_": 20,
+        "all_dmg_": 66.14
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.4973,
+      "path": [
+        "skill",
+        "piercingDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 20,
+        "all_dmgInc": 1622.031,
+        "critRate_": 20,
+        "all_dmg_": 66.61
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.2831,
+      "path": [
+        "skill",
+        "thrust3Dmg"
+      ],
+      "hitMode": "avgHit",
+      "reaction": "aggravate",
+      "bonusStats": {
+        "atk_": 20,
+        "all_dmgInc": 1622.031,
+        "critRate_": 20,
+        "all_dmg_": 68.19
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.5066,
+      "path": [
+        "skill",
+        "thrust3Dmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 20,
+        "all_dmgInc": 1622.031,
+        "critRate_": 20,
+        "all_dmg_": 68.19
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.5066,
+      "path": [
+        "skill",
+        "thrust3Dmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 20,
+        "all_dmgInc": 1622.031,
+        "critRate_": 20,
+        "all_dmg_": 68.19
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.3569,
+      "path": [
+        "skill",
+        "piercingDmg"
+      ],
+      "hitMode": "avgHit",
+      "reaction": "aggravate",
+      "bonusStats": {
+        "atk_": 20,
+        "all_dmgInc": 1622.031,
+        "critRate_": 20,
+        "all_dmg_": 68.98
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.4973,
+      "path": [
+        "skill",
+        "piercingDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 20,
+        "all_dmgInc": 1622.031,
+        "critRate_": 20,
+        "all_dmg_": 70.43
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.4973,
+      "path": [
+        "skill",
+        "piercingDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 20,
+        "all_dmgInc": 1622.031,
+        "critRate_": 20,
+        "all_dmg_": 70.43
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.3617,
+      "path": [
+        "skill",
+        "thrust3Dmg"
+      ],
+      "hitMode": "avgHit",
+      "reaction": "aggravate",
+      "bonusStats": {
+        "atk_": 20,
+        "all_dmgInc": 1622.031,
+        "critRate_": 20,
+        "all_dmg_": 71.8
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.5066,
+      "path": [
+        "skill",
+        "thrust3Dmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 20,
+        "all_dmgInc": 1622.031,
+        "critRate_": 20,
+        "all_dmg_": 71.77
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.5066,
+      "path": [
+        "skill",
+        "thrust3Dmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 20,
+        "all_dmgInc": 1622.031,
+        "critRate_": 20,
+        "all_dmg_": 71.77
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.3791,
+      "path": [
+        "skill",
+        "piercingDmg"
+      ],
+      "hitMode": "avgHit",
+      "reaction": "aggravate",
+      "bonusStats": {
+        "atk_": 20,
+        "all_dmgInc": 1622.031,
+        "critRate_": 20,
+        "all_dmg_": 72.05
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.3791,
+      "path": [
+        "skill",
+        "piercingDmg"
+      ],
+      "hitMode": "avgHit",
+      "reaction": "aggravate",
+      "bonusStats": {
+        "atk_": 20,
+        "all_dmgInc": 1622.031,
+        "critRate_": 20,
+        "all_dmg_": 72.49
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.4973,
+      "path": [
+        "skill",
+        "piercingDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 20,
+        "all_dmgInc": 1622.031,
+        "critRate_": 20,
+        "all_dmg_": 72.47
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.5066,
+      "path": [
+        "skill",
+        "thrust3Dmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 20,
+        "all_dmgInc": 1622.031,
+        "critRate_": 20,
+        "all_dmg_": 72.47
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.3617,
+      "path": [
+        "skill",
+        "thrust3Dmg"
+      ],
+      "hitMode": "avgHit",
+      "reaction": "aggravate",
+      "bonusStats": {
+        "atk_": 20,
+        "all_dmgInc": 1622.031,
+        "critRate_": 20,
+        "all_dmg_": 72.49
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.5066,
+      "path": [
+        "skill",
+        "thrust3Dmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 20,
+        "all_dmgInc": 1622.031,
+        "critRate_": 20,
+        "all_dmg_": 72.47
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.4973,
+      "path": [
+        "skill",
+        "piercingDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 20,
+        "all_dmgInc": 1622.031,
+        "critRate_": 20,
+        "all_dmg_": 73.9
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.4802,
+      "path": [
+        "skill",
+        "piercingDmg"
+      ],
+      "hitMode": "avgHit",
+      "reaction": "aggravate",
+      "bonusStats": {
+        "atk_": 20,
+        "all_dmgInc": 1622.031,
+        "critRate_": 20,
+        "all_dmg_": 76.48
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.4973,
+      "path": [
+        "skill",
+        "piercingDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 20,
+        "all_dmgInc": 1622.031,
+        "critRate_": 20,
+        "all_dmg_": 77.6
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.5066,
+      "path": [
+        "skill",
+        "thrust3Dmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 20,
+        "all_dmgInc": 1622.031,
+        "critRate_": 20,
+        "all_dmg_": 78.69
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.4822,
+      "path": [
+        "skill",
+        "thrust3Dmg"
+      ],
+      "hitMode": "avgHit",
+      "reaction": "aggravate",
+      "bonusStats": {
+        "atk_": 20,
+        "all_dmgInc": 1622.031,
+        "critRate_": 20,
+        "all_dmg_": 78.69
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.5066,
+      "path": [
+        "skill",
+        "thrust3Dmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 20,
+        "all_dmgInc": 1622.031,
+        "critRate_": 20,
+        "all_dmg_": 78.69
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.3193,
+      "path": [
+        "burst",
+        "skillDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 20,
+        "all_dmgInc": 1622.031,
+        "critRate_": 20,
+        "all_dmg_": 83.78
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.5059,
+      "path": [
+        "burst",
+        "skillDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 20,
+        "all_dmgInc": 1622.031,
+        "critRate_": 20,
+        "all_dmg_": 83.84
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.5059,
+      "path": [
+        "burst",
+        "skillDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 20,
+        "all_dmgInc": 1622.031,
+        "critRate_": 20,
+        "all_dmg_": 83.93
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.2656,
+      "path": [
+        "burst",
+        "skillDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 20,
+        "all_dmgInc": 1622.031,
+        "critRate_": 20,
+        "all_dmg_": 83.73
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.5059,
+      "path": [
+        "burst",
+        "skillDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 20,
+        "all_dmgInc": 1622.031,
+        "critRate_": 20,
+        "all_dmg_": 84.16
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.5,
+      "path": [
+        "normal",
+        "0"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 20,
+        "eleMas": 239.751,
+        "critRate_": 20,
+        "all_dmg_": 40.38
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.5,
+      "path": [
+        "normal",
+        "1"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 20,
+        "eleMas": 239.751,
+        "critRate_": 20,
+        "all_dmg_": 36.82
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.5066,
+      "path": [
+        "skill",
+        "thrust3Dmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 20,
+        "eleMas": 239.751,
+        "all_dmgInc": 1622.031,
+        "critRate_": 20
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.5066,
+      "path": [
+        "skill",
+        "thrust3Dmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 20,
+        "eleMas": 239.751,
+        "all_dmgInc": 1622.031,
+        "critRate_": 20
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.4822,
+      "path": [
+        "skill",
+        "thrust3Dmg"
+      ],
+      "hitMode": "avgHit",
+      "reaction": "aggravate",
+      "bonusStats": {
+        "atk_": 20,
+        "eleMas": 239.751,
+        "all_dmgInc": 1622.031,
+        "critRate_": 20
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.4973,
+      "path": [
+        "skill",
+        "piercingDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 20,
+        "eleMas": 239.751,
+        "all_dmgInc": 1622.031,
+        "critRate_": 20
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.0308,
+      "path": [
+        "skill",
+        "piercingDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 20,
+        "eleMas": 239.751,
+        "all_dmgInc": 1622.031,
+        "critRate_": 20,
+        "all_dmg_": 16
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.4973,
+      "path": [
+        "skill",
+        "piercingDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 20,
+        "eleMas": 239.751,
+        "all_dmgInc": 1622.031,
+        "critRate_": 20,
+        "all_dmg_": 32
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.5,
+      "path": [
+        "skill",
+        "bladeDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 20,
+        "eleMas": 239.751,
+        "critRate_": 20,
+        "all_dmg_": 48
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.5066,
+      "path": [
+        "skill",
+        "thrust3Dmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 20,
+        "eleMas": 239.751,
+        "all_dmgInc": 1622.031,
+        "critRate_": 20,
+        "all_dmg_": 48
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.4552,
+      "path": [
+        "skill",
+        "thrust3Dmg"
+      ],
+      "hitMode": "avgHit",
+      "reaction": "aggravate",
+      "bonusStats": {
+        "atk_": 20,
+        "eleMas": 239.751,
+        "all_dmgInc": 1622.031,
+        "critRate_": 20,
+        "all_dmg_": 48
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.5066,
+      "path": [
+        "skill",
+        "thrust3Dmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 20,
+        "eleMas": 239.751,
+        "all_dmgInc": 1622.031,
+        "critRate_": 20,
+        "all_dmg_": 48
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.4973,
+      "path": [
+        "skill",
+        "piercingDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 20,
+        "eleMas": 239.751,
+        "all_dmgInc": 1622.031,
+        "critRate_": 20,
+        "all_dmg_": 48
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.1011,
+      "path": [
+        "skill",
+        "piercingDmg"
+      ],
+      "hitMode": "avgHit",
+      "reaction": "aggravate",
+      "bonusStats": {
+        "atk_": 20,
+        "eleMas": 239.751,
+        "all_dmgInc": 1622.031,
+        "critRate_": 20,
+        "all_dmg_": 48
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.4973,
+      "path": [
+        "skill",
+        "piercingDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 20,
+        "eleMas": 239.751,
+        "all_dmgInc": 1622.031,
+        "critRate_": 20,
+        "all_dmg_": 48
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.5066,
+      "path": [
+        "skill",
+        "thrust3Dmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 20,
+        "eleMas": 239.751,
+        "all_dmgInc": 1622.031,
+        "critRate_": 20,
+        "all_dmg_": 48
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.1056,
+      "path": [
+        "skill",
+        "thrust3Dmg"
+      ],
+      "hitMode": "avgHit",
+      "reaction": "aggravate",
+      "bonusStats": {
+        "atk_": 20,
+        "eleMas": 239.751,
+        "all_dmgInc": 1622.031,
+        "critRate_": 20,
+        "all_dmg_": 48
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.5066,
+      "path": [
+        "skill",
+        "thrust3Dmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 20,
+        "eleMas": 239.751,
+        "all_dmgInc": 1622.031,
+        "critRate_": 20,
+        "all_dmg_": 48
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.4973,
+      "path": [
+        "skill",
+        "piercingDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 20,
+        "eleMas": 239.751,
+        "all_dmgInc": 1622.031,
+        "critRate_": 20,
+        "all_dmg_": 48
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.5055,
+      "path": [
+        "skill",
+        "piercingDmg"
+      ],
+      "hitMode": "avgHit",
+      "reaction": "aggravate",
+      "bonusStats": {
+        "atk_": 20,
+        "eleMas": 239.751,
+        "all_dmgInc": 1622.031,
+        "critRate_": 20,
+        "all_dmg_": 48
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.5055,
+      "path": [
+        "skill",
+        "piercingDmg"
+      ],
+      "hitMode": "avgHit",
+      "reaction": "aggravate",
+      "bonusStats": {
+        "atk_": 20,
+        "eleMas": 239.751,
+        "all_dmgInc": 1622.031,
+        "critRate_": 20,
+        "all_dmg_": 48
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.5066,
+      "path": [
+        "skill",
+        "thrust3Dmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 20,
+        "eleMas": 239.751,
+        "all_dmgInc": 1622.031,
+        "critRate_": 20,
+        "all_dmg_": 48
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.5066,
+      "path": [
+        "skill",
+        "thrust3Dmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 20,
+        "eleMas": 239.751,
+        "all_dmgInc": 1622.031,
+        "critRate_": 20,
+        "all_dmg_": 48
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.4822,
+      "path": [
+        "skill",
+        "thrust3Dmg"
+      ],
+      "hitMode": "avgHit",
+      "reaction": "aggravate",
+      "bonusStats": {
+        "atk_": 20,
+        "eleMas": 239.751,
+        "all_dmgInc": 1622.031,
+        "critRate_": 20,
+        "all_dmg_": 48
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.4973,
+      "path": [
+        "skill",
+        "piercingDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 20,
+        "eleMas": 239.751,
+        "all_dmgInc": 1622.031,
+        "critRate_": 20,
+        "all_dmg_": 48
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.4973,
+      "path": [
+        "skill",
+        "piercingDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 20,
+        "eleMas": 239.751,
+        "all_dmgInc": 1622.031,
+        "critRate_": 20,
+        "all_dmg_": 48
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.5055,
+      "path": [
+        "skill",
+        "piercingDmg"
+      ],
+      "hitMode": "avgHit",
+      "reaction": "aggravate",
+      "bonusStats": {
+        "atk_": 20,
+        "eleMas": 239.751,
+        "all_dmgInc": 1622.031,
+        "critRate_": 20,
+        "all_dmg_": 48
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.5066,
+      "path": [
+        "skill",
+        "thrust3Dmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 20,
+        "eleMas": 239.751,
+        "all_dmgInc": 1622.031,
+        "critRate_": 20,
+        "all_dmg_": 48
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.5066,
+      "path": [
+        "skill",
+        "thrust3Dmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 20,
+        "eleMas": 239.751,
+        "all_dmgInc": 1622.031,
+        "critRate_": 20,
+        "all_dmg_": 48
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.4822,
+      "path": [
+        "skill",
+        "thrust3Dmg"
+      ],
+      "hitMode": "avgHit",
+      "reaction": "aggravate",
+      "bonusStats": {
+        "atk_": 20,
+        "eleMas": 239.751,
+        "all_dmgInc": 1622.031,
+        "critRate_": 20,
+        "all_dmg_": 48
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.4973,
+      "path": [
+        "skill",
+        "piercingDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 20,
+        "eleMas": 239.751,
+        "all_dmgInc": 1622.031,
+        "critRate_": 20,
+        "all_dmg_": 48
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.4973,
+      "path": [
+        "skill",
+        "piercingDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 20,
+        "eleMas": 239.751,
+        "all_dmgInc": 1622.031,
+        "critRate_": 20,
+        "all_dmg_": 48
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.5055,
+      "path": [
+        "skill",
+        "piercingDmg"
+      ],
+      "hitMode": "avgHit",
+      "reaction": "aggravate",
+      "bonusStats": {
+        "atk_": 20,
+        "eleMas": 239.751,
+        "all_dmgInc": 1622.031,
+        "critRate_": 20,
+        "all_dmg_": 48
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.4822,
+      "path": [
+        "skill",
+        "thrust3Dmg"
+      ],
+      "hitMode": "avgHit",
+      "reaction": "aggravate",
+      "bonusStats": {
+        "atk_": 20,
+        "eleMas": 239.751,
+        "all_dmgInc": 1622.031,
+        "critRate_": 20,
+        "all_dmg_": 48
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.5066,
+      "path": [
+        "skill",
+        "thrust3Dmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 20,
+        "eleMas": 239.751,
+        "all_dmgInc": 1622.031,
+        "critRate_": 20,
+        "all_dmg_": 48
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.5066,
+      "path": [
+        "skill",
+        "thrust3Dmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 20,
+        "eleMas": 239.751,
+        "all_dmgInc": 1622.031,
+        "critRate_": 20,
+        "all_dmg_": 48
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.0373,
+      "path": [
+        "skill",
+        "piercingDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 20,
+        "eleMas": 239.751,
+        "all_dmgInc": 1622.031,
+        "critRate_": 20,
+        "all_dmg_": 48
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.4973,
+      "path": [
+        "skill",
+        "piercingDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 20,
+        "eleMas": 239.751,
+        "all_dmgInc": 1622.031,
+        "critRate_": 20,
+        "all_dmg_": 48
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.4973,
+      "path": [
+        "skill",
+        "piercingDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 20,
+        "eleMas": 239.751,
+        "all_dmgInc": 1622.031,
+        "critRate_": 20,
+        "all_dmg_": 48
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.2214,
+      "path": [
+        "skill",
+        "thrust3Dmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 20,
+        "eleMas": 239.751,
+        "all_dmgInc": 1622.031,
+        "critRate_": 20,
+        "all_dmg_": 48
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.5066,
+      "path": [
+        "skill",
+        "thrust3Dmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 20,
+        "eleMas": 239.751,
+        "all_dmgInc": 1622.031,
+        "critRate_": 20,
+        "all_dmg_": 48
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.5066,
+      "path": [
+        "skill",
+        "thrust3Dmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 20,
+        "eleMas": 239.751,
+        "all_dmgInc": 1622.031,
+        "critRate_": 20,
+        "all_dmg_": 48
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.2985,
+      "path": [
+        "burst",
+        "skillDmg"
+      ],
+      "hitMode": "avgHit",
+      "reaction": "aggravate",
+      "bonusStats": {
+        "atk_": 20,
+        "eleMas": 239.751,
+        "all_dmgInc": 1622.031,
+        "critRate_": 20,
+        "all_dmg_": 48
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.5059,
+      "path": [
+        "burst",
+        "skillDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 20,
+        "eleMas": 239.751,
+        "all_dmgInc": 1622.031,
+        "critRate_": 20,
+        "all_dmg_": 48
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.5059,
+      "path": [
+        "burst",
+        "skillDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 20,
+        "eleMas": 239.751,
+        "all_dmgInc": 1622.031,
+        "critRate_": 20,
+        "all_dmg_": 48
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.2985,
+      "path": [
+        "burst",
+        "skillDmg"
+      ],
+      "hitMode": "avgHit",
+      "reaction": "aggravate",
+      "bonusStats": {
+        "atk_": 20,
+        "eleMas": 239.751,
+        "all_dmgInc": 1622.031,
+        "critRate_": 20,
+        "all_dmg_": 48
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.5059,
+      "path": [
+        "burst",
+        "skillDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 19.37,
+        "eleMas": 239.751,
+        "all_dmgInc": 1618.207,
+        "critRate_": 20,
+        "all_dmg_": 48
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.4161,
+      "path": [
+        "skill",
+        "thrust3Dmg"
+      ],
+      "hitMode": "avgHit",
+      "reaction": "aggravate",
+      "bonusStats": {
+        "atk_": 20,
+        "eleMas": 239.751,
+        "all_dmgInc": 1622.031,
+        "critRate_": 20,
+        "all_dmg_": 6.97
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.2092,
+      "path": [
+        "skill",
+        "thrust3Dmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 20,
+        "all_dmgInc": 1622.031,
+        "critRate_": 20,
+        "all_dmg_": 68.2
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.1462,
+      "path": [
+        "skill",
+        "piercingDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 20,
+        "all_dmgInc": 1622.031,
+        "critRate_": 20,
+        "all_dmg_": 68.74
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.1267,
+      "path": [
+        "skill",
+        "thrust3Dmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 20,
+        "all_dmgInc": 1622.031,
+        "critRate_": 20,
+        "all_dmg_": 71.7
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.1243,
+      "path": [
+        "skill",
+        "piercingDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 20,
+        "all_dmgInc": 1622.031,
+        "critRate_": 20,
+        "all_dmg_": 72.1
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.1243,
+      "path": [
+        "skill",
+        "piercingDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 20,
+        "all_dmgInc": 1622.031,
+        "critRate_": 20,
+        "all_dmg_": 72.43
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.1267,
+      "path": [
+        "skill",
+        "thrust3Dmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 20,
+        "all_dmgInc": 1622.031,
+        "critRate_": 20,
+        "all_dmg_": 72.43
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.0249,
+      "path": [
+        "skill",
+        "piercingDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 20,
+        "all_dmgInc": 1622.031,
+        "critRate_": 20,
+        "all_dmg_": 77.13
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.1762,
+      "path": [
+        "burst",
+        "skillDmg"
+      ],
+      "hitMode": "avgHit",
+      "reaction": "aggravate",
+      "bonusStats": {
+        "atk_": 20,
+        "all_dmgInc": 1622.031,
+        "critRate_": 20,
+        "all_dmg_": 83.88
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.2268,
+      "path": [
+        "burst",
+        "skillDmg"
+      ],
+      "hitMode": "avgHit",
+      "reaction": "aggravate",
+      "bonusStats": {
+        "atk_": 20,
+        "all_dmgInc": 1622.031,
+        "critRate_": 20,
+        "all_dmg_": 84.33
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.4742,
+      "path": [
+        "skill",
+        "piercingDmg"
+      ],
+      "hitMode": "avgHit",
+      "reaction": "aggravate",
+      "bonusStats": {
+        "atk_": 20,
+        "eleMas": 239.751,
+        "all_dmgInc": 1622.031,
+        "critRate_": 20,
+        "all_dmg_": 16
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.0284,
+      "path": [
+        "skill",
+        "thrust3Dmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 20,
+        "eleMas": 239.751,
+        "all_dmgInc": 1622.031,
+        "critRate_": 20,
+        "all_dmg_": 48
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.3978,
+      "path": [
+        "skill",
+        "piercingDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 20,
+        "eleMas": 239.751,
+        "all_dmgInc": 1622.031,
+        "critRate_": 20,
+        "all_dmg_": 48
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.3957,
+      "path": [
+        "skill",
+        "thrust3Dmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 20,
+        "eleMas": 239.751,
+        "all_dmgInc": 1622.031,
+        "critRate_": 20,
+        "all_dmg_": 48
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.2907,
+      "path": [
+        "skill",
+        "piercingDmg"
+      ],
+      "hitMode": "avgHit",
+      "reaction": "aggravate",
+      "bonusStats": {
+        "atk_": 20,
+        "eleMas": 239.751,
+        "all_dmgInc": 1622.031,
+        "critRate_": 20,
+        "all_dmg_": 48
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.1413,
+      "path": [
+        "skill",
+        "thrust3Dmg"
+      ],
+      "hitMode": "avgHit",
+      "reaction": "aggravate",
+      "bonusStats": {
+        "atk_": 20,
+        "eleMas": 239.751,
+        "all_dmgInc": 1622.031,
+        "critRate_": 20,
+        "all_dmg_": 48
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.1897,
+      "path": [
+        "burst",
+        "skillDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 20,
+        "eleMas": 239.751,
+        "all_dmgInc": 1622.031,
+        "critRate_": 20,
+        "all_dmg_": 48
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.1897,
+      "path": [
+        "burst",
+        "skillDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 20,
+        "eleMas": 239.751,
+        "all_dmgInc": 1622.031,
+        "critRate_": 20,
+        "all_dmg_": 48
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.1368,
+      "path": [
+        "skill",
+        "thrust3Dmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 20,
+        "eleMas": 239.751,
+        "all_dmgInc": 1622.031,
+        "critRate_": 20,
+        "all_dmg_": 48
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.1741,
+      "path": [
+        "skill",
+        "piercingDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 20,
+        "eleMas": 239.751,
+        "all_dmgInc": 1622.031,
+        "critRate_": 20,
+        "all_dmg_": 48
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.744,
+      "path": [
+        "reaction",
+        "hyperbloom"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 20,
+        "dendro_enemyRes_": -30
+      },
+      "description": ""
+    },
+    {
+      "weight": 2.2899,
+      "path": [
+        "reaction",
+        "hyperbloom"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 20,
+        "critRate_": 20,
+        "dendro_enemyRes_": -30
+      },
+      "description": ""
+    },
+    {
+      "weight": 1.9565,
+      "path": [
+        "reaction",
+        "hyperbloom"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 20,
+        "eleMas": 239.751,
+        "critRate_": 20,
+        "dendro_enemyRes_": -30
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.0097,
+      "path": [
+        "reaction",
+        "hyperbloom"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 20,
+        "dendro_enemyRes_": -30
+      },
+      "description": ""
+    }
+  ]
+}

@@ -1,0 +1,85 @@
+{
+  "category": {
+    "id": "noelle-furina-premium",
+    "name": "Furina Xilonen Illuga",
+    "kind": "normal"
+  },
+  "child": {
+    "constellation": 6,
+    "characterLevel": 90,
+    "talents": {
+      "burst": 13,
+      "skill": 13,
+      "normal": 10
+    },
+    "baseTalents": {
+      "burst": 10,
+      "skill": 10,
+      "normal": 10
+    },
+    "weaponId": 12510,
+    "refinement": 1
+  },
+  "reference": {
+    "source": "ceilingStandard"
+  },
+  "goConditions": null,
+  "characterBonusStats": {
+    "eleMas": 80,
+    "def": 200
+  },
+  "enemy": {
+    "level": 100,
+    "res": 0.1
+  },
+  "issues": [
+    {
+      "code": "characterBonusStats",
+      "stats": [
+        {
+          "buff": "A1 — Moonsign: Ascendant Gleam",
+          "key": "eleMas",
+          "value": 50
+        },
+        {
+          "buff": "Nightmare Orioles",
+          "key": "eleMas",
+          "value": 30
+        },
+        {
+          "buff": "Solarhunting Wolf",
+          "key": "def",
+          "value": 200
+        }
+      ]
+    },
+    {
+      "code": "selfScaling",
+      "buffs": [
+        "Sweeping Time",
+        "Must Be Spotless"
+      ]
+    },
+    {
+      "code": "setEffects",
+      "setIds": [
+        15021
+      ]
+    }
+  ],
+  "teamIssues": [
+    {
+      "code": "selfScaling",
+      "buffs": [
+        "Sweeping Time",
+        "Must Be Spotless"
+      ]
+    },
+    {
+      "code": "setEffects",
+      "setIds": [
+        15021
+      ]
+    }
+  ]
+}

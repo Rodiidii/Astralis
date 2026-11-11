@@ -288,6 +288,8 @@ Source : pièce jointe de l’utilisateur et référence cartes-apercu (8).html.
 - [ ] 5. TABLEAU DE BORD SUPER INNOVANT · Icônes de jeux, d'éléments, d'armes et de personnages partout dans les widgets.
 
 ### 6. PNG DE BUILD ET D'ÉQUIPE (EXTRÊMEMENT BEAUX)
+
+Les affiches de build et d’équipe proposent Atelier, Atlas et Éclipse, les formats carré, portrait et paysage et les thèmes clair et sombre. Le test Playwright couvre les entrées équipe, build et personnage, compare le PNG téléchargé à l’aperçu et vérifie la copie. Armes et sets réutilisent l’entrée des fiches de catalogue. Les tableaux de calcul utilisent le même aperçu et la même sauvegarde avec leur capture de tableau existante. Les rotations de plus de 24 étapes sont résumées sur l’affiche. Le test n’ouvre pas les tableaux de calcul.
 - [ ] 6. PNG DE BUILD ET D'ÉQUIPE (EXTRÊMEMENT BEAUX) · Génère un VRAI design de fiche PNG pour un build personnel ET pour une équipe, extrêmement beau et stylé (qualité « affiche » à partager) : composition soignée, splash art du personnage en fond (ou illustration adaptée), couleurs du thème du personnage, typographie élégante, icônes d'éléments/armes/sets/stats, pièces d'artéfacts en images avec leurs stats, arme, constellation, talents, stats finales, dégâts clés, nom du build et signature de l'utilisateur ; pour l'équipe : les 4 personnages, leurs rôles, la résonance, la rotation en icônes, les dégâts théoriques. Plusieurs modèles au choix (au moins 3 par type), format carré, portrait et paysage, mode sombre/clair, résolution élevée (2x).
 - [ ] 6. PNG DE BUILD ET D'ÉQUIPE (EXTRÊMEMENT BEAUX) · Chaque fiche est enregistrée en PNG ET copiée dans le presse-papiers par défaut ; une fonction unique réutilisable sert à toutes les fiches du site (personnages, armes, sets, équipes, builds, tableaux de calcul). Le rendu doit être identique à l'aperçu à l'écran.
 - [ ] 6. PNG DE BUILD ET D'ÉQUIPE (EXTRÊMEMENT BEAUX) · Calcsheet (correctifs seulement) : icônes de personnages bien plus grandes, première ligne du tableau personnalisable séparément des cases (taille de police, police, couleur), bordures et tailles de cases revues, export qui conserve les couleurs et pensé pour Google Sheets, fiche PNG du tableau.
@@ -360,3 +362,289 @@ Source : pièce jointe de l’utilisateur et référence cartes-apercu (8).html.
 
 ### Avancement 2026-11-09 — synchronisation des catalogues
 - [~] **Import de données (chantier I) ·** Synchronisation du jeu actif cadencée à 6 h, bouton de synchro sur les quatre catégories, manifeste `import-sources.json` validé avec secours local, plafond JSON 16 Mio, journal des succès/échecs, cache gardé si une source tombe. Vérifié : `node --check` sur les modules modifiés, `node --test tests/*.test.mjs` (41/41), `git diff --check` (41 tests réussis; commit `f7c11a5`). Le service de synchronisation reste dépendant des catalogues réellement servis par les sources; couverture HSR/Wuwa et file de validation des personnages restent incomplètes.
+
+## Mission Astralis · suivi du PDF
+
+Le ciel sans image, les astéroïdes et les surfaces dessinées des petites planètes ont été vérifiés avec le parcours Playwright Cosmos.
+
+La section 01 est entamée. Quinze voix disposent d’un fichier par personnage et de répliques du matin et du soir reliées aux rappels. Le test couvre le routage, les doublons et les balises dans ces quinze fichiers. Le corpus des conversations, les autres situations et l’écran d’accueil restent à traiter.
+
+### 01 Discussions des compagnons (bots)
+
+- [ ] Personnalise UNE PAR UNE toutes les discussions entre les compagnons (messages à l'arrivée, conversations à plusieurs voix, réactions aux actions, messages de rappel). Chaque personnage a sa voix propre, déduite de son lore et de son comportement (ex. un personnage solennel ne parle pas comme un personnage espiègle), et ses relations propres avec les autres (amitié, rivalité, hiérarchie, taquineries).
+- [ ] Appuie-toi sur les données du « Réseau des relations » (section 3  pour choisir quels personnages se parlent et de quoi.
+- [ ] Les messages doivent être HUMAINS   ponctuation vivante (points de suspension, tirets, parenthèses, exclamations mesurées), expressions familières de la langue, hésitations naturelles, longueurs variées, réactions au contexte (heure, ressources, événements), pas de formules répétitives ni de ton de robot.
+- [ ] Aucune phrase générique identique chez deux personnages. Emojis avec parcimonie ou pas du tout selon le personnage.
+- [ ] Données : un fichier par personnage (companions/<jeu>/<slug>.json ) avec profil (ton, vocabulaire, tics de langage, valeurs), banque de phrases par situation (arrivée, matin, soir, ressources pleines, 50/50 perdu,
+- [ ] Capture de radiance, nouvelle bannière, farm terminé, etc.), et dialogues bi-personnages pour chaque paire pertinente. Tout le contenu est écrit réellement (pas de modèle à trous répété), sans contredire le lore (ne pas inventer d'événements du jeu).
+- [ ] Un test vérifie : aucun doublon de phrase entre deux personnages, longueur variée, couverture de toutes les situations, aucune balise non interprétée. Tu me livres docs/COMPAGNONS.md  listant, pour chaque personnage, le résumé de sa voix et le nombre de répliques.
+- [ ] L'écran d'accueil avec les compagnons est TOTALEMENT redessiné : plus chaleureux, vrai écran de bienvenue (fond animé aux couleurs du jeu, grand portrait, bulles avec saisie animée, résumé du jour, citations, bouton « Entrer »).
+- [x] Écran de chargement. La photo et le nom du profil local sont prioritaires. L’anneau animé et les messages d’attente sont présents. Playwright vérifie que la photo et le nom sont affichés pendant le chargement.
+
+### 02 REFONTE TOTALE DE TOUTES LES PAGES (sauf Personnages, Sets, Armes, Calcsheets, Tableau de bord et Cartes)
+
+- [ ] Pour TOUTES les pages SAUF Personnages, Sets/Reliques, Armes et Calcsheets (qui gardent leur architecture mais reçoivent les correctifs listés en section 7 , et SAUF le Tableau de bord et les Cartes (hors périmètre), je veux une REFONTE TOTALE du site : une vraie, pas une petite. Nouvelle architecture visuelle et de navigation, pas des retouches.
+- [ ] 2.1 Nouveau design system complet (fichier unique de tokens + composants) nouvelle palette vivante et chaleureuse, sans néon, une couleur par jeu et une par personnage, nouvelle typographie, nouvelles formes et matières, nouveaux mouvements. Composants remplacés : boutons, champs, listes déroulantes personnalisées (recherche + images), onglets, cartes, tuiles, badges, jauges, graphiques,
+- [ ] panneaux latéraux, tableaux, états vides, squelettes, notifications. L'accent et les couleurs restent personnalisables, thèmes sombre et clair, prefers-reduced-motion .
+- [ ] 2.2 Gabarits
+- [ ] Catalogue, Fiche détail, Outil (saisies à gauche, résultats à droite), Visualisation plein écran (pour le réseau de relations). Toutes les pages concernées sont migrées.
+- [ ] 2.3 Pages concernées (liste à compléter par ton inventaire) vœux/suivi/épargne, endgame, actualités et calendrier, lore, équipes, builds, plan de farm, matériaux, tâches, notes, favoris, médias, compagnon, réglages, journal de données, import/profil  Akasha, Enka, HoYoLAB , changelog.
+- [ ] 2.4 Gros accent sur le design, l'esthétique et les effets transitions de pages, micro-interactions, chargements soignés, états vides illustrés, couleurs partout, icônes partout.
+- [ ] 2.5 ICÔNES PARTOUT icônes officielles des jeux  Genshin, Honkai: Star Rail, Wuthering Waves) dans les onglets de jeux ; icônes d'éléments, d'armes (types), de voies/types HSR, de personnages, de ressources (primogemmes, vœux, résine et équivalents par jeu), de matériaux, de livres de talents (violets et bleus), d'artéfacts. Enregistre-les en local dans assets/  et utilise un registre central d'icônes.
+- [ ] 2.6 Barre du haut icône du profil, et à droite les montants primogemmes / vœux / résine (équivalents par jeu, icônes exactes) ; menu de gauche qui défile facilement, avec sections repliables et recherche Ctrl+K.
+- [ ] 2.7 Défilement toutes les fiches (personnages, armes, sets, matériaux) défilent correctement (molette, tactile, clavier) sans faire défiler le fond.
+- [ ] 2.8 Ajoute du contenu texte utile et de la couleur sur toutes les pages (introductions, aides, conseils, états vides).
+
+### 03 NOUVELLE PAGE   « RÉSEAU DES RELATIONS » (même concept et même style que ties.catforest.dev/genshin)
+
+Implémenté localement dans `src/relations.js`, `src/relations-worker.js`, `relations.css` et `tools/build-relations.py`. La page est accessible depuis la navigation Genshin, les fiches, le lore et les équipes. Le corpus figé contient 1 783 preuves FR/EN pour 566 duos. Les traductions d’une réplique comptent comme une seule preuve. Les compagnons privilégient les groupes dont au moins un duo est attesté.
+
+Pour actualiser les voix, lancer `python tools/build-relations.py`. La version précédente est conservée si un téléchargement échoue. Ajouter `--quests fr <fichier.jsonl> <source-https>` pour importer un corpus de quête GenshinDialog vérifié. Le fichier livré ne contient aucun corpus de quête. Les clips audio, la régénération lors de la synchronisation générale, la relecture humaine des 50 preuves et le banc à 60 i/s restent à compléter. L’audit automatique et ses références figurent dans `docs/AUDIT-RELATIONS.md`.
+
+
+- [ ] Je te joins une capture du site de référence « 原神关系⽹  » (Genshin Relationship Network). Je veux une nouvelle page d'Astralis EXACTEMENT du même concept et du même style d'effets, en plus complète, plus exacte et beaucoup plus personnalisable. Tu t'inspires du principe, tu ne copies NI son code, NI ses images, NI ses textes, NI son nom.
+- [ ] 3.1 Concept (d'après la capture et le site de référence) :
+- [ ] Une visualisation en ANNEAU   chaque personnage jouable est un nœud représenté par son icône dans un cercle, avec un liseré de la couleur de son élément. Les nœuds sont regroupés par région autour du cercle
+- [ ] Mondstadt, Liyue, Inazuma, Sumeru, Fontaine, Natlan, Snezhnaya, Nod-Krai / hors des sept nations), avec
+- [ ] l'icône et le nom de la région en légende sur l'anneau. Fond sombre bleu nuit avec léger scintillement d'étoiles.
+- [ ] Des LIENS courbes (courbes de Bézier regroupées, façon « edge bundling ») traversent l'intérieur du cercle, colorés (dégradé entre les couleurs des deux personnages ou de leur élément), semi-transparents, qui s'allument au survol et à la sélection.
+- [ ] Principe de données : chaque personnage a des répliques vocales sur d'autres personnages (« À propos de X… »), et les textes d'histoire (quêtes de l'Archon, quêtes de légende, quêtes du monde, événements, récits de voyageurs, lettres et livres, histoires de personnages) font apparaître des personnages ensemble.
+- [ ] Quand un personnage en mentionne un autre dans ses répliques, un lien est tracé ; les scènes partagées dans l'histoire créent aussi un lien.
+- [ ] Interactions : cliquer sur UN personnage allume tous ceux qu'il mentionne ; en cliquer un SECOND ouvre la vue duo (deux avatars face à face, avec ce que chacun dit de l'autre, clips vocaux lisibles quand ils sont disponibles, et la liste des scènes partagées). Un onglet « Par association » classe, pour un personnage sélectionné, qui partage le plus de scènes et de répliques avec lui.
+- [ ] Panneau latéral gauche : titre de la page en typographie élégante, champ de recherche (nom ou surnom/alias, en français et en anglais), texte d'explication, et statistiques calculées automatiquement (nombre de répliques d'histoire, de quêtes, de personnages jouables, de répliques vocales).
+- [ ] Barre d'outils en haut à droite : partager (lien + export image), réglages, aide, signalement d'erreur de données.
+- [ ] Chargement animé avec message (« Lecture des répliques… »), état vide, erreurs claires.
+- [ ] 3.2 Ce que tu ajoutes (plus complet, plus exact, plus personnalisable) :
+- [ ] MON ÉQUIPE : l'utilisateur choisit une de ses équipes (ou en compose une) et les ICÔNES DE CES
+- [ ] PERSONNAGES sont mises en avant dans le réseau (anneau d'accent, légèrement agrandies, étiquette, pulsation douce) ; le reste passe en retrait. Un panneau « Entente d'équipe » montre les liens entre les 4 membres (qui parle de qui, nombre de répliques et de scènes), un score de complicité et des citations.
+- [ ] Pour chaque membre, ses liens avec les personnages que l'utilisateur possède.
+- [ ] Mises en page au choix : par région (par défaut), par élément, par type d'arme, par rareté, par version de sortie, par faction/organisation, ou réseau à forces (force-directed) ; ordre au choix ; taille des nœuds proportionnelle au nombre de liens ; rayon et espacement réglables.
+- [ ] Filtres : source des liens (répliques vocales / histoire / les deux), direction (qui parle de qui, ou réciproque), poids minimum, région, élément, version, personnages possédés seulement, masquer les spoilers (cache les relations issues d'une quête non jouée, au choix de l'utilisateur), langue des citations  FR / EN , option « inclure des PNJ importants »  Paimon, Archontes non jouables, etc.).
+- [ ] Apparence personnalisable : thème du fond (nuit étoilée, sombre uni, clair), palette des liens (par élément, par région, monochrome, couleur d'accent), épaisseur, courbure, opacité, intensité de la lueur, vitesse d'animation, style des nœuds (icône ronde, hexagone, portrait), affichage ou non des noms et des légendes de régions. Réglages enregistrés, préréglages nommés, bouton de réinitialisation.
+- [ ] Effets (mêmes que la référence, en plus soignés) : tracé des liens qui s'allument à l'ouverture, éclairage progressif au survol (le personnage, ses liens et ses voisins se mettent en lumière tandis que le reste s'atténue), pulsation douce des liens actifs, étoiles en arrière-plan avec léger parallaxe, anneau extérieur avec graduations, transitions fluides entre mises en page (les nœuds glissent vers leur nouvelle position), zoom et déplacement à la souris et au tactile.
+- [ ] Fiche personnage intégrée : au clic sur un nœud, un panneau latéral affiche le portrait, l'élément, la région, la faction, ses relations classées avec citations, un lien vers sa fiche et vers son lore (section 6 .
+- [ ] Partage : lien qui conserve l'état (personnages sélectionnés, filtres, mise en page) dans l'adresse, export
+- [ ] PNG de la vue actuelle (avec titre, légende et équipe choisie) enregistré ET copié dans le presse-papiers.
+- [ ] 3.3 Exactitude des données (point critique : aucune relation inventée) :
+- [ ] Un lien existe SEULEMENT s'il s'appuie sur une preuve textuelle (réplique vocale, ligne de dialogue de quête, texte d'histoire). Chaque lien conserve ses preuves : type, citation, identifiant de la source, langue, quête ou réplique d'origine, et compteur. Aucune relation « devinée ».
+- [ ] Sources : données de jeu ouvertes  AnimeGameData, genshin-db, Project Amber, Lunaris/Nanoka), textes en français quand ils existent. Pipeline automatique tools/build-relations.*  qui génère data/relations.json  à partir des répliques vocales et des dialogues de quête.
+- [ ] Détection des mentions : dictionnaire d'alias par personnage (noms, surnoms, titres : ex. Childe/Tartaglia,
+- [ ] Le Voyageur/Aether/Lumine, noms de famille ou de faction), correspondance sur des mots entiers, exclusion des homonymes et mots courants qui ne désignent pas le personnage, gestion de la ponctuation et des accents. Les titres de répliques « À propos de X » donnent des liens directs fiables.
+- [ ] Scènes partagées : un lien d'histoire ne se crée que si les deux personnages parlent ou sont explicitement nommés dans la même scène/quête, avec un poids selon le nombre de scènes.
+- [ ] Tests : jeu de relations connues avec preuves vérifiées à la main (ex. paires célèbres) qui doit être retrouvé
+- [ ] ; échantillon aléatoire de 50 liens relu et consigné dans docs/AUDIT-RELATIONS.md  (citation + source + verdict) ; test qui échoue si un lien n'a aucune preuve ; test de non-régression sur les homonymes.
+- [ ] Mise à jour automatique : à chaque synchronisation (section 9 , un nouveau personnage ou de nouvelles répliques apparaissent sur l'anneau et dans les liens sans modification du code, avec badge « Non confirmé » si les données sont partielles.
+- [ ] 3.4 Performance et accessibilité :
+- [ ] Rendu Canvas 2D (ou WebGL  avec couche de fond mise en cache, regroupement des courbes précalculé dans un Web Worker, détection du survol par grille spatiale, 60 images/s avec plus de 150 nœuds et plusieurs milliers de liens, zoom/déplacement fluides (souris et pincement tactile).
+- [ ] Alternative accessible : vue « liste » équivalente (tableau triable des relations), navigation au clavier entre les nœuds, libellés pour lecteurs d'écran, prefers-reduced-motion  (animations réduites), contrastes suffisants, mobile utilisable (panneaux en feuille basse).
+- [ ] Intégration : lien depuis les fiches de personnages et de lore, depuis les équipes (« Voir l'entente d'équipe
+- [ ] »), et données réutilisées par les compagnons (section 1 .
+
+### 04 Png de build et d'équipe (extrêmement beaux) et calcsheet
+
+- [ ] Génère un VRAI design de fiche PNG pour un build personnel ET pour une équipe, extrêmement beau et stylé (qualité « affiche » à partager) : composition soignée, splash art du personnage en fond, couleurs du thème du personnage, typographie élégante, icônes d'éléments/armes/sets/stats, pièces d'artéfacts en images avec leurs stats, arme, constellation, talents, stats finales, dégâts clés, nom du build et signature de l'utilisateur ; pour l'équipe : les 4 personnages, leurs rôles, la résonance, la rotation en icônes, les dégâts théoriques. Plusieurs modèles au choix (au moins 3 par type), formats carré, portrait et paysage, mode sombre/clair, résolution élevée (2x).
+- [ ] Chaque fiche est enregistrée en PNG ET copiée dans le presse-papiers par défaut ; une fonction unique réutilisable sert à toutes les fiches du site (personnages, armes, sets, équipes, builds, tableaux de calcul).
+- [ ] Le rendu est identique à l'aperçu à l'écran.
+- [ ] Calcsheet (correctifs seulement) : icônes de personnages bien plus grandes, première ligne du tableau personnalisable séparément des cases (taille de police, police, couleur), bordures et tailles de cases revues, export qui conserve les couleurs et pensé pour Google Sheets, fiche PNG du tableau.
+
+### 05 Textes de jeu : balises et formatage
+
+- [ ] Les descriptions de jeu contiennent des balises et des séquences à interpréter correctement. Exemple à gérer exactement :
+- [ ] <color=#FFD780FF>Attaque normale</color>\nEnchaîne jusqu'à 5 coups d'épée.\n\n<color=#FFD780FF>Attaque chargée</color>\nConsomme de l'endurance pour déclencher deux lames du vent
+- [ ] Écris un module unique rich-text.js  utilisé partout (kits, fiches, armes, sets, journal de données, compagnons, relations) qui : applique l'effet de <color=#RRGGBBAA>…</color>  (couleur réelle, avec gestion du canal alpha et des couleurs du jeu), convertit \n  en saut de ligne et \n\n  en paragraphe, gère les autres balises usuelles (<b> , <i> , <u> , <size=…> , <br> , <sprite…> ) et les paramètres {param1:F1P}  /
+- [ ] {PARAM}  (remplacés par les valeurs de niveau, avec formatage en pourcentage ou décimales), affiche les titres de sections (« Attaque normale », « Attaque chargée ») en couleur, et ne laisse JAMAIS apparaître une balise brute à l'écran.
+- [ ] Sécurité : aucun HTML brut injecté depuis les sources (analyse en nœuds DOM, liste blanche), pas de XSS.
+- [ ] IMPORTANT   le texte est rendu par TON module, selon les données, et non copié tel quel depuis un site tiers (aucune copie de mise en page ni de HTML d'un autre site).
+- [ ] Tests : le texte d'exemple ci-dessus donne deux titres en couleur or, des retours à la ligne corrects, et aucune balise visible ; test de balayage de tous les textes de toutes les données qui échoue si une balise
+- [ ] <  ou {…}  non interprétée reste affichée.
+
+### 06 Lore
+
+- [ ] Chaque personnage a PLUS de lore : histoire, personnalité, relations, citations, objets, voix, anecdotes, chronologie, factions et régions liées. Continue et enrichis les fiches de lore existantes (personnages ET régions) en prolongeant ce qui existe (même format, même style, plus de profondeur), pas un simple rajout d'une ligne. Répare les fiches de lore boguées (image jointe).
+- [ ] Revois les factions des personnages (données et affichage).
+- [ ] TRAILERS   place les bons trailers officiels (démo de personnage, teaser, bande-annonce de région ou de version) au bon endroit : sur la fiche du personnage ou de la région concernée. Le lien personnage ↔ trailer est établi automatiquement à partir de sources vérifiables (titre, personnage, chaîne officielle) et vérifié : un trailer n'apparaît jamais sur le mauvais personnage. Intégration respectueuse de la vie privée (lecture au clic, lecteur sans cookies), repli vers un lien si la vidéo est indisponible.
+- [ ] Si une information de lore n'est pas confirmée par une source, ne l'invente pas : badge « Non confirmé ».
+
+### 07 Fonctionnalités : rien ne disparaît, et de nouvelles arrivent
+
+- [ ] Aucune fonctionnalité existante n'est supprimée (inventaire + vérification finale).
+- [ ] Ajoute des fonctionnalités pertinentes aux pages existantes ET crée de nouvelles pages utiles (dont le
+- [ ] Réseau des relations), en m'expliquant dans docs/NOUVEAUTES.md  l'utilité de chacune (à quoi ça sert, pour qui, comment s'en servir). Idées à évaluer : checklist quotidienne avec compteur de résine et resets, planificateur de primogemmes avec objectif de pity, simulateur de vœux avec probabilités, quêtes et badges du profil, journal de progression avec courbes, comparateur de personnages et d'armes, quiz de lore, calendrier d'anniversaires, assistant de session, centre de notifications, mode hors ligne, sauvegarde et synchronisation entre appareils (export/import chiffré, lien partageable).
+- [ ] Corrections par page :
+- [ ] Vœux : rétablis les couleurs du suivi des personnages selon les pertes de 50/50 et la haute pity ; après
+- [ ] 3 50/50 perdus d'affilée, message indiquant que la Capture de radiance est garantie ; l'utilisateur peut marquer un tirage « 50/50 perdu », « 50/50 gagné » ou « Capture de radiance » (affiché en VIOLET  ;
+- [ ] Épargne pleinement fonctionnelle avec graphiques dynamiques, bien proportionnés, qui marchent aussi pour des jours équivalents ; liste-moi les fonctionnalités utiles que tu y ajoutes.
+- [ ] Endgame : le compteur du Carnage est trop grand et ne fonctionne pas, répare-le, mise à jour automatique depuis une base publique, bouton par endgame pour afficher le prochain  Théâtre,
+- [ ] Abysses, Carnage) dès qu'une base le publie ; supprime les étages 9 et 10 de l'Abîme.
+- [ ] Actualités : redesign complet avec plus de couleurs, calendrier plus compact et 100 % automatique (événements, bannières, endgames avec barres de début à fin sur plusieurs jours), changement de base de données d'événements si nécessaire.
+- [ ] Plan de farm : propose aussi de farmer des artéfacts (images d'artéfacts), un personnage ajouté au site y apparaît automatiquement, liste de sélection claire (image, nom et SA case par personnage), icônes des livres violets et bleus de Genshin, esthétique améliorée.
+- [ ] Matériaux : reconnais les matériaux de personnages, d'armes et de mobs à farmer ; chaque fiche affiche les personnages et armes associés (icônes) et les aptitudes concernées ; le texte « Niv. talents
+- [ ] » est aéré, avec de la couleur selon le thème du personnage.
+- [ ] Personnages (correctifs seulement) : cartes plus carrées avec léger zoom centré, bug Aino/Alhaitham corrigé avec test global, tri du plus récent au plus ancien, contour fin violet  4★) ou orange  5★) à la place des étoiles, suppression de « Importer une image de skin », fiches personnages/artéfacts/sets bien plus belles, fiche qui défile. Armes et Reliques : tout affiché par défaut (liste virtualisée), plus de «
+- [ ] Afficher plus », fiches qui défilent.
+
+### 08 Import automatique, changelog, akasha
+
+- [ ] 8.1 Import automatique le site se met à jour tout seul à l'import (kits, splash arts, icônes, bannières, événements, endgames, valeurs de talents, textes, répliques et relations). Les personnages nouveaux passent par une file de validation. Cause racine à corriger : pourquoi la fiche de La Tsarine affiche son icône au lieu de son splash art, et pourquoi le kit de Danica n'apparaît pas ; corrige le mécanisme (récupération, ordre de repli des sources, cache), sans ajouter ces personnages à la main, avec autant de tests que nécessaire.
+- [ ] 8.2 Journal de données présentation riche de ce qui a changé (icônes des personnages concernés, listes soignées : rouge = retiré/modifié, vert = ajouté/nouveau, pour armes, sets, personnages), calcul automatique par comparaison des anciennes et nouvelles données (stats de base, valeurs d'attaques, passifs de sets, armes, constellations, descriptions), historique par version, filtres.
+- [ ] 8.3 Changelog amélioré fichier versionné, catégories (nouveautés, améliorations, corrections), icônes, couleurs, animations, et une fenêtre « Quoi de neuf » après chaque mise à jour (liste de cartes colorées, formes ludiques, revoyable depuis les réglages).
+- [ ] 8.4 Import Akasha répare-le pour qu'il fonctionne parfaitement, avec de vrais effets (chargement animé et stylé, progression par étapes, révélation des personnages importés) et plus de fonctionnalités : import par UID, tous les personnages et leurs builds, classements et percentiles par attaque, comparaison avec mes builds, historique des importations, export, gestion claire des erreurs (profil privé, UID inconnu, délai dépassé, limite de requêtes). Si un appel nécessite de contourner les restrictions de navigateur  CORS , passe par le serveur local ou une fonction serverless gratuite.
+
+### 09 Sources automatiques
+
+- [ ] Tout ce qui est donnée du jeu arrive par importation automatique depuis des bases publiques  Lunaris, Nanoka
+- [ ] Gachabase, bases d'événements, Enka, Akasha, données de jeu ouvertes), configurées dans import- sources.json . Aucun personnage ni événement dans le code. Synchronisation au démarrage (au plus toutes les 6 h) + bouton « Synchroniser maintenant » + journal. Une source indisponible ne casse jamais l'appli (délai, nouvelle tentative, message clair). docs/AUTOMATISATION.md  décrit la source de chaque donnée, la fréquence et le comportement en cas de panne. Les tests utilisent de fausses sources pour prouver chaque automatisme.
+
+### 10 Application sur mon iphone (gratuitement)
+
+- [ ] Démerde-toi pour que je puisse installer l'application sur mon iPhone, SANS RIEN PAYER (pas de compte développeur Apple à 99 € . Fais ce qu'il faut :
+- [ ] Transforme l'application en PWA installable sur iOS   icônes PNG  180 180 pour apple-touch-icon , 192 et
+- [ ] 512 pour le manifeste, car iOS ignore le SVG , manifest.webmanifest  complet, balises apple-mobile-web- app-* , viewport-fit=cover  et marges de zone sûre (encoche, barre du bas), 100dvh , zones tactiles d'au moins 44 px, aucune dépendance au survol, menu adapté au pouce, service worker et mode hors ligne, démarrage plein écran.
+- [ ] Hébergement gratuit en HTTPS. Étudie ces options et mets en place la meilleure : (a) GitHub Pages pour la partie statique (workflow GitHub Actions de déploiement à chaque push) ; (b) les appels qui dépendent de server.py   HoYoLAB, lore, import, etc.) passent par une fonction serverless gratuite  Cloudflare Workers,
+- [ ] Vercel ou Netlify, niveaux gratuits) ou par un hébergement gratuit  Render) ; (c) en secours, accès depuis le réseau local de mon PC, ou tunnel gratuit  Cloudflare Tunnel). Documente les limites (mise en veille, quotas) et choisis celle qui marche le mieux sans payer.
+- [ ] Vérifie le fonctionnement dans un émulateur d'iPhone  Playwright, WebKit) : installation, démarrage, mode hors ligne, aucune erreur.
+- [ ] Écris docs/INSTALLER-SUR-IPHONE.md  en français, pas à pas pour un débutant : ouvrir l'adresse dans Safari,
+- [ ] Partager, « Sur l'écran d'accueil », comment se mettre à jour, comment sauvegarder ses données (stockage local de l'iPhone) avec export/import et rappel de sauvegarde, et quoi faire en cas de problème.
+- [ ] Aucune clé secrète ni mot de passe dans le dépôt public (secrets du service ou fichier d'environnement ignoré).
+
+### 11 Laboratoire de dégâts (à faire en dernier)
+
+- [ ] Le « Laboratoire de dégâts » est une page unique qui regroupe trois outils partageant les mêmes données :  A  un moteur de dégâts avec rotations et comparaison avant/après,  B  un optimiseur d'artéfacts à partir de l'inventaire de l'utilisateur,  C  une liste de personnages classés par priorité. Le but : être plus exact, plus transparent, plus rapide et plus beau que Genshin Optimizer et que l'outil de référence « Little Bro » (dont je te joins des captures). Tu t'inspires du principe d'usage de cet outil, tu ne copies NI son code, NI ses images, NI son nom, NI sa mise en page à l'identique.
+- [ ] 11.1 Ce que montre l'outil de référence (captures) :
+- [ ] Navigation équipes → personnage, avec deux boutons « Loadout » / « Build équipé » et quatre onglets
+- [ ] Vue d'ensemble, Talents, Optimiser, Amélioration d'artéfacts.
+- [ ] Colonne gauche : portrait, niveau, constellation, étoiles, les 6 pièces d'équipement (arme   5 artéfacts) en miniatures avec niveau et stat principale, stats de base et bonus, stats bonus modifiables.
+- [ ] Colonne centrale (filtres) : niveau d'artéfact (curseur + compteur), stat principale par emplacement avec des pastilles de comptage, assistance de niveau de stat principale.
+- [ ] Colonne droite : configuration des sets  2 pièces, 4 pièces, arcs-en-ciel, effets conditionnels), configuration des artéfacts équipés ailleurs, contraintes minimales, case « exclure des artéfacts », case « utiliser les artéfacts des builds actifs des coéquipiers », case « autoriser les builds partiels ».
+- [ ] Choix de la cible : une attaque précise du personnage (ex. compétence élémentaire + type de dégâts), exclusions, bouton « Générer des builds ».
+- [ ] Résultats : plusieurs builds classés, pièces en images, boutons « Nouveau build » / « Équiper au build actuel », bascule dégâts sans crit / moyens / crit, choix de la réaction (ex. Évaporation), liste des dégâts par attaque, réactions transformatives, comparaison avec une cible graphique.
+- [ ] Ses défauts à corriger : filtres trop denses, pastilles et chiffres non expliqués, libellés mélangés anglais/français, menus déroulants rouges peu lisibles, rien n'indique ce qui coûte du temps de calcul, pas de résumé des filtres actifs.
+- [ ] 11.2 Le moteur de dégâts (damage-engine.js , module pur sans DOM, entièrement testé) :
+- [ ] Formule   Dégâts   DégâtsDeBase ×  1   Bonus de dégâts)   MultCrit   MultDEF   MultRES   MultRéaction (+ termes additifs). Chaque terme est calculé séparément et affichable.
+- [ ] Base   % du talent × stat de référence  ATQ, PV, DÉF ou MÎ    dégâts plats. Stat finale = base ×  1   %    plat.
+- [ ] Crit : trois cas (sans crit, crit, moyen   1   min(TauxCrit, 1    DgtCrit).
+- [ ] DEF    Nv_perso   100  /   Nv_perso   100     Nv_ennemi   100     1   réduction DEF     1   ignorance
+- [ ] DEF  .
+- [ ] RES   si RES   0   1   RES/2 ; 0   RES   75 %   1   RES ; RES   75 %   1/ 4·RES   1 .
+- [ ] Réactions amplifiantes  Vaporisation, Fonte) : multiplicateur de base ×  1   2,78·MÎ/ MÎ   1400    bonus de réaction).
+- [ ] Réactions additives  Intensification, Propagation) : ajout aux dégâts de base, avec la table de niveau et la
+- [ ] MÎ.
+- [ ] Réactions transformatives  Surcharge, Supraconduction, Électro-Charge, Brisé, Tourbillon, Floraison,
+- [ ] Hyperfloraison, Fleur ardente, Brûlure, et les réactions Lunaires de la version courante) : coefficient × table de niveau ×  1   16·MÎ/ MÎ   2000    bonus)   RES, sans crit sauf exception documentée.
+- [ ] Vérifie les mécaniques de la version courante du jeu et signale tout écart avec ce que tu sais.
+- [ ] N'invente JAMAIS une valeur (multiplicateurs de talent, tables de niveau, effets d'armes ou de sets).
+- [ ] Charge les données depuis une source ouverte (genshin-db, Project Amber, AnimeGameData) ou marque
+- [ ] TODO_DATA  visible dans l'interface.
+- [ ] Gère : snapshot vs buffs dynamiques, durées et uptime, stacks, résonances élémentaires, buffs d'équipe configurables, niveau et RES de l'ennemi réglables avec préréglages (monstre niveau 100, Abîme, boss,
+- [ ] Domaines).
+- [ ] Tests : au moins 15 cas avec valeurs de référence calculées à la main (un par type de réaction, DEF réduite,
+- [ ] RES négative et   75 %, crit/non-crit, stats limites). Tu montres le calcul de référence dans le test.
+- [ ] 11.3 Rotation et comparaison avant/après :
+- [ ] Rotation = timeline d'actions représentées par des ICÔNES (attaque normale, chargée, plongeante, compétence, déflagration, réactions, buffs ON/OFF avec durée), glisser-déposer, répétable N fois, temps total saisi ou calculé. Un cercle de la couleur du thème du personnage entoure chaque icône. Sortie : dégâts par action, total, DPS.
+- [ ] Recherche par attaque : une barre de recherche cherche dans les noms d'attaques et de talents de TOUS les personnages (français et anglais, sans accents ni casse, tolérante aux fautes), affiche l'icône, le nom, le personnage associé et un bouton « Ajouter à la rotation ». Index construit une seule fois.
+- [ ] Comparaison avant/après : build actuel contre build modifié (une pièce, l'arme, un set). Delta absolu et en
+- [ ] %, barres avant/après, décomposition en cascade des gains par stat.
+- [ ] Sensibilité : valeur marginale de  1 % Taux Crit,  1 % DGT Crit,  10 MÎ,  1 roll, classée par gain.
+- [ ] « Voir le détail » : chaque terme de la formule pour une action, pour pouvoir vérifier le calcul.
+- [ ] Alertes   Recharge d'énergie insuffisante, buffs mal superposés, donnée TODO_DATA .
+- [ ] Bouton « Dégâts théoriques » d'une équipe : calcul sur un monstre niveau 100, une couleur de texte différente par réaction élémentaire, choix de l'affichage (sans réaction, Fonte, Vaporisation, Intensification,
+- [ ] Propagation…), dégâts d'Hyperfloraison et autres transformatives, bouton Déplier/Replier qui cache les détails de l'équipe (replié : icônes des personnages + nom de l'équipe).
+- [ ] 11.4 Optimiseur d'artéfacts (optimum garanti, recherche optimisée) :
+- [ ] Import de l'inventaire : format GOOD  Genshin Optimizer), JSON Astralis, scanners courants, saisie manuelle ; aperçu avant import, détection des doublons, validation (pièces impossibles signalées   3 ou 4 sous-stats initiales, aucune sous-stat identique à la principale, montées à  4/ 8/ 12/ 16/ 20 .
+- [ ] Tables d'artéfacts 5★ à vérifier contre ta source (la source gagne, tu me signales l'écart) : stats principales niveau 20  PV 4780, ATQ 311, ATQ/PV % 46,6, DÉF % 58,3, MÎ 187, Recharge 51,8, Taux Crit 31,1, DGT Crit
+- [ ] 62,2, bonus élémentaire 46,6, physique 58,3, soins 35,9  ; sous-stats, roll maximal  PV 298,75 ; ATQ 19,45 ;
+- [ ] DÉF 23,15 ; PV/ATQ % 5,83 ; DÉF % 7,29 ; MÎ 23,31 ; Recharge 6,48 ; Taux Crit 3,89 ; DGT Crit 7,77  avec les paliers 70/80/90/100 %.
+- [ ] Objectifs : une rotation, une action unique, DPS, PV effectifs, soins, pondération personnalisée.
+- [ ] Algorithme (recherche exacte mais qui évite tout calcul inutile) :
+- [ ] pré-filtrage par emplacement : suppression des pièces dominées, conservation des seules stats qui influencent l'objectif, dédoublonnage des pièces à vecteur de stats identique ;
+- [ ] regroupement par configuration de set  4 pièces, 2 2, hors-set) : bonus calculé une seule fois par configuration ;
+- [ ] branch and bound : emplacements ordonnés par taille de pool croissante, borne supérieure = stats partielles + maximum possible des emplacements restants (maxima suffixes précalculés), coupe de la branche si la borne ≤ k-ième meilleur score ;
+- [ ] élagage de faisabilité par les contraintes  Recharge min., Taux Crit max/min, PV/DÉF/MÎ min.) ;
+- [ ] démarrage à chaud avec l'équipement actuel comme première borne, tri heuristique des pièces ;
+- [ ] boucle interne sans allocation (tableaux typés, sommes incrémentales, évaluateur réduit qui prend le vecteur de stats déjà additionné) ;
+- [ ] Web Workers (cœurs   1 , répartition par blocs du premier emplacement, partage de la meilleure borne, progression et annulation instantanée ;
+- [ ] avant lancement : estimation du nombre de combinaisons ; après : nœuds visités, branches élaguées  % , pièces éliminées, temps ;
+- [ ] tests comparant l'optimiseur élagué à une recherche brute sur de petits inventaires (top N identique) + banc de performance 1 000 et 5 000 artéfacts.
+- [ ] Résultats : top N, pièces en images, stats finales, gain vs équipement actuel (en % et par action), « pourquoi cette combinaison » (les 3 stats déterminantes), bouton « Appliquer au build », option « Nouveau build ».
+- [ ] Analyse d'artéfacts : qualité par pièce, conseil garder/améliorer/jeter justifié, simulation Monte-Carlo à graine fixe pour les pièces non montées au niveau 20. Aide au farm : quel set et quel Domaine rapportent le plus.
+- [ ] 11.5 FILTRES FACILES (point essentiel un novice obtient un bon résultat en 3 clics, un expert garde tout) :
+- [ ] Niveau 1 toujours visible : objectif (quelle attaque ou quelle rotation), préréglage « Rapide / Équilibré /
+- [ ] Précis » (chacun décrit en une phrase), bouton « Lancer ».
+- [ ] Niveau 2 « Personnaliser » : niveau des artéfacts (trois boutons : « Niveau 20 seulement », « 16 et plus », «
+- [ ] Tous »), stats principales (seulement pour sablier, coupe, couronne, en icônes à cocher avec le nombre de pièces), sets (grille d'images à trois états : autorisé / imposé / exclu, triée par pertinence), type de configuration  4 pièces, 2 2, arc-en-ciel) en une rangée de boutons, pièces utilisables (non / seulement celles des personnages classés en dessous dans ma liste / oui), contraintes minimales (curseurs avec repère de la valeur actuelle et indicateur atteignable/impossible).
+- [ ] Niveau 3 « Avancé » : exclusions fines, pièces verrouillées une par une.
+- [ ] Intelligence par défaut : l'outil sélectionne les stats utiles à l'objectif, masque les inutiles, propose les sets pertinents, pré-remplit la Recharge minimale d'après la rotation.
+- [ ] Compteur en direct : « X artéfacts retenus sur Y, environ Z combinaisons, durée estimée W s », mis à jour à chaque changement avec le gain de temps (« exclure les niveaux 0 à 11 retire 120 pièces et divise le temps par 3 »).
+- [ ] Résumé des filtres actifs en pastilles amovibles + « Tout réinitialiser » + « Annuler ».
+- [ ] Tout en français, info-bulle d'une phrase par réglage, chiffres toujours légendés, boutons segmentés plutôt que menus quand 2 à 4 choix suffisent.
+- [ ] Diagnostic « aucun résultat » : dis quel filtre bloque et propose « Assouplir ce filtre ».
+- [ ] Mémorisation par personnage + préréglages personnels nommés. Mobile : filtres dans une feuille en bas, compteur et bouton « Lancer » collés en bas.
+- [ ] 11.6 Liste de priorité des personnages :
+- [ ] Liste ordonnée (glisser-déposer + boutons haut/bas, clavier). Option « Respecter la liste de priorité » : en optimisant le personnage de rang k, l'optimiseur ne peut PAS utiliser les artéfacts équipés sur les personnages de rang 1 à k−1 ; il peut utiliser les pièces libres et celles des personnages classés en dessous (avec affichage de l'impact sur eux et proposition de les réoptimiser).
+- [ ] Mode « Optimiser toute la liste » dans l'ordre de priorité, avec passe d'affinage par échanges de pièces.
+- [ ] Réglages par personnage : verrouiller son équipement, exclure des pièces, ignorer la priorité, rotation propre.
+- [ ] 11.7 Équipes et page Équipe équipes de 4 personnages, rôles, résonance automatique ; les stats du personnage redeviennent des
+- [ ] TABLEAUX ; les compétences sous les splash arts fonctionnent (corrige le bug avec un test) ; les listes (« choisir personnage », « liste… ») utilisent un composant de sélection avec recherche et images ; ne plus afficher les noms de sets ni d'arme des coéquipiers.
+- [ ] 11.8 Visuel du laboratoire très visuel (portraits, icônes d'armes, de sets, de stats, de talents, d'éléments, pièces d'artéfacts en images, barres et graphiques maison lisibles), aux couleurs du thème du personnage, avec les composants du design system du site. États soignés (vide, chargement avec progression, erreur, aucun résultat). Responsive, clavier, prefers-reduced-motion .
+
+### 12 Vérification finale et publication
+
+- [ ] Lance toute la suite de tests (moteur de dégâts, optimiseur, rendu de texte, relations, compagnons, import,
+- [ ] PWA , parcours chaque page à plusieurs largeurs  390, 768, 1440 px), thèmes sombre et clair, et corrige jusqu'à ce que tout passe sans erreur console. Vérifie que le tableau de bord et les cartes (hors périmètre) fonctionnent toujours.
+- [ ] Compare docs/INVENTAIRE.md  à l'application finale : aucune fonctionnalité perdue.
+- [ ] Mets à jour docs/SUIVI.md  (toutes les cases [x]  ou [!]  avec raison), docs/NOUVEAUTES.md , docs/AUTOMATISATION.md , docs/AUDIT-RELATIONS.md , docs/COMPAGNONS.md , docs/INSTALLER-SUR-IPHONE.md , ainsi que les captures dans docs/captures/ .
+- [ ] PUBLIE TOUT sur GitHub (commit final + push), puis donne ta réponse finale selon la règle 10 de la section
+- [ ] 0.
+- [ ] Commence maintenant par docs/SUIVI.md  et docs/INVENTAIRE.md , puis exécute tout de façon continue jusqu'à la fin, en terminant par le laboratoire de dégâts.
+
+## Complément relations — 10 novembre 2026
+- [ ] A : accueil étoilé, régions, compteurs sourcés, infobulles et outils.
+- [ ] B : sélection, modes vocal/concentrique, rangs, PNJ et Voyageur–Paimon.
+- [ ] C : duo papier ancien, preuves directionnelles, indices, lecture et navigation.
+- [ ] D : langues, voix, partage exact, nouveautés et signalements locaux.
+- [ ] E : transitions, micro-animations, équipe, mobile et mouvement réduit.
+- [ ] F : règles de rang documentées et testées, sources et traçabilité.
+- [ ] G : dix paires de référence, page de contrôle et captures.
+
+### Complément relations — état d'intégration
+- [x] Compteurs sourcés, infobulles de mentions, accès aux sources.
+- [x] Modes répliques/connexion, règles de rang et tests.
+- [x] Nœud Voyageur/Paimon commun, locuteur original conservé.
+- [x] Lecture duo papier ancien, colonnes directionnelles, profil et indices.
+- [x] Navigation de paires, lecture alternée, pause et repli audio.
+- [x] Langue texte/voix, volume et variante du Voyageur.
+- [x] Aperçu de partage, caméra et filtres dans le lien, partage système.
+- [x] Nouveautés et signalements locaux avec préparation d'e-mail.
+- [x] Onglets de lecture mobiles et réduction des animations.
+- [ ] Validation visuelle finale des dix paires et de la vue mobile.
+- [ ] Enrichissement des métadonnées sources : type précis des quêtes, relations officielles, actions et témoignages tiers ; aucun classement inventé.
+Les cinq langues sont sélectionnables, mais seules les traductions et voix réellement présentes sont utilisées. Les chansons ne sont affichées qu'avec source, crédit et extrait fourni (dix mots maximum).
+
+## Atelier, inventaires et planning — 10 novembre 2026
+- [x] Coûts des talents restaurés avec 116 tables locales et repli de source.
+- [x] Besoins cumulés entre personnages et jours de domaines issus des matériaux.
+- [x] Boss hebdomadaires distincts disponibles sans confusion avec la limite des récompenses à résine réduite.
+- [x] Sélecteur de farm avec case séparée du nom.
+- [x] Pièces importées regroupées par emplacement dans les fiches de sets.
+- [x] Sélecteur d’inventaire par emplacement dans l’éditeur de build.
+- [x] Export PNG autonome du calcul du laboratoire, aperçu et téléchargement communs.
+- [x] Compteur de budget et plafond des garanties séparés des estimations probabilistes.
+- [x] Calendrier d’actualité séparé du planning personnel, événements datés et cache serveur renouvelable.
+- [x] Surfaces illustrées procédurales et emblèmes Genshin pour les satellites.
+- [x] Présentation responsive des équipes, builds, calendrier et lore.
+
+## Clôture du lot studio et planification — 10 novembre 2026
+- [x] Neuf régions et portraits appropriés, reliefs et météos projetés en 3D, personnalisation par planète et migration sans Résumé & priorités.
+- [x] Barre de catalogue, stabilité des équipes et des sélecteurs de builds.
+- [x] Simulation de farm priorisée, stocks partagés et synthèse, talents individuels, cinq scénarios d’artéfacts, récoltes officielles et calendrier dynamique.
+- [x] Actualités séparées des objectifs, agenda compact et détail quotidien.
+- [x] Objectifs de vœux ordonnés, constellations/raffinements, doubles graphes et scénarios, revenus datés et budget théorique.
+- [x] Cache applicatif actualisé et hypothèses documentées.
+Détail de l’implémentation et des vérifications : [VALIDATION-STUDIO.md](VALIDATION-STUDIO.md).
+
+## Planètes — seconde refonte en véritables scènes 3D
+- [x] Remplacement du rendu régional peint par des maillages WebGL et objets volumétriques.
+- [x] Biomes exagérés, météo en volume, cascades/éruptions/lunes et reliefs dépassant les silhouettes.
+- [x] Ombres en détail, regroupement des géométries, contexte GPU partagé et cache v81.
+- [x] Contrôle des neuf scènes et parcours dans le tableau de bord.
+Détails : [PLANETES-3D.md](PLANETES-3D.md).

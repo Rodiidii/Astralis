@@ -1,0 +1,60 @@
+{
+  "category": {
+    "id": "ganyu-melt",
+    "name": "Melt",
+    "kind": "normal"
+  },
+  "child": {
+    "constellation": 0,
+    "characterLevel": 90,
+    "talents": {
+      "burst": 10,
+      "skill": 10,
+      "normal": 10
+    },
+    "baseTalents": {
+      "burst": 10,
+      "skill": 10,
+      "normal": 10
+    },
+    "weaponId": 15502,
+    "refinement": 1
+  },
+  "reference": {
+    "source": "ceilingStandard"
+  },
+  "goConditions": null,
+  "characterBonusStats": null,
+  "enemy": {
+    "level": 100,
+    "res": 0.1
+  },
+  "issues": [
+    {
+      "code": "skippedLines",
+      "reason": "teammate",
+      "lines": 1,
+      "share": 0.013672424624593608
+    },
+    {
+      "code": "setEffects",
+      "setIds": [
+        15036
+      ]
+    }
+  ],
+  "teamIssues": [
+    {
+      "code": "skippedLines",
+      "reason": "teammate",
+      "lines": 1,
+      "share": 0.013672424624593608
+    },
+    {
+      "code": "setEffects",
+      "setIds": [
+        15036
+      ]
+    }
+  ]
+}

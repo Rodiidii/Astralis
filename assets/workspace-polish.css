@@ -1,0 +1,45 @@
+/* Scoped refinements: stable art, usable inventory rows and compact planning. */
+.team-sheet .unit-cinematic .unit-portrait{position:absolute!important;inset:0!important;width:100%!important;height:100%!important;max-width:none!important;max-height:none!important;object-fit:cover!important;object-position:50% 30%!important;transform:none!important}
+.team-sheet .unit-art{height:clamp(280px,30vw,420px)}
+.builds-hub .build-character-select{display:grid;grid-template-columns:220px minmax(180px,1fr) minmax(180px,1fr);align-items:center;gap:24px;min-height:0;padding:0 24px 0 0;overflow:hidden}
+.builds-hub .build-portrait-hero{height:220px;min-height:0;position:relative}
+.builds-hub .build-character-art{position:absolute!important;inset:0!important;width:100%!important;height:100%!important;object-fit:cover!important;object-position:center 25%!important;transform:none!important}
+.builds-hub .build-character-skill-strip{grid-column:2/-1;display:flex;gap:12px;padding-bottom:16px;margin-top:-40px}
+.builds-hub .build-artifact-grid{display:grid;grid-template-columns:minmax(0,1fr);overflow:visible;gap:18px}
+.builds-hub .build-artifact-piece{min-width:0;display:grid;grid-template-columns:repeat(5,minmax(0,1fr));align-items:start;gap:14px;padding:20px;border:1px solid color-mix(in srgb,var(--build-tint) 35%,var(--line));border-radius:18px;background:linear-gradient(135deg,#ffffff06,transparent)}
+.build-artifact-piece>.build-import-slot,.build-artifact-piece>.rich-picker,.build-artifact-piece>.build-piece-name{grid-column:1/-1}
+.build-artifact-piece>.build-piece-visual{grid-column:1/-1;height:100px;min-height:100px;max-height:100px;justify-content:start}
+.build-artifact-piece .build-piece-image{width:100px!important;height:100px!important;object-fit:contain;animation:none!important}
+.build-artifact-piece label{min-width:0;display:grid;gap:8px}
+.build-artifact-piece .build-stat-input{display:grid;grid-template-columns:minmax(0,1fr);gap:6px}
+.build-artifact-piece select,.build-artifact-piece input{min-width:0;width:100%}
+.build-derived-stats{display:grid!important;grid-template-columns:minmax(0,1fr)!important;gap:18px}
+.build-stat-grid{grid-template-columns:repeat(4,minmax(0,1fr))!important}
+.artifact-create-dialog{width:min(740px,94vw);max-height:90dvh;overflow:auto;padding:24px;border:1px solid var(--line);border-radius:20px;background:var(--surface,#211e29);color:var(--ink,#faf7ef)}
+.artifact-create-dialog::backdrop{background:#080911bb}
+.artifact-create-dialog>header{display:flex;justify-content:space-between;align-items:center;gap:16px}
+.artifact-create-dialog form{display:grid;gap:14px}
+.artifact-create-dialog label{display:grid;gap:8px}
+.artifact-create-dialog [role=status]{color:#9fe3b6}
+.farm-projections{padding:24px;border:1px solid var(--line);border-radius:20px;background:linear-gradient(145deg,#26363066,#20203388)}
+.farm-projections>ol{display:flex;flex-wrap:wrap;gap:12px;list-style:none;padding:0;margin:20px 0}
+.farm-projections li{display:flex;align-items:center;gap:10px;padding:10px 12px;border:1px solid var(--line);border-radius:14px;background:#ffffff06}
+.farm-priority-avatar{width:40px;height:40px;object-fit:cover;border-radius:50%;background:#ffffff0c}
+.farm-projections li button{padding:7px 10px}
+.farm-projection-options{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:12px;margin:18px 0}
+.farm-projection-options button{display:grid;align-content:start;gap:14px;text-align:left;padding:18px;min-height:140px;background:#ffffff04;border:1px solid #ffffff25;border-radius:16px}
+.farm-projection-options [aria-pressed=true]{border-color:#9fe3b6;background:#83caa517;box-shadow:inset 0 0 0 1px #9fe3b633}
+.farm-projection-options small{font-size:12px;line-height:1.6}
+.farm-projections>p{font-size:12px;line-height:1.7;max-width:95ch;color:var(--muted)}
+.farm-targets{padding:18px;border:1px solid var(--line);border-radius:16px;margin:18px 0}
+lab-configurations>details{padding:20px;border:1px solid var(--line);border-radius:16px;background:linear-gradient(145deg,#ad8ee80d,transparent)}
+lab-configurations summary{font-size:15px;cursor:pointer}
+lab-configurations button{border:1px solid var(--line);border-radius:12px;padding:10px 14px;background:#ffffff08;color:inherit;margin:10px 8px 0 0}
+lab-configurations input,lab-configurations select{padding:10px;border:1px solid var(--line);border-radius:10px;background:var(--surface,#211e29);color:inherit;max-width:100%}
+lab-configurations label{display:grid;gap:8px;margin:14px 0;font-size:13px}
+lab-configurations [data-config-list]>details{border-top:1px solid var(--line);padding:14px 0}
+#assistant-toast-stack{pointer-events:none!important}
+#assistant-toast-stack button,#assistant-toast-stack a,#assistant-toast-stack input{pointer-events:auto}
+@media(max-width:900px){.builds-hub .build-character-select{grid-template-columns:140px minmax(0,1fr);gap:14px;padding:0 14px 14px 0}.builds-hub .build-portrait-hero{grid-row:1/4;height:210px}.builds-hub .build-character-skill-strip{grid-column:2;margin:0;padding:0}.builds-hub .build-artifact-piece{grid-template-columns:repeat(2,minmax(0,1fr))}.farm-projection-options{grid-template-columns:repeat(2,minmax(0,1fr))}}
+
+.build-talent-levels{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin:18px 0}.build-talent-levels label{display:grid;gap:8px;font-size:13px}.build-talent-levels input{width:100%;min-width:0}

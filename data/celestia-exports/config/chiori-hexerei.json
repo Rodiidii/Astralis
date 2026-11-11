@@ -1,0 +1,132 @@
+{
+  "name": "Hexerei",
+  "description": "Celestia",
+  "targets": [
+    {
+      "weight": 1,
+      "path": [
+        "skill",
+        "turretDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "eleMas": 80,
+        "atk_": 25,
+        "atk": 548.791,
+        "all_dmg_": 60,
+        "critRate_": 15
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "skill",
+        "turretDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "eleMas": 80,
+        "atk_": 25,
+        "atk": 548.791
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "skill",
+        "sweepDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "eleMas": 80,
+        "atk_": 25,
+        "atk": 548.791,
+        "all_dmg_": 100,
+        "critRate_": 15
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "skill",
+        "turretDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "eleMas": 80,
+        "atk_": 25,
+        "atk": 548.791,
+        "all_dmg_": 60,
+        "critRate_": 15
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "skill",
+        "sweepDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "eleMas": 80,
+        "atk_": 25,
+        "atk": 548.791,
+        "all_dmg_": 60,
+        "critRate_": 15
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "skill",
+        "sweepDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "eleMas": 80,
+        "atk_": 25,
+        "atk": 548.791,
+        "all_dmg_": 60,
+        "critRate_": 15
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "skill",
+        "turretDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "eleMas": 80,
+        "atk_": 25,
+        "atk": 548.791,
+        "all_dmg_": 60,
+        "critRate_": 15
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "skill",
+        "turretDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "eleMas": 80,
+        "atk_": 25,
+        "atk": 548.791,
+        "all_dmg_": 60,
+        "critRate_": 15
+      },
+      "description": ""
+    }
+  ]
+}

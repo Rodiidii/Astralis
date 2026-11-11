@@ -1,0 +1,62 @@
+{
+  "name": "Skill & Burst",
+  "description": "Celestia",
+  "targets": [
+    {
+      "weight": 1,
+      "path": [
+        "skill",
+        "dmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "eleMas": 125,
+        "def_": 40,
+        "all_dmg_": 44
+      },
+      "description": ""
+    },
+    {
+      "weight": 9,
+      "path": [
+        "skill",
+        "blossom"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "eleMas": 125,
+        "def_": 40,
+        "all_dmg_": 44
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "burst",
+        "dmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "eleMas": 125,
+        "def_": 40,
+        "all_dmg_": 44
+      },
+      "description": ""
+    },
+    {
+      "weight": 7,
+      "path": [
+        "burst",
+        "blossom"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "eleMas": 125,
+        "def_": 40,
+        "all_dmg_": 44
+      },
+      "description": ""
+    }
+  ]
+}

@@ -1,10 +1,11 @@
-import { ARTIFACT_SLOTS, pruneDominatedArtifacts, statVector } from './artifact-model.js';
-import { calculateHit, finalStats } from './damage-engine.js';
+import { ARTIFACT_SLOTS, pruneDominatedArtifacts, statVector } from './artifact-model.js?v=20261110-builds-3';
+import {typedAttackBonus} from './lab-config.js?v=20261110-lab-controls-4';
+import { calculateAction, finalStats } from './damage-engine.js';
 
 const add = (target, source, factor = 1) => {
   for (const [key, value] of Object.entries(source || {})) target[key] = (target[key] || 0) + Number(value || 0) * factor;
 };
-const setCounts = rows => {
+const countArtifactSets = rows => {
   const counts = new Map();
   for (const row of rows.filter(Boolean)) counts.set(row.setKey, (counts.get(row.setKey) || 0) + 1);
   return counts;
@@ -30,9 +31,28 @@ function mergedBonuses(base, artifactStats, counts, effects) {
 }
 export function evaluateDamageStats(input, artifactStats, counts = new Map()) {
   const bonuses = mergedBonuses(input.bonuses, artifactStats, counts, input.setEffects);
-  const stats = finalStats(input.baseStats || {}, bonuses);
-  const result = calculateHit({ ...input.hit, stats, attackerLevel: input.hit?.attackerLevel ?? input.level, enemyLevel: input.hit?.enemyLevel ?? 100 });
-  return { ...result, stats, bonuses };
+  const evaluate=(hit,localBonuses)=>{
+    const stats=finalStats(input.baseStats||{},localBonuses);
+    const result=calculateAction({...hit,stats,
+      flatDamage:(Number(hit?.flatDamage)||0)+(Number(localBonuses.flatDamage)||0),
+      damageBonus:(Number(hit?.damageBonus)||0)+typedAttackBonus(localBonuses,hit?.actionKind,stats),
+      resistanceReduction:(Number(hit?.resistanceReduction)||0)+(Number(localBonuses.resReduction)||0)/100,
+      enemyDefenseReduction:(Number(hit?.enemyDefenseReduction)||0)+(Number(localBonuses.defReduction)||0)/100,
+      defenseIgnore:(Number(hit?.defenseIgnore)||0)+(Number(localBonuses.defIgnore)||0)/100,
+      attackerLevel:hit?.attackerLevel??input.level,enemyLevel:hit?.enemyLevel??100});
+    return {...result,stats};
+  };
+  if(input.weightedHits?.length){
+    let total=0;
+    for(const row of input.weightedHits){
+      const local={...bonuses};add(local,row.bonuses);
+      const result=evaluate(row.hit,local);
+      if(!result.ok)return result;
+      total+=result.total*row.weight;
+    }
+    return {ok:true,total,stats:finalStats(input.baseStats||{},bonuses),bonuses};
+  }
+  return {...evaluate(input.hit,bonuses),bonuses};
 }
 function scoreBuild(input, artifactStats, counts, rows, objective) {
   if (objective === 'damage' || objective === 'dps' || !objective) {
@@ -137,7 +157,7 @@ export async function optimizeArtifacts(options = {}) {
     suffix[i] = { ...suffix[i + 1] };
     add(suffix[i], max);
   }
-  const bounded = objective === 'damage' || objective === 'dps';
+  const bounded = !input.weightedHits?.length && (objective === 'damage' || objective === 'dps');
   let visited = 0, pruned = 0, stopped = false, lastTick = started;
   const requiredPossible = idx => (filters.requiredSets || []).every(key => (setCounts.get(key) || 0) + ordered.slice(idx).filter(({ pool }) => pool.some(item => item.piece?.setKey === key)).length >= 2);
   const consider = () => {
@@ -194,7 +214,7 @@ export async function optimizeArtifacts(options = {}) {
   if (currentIds.length === ARTIFACT_SLOTS.length && new Set(currentIds.map(String)).size === ARTIFACT_SLOTS.length) {
     const rows = currentIds.map(id => filtered.find(row => String(row.id) === String(id)));
     if (rows.every(Boolean) && rows.map(row => row.slot).sort().join('|') === [...ARTIFACT_SLOTS].sort().join('|')) {
-      const stats = {}, currentCounts = setCounts(rows);
+      const stats = {}, currentCounts = countArtifactSets(rows);
       for (const row of rows) add(stats, statVector(row));
       const final = finalStats(input.baseStats || {}, mergedBonuses(input.bonuses, stats, currentCounts, input.setEffects));
       if (hasValidSetConfiguration(currentCounts, filters.configuration || 'standard') && !(filters.requiredSets || []).some(key => (currentCounts.get(key) || 0) < 2) && constraintsPass(final, filters.minimums)) {
@@ -211,7 +231,7 @@ export async function optimizeArtifacts(options = {}) {
 function diagnoseNoResults(rows, filters) {
   if (!rows.length) return 'Les filtres retirent toutes les reliques. Assouplis niveau, sets ou exclusions.';
   for (const slot of ARTIFACT_SLOTS) if (!rows.some(row => row.slot === slot)) return `Aucune relique admissible pour ${slot}. Assouplis les filtres de cet emplacement.`;
-  const counts = setCounts(rows);
+  const counts = countArtifactSets(rows);
   if ((filters.requiredSets || []).some(key => (counts.get(key) || 0) < 2)) return 'Un set imposé ne possède pas deux pièces admissibles.';
   return 'Aucune combinaison ne respecte la configuration ou les statistiques minimales. Assouplis le filtre signalé.';
 }

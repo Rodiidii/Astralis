@@ -1,0 +1,122 @@
+{
+  "category": {
+    "id": "itto-hex",
+    "name": "Hex",
+    "kind": "normal"
+  },
+  "child": {
+    "constellation": 0,
+    "characterLevel": 90,
+    "talents": {
+      "burst": 10,
+      "skill": 10,
+      "normal": 10
+    },
+    "baseTalents": {
+      "burst": 10,
+      "skill": 10,
+      "normal": 10
+    },
+    "weaponId": 12510,
+    "refinement": 1
+  },
+  "reference": {
+    "source": "ceilingStandard"
+  },
+  "goConditions": {
+    "AratakiItto": {
+      "burst": "on"
+    }
+  },
+  "characterBonusStats": {
+    "atk_": 25
+  },
+  "enemy": {
+    "level": 100,
+    "res": 0.1
+  },
+  "issues": [
+    {
+      "code": "skippedLines",
+      "reason": "teammate",
+      "lines": 3,
+      "share": 0.10308818242452127
+    },
+    {
+      "code": "characterBonusStats",
+      "stats": [
+        {
+          "buff": "Pyro Resonance",
+          "key": "atk_",
+          "value": 25
+        }
+      ]
+    },
+    {
+      "code": "goSwitch",
+      "switches": [
+        {
+          "condition": [
+            "AratakiItto",
+            "burst",
+            "on"
+          ],
+          "source": {
+            "type": "character"
+          },
+          "buffs": [
+            "Royal Descent (ATK from DEF)"
+          ]
+        }
+      ]
+    },
+    {
+      "code": "setEffects",
+      "setIds": [
+        15021
+      ]
+    }
+  ],
+  "teamIssues": [
+    {
+      "code": "skippedLines",
+      "reason": "teammate",
+      "lines": 3,
+      "share": 0.10308818242452127
+    },
+    {
+      "code": "characterBonusStats",
+      "stats": [
+        {
+          "buff": "Pyro Resonance",
+          "key": "atk_",
+          "value": 25
+        }
+      ]
+    },
+    {
+      "code": "goSwitch",
+      "switches": [
+        {
+          "condition": [
+            "AratakiItto",
+            "burst",
+            "on"
+          ],
+          "source": {
+            "type": "character"
+          },
+          "buffs": [
+            "Royal Descent (ATK from DEF)"
+          ]
+        }
+      ]
+    },
+    {
+      "code": "setEffects",
+      "setIds": [
+        15021
+      ]
+    }
+  ]
+}

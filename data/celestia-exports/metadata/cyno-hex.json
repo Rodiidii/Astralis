@@ -1,0 +1,131 @@
+{
+  "category": {
+    "id": "cyno-hex",
+    "name": "Hex",
+    "kind": "normal"
+  },
+  "child": {
+    "constellation": 1,
+    "characterLevel": 90,
+    "talents": {
+      "burst": 10,
+      "skill": 10,
+      "normal": 10
+    },
+    "baseTalents": {
+      "burst": 10,
+      "skill": 10,
+      "normal": 10
+    },
+    "weaponId": 13511,
+    "refinement": 1
+  },
+  "reference": {
+    "source": "ceilingStandard"
+  },
+  "goConditions": {
+    "Cyno": {
+      "afterBurst": "on"
+    },
+    "EchoesOfAnOffering": {
+      "mode": "avg"
+    }
+  },
+  "characterBonusStats": null,
+  "enemy": {
+    "level": 100,
+    "res": 0.1
+  },
+  "issues": [
+    {
+      "code": "selfScaling",
+      "buffs": [
+        "Heat Haze at Horizon's End"
+      ]
+    },
+    {
+      "code": "goSwitch",
+      "switches": [
+        {
+          "condition": [
+            "Cyno",
+            "afterBurst",
+            "on"
+          ],
+          "source": {
+            "type": "character"
+          },
+          "buffs": [
+            "Sacred Rite: Wolf's Swiftness"
+          ]
+        },
+        {
+          "condition": [
+            "EchoesOfAnOffering",
+            "mode",
+            "avg"
+          ],
+          "source": {
+            "type": "set",
+            "setId": 15024
+          },
+          "buffs": [
+            "Echoes of an Offering"
+          ]
+        }
+      ]
+    },
+    {
+      "code": "setEffects",
+      "setIds": [
+        15024
+      ]
+    }
+  ],
+  "teamIssues": [
+    {
+      "code": "selfScaling",
+      "buffs": [
+        "Heat Haze at Horizon's End"
+      ]
+    },
+    {
+      "code": "goSwitch",
+      "switches": [
+        {
+          "condition": [
+            "Cyno",
+            "afterBurst",
+            "on"
+          ],
+          "source": {
+            "type": "character"
+          },
+          "buffs": [
+            "Sacred Rite: Wolf's Swiftness"
+          ]
+        },
+        {
+          "condition": [
+            "EchoesOfAnOffering",
+            "mode",
+            "avg"
+          ],
+          "source": {
+            "type": "set",
+            "setId": 15024
+          },
+          "buffs": [
+            "Echoes of an Offering"
+          ]
+        }
+      ]
+    },
+    {
+      "code": "setEffects",
+      "setIds": [
+        15024
+      ]
+    }
+  ]
+}

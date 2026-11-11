@@ -1,0 +1,538 @@
+{
+  "name": "Skill & Burst",
+  "description": "Celestia",
+  "targets": [
+    {
+      "weight": 0.0315,
+      "path": [
+        "burst",
+        "dmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "eleMas": 80,
+        "atk_": 25,
+        "all_dmg_": 132,
+        "critRate_": 15
+      },
+      "description": ""
+    },
+    {
+      "weight": 1.139,
+      "path": [
+        "skill",
+        "dmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 19.12,
+        "eleMas": 47.5,
+        "all_dmg_": 100,
+        "critRate_": 15
+      },
+      "description": ""
+    },
+    {
+      "weight": 1.0146,
+      "path": [
+        "burst",
+        "dmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "eleMas": 80,
+        "atk_": 25,
+        "all_dmg_": 132,
+        "critRate_": 15
+      },
+      "description": ""
+    },
+    {
+      "weight": 1.0146,
+      "path": [
+        "burst",
+        "dmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "eleMas": 80,
+        "atk_": 25,
+        "all_dmg_": 132,
+        "critRate_": 15
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "normal",
+        "0"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "eleMas": 80,
+        "atk_": 25,
+        "all_dmg_": 60,
+        "critRate_": 15
+      },
+      "description": ""
+    },
+    {
+      "weight": 1.0146,
+      "path": [
+        "burst",
+        "dmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "eleMas": 80,
+        "atk_": 25,
+        "all_dmg_": 132,
+        "critRate_": 15
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "charged",
+        "dmg1"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk": 300,
+        "eleMas": 80,
+        "atk_": 25,
+        "all_dmg_": 60,
+        "critRate_": 15
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "charged",
+        "dmg2"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk": 300,
+        "eleMas": 80,
+        "atk_": 25,
+        "all_dmg_": 60,
+        "critRate_": 15
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.9506,
+      "path": [
+        "burst",
+        "dmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "eleMas": 80,
+        "atk_": 25,
+        "all_dmg_": 132,
+        "critRate_": 15
+      },
+      "description": ""
+    },
+    {
+      "weight": 1.0146,
+      "path": [
+        "burst",
+        "dmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "eleMas": 80,
+        "atk_": 25,
+        "all_dmg_": 132,
+        "critRate_": 15
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "normal",
+        "0"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk": 300,
+        "eleMas": 80,
+        "atk_": 25,
+        "all_dmg_": 60,
+        "critRate_": 15
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.9506,
+      "path": [
+        "burst",
+        "dmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "eleMas": 80,
+        "atk_": 25,
+        "all_dmg_": 132,
+        "critRate_": 15
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "charged",
+        "dmg1"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk": 300,
+        "eleMas": 80,
+        "atk_": 25,
+        "all_dmg_": 60,
+        "critRate_": 28.781
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "charged",
+        "dmg2"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk": 300,
+        "eleMas": 80,
+        "atk_": 25,
+        "all_dmg_": 60,
+        "critRate_": 28.781
+      },
+      "description": ""
+    },
+    {
+      "weight": 1.0146,
+      "path": [
+        "burst",
+        "dmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "eleMas": 80,
+        "atk_": 25,
+        "all_dmg_": 132,
+        "critRate_": 15
+      },
+      "description": ""
+    },
+    {
+      "weight": 1.0146,
+      "path": [
+        "burst",
+        "dmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "eleMas": 80,
+        "atk_": 25,
+        "all_dmg_": 132,
+        "critRate_": 15
+      },
+      "description": ""
+    },
+    {
+      "weight": 1.0146,
+      "path": [
+        "burst",
+        "dmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "eleMas": 80,
+        "atk_": 25,
+        "all_dmg_": 132,
+        "critRate_": 15
+      },
+      "description": ""
+    },
+    {
+      "weight": 1.0146,
+      "path": [
+        "burst",
+        "dmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "eleMas": 80,
+        "atk_": 25,
+        "all_dmg_": 132,
+        "critRate_": 15
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.7731,
+      "path": [
+        "burst",
+        "dmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "eleMas": 80,
+        "atk_": 25,
+        "all_dmg_": 132,
+        "critRate_": 15
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.861,
+      "path": [
+        "skill",
+        "dmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "eleMas": 80,
+        "atk_": 25,
+        "all_dmg_": 100,
+        "critRate_": 15
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.9831,
+      "path": [
+        "burst",
+        "dmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "eleMas": 80,
+        "atk_": 25,
+        "all_dmg_": 132,
+        "critRate_": 15
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "normal",
+        "0"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "eleMas": 80,
+        "atk_": 25,
+        "all_dmg_": 60,
+        "critRate_": 26.25
+      },
+      "description": ""
+    },
+    {
+      "weight": 1.0146,
+      "path": [
+        "burst",
+        "dmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "eleMas": 80,
+        "atk_": 25,
+        "all_dmg_": 132,
+        "critRate_": 15
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.0315,
+      "path": [
+        "burst",
+        "dmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "eleMas": 80,
+        "atk_": 25,
+        "all_dmg_": 132,
+        "critRate_": 15
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "charged",
+        "dmg1"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "eleMas": 80,
+        "atk_": 25,
+        "all_dmg_": 60,
+        "critRate_": 25.688
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "charged",
+        "dmg2"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "eleMas": 80,
+        "atk_": 25,
+        "all_dmg_": 60,
+        "critRate_": 25.688
+      },
+      "description": ""
+    },
+    {
+      "weight": 1.0146,
+      "path": [
+        "burst",
+        "dmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "eleMas": 80,
+        "atk_": 25,
+        "all_dmg_": 132,
+        "critRate_": 15
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.9831,
+      "path": [
+        "burst",
+        "dmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "eleMas": 80,
+        "atk_": 25,
+        "all_dmg_": 132,
+        "critRate_": 15
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "normal",
+        "0"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "eleMas": 80,
+        "atk_": 25,
+        "all_dmg_": 60,
+        "critRate_": 15
+      },
+      "description": ""
+    },
+    {
+      "weight": 1.0146,
+      "path": [
+        "burst",
+        "dmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "eleMas": 80,
+        "atk_": 25,
+        "all_dmg_": 132,
+        "critRate_": 15
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.0315,
+      "path": [
+        "burst",
+        "dmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "eleMas": 80,
+        "atk_": 25,
+        "all_dmg_": 132,
+        "critRate_": 15
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "charged",
+        "dmg1"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk": 300,
+        "eleMas": 80,
+        "atk_": 25,
+        "critRate_": 30,
+        "all_dmg_": 60
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "charged",
+        "dmg2"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk": 300,
+        "eleMas": 80,
+        "atk_": 25,
+        "critRate_": 30,
+        "all_dmg_": 60
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.9831,
+      "path": [
+        "burst",
+        "dmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "eleMas": 80,
+        "atk_": 25,
+        "all_dmg_": 132,
+        "critRate_": 15
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.1217,
+      "path": [
+        "burst",
+        "dmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "eleMas": 80,
+        "atk_": 25,
+        "all_dmg_": 132,
+        "critRate_": 15
+      },
+      "description": ""
+    }
+  ]
+}

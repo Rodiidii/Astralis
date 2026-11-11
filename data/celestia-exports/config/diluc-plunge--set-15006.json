@@ -1,0 +1,312 @@
+{
+  "name": "Plunge",
+  "description": "Celestia",
+  "targets": [
+    {
+      "weight": 1,
+      "path": [
+        "skill",
+        "secondHit"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "pyro_enemyRes_": -20,
+        "all_dmg_": 55
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.4718,
+      "path": [
+        "plunging",
+        "dmg"
+      ],
+      "hitMode": "avgHit",
+      "infusionAura": "pyro",
+      "bonusStats": {
+        "atk_": 20,
+        "atk": 897.274,
+        "all_dmg_": 70,
+        "critRate_": 4,
+        "pyro_enemyRes_": -60
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "plunging",
+        "high"
+      ],
+      "hitMode": "avgHit",
+      "reaction": "melt",
+      "infusionAura": "pyro",
+      "bonusStats": {
+        "atk_": 20,
+        "atk": 897.274,
+        "all_dmgInc": 6900.582,
+        "all_dmg_": 70,
+        "critRate_": 4,
+        "pyro_enemyRes_": -60
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.4169,
+      "path": [
+        "plunging",
+        "dmg"
+      ],
+      "hitMode": "avgHit",
+      "infusionAura": "pyro",
+      "bonusStats": {
+        "atk_": 20,
+        "atk": 897.274,
+        "all_dmg_": 55,
+        "critRate_": 4,
+        "pyro_enemyRes_": -58.235
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "plunging",
+        "high"
+      ],
+      "hitMode": "avgHit",
+      "reaction": "melt",
+      "infusionAura": "pyro",
+      "bonusStats": {
+        "atk_": 20,
+        "atk": 897.274,
+        "all_dmgInc": 6900.582,
+        "all_dmg_": 55,
+        "critRate_": 4,
+        "pyro_enemyRes_": -55.5
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.515,
+      "path": [
+        "plunging",
+        "dmg"
+      ],
+      "hitMode": "avgHit",
+      "infusionAura": "pyro",
+      "bonusStats": {
+        "atk_": 20,
+        "atk": 897.274,
+        "all_dmg_": 55,
+        "critRate_": 4,
+        "pyro_enemyRes_": -57.619
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "plunging",
+        "high"
+      ],
+      "hitMode": "avgHit",
+      "reaction": "melt",
+      "infusionAura": "pyro",
+      "bonusStats": {
+        "atk_": 20,
+        "atk": 897.274,
+        "all_dmgInc": 6900.582,
+        "all_dmg_": 55,
+        "critRate_": 4,
+        "pyro_enemyRes_": -55.5
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.5032,
+      "path": [
+        "plunging",
+        "dmg"
+      ],
+      "hitMode": "avgHit",
+      "infusionAura": "pyro",
+      "bonusStats": {
+        "atk_": 20,
+        "atk": 897.274,
+        "all_dmg_": 55,
+        "critRate_": 4,
+        "pyro_enemyRes_": -20
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "plunging",
+        "high"
+      ],
+      "hitMode": "avgHit",
+      "reaction": "melt",
+      "infusionAura": "pyro",
+      "bonusStats": {
+        "atk_": 20,
+        "atk": 897.274,
+        "all_dmgInc": 6900.582,
+        "all_dmg_": 55,
+        "critRate_": 4,
+        "pyro_enemyRes_": -20
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.5395,
+      "path": [
+        "plunging",
+        "dmg"
+      ],
+      "hitMode": "avgHit",
+      "infusionAura": "pyro",
+      "bonusStats": {
+        "atk_": 20,
+        "atk": 897.274,
+        "all_dmg_": 55,
+        "critRate_": 4,
+        "pyro_enemyRes_": -20
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "plunging",
+        "high"
+      ],
+      "hitMode": "avgHit",
+      "reaction": "melt",
+      "infusionAura": "pyro",
+      "bonusStats": {
+        "atk_": 20,
+        "atk": 897.274,
+        "all_dmgInc": 6900.582,
+        "all_dmg_": 55,
+        "critRate_": 4,
+        "pyro_enemyRes_": -20
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.4787,
+      "path": [
+        "plunging",
+        "dmg"
+      ],
+      "hitMode": "avgHit",
+      "infusionAura": "pyro",
+      "bonusStats": {
+        "atk": 897.274,
+        "all_dmg_": 55,
+        "critRate_": 4,
+        "pyro_enemyRes_": -20
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "plunging",
+        "high"
+      ],
+      "hitMode": "avgHit",
+      "reaction": "melt",
+      "infusionAura": "pyro",
+      "bonusStats": {
+        "atk": 897.274,
+        "all_dmgInc": 6900.582,
+        "all_dmg_": 55,
+        "critRate_": 4,
+        "pyro_enemyRes_": -20
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.5032,
+      "path": [
+        "plunging",
+        "dmg"
+      ],
+      "hitMode": "avgHit",
+      "infusionAura": "pyro",
+      "bonusStats": {
+        "atk": 897.274,
+        "all_dmg_": 55,
+        "critRate_": 4,
+        "pyro_enemyRes_": -20
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "plunging",
+        "high"
+      ],
+      "hitMode": "avgHit",
+      "infusionAura": "pyro",
+      "bonusStats": {
+        "atk": 897.274,
+        "all_dmgInc": 6900.582,
+        "all_dmg_": 55,
+        "critRate_": 4,
+        "pyro_enemyRes_": -20
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.5718,
+      "path": [
+        "plunging",
+        "dmg"
+      ],
+      "hitMode": "avgHit",
+      "infusionAura": "pyro",
+      "bonusStats": {
+        "atk": 897.274,
+        "all_dmg_": 55,
+        "critRate_": 4,
+        "pyro_enemyRes_": -20
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "plunging",
+        "high"
+      ],
+      "hitMode": "avgHit",
+      "infusionAura": "pyro",
+      "bonusStats": {
+        "atk": 897.274,
+        "all_dmgInc": 6900.582,
+        "all_dmg_": 55,
+        "critRate_": 4,
+        "pyro_enemyRes_": -20
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "skill",
+        "firstHit"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "pyro_enemyRes_": -20,
+        "all_dmg_": 47.5
+      },
+      "description": ""
+    }
+  ]
+}

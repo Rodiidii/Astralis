@@ -1,0 +1,188 @@
+{
+  "name": "Off-field Lunar-Bloom",
+  "description": "Celestia",
+  "lastEdit": 1794350930751,
+  "conditional": {
+    "resonance": {},
+    "reaction": {}
+  },
+  "enemyOverride": {
+    "enemyLevel": 100,
+    "enemyDefIgn_": 0,
+    "enemyDefRed_": 0,
+    "pyro_enemyRes_": 10,
+    "hydro_enemyRes_": 10,
+    "electro_enemyRes_": 10,
+    "cryo_enemyRes_": 10,
+    "anemo_enemyRes_": 10,
+    "geo_enemyRes_": 10,
+    "dendro_enemyRes_": 10,
+    "physical_enemyRes_": 10
+  },
+  "loadoutData": [
+    {
+      "key": "Columbina",
+      "name": "Columbina (Celestia)",
+      "description": "",
+      "hitMode": "avgHit",
+      "infusionAura": "",
+      "bonusStats": {
+        "eleMas": 170
+      },
+      "conditional": {
+        "NocturnesCurtainCall": {
+          "passive": "on"
+        },
+        "Columbina": {
+          "a1Stacks": "3",
+          "burstDomain": "on"
+        }
+      },
+      "customMultiTargets": [
+        {
+          "name": "Off-field Lunar-Bloom",
+          "description": "Celestia",
+          "targets": [
+            {
+              "weight": 1,
+              "path": [
+                "burst",
+                "skillDmg"
+              ],
+              "hitMode": "avgHit",
+              "bonusStats": {
+                "hydro_enemyRes_": -25
+              },
+              "description": ""
+            },
+            {
+              "weight": 1,
+              "path": [
+                "skill",
+                "skillDmg"
+              ],
+              "hitMode": "avgHit",
+              "bonusStats": {
+                "hydro_enemyRes_": -25
+              },
+              "description": ""
+            },
+            {
+              "weight": 9,
+              "path": [
+                "skill",
+                "continuousDmg"
+              ],
+              "hitMode": "avgHit",
+              "bonusStats": {
+                "hydro_enemyRes_": -25
+              },
+              "description": ""
+            },
+            {
+              "weight": 15,
+              "path": [
+                "skill",
+                "lunarbloomDmg"
+              ],
+              "hitMode": "avgHit",
+              "bonusStats": {
+                "lunarbloom_baseDmg_": 28,
+                "lunarbloom_dmgInc": 4654.852,
+                "lunarbloom_critRate_": 10,
+                "lunarbloom_critDMG_": 20,
+                "dendro_enemyRes_": -55,
+                "lunarbloom_dmg_": 102.818
+              },
+              "description": ""
+            }
+          ]
+        }
+      ],
+      "optConfig": {
+        "optimizationTarget": [
+          "custom",
+          "0"
+        ]
+      },
+      "buildTcs": [
+        {
+          "name": "Celestia",
+          "description": "The leaderboard reference build.",
+          "characterKey": "Columbina",
+          "character": {
+            "level": 90,
+            "ascension": 6,
+            "constellation": 0,
+            "talent": {
+              "auto": 10,
+              "skill": 10,
+              "burst": 10
+            }
+          },
+          "weapon": {
+            "key": "NocturnesCurtainCall",
+            "level": 90,
+            "ascension": 6,
+            "refinement": 1
+          },
+          "artifact": {
+            "sets": {
+              "AubadeOfMorningstarAndMoon": 5
+            },
+            "slots": {
+              "flower": {
+                "level": 20,
+                "rarity": 5,
+                "statKey": "hp"
+              },
+              "plume": {
+                "level": 20,
+                "rarity": 5,
+                "statKey": "atk"
+              },
+              "sands": {
+                "level": 20,
+                "rarity": 5,
+                "statKey": "hp_"
+              },
+              "goblet": {
+                "level": 20,
+                "rarity": 5,
+                "statKey": "hp_"
+              },
+              "circlet": {
+                "level": 20,
+                "rarity": 5,
+                "statKey": "critRate_"
+              }
+            },
+            "substats": {
+              "type": "max",
+              "rarity": 5,
+              "stats": {
+                "hp_": 39.64,
+                "def": 39.35,
+                "def_": 12.39,
+                "critRate_": 19.83,
+                "critDMG_": 79.26,
+                "hp": 507.88,
+                "enerRech_": 11.01,
+                "eleMas": 39.63,
+                "atk": 33.07,
+                "atk_": 9.91
+              }
+            }
+          },
+          "optimization": {
+            "distributedSubstats": 0,
+            "maxSubstats": {}
+          }
+        }
+      ]
+    },
+    null,
+    null,
+    null
+  ]
+}

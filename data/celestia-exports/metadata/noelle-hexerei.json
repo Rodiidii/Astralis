@@ -1,0 +1,109 @@
+{
+  "category": {
+    "id": "noelle-hexerei",
+    "name": "Durin Nicole Xilonen",
+    "kind": "normal"
+  },
+  "child": {
+    "constellation": 6,
+    "characterLevel": 90,
+    "talents": {
+      "burst": 13,
+      "skill": 13,
+      "normal": 10
+    },
+    "baseTalents": {
+      "burst": 10,
+      "skill": 10,
+      "normal": 10
+    },
+    "weaponId": 12510,
+    "refinement": 1
+  },
+  "reference": {
+    "source": "ceilingStandard"
+  },
+  "goConditions": null,
+  "characterBonusStats": {
+    "atk_": 25,
+    "atk": 548.421
+  },
+  "enemy": {
+    "level": 100,
+    "res": 0.1
+  },
+  "issues": [
+    {
+      "code": "skippedLines",
+      "reason": "teammate",
+      "lines": 2,
+      "share": 0.1011669573150967
+    },
+    {
+      "code": "characterBonusStats",
+      "stats": [
+        {
+          "buff": "Pyro Resonance",
+          "key": "atk_",
+          "value": 25
+        },
+        {
+          "buff": "Grace of Kenosis (% of Nicole's ATK)",
+          "key": "atk",
+          "value": 548.421052631579
+        }
+      ]
+    },
+    {
+      "code": "selfScaling",
+      "buffs": [
+        "Sweeping Time",
+        "Must Be Spotless"
+      ]
+    },
+    {
+      "code": "setEffects",
+      "setIds": [
+        15021,
+        15045
+      ]
+    }
+  ],
+  "teamIssues": [
+    {
+      "code": "skippedLines",
+      "reason": "teammate",
+      "lines": 2,
+      "share": 0.1011669573150967
+    },
+    {
+      "code": "characterBonusStats",
+      "stats": [
+        {
+          "buff": "Pyro Resonance",
+          "key": "atk_",
+          "value": 25
+        },
+        {
+          "buff": "Grace of Kenosis (% of Nicole's ATK)",
+          "key": "atk",
+          "value": 548.421052631579
+        }
+      ]
+    },
+    {
+      "code": "selfScaling",
+      "buffs": [
+        "Sweeping Time",
+        "Must Be Spotless"
+      ]
+    },
+    {
+      "code": "setEffects",
+      "setIds": [
+        15021,
+        15045
+      ]
+    }
+  ]
+}

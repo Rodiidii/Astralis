@@ -1,0 +1,34 @@
+{
+  "name": "Off-field Tri-Karma",
+  "description": "Celestia",
+  "targets": [
+    {
+      "weight": 2,
+      "path": [
+        "skill",
+        "holdDmg"
+      ],
+      "hitMode": "avgHit",
+      "reaction": "spread",
+      "bonusStats": {
+        "all_dmg_": 25.714,
+        "dendro_enemyRes_": -30
+      },
+      "description": ""
+    },
+    {
+      "weight": 11,
+      "path": [
+        "skill",
+        "karmaDmg"
+      ],
+      "hitMode": "avgHit",
+      "reaction": "spread",
+      "bonusStats": {
+        "all_dmg_": 25.714,
+        "dendro_enemyRes_": -30
+      },
+      "description": ""
+    }
+  ]
+}

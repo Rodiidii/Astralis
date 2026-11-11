@@ -1,0 +1,341 @@
+{
+  "name": "Off-field",
+  "description": "Celestia",
+  "targets": [
+    {
+      "weight": 0.1253,
+      "path": [
+        "skill",
+        "turretDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "geo_enemyRes_": -20
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.2506,
+      "path": [
+        "skill",
+        "turretDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "geo_enemyRes_": -20
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.1253,
+      "path": [
+        "skill",
+        "turretDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "all_dmg_": 55,
+        "geo_enemyRes_": -20
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.5,
+      "path": [
+        "skill",
+        "sweepDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "all_dmg_": 55,
+        "geo_enemyRes_": -20
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.1127,
+      "path": [
+        "skill",
+        "turretDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "all_dmg_": 40,
+        "geo_enemyRes_": -20
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.2506,
+      "path": [
+        "skill",
+        "turretDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "all_dmg_": 40,
+        "geo_enemyRes_": -20
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.1378,
+      "path": [
+        "skill",
+        "turretDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "all_dmg_": 40,
+        "geo_enemyRes_": -20
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.5,
+      "path": [
+        "skill",
+        "sweepDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "all_dmg_": 40,
+        "geo_enemyRes_": -20
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.3884,
+      "path": [
+        "skill",
+        "turretDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "all_dmg_": 40,
+        "geo_enemyRes_": -20
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.5,
+      "path": [
+        "skill",
+        "sweepDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "all_dmg_": 40,
+        "geo_enemyRes_": -20
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.4886,
+      "path": [
+        "skill",
+        "turretDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "all_dmg_": 40,
+        "geo_enemyRes_": -20
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.5011,
+      "path": [
+        "skill",
+        "turretDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "all_dmg_": 40,
+        "geo_enemyRes_": -20
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.5011,
+      "path": [
+        "skill",
+        "turretDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "all_dmg_": 40,
+        "geo_enemyRes_": -20
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.1253,
+      "path": [
+        "skill",
+        "turretDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "geo_enemyRes_": -20
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.5,
+      "path": [
+        "skill",
+        "sweepDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "all_dmg_": 55,
+        "geo_enemyRes_": -20
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.3823,
+      "path": [
+        "skill",
+        "turretDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "all_dmg_": 40,
+        "geo_enemyRes_": -20
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.1067,
+      "path": [
+        "skill",
+        "turretDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "all_dmg_": 40,
+        "geo_enemyRes_": -20
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.5,
+      "path": [
+        "skill",
+        "sweepDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "all_dmg_": 40,
+        "geo_enemyRes_": -20
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.3823,
+      "path": [
+        "skill",
+        "turretDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "all_dmg_": 40,
+        "geo_enemyRes_": -20
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.1193,
+      "path": [
+        "skill",
+        "turretDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "all_dmg_": 40,
+        "geo_enemyRes_": -20
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.5,
+      "path": [
+        "skill",
+        "sweepDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "all_dmg_": 40,
+        "geo_enemyRes_": -20
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.5,
+      "path": [
+        "burst",
+        "bloomDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "all_dmg_": 55,
+        "geo_enemyRes_": -20
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.3823,
+      "path": [
+        "skill",
+        "turretDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "all_dmg_": 55,
+        "geo_enemyRes_": -20
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.1193,
+      "path": [
+        "skill",
+        "turretDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "all_dmg_": 40,
+        "geo_enemyRes_": -20
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.1253,
+      "path": [
+        "skill",
+        "turretDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "all_dmg_": 40,
+        "geo_enemyRes_": -20
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.3758,
+      "path": [
+        "skill",
+        "turretDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "all_dmg_": 40,
+        "geo_enemyRes_": -20
+      },
+      "description": ""
+    }
+  ]
+}

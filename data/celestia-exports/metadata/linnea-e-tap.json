@@ -1,0 +1,59 @@
+{
+  "category": {
+    "id": "linnea-e-tap",
+    "name": "Skill DMG",
+    "kind": "normal"
+  },
+  "child": {
+    "constellation": 0,
+    "characterLevel": 90,
+    "talents": {
+      "burst": 10,
+      "skill": 10,
+      "normal": 10
+    },
+    "baseTalents": {
+      "burst": 10,
+      "skill": 10,
+      "normal": 10
+    },
+    "weaponId": 15516,
+    "refinement": 1
+  },
+  "reference": {
+    "source": "ceilingStandard"
+  },
+  "goConditions": null,
+  "characterBonusStats": {
+    "def": 200
+  },
+  "enemy": {
+    "level": 100,
+    "res": 0.1
+  },
+  "issues": [
+    {
+      "code": "characterBonusStats",
+      "stats": [
+        {
+          "buff": "Solarhunting Wolf",
+          "key": "def",
+          "value": 200
+        }
+      ]
+    },
+    {
+      "code": "selfScaling",
+      "buffs": [
+        "A4 Habitat Survey — Lunar-Crystallize base DMG"
+      ]
+    },
+    {
+      "code": "setEffects",
+      "setIds": [
+        15043
+      ]
+    }
+  ],
+  "teamIssues": []
+}

@@ -1,0 +1,88 @@
+{
+  "category": {
+    "id": "odette-skills-dmg",
+    "name": "Skill DMG",
+    "kind": "normal"
+  },
+  "child": {
+    "constellation": 0,
+    "characterLevel": 90,
+    "talents": {
+      "burst": 10,
+      "skill": 10,
+      "normal": 10
+    },
+    "baseTalents": {
+      "burst": 10,
+      "skill": 10,
+      "normal": 10
+    },
+    "weaponId": 11520,
+    "refinement": 1
+  },
+  "reference": {
+    "source": "ceilingStandard"
+  },
+  "goConditions": {
+    "WhitelakeFrostfeather": {
+      "passive": "3"
+    },
+    "reaction": {
+      "polestarStacks": "9"
+    },
+    "Odette": {
+      "a0StellarRadiance": "sc"
+    }
+  },
+  "characterBonusStats": null,
+  "enemy": {
+    "level": 100,
+    "res": 0.1
+  },
+  "issues": [
+    {
+      "code": "notExpressible",
+      "line": 1,
+      "buff": "Snow Swan's Finale",
+      "stat": "reactionCritDMG"
+    },
+    {
+      "code": "notExpressible",
+      "line": 3,
+      "buff": "Snow Swan's Finale",
+      "stat": "reactionCritDMG"
+    },
+    {
+      "code": "notExpressible",
+      "line": 5,
+      "buff": "Snow Swan's Finale",
+      "stat": "reactionCritDMG"
+    },
+    {
+      "code": "goSwitch",
+      "switches": [
+        {
+          "condition": [
+            "WhitelakeFrostfeather",
+            "passive",
+            "3"
+          ],
+          "source": {
+            "type": "weapon",
+            "weaponId": 11520
+          },
+          "buffs": [
+            "Snow Swan's Finale"
+          ]
+        }
+      ]
+    },
+    {
+      "code": "setEffects",
+      "setIds": [
+        15046
+      ]
+    }
+  ],
+  "teamIssues": []
+}

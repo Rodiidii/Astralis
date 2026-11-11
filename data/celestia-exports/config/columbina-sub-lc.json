@@ -1,0 +1,776 @@
+{
+  "name": "Off-field Lunar-Charged",
+  "description": "Celestia",
+  "targets": [
+    {
+      "weight": 0.5,
+      "path": [
+        "normal",
+        "0"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "eleMas": 374.7,
+        "critRate_": 15,
+        "hydro_enemyRes_": -40
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.5,
+      "path": [
+        "skill",
+        "continuousDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "eleMas": 344.471,
+        "critRate_": 15,
+        "hydro_enemyRes_": -40
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.5,
+      "path": [
+        "skill",
+        "skillDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "eleMas": 374.7,
+        "critRate_": 15,
+        "hydro_enemyRes_": -40
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.5,
+      "path": [
+        "skill",
+        "continuousDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "eleMas": 253.786,
+        "critRate_": 15,
+        "hydro_enemyRes_": -40
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.5,
+      "path": [
+        "burst",
+        "skillDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "eleMas": 253.786,
+        "critRate_": 15,
+        "hydro_enemyRes_": -40
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.5,
+      "path": [
+        "skill",
+        "lunarchargedDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "eleMas": 253.786,
+        "lunarcharged_baseDmg_": 28,
+        "critRate_": 15,
+        "lunarcharged_dmg_": 59.19,
+        "electro_enemyRes_": -40
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.5,
+      "path": [
+        "skill",
+        "continuousDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "eleMas": 253.786,
+        "critRate_": 15,
+        "hydro_enemyRes_": -40
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.5,
+      "path": [
+        "skill",
+        "continuousDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "eleMas": 253.786,
+        "critRate_": 15,
+        "hydro_enemyRes_": -40
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.5,
+      "path": [
+        "skill",
+        "continuousDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "eleMas": 253.786,
+        "critRate_": 15,
+        "hydro_enemyRes_": -40
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.5,
+      "path": [
+        "skill",
+        "lunarchargedDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "eleMas": 253.786,
+        "lunarcharged_baseDmg_": 28,
+        "critRate_": 15,
+        "lunarcharged_dmg_": 99.19,
+        "electro_enemyRes_": -40
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.5,
+      "path": [
+        "skill",
+        "continuousDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "eleMas": 253.786,
+        "critRate_": 15,
+        "hydro_enemyRes_": -40
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.5,
+      "path": [
+        "skill",
+        "continuousDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "eleMas": 253.786,
+        "critRate_": 15,
+        "hydro_enemyRes_": -40
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.5,
+      "path": [
+        "skill",
+        "continuousDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "critRate_": 15,
+        "hydro_enemyRes_": -40
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.5,
+      "path": [
+        "skill",
+        "lunarchargedDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "eleMas": 237.119,
+        "lunarcharged_baseDmg_": 28,
+        "critRate_": 15,
+        "lunarcharged_dmg_": 101.69,
+        "electro_enemyRes_": -40
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.0458,
+      "path": [
+        "reaction",
+        "lunarcharged"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "eleMas": 252.986,
+        "lunarcharged_baseDmg_": 28,
+        "lunarcharged_dmg_": 84.792,
+        "electro_enemyRes_": -40
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.8536,
+      "path": [
+        "reaction",
+        "lunarcharged"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "eleMas": 252.986,
+        "lunarcharged_baseDmg_": 28,
+        "lunarcharged_dmg_": 84.792,
+        "electro_enemyRes_": -40,
+        "critRate_": 10
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.1276,
+      "path": [
+        "reaction",
+        "lunarcharged"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "eleMas": 252.986,
+        "lunarcharged_baseDmg_": 28,
+        "lunarcharged_dmg_": 84.792,
+        "electro_enemyRes_": -40,
+        "critRate_": 10
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.1017,
+      "path": [
+        "reaction",
+        "lunarcharged"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "eleMas": 252.986,
+        "lunarcharged_baseDmg_": 28,
+        "critRate_": 15,
+        "lunarcharged_dmg_": 84.792,
+        "electro_enemyRes_": -40
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.4966,
+      "path": [
+        "reaction",
+        "lunarcharged"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "eleMas": 252.986,
+        "lunarcharged_baseDmg_": 28,
+        "critRate_": 15,
+        "lunarcharged_dmg_": 84.792,
+        "electro_enemyRes_": -40
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.3089,
+      "path": [
+        "reaction",
+        "lunarcharged"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "eleMas": 252.986,
+        "lunarcharged_baseDmg_": 28,
+        "critRate_": 15,
+        "lunarcharged_dmg_": 84.792,
+        "electro_enemyRes_": -40
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.1017,
+      "path": [
+        "reaction",
+        "lunarcharged"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "eleMas": 252.986,
+        "lunarcharged_baseDmg_": 28,
+        "critRate_": 15,
+        "lunarcharged_dmg_": 84.792,
+        "electro_enemyRes_": -40
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.0391,
+      "path": [
+        "reaction",
+        "lunarcharged"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "eleMas": 252.986,
+        "lunarcharged_baseDmg_": 28,
+        "critRate_": 15,
+        "lunarcharged_dmg_": 84.792,
+        "electro_enemyRes_": -40
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.0117,
+      "path": [
+        "reaction",
+        "lunarcharged"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "eleMas": 252.986,
+        "lunarcharged_baseDmg_": 28,
+        "critRate_": 15,
+        "lunarcharged_dmg_": 84.792,
+        "electro_enemyRes_": -40
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.0469,
+      "path": [
+        "reaction",
+        "lunarcharged"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "eleMas": 252.986,
+        "lunarcharged_baseDmg_": 28,
+        "critRate_": 15,
+        "lunarcharged_dmg_": 84.792,
+        "electro_enemyRes_": -40
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.1095,
+      "path": [
+        "reaction",
+        "lunarcharged"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "eleMas": 252.986,
+        "lunarcharged_baseDmg_": 28,
+        "critRate_": 15,
+        "lunarcharged_dmg_": 84.792,
+        "electro_enemyRes_": -40
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.1017,
+      "path": [
+        "reaction",
+        "lunarcharged"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "eleMas": 252.986,
+        "lunarcharged_baseDmg_": 28,
+        "critRate_": 15,
+        "lunarcharged_dmg_": 84.792,
+        "electro_enemyRes_": -40
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.1017,
+      "path": [
+        "reaction",
+        "lunarcharged"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "eleMas": 252.986,
+        "lunarcharged_baseDmg_": 28,
+        "critRate_": 15,
+        "lunarcharged_dmg_": 84.792,
+        "electro_enemyRes_": -40
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.0977,
+      "path": [
+        "reaction",
+        "lunarcharged"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "eleMas": 252.986,
+        "lunarcharged_baseDmg_": 28,
+        "critRate_": 15,
+        "lunarcharged_dmg_": 84.792,
+        "electro_enemyRes_": -40
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.1117,
+      "path": [
+        "reaction",
+        "lunarcharged"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "eleMas": 252.986,
+        "lunarcharged_baseDmg_": 28,
+        "lunarcharged_dmg_": 84.792,
+        "electro_enemyRes_": -40,
+        "critRate_": 10
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.086,
+      "path": [
+        "reaction",
+        "lunarcharged"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "eleMas": 252.986,
+        "lunarcharged_baseDmg_": 28,
+        "critRate_": 15,
+        "lunarcharged_dmg_": 84.792,
+        "electro_enemyRes_": -40
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.0938,
+      "path": [
+        "reaction",
+        "lunarcharged"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "eleMas": 252.986,
+        "lunarcharged_baseDmg_": 28,
+        "critRate_": 15,
+        "lunarcharged_dmg_": 84.792,
+        "electro_enemyRes_": -40
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.0313,
+      "path": [
+        "reaction",
+        "lunarcharged"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "eleMas": 252.986,
+        "lunarcharged_baseDmg_": 28,
+        "critRate_": 15,
+        "lunarcharged_dmg_": 84.792,
+        "electro_enemyRes_": -40
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.0313,
+      "path": [
+        "reaction",
+        "lunarcharged"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "eleMas": 252.986,
+        "lunarcharged_baseDmg_": 28,
+        "critRate_": 15,
+        "lunarcharged_dmg_": 84.792,
+        "electro_enemyRes_": -40
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.0039,
+      "path": [
+        "reaction",
+        "lunarcharged"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "eleMas": 252.986,
+        "lunarcharged_baseDmg_": 28,
+        "critRate_": 15,
+        "lunarcharged_dmg_": 84.792,
+        "electro_enemyRes_": -40
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.0039,
+      "path": [
+        "reaction",
+        "lunarcharged"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "eleMas": 252.986,
+        "lunarcharged_baseDmg_": 28,
+        "critRate_": 15,
+        "lunarcharged_dmg_": 84.792,
+        "electro_enemyRes_": -40
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.0039,
+      "path": [
+        "reaction",
+        "lunarcharged"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "eleMas": 252.986,
+        "lunarcharged_baseDmg_": 28,
+        "critRate_": 15,
+        "lunarcharged_dmg_": 84.792,
+        "electro_enemyRes_": -40
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.5,
+      "path": [
+        "skill",
+        "continuousDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "eleMas": 253.786,
+        "hydro_enemyRes_": -40,
+        "critRate_": 10
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.5,
+      "path": [
+        "skill",
+        "continuousDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "eleMas": 253.786,
+        "hydro_enemyRes_": -40,
+        "critRate_": 10
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.5,
+      "path": [
+        "skill",
+        "skillDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "eleMas": 374.7,
+        "hydro_enemyRes_": -40,
+        "critRate_": 10
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.5,
+      "path": [
+        "normal",
+        "0"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "eleMas": 374.7,
+        "critRate_": 15,
+        "hydro_enemyRes_": -40
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.5,
+      "path": [
+        "skill",
+        "continuousDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "eleMas": 314.243,
+        "critRate_": 15,
+        "hydro_enemyRes_": -40
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.5,
+      "path": [
+        "skill",
+        "lunarchargedDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "eleMas": 284.014,
+        "lunarcharged_baseDmg_": 28,
+        "critRate_": 15,
+        "lunarcharged_dmg_": 94.19,
+        "electro_enemyRes_": -40
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.5,
+      "path": [
+        "skill",
+        "continuousDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "eleMas": 253.786,
+        "critRate_": 15,
+        "hydro_enemyRes_": -40
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.5,
+      "path": [
+        "skill",
+        "continuousDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "eleMas": 203.786,
+        "critRate_": 15,
+        "all_dmg_": 20,
+        "hydro_enemyRes_": -40
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.5,
+      "path": [
+        "skill",
+        "continuousDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "eleMas": 203.786,
+        "critRate_": 15,
+        "all_dmg_": 20,
+        "hydro_enemyRes_": -10
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.5,
+      "path": [
+        "skill",
+        "lunarchargedDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "eleMas": 216.286,
+        "lunarcharged_baseDmg_": 28,
+        "critRate_": 15,
+        "lunarcharged_dmg_": 71.69,
+        "electro_enemyRes_": -40
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.5,
+      "path": [
+        "skill",
+        "continuousDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "eleMas": 203.786,
+        "critRate_": 15,
+        "all_dmg_": 20
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.5,
+      "path": [
+        "skill",
+        "continuousDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "eleMas": 203.786,
+        "critRate_": 15,
+        "all_dmg_": 20
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.5,
+      "path": [
+        "skill",
+        "continuousDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "eleMas": 203.786,
+        "critRate_": 15,
+        "all_dmg_": 20
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.5,
+      "path": [
+        "skill",
+        "lunarchargedDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "eleMas": 228.786,
+        "lunarcharged_baseDmg_": 28,
+        "critRate_": 15,
+        "lunarcharged_dmg_": 101.69,
+        "electro_enemyRes_": -40
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.5,
+      "path": [
+        "skill",
+        "continuousDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "eleMas": 253.786,
+        "critRate_": 15,
+        "hydro_enemyRes_": -40
+      },
+      "description": ""
+    }
+  ]
+}

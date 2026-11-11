@@ -1,0 +1,81 @@
+{
+  "category": {
+    "id": "navia-lunar-crystallize",
+    "name": "Lunar Shrapnel",
+    "kind": "normal"
+  },
+  "child": {
+    "constellation": 0,
+    "characterLevel": 90,
+    "talents": {
+      "burst": 10,
+      "skill": 10,
+      "normal": 10
+    },
+    "baseTalents": {
+      "burst": 10,
+      "skill": 10,
+      "normal": 10
+    },
+    "weaponId": 12512,
+    "refinement": 1
+  },
+  "reference": {
+    "source": "ceilingStandard"
+  },
+  "goConditions": {
+    "Navia": {
+      "a1AfterSkill": "on"
+    }
+  },
+  "characterBonusStats": {
+    "hp_": 25
+  },
+  "enemy": {
+    "level": 100,
+    "res": 0.1
+  },
+  "issues": [
+    {
+      "code": "characterBonusStats",
+      "stats": [
+        {
+          "buff": "Hydro Resonance",
+          "key": "hp_",
+          "value": 25
+        }
+      ]
+    },
+    {
+      "code": "selfScaling",
+      "buffs": [
+        "Moonsign — non-Moonsign party bonus"
+      ]
+    },
+    {
+      "code": "goSwitch",
+      "switches": [
+        {
+          "condition": [
+            "Navia",
+            "a1AfterSkill",
+            "on"
+          ],
+          "source": {
+            "type": "character"
+          },
+          "buffs": [
+            "Undisclosed Distribution Channels"
+          ]
+        }
+      ]
+    },
+    {
+      "code": "setEffects",
+      "setIds": [
+        15034
+      ]
+    }
+  ],
+  "teamIssues": []
+}

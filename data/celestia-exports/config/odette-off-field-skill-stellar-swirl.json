@@ -1,0 +1,316 @@
+{
+  "name": "Off-field Stellar Swirl",
+  "description": "Celestia",
+  "targets": [
+    {
+      "weight": 1.5,
+      "path": [
+        "burst",
+        "slashDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "eleMas": 120,
+        "all_dmg_": 42.691,
+        "cryo_enemyRes_": -60,
+        "critRate_": 15
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.5,
+      "path": [
+        "burst",
+        "finalDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "eleMas": 120,
+        "all_dmg_": 42.691,
+        "cryo_enemyRes_": -60,
+        "critRate_": 15
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.5,
+      "path": [
+        "skill",
+        "skillDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "eleMas": 120,
+        "all_dmg_": 42.691,
+        "cryo_enemyRes_": -60,
+        "critRate_": 15
+      },
+      "description": ""
+    },
+    {
+      "weight": 2,
+      "path": [
+        "skill",
+        "codaDotDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "eleMas": 120,
+        "all_dmg_": 42.691,
+        "cryo_enemyRes_": -60,
+        "critRate_": 15
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.5,
+      "path": [
+        "skill",
+        "codaStellarswirlDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "eleMas": 120,
+        "stellarswirl_baseDmg_": 7,
+        "stellarswirl_dmgInc": 5869.996,
+        "stellarswirl_dmg_": 158.027,
+        "cryo_enemyRes_": -60,
+        "critRate_": 15
+      },
+      "description": ""
+    },
+    {
+      "weight": 2.5,
+      "path": [
+        "skill",
+        "plumeDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "all_dmg_": 42.691,
+        "cryo_enemyRes_": -60,
+        "critRate_": 15
+      },
+      "description": ""
+    },
+    {
+      "weight": 2.5,
+      "path": [
+        "skill",
+        "plumeStellarswirlDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "stellarswirl_baseDmg_": 7,
+        "stellarswirl_dmgInc": 5869.996,
+        "stellarswirl_dmg_": 98.027,
+        "cryo_enemyRes_": -60,
+        "critRate_": 15
+      },
+      "description": ""
+    },
+    {
+      "weight": 2.5,
+      "path": [
+        "skill",
+        "wingDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "all_dmg_": 42.691,
+        "cryo_enemyRes_": -60,
+        "critRate_": 15
+      },
+      "description": ""
+    },
+    {
+      "weight": 2.5,
+      "path": [
+        "skill",
+        "wingStellarswirlDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "stellarswirl_baseDmg_": 7,
+        "stellarswirl_dmgInc": 5869.996,
+        "stellarswirl_dmg_": 98.027,
+        "cryo_enemyRes_": -60,
+        "critRate_": 15
+      },
+      "description": ""
+    },
+    {
+      "weight": 1.8,
+      "path": [
+        "reaction",
+        "stellarswirl"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "stellarswirl_baseDmg_": 7,
+        "stellarswirl_dmgInc": 5869.996,
+        "stellarswirl_dmg_": 98.027,
+        "anemo_enemyRes_": -50,
+        "critDMG_": 40,
+        "critRate_": 15
+      },
+      "description": ""
+    },
+    {
+      "weight": 1.653,
+      "path": [
+        "reaction",
+        "stellarswirl_vortex1"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "stellarswirl_baseDmg_": 7,
+        "stellarswirl_dmgInc": 5869.996,
+        "stellarswirl_dmg_": 98.027,
+        "cryo_enemyRes_": -60,
+        "critRate_": 15
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.5,
+      "path": [
+        "skill",
+        "skillDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "eleMas": 120,
+        "all_dmg_": 42.691,
+        "cryo_enemyRes_": -60,
+        "critRate_": 15
+      },
+      "description": ""
+    },
+    {
+      "weight": 2,
+      "path": [
+        "skill",
+        "codaDotDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "eleMas": 120,
+        "all_dmg_": 42.691,
+        "cryo_enemyRes_": -60,
+        "critRate_": 15
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.5,
+      "path": [
+        "skill",
+        "codaStellarswirlDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "eleMas": 120,
+        "stellarswirl_baseDmg_": 7,
+        "stellarswirl_dmgInc": 5869.996,
+        "stellarswirl_dmg_": 108.027,
+        "cryo_enemyRes_": -60,
+        "critRate_": 15
+      },
+      "description": ""
+    },
+    {
+      "weight": 2.5,
+      "path": [
+        "skill",
+        "plumeDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "all_dmg_": 42.691,
+        "cryo_enemyRes_": -60,
+        "critRate_": 15
+      },
+      "description": ""
+    },
+    {
+      "weight": 2.5,
+      "path": [
+        "skill",
+        "plumeStellarswirlDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "stellarswirl_baseDmg_": 7,
+        "stellarswirl_dmgInc": 5869.996,
+        "stellarswirl_dmg_": 48.027,
+        "cryo_enemyRes_": -60,
+        "critRate_": 15
+      },
+      "description": ""
+    },
+    {
+      "weight": 2.5,
+      "path": [
+        "skill",
+        "wingDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "all_dmg_": 42.691,
+        "cryo_enemyRes_": -60,
+        "critRate_": 15
+      },
+      "description": ""
+    },
+    {
+      "weight": 2.5,
+      "path": [
+        "skill",
+        "wingStellarswirlDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "stellarswirl_baseDmg_": 7,
+        "stellarswirl_dmgInc": 5869.996,
+        "stellarswirl_dmg_": 48.027,
+        "cryo_enemyRes_": -60,
+        "critRate_": 15
+      },
+      "description": ""
+    },
+    {
+      "weight": 1.8,
+      "path": [
+        "reaction",
+        "stellarswirl"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "stellarswirl_baseDmg_": 7,
+        "stellarswirl_dmgInc": 5869.996,
+        "stellarswirl_dmg_": 48.027,
+        "anemo_enemyRes_": -50,
+        "critDMG_": 40,
+        "critRate_": 15
+      },
+      "description": ""
+    },
+    {
+      "weight": 1.7081,
+      "path": [
+        "reaction",
+        "stellarswirl_vortex1"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "stellarswirl_baseDmg_": 7,
+        "stellarswirl_dmgInc": 5869.996,
+        "stellarswirl_dmg_": 48.027,
+        "cryo_enemyRes_": -60,
+        "critRate_": 15
+      },
+      "description": ""
+    }
+  ]
+}

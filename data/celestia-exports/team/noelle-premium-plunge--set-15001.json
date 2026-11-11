@@ -1,0 +1,1002 @@
+{
+  "name": "Premium Plunge",
+  "description": "Celestia",
+  "lastEdit": 1794351104853,
+  "conditional": {
+    "resonance": {},
+    "reaction": {}
+  },
+  "enemyOverride": {
+    "enemyLevel": 100,
+    "enemyDefIgn_": 0,
+    "enemyDefRed_": 0,
+    "pyro_enemyRes_": 10,
+    "hydro_enemyRes_": 10,
+    "electro_enemyRes_": 10,
+    "cryo_enemyRes_": 10,
+    "anemo_enemyRes_": 10,
+    "geo_enemyRes_": 10,
+    "dendro_enemyRes_": 10,
+    "physical_enemyRes_": 10
+  },
+  "loadoutData": [
+    {
+      "key": "Noelle",
+      "name": "Noelle (Celestia)",
+      "description": "",
+      "hitMode": "avgHit",
+      "infusionAura": "geo",
+      "bonusStats": {},
+      "conditional": {
+        "Noelle": {
+          "SweepingTime": "on"
+        },
+        "resonance": {
+          "EnduringRock": "on",
+          "EnduringRockHit": "on"
+        }
+      },
+      "customMultiTargets": [
+        {
+          "name": "Premium Plunge",
+          "description": "Celestia",
+          "targets": [
+            {
+              "weight": 0.5,
+              "path": [
+                "burst",
+                "burstDmg"
+              ],
+              "hitMode": "avgHit",
+              "bonusStats": {
+                "atk_": 40,
+                "all_dmg_": 140
+              },
+              "description": ""
+            },
+            {
+              "weight": 0.5,
+              "path": [
+                "burst",
+                "skillDmg"
+              ],
+              "hitMode": "avgHit",
+              "bonusStats": {
+                "atk_": 40,
+                "all_dmg_": 140
+              },
+              "description": ""
+            },
+            {
+              "weight": 0.3384,
+              "path": [
+                "plunging",
+                "dmg"
+              ],
+              "hitMode": "avgHit",
+              "infusionAura": "geo",
+              "bonusStats": {
+                "atk_": 40,
+                "all_dmg_": 168,
+                "critRate_": 6
+              },
+              "description": ""
+            },
+            {
+              "weight": 0.5,
+              "path": [
+                "plunging",
+                "high"
+              ],
+              "hitMode": "avgHit",
+              "infusionAura": "geo",
+              "bonusStats": {
+                "atk_": 40,
+                "all_dmgInc": 18000,
+                "all_dmg_": 168,
+                "critRate_": 6
+              },
+              "description": ""
+            },
+            {
+              "weight": 0.3647,
+              "path": [
+                "plunging",
+                "dmg"
+              ],
+              "hitMode": "avgHit",
+              "infusionAura": "geo",
+              "bonusStats": {
+                "atk_": 40,
+                "all_dmg_": 168,
+                "critRate_": 6
+              },
+              "description": ""
+            },
+            {
+              "weight": 0.5,
+              "path": [
+                "plunging",
+                "high"
+              ],
+              "hitMode": "avgHit",
+              "infusionAura": "geo",
+              "bonusStats": {
+                "atk_": 40,
+                "all_dmgInc": 18000,
+                "all_dmg_": 168,
+                "critRate_": 6
+              },
+              "description": ""
+            },
+            {
+              "weight": 0.358,
+              "path": [
+                "plunging",
+                "dmg"
+              ],
+              "hitMode": "avgHit",
+              "infusionAura": "geo",
+              "bonusStats": {
+                "atk_": 40,
+                "all_dmg_": 168,
+                "critRate_": 6
+              },
+              "description": ""
+            },
+            {
+              "weight": 0.5,
+              "path": [
+                "plunging",
+                "high"
+              ],
+              "hitMode": "avgHit",
+              "infusionAura": "geo",
+              "bonusStats": {
+                "atk_": 40,
+                "all_dmgInc": 18000,
+                "all_dmg_": 168,
+                "critRate_": 6
+              },
+              "description": ""
+            },
+            {
+              "weight": 0.358,
+              "path": [
+                "plunging",
+                "dmg"
+              ],
+              "hitMode": "avgHit",
+              "infusionAura": "geo",
+              "bonusStats": {
+                "atk_": 40,
+                "all_dmg_": 168,
+                "critRate_": 6
+              },
+              "description": ""
+            },
+            {
+              "weight": 0.5,
+              "path": [
+                "plunging",
+                "high"
+              ],
+              "hitMode": "avgHit",
+              "infusionAura": "geo",
+              "bonusStats": {
+                "atk_": 40,
+                "all_dmgInc": 18000,
+                "all_dmg_": 168,
+                "critRate_": 6
+              },
+              "description": ""
+            },
+            {
+              "weight": 0.3127,
+              "path": [
+                "plunging",
+                "dmg"
+              ],
+              "hitMode": "avgHit",
+              "infusionAura": "geo",
+              "bonusStats": {
+                "atk_": 40,
+                "all_dmg_": 168,
+                "critRate_": 6
+              },
+              "description": ""
+            },
+            {
+              "weight": 0.5,
+              "path": [
+                "plunging",
+                "high"
+              ],
+              "hitMode": "avgHit",
+              "infusionAura": "geo",
+              "bonusStats": {
+                "atk_": 40,
+                "all_dmgInc": 18000,
+                "all_dmg_": 168,
+                "critRate_": 6
+              },
+              "description": ""
+            },
+            {
+              "weight": 0.358,
+              "path": [
+                "plunging",
+                "dmg"
+              ],
+              "hitMode": "avgHit",
+              "infusionAura": "geo",
+              "bonusStats": {
+                "atk_": 40,
+                "all_dmg_": 168,
+                "critRate_": 5.96
+              },
+              "description": ""
+            },
+            {
+              "weight": 0.5,
+              "path": [
+                "plunging",
+                "high"
+              ],
+              "hitMode": "avgHit",
+              "infusionAura": "geo",
+              "bonusStats": {
+                "atk_": 40,
+                "all_dmgInc": 18000,
+                "all_dmg_": 168,
+                "critRate_": 4.78
+              },
+              "description": ""
+            },
+            {
+              "weight": 0.3647,
+              "path": [
+                "plunging",
+                "dmg"
+              ],
+              "hitMode": "avgHit",
+              "infusionAura": "geo",
+              "bonusStats": {
+                "atk_": 40,
+                "all_dmg_": 168,
+                "critRate_": 4.5
+              },
+              "description": ""
+            },
+            {
+              "weight": 0.5,
+              "path": [
+                "plunging",
+                "high"
+              ],
+              "hitMode": "avgHit",
+              "infusionAura": "geo",
+              "bonusStats": {
+                "atk_": 40,
+                "all_dmgInc": 18000,
+                "all_dmg_": 168,
+                "critRate_": 4.53
+              },
+              "description": ""
+            },
+            {
+              "weight": 0.3189,
+              "path": [
+                "plunging",
+                "dmg"
+              ],
+              "hitMode": "avgHit",
+              "infusionAura": "geo",
+              "bonusStats": {
+                "atk_": 40,
+                "all_dmg_": 168,
+                "critRate_": 4.41
+              },
+              "description": ""
+            },
+            {
+              "weight": 0.5,
+              "path": [
+                "plunging",
+                "high"
+              ],
+              "hitMode": "avgHit",
+              "infusionAura": "geo",
+              "bonusStats": {
+                "atk_": 35.95,
+                "all_dmgInc": 18000,
+                "all_dmg_": 168,
+                "critRate_": 4.51
+              },
+              "description": ""
+            },
+            {
+              "weight": 0.5,
+              "path": [
+                "normal",
+                "0"
+              ],
+              "hitMode": "avgHit",
+              "infusionAura": "geo",
+              "bonusStats": {
+                "atk_": 20,
+                "all_dmg_": 65.32
+              },
+              "description": ""
+            },
+            {
+              "weight": 0.5,
+              "path": [
+                "normal",
+                "1"
+              ],
+              "hitMode": "avgHit",
+              "infusionAura": "geo",
+              "bonusStats": {
+                "atk_": 20,
+                "all_dmg_": 60.25
+              },
+              "description": ""
+            },
+            {
+              "weight": 0.5,
+              "path": [
+                "burst",
+                "burstDmg"
+              ],
+              "hitMode": "avgHit",
+              "bonusStats": {
+                "atk_": 40,
+                "all_dmg_": 140
+              },
+              "description": ""
+            },
+            {
+              "weight": 0.5,
+              "path": [
+                "burst",
+                "skillDmg"
+              ],
+              "hitMode": "avgHit",
+              "bonusStats": {
+                "atk_": 40,
+                "all_dmg_": 140
+              },
+              "description": ""
+            },
+            {
+              "weight": 0.3518,
+              "path": [
+                "plunging",
+                "dmg"
+              ],
+              "hitMode": "avgHit",
+              "infusionAura": "geo",
+              "bonusStats": {
+                "atk_": 40,
+                "all_dmg_": 168,
+                "critRate_": 6
+              },
+              "description": ""
+            },
+            {
+              "weight": 0.5,
+              "path": [
+                "plunging",
+                "high"
+              ],
+              "hitMode": "avgHit",
+              "infusionAura": "geo",
+              "bonusStats": {
+                "atk_": 40,
+                "all_dmgInc": 18000,
+                "all_dmg_": 168,
+                "critRate_": 6
+              },
+              "description": ""
+            },
+            {
+              "weight": 0.358,
+              "path": [
+                "plunging",
+                "dmg"
+              ],
+              "hitMode": "avgHit",
+              "infusionAura": "geo",
+              "bonusStats": {
+                "atk_": 40,
+                "all_dmg_": 168,
+                "critRate_": 5.96
+              },
+              "description": ""
+            },
+            {
+              "weight": 0.5,
+              "path": [
+                "plunging",
+                "high"
+              ],
+              "hitMode": "avgHit",
+              "infusionAura": "geo",
+              "bonusStats": {
+                "atk_": 40,
+                "all_dmgInc": 18000,
+                "all_dmg_": 168,
+                "critRate_": 6
+              },
+              "description": ""
+            },
+            {
+              "weight": 0.4038,
+              "path": [
+                "plunging",
+                "dmg"
+              ],
+              "hitMode": "avgHit",
+              "infusionAura": "geo",
+              "bonusStats": {
+                "atk_": 40,
+                "all_dmg_": 168,
+                "critRate_": 6
+              },
+              "description": ""
+            },
+            {
+              "weight": 0.5,
+              "path": [
+                "plunging",
+                "high"
+              ],
+              "hitMode": "avgHit",
+              "infusionAura": "geo",
+              "bonusStats": {
+                "atk_": 40,
+                "all_dmgInc": 18000,
+                "all_dmg_": 168,
+                "critRate_": 6
+              },
+              "description": ""
+            },
+            {
+              "weight": 0.358,
+              "path": [
+                "plunging",
+                "dmg"
+              ],
+              "hitMode": "avgHit",
+              "infusionAura": "geo",
+              "bonusStats": {
+                "atk_": 40,
+                "all_dmg_": 168,
+                "critRate_": 5.96
+              },
+              "description": ""
+            },
+            {
+              "weight": 0.5,
+              "path": [
+                "plunging",
+                "high"
+              ],
+              "hitMode": "avgHit",
+              "infusionAura": "geo",
+              "bonusStats": {
+                "atk_": 40,
+                "all_dmgInc": 18000,
+                "all_dmg_": 168,
+                "critRate_": 6
+              },
+              "description": ""
+            },
+            {
+              "weight": 0.3714,
+              "path": [
+                "plunging",
+                "dmg"
+              ],
+              "hitMode": "avgHit",
+              "infusionAura": "geo",
+              "bonusStats": {
+                "atk_": 40,
+                "all_dmg_": 168,
+                "critRate_": 5.96
+              },
+              "description": ""
+            },
+            {
+              "weight": 0.5,
+              "path": [
+                "plunging",
+                "high"
+              ],
+              "hitMode": "avgHit",
+              "infusionAura": "geo",
+              "bonusStats": {
+                "atk_": 40,
+                "all_dmgInc": 18000,
+                "all_dmg_": 168,
+                "critRate_": 6
+              },
+              "description": ""
+            },
+            {
+              "weight": 0.3323,
+              "path": [
+                "plunging",
+                "dmg"
+              ],
+              "hitMode": "avgHit",
+              "infusionAura": "geo",
+              "bonusStats": {
+                "atk_": 40,
+                "all_dmg_": 168,
+                "critRate_": 5.96
+              },
+              "description": ""
+            },
+            {
+              "weight": 0.5,
+              "path": [
+                "plunging",
+                "high"
+              ],
+              "hitMode": "avgHit",
+              "infusionAura": "geo",
+              "bonusStats": {
+                "atk_": 40,
+                "all_dmgInc": 18000,
+                "all_dmg_": 168,
+                "critRate_": 4.76
+              },
+              "description": ""
+            },
+            {
+              "weight": 0.3714,
+              "path": [
+                "plunging",
+                "dmg"
+              ],
+              "hitMode": "avgHit",
+              "infusionAura": "geo",
+              "bonusStats": {
+                "atk_": 40,
+                "all_dmg_": 168,
+                "critRate_": 4.04
+              },
+              "description": ""
+            },
+            {
+              "weight": 0.5,
+              "path": [
+                "plunging",
+                "high"
+              ],
+              "hitMode": "avgHit",
+              "infusionAura": "geo",
+              "bonusStats": {
+                "atk_": 40,
+                "all_dmgInc": 18000,
+                "all_dmg_": 168,
+                "critRate_": 4.08
+              },
+              "description": ""
+            },
+            {
+              "weight": 0.18,
+              "path": [
+                "plunging",
+                "dmg"
+              ],
+              "hitMode": "avgHit",
+              "infusionAura": "geo",
+              "bonusStats": {
+                "atk_": 40,
+                "all_dmg_": 168,
+                "critRate_": 4.08
+              },
+              "description": ""
+            },
+            {
+              "weight": 0.5,
+              "path": [
+                "plunging",
+                "high"
+              ],
+              "hitMode": "avgHit",
+              "infusionAura": "geo",
+              "bonusStats": {
+                "atk_": 35.7,
+                "all_dmgInc": 18000,
+                "all_dmg_": 168,
+                "critRate_": 4.05
+              },
+              "description": ""
+            },
+            {
+              "weight": 0.5,
+              "path": [
+                "skill",
+                "dmg"
+              ],
+              "hitMode": "avgHit",
+              "bonusStats": {
+                "atk_": 20,
+                "all_dmg_": 41.28
+              },
+              "description": ""
+            },
+            {
+              "weight": 0.5,
+              "path": [
+                "normal",
+                "0"
+              ],
+              "hitMode": "avgHit",
+              "infusionAura": "geo",
+              "bonusStats": {
+                "atk_": 20,
+                "all_dmg_": 40
+              },
+              "description": ""
+            },
+            {
+              "weight": 0.5,
+              "path": [
+                "normal",
+                "1"
+              ],
+              "hitMode": "avgHit",
+              "infusionAura": "geo",
+              "bonusStats": {
+                "atk_": 20,
+                "all_dmg_": 61.52
+              },
+              "description": ""
+            }
+          ]
+        }
+      ],
+      "optConfig": {
+        "optimizationTarget": [
+          "custom",
+          "0"
+        ]
+      },
+      "buildTcs": [
+        {
+          "name": "Celestia",
+          "description": "The leaderboard reference build.",
+          "characterKey": "Noelle",
+          "character": {
+            "level": 90,
+            "ascension": 6,
+            "constellation": 6,
+            "talent": {
+              "auto": 10,
+              "skill": 10,
+              "burst": 10
+            }
+          },
+          "weapon": {
+            "key": "RedhornStonethresher",
+            "level": 90,
+            "ascension": 6,
+            "refinement": 1
+          },
+          "artifact": {
+            "sets": {
+              "GladiatorsFinale": 5
+            },
+            "slots": {
+              "flower": {
+                "level": 20,
+                "rarity": 5,
+                "statKey": "hp"
+              },
+              "plume": {
+                "level": 20,
+                "rarity": 5,
+                "statKey": "atk"
+              },
+              "sands": {
+                "level": 20,
+                "rarity": 5,
+                "statKey": "def_"
+              },
+              "goblet": {
+                "level": 20,
+                "rarity": 5,
+                "statKey": "geo_dmg_"
+              },
+              "circlet": {
+                "level": 20,
+                "rarity": 5,
+                "statKey": "critDMG_"
+              }
+            },
+            "substats": {
+              "type": "max",
+              "rarity": 5,
+              "stats": {
+                "def": 39.35,
+                "def_": 24.78,
+                "critRate_": 39.66,
+                "critDMG_": 66.05,
+                "hp": 507.88,
+                "hp_": 9.91,
+                "enerRech_": 11.01,
+                "eleMas": 39.63,
+                "atk": 33.07,
+                "atk_": 9.91
+              }
+            }
+          },
+          "optimization": {
+            "distributedSubstats": 0,
+            "maxSubstats": {}
+          }
+        }
+      ]
+    },
+    {
+      "key": "Xianyun",
+      "name": "Xianyun (Celestia)",
+      "description": "",
+      "hitMode": "avgHit",
+      "infusionAura": "",
+      "bonusStats": {},
+      "conditional": {},
+      "customMultiTargets": [],
+      "buildTcs": [
+        {
+          "name": "Celestia",
+          "description": "Celestia teammate assumption (85% of the maximum).",
+          "characterKey": "Xianyun",
+          "character": {
+            "level": 90,
+            "ascension": 6,
+            "constellation": 2,
+            "talent": {
+              "auto": 10,
+              "skill": 10,
+              "burst": 10
+            }
+          },
+          "weapon": {
+            "key": "CranesEchoingCall",
+            "level": 90,
+            "ascension": 6,
+            "refinement": 1
+          },
+          "artifact": {
+            "sets": {
+              "NoblesseOblige": 4
+            },
+            "slots": {
+              "flower": {
+                "level": 20,
+                "rarity": 5,
+                "statKey": "hp"
+              },
+              "plume": {
+                "level": 20,
+                "rarity": 5,
+                "statKey": "atk"
+              },
+              "sands": {
+                "level": 20,
+                "rarity": 5,
+                "statKey": "atk_"
+              },
+              "goblet": {
+                "level": 20,
+                "rarity": 5,
+                "statKey": "atk_"
+              },
+              "circlet": {
+                "level": 20,
+                "rarity": 5,
+                "statKey": "atk_"
+              }
+            },
+            "substats": {
+              "type": "max",
+              "rarity": 5,
+              "stats": {
+                "hp": 507.88,
+                "atk": 165.4,
+                "def": 39.36,
+                "hp_": 9.92,
+                "atk_": 29.76,
+                "def_": 12.4,
+                "eleMas": 39.64,
+                "enerRech_": 16.53,
+                "critRate_": 19.86,
+                "critDMG_": 33.1
+              }
+            }
+          },
+          "optimization": {
+            "distributedSubstats": 0,
+            "maxSubstats": {}
+          }
+        }
+      ]
+    },
+    {
+      "key": "Xilonen",
+      "name": "Xilonen (Celestia)",
+      "description": "",
+      "hitMode": "avgHit",
+      "infusionAura": "",
+      "bonusStats": {},
+      "conditional": {},
+      "customMultiTargets": [],
+      "buildTcs": [
+        {
+          "name": "Celestia",
+          "description": "Celestia teammate assumption (85% of the maximum).",
+          "characterKey": "Xilonen",
+          "character": {
+            "level": 90,
+            "ascension": 6,
+            "constellation": 2,
+            "talent": {
+              "auto": 10,
+              "skill": 10,
+              "burst": 10
+            }
+          },
+          "weapon": {
+            "key": "FavoniusSword",
+            "level": 90,
+            "ascension": 6,
+            "refinement": 5
+          },
+          "artifact": {
+            "sets": {
+              "ScrollOfTheHeroOfCinderCity": 4
+            },
+            "slots": {
+              "flower": {
+                "level": 20,
+                "rarity": 5,
+                "statKey": "hp"
+              },
+              "plume": {
+                "level": 20,
+                "rarity": 5,
+                "statKey": "atk"
+              },
+              "sands": {
+                "level": 20,
+                "rarity": 5,
+                "statKey": "def_"
+              },
+              "goblet": {
+                "level": 20,
+                "rarity": 5,
+                "statKey": "def_"
+              },
+              "circlet": {
+                "level": 20,
+                "rarity": 5,
+                "statKey": "critRate_"
+              }
+            },
+            "substats": {
+              "type": "max",
+              "rarity": 5,
+              "stats": {
+                "hp": 507.88,
+                "atk": 33.08,
+                "def": 157.44,
+                "hp_": 9.92,
+                "atk_": 9.92,
+                "def_": 49.6,
+                "eleMas": 39.64,
+                "enerRech_": 11.02,
+                "critRate_": 33.1,
+                "critDMG_": 13.24
+              }
+            }
+          },
+          "optimization": {
+            "distributedSubstats": 0,
+            "maxSubstats": {}
+          }
+        }
+      ]
+    },
+    {
+      "key": "Furina",
+      "name": "Furina (Celestia)",
+      "description": "",
+      "hitMode": "avgHit",
+      "infusionAura": "",
+      "bonusStats": {},
+      "conditional": {},
+      "customMultiTargets": [],
+      "buildTcs": [
+        {
+          "name": "Celestia",
+          "description": "Celestia teammate assumption (85% of the maximum).",
+          "characterKey": "Furina",
+          "character": {
+            "level": 90,
+            "ascension": 6,
+            "constellation": 2,
+            "talent": {
+              "auto": 10,
+              "skill": 10,
+              "burst": 10
+            }
+          },
+          "weapon": {
+            "key": "FavoniusSword",
+            "level": 90,
+            "ascension": 6,
+            "refinement": 5
+          },
+          "artifact": {
+            "sets": {
+              "TenacityOfTheMillelith": 4
+            },
+            "slots": {
+              "flower": {
+                "level": 20,
+                "rarity": 5,
+                "statKey": "hp"
+              },
+              "plume": {
+                "level": 20,
+                "rarity": 5,
+                "statKey": "atk"
+              },
+              "sands": {
+                "level": 20,
+                "rarity": 5,
+                "statKey": "hp_"
+              },
+              "goblet": {
+                "level": 20,
+                "rarity": 5,
+                "statKey": "hp_"
+              },
+              "circlet": {
+                "level": 20,
+                "rarity": 5,
+                "statKey": "critRate_"
+              }
+            },
+            "substats": {
+              "type": "max",
+              "rarity": 5,
+              "stats": {
+                "hp": 761.82,
+                "atk": 33.08,
+                "def": 39.36,
+                "hp_": 9.92,
+                "atk_": 9.92,
+                "def_": 12.4,
+                "eleMas": 39.64,
+                "enerRech_": 16.53,
+                "critRate_": 33.1,
+                "critDMG_": 79.44
+              }
+            }
+          },
+          "optimization": {
+            "distributedSubstats": 0,
+            "maxSubstats": {}
+          }
+        }
+      ]
+    }
+  ]
+}

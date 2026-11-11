@@ -1,0 +1,188 @@
+{
+  "name": "Citlali Forward Melt",
+  "description": "Celestia",
+  "lastEdit": 1794351069386,
+  "conditional": {
+    "resonance": {},
+    "reaction": {}
+  },
+  "enemyOverride": {
+    "enemyLevel": 100,
+    "enemyDefIgn_": 0,
+    "enemyDefRed_": 0,
+    "pyro_enemyRes_": 10,
+    "hydro_enemyRes_": 10,
+    "electro_enemyRes_": 10,
+    "cryo_enemyRes_": 10,
+    "anemo_enemyRes_": 10,
+    "geo_enemyRes_": 10,
+    "dendro_enemyRes_": 10,
+    "physical_enemyRes_": 10
+  },
+  "loadoutData": [
+    {
+      "key": "Lohen",
+      "name": "Lohen (Celestia)",
+      "description": "",
+      "hitMode": "avgHit",
+      "infusionAura": "",
+      "bonusStats": {
+        "atk": 900,
+        "atk_": 25
+      },
+      "conditional": {
+        "Lohen": {
+          "a0HighSpirits": "on"
+        }
+      },
+      "customMultiTargets": [
+        {
+          "name": "Citlali Forward Melt",
+          "description": "Celestia",
+          "targets": [
+            {
+              "weight": 10.7059,
+              "path": [
+                "skill",
+                "0"
+              ],
+              "hitMode": "avgHit",
+              "bonusStats": {
+                "atk_": 25,
+                "all_dmg_": 244,
+                "critRate_": 35
+              },
+              "description": ""
+            },
+            {
+              "weight": 21.4118,
+              "path": [
+                "skill",
+                "chargedDmg"
+              ],
+              "hitMode": "avgHit",
+              "bonusStats": {
+                "atk_": 25,
+                "all_dmg_": 244,
+                "critRate_": 35
+              },
+              "description": ""
+            },
+            {
+              "weight": 14.7778,
+              "path": [
+                "skill",
+                "etchDmg"
+              ],
+              "hitMode": "avgHit",
+              "bonusStats": {
+                "atk_": 25,
+                "all_dmg_": 204,
+                "critRate_": 35
+              },
+              "description": ""
+            },
+            {
+              "weight": 4.2,
+              "path": [
+                "burst",
+                "burstDmg"
+              ],
+              "hitMode": "avgHit",
+              "bonusStats": {
+                "atk_": 25,
+                "all_dmg_": 204,
+                "critRate_": 35
+              },
+              "description": ""
+            }
+          ]
+        }
+      ],
+      "optConfig": {
+        "optimizationTarget": [
+          "custom",
+          "0"
+        ]
+      },
+      "buildTcs": [
+        {
+          "name": "Celestia",
+          "description": "The leaderboard reference build.",
+          "characterKey": "Lohen",
+          "character": {
+            "level": 90,
+            "ascension": 6,
+            "constellation": 0,
+            "talent": {
+              "auto": 10,
+              "skill": 10,
+              "burst": 10
+            }
+          },
+          "weapon": {
+            "key": "DisasterAndRemorse",
+            "level": 90,
+            "ascension": 6,
+            "refinement": 1
+          },
+          "artifact": {
+            "sets": {
+              "ADayCarvedFromRisingWinds": 5
+            },
+            "slots": {
+              "flower": {
+                "level": 20,
+                "rarity": 5,
+                "statKey": "hp"
+              },
+              "plume": {
+                "level": 20,
+                "rarity": 5,
+                "statKey": "atk"
+              },
+              "sands": {
+                "level": 20,
+                "rarity": 5,
+                "statKey": "atk_"
+              },
+              "goblet": {
+                "level": 20,
+                "rarity": 5,
+                "statKey": "cryo_dmg_"
+              },
+              "circlet": {
+                "level": 20,
+                "rarity": 5,
+                "statKey": "critDMG_"
+              }
+            },
+            "substats": {
+              "type": "max",
+              "rarity": 5,
+              "stats": {
+                "atk_": 25.07,
+                "def": 39.35,
+                "def_": 12.39,
+                "critRate_": 36.16,
+                "critDMG_": 66.05,
+                "hp": 507.88,
+                "hp_": 9.91,
+                "enerRech_": 11.01,
+                "eleMas": 39.63,
+                "atk": 33.07
+              }
+            }
+          },
+          "optimization": {
+            "distributedSubstats": 0,
+            "maxSubstats": {}
+          }
+        }
+      ]
+    },
+    null,
+    null,
+    null
+  ]
+}

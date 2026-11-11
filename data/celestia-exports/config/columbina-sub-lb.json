@@ -1,0 +1,59 @@
+{
+  "name": "Off-field Lunar-Bloom",
+  "description": "Celestia",
+  "targets": [
+    {
+      "weight": 1,
+      "path": [
+        "burst",
+        "skillDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "hydro_enemyRes_": -25
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "skill",
+        "skillDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "hydro_enemyRes_": -25
+      },
+      "description": ""
+    },
+    {
+      "weight": 9,
+      "path": [
+        "skill",
+        "continuousDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "hydro_enemyRes_": -25
+      },
+      "description": ""
+    },
+    {
+      "weight": 15,
+      "path": [
+        "skill",
+        "lunarbloomDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "lunarbloom_baseDmg_": 28,
+        "lunarbloom_dmgInc": 4654.852,
+        "lunarbloom_critRate_": 10,
+        "lunarbloom_critDMG_": 20,
+        "dendro_enemyRes_": -55,
+        "lunarbloom_dmg_": 102.818
+      },
+      "description": ""
+    }
+  ]
+}

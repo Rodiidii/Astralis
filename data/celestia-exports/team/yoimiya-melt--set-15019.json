@@ -1,0 +1,536 @@
+{
+  "name": "Melt",
+  "description": "Celestia",
+  "lastEdit": 1794351056162,
+  "conditional": {
+    "resonance": {},
+    "reaction": {}
+  },
+  "enemyOverride": {
+    "enemyLevel": 100,
+    "enemyDefIgn_": 0,
+    "enemyDefRed_": 0,
+    "pyro_enemyRes_": 10,
+    "hydro_enemyRes_": 10,
+    "electro_enemyRes_": 10,
+    "cryo_enemyRes_": 10,
+    "anemo_enemyRes_": 10,
+    "geo_enemyRes_": 10,
+    "dendro_enemyRes_": 10,
+    "physical_enemyRes_": 10
+  },
+  "loadoutData": [
+    {
+      "key": "Yoimiya",
+      "name": "Yoimiya (Celestia)",
+      "description": "",
+      "hitMode": "avgHit",
+      "infusionAura": "",
+      "bonusStats": {},
+      "conditional": {
+        "Yoimiya": {
+          "skill": "skill"
+        }
+      },
+      "customMultiTargets": [
+        {
+          "name": "Melt",
+          "description": "Celestia",
+          "targets": [
+            {
+              "weight": 0.335,
+              "path": [
+                "burst",
+                "dmg"
+              ],
+              "hitMode": "avgHit",
+              "reaction": "melt",
+              "bonusStats": {
+                "eleMas": 320,
+                "atk": 803.661,
+                "atk_": 48,
+                "all_dmg_": 85.286,
+                "pyro_enemyRes_": -60
+              },
+              "description": ""
+            },
+            {
+              "weight": 0.67,
+              "path": [
+                "burst",
+                "exp"
+              ],
+              "hitMode": "avgHit",
+              "reaction": "melt",
+              "bonusStats": {
+                "eleMas": 320,
+                "atk": 803.661,
+                "atk_": 48,
+                "all_dmg_": 105.286,
+                "pyro_enemyRes_": -60
+              },
+              "description": ""
+            },
+            {
+              "weight": 0.67,
+              "path": [
+                "burst",
+                "exp"
+              ],
+              "hitMode": "avgHit",
+              "bonusStats": {
+                "eleMas": 320,
+                "atk": 803.661,
+                "atk_": 48,
+                "all_dmg_": 105.286,
+                "pyro_enemyRes_": -60
+              },
+              "description": ""
+            },
+            {
+              "weight": 3,
+              "path": [
+                "normal",
+                "0"
+              ],
+              "hitMode": "avgHit",
+              "reaction": "melt",
+              "infusionAura": "pyro",
+              "bonusStats": {
+                "eleMas": 320,
+                "atk": 803.661,
+                "atk_": 48,
+                "all_dmg_": 195.286,
+                "pyro_enemyRes_": -60
+              },
+              "description": ""
+            },
+            {
+              "weight": 3,
+              "path": [
+                "normal",
+                "0"
+              ],
+              "hitMode": "avgHit",
+              "infusionAura": "pyro",
+              "bonusStats": {
+                "eleMas": 320,
+                "atk": 803.661,
+                "atk_": 48,
+                "all_dmg_": 195.286,
+                "pyro_enemyRes_": -60
+              },
+              "description": ""
+            },
+            {
+              "weight": 3,
+              "path": [
+                "normal",
+                "1"
+              ],
+              "hitMode": "avgHit",
+              "infusionAura": "pyro",
+              "bonusStats": {
+                "eleMas": 320,
+                "atk": 803.661,
+                "atk_": 48,
+                "all_dmg_": 195.286,
+                "pyro_enemyRes_": -60
+              },
+              "description": ""
+            },
+            {
+              "weight": 3,
+              "path": [
+                "normal",
+                "2"
+              ],
+              "hitMode": "avgHit",
+              "reaction": "melt",
+              "infusionAura": "pyro",
+              "bonusStats": {
+                "eleMas": 320,
+                "atk": 803.661,
+                "atk_": 48,
+                "all_dmg_": 195.286,
+                "pyro_enemyRes_": -60
+              },
+              "description": ""
+            },
+            {
+              "weight": 6,
+              "path": [
+                "normal",
+                "3"
+              ],
+              "hitMode": "avgHit",
+              "infusionAura": "pyro",
+              "bonusStats": {
+                "eleMas": 320,
+                "atk": 803.661,
+                "atk_": 48,
+                "all_dmg_": 195.286,
+                "pyro_enemyRes_": -60
+              },
+              "description": ""
+            },
+            {
+              "weight": 3,
+              "path": [
+                "normal",
+                "4"
+              ],
+              "hitMode": "avgHit",
+              "reaction": "melt",
+              "infusionAura": "pyro",
+              "bonusStats": {
+                "eleMas": 320,
+                "atk": 803.661,
+                "atk_": 48,
+                "all_dmg_": 195.286,
+                "pyro_enemyRes_": -60
+              },
+              "description": ""
+            }
+          ]
+        }
+      ],
+      "optConfig": {
+        "optimizationTarget": [
+          "custom",
+          "0"
+        ]
+      },
+      "buildTcs": [
+        {
+          "name": "Celestia",
+          "description": "The leaderboard reference build.",
+          "characterKey": "Yoimiya",
+          "character": {
+            "level": 90,
+            "ascension": 6,
+            "constellation": 0,
+            "talent": {
+              "auto": 10,
+              "skill": 10,
+              "burst": 10
+            }
+          },
+          "weapon": {
+            "key": "ThunderingPulse",
+            "level": 90,
+            "ascension": 6,
+            "refinement": 1
+          },
+          "artifact": {
+            "sets": {
+              "ShimenawasReminiscence": 5
+            },
+            "slots": {
+              "flower": {
+                "level": 20,
+                "rarity": 5,
+                "statKey": "hp"
+              },
+              "plume": {
+                "level": 20,
+                "rarity": 5,
+                "statKey": "atk"
+              },
+              "sands": {
+                "level": 20,
+                "rarity": 5,
+                "statKey": "atk_"
+              },
+              "goblet": {
+                "level": 20,
+                "rarity": 5,
+                "statKey": "pyro_dmg_"
+              },
+              "circlet": {
+                "level": 20,
+                "rarity": 5,
+                "statKey": "critRate_"
+              }
+            },
+            "substats": {
+              "type": "max",
+              "rarity": 5,
+              "stats": {
+                "atk_": 15.16,
+                "def": 39.35,
+                "def_": 12.39,
+                "critRate_": 33.05,
+                "critDMG_": 79.26,
+                "hp": 507.88,
+                "hp_": 9.91,
+                "enerRech_": 11.01,
+                "eleMas": 60.61,
+                "atk": 33.07
+              }
+            }
+          },
+          "optimization": {
+            "distributedSubstats": 0,
+            "maxSubstats": {}
+          }
+        }
+      ]
+    },
+    {
+      "key": "Citlali",
+      "name": "Citlali (Celestia)",
+      "description": "",
+      "hitMode": "avgHit",
+      "infusionAura": "",
+      "bonusStats": {},
+      "conditional": {},
+      "customMultiTargets": [],
+      "buildTcs": [
+        {
+          "name": "Celestia",
+          "description": "Celestia teammate assumption (85% of the maximum).",
+          "characterKey": "Citlali",
+          "character": {
+            "level": 90,
+            "ascension": 6,
+            "constellation": 0,
+            "talent": {
+              "auto": 10,
+              "skill": 10,
+              "burst": 10
+            }
+          },
+          "weapon": {
+            "key": "ThrillingTalesOfDragonSlayers",
+            "level": 90,
+            "ascension": 6,
+            "refinement": 5
+          },
+          "artifact": {
+            "sets": {
+              "ScrollOfTheHeroOfCinderCity": 4
+            },
+            "slots": {
+              "flower": {
+                "level": 20,
+                "rarity": 5,
+                "statKey": "hp"
+              },
+              "plume": {
+                "level": 20,
+                "rarity": 5,
+                "statKey": "atk"
+              },
+              "sands": {
+                "level": 20,
+                "rarity": 5,
+                "statKey": "eleMas"
+              },
+              "goblet": {
+                "level": 20,
+                "rarity": 5,
+                "statKey": "eleMas"
+              },
+              "circlet": {
+                "level": 20,
+                "rarity": 5,
+                "statKey": "eleMas"
+              }
+            },
+            "substats": {
+              "type": "max",
+              "rarity": 5,
+              "stats": {
+                "hp": 2539.4,
+                "atk": 33.08,
+                "def": 39.36,
+                "hp_": 9.92,
+                "atk_": 9.92,
+                "def_": 12.4,
+                "eleMas": 118.92,
+                "enerRech_": 11.02,
+                "critRate_": 19.86,
+                "critDMG_": 39.72
+              }
+            }
+          },
+          "optimization": {
+            "distributedSubstats": 0,
+            "maxSubstats": {}
+          }
+        }
+      ]
+    },
+    {
+      "key": "KaedeharaKazuha",
+      "name": "KaedeharaKazuha (Celestia)",
+      "description": "",
+      "hitMode": "avgHit",
+      "infusionAura": "",
+      "bonusStats": {},
+      "conditional": {},
+      "customMultiTargets": [],
+      "buildTcs": [
+        {
+          "name": "Celestia",
+          "description": "Celestia teammate assumption (85% of the maximum).",
+          "characterKey": "KaedeharaKazuha",
+          "character": {
+            "level": 90,
+            "ascension": 6,
+            "constellation": 2,
+            "talent": {
+              "auto": 10,
+              "skill": 10,
+              "burst": 10
+            }
+          },
+          "weapon": {
+            "key": "XiphosMoonlight",
+            "level": 90,
+            "ascension": 6,
+            "refinement": 5
+          },
+          "artifact": {
+            "sets": {
+              "ViridescentVenerer": 4
+            },
+            "slots": {
+              "flower": {
+                "level": 20,
+                "rarity": 5,
+                "statKey": "hp"
+              },
+              "plume": {
+                "level": 20,
+                "rarity": 5,
+                "statKey": "atk"
+              },
+              "sands": {
+                "level": 20,
+                "rarity": 5,
+                "statKey": "eleMas"
+              },
+              "goblet": {
+                "level": 20,
+                "rarity": 5,
+                "statKey": "eleMas"
+              },
+              "circlet": {
+                "level": 20,
+                "rarity": 5,
+                "statKey": "eleMas"
+              }
+            },
+            "substats": {
+              "type": "max",
+              "rarity": 5,
+              "stats": {
+                "hp": 1015.76,
+                "atk": 33.08,
+                "def": 39.36,
+                "hp_": 9.92,
+                "atk_": 9.92,
+                "def_": 12.4,
+                "eleMas": 118.92,
+                "enerRech_": 44.08,
+                "critRate_": 19.86,
+                "critDMG_": 39.72
+              }
+            }
+          },
+          "optimization": {
+            "distributedSubstats": 0,
+            "maxSubstats": {}
+          }
+        }
+      ]
+    },
+    {
+      "key": "Nicole",
+      "name": "Nicole (Celestia)",
+      "description": "",
+      "hitMode": "avgHit",
+      "infusionAura": "",
+      "bonusStats": {},
+      "conditional": {},
+      "customMultiTargets": [],
+      "buildTcs": [
+        {
+          "name": "Celestia",
+          "description": "Celestia teammate assumption (85% of the maximum).",
+          "characterKey": "Nicole",
+          "character": {
+            "level": 90,
+            "ascension": 6,
+            "constellation": 0,
+            "talent": {
+              "auto": 10,
+              "skill": 10,
+              "burst": 10
+            }
+          },
+          "weapon": {
+            "key": "OathswornEye",
+            "level": 90,
+            "ascension": 6,
+            "refinement": 5
+          },
+          "artifact": {
+            "sets": {
+              "Instructor": 4
+            },
+            "slots": {
+              "flower": {
+                "level": 16,
+                "rarity": 4,
+                "statKey": "hp"
+              },
+              "plume": {
+                "level": 16,
+                "rarity": 4,
+                "statKey": "atk"
+              },
+              "sands": {
+                "level": 20,
+                "rarity": 5,
+                "statKey": "atk_"
+              },
+              "goblet": {
+                "level": 16,
+                "rarity": 4,
+                "statKey": "atk_"
+              },
+              "circlet": {
+                "level": 16,
+                "rarity": 4,
+                "statKey": "atk_"
+              }
+            },
+            "substats": {
+              "type": "max",
+              "rarity": 4,
+              "stats": {
+                "hp": 426.62,
+                "atk": 138.94,
+                "def": 33.06,
+                "hp_": 8.33,
+                "atk_": 25,
+                "def_": 10.42,
+                "eleMas": 33.3,
+                "enerRech_": 9.26,
+                "critRate_": 5.56,
+                "critDMG_": 11.12
+              }
+            }
+          },
+          "optimization": {
+            "distributedSubstats": 0,
+            "maxSubstats": {}
+          }
+        }
+      ]
+    }
+  ]
+}

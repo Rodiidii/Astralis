@@ -1,0 +1,660 @@
+{
+  "name": "F2P",
+  "description": "Celestia",
+  "lastEdit": 1794351023051,
+  "conditional": {
+    "resonance": {},
+    "reaction": {}
+  },
+  "enemyOverride": {
+    "enemyLevel": 100,
+    "enemyDefIgn_": 0,
+    "enemyDefRed_": 0,
+    "pyro_enemyRes_": 10,
+    "hydro_enemyRes_": 10,
+    "electro_enemyRes_": 10,
+    "cryo_enemyRes_": 10,
+    "anemo_enemyRes_": 10,
+    "geo_enemyRes_": 10,
+    "dendro_enemyRes_": 10,
+    "physical_enemyRes_": 10
+  },
+  "loadoutData": [
+    {
+      "key": "Vesna",
+      "name": "Vesna (Celestia)",
+      "description": "",
+      "hitMode": "avgHit",
+      "infusionAura": "",
+      "bonusStats": {
+        "atk_": 40
+      },
+      "conditional": {
+        "Vesna": {
+          "a0StellarRadiance": "ss"
+        }
+      },
+      "customMultiTargets": [
+        {
+          "name": "F2P",
+          "description": "Celestia",
+          "targets": [
+            {
+              "weight": 1,
+              "path": [
+                "skill",
+                "skillDmg"
+              ],
+              "hitMode": "avgHit",
+              "bonusStats": {
+                "atk_": 18,
+                "eleMas": 320,
+                "all_dmgInc": 208.266,
+                "all_dmg_": 38.25,
+                "anemo_enemyRes_": -30,
+                "critDMG_": 96,
+                "critRate_": 31
+              },
+              "description": ""
+            },
+            {
+              "weight": 1,
+              "path": [
+                "normal",
+                "0"
+              ],
+              "hitMode": "avgHit",
+              "infusionAura": "anemo",
+              "bonusStats": {
+                "atk_": 18,
+                "eleMas": 320,
+                "all_dmgInc": 208.266,
+                "all_dmg_": 38.25,
+                "anemo_enemyRes_": -30,
+                "critDMG_": 96,
+                "critRate_": 31
+              },
+              "description": ""
+            },
+            {
+              "weight": 1,
+              "path": [
+                "skill",
+                "windPinionDmg"
+              ],
+              "hitMode": "avgHit",
+              "bonusStats": {
+                "atk_": 18,
+                "eleMas": 320,
+                "all_dmgInc": 208.266,
+                "all_dmg_": 38.25,
+                "anemo_enemyRes_": -30,
+                "critDMG_": 96,
+                "critRate_": 31
+              },
+              "description": ""
+            },
+            {
+              "weight": 1,
+              "path": [
+                "charged",
+                "dmg"
+              ],
+              "hitMode": "avgHit",
+              "infusionAura": "anemo",
+              "bonusStats": {
+                "atk_": 18,
+                "eleMas": 320,
+                "all_dmgInc": 208.266,
+                "all_dmg_": 38.25,
+                "anemo_enemyRes_": -30,
+                "critDMG_": 96,
+                "critRate_": 31
+              },
+              "description": ""
+            },
+            {
+              "weight": 1,
+              "path": [
+                "skill",
+                "windPinionDmg"
+              ],
+              "hitMode": "avgHit",
+              "bonusStats": {
+                "atk_": 18,
+                "eleMas": 320,
+                "all_dmgInc": 208.266,
+                "all_dmg_": 38.25,
+                "anemo_enemyRes_": -30,
+                "critDMG_": 96,
+                "critRate_": 31
+              },
+              "description": ""
+            },
+            {
+              "weight": 1,
+              "path": [
+                "skill",
+                "sword1Dmg"
+              ],
+              "hitMode": "avgHit",
+              "bonusStats": {
+                "atk_": 18,
+                "eleMas": 320,
+                "all_dmgInc": 208.266,
+                "all_dmg_": 38.25,
+                "anemo_enemyRes_": -30,
+                "critDMG_": 96,
+                "critRate_": 31
+              },
+              "description": ""
+            },
+            {
+              "weight": 1,
+              "path": [
+                "normal",
+                "0"
+              ],
+              "hitMode": "avgHit",
+              "infusionAura": "anemo",
+              "bonusStats": {
+                "atk_": 18,
+                "eleMas": 320,
+                "all_dmgInc": 208.266,
+                "all_dmg_": 38.25,
+                "anemo_enemyRes_": -30,
+                "critDMG_": 96,
+                "critRate_": 31
+              },
+              "description": ""
+            },
+            {
+              "weight": 1,
+              "path": [
+                "skill",
+                "windPinionDmg"
+              ],
+              "hitMode": "avgHit",
+              "bonusStats": {
+                "atk_": 18,
+                "eleMas": 320,
+                "all_dmgInc": 208.266,
+                "all_dmg_": 38.25,
+                "anemo_enemyRes_": -30,
+                "critDMG_": 96,
+                "critRate_": 31
+              },
+              "description": ""
+            },
+            {
+              "weight": 1,
+              "path": [
+                "charged",
+                "dmg"
+              ],
+              "hitMode": "avgHit",
+              "infusionAura": "anemo",
+              "bonusStats": {
+                "atk_": 18,
+                "eleMas": 320,
+                "all_dmgInc": 208.266,
+                "all_dmg_": 38.25,
+                "anemo_enemyRes_": -30,
+                "critDMG_": 96,
+                "critRate_": 31
+              },
+              "description": ""
+            },
+            {
+              "weight": 1,
+              "path": [
+                "skill",
+                "windPinionDmg"
+              ],
+              "hitMode": "avgHit",
+              "bonusStats": {
+                "atk_": 18,
+                "eleMas": 320,
+                "all_dmgInc": 208.266,
+                "all_dmg_": 38.25,
+                "anemo_enemyRes_": -30,
+                "critDMG_": 96,
+                "critRate_": 31
+              },
+              "description": ""
+            },
+            {
+              "weight": 1,
+              "path": [
+                "skill",
+                "sword2Dmg"
+              ],
+              "hitMode": "avgHit",
+              "bonusStats": {
+                "atk_": 18,
+                "eleMas": 320,
+                "all_dmgInc": 208.266,
+                "all_dmg_": 38.25,
+                "anemo_enemyRes_": -30,
+                "critDMG_": 96,
+                "critRate_": 31
+              },
+              "description": ""
+            },
+            {
+              "weight": 1.2,
+              "path": [
+                "skill",
+                "sword2SpiritStellarswirlDmg"
+              ],
+              "hitMode": "avgHit",
+              "bonusStats": {
+                "atk_": 18,
+                "eleMas": 320,
+                "stellarswirl_baseDmg_": 7,
+                "anemo_enemyRes_": -30,
+                "critDMG_": 96,
+                "stellarswirl_dmg_": 126,
+                "critRate_": 31
+              },
+              "description": ""
+            },
+            {
+              "weight": 1.3,
+              "path": [
+                "burst",
+                "spiritStellarswirlDmg"
+              ],
+              "hitMode": "avgHit",
+              "bonusStats": {
+                "atk_": 18,
+                "eleMas": 320,
+                "stellarswirl_baseDmg_": 7,
+                "anemo_enemyRes_": -30,
+                "critDMG_": 96,
+                "stellarswirl_dmg_": 126,
+                "critRate_": 31
+              },
+              "description": ""
+            },
+            {
+              "weight": 5.6,
+              "path": [
+                "skill",
+                "sword3SpiritStellarswirlDmg"
+              ],
+              "hitMode": "avgHit",
+              "bonusStats": {
+                "atk_": 18,
+                "eleMas": 320,
+                "stellarswirl_baseDmg_": 7,
+                "anemo_enemyRes_": -30,
+                "critDMG_": 96,
+                "stellarswirl_dmg_": 126,
+                "critRate_": 31
+              },
+              "description": ""
+            },
+            {
+              "weight": 1.4,
+              "path": [
+                "skill",
+                "sword3SpiritFinalStellarswirlDmg"
+              ],
+              "hitMode": "avgHit",
+              "bonusStats": {
+                "atk_": 18,
+                "eleMas": 320,
+                "stellarswirl_baseDmg_": 7,
+                "anemo_enemyRes_": -30,
+                "critDMG_": 96,
+                "stellarswirl_dmg_": 126,
+                "critRate_": 31
+              },
+              "description": ""
+            },
+            {
+              "weight": 1,
+              "path": [
+                "normal",
+                "0"
+              ],
+              "hitMode": "avgHit",
+              "infusionAura": "anemo",
+              "bonusStats": {
+                "atk_": 18,
+                "eleMas": 320,
+                "all_dmgInc": 208.266,
+                "all_dmg_": 38.25,
+                "anemo_enemyRes_": -30,
+                "critDMG_": 96,
+                "critRate_": 31
+              },
+              "description": ""
+            },
+            {
+              "weight": 1,
+              "path": [
+                "skill",
+                "windPinionDmg"
+              ],
+              "hitMode": "avgHit",
+              "bonusStats": {
+                "atk_": 18,
+                "eleMas": 320,
+                "all_dmgInc": 208.266,
+                "all_dmg_": 38.25,
+                "anemo_enemyRes_": -30,
+                "critDMG_": 96,
+                "critRate_": 31
+              },
+              "description": ""
+            },
+            {
+              "weight": 1,
+              "path": [
+                "charged",
+                "dmg"
+              ],
+              "hitMode": "avgHit",
+              "infusionAura": "anemo",
+              "bonusStats": {
+                "atk_": 18,
+                "eleMas": 320,
+                "all_dmgInc": 208.266,
+                "all_dmg_": 38.25,
+                "anemo_enemyRes_": -30,
+                "critDMG_": 96,
+                "critRate_": 31
+              },
+              "description": ""
+            },
+            {
+              "weight": 1,
+              "path": [
+                "skill",
+                "windPinionDmg"
+              ],
+              "hitMode": "avgHit",
+              "bonusStats": {
+                "atk_": 18,
+                "eleMas": 320,
+                "all_dmgInc": 208.266,
+                "all_dmg_": 38.25,
+                "anemo_enemyRes_": -30,
+                "critDMG_": 96,
+                "critRate_": 31
+              },
+              "description": ""
+            },
+            {
+              "weight": 6,
+              "path": [
+                "skill",
+                "sword3SpiritStellarswirlDmg"
+              ],
+              "hitMode": "avgHit",
+              "bonusStats": {
+                "atk_": 18,
+                "eleMas": 320,
+                "stellarswirl_baseDmg_": 7,
+                "anemo_enemyRes_": -30,
+                "critDMG_": 96,
+                "stellarswirl_dmg_": 126,
+                "critRate_": 31
+              },
+              "description": ""
+            },
+            {
+              "weight": 1.5,
+              "path": [
+                "skill",
+                "sword3SpiritFinalStellarswirlDmg"
+              ],
+              "hitMode": "avgHit",
+              "bonusStats": {
+                "atk_": 18,
+                "eleMas": 320,
+                "stellarswirl_baseDmg_": 7,
+                "anemo_enemyRes_": -30,
+                "critDMG_": 96,
+                "stellarswirl_dmg_": 126,
+                "critRate_": 31
+              },
+              "description": ""
+            },
+            {
+              "weight": 1,
+              "path": [
+                "normal",
+                "0"
+              ],
+              "hitMode": "avgHit",
+              "infusionAura": "anemo",
+              "bonusStats": {
+                "atk_": 18,
+                "eleMas": 320,
+                "all_dmgInc": 208.266,
+                "all_dmg_": 38.25,
+                "anemo_enemyRes_": -30,
+                "critDMG_": 96,
+                "critRate_": 31
+              },
+              "description": ""
+            },
+            {
+              "weight": 1,
+              "path": [
+                "skill",
+                "windPinionDmg"
+              ],
+              "hitMode": "avgHit",
+              "bonusStats": {
+                "atk_": 18,
+                "eleMas": 320,
+                "all_dmgInc": 208.266,
+                "all_dmg_": 38.25,
+                "anemo_enemyRes_": -30,
+                "critDMG_": 96,
+                "critRate_": 31
+              },
+              "description": ""
+            },
+            {
+              "weight": 1,
+              "path": [
+                "charged",
+                "dmg"
+              ],
+              "hitMode": "avgHit",
+              "infusionAura": "anemo",
+              "bonusStats": {
+                "atk_": 18,
+                "eleMas": 320,
+                "all_dmgInc": 208.266,
+                "all_dmg_": 38.25,
+                "anemo_enemyRes_": -30,
+                "critDMG_": 96,
+                "critRate_": 31
+              },
+              "description": ""
+            },
+            {
+              "weight": 1,
+              "path": [
+                "skill",
+                "windPinionDmg"
+              ],
+              "hitMode": "avgHit",
+              "bonusStats": {
+                "atk_": 18,
+                "eleMas": 320,
+                "all_dmgInc": 208.266,
+                "all_dmg_": 38.25,
+                "anemo_enemyRes_": -30,
+                "critDMG_": 96,
+                "critRate_": 31
+              },
+              "description": ""
+            },
+            {
+              "weight": 6.4,
+              "path": [
+                "skill",
+                "sword3SpiritStellarswirlDmg"
+              ],
+              "hitMode": "avgHit",
+              "bonusStats": {
+                "atk_": 18,
+                "eleMas": 320,
+                "stellarswirl_baseDmg_": 7,
+                "anemo_enemyRes_": -30,
+                "critDMG_": 96,
+                "stellarswirl_dmg_": 126,
+                "critRate_": 31
+              },
+              "description": ""
+            },
+            {
+              "weight": 1.6,
+              "path": [
+                "skill",
+                "sword3SpiritFinalStellarswirlDmg"
+              ],
+              "hitMode": "avgHit",
+              "bonusStats": {
+                "atk_": 18,
+                "eleMas": 320,
+                "stellarswirl_baseDmg_": 7,
+                "anemo_enemyRes_": -30,
+                "critDMG_": 96,
+                "stellarswirl_dmg_": 126,
+                "critRate_": 31
+              },
+              "description": ""
+            },
+            {
+              "weight": 3.6,
+              "path": [
+                "reaction",
+                "stellarswirl"
+              ],
+              "hitMode": "avgHit",
+              "bonusStats": {
+                "atk_": 18,
+                "eleMas": 320,
+                "stellarswirl_baseDmg_": 7,
+                "anemo_enemyRes_": -30,
+                "critDMG_": 96,
+                "stellarswirl_dmg_": 126,
+                "critRate_": 31
+              },
+              "description": ""
+            },
+            {
+              "weight": 0.6,
+              "path": [
+                "reaction",
+                "stellarswirl_vortex1"
+              ],
+              "hitMode": "avgHit",
+              "bonusStats": {
+                "atk_": 18,
+                "eleMas": 320,
+                "stellarswirl_baseDmg_": 7,
+                "stellarswirl_dmg_": 126,
+                "critRate_": 31,
+                "critDMG_": 56
+              },
+              "description": ""
+            }
+          ]
+        }
+      ],
+      "optConfig": {
+        "optimizationTarget": [
+          "custom",
+          "0"
+        ]
+      },
+      "buildTcs": [
+        {
+          "name": "Celestia",
+          "description": "The leaderboard reference build.",
+          "characterKey": "Vesna",
+          "character": {
+            "level": 90,
+            "ascension": 6,
+            "constellation": 0,
+            "talent": {
+              "auto": 10,
+              "skill": 10,
+              "burst": 10
+            }
+          },
+          "weapon": {
+            "key": "BeyondTheChrysalis",
+            "level": 90,
+            "ascension": 6,
+            "refinement": 1
+          },
+          "artifact": {
+            "sets": {
+              "ScarletProof": 5
+            },
+            "slots": {
+              "flower": {
+                "level": 20,
+                "rarity": 5,
+                "statKey": "hp"
+              },
+              "plume": {
+                "level": 20,
+                "rarity": 5,
+                "statKey": "atk"
+              },
+              "sands": {
+                "level": 20,
+                "rarity": 5,
+                "statKey": "atk_"
+              },
+              "goblet": {
+                "level": 20,
+                "rarity": 5,
+                "statKey": "atk_"
+              },
+              "circlet": {
+                "level": 20,
+                "rarity": 5,
+                "statKey": "critDMG_"
+              }
+            },
+            "substats": {
+              "type": "max",
+              "rarity": 5,
+              "stats": {
+                "atk_": 19.82,
+                "def": 39.35,
+                "def_": 12.39,
+                "critRate_": 39.66,
+                "critDMG_": 66.05,
+                "hp": 507.88,
+                "hp_": 9.91,
+                "enerRech_": 11.01,
+                "eleMas": 39.63,
+                "atk": 33.07
+              }
+            }
+          },
+          "optimization": {
+            "distributedSubstats": 0,
+            "maxSubstats": {}
+          }
+        }
+      ]
+    },
+    null,
+    null,
+    null
+  ]
+}

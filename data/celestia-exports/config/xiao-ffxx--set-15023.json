@@ -1,0 +1,1118 @@
+{
+  "name": "FFXX",
+  "description": "Celestia",
+  "targets": [
+    {
+      "weight": 0.5,
+      "path": [
+        "skill",
+        "press"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 20,
+        "all_dmg_": 55.09,
+        "anemo_enemyRes_": -30,
+        "critDMG_": 40
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.5,
+      "path": [
+        "skill",
+        "press"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 23.008,
+        "all_dmgInc": 208.266,
+        "all_dmg_": 70.3,
+        "anemo_enemyRes_": -30,
+        "critDMG_": 40
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.5,
+      "path": [
+        "normal",
+        "0"
+      ],
+      "hitMode": "avgHit",
+      "infusionAura": "anemo",
+      "bonusStats": {
+        "atk_": 44.016,
+        "all_dmgInc": 208.266,
+        "all_dmg_": 70.47,
+        "anemo_enemyRes_": -30,
+        "critDMG_": 40
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.2162,
+      "path": [
+        "plunging",
+        "dmg"
+      ],
+      "hitMode": "avgHit",
+      "infusionAura": "anemo",
+      "bonusStats": {
+        "atk_": 55.116,
+        "all_dmgInc": 208.266,
+        "all_dmg_": 73.03,
+        "anemo_enemyRes_": -30,
+        "critDMG_": 40,
+        "critRate_": 4.67
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.5,
+      "path": [
+        "plunging",
+        "high"
+      ],
+      "hitMode": "avgHit",
+      "infusionAura": "anemo",
+      "bonusStats": {
+        "atk_": 56.364,
+        "all_dmgInc": 7536.749,
+        "all_dmg_": 73.12,
+        "anemo_enemyRes_": -30,
+        "critDMG_": 40,
+        "critRate_": 4.7
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.5,
+      "path": [
+        "normal",
+        "0"
+      ],
+      "hitMode": "avgHit",
+      "infusionAura": "anemo",
+      "bonusStats": {
+        "atk_": 50.992,
+        "all_dmg_": 73.38,
+        "anemo_enemyRes_": -30,
+        "critDMG_": 40
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.2234,
+      "path": [
+        "plunging",
+        "dmg"
+      ],
+      "hitMode": "avgHit",
+      "infusionAura": "anemo",
+      "bonusStats": {
+        "atk_": 70.58,
+        "all_dmgInc": 201.562,
+        "all_dmg_": 82.68,
+        "anemo_enemyRes_": -30,
+        "critDMG_": 40,
+        "critRate_": 4.65
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.5,
+      "path": [
+        "plunging",
+        "high"
+      ],
+      "hitMode": "avgHit",
+      "infusionAura": "anemo",
+      "bonusStats": {
+        "atk_": 71.884,
+        "all_dmgInc": 7536.749,
+        "all_dmg_": 82.91,
+        "anemo_enemyRes_": -30,
+        "critDMG_": 40,
+        "critRate_": 4.7
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.5,
+      "path": [
+        "normal",
+        "0"
+      ],
+      "hitMode": "avgHit",
+      "infusionAura": "anemo",
+      "bonusStats": {
+        "atk_": 55.28,
+        "all_dmg_": 86.34,
+        "anemo_enemyRes_": -30,
+        "critDMG_": 40
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.2734,
+      "path": [
+        "plunging",
+        "dmg"
+      ],
+      "hitMode": "avgHit",
+      "infusionAura": "anemo",
+      "bonusStats": {
+        "atk_": 86.288,
+        "all_dmgInc": 208.266,
+        "all_dmg_": 95.089,
+        "anemo_enemyRes_": -30,
+        "critDMG_": 40,
+        "critRate_": 4.74
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.5,
+      "path": [
+        "plunging",
+        "high"
+      ],
+      "hitMode": "avgHit",
+      "infusionAura": "anemo",
+      "bonusStats": {
+        "atk_": 87.004,
+        "all_dmgInc": 7536.749,
+        "all_dmg_": 98.398,
+        "anemo_enemyRes_": -30,
+        "critDMG_": 40,
+        "critRate_": 4.7
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.5,
+      "path": [
+        "normal",
+        "0"
+      ],
+      "hitMode": "avgHit",
+      "infusionAura": "anemo",
+      "bonusStats": {
+        "atk_": 59.632,
+        "all_dmg_": 104.549,
+        "anemo_enemyRes_": -30,
+        "critDMG_": 40
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.2734,
+      "path": [
+        "plunging",
+        "dmg"
+      ],
+      "hitMode": "avgHit",
+      "infusionAura": "anemo",
+      "bonusStats": {
+        "atk_": 89.856,
+        "all_dmgInc": 208.266,
+        "all_dmg_": 112.988,
+        "anemo_enemyRes_": -30,
+        "critDMG_": 40,
+        "critRate_": 4.68
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.5,
+      "path": [
+        "plunging",
+        "high"
+      ],
+      "hitMode": "avgHit",
+      "infusionAura": "anemo",
+      "bonusStats": {
+        "atk_": 89.952,
+        "all_dmgInc": 7536.749,
+        "all_dmg_": 114.29,
+        "anemo_enemyRes_": -30,
+        "critDMG_": 40,
+        "critRate_": 4.7
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.5,
+      "path": [
+        "normal",
+        "0"
+      ],
+      "hitMode": "avgHit",
+      "infusionAura": "anemo",
+      "bonusStats": {
+        "atk_": 60.016,
+        "all_dmg_": 114.87,
+        "anemo_enemyRes_": -30,
+        "critDMG_": 40
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.2085,
+      "path": [
+        "plunging",
+        "dmg"
+      ],
+      "hitMode": "avgHit",
+      "infusionAura": "anemo",
+      "bonusStats": {
+        "atk_": 89.984,
+        "all_dmgInc": 208.266,
+        "all_dmg_": 125.29,
+        "anemo_enemyRes_": -30,
+        "critDMG_": 40,
+        "critRate_": 4.83
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.5,
+      "path": [
+        "plunging",
+        "high"
+      ],
+      "hitMode": "avgHit",
+      "infusionAura": "anemo",
+      "bonusStats": {
+        "atk_": 90.016,
+        "all_dmgInc": 7536.749,
+        "all_dmg_": 124.74,
+        "anemo_enemyRes_": -30,
+        "critDMG_": 40,
+        "critRate_": 4.7
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.5,
+      "path": [
+        "normal",
+        "0"
+      ],
+      "hitMode": "avgHit",
+      "infusionAura": "anemo",
+      "bonusStats": {
+        "atk_": 60.016,
+        "all_dmg_": 124.93,
+        "anemo_enemyRes_": -30,
+        "critDMG_": 40
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.2734,
+      "path": [
+        "plunging",
+        "dmg"
+      ],
+      "hitMode": "avgHit",
+      "infusionAura": "anemo",
+      "bonusStats": {
+        "atk_": 89.984,
+        "all_dmgInc": 208.266,
+        "all_dmg_": 127.75,
+        "anemo_enemyRes_": -30,
+        "critDMG_": 40,
+        "critRate_": 4.74
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.5,
+      "path": [
+        "plunging",
+        "high"
+      ],
+      "hitMode": "avgHit",
+      "infusionAura": "anemo",
+      "bonusStats": {
+        "atk_": 90.016,
+        "all_dmgInc": 7536.749,
+        "all_dmg_": 128.54,
+        "anemo_enemyRes_": -30,
+        "critDMG_": 40,
+        "critRate_": 4.7
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.5,
+      "path": [
+        "normal",
+        "0"
+      ],
+      "hitMode": "avgHit",
+      "infusionAura": "anemo",
+      "bonusStats": {
+        "atk_": 60.016,
+        "all_dmg_": 131.23,
+        "anemo_enemyRes_": -30,
+        "critDMG_": 40
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.2448,
+      "path": [
+        "plunging",
+        "dmg"
+      ],
+      "hitMode": "avgHit",
+      "infusionAura": "anemo",
+      "bonusStats": {
+        "atk_": 69.984,
+        "all_dmgInc": 208.266,
+        "all_dmg_": 141.32,
+        "anemo_enemyRes_": -30,
+        "critDMG_": 40,
+        "critRate_": 4.53
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.5,
+      "path": [
+        "plunging",
+        "high"
+      ],
+      "hitMode": "avgHit",
+      "infusionAura": "anemo",
+      "bonusStats": {
+        "atk_": 70.016,
+        "all_dmgInc": 7536.749,
+        "all_dmg_": 141.48,
+        "anemo_enemyRes_": -30,
+        "critDMG_": 40,
+        "critRate_": 4.7
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.5,
+      "path": [
+        "normal",
+        "0"
+      ],
+      "hitMode": "avgHit",
+      "infusionAura": "anemo",
+      "bonusStats": {
+        "atk_": 40.016,
+        "all_dmg_": 141.84,
+        "anemo_enemyRes_": -30,
+        "critDMG_": 40
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.2878,
+      "path": [
+        "plunging",
+        "dmg"
+      ],
+      "hitMode": "avgHit",
+      "infusionAura": "anemo",
+      "bonusStats": {
+        "atk_": 69.984,
+        "all_dmgInc": 208.266,
+        "all_dmg_": 144.71,
+        "anemo_enemyRes_": -30,
+        "critDMG_": 40,
+        "critRate_": 4.9
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.5,
+      "path": [
+        "plunging",
+        "high"
+      ],
+      "hitMode": "avgHit",
+      "infusionAura": "anemo",
+      "bonusStats": {
+        "atk_": 70.016,
+        "all_dmgInc": 7536.749,
+        "all_dmg_": 145.25,
+        "anemo_enemyRes_": -30,
+        "critDMG_": 40,
+        "critRate_": 4.7
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.5,
+      "path": [
+        "skill",
+        "press"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 38,
+        "all_dmg_": 57.68,
+        "anemo_enemyRes_": -30,
+        "critDMG_": 40
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.5,
+      "path": [
+        "skill",
+        "press"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 41.008,
+        "all_dmgInc": 208.266,
+        "all_dmg_": 72.83,
+        "anemo_enemyRes_": -30,
+        "critDMG_": 40
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.5,
+      "path": [
+        "normal",
+        "0"
+      ],
+      "hitMode": "avgHit",
+      "infusionAura": "anemo",
+      "bonusStats": {
+        "atk_": 43.92,
+        "all_dmgInc": 208.266,
+        "all_dmg_": 72.77,
+        "anemo_enemyRes_": -30,
+        "critDMG_": 40
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.2806,
+      "path": [
+        "plunging",
+        "dmg"
+      ],
+      "hitMode": "avgHit",
+      "infusionAura": "anemo",
+      "bonusStats": {
+        "atk_": 78.016,
+        "all_dmgInc": 208.266,
+        "all_dmg_": 73.96,
+        "anemo_enemyRes_": -30,
+        "critDMG_": 40,
+        "critRate_": 5.08
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.5,
+      "path": [
+        "plunging",
+        "high"
+      ],
+      "hitMode": "avgHit",
+      "infusionAura": "anemo",
+      "bonusStats": {
+        "atk_": 79.552,
+        "all_dmgInc": 7536.749,
+        "all_dmg_": 75,
+        "anemo_enemyRes_": -30,
+        "critDMG_": 40,
+        "critRate_": 5.32
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.5,
+      "path": [
+        "normal",
+        "0"
+      ],
+      "hitMode": "avgHit",
+      "infusionAura": "anemo",
+      "bonusStats": {
+        "atk_": 50.896,
+        "all_dmg_": 75.2,
+        "anemo_enemyRes_": -30,
+        "critDMG_": 40
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.2663,
+      "path": [
+        "plunging",
+        "dmg"
+      ],
+      "hitMode": "avgHit",
+      "infusionAura": "anemo",
+      "bonusStats": {
+        "atk_": 81.636,
+        "all_dmgInc": 208.266,
+        "all_dmg_": 85.21,
+        "anemo_enemyRes_": -30,
+        "critDMG_": 40,
+        "critRate_": 5.46
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.5,
+      "path": [
+        "plunging",
+        "high"
+      ],
+      "hitMode": "avgHit",
+      "infusionAura": "anemo",
+      "bonusStats": {
+        "atk_": 84.128,
+        "all_dmgInc": 7536.749,
+        "all_dmg_": 84.67,
+        "anemo_enemyRes_": -30,
+        "critDMG_": 40,
+        "critRate_": 5.32
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.5,
+      "path": [
+        "normal",
+        "0"
+      ],
+      "hitMode": "avgHit",
+      "infusionAura": "anemo",
+      "bonusStats": {
+        "atk_": 55.568,
+        "all_dmg_": 87.93,
+        "anemo_enemyRes_": -30,
+        "critDMG_": 40
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.3097,
+      "path": [
+        "plunging",
+        "dmg"
+      ],
+      "hitMode": "avgHit",
+      "infusionAura": "anemo",
+      "bonusStats": {
+        "atk_": 87.776,
+        "all_dmgInc": 208.266,
+        "all_dmg_": 100.134,
+        "anemo_enemyRes_": -30,
+        "critDMG_": 40,
+        "critRate_": 5.35
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.5,
+      "path": [
+        "plunging",
+        "high"
+      ],
+      "hitMode": "avgHit",
+      "infusionAura": "anemo",
+      "bonusStats": {
+        "atk_": 88.864,
+        "all_dmgInc": 7536.749,
+        "all_dmg_": 102.933,
+        "anemo_enemyRes_": -30,
+        "critDMG_": 40,
+        "critRate_": 5.32
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.5,
+      "path": [
+        "normal",
+        "0"
+      ],
+      "hitMode": "avgHit",
+      "infusionAura": "anemo",
+      "bonusStats": {
+        "atk_": 59.632,
+        "all_dmg_": 106.998,
+        "anemo_enemyRes_": -30,
+        "critDMG_": 40
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.2305,
+      "path": [
+        "plunging",
+        "dmg"
+      ],
+      "hitMode": "avgHit",
+      "infusionAura": "anemo",
+      "bonusStats": {
+        "atk_": 89.204,
+        "all_dmgInc": 208.266,
+        "all_dmg_": 115.28,
+        "anemo_enemyRes_": -30,
+        "critDMG_": 40,
+        "critRate_": 5.13
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.5,
+      "path": [
+        "plunging",
+        "high"
+      ],
+      "hitMode": "avgHit",
+      "infusionAura": "anemo",
+      "bonusStats": {
+        "atk_": 89.92,
+        "all_dmgInc": 7536.749,
+        "all_dmg_": 115.89,
+        "anemo_enemyRes_": -30,
+        "critDMG_": 40,
+        "critRate_": 5.32
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.5,
+      "path": [
+        "normal",
+        "0"
+      ],
+      "hitMode": "avgHit",
+      "infusionAura": "anemo",
+      "bonusStats": {
+        "atk_": 60.016,
+        "all_dmg_": 116.32,
+        "anemo_enemyRes_": -30,
+        "critDMG_": 40
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.2377,
+      "path": [
+        "plunging",
+        "dmg"
+      ],
+      "hitMode": "avgHit",
+      "infusionAura": "anemo",
+      "bonusStats": {
+        "atk_": 59.984,
+        "all_dmgInc": 208.266,
+        "all_dmg_": 125.66,
+        "anemo_enemyRes_": -30,
+        "critDMG_": 40,
+        "critRate_": 5.21
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.5,
+      "path": [
+        "plunging",
+        "high"
+      ],
+      "hitMode": "avgHit",
+      "infusionAura": "anemo",
+      "bonusStats": {
+        "atk_": 60.016,
+        "all_dmgInc": 7536.749,
+        "all_dmg_": 126.23,
+        "anemo_enemyRes_": -30,
+        "critDMG_": 40,
+        "critRate_": 5.32
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.5,
+      "path": [
+        "normal",
+        "0"
+      ],
+      "hitMode": "avgHit",
+      "infusionAura": "anemo",
+      "bonusStats": {
+        "atk_": 60.016,
+        "all_dmg_": 126.35,
+        "anemo_enemyRes_": -30,
+        "critDMG_": 40
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.2448,
+      "path": [
+        "plunging",
+        "dmg"
+      ],
+      "hitMode": "avgHit",
+      "infusionAura": "anemo",
+      "bonusStats": {
+        "atk_": 59.394,
+        "all_dmgInc": 202.148,
+        "all_dmg_": 127.75,
+        "anemo_enemyRes_": -30,
+        "critDMG_": 40,
+        "critRate_": 5.24
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.5,
+      "path": [
+        "plunging",
+        "high"
+      ],
+      "hitMode": "avgHit",
+      "infusionAura": "anemo",
+      "bonusStats": {
+        "atk_": 59.456,
+        "all_dmgInc": 7536.749,
+        "all_dmg_": 129.3,
+        "anemo_enemyRes_": -30,
+        "critDMG_": 40,
+        "critRate_": 5.32
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.5,
+      "path": [
+        "normal",
+        "0"
+      ],
+      "hitMode": "avgHit",
+      "infusionAura": "anemo",
+      "bonusStats": {
+        "atk_": 59.456,
+        "all_dmg_": 131.77,
+        "anemo_enemyRes_": -30,
+        "critDMG_": 40
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.2448,
+      "path": [
+        "plunging",
+        "dmg"
+      ],
+      "hitMode": "avgHit",
+      "infusionAura": "anemo",
+      "bonusStats": {
+        "atk_": 39.984,
+        "all_dmgInc": 202.148,
+        "all_dmg_": 143.34,
+        "anemo_enemyRes_": -30,
+        "critDMG_": 40,
+        "critRate_": 5.47
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.5,
+      "path": [
+        "plunging",
+        "high"
+      ],
+      "hitMode": "avgHit",
+      "infusionAura": "anemo",
+      "bonusStats": {
+        "atk_": 40.016,
+        "all_dmgInc": 7536.749,
+        "all_dmg_": 143.01,
+        "anemo_enemyRes_": -30,
+        "critDMG_": 40,
+        "critRate_": 5.32
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.5,
+      "path": [
+        "normal",
+        "0"
+      ],
+      "hitMode": "avgHit",
+      "infusionAura": "anemo",
+      "bonusStats": {
+        "atk_": 40.016,
+        "all_dmg_": 143.43,
+        "anemo_enemyRes_": -30,
+        "critDMG_": 40
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.1845,
+      "path": [
+        "plunging",
+        "dmg"
+      ],
+      "hitMode": "avgHit",
+      "infusionAura": "anemo",
+      "bonusStats": {
+        "atk_": 39.984,
+        "all_dmgInc": 208.266,
+        "all_dmg_": 144.81,
+        "anemo_enemyRes_": -30,
+        "critDMG_": 40,
+        "critRate_": 5.3
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.5,
+      "path": [
+        "plunging",
+        "high"
+      ],
+      "hitMode": "avgHit",
+      "infusionAura": "anemo",
+      "bonusStats": {
+        "atk_": 40.016,
+        "all_dmgInc": 7536.749,
+        "all_dmg_": 145.25,
+        "anemo_enemyRes_": -30,
+        "critDMG_": 40,
+        "critRate_": 5.34
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.7243,
+      "path": [
+        "reaction",
+        "hydroSwirl"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 38
+      },
+      "description": ""
+    },
+    {
+      "weight": 1.0666,
+      "path": [
+        "reaction",
+        "hydroSwirl"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 44.016
+      },
+      "description": ""
+    },
+    {
+      "weight": 3.0757,
+      "path": [
+        "reaction",
+        "hydroSwirl"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 48.016
+      },
+      "description": ""
+    },
+    {
+      "weight": 1.771,
+      "path": [
+        "reaction",
+        "hydroSwirl"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 60.016
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.7144,
+      "path": [
+        "reaction",
+        "hydroSwirl"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 60.016
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.9922,
+      "path": [
+        "reaction",
+        "hydroSwirl"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 60.016
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.3721,
+      "path": [
+        "reaction",
+        "hydroSwirl"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 41.008
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.3274,
+      "path": [
+        "reaction",
+        "hydroSwirl"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 60.016
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.2778,
+      "path": [
+        "reaction",
+        "hydroSwirl"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 41.008
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.129,
+      "path": [
+        "reaction",
+        "hydroSwirl"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 38
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.0149,
+      "path": [
+        "reaction",
+        "hydroSwirl"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 60.016
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.005,
+      "path": [
+        "reaction",
+        "hydroSwirl"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 38
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.005,
+      "path": [
+        "reaction",
+        "hydroSwirl"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 48.016
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.005,
+      "path": [
+        "reaction",
+        "hydroSwirl"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 60.016
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.005,
+      "path": [
+        "reaction",
+        "hydroSwirl"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 60.016
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.005,
+      "path": [
+        "reaction",
+        "hydroSwirl"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 60.016
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.005,
+      "path": [
+        "reaction",
+        "hydroSwirl"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 60.016
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.005,
+      "path": [
+        "reaction",
+        "hydroSwirl"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 60.016
+      },
+      "description": ""
+    }
+  ]
+}

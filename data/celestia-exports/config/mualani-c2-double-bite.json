@@ -1,0 +1,111 @@
+{
+  "name": "C2 Double C1 Bite",
+  "description": "Celestia",
+  "targets": [
+    {
+      "weight": 1,
+      "path": [
+        "normal",
+        "0"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "hydro_enemyRes_": -36,
+        "all_dmg_": 59.478
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "skill",
+        "surgingDmg"
+      ],
+      "hitMode": "avgHit",
+      "reaction": "vaporize",
+      "bonusStats": {
+        "eleMas": 373.786,
+        "all_dmgInc": 24685.641,
+        "hydro_enemyRes_": -76,
+        "all_dmg_": 114.75
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "normal",
+        "0"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "eleMas": 373.786,
+        "hydro_enemyRes_": -76,
+        "all_dmg_": 91.12
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "burst",
+        "dmg"
+      ],
+      "hitMode": "avgHit",
+      "reaction": "vaporize",
+      "bonusStats": {
+        "eleMas": 349.349,
+        "all_dmgInc": 11220.746,
+        "hydro_enemyRes_": -70.25,
+        "all_dmg_": 48.662
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "skill",
+        "surgingDmg"
+      ],
+      "hitMode": "avgHit",
+      "reaction": "vaporize",
+      "bonusStats": {
+        "eleMas": 366.599,
+        "all_dmgInc": 24685.641,
+        "hydro_enemyRes_": -70.25,
+        "all_dmg_": 85.162
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "skill",
+        "surgingDmg"
+      ],
+      "hitMode": "avgHit",
+      "reaction": "vaporize",
+      "bonusStats": {
+        "eleMas": 120,
+        "hydro_enemyRes_": -70.25,
+        "all_dmg_": 78.65
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "skill",
+        "surgingDmg"
+      ],
+      "hitMode": "avgHit",
+      "reaction": "vaporize",
+      "bonusStats": {
+        "eleMas": 120,
+        "hydro_enemyRes_": -69.75,
+        "all_dmg_": 56.066
+      },
+      "description": ""
+    }
+  ]
+}

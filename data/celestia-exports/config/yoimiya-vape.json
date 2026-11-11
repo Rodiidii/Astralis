@@ -1,0 +1,1304 @@
+{
+  "name": "Vape",
+  "description": "Celestia",
+  "targets": [
+    {
+      "weight": 0.4876,
+      "path": [
+        "normal",
+        "0"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 90,
+        "eleMas": 180,
+        "all_dmg_": 82.56
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.4876,
+      "path": [
+        "normal",
+        "0"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 90,
+        "eleMas": 180,
+        "all_dmg_": 98.73
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.5315,
+      "path": [
+        "normal",
+        "0"
+      ],
+      "hitMode": "avgHit",
+      "reaction": "vaporize",
+      "infusionAura": "pyro",
+      "bonusStats": {
+        "atk_": 90,
+        "eleMas": 180,
+        "pyro_enemyRes_": -35,
+        "all_dmg_": 146.37
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.4876,
+      "path": [
+        "normal",
+        "0"
+      ],
+      "hitMode": "avgHit",
+      "infusionAura": "pyro",
+      "bonusStats": {
+        "atk_": 90,
+        "eleMas": 180,
+        "pyro_enemyRes_": -35,
+        "all_dmg_": 146.37
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.5,
+      "path": [
+        "normal",
+        "1"
+      ],
+      "hitMode": "avgHit",
+      "infusionAura": "pyro",
+      "bonusStats": {
+        "atk_": 90,
+        "eleMas": 180,
+        "pyro_enemyRes_": -35,
+        "all_dmg_": 150.74
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.5093,
+      "path": [
+        "normal",
+        "2"
+      ],
+      "hitMode": "avgHit",
+      "reaction": "vaporize",
+      "infusionAura": "pyro",
+      "bonusStats": {
+        "atk_": 90,
+        "eleMas": 180,
+        "pyro_enemyRes_": -35,
+        "all_dmg_": 155.4
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.5,
+      "path": [
+        "normal",
+        "3"
+      ],
+      "hitMode": "avgHit",
+      "infusionAura": "pyro",
+      "bonusStats": {
+        "atk_": 90,
+        "eleMas": 180,
+        "pyro_enemyRes_": -35,
+        "all_dmg_": 157.81
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.5,
+      "path": [
+        "normal",
+        "3"
+      ],
+      "hitMode": "avgHit",
+      "infusionAura": "pyro",
+      "bonusStats": {
+        "atk_": 90,
+        "eleMas": 180,
+        "pyro_enemyRes_": -35,
+        "all_dmg_": 159.85
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.5102,
+      "path": [
+        "normal",
+        "4"
+      ],
+      "hitMode": "avgHit",
+      "reaction": "vaporize",
+      "infusionAura": "pyro",
+      "bonusStats": {
+        "atk_": 90,
+        "eleMas": 180,
+        "pyro_enemyRes_": -35,
+        "all_dmg_": 165.62
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.4917,
+      "path": [
+        "normal",
+        "0"
+      ],
+      "hitMode": "avgHit",
+      "reaction": "vaporize",
+      "infusionAura": "pyro",
+      "bonusStats": {
+        "atk_": 90,
+        "eleMas": 180,
+        "pyro_enemyRes_": -35,
+        "all_dmg_": 170.38
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.4876,
+      "path": [
+        "normal",
+        "0"
+      ],
+      "hitMode": "avgHit",
+      "infusionAura": "pyro",
+      "bonusStats": {
+        "atk_": 90,
+        "eleMas": 180,
+        "pyro_enemyRes_": -35,
+        "all_dmg_": 170.38
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.5,
+      "path": [
+        "normal",
+        "1"
+      ],
+      "hitMode": "avgHit",
+      "infusionAura": "pyro",
+      "bonusStats": {
+        "atk_": 90,
+        "eleMas": 180,
+        "all_dmg_": 172.75,
+        "pyro_enemyRes_": -35
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.5093,
+      "path": [
+        "normal",
+        "2"
+      ],
+      "hitMode": "avgHit",
+      "reaction": "vaporize",
+      "infusionAura": "pyro",
+      "bonusStats": {
+        "atk_": 90,
+        "eleMas": 180,
+        "all_dmg_": 175.5,
+        "pyro_enemyRes_": -35
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.5,
+      "path": [
+        "normal",
+        "3"
+      ],
+      "hitMode": "avgHit",
+      "infusionAura": "pyro",
+      "bonusStats": {
+        "atk_": 90,
+        "eleMas": 180,
+        "all_dmg_": 175.84,
+        "pyro_enemyRes_": -35
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.5,
+      "path": [
+        "normal",
+        "3"
+      ],
+      "hitMode": "avgHit",
+      "infusionAura": "pyro",
+      "bonusStats": {
+        "atk_": 90,
+        "eleMas": 180,
+        "all_dmg_": 175.89,
+        "pyro_enemyRes_": -35
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.5102,
+      "path": [
+        "normal",
+        "4"
+      ],
+      "hitMode": "avgHit",
+      "reaction": "vaporize",
+      "infusionAura": "pyro",
+      "bonusStats": {
+        "atk_": 89.5,
+        "eleMas": 180,
+        "all_dmg_": 179.69,
+        "pyro_enemyRes_": -35
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.4876,
+      "path": [
+        "normal",
+        "0"
+      ],
+      "hitMode": "avgHit",
+      "infusionAura": "pyro",
+      "bonusStats": {
+        "atk_": 89.25,
+        "eleMas": 180,
+        "all_dmg_": 182.5,
+        "pyro_enemyRes_": -35
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.4876,
+      "path": [
+        "normal",
+        "0"
+      ],
+      "hitMode": "avgHit",
+      "infusionAura": "pyro",
+      "bonusStats": {
+        "atk_": 88.75,
+        "eleMas": 180,
+        "all_dmg_": 182.5,
+        "pyro_enemyRes_": -35
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.5,
+      "path": [
+        "normal",
+        "1"
+      ],
+      "hitMode": "avgHit",
+      "infusionAura": "pyro",
+      "bonusStats": {
+        "atk_": 88.75,
+        "eleMas": 180,
+        "all_dmg_": 182.88,
+        "pyro_enemyRes_": -35
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.5093,
+      "path": [
+        "normal",
+        "2"
+      ],
+      "hitMode": "avgHit",
+      "reaction": "vaporize",
+      "infusionAura": "pyro",
+      "bonusStats": {
+        "atk_": 88,
+        "eleMas": 180,
+        "all_dmg_": 186.41,
+        "pyro_enemyRes_": -35
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.5,
+      "path": [
+        "normal",
+        "3"
+      ],
+      "hitMode": "avgHit",
+      "infusionAura": "pyro",
+      "bonusStats": {
+        "atk_": 87.5,
+        "eleMas": 180,
+        "all_dmg_": 186.82,
+        "pyro_enemyRes_": -35
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.5,
+      "path": [
+        "normal",
+        "3"
+      ],
+      "hitMode": "avgHit",
+      "infusionAura": "pyro",
+      "bonusStats": {
+        "atk_": 70,
+        "eleMas": 180,
+        "all_dmg_": 186.87,
+        "pyro_enemyRes_": -35
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.5102,
+      "path": [
+        "normal",
+        "4"
+      ],
+      "hitMode": "avgHit",
+      "reaction": "vaporize",
+      "infusionAura": "pyro",
+      "bonusStats": {
+        "atk_": 70,
+        "eleMas": 180,
+        "all_dmg_": 190.51,
+        "pyro_enemyRes_": -35
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.3588,
+      "path": [
+        "normal",
+        "0"
+      ],
+      "hitMode": "avgHit",
+      "reaction": "vaporize",
+      "infusionAura": "pyro",
+      "bonusStats": {
+        "atk_": 70,
+        "eleMas": 180,
+        "all_dmg_": 191.78,
+        "pyro_enemyRes_": -35
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.4876,
+      "path": [
+        "normal",
+        "0"
+      ],
+      "hitMode": "avgHit",
+      "infusionAura": "pyro",
+      "bonusStats": {
+        "atk_": 70,
+        "eleMas": 180,
+        "all_dmg_": 191.28,
+        "pyro_enemyRes_": -35
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.5,
+      "path": [
+        "normal",
+        "1"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 70,
+        "eleMas": 180,
+        "all_dmg_": 117.53
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.4876,
+      "path": [
+        "normal",
+        "0"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 90,
+        "eleMas": 180,
+        "all_dmg_": 82.14
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.4876,
+      "path": [
+        "normal",
+        "0"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 90,
+        "eleMas": 180,
+        "all_dmg_": 98.12
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.5315,
+      "path": [
+        "normal",
+        "0"
+      ],
+      "hitMode": "avgHit",
+      "reaction": "vaporize",
+      "infusionAura": "pyro",
+      "bonusStats": {
+        "atk_": 90,
+        "eleMas": 180,
+        "pyro_enemyRes_": -35,
+        "all_dmg_": 146.09
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.4876,
+      "path": [
+        "normal",
+        "0"
+      ],
+      "hitMode": "avgHit",
+      "infusionAura": "pyro",
+      "bonusStats": {
+        "atk_": 90,
+        "eleMas": 180,
+        "pyro_enemyRes_": -35,
+        "all_dmg_": 146.09
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.5,
+      "path": [
+        "normal",
+        "1"
+      ],
+      "hitMode": "avgHit",
+      "infusionAura": "pyro",
+      "bonusStats": {
+        "atk_": 90,
+        "eleMas": 180,
+        "pyro_enemyRes_": -35,
+        "all_dmg_": 150.24
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.5093,
+      "path": [
+        "normal",
+        "2"
+      ],
+      "hitMode": "avgHit",
+      "reaction": "vaporize",
+      "infusionAura": "pyro",
+      "bonusStats": {
+        "atk_": 90,
+        "eleMas": 180,
+        "pyro_enemyRes_": -35,
+        "all_dmg_": 155.09
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.5,
+      "path": [
+        "normal",
+        "3"
+      ],
+      "hitMode": "avgHit",
+      "infusionAura": "pyro",
+      "bonusStats": {
+        "atk_": 90,
+        "eleMas": 180,
+        "pyro_enemyRes_": -35,
+        "all_dmg_": 157.29
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.5,
+      "path": [
+        "normal",
+        "3"
+      ],
+      "hitMode": "avgHit",
+      "infusionAura": "pyro",
+      "bonusStats": {
+        "atk_": 90,
+        "eleMas": 180,
+        "pyro_enemyRes_": -35,
+        "all_dmg_": 159.33
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.5102,
+      "path": [
+        "normal",
+        "4"
+      ],
+      "hitMode": "avgHit",
+      "reaction": "vaporize",
+      "infusionAura": "pyro",
+      "bonusStats": {
+        "atk_": 90,
+        "eleMas": 180,
+        "pyro_enemyRes_": -35,
+        "all_dmg_": 165.15
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.4981,
+      "path": [
+        "normal",
+        "0"
+      ],
+      "hitMode": "avgHit",
+      "reaction": "vaporize",
+      "infusionAura": "pyro",
+      "bonusStats": {
+        "atk_": 90,
+        "eleMas": 180,
+        "pyro_enemyRes_": -35,
+        "all_dmg_": 170
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.4876,
+      "path": [
+        "normal",
+        "0"
+      ],
+      "hitMode": "avgHit",
+      "infusionAura": "pyro",
+      "bonusStats": {
+        "atk_": 90,
+        "eleMas": 180,
+        "pyro_enemyRes_": -35,
+        "all_dmg_": 170
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.5,
+      "path": [
+        "normal",
+        "1"
+      ],
+      "hitMode": "avgHit",
+      "infusionAura": "pyro",
+      "bonusStats": {
+        "atk_": 90,
+        "eleMas": 180,
+        "all_dmg_": 172.24,
+        "pyro_enemyRes_": -35
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.5093,
+      "path": [
+        "normal",
+        "2"
+      ],
+      "hitMode": "avgHit",
+      "reaction": "vaporize",
+      "infusionAura": "pyro",
+      "bonusStats": {
+        "atk_": 90,
+        "eleMas": 180,
+        "all_dmg_": 175.19,
+        "pyro_enemyRes_": -35
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.5,
+      "path": [
+        "normal",
+        "3"
+      ],
+      "hitMode": "avgHit",
+      "infusionAura": "pyro",
+      "bonusStats": {
+        "atk_": 90,
+        "eleMas": 180,
+        "all_dmg_": 175.29,
+        "pyro_enemyRes_": -35
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.5,
+      "path": [
+        "normal",
+        "3"
+      ],
+      "hitMode": "avgHit",
+      "infusionAura": "pyro",
+      "bonusStats": {
+        "atk_": 90,
+        "eleMas": 180,
+        "all_dmg_": 175.34,
+        "pyro_enemyRes_": -35
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.5102,
+      "path": [
+        "normal",
+        "4"
+      ],
+      "hitMode": "avgHit",
+      "reaction": "vaporize",
+      "infusionAura": "pyro",
+      "bonusStats": {
+        "atk_": 90,
+        "eleMas": 180,
+        "all_dmg_": 179.16,
+        "pyro_enemyRes_": -35
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.4632,
+      "path": [
+        "normal",
+        "0"
+      ],
+      "hitMode": "avgHit",
+      "infusionAura": "pyro",
+      "bonusStats": {
+        "atk_": 90,
+        "eleMas": 180,
+        "all_dmg_": 182.1,
+        "pyro_enemyRes_": -35
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.4876,
+      "path": [
+        "normal",
+        "0"
+      ],
+      "hitMode": "avgHit",
+      "infusionAura": "pyro",
+      "bonusStats": {
+        "atk_": 90,
+        "eleMas": 180,
+        "all_dmg_": 182.1,
+        "pyro_enemyRes_": -35
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.5,
+      "path": [
+        "normal",
+        "1"
+      ],
+      "hitMode": "avgHit",
+      "infusionAura": "pyro",
+      "bonusStats": {
+        "atk_": 90,
+        "eleMas": 180,
+        "all_dmg_": 182.23,
+        "pyro_enemyRes_": -35
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.4533,
+      "path": [
+        "normal",
+        "2"
+      ],
+      "hitMode": "avgHit",
+      "reaction": "vaporize",
+      "infusionAura": "pyro",
+      "bonusStats": {
+        "atk_": 89.25,
+        "eleMas": 180,
+        "all_dmg_": 185.92,
+        "pyro_enemyRes_": -35
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.5,
+      "path": [
+        "normal",
+        "3"
+      ],
+      "hitMode": "avgHit",
+      "infusionAura": "pyro",
+      "bonusStats": {
+        "atk_": 88.75,
+        "eleMas": 180,
+        "all_dmg_": 186.02,
+        "pyro_enemyRes_": -35
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.5,
+      "path": [
+        "normal",
+        "3"
+      ],
+      "hitMode": "avgHit",
+      "infusionAura": "pyro",
+      "bonusStats": {
+        "atk_": 70,
+        "eleMas": 180,
+        "all_dmg_": 185.87,
+        "pyro_enemyRes_": -35
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.449,
+      "path": [
+        "normal",
+        "4"
+      ],
+      "hitMode": "avgHit",
+      "reaction": "vaporize",
+      "infusionAura": "pyro",
+      "bonusStats": {
+        "atk_": 70,
+        "eleMas": 180,
+        "all_dmg_": 186.46,
+        "pyro_enemyRes_": -35
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.4981,
+      "path": [
+        "normal",
+        "0"
+      ],
+      "hitMode": "avgHit",
+      "reaction": "vaporize",
+      "infusionAura": "pyro",
+      "bonusStats": {
+        "atk_": 70,
+        "eleMas": 180,
+        "all_dmg_": 185.68,
+        "pyro_enemyRes_": -35
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.4876,
+      "path": [
+        "normal",
+        "0"
+      ],
+      "hitMode": "avgHit",
+      "infusionAura": "pyro",
+      "bonusStats": {
+        "atk_": 70,
+        "eleMas": 180,
+        "all_dmg_": 191.5,
+        "pyro_enemyRes_": -35
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.5,
+      "path": [
+        "burst",
+        "dmg"
+      ],
+      "hitMode": "avgHit",
+      "reaction": "vaporize",
+      "bonusStats": {
+        "atk_": 70,
+        "eleMas": 180,
+        "all_dmg_": 105.58,
+        "pyro_enemyRes_": -35
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.5003,
+      "path": [
+        "burst",
+        "exp"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 70,
+        "eleMas": 180,
+        "all_dmg_": 101.439,
+        "pyro_enemyRes_": -35
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.0426,
+      "path": [
+        "burst",
+        "exp"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 45,
+        "pyro_enemyRes_": -35
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.0366,
+      "path": [
+        "normal",
+        "0"
+      ],
+      "hitMode": "avgHit",
+      "infusionAura": "pyro",
+      "bonusStats": {
+        "atk_": 90,
+        "eleMas": 180,
+        "pyro_enemyRes_": -35,
+        "all_dmg_": 170.38
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.1585,
+      "path": [
+        "normal",
+        "0"
+      ],
+      "hitMode": "avgHit",
+      "infusionAura": "pyro",
+      "bonusStats": {
+        "atk_": 70,
+        "eleMas": 180,
+        "all_dmg_": 191.78,
+        "pyro_enemyRes_": -35
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.0029,
+      "path": [
+        "normal",
+        "0"
+      ],
+      "hitMode": "avgHit",
+      "infusionAura": "pyro",
+      "bonusStats": {
+        "atk_": 90,
+        "eleMas": 180,
+        "pyro_enemyRes_": -35,
+        "all_dmg_": 170
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.0266,
+      "path": [
+        "normal",
+        "0"
+      ],
+      "hitMode": "avgHit",
+      "reaction": "vaporize",
+      "infusionAura": "pyro",
+      "bonusStats": {
+        "atk_": 90,
+        "eleMas": 180,
+        "all_dmg_": 182.1,
+        "pyro_enemyRes_": -35
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.0335,
+      "path": [
+        "normal",
+        "0"
+      ],
+      "hitMode": "avgHit",
+      "reaction": "vaporize",
+      "infusionAura": "pyro",
+      "bonusStats": {
+        "atk_": 70,
+        "eleMas": 180,
+        "all_dmg_": 185.68,
+        "pyro_enemyRes_": -35
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.0303,
+      "path": [
+        "normal",
+        "0"
+      ],
+      "hitMode": "avgHit",
+      "reaction": "vaporize",
+      "infusionAura": "pyro",
+      "bonusStats": {
+        "atk_": 90,
+        "eleMas": 180,
+        "pyro_enemyRes_": -35,
+        "all_dmg_": 170
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.3995,
+      "path": [
+        "reaction",
+        "overloaded"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 86.132,
+        "eleMas": 180,
+        "pyro_enemyRes_": -35
+      },
+      "description": ""
+    },
+    {
+      "weight": 2.7915,
+      "path": [
+        "reaction",
+        "overloaded"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 86.132,
+        "eleMas": 180,
+        "pyro_enemyRes_": -35
+      },
+      "description": ""
+    },
+    {
+      "weight": 2.9164,
+      "path": [
+        "reaction",
+        "overloaded"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 86.132,
+        "eleMas": 180,
+        "pyro_enemyRes_": -35
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.6742,
+      "path": [
+        "reaction",
+        "overloaded"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 86.132,
+        "eleMas": 180,
+        "pyro_enemyRes_": -35
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.0649,
+      "path": [
+        "reaction",
+        "overloaded"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 41.132,
+        "pyro_enemyRes_": -35
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.6742,
+      "path": [
+        "reaction",
+        "overloaded"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 86.132,
+        "eleMas": 180,
+        "pyro_enemyRes_": -35
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.2896,
+      "path": [
+        "reaction",
+        "overloaded"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 86.132,
+        "eleMas": 180,
+        "pyro_enemyRes_": -35
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.0449,
+      "path": [
+        "reaction",
+        "overloaded"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 86.132,
+        "eleMas": 180,
+        "pyro_enemyRes_": -35
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.0449,
+      "path": [
+        "reaction",
+        "overloaded"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 86.132,
+        "eleMas": 180,
+        "pyro_enemyRes_": -35
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.02,
+      "path": [
+        "reaction",
+        "overloaded"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 86.132,
+        "eleMas": 180,
+        "pyro_enemyRes_": -35
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.005,
+      "path": [
+        "reaction",
+        "overloaded"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 86.132,
+        "eleMas": 180,
+        "pyro_enemyRes_": -35
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.03,
+      "path": [
+        "reaction",
+        "overloaded"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 41.132,
+        "pyro_enemyRes_": -35
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.005,
+      "path": [
+        "reaction",
+        "overloaded"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 86.132,
+        "eleMas": 180,
+        "pyro_enemyRes_": -35
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.005,
+      "path": [
+        "reaction",
+        "overloaded"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 41.132,
+        "pyro_enemyRes_": -35
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.005,
+      "path": [
+        "reaction",
+        "overloaded"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 86.132,
+        "eleMas": 180,
+        "pyro_enemyRes_": -35
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.005,
+      "path": [
+        "reaction",
+        "overloaded"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 86.132,
+        "eleMas": 180,
+        "pyro_enemyRes_": -35
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.02,
+      "path": [
+        "reaction",
+        "overloaded"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 86.132,
+        "eleMas": 180,
+        "pyro_enemyRes_": -35
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.005,
+      "path": [
+        "reaction",
+        "overloaded"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 86.132,
+        "eleMas": 180,
+        "pyro_enemyRes_": -35
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.5131,
+      "path": [
+        "burst",
+        "exp"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 25,
+        "pyro_enemyRes_": -35,
+        "all_dmg_": 40
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.4942,
+      "path": [
+        "burst",
+        "exp"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 25,
+        "pyro_enemyRes_": -35,
+        "all_dmg_": 40
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.0257,
+      "path": [
+        "burst",
+        "exp"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 25,
+        "pyro_enemyRes_": -35
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.4875,
+      "path": [
+        "burst",
+        "exp"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 45,
+        "pyro_enemyRes_": -35
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.0195,
+      "path": [
+        "burst",
+        "exp"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 45,
+        "pyro_enemyRes_": -35
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.4172,
+      "path": [
+        "burst",
+        "exp"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 90,
+        "eleMas": 180,
+        "pyro_enemyRes_": -35,
+        "all_dmg_": 48
+      },
+      "description": ""
+    }
+  ]
+}

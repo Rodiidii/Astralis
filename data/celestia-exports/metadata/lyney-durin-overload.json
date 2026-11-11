@@ -1,0 +1,89 @@
+{
+  "category": {
+    "id": "lyney-durin-overload",
+    "name": "Chevreuse Overload",
+    "kind": "normal"
+  },
+  "child": {
+    "constellation": 0,
+    "characterLevel": 90,
+    "talents": {
+      "burst": 10,
+      "skill": 10,
+      "normal": 10
+    },
+    "baseTalents": {
+      "burst": 10,
+      "skill": 10,
+      "normal": 10
+    },
+    "weaponId": 15512,
+    "refinement": 1
+  },
+  "reference": {
+    "source": "ceilingStandard"
+  },
+  "goConditions": null,
+  "characterBonusStats": {
+    "atk_": 90
+  },
+  "enemy": {
+    "level": 100,
+    "res": 0.1
+  },
+  "issues": [
+    {
+      "code": "characterBonusStats",
+      "stats": [
+        {
+          "buff": "Hexerei: Secret Rite — after an Overloaded",
+          "key": "atk_",
+          "value": 22.5
+        },
+        {
+          "buff": "Evernight Raven — Secret Rite doubled (after an Overloaded)",
+          "key": "atk_",
+          "value": 22.5
+        },
+        {
+          "buff": "Tenacity of the Millelith 4pc ATK",
+          "key": "atk_",
+          "value": 20
+        },
+        {
+          "buff": "Pyro Resonance",
+          "key": "atk_",
+          "value": 25
+        }
+      ]
+    },
+    {
+      "code": "selfScaling",
+      "buffs": [
+        "Perilous Performance",
+        "Bewildering Lights"
+      ]
+    },
+    {
+      "code": "setEffects",
+      "setIds": [
+        15031
+      ]
+    }
+  ],
+  "teamIssues": [
+    {
+      "code": "selfScaling",
+      "buffs": [
+        "Perilous Performance",
+        "Bewildering Lights"
+      ]
+    },
+    {
+      "code": "setEffects",
+      "setIds": [
+        15031
+      ]
+    }
+  ]
+}

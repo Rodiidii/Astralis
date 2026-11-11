@@ -64,3 +64,27 @@ export function calculateHit(input={}){
   return {ok:true,total:direct+transformative,direct,base,additive,transformative,bonusMultiplier,critMultiplier:crit,defenseMultiplier:def,resistanceMultiplier:res,reactionMultiplier,reactionName,elementBonusPercent:elementBonus,warnings,
     terms:{formula:'(stat finale × multiplicateur du talent + dégâts plats + additif) × bonus DGT × CRIT × DEF × RÉS × amplification ; dégâts transformateurs séparés',baseStat,referencedStat:finite(stats[baseStat]),talentMultiplier:Number(talentMultiplier),flatDamage:finite(flatDamage),enemyLevel:Number(enemyLevel),enemyResistance:effectiveResistance,transformativeCoefficient:transformCoefficient,transformativeLevelMultiplier:transformLevel,reactionBonusFraction:reactionBonus,damageBonusPercent:totalBonus*100,critMode,additiveEmMultiplier:reaction?.kind==='additive'?ADDITIVE_REACTION_EM_MULTIPLIER(em):null,transformativeEmMultiplier:transformCoefficient==null?null:transformEm}};
 }
+
+/** Resolve separate hit groups with an explicit number of reaction-triggering hits. */
+export function calculateAction(input={}) {
+  const parts=input.components?.length?input.components:[{talentMultiplier:input.talentMultiplier,count:input.hitCount??1}];
+  const totalHits=parts.reduce((sum,part)=>sum+Number(part.count??1),0);
+  if(!Number.isInteger(totalHits)||totalHits<1||totalHits>1000)return {ok:false,error:'Nombre de coups invalide.',warnings:[]};
+  let reacting=input.reaction?Math.max(0,Math.min(totalHits,Number(input.reactingHits??totalHits))):0;
+  if(!Number.isInteger(reacting))return {ok:false,error:'Nombre de coups avec réaction invalide.',warnings:[]};
+  let result;
+  for(const part of parts){
+    const count=Number(part.count??1);
+    if(!Number.isInteger(count)||count<1)return {ok:false,error:'Groupe de coups invalide.',warnings:[]};
+    const reactCount=Math.min(reacting,count);
+    reacting-=reactCount;
+    for(const [amount,reaction]of [[reactCount,input.reaction],[count-reactCount,null]]){
+      if(!amount)continue;
+      const hit=calculateHit({...input,talentMultiplier:part.talentMultiplier,baseStat:part.baseStat||input.baseStat,reaction});
+      if(!hit.ok)return hit;
+      if(!result)result={...hit,total:0,direct:0,base:0,additive:0,transformative:0,totalHits};
+      for(const key of ['total','direct','base','additive','transformative'])result[key]+=hit[key]*amount;
+    }
+  }
+  return {...result,terms:{...result.terms,hitGroups:parts,totalHits,reactingHits:Number(input.reactingHits??totalHits)}};
+}

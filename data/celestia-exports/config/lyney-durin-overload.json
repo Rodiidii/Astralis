@@ -1,0 +1,249 @@
+{
+  "name": "Chevreuse Overload",
+  "description": "Celestia",
+  "targets": [
+    {
+      "weight": 1,
+      "path": [
+        "charged",
+        "prop"
+      ],
+      "hitMode": "avgHit",
+      "infusionAura": "pyro",
+      "bonusStats": {
+        "atk_": 69.541,
+        "pyro_enemyRes_": -75,
+        "all_dmg_": 100,
+        "critRate_": 12
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "charged",
+        "pyrotechnic"
+      ],
+      "hitMode": "avgHit",
+      "infusionAura": "pyro",
+      "bonusStats": {
+        "atk_": 69.541,
+        "all_dmgInc": 2808.997,
+        "all_dmg_": 200,
+        "pyro_enemyRes_": -75,
+        "critRate_": 12
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "charged",
+        "prop"
+      ],
+      "hitMode": "avgHit",
+      "infusionAura": "pyro",
+      "bonusStats": {
+        "atk_": 69.541,
+        "pyro_enemyRes_": -40,
+        "all_dmg_": 100,
+        "critRate_": 24
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "charged",
+        "pyrotechnic"
+      ],
+      "hitMode": "avgHit",
+      "infusionAura": "pyro",
+      "bonusStats": {
+        "atk_": 69.541,
+        "all_dmgInc": 2808.997,
+        "all_dmg_": 200,
+        "pyro_enemyRes_": -40,
+        "critRate_": 24
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "burst",
+        "dmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 69.541,
+        "pyro_enemyRes_": -40,
+        "all_dmg_": 100,
+        "critRate_": 36
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "burst",
+        "fireworkDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 69.541,
+        "all_dmg_": 200,
+        "pyro_enemyRes_": -40,
+        "critRate_": 36
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "skill",
+        "dmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 69.541,
+        "all_dmgInc": 16811.848,
+        "all_dmg_": 200,
+        "pyro_enemyRes_": -40,
+        "critRate_": 36
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "charged",
+        "prop"
+      ],
+      "hitMode": "avgHit",
+      "infusionAura": "pyro",
+      "bonusStats": {
+        "atk_": 69.541,
+        "all_dmg_": 200,
+        "pyro_enemyRes_": -75,
+        "critRate_": 36
+      },
+      "description": ""
+    },
+    {
+      "weight": 2,
+      "path": [
+        "charged",
+        "pyrotechnic"
+      ],
+      "hitMode": "avgHit",
+      "infusionAura": "pyro",
+      "bonusStats": {
+        "atk_": 69.541,
+        "all_dmgInc": 2808.997,
+        "all_dmg_": 200,
+        "pyro_enemyRes_": -40,
+        "critRate_": 36
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "charged",
+        "prop"
+      ],
+      "hitMode": "avgHit",
+      "infusionAura": "pyro",
+      "bonusStats": {
+        "atk_": 69.541,
+        "all_dmg_": 200,
+        "pyro_enemyRes_": -40,
+        "critRate_": 36
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "charged",
+        "pyrotechnic"
+      ],
+      "hitMode": "avgHit",
+      "infusionAura": "pyro",
+      "bonusStats": {
+        "atk_": 32,
+        "all_dmgInc": 2530.842,
+        "all_dmg_": 200,
+        "pyro_enemyRes_": -75,
+        "critRate_": 36
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "charged",
+        "prop"
+      ],
+      "hitMode": "avgHit",
+      "infusionAura": "pyro",
+      "bonusStats": {
+        "atk_": 69.541,
+        "all_dmg_": 200,
+        "pyro_enemyRes_": -75,
+        "critRate_": 36
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "charged",
+        "pyrotechnic"
+      ],
+      "hitMode": "avgHit",
+      "infusionAura": "pyro",
+      "bonusStats": {
+        "atk_": 69.541,
+        "all_dmgInc": 2808.997,
+        "all_dmg_": 200,
+        "pyro_enemyRes_": -75,
+        "critRate_": 36
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "charged",
+        "spiritbreath"
+      ],
+      "hitMode": "avgHit",
+      "infusionAura": "pyro",
+      "bonusStats": {
+        "atk_": 69.541,
+        "all_dmg_": 200,
+        "pyro_enemyRes_": -75,
+        "critRate_": 36
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "charged",
+        "spiritbreath"
+      ],
+      "hitMode": "avgHit",
+      "infusionAura": "pyro",
+      "bonusStats": {
+        "atk_": 69.541,
+        "all_dmg_": 200,
+        "pyro_enemyRes_": -40,
+        "critRate_": 36
+      },
+      "description": ""
+    }
+  ]
+}

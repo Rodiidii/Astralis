@@ -1,0 +1,700 @@
+{
+  "name": "Premium Nahida C2",
+  "description": "Celestia",
+  "lastEdit": 1794351000832,
+  "conditional": {
+    "resonance": {},
+    "reaction": {}
+  },
+  "enemyOverride": {
+    "enemyLevel": 100,
+    "enemyDefIgn_": 0,
+    "enemyDefRed_": 0,
+    "pyro_enemyRes_": 10,
+    "hydro_enemyRes_": 10,
+    "electro_enemyRes_": 10,
+    "cryo_enemyRes_": 10,
+    "anemo_enemyRes_": 10,
+    "geo_enemyRes_": 10,
+    "dendro_enemyRes_": 10,
+    "physical_enemyRes_": 10
+  },
+  "loadoutData": [
+    {
+      "key": "Nefer",
+      "name": "Nefer (Celestia)",
+      "description": "",
+      "hitMode": "avgHit",
+      "infusionAura": "",
+      "bonusStats": {
+        "eleMas": 420
+      },
+      "conditional": {
+        "ReliquaryOfTruth": {
+          "afterSkill": "on",
+          "afterLunarBloom": "on"
+        }
+      },
+      "customMultiTargets": [
+        {
+          "name": "Premium Nahida C2",
+          "description": "Celestia",
+          "targets": [
+            {
+              "weight": 1,
+              "path": [
+                "skill",
+                "skillDmg"
+              ],
+              "hitMode": "avgHit",
+              "bonusStats": {
+                "eleMas": 100,
+                "critRate_": 30,
+                "dendro_enemyRes_": -55
+              },
+              "description": ""
+            },
+            {
+              "weight": 1.24,
+              "path": [
+                "skill",
+                "nefer1Dmg"
+              ],
+              "hitMode": "avgHit",
+              "bonusStats": {
+                "eleMas": 100,
+                "critRate_": 30,
+                "dendro_enemyRes_": -55
+              },
+              "description": ""
+            },
+            {
+              "weight": 1.24,
+              "path": [
+                "skill",
+                "nefer2Dmg"
+              ],
+              "hitMode": "avgHit",
+              "bonusStats": {
+                "eleMas": 100,
+                "critRate_": 30,
+                "dendro_enemyRes_": -55
+              },
+              "description": ""
+            },
+            {
+              "weight": 1.24,
+              "path": [
+                "skill",
+                "shade1Dmg"
+              ],
+              "hitMode": "avgHit",
+              "bonusStats": {
+                "eleMas": 100,
+                "lunarbloom_baseDmg_": 21,
+                "lunarbloom_dmgInc": 4607.577,
+                "critRate_": 30,
+                "lunarbloom_dmg_": 100,
+                "lunarbloom_critRate_": 20,
+                "lunarbloom_critDMG_": 40,
+                "dendro_enemyRes_": -55
+              },
+              "description": ""
+            },
+            {
+              "weight": 1.24,
+              "path": [
+                "skill",
+                "shade2Dmg"
+              ],
+              "hitMode": "avgHit",
+              "bonusStats": {
+                "eleMas": 100,
+                "lunarbloom_baseDmg_": 21,
+                "lunarbloom_dmgInc": 4607.577,
+                "critRate_": 30,
+                "lunarbloom_dmg_": 100,
+                "lunarbloom_critRate_": 20,
+                "lunarbloom_critDMG_": 40,
+                "dendro_enemyRes_": -55
+              },
+              "description": ""
+            },
+            {
+              "weight": 1.24,
+              "path": [
+                "skill",
+                "shade3Dmg"
+              ],
+              "hitMode": "avgHit",
+              "bonusStats": {
+                "eleMas": 100,
+                "lunarbloom_baseDmg_": 21,
+                "lunarbloom_dmgInc": 4607.577,
+                "critRate_": 30,
+                "lunarbloom_dmg_": 100,
+                "lunarbloom_critRate_": 20,
+                "lunarbloom_critDMG_": 40,
+                "dendro_enemyRes_": -55
+              },
+              "description": ""
+            },
+            {
+              "weight": 1.24,
+              "path": [
+                "skill",
+                "nefer1Dmg"
+              ],
+              "hitMode": "avgHit",
+              "bonusStats": {
+                "eleMas": 100,
+                "critRate_": 30,
+                "dendro_enemyRes_": -55
+              },
+              "description": ""
+            },
+            {
+              "weight": 1.24,
+              "path": [
+                "skill",
+                "nefer2Dmg"
+              ],
+              "hitMode": "avgHit",
+              "bonusStats": {
+                "eleMas": 100,
+                "critRate_": 30,
+                "dendro_enemyRes_": -55
+              },
+              "description": ""
+            },
+            {
+              "weight": 1.24,
+              "path": [
+                "skill",
+                "shade1Dmg"
+              ],
+              "hitMode": "avgHit",
+              "bonusStats": {
+                "eleMas": 100,
+                "lunarbloom_baseDmg_": 21,
+                "lunarbloom_dmgInc": 4607.577,
+                "critRate_": 30,
+                "lunarbloom_dmg_": 100,
+                "lunarbloom_critRate_": 20,
+                "lunarbloom_critDMG_": 40,
+                "dendro_enemyRes_": -55
+              },
+              "description": ""
+            },
+            {
+              "weight": 1.24,
+              "path": [
+                "skill",
+                "shade2Dmg"
+              ],
+              "hitMode": "avgHit",
+              "bonusStats": {
+                "eleMas": 100,
+                "lunarbloom_baseDmg_": 21,
+                "lunarbloom_dmgInc": 4607.577,
+                "critRate_": 30,
+                "lunarbloom_dmg_": 100,
+                "lunarbloom_critRate_": 20,
+                "lunarbloom_critDMG_": 40,
+                "dendro_enemyRes_": -55
+              },
+              "description": ""
+            },
+            {
+              "weight": 1.24,
+              "path": [
+                "skill",
+                "shade3Dmg"
+              ],
+              "hitMode": "avgHit",
+              "bonusStats": {
+                "eleMas": 100,
+                "lunarbloom_baseDmg_": 21,
+                "lunarbloom_dmgInc": 4607.577,
+                "critRate_": 30,
+                "lunarbloom_dmg_": 100,
+                "lunarbloom_critRate_": 20,
+                "lunarbloom_critDMG_": 40,
+                "dendro_enemyRes_": -55
+              },
+              "description": ""
+            },
+            {
+              "weight": 1.24,
+              "path": [
+                "skill",
+                "nefer1Dmg"
+              ],
+              "hitMode": "avgHit",
+              "bonusStats": {
+                "eleMas": 100,
+                "critRate_": 30,
+                "dendro_enemyRes_": -55
+              },
+              "description": ""
+            },
+            {
+              "weight": 1.24,
+              "path": [
+                "skill",
+                "nefer2Dmg"
+              ],
+              "hitMode": "avgHit",
+              "bonusStats": {
+                "eleMas": 100,
+                "critRate_": 30,
+                "dendro_enemyRes_": -55
+              },
+              "description": ""
+            },
+            {
+              "weight": 1.24,
+              "path": [
+                "skill",
+                "shade1Dmg"
+              ],
+              "hitMode": "avgHit",
+              "bonusStats": {
+                "eleMas": 100,
+                "lunarbloom_baseDmg_": 21,
+                "lunarbloom_dmgInc": 4607.577,
+                "critRate_": 30,
+                "lunarbloom_dmg_": 100,
+                "lunarbloom_critRate_": 20,
+                "lunarbloom_critDMG_": 40,
+                "dendro_enemyRes_": -55
+              },
+              "description": ""
+            },
+            {
+              "weight": 1.24,
+              "path": [
+                "skill",
+                "shade2Dmg"
+              ],
+              "hitMode": "avgHit",
+              "bonusStats": {
+                "eleMas": 100,
+                "lunarbloom_baseDmg_": 21,
+                "lunarbloom_dmgInc": 4607.577,
+                "critRate_": 30,
+                "lunarbloom_dmg_": 100,
+                "lunarbloom_critRate_": 20,
+                "lunarbloom_critDMG_": 40,
+                "dendro_enemyRes_": -55
+              },
+              "description": ""
+            },
+            {
+              "weight": 1.24,
+              "path": [
+                "skill",
+                "shade3Dmg"
+              ],
+              "hitMode": "avgHit",
+              "bonusStats": {
+                "eleMas": 100,
+                "lunarbloom_baseDmg_": 21,
+                "lunarbloom_dmgInc": 4607.577,
+                "critRate_": 30,
+                "lunarbloom_dmg_": 100,
+                "lunarbloom_critRate_": 20,
+                "lunarbloom_critDMG_": 40,
+                "dendro_enemyRes_": -55
+              },
+              "description": ""
+            },
+            {
+              "weight": 1,
+              "path": [
+                "burst",
+                "hit1"
+              ],
+              "hitMode": "avgHit",
+              "bonusStats": {
+                "eleMas": 100,
+                "critRate_": 30,
+                "dendro_enemyRes_": -55,
+                "all_dmg_": 120
+              },
+              "description": ""
+            },
+            {
+              "weight": 1,
+              "path": [
+                "burst",
+                "hit2"
+              ],
+              "hitMode": "avgHit",
+              "bonusStats": {
+                "eleMas": 100,
+                "critRate_": 30,
+                "dendro_enemyRes_": -55,
+                "all_dmg_": 120
+              },
+              "description": ""
+            },
+            {
+              "weight": 1,
+              "path": [
+                "skill",
+                "skillDmg"
+              ],
+              "hitMode": "avgHit",
+              "bonusStats": {
+                "eleMas": 100,
+                "critRate_": 30,
+                "dendro_enemyRes_": -55
+              },
+              "description": ""
+            },
+            {
+              "weight": 1.24,
+              "path": [
+                "skill",
+                "nefer1Dmg"
+              ],
+              "hitMode": "avgHit",
+              "bonusStats": {
+                "eleMas": 100,
+                "critRate_": 30,
+                "dendro_enemyRes_": -55
+              },
+              "description": ""
+            },
+            {
+              "weight": 1.24,
+              "path": [
+                "skill",
+                "nefer2Dmg"
+              ],
+              "hitMode": "avgHit",
+              "bonusStats": {
+                "eleMas": 100,
+                "critRate_": 30,
+                "dendro_enemyRes_": -55
+              },
+              "description": ""
+            },
+            {
+              "weight": 1.24,
+              "path": [
+                "skill",
+                "shade1Dmg"
+              ],
+              "hitMode": "avgHit",
+              "bonusStats": {
+                "eleMas": 100,
+                "lunarbloom_baseDmg_": 21,
+                "lunarbloom_dmgInc": 4607.577,
+                "critRate_": 30,
+                "lunarbloom_dmg_": 100,
+                "lunarbloom_critRate_": 20,
+                "lunarbloom_critDMG_": 40,
+                "dendro_enemyRes_": -55
+              },
+              "description": ""
+            },
+            {
+              "weight": 1.24,
+              "path": [
+                "skill",
+                "shade2Dmg"
+              ],
+              "hitMode": "avgHit",
+              "bonusStats": {
+                "eleMas": 100,
+                "lunarbloom_baseDmg_": 21,
+                "lunarbloom_dmgInc": 4607.577,
+                "critRate_": 30,
+                "lunarbloom_dmg_": 100,
+                "lunarbloom_critRate_": 20,
+                "lunarbloom_critDMG_": 40,
+                "dendro_enemyRes_": -55
+              },
+              "description": ""
+            },
+            {
+              "weight": 1.24,
+              "path": [
+                "skill",
+                "shade3Dmg"
+              ],
+              "hitMode": "avgHit",
+              "bonusStats": {
+                "eleMas": 100,
+                "lunarbloom_baseDmg_": 21,
+                "lunarbloom_dmgInc": 4607.577,
+                "critRate_": 30,
+                "lunarbloom_dmg_": 100,
+                "lunarbloom_critRate_": 20,
+                "lunarbloom_critDMG_": 40,
+                "dendro_enemyRes_": -55
+              },
+              "description": ""
+            },
+            {
+              "weight": 1.24,
+              "path": [
+                "skill",
+                "nefer1Dmg"
+              ],
+              "hitMode": "avgHit",
+              "bonusStats": {
+                "eleMas": 100,
+                "critRate_": 30,
+                "dendro_enemyRes_": -55
+              },
+              "description": ""
+            },
+            {
+              "weight": 1.24,
+              "path": [
+                "skill",
+                "nefer2Dmg"
+              ],
+              "hitMode": "avgHit",
+              "bonusStats": {
+                "eleMas": 100,
+                "critRate_": 30,
+                "dendro_enemyRes_": -55
+              },
+              "description": ""
+            },
+            {
+              "weight": 1.24,
+              "path": [
+                "skill",
+                "shade1Dmg"
+              ],
+              "hitMode": "avgHit",
+              "bonusStats": {
+                "eleMas": 100,
+                "lunarbloom_baseDmg_": 21,
+                "lunarbloom_dmgInc": 4607.577,
+                "critRate_": 30,
+                "lunarbloom_dmg_": 100,
+                "lunarbloom_critRate_": 20,
+                "lunarbloom_critDMG_": 40,
+                "dendro_enemyRes_": -55
+              },
+              "description": ""
+            },
+            {
+              "weight": 1.24,
+              "path": [
+                "skill",
+                "shade2Dmg"
+              ],
+              "hitMode": "avgHit",
+              "bonusStats": {
+                "eleMas": 100,
+                "lunarbloom_baseDmg_": 21,
+                "lunarbloom_dmgInc": 4607.577,
+                "critRate_": 30,
+                "lunarbloom_dmg_": 100,
+                "lunarbloom_critRate_": 20,
+                "lunarbloom_critDMG_": 40,
+                "dendro_enemyRes_": -55
+              },
+              "description": ""
+            },
+            {
+              "weight": 1.24,
+              "path": [
+                "skill",
+                "shade3Dmg"
+              ],
+              "hitMode": "avgHit",
+              "bonusStats": {
+                "eleMas": 100,
+                "lunarbloom_baseDmg_": 21,
+                "lunarbloom_dmgInc": 4607.577,
+                "critRate_": 30,
+                "lunarbloom_dmg_": 100,
+                "lunarbloom_critRate_": 20,
+                "lunarbloom_critDMG_": 40,
+                "dendro_enemyRes_": -55
+              },
+              "description": ""
+            },
+            {
+              "weight": 1.24,
+              "path": [
+                "skill",
+                "nefer1Dmg"
+              ],
+              "hitMode": "avgHit",
+              "bonusStats": {
+                "eleMas": 100,
+                "critRate_": 30,
+                "dendro_enemyRes_": -55
+              },
+              "description": ""
+            },
+            {
+              "weight": 1.24,
+              "path": [
+                "skill",
+                "nefer2Dmg"
+              ],
+              "hitMode": "avgHit",
+              "bonusStats": {
+                "eleMas": 100,
+                "critRate_": 30,
+                "dendro_enemyRes_": -55
+              },
+              "description": ""
+            },
+            {
+              "weight": 1.24,
+              "path": [
+                "skill",
+                "shade1Dmg"
+              ],
+              "hitMode": "avgHit",
+              "bonusStats": {
+                "eleMas": 100,
+                "lunarbloom_baseDmg_": 21,
+                "lunarbloom_dmgInc": 4607.577,
+                "critRate_": 30,
+                "lunarbloom_dmg_": 100,
+                "lunarbloom_critRate_": 20,
+                "lunarbloom_critDMG_": 40,
+                "dendro_enemyRes_": -55
+              },
+              "description": ""
+            },
+            {
+              "weight": 1.24,
+              "path": [
+                "skill",
+                "shade2Dmg"
+              ],
+              "hitMode": "avgHit",
+              "bonusStats": {
+                "eleMas": 100,
+                "lunarbloom_baseDmg_": 21,
+                "lunarbloom_dmgInc": 4607.577,
+                "critRate_": 30,
+                "lunarbloom_dmg_": 100,
+                "lunarbloom_critRate_": 20,
+                "lunarbloom_critDMG_": 40,
+                "dendro_enemyRes_": -55
+              },
+              "description": ""
+            },
+            {
+              "weight": 1.24,
+              "path": [
+                "skill",
+                "shade3Dmg"
+              ],
+              "hitMode": "avgHit",
+              "bonusStats": {
+                "eleMas": 100,
+                "lunarbloom_baseDmg_": 21,
+                "lunarbloom_dmgInc": 4607.577,
+                "critRate_": 30,
+                "lunarbloom_dmg_": 100,
+                "lunarbloom_critRate_": 20,
+                "lunarbloom_critDMG_": 40,
+                "dendro_enemyRes_": -55
+              },
+              "description": ""
+            }
+          ]
+        }
+      ],
+      "optConfig": {
+        "optimizationTarget": [
+          "custom",
+          "0"
+        ]
+      },
+      "buildTcs": [
+        {
+          "name": "Celestia",
+          "description": "The leaderboard reference build.",
+          "characterKey": "Nefer",
+          "character": {
+            "level": 90,
+            "ascension": 6,
+            "constellation": 0,
+            "talent": {
+              "auto": 10,
+              "skill": 10,
+              "burst": 10
+            }
+          },
+          "weapon": {
+            "key": "ReliquaryOfTruth",
+            "level": 90,
+            "ascension": 6,
+            "refinement": 1
+          },
+          "artifact": {
+            "sets": {
+              "NightOfTheSkysUnveiling": 5
+            },
+            "slots": {
+              "flower": {
+                "level": 20,
+                "rarity": 5,
+                "statKey": "hp"
+              },
+              "plume": {
+                "level": 20,
+                "rarity": 5,
+                "statKey": "atk"
+              },
+              "sands": {
+                "level": 20,
+                "rarity": 5,
+                "statKey": "eleMas"
+              },
+              "goblet": {
+                "level": 20,
+                "rarity": 5,
+                "statKey": "eleMas"
+              },
+              "circlet": {
+                "level": 20,
+                "rarity": 5,
+                "statKey": "critDMG_"
+              }
+            },
+            "substats": {
+              "type": "max",
+              "rarity": 5,
+              "stats": {
+                "def": 39.35,
+                "def_": 12.39,
+                "eleMas": 158.52,
+                "critRate_": 36.16,
+                "critDMG_": 46.62,
+                "hp": 507.88,
+                "hp_": 9.91,
+                "enerRech_": 11.01,
+                "atk": 33.07,
+                "atk_": 9.91
+              }
+            }
+          },
+          "optimization": {
+            "distributedSubstats": 0,
+            "maxSubstats": {}
+          }
+        }
+      ]
+    },
+    null,
+    null,
+    null
+  ]
+}

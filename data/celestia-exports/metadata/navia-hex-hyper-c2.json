@@ -1,0 +1,69 @@
+{
+  "category": {
+    "id": "navia-hex-hyper-c2",
+    "name": "Hex Hyper (C2)",
+    "kind": "normal"
+  },
+  "child": {
+    "constellation": 2,
+    "characterLevel": 90,
+    "talents": {
+      "burst": 10,
+      "skill": 10,
+      "normal": 10
+    },
+    "baseTalents": {
+      "burst": 10,
+      "skill": 10,
+      "normal": 10
+    },
+    "weaponId": 12512,
+    "refinement": 1
+  },
+  "reference": {
+    "source": "ceilingStandard"
+  },
+  "goConditions": {
+    "Navia": {
+      "a1AfterSkill": "on"
+    }
+  },
+  "characterBonusStats": null,
+  "enemy": {
+    "level": 100,
+    "res": 0.1
+  },
+  "issues": [
+    {
+      "code": "skippedLines",
+      "reason": "teammate",
+      "lines": 1,
+      "share": 0.032546639595216365
+    },
+    {
+      "code": "goSwitch",
+      "switches": [
+        {
+          "condition": [
+            "Navia",
+            "a1AfterSkill",
+            "on"
+          ],
+          "source": {
+            "type": "character"
+          },
+          "buffs": [
+            "Undisclosed Distribution Channels"
+          ]
+        }
+      ]
+    },
+    {
+      "code": "setEffects",
+      "setIds": [
+        15034
+      ]
+    }
+  ],
+  "teamIssues": []
+}

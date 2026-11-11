@@ -1,0 +1,71 @@
+{
+  "name": "Mono Pyro",
+  "description": "Celestia",
+  "targets": [
+    {
+      "weight": 4,
+      "path": [
+        "skill",
+        "press"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "all_dmg_": 108.36,
+        "pyro_enemyRes_": -91
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "burst",
+        "dmg1"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "all_dmg_": 108.36,
+        "pyro_enemyRes_": -91
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "burst",
+        "dmg2"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "all_dmg_": 108.36,
+        "pyro_enemyRes_": -91
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "burst",
+        "dmg3"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "all_dmg_": 108.36,
+        "pyro_enemyRes_": -91
+      },
+      "description": ""
+    },
+    {
+      "weight": 10,
+      "path": [
+        "burst",
+        "dmgNado"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "all_dmg_": 108.36,
+        "pyro_enemyRes_": -91
+      },
+      "description": ""
+    }
+  ]
+}

@@ -1,0 +1,990 @@
+{
+  "name": "Sucrose Melt",
+  "description": "Celestia",
+  "targets": [
+    {
+      "weight": 0.49,
+      "path": [
+        "skill",
+        "radianceDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "eleMas": 156.312,
+        "atk_": 8.375,
+        "pyro_enemyRes_": -58.25,
+        "all_dmg_": 13.7
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.49,
+      "path": [
+        "skill",
+        "radianceDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "eleMas": 156.312,
+        "atk_": 15.875,
+        "pyro_enemyRes_": -57.5,
+        "all_dmg_": 13.7,
+        "critRate_": -40
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.49,
+      "path": [
+        "skill",
+        "radianceDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "eleMas": 156.312,
+        "atk_": 14.375,
+        "pyro_enemyRes_": -60,
+        "all_dmg_": 25,
+        "critRate_": -40
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.3126,
+      "path": [
+        "skill",
+        "radianceDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "eleMas": 150.058,
+        "atk_": 18.235,
+        "pyro_enemyRes_": -60,
+        "all_dmg_": 25,
+        "critRate_": -40
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.5516,
+      "path": [
+        "burst",
+        "skillDmg"
+      ],
+      "hitMode": "avgHit",
+      "reaction": "melt",
+      "bonusStats": {
+        "eleMas": 136.379,
+        "atk_": 61.25,
+        "atk": 1127.555,
+        "all_dmgInc": 24352.689,
+        "pyro_enemyRes_": -60,
+        "all_dmg_": 91.762
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.2794,
+      "path": [
+        "skill",
+        "chargedCyclicDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "eleMas": 151.587,
+        "atk_": 54,
+        "atk": 1127.555,
+        "all_dmgInc": 8475.527,
+        "pyro_enemyRes_": -60,
+        "all_dmg_": 91.844
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.4971,
+      "path": [
+        "skill",
+        "chargedCyclicDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 62,
+        "eleMas": 70.716,
+        "atk": 1127.555,
+        "all_dmgInc": 8640.226,
+        "pyro_enemyRes_": -60,
+        "all_dmg_": 89.9
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.4971,
+      "path": [
+        "skill",
+        "chargedCyclicDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 62.375,
+        "eleMas": 40.716,
+        "atk": 1127.555,
+        "all_dmgInc": 8647.947,
+        "pyro_enemyRes_": -60,
+        "all_dmg_": 87.988
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.2856,
+      "path": [
+        "skill",
+        "chargedFinalDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 65.333,
+        "atk": 1127.555,
+        "all_dmgInc": 8780.003,
+        "pyro_enemyRes_": -58.5,
+        "all_dmg_": 86.334
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.5,
+      "path": [
+        "skill",
+        "sprintDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 62.75,
+        "atk": 1127.555,
+        "pyro_enemyRes_": -58.5,
+        "all_dmg_": 86.138
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.4971,
+      "path": [
+        "skill",
+        "chargedCyclicDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 50.375,
+        "atk": 1127.555,
+        "all_dmgInc": 8761.57,
+        "pyro_enemyRes_": -34.5,
+        "all_dmg_": 84.262
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.2794,
+      "path": [
+        "skill",
+        "chargedCyclicDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 50.583,
+        "atk": 1127.555,
+        "all_dmgInc": 8542.527,
+        "pyro_enemyRes_": -28.5,
+        "all_dmg_": 84.378
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.4971,
+      "path": [
+        "skill",
+        "chargedCyclicDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 37.125,
+        "atk": 1127.555,
+        "all_dmgInc": 7871.6,
+        "pyro_enemyRes_": -20,
+        "all_dmg_": 82.626
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.2144,
+      "path": [
+        "skill",
+        "chargedFinalDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 46.667,
+        "all_dmgInc": 6693.709,
+        "pyro_enemyRes_": -20,
+        "all_dmg_": 65.734,
+        "critRate_": -40
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.5,
+      "path": [
+        "skill",
+        "sprintDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 39.375,
+        "atk": 408.738,
+        "pyro_enemyRes_": -20,
+        "all_dmg_": 71.164,
+        "critRate_": -40
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.4971,
+      "path": [
+        "skill",
+        "chargedCyclicDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 44.25,
+        "atk": 408.738,
+        "pyro_enemyRes_": -20,
+        "all_dmg_": 69.25
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.5,
+      "path": [
+        "skill",
+        "sprintDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 27,
+        "atk": 408.738,
+        "pyro_enemyRes_": -20,
+        "all_dmg_": 54.25,
+        "critDMG_": -15
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.5,
+      "path": [
+        "skill",
+        "skillDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 43.125,
+        "pyro_enemyRes_": -20,
+        "all_dmg_": 63.812
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.49,
+      "path": [
+        "skill",
+        "radianceDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": -4.875,
+        "pyro_enemyRes_": -20,
+        "all_dmg_": 25
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.49,
+      "path": [
+        "skill",
+        "radianceDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": -5.25,
+        "pyro_enemyRes_": -20,
+        "all_dmg_": 25
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.441,
+      "path": [
+        "skill",
+        "radianceDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": -10,
+        "pyro_enemyRes_": -20,
+        "all_dmg_": 25,
+        "critRate_": -40
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.3126,
+      "path": [
+        "skill",
+        "radianceDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": -14.118,
+        "pyro_enemyRes_": -20,
+        "all_dmg_": 25,
+        "critRate_": -40
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.0554,
+      "path": [
+        "skill",
+        "radianceDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 14.447,
+        "pyro_enemyRes_": -20,
+        "all_dmg_": 25,
+        "critRate_": -40
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.2881,
+      "path": [
+        "skill",
+        "radianceDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": -4.468,
+        "pyro_enemyRes_": -20,
+        "all_dmg_": 25,
+        "critRate_": -40
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.1166,
+      "path": [
+        "skill",
+        "radianceDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": -0.526,
+        "pyro_enemyRes_": -20,
+        "all_dmg_": 25,
+        "critRate_": -40
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.3004,
+      "path": [
+        "skill",
+        "radianceDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": -7.347,
+        "pyro_enemyRes_": -20,
+        "all_dmg_": 25,
+        "critRate_": -40
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.0309,
+      "path": [
+        "skill",
+        "radianceDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 2,
+        "eleMas": 62.525,
+        "pyro_enemyRes_": -36,
+        "all_dmg_": 25,
+        "critRate_": -40
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.2024,
+      "path": [
+        "skill",
+        "radianceDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": -3.636,
+        "pyro_enemyRes_": -20,
+        "all_dmg_": 25,
+        "critRate_": -40
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.4484,
+      "path": [
+        "burst",
+        "skillDmg"
+      ],
+      "hitMode": "avgHit",
+      "reaction": "melt",
+      "bonusStats": {
+        "eleMas": 156.312,
+        "atk_": 59.739,
+        "atk": 1127.555,
+        "all_dmgInc": 26432.211,
+        "pyro_enemyRes_": -60,
+        "all_dmg_": 93.38
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.4188,
+      "path": [
+        "skill",
+        "chargedCyclicDmg"
+      ],
+      "hitMode": "avgHit",
+      "reaction": "melt",
+      "bonusStats": {
+        "eleMas": 156.312,
+        "atk_": 63.455,
+        "atk": 1127.555,
+        "all_dmgInc": 9444.733,
+        "pyro_enemyRes_": -60,
+        "all_dmg_": 93.39
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.4971,
+      "path": [
+        "skill",
+        "chargedCyclicDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "eleMas": 156.312,
+        "atk_": 62,
+        "atk": 1127.555,
+        "all_dmgInc": 9355.824,
+        "pyro_enemyRes_": -60,
+        "all_dmg_": 94.124
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.5,
+      "path": [
+        "skill",
+        "sprintDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "eleMas": 156.312,
+        "atk_": 63.5,
+        "atk": 1127.555,
+        "pyro_enemyRes_": -60,
+        "all_dmg_": 94.124
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.4188,
+      "path": [
+        "skill",
+        "chargedCyclicDmg"
+      ],
+      "hitMode": "avgHit",
+      "reaction": "melt",
+      "bonusStats": {
+        "eleMas": 156.312,
+        "atk_": 61.636,
+        "atk": 1127.555,
+        "all_dmgInc": 9385.057,
+        "pyro_enemyRes_": -60,
+        "all_dmg_": 89.406
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.4971,
+      "path": [
+        "skill",
+        "chargedCyclicDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "eleMas": 156.312,
+        "atk_": 64.625,
+        "atk": 1127.555,
+        "all_dmgInc": 9470.982,
+        "pyro_enemyRes_": -60,
+        "all_dmg_": 92.124
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.5,
+      "path": [
+        "skill",
+        "sprintDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "eleMas": 156.312,
+        "atk_": 65.375,
+        "atk": 1127.555,
+        "pyro_enemyRes_": -60,
+        "all_dmg_": 92.124
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.4188,
+      "path": [
+        "skill",
+        "chargedCyclicDmg"
+      ],
+      "hitMode": "avgHit",
+      "reaction": "melt",
+      "bonusStats": {
+        "eleMas": 156.312,
+        "atk_": 66.182,
+        "atk": 1127.555,
+        "all_dmgInc": 9505.896,
+        "pyro_enemyRes_": -60,
+        "all_dmg_": 87.422
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.4971,
+      "path": [
+        "skill",
+        "chargedCyclicDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "eleMas": 156.312,
+        "atk_": 65.375,
+        "atk": 1127.555,
+        "all_dmgInc": 9487.802,
+        "pyro_enemyRes_": -60,
+        "all_dmg_": 88.162
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.5,
+      "path": [
+        "skill",
+        "sprintDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "eleMas": 156.312,
+        "atk_": 66.125,
+        "atk": 1127.555,
+        "pyro_enemyRes_": -60,
+        "all_dmg_": 88.162
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.336,
+      "path": [
+        "skill",
+        "chargedCyclicDmg"
+      ],
+      "hitMode": "avgHit",
+      "reaction": "melt",
+      "bonusStats": {
+        "eleMas": 156.312,
+        "atk_": 65.736,
+        "atk": 1127.555,
+        "all_dmgInc": 9495.895,
+        "pyro_enemyRes_": -60,
+        "all_dmg_": 85.498
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.4971,
+      "path": [
+        "skill",
+        "chargedCyclicDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "eleMas": 156.312,
+        "atk_": 66.5,
+        "atk": 1127.555,
+        "all_dmgInc": 9513.032,
+        "pyro_enemyRes_": -60,
+        "all_dmg_": 86.176
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.5,
+      "path": [
+        "skill",
+        "sprintDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "eleMas": 156.312,
+        "atk_": 59.375,
+        "atk": 1127.555,
+        "pyro_enemyRes_": -60,
+        "all_dmg_": 86.176
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.336,
+      "path": [
+        "skill",
+        "chargedCyclicDmg"
+      ],
+      "hitMode": "avgHit",
+      "reaction": "melt",
+      "bonusStats": {
+        "atk_": 64.604,
+        "eleMas": 106.312,
+        "atk": 1127.555,
+        "all_dmgInc": 9404.12,
+        "pyro_enemyRes_": -60,
+        "all_dmg_": 81.724,
+        "critRate_": -40
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.4971,
+      "path": [
+        "skill",
+        "chargedCyclicDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 59,
+        "eleMas": 123.187,
+        "atk": 1127.555,
+        "all_dmgInc": 9251.384,
+        "pyro_enemyRes_": -60,
+        "all_dmg_": 84.376,
+        "critRate_": -40
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.5,
+      "path": [
+        "skill",
+        "sprintDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 59,
+        "eleMas": 123.187,
+        "atk": 1127.555,
+        "pyro_enemyRes_": -60,
+        "all_dmg_": 84.376,
+        "critRate_": -40
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.3728,
+      "path": [
+        "skill",
+        "chargedCyclicDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 56.5,
+        "eleMas": 128.812,
+        "atk": 1127.555,
+        "pyro_enemyRes_": -60,
+        "all_dmg_": 83.317
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.5,
+      "path": [
+        "skill",
+        "sprintDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 37.625,
+        "eleMas": 123.187,
+        "atk": 1127.555,
+        "pyro_enemyRes_": -60,
+        "all_dmg_": 67.388,
+        "critDMG_": -15
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.5,
+      "path": [
+        "skill",
+        "skillDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 45.375,
+        "eleMas": 123.187,
+        "atk": 1127.555,
+        "pyro_enemyRes_": -20,
+        "all_dmg_": 80.412
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.49,
+      "path": [
+        "skill",
+        "radianceDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": -8.25,
+        "eleMas": 123.187,
+        "atk": 1127.555,
+        "all_dmg_": 38.8,
+        "pyro_enemyRes_": -18
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.2499,
+      "path": [
+        "skill",
+        "radianceDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "eleMas": 156.312,
+        "atk_": -9.375,
+        "pyro_enemyRes_": -58,
+        "all_dmg_": 23.8
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.2223,
+      "path": [
+        "skill",
+        "chargedCyclicDmg"
+      ],
+      "hitMode": "avgHit",
+      "reaction": "melt",
+      "bonusStats": {
+        "eleMas": 116.825,
+        "atk_": 66.286,
+        "atk": 1127.555,
+        "all_dmgInc": 8728.459,
+        "pyro_enemyRes_": -60,
+        "all_dmg_": 91.658
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.2156,
+      "path": [
+        "skill",
+        "chargedFinalDmg"
+      ],
+      "hitMode": "avgHit",
+      "reaction": "melt",
+      "bonusStats": {
+        "atk_": 62.857,
+        "atk": 1127.555,
+        "all_dmgInc": 8728.608,
+        "pyro_enemyRes_": -58.5,
+        "all_dmg_": 85.886
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.2223,
+      "path": [
+        "skill",
+        "chargedCyclicDmg"
+      ],
+      "hitMode": "avgHit",
+      "reaction": "melt",
+      "bonusStats": {
+        "atk_": 41.536,
+        "atk": 1127.555,
+        "all_dmgInc": 8353.216,
+        "pyro_enemyRes_": -28.5,
+        "all_dmg_": 84.114
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.2156,
+      "path": [
+        "skill",
+        "chargedFinalDmg"
+      ],
+      "hitMode": "avgHit",
+      "reaction": "melt",
+      "bonusStats": {
+        "atk_": 30,
+        "atk": 934.26,
+        "all_dmgInc": 8208.997,
+        "pyro_enemyRes_": -20,
+        "all_dmg_": 78.143,
+        "critRate_": -40
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.087,
+      "path": [
+        "skill",
+        "chargedCyclicDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 68,
+        "eleMas": 152.741,
+        "atk": 1127.555,
+        "all_dmgInc": 9546.672,
+        "pyro_enemyRes_": -60,
+        "all_dmg_": 108.942
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.087,
+      "path": [
+        "skill",
+        "chargedCyclicDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "eleMas": 156.312,
+        "atk_": 68,
+        "atk": 1127.555,
+        "all_dmgInc": 9527.485,
+        "pyro_enemyRes_": -60,
+        "all_dmg_": 104.942
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.087,
+      "path": [
+        "skill",
+        "chargedCyclicDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "eleMas": 156.312,
+        "atk_": 68,
+        "atk": 1127.555,
+        "all_dmgInc": 9546.672,
+        "pyro_enemyRes_": -60,
+        "all_dmg_": 103.014
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.168,
+      "path": [
+        "skill",
+        "chargedCyclicDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "eleMas": 156.312,
+        "atk_": 68,
+        "atk": 1127.555,
+        "all_dmgInc": 9546.672,
+        "pyro_enemyRes_": -60,
+        "all_dmg_": 93.392
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.168,
+      "path": [
+        "skill",
+        "chargedCyclicDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "eleMas": 156.312,
+        "atk_": 50.222,
+        "atk": 1127.555,
+        "all_dmgInc": 9083.85,
+        "pyro_enemyRes_": -60,
+        "all_dmg_": 89.578,
+        "critRate_": -40
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.1269,
+      "path": [
+        "skill",
+        "chargedCyclicDmg"
+      ],
+      "hitMode": "avgHit",
+      "reaction": "melt",
+      "bonusStats": {
+        "atk_": 63.5,
+        "eleMas": 106.312,
+        "atk": 1127.555,
+        "pyro_enemyRes_": -60,
+        "all_dmg_": 79.6
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.0689,
+      "path": [
+        "skill",
+        "chargedFinalDmg"
+      ],
+      "hitMode": "avgHit",
+      "reaction": "melt",
+      "bonusStats": {
+        "atk_": 30,
+        "atk": 934.26,
+        "all_dmgInc": 8208.997,
+        "pyro_enemyRes_": -20,
+        "all_dmg_": 78.143,
+        "critRate_": -40
+      },
+      "description": ""
+    }
+  ]
+}

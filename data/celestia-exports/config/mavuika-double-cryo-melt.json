@@ -1,0 +1,396 @@
+{
+  "name": "Double Cryo Melt",
+  "description": "Celestia",
+  "targets": [
+    {
+      "weight": 1,
+      "path": [
+        "skill",
+        "sprintDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 9,
+        "atk": 1050.758,
+        "pyro_enemyRes_": -20,
+        "all_dmg_": 77.25,
+        "critRate_": 15
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "skill",
+        "skillDmg"
+      ],
+      "hitMode": "avgHit",
+      "reaction": "melt",
+      "bonusStats": {
+        "pyro_enemyRes_": -20,
+        "all_dmg_": 60.75,
+        "critRate_": 15
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "normal",
+        "0"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "all_dmg_": 18.75
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "skill",
+        "radianceDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 20,
+        "pyro_enemyRes_": -20,
+        "all_dmg_": 25
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "skill",
+        "radianceDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 5,
+        "pyro_enemyRes_": -20,
+        "all_dmg_": 25
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "burst",
+        "skillDmg"
+      ],
+      "hitMode": "avgHit",
+      "reaction": "melt",
+      "bonusStats": {
+        "atk_": 44,
+        "atk": 1050.758,
+        "all_dmgInc": 23325.254,
+        "pyro_enemyRes_": -20,
+        "all_dmg_": 91.5,
+        "critRate_": 15
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "skill",
+        "chargedCyclicDmg"
+      ],
+      "hitMode": "avgHit",
+      "reaction": "melt",
+      "bonusStats": {
+        "atk_": 44,
+        "atk": 1050.758,
+        "all_dmgInc": 8261.027,
+        "pyro_enemyRes_": -20,
+        "all_dmg_": 91.5,
+        "critRate_": 15
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "skill",
+        "sprintDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 44,
+        "atk": 1050.758,
+        "pyro_enemyRes_": -20,
+        "all_dmg_": 91.5
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "skill",
+        "normal1Dmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 44,
+        "atk": 1050.758,
+        "all_dmgInc": 4130.514,
+        "pyro_enemyRes_": -20,
+        "all_dmg_": 90.5
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "skill",
+        "chargedCyclicDmg"
+      ],
+      "hitMode": "avgHit",
+      "reaction": "melt",
+      "bonusStats": {
+        "atk_": 29,
+        "atk": 1050.758,
+        "all_dmgInc": 7954.903,
+        "pyro_enemyRes_": -20,
+        "all_dmg_": 90.5,
+        "critRate_": 15
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "skill",
+        "sprintDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 29,
+        "atk": 1050.758,
+        "pyro_enemyRes_": -20,
+        "all_dmg_": 88.5
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "skill",
+        "normal1Dmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 29,
+        "atk": 1050.758,
+        "all_dmgInc": 3977.452,
+        "pyro_enemyRes_": -20,
+        "all_dmg_": 88.5
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "skill",
+        "chargedCyclicDmg"
+      ],
+      "hitMode": "avgHit",
+      "reaction": "melt",
+      "bonusStats": {
+        "atk_": 29,
+        "atk": 1050.758,
+        "all_dmgInc": 7954.903,
+        "pyro_enemyRes_": -20,
+        "all_dmg_": 86.5,
+        "critRate_": 15
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "skill",
+        "sprintDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 29,
+        "atk": 1050.758,
+        "pyro_enemyRes_": -20,
+        "all_dmg_": 86.5
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "skill",
+        "normal1Dmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 44,
+        "atk": 1050.758,
+        "all_dmgInc": 4130.514,
+        "pyro_enemyRes_": -20,
+        "all_dmg_": 86.5,
+        "critRate_": 15
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "skill",
+        "chargedCyclicDmg"
+      ],
+      "hitMode": "avgHit",
+      "reaction": "melt",
+      "bonusStats": {
+        "atk_": 44,
+        "atk": 1050.758,
+        "all_dmgInc": 8261.027,
+        "pyro_enemyRes_": -20,
+        "all_dmg_": 84.5,
+        "critRate_": 15
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "skill",
+        "sprintDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 44,
+        "atk": 1050.758,
+        "pyro_enemyRes_": -20,
+        "all_dmg_": 84.5,
+        "critRate_": 15
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "skill",
+        "normal1Dmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 44,
+        "atk": 1050.758,
+        "all_dmgInc": 4130.514,
+        "pyro_enemyRes_": -20,
+        "all_dmg_": 84.5,
+        "critRate_": 15
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "skill",
+        "chargedCyclicDmg"
+      ],
+      "hitMode": "avgHit",
+      "reaction": "melt",
+      "bonusStats": {
+        "atk_": 44,
+        "atk": 1050.758,
+        "all_dmgInc": 8261.027,
+        "pyro_enemyRes_": -20,
+        "all_dmg_": 82.5,
+        "critRate_": 15
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "skill",
+        "sprintDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 44,
+        "atk": 1050.758,
+        "pyro_enemyRes_": -20,
+        "all_dmg_": 82.5,
+        "critRate_": -40
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "skill",
+        "normal1Dmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 44,
+        "atk": 1050.758,
+        "all_dmgInc": 4130.514,
+        "pyro_enemyRes_": -20,
+        "all_dmg_": 80.5,
+        "critRate_": -40
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "skill",
+        "chargedCyclicDmg"
+      ],
+      "hitMode": "avgHit",
+      "reaction": "melt",
+      "bonusStats": {
+        "atk_": 24,
+        "atk": 1050.758,
+        "all_dmgInc": 7852.862,
+        "pyro_enemyRes_": -20,
+        "all_dmg_": 80.5,
+        "critRate_": -25
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "skill",
+        "chargedCyclicDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 24,
+        "atk": 1050.758,
+        "pyro_enemyRes_": -20,
+        "all_dmg_": 79,
+        "critRate_": 15
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "skill",
+        "chargedCyclicDmg"
+      ],
+      "hitMode": "avgHit",
+      "reaction": "melt",
+      "bonusStats": {
+        "atk_": 9,
+        "atk": 1050.758,
+        "pyro_enemyRes_": -20,
+        "all_dmg_": 77,
+        "critRate_": 15
+      },
+      "description": ""
+    }
+  ]
+}

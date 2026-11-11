@@ -1,0 +1,760 @@
+{
+  "name": "Physical",
+  "description": "Celestia",
+  "lastEdit": 1794349043539,
+  "conditional": {
+    "resonance": {},
+    "reaction": {}
+  },
+  "enemyOverride": {
+    "enemyLevel": 100,
+    "enemyDefIgn_": 0,
+    "enemyDefRed_": 0,
+    "pyro_enemyRes_": 10,
+    "hydro_enemyRes_": 10,
+    "electro_enemyRes_": 10,
+    "cryo_enemyRes_": 10,
+    "anemo_enemyRes_": 10,
+    "geo_enemyRes_": 10,
+    "dendro_enemyRes_": 10,
+    "physical_enemyRes_": 10
+  },
+  "loadoutData": [
+    {
+      "key": "Eula",
+      "name": "Eula (Celestia)",
+      "description": "",
+      "hitMode": "avgHit",
+      "infusionAura": "",
+      "bonusStats": {},
+      "conditional": {
+        "Eula": {
+          "Grimheart": "stack2",
+          "LightfallSword": "15"
+        }
+      },
+      "customMultiTargets": [
+        {
+          "name": "Physical",
+          "description": "Celestia",
+          "targets": [
+            {
+              "weight": 1,
+              "path": [
+                "skill",
+                "press"
+              ],
+              "hitMode": "avgHit",
+              "bonusStats": {
+                "atk_": 40,
+                "critRate_": 25.06,
+                "all_dmg_": 39.33
+              },
+              "description": ""
+            },
+            {
+              "weight": 1,
+              "path": [
+                "burst",
+                "dmg"
+              ],
+              "hitMode": "avgHit",
+              "bonusStats": {
+                "atk_": 40,
+                "all_dmg_": 73.36,
+                "critRate_": 40.31
+              },
+              "description": ""
+            },
+            {
+              "weight": 1,
+              "path": [
+                "normal",
+                "0"
+              ],
+              "hitMode": "avgHit",
+              "bonusStats": {
+                "atk_": 40,
+                "critRate_": 49.41,
+                "critDMG_": 60,
+                "all_dmg_": 71.07,
+                "physical_enemyRes_": -40
+              },
+              "description": ""
+            },
+            {
+              "weight": 1,
+              "path": [
+                "normal",
+                "1"
+              ],
+              "hitMode": "avgHit",
+              "bonusStats": {
+                "atk_": 40,
+                "critRate_": 36,
+                "critDMG_": 60,
+                "all_dmg_": 72.41,
+                "physical_enemyRes_": -40
+              },
+              "description": ""
+            },
+            {
+              "weight": 1,
+              "path": [
+                "normal",
+                "2"
+              ],
+              "hitMode": "avgHit",
+              "bonusStats": {
+                "atk_": 40,
+                "critRate_": 36,
+                "critDMG_": 60,
+                "all_dmg_": 74.15,
+                "physical_enemyRes_": -40
+              },
+              "description": ""
+            },
+            {
+              "weight": 1,
+              "path": [
+                "normal",
+                "2"
+              ],
+              "hitMode": "avgHit",
+              "bonusStats": {
+                "atk_": 40,
+                "critRate_": 36,
+                "critDMG_": 60,
+                "all_dmg_": 74.89,
+                "physical_enemyRes_": -40
+              },
+              "description": ""
+            },
+            {
+              "weight": 1,
+              "path": [
+                "normal",
+                "3"
+              ],
+              "hitMode": "avgHit",
+              "bonusStats": {
+                "atk_": 40,
+                "critRate_": 36,
+                "critDMG_": 60,
+                "all_dmg_": 76.65,
+                "physical_enemyRes_": -40
+              },
+              "description": ""
+            },
+            {
+              "weight": 1,
+              "path": [
+                "skill",
+                "hold"
+              ],
+              "hitMode": "avgHit",
+              "bonusStats": {
+                "atk_": 60,
+                "critRate_": 36,
+                "all_dmg_": 64.08
+              },
+              "description": ""
+            },
+            {
+              "weight": 1,
+              "path": [
+                "skill",
+                "icewhirl"
+              ],
+              "hitMode": "avgHit",
+              "bonusStats": {
+                "atk_": 60,
+                "critRate_": 51,
+                "cryo_enemyRes_": -25,
+                "all_dmg_": 65.17
+              },
+              "description": ""
+            },
+            {
+              "weight": 1,
+              "path": [
+                "skill",
+                "icewhirl"
+              ],
+              "hitMode": "avgHit",
+              "bonusStats": {
+                "atk_": 60,
+                "critRate_": 51,
+                "cryo_enemyRes_": -25,
+                "all_dmg_": 65.43
+              },
+              "description": ""
+            },
+            {
+              "weight": 1,
+              "path": [
+                "passive1",
+                "shatteredLightfallSword"
+              ],
+              "hitMode": "avgHit",
+              "bonusStats": {
+                "atk_": 60,
+                "all_dmg_": 111.62,
+                "critRate_": 50.25,
+                "critDMG_": 60,
+                "physical_enemyRes_": -65
+              },
+              "description": ""
+            },
+            {
+              "weight": 1,
+              "path": [
+                "normal",
+                "0"
+              ],
+              "hitMode": "avgHit",
+              "bonusStats": {
+                "atk_": 60,
+                "critRate_": 37.41,
+                "critDMG_": 60,
+                "physical_enemyRes_": -65,
+                "all_dmg_": 88.13
+              },
+              "description": ""
+            },
+            {
+              "weight": 1,
+              "path": [
+                "normal",
+                "1"
+              ],
+              "hitMode": "avgHit",
+              "bonusStats": {
+                "atk_": 60,
+                "critRate_": 37.03,
+                "critDMG_": 60,
+                "physical_enemyRes_": -65,
+                "all_dmg_": 89.93
+              },
+              "description": ""
+            },
+            {
+              "weight": 1,
+              "path": [
+                "normal",
+                "2"
+              ],
+              "hitMode": "avgHit",
+              "bonusStats": {
+                "atk_": 60,
+                "critRate_": 36.47,
+                "critDMG_": 60,
+                "physical_enemyRes_": -65,
+                "all_dmg_": 91.79
+              },
+              "description": ""
+            },
+            {
+              "weight": 1,
+              "path": [
+                "normal",
+                "2"
+              ],
+              "hitMode": "avgHit",
+              "bonusStats": {
+                "atk_": 60,
+                "critRate_": 36,
+                "critDMG_": 60,
+                "physical_enemyRes_": -65,
+                "all_dmg_": 93.14
+              },
+              "description": ""
+            },
+            {
+              "weight": 1,
+              "path": [
+                "normal",
+                "3"
+              ],
+              "hitMode": "avgHit",
+              "bonusStats": {
+                "atk_": 60,
+                "critRate_": 36,
+                "critDMG_": 60,
+                "physical_enemyRes_": -65,
+                "all_dmg_": 93.46
+              },
+              "description": ""
+            },
+            {
+              "weight": 1,
+              "path": [
+                "normal",
+                "0"
+              ],
+              "hitMode": "avgHit",
+              "bonusStats": {
+                "atk_": 56.5,
+                "critRate_": 36,
+                "critDMG_": 60,
+                "physical_enemyRes_": -65,
+                "all_dmg_": 95
+              },
+              "description": ""
+            },
+            {
+              "weight": 1,
+              "path": [
+                "burst",
+                "lightFallSwordNew"
+              ],
+              "hitMode": "avgHit",
+              "bonusStats": {
+                "atk_": 56.5,
+                "all_dmg_": 119,
+                "critRate_": 36,
+                "critDMG_": 60,
+                "physical_enemyRes_": -65
+              },
+              "description": ""
+            },
+            {
+              "weight": 1,
+              "path": [
+                "normal",
+                "1"
+              ],
+              "hitMode": "avgHit",
+              "bonusStats": {
+                "atk_": 52.5,
+                "critRate_": 36,
+                "critDMG_": 60,
+                "physical_enemyRes_": -65,
+                "all_dmg_": 95
+              },
+              "description": ""
+            },
+            {
+              "weight": 0.9399,
+              "path": [
+                "reaction",
+                "shattered"
+              ],
+              "hitMode": "avgHit",
+              "bonusStats": {
+                "atk_": 40,
+                "critRate_": 51,
+                "physical_enemyRes_": -40
+              },
+              "description": ""
+            },
+            {
+              "weight": 0.0328,
+              "path": [
+                "reaction",
+                "shattered"
+              ],
+              "hitMode": "avgHit",
+              "bonusStats": {
+                "atk_": 60,
+                "critRate_": 51,
+                "physical_enemyRes_": -90
+              },
+              "description": ""
+            },
+            {
+              "weight": 0.3169,
+              "path": [
+                "reaction",
+                "shattered"
+              ],
+              "hitMode": "avgHit",
+              "bonusStats": {
+                "atk_": 40,
+                "critRate_": 51,
+                "physical_enemyRes_": -40
+              },
+              "description": ""
+            },
+            {
+              "weight": 0.7104,
+              "path": [
+                "reaction",
+                "shattered"
+              ],
+              "hitMode": "avgHit",
+              "bonusStats": {
+                "atk_": 60,
+                "critRate_": 51,
+                "physical_enemyRes_": -90
+              },
+              "description": ""
+            },
+            {
+              "weight": 0.9844,
+              "path": [
+                "reaction",
+                "superconduct"
+              ],
+              "hitMode": "avgHit",
+              "bonusStats": {
+                "atk_": 60,
+                "critRate_": 51
+              },
+              "description": ""
+            },
+            {
+              "weight": 0.0156,
+              "path": [
+                "reaction",
+                "superconduct"
+              ],
+              "hitMode": "avgHit",
+              "bonusStats": {
+                "atk_": 40,
+                "critRate_": 51
+              },
+              "description": ""
+            }
+          ]
+        }
+      ],
+      "optConfig": {
+        "optimizationTarget": [
+          "custom",
+          "0"
+        ]
+      },
+      "buildTcs": [
+        {
+          "name": "Celestia",
+          "description": "The leaderboard reference build.",
+          "characterKey": "Eula",
+          "character": {
+            "level": 90,
+            "ascension": 6,
+            "constellation": 0,
+            "talent": {
+              "auto": 10,
+              "skill": 10,
+              "burst": 10
+            }
+          },
+          "weapon": {
+            "key": "SongOfBrokenPines",
+            "level": 90,
+            "ascension": 6,
+            "refinement": 1
+          },
+          "artifact": {
+            "sets": {
+              "MarechausseeHunter": 5
+            },
+            "slots": {
+              "flower": {
+                "level": 20,
+                "rarity": 5,
+                "statKey": "hp"
+              },
+              "plume": {
+                "level": 20,
+                "rarity": 5,
+                "statKey": "atk"
+              },
+              "sands": {
+                "level": 20,
+                "rarity": 5,
+                "statKey": "atk_"
+              },
+              "goblet": {
+                "level": 20,
+                "rarity": 5,
+                "statKey": "physical_dmg_"
+              },
+              "circlet": {
+                "level": 20,
+                "rarity": 5,
+                "statKey": "critRate_"
+              }
+            },
+            "substats": {
+              "type": "max",
+              "rarity": 5,
+              "stats": {
+                "atk_": 29.73,
+                "def": 39.35,
+                "def_": 12.39,
+                "critRate_": 26.44,
+                "critDMG_": 79.26,
+                "hp": 507.88,
+                "hp_": 9.91,
+                "enerRech_": 11.01,
+                "eleMas": 39.63,
+                "atk": 33.07
+              }
+            }
+          },
+          "optimization": {
+            "distributedSubstats": 0,
+            "maxSubstats": {}
+          }
+        }
+      ]
+    },
+    {
+      "key": "Furina",
+      "name": "Furina (Celestia)",
+      "description": "",
+      "hitMode": "avgHit",
+      "infusionAura": "",
+      "bonusStats": {},
+      "conditional": {},
+      "customMultiTargets": [],
+      "buildTcs": [
+        {
+          "name": "Celestia",
+          "description": "Celestia teammate assumption (85% of the maximum).",
+          "characterKey": "Furina",
+          "character": {
+            "level": 90,
+            "ascension": 6,
+            "constellation": 0,
+            "talent": {
+              "auto": 10,
+              "skill": 10,
+              "burst": 10
+            }
+          },
+          "weapon": {
+            "key": "FavoniusSword",
+            "level": 90,
+            "ascension": 6,
+            "refinement": 5
+          },
+          "artifact": {
+            "sets": {
+              "GoldenTroupe": 4
+            },
+            "slots": {
+              "flower": {
+                "level": 20,
+                "rarity": 5,
+                "statKey": "hp"
+              },
+              "plume": {
+                "level": 20,
+                "rarity": 5,
+                "statKey": "atk"
+              },
+              "sands": {
+                "level": 20,
+                "rarity": 5,
+                "statKey": "hp_"
+              },
+              "goblet": {
+                "level": 20,
+                "rarity": 5,
+                "statKey": "hp_"
+              },
+              "circlet": {
+                "level": 20,
+                "rarity": 5,
+                "statKey": "critRate_"
+              }
+            },
+            "substats": {
+              "type": "max",
+              "rarity": 5,
+              "stats": {
+                "hp": 1015.76,
+                "atk": 33.08,
+                "def": 39.36,
+                "hp_": 9.92,
+                "atk_": 9.92,
+                "def_": 12.4,
+                "eleMas": 39.64,
+                "enerRech_": 11.02,
+                "critRate_": 33.1,
+                "critDMG_": 79.44
+              }
+            }
+          },
+          "optimization": {
+            "distributedSubstats": 0,
+            "maxSubstats": {}
+          }
+        }
+      ]
+    },
+    {
+      "key": "RaidenShogun",
+      "name": "RaidenShogun (Celestia)",
+      "description": "",
+      "hitMode": "avgHit",
+      "infusionAura": "",
+      "bonusStats": {},
+      "conditional": {},
+      "customMultiTargets": [],
+      "buildTcs": [
+        {
+          "name": "Celestia",
+          "description": "Celestia teammate assumption (85% of the maximum).",
+          "characterKey": "RaidenShogun",
+          "character": {
+            "level": 90,
+            "ascension": 6,
+            "constellation": 0,
+            "talent": {
+              "auto": 10,
+              "skill": 10,
+              "burst": 10
+            }
+          },
+          "weapon": {
+            "key": "TheCatch",
+            "level": 90,
+            "ascension": 6,
+            "refinement": 5
+          },
+          "artifact": {
+            "sets": {
+              "TenacityOfTheMillelith": 4
+            },
+            "slots": {
+              "flower": {
+                "level": 20,
+                "rarity": 5,
+                "statKey": "hp"
+              },
+              "plume": {
+                "level": 20,
+                "rarity": 5,
+                "statKey": "atk"
+              },
+              "sands": {
+                "level": 20,
+                "rarity": 5,
+                "statKey": "enerRech_"
+              },
+              "goblet": {
+                "level": 20,
+                "rarity": 5,
+                "statKey": "electro_dmg_"
+              },
+              "circlet": {
+                "level": 20,
+                "rarity": 5,
+                "statKey": "critRate_"
+              }
+            },
+            "substats": {
+              "type": "max",
+              "rarity": 5,
+              "stats": {
+                "hp": 507.88,
+                "atk": 33.08,
+                "def": 39.36,
+                "hp_": 9.92,
+                "atk_": 9.92,
+                "def_": 12.4,
+                "eleMas": 39.64,
+                "enerRech_": 55.1,
+                "critRate_": 19.86,
+                "critDMG_": 66.2
+              }
+            }
+          },
+          "optimization": {
+            "distributedSubstats": 0,
+            "maxSubstats": {}
+          }
+        }
+      ]
+    },
+    {
+      "key": "Mika",
+      "name": "Mika (Celestia)",
+      "description": "",
+      "hitMode": "avgHit",
+      "infusionAura": "",
+      "bonusStats": {},
+      "conditional": {},
+      "customMultiTargets": [],
+      "buildTcs": [
+        {
+          "name": "Celestia",
+          "description": "Celestia teammate assumption (85% of the maximum).",
+          "characterKey": "Mika",
+          "character": {
+            "level": 90,
+            "ascension": 6,
+            "constellation": 6,
+            "talent": {
+              "auto": 10,
+              "skill": 10,
+              "burst": 10
+            }
+          },
+          "weapon": {
+            "key": "FavoniusLance",
+            "level": 90,
+            "ascension": 6,
+            "refinement": 5
+          },
+          "artifact": {
+            "sets": {
+              "NoblesseOblige": 4
+            },
+            "slots": {
+              "flower": {
+                "level": 20,
+                "rarity": 5,
+                "statKey": "hp"
+              },
+              "plume": {
+                "level": 20,
+                "rarity": 5,
+                "statKey": "atk"
+              },
+              "sands": {
+                "level": 20,
+                "rarity": 5,
+                "statKey": "hp_"
+              },
+              "goblet": {
+                "level": 20,
+                "rarity": 5,
+                "statKey": "hp_"
+              },
+              "circlet": {
+                "level": 20,
+                "rarity": 5,
+                "statKey": "critRate_"
+              }
+            },
+            "substats": {
+              "type": "max",
+              "rarity": 5,
+              "stats": {
+                "hp": 761.82,
+                "atk": 33.08,
+                "def": 39.36,
+                "hp_": 9.92,
+                "atk_": 9.92,
+                "def_": 12.4,
+                "eleMas": 39.64,
+                "enerRech_": 16.53,
+                "critRate_": 33.1,
+                "critDMG_": 79.44
+              }
+            }
+          },
+          "optimization": {
+            "distributedSubstats": 0,
+            "maxSubstats": {}
+          }
+        }
+      ]
+    }
+  ]
+}

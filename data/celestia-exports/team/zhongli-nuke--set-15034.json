@@ -1,0 +1,151 @@
+{
+  "name": "Nuke",
+  "description": "Celestia",
+  "lastEdit": 1794351042171,
+  "conditional": {
+    "resonance": {},
+    "reaction": {}
+  },
+  "enemyOverride": {
+    "enemyLevel": 90,
+    "enemyDefIgn_": 0,
+    "enemyDefRed_": 0,
+    "pyro_enemyRes_": -140,
+    "hydro_enemyRes_": -140,
+    "electro_enemyRes_": -140,
+    "cryo_enemyRes_": -140,
+    "anemo_enemyRes_": -140,
+    "geo_enemyRes_": -140,
+    "dendro_enemyRes_": -140,
+    "physical_enemyRes_": -140
+  },
+  "loadoutData": [
+    {
+      "key": "Zhongli",
+      "name": "Zhongli (Celestia)",
+      "description": "",
+      "hitMode": "avgHit",
+      "infusionAura": "",
+      "bonusStats": {
+        "atk": 1680,
+        "hp_": 30,
+        "atk_": 101
+      },
+      "conditional": {
+        "StaffOfHoma": {
+          "RecklessCinnabar": "on"
+        }
+      },
+      "customMultiTargets": [
+        {
+          "name": "Nuke",
+          "description": "Celestia",
+          "targets": [
+            {
+              "weight": 1,
+              "path": [
+                "burst",
+                "dmg"
+              ],
+              "hitMode": "critHit",
+              "bonusStats": {
+                "enerRech_": 20,
+                "all_dmgInc": 9249.415,
+                "all_dmg_": 379.2,
+                "enemyDefIgn_": 40,
+                "geo_enemyRes_": -145,
+                "enemyDefRed_": 30,
+                "critDMG_": 24
+              },
+              "description": ""
+            }
+          ]
+        }
+      ],
+      "optConfig": {
+        "optimizationTarget": [
+          "custom",
+          "0"
+        ]
+      },
+      "buildTcs": [
+        {
+          "name": "Celestia",
+          "description": "The leaderboard reference build.",
+          "characterKey": "Zhongli",
+          "character": {
+            "level": 90,
+            "ascension": 6,
+            "constellation": 0,
+            "talent": {
+              "auto": 10,
+              "skill": 10,
+              "burst": 10
+            }
+          },
+          "weapon": {
+            "key": "StaffOfHoma",
+            "level": 90,
+            "ascension": 6,
+            "refinement": 1
+          },
+          "artifact": {
+            "sets": {
+              "NighttimeWhispersInTheEchoingWoods": 5
+            },
+            "slots": {
+              "flower": {
+                "level": 20,
+                "rarity": 5,
+                "statKey": "hp"
+              },
+              "plume": {
+                "level": 20,
+                "rarity": 5,
+                "statKey": "atk"
+              },
+              "sands": {
+                "level": 20,
+                "rarity": 5,
+                "statKey": "atk_"
+              },
+              "goblet": {
+                "level": 20,
+                "rarity": 5,
+                "statKey": "geo_dmg_"
+              },
+              "circlet": {
+                "level": 20,
+                "rarity": 5,
+                "statKey": "critDMG_"
+              }
+            },
+            "substats": {
+              "type": "max",
+              "rarity": 5,
+              "stats": {
+                "hp_": 29.73,
+                "atk_": 49.55,
+                "def": 39.35,
+                "def_": 12.39,
+                "critDMG_": 66.05,
+                "hp": 507.88,
+                "enerRech_": 11.01,
+                "eleMas": 39.63,
+                "atk": 33.07,
+                "critRate_": 6.61
+              }
+            }
+          },
+          "optimization": {
+            "distributedSubstats": 0,
+            "maxSubstats": {}
+          }
+        }
+      ]
+    },
+    null,
+    null,
+    null
+  ]
+}

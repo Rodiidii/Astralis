@@ -1,0 +1,915 @@
+{
+  "name": "Overload Premium",
+  "description": "Celestia",
+  "targets": [
+    {
+      "weight": 1,
+      "path": [
+        "skill",
+        "thrust3Dmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "all_dmgInc": 1800,
+        "electro_enemyRes_": -75,
+        "all_dmg_": 96.95
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "skill",
+        "thrust3Dmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "all_dmgInc": 1800,
+        "electro_enemyRes_": -75,
+        "all_dmg_": 96.95
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "skill",
+        "thrust3Dmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "all_dmgInc": 1800,
+        "electro_enemyRes_": -75,
+        "all_dmg_": 96.95
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "constellation1",
+        "dmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "all_dmgInc": 1800,
+        "electro_enemyRes_": -75,
+        "all_dmg_": 96.95
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "constellation1",
+        "dmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "all_dmgInc": 1800,
+        "electro_enemyRes_": -75,
+        "all_dmg_": 96.95
+      },
+      "description": ""
+    },
+    {
+      "weight": 1.0028,
+      "path": [
+        "skill",
+        "piercingDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "all_dmgInc": 1800,
+        "electro_enemyRes_": -75,
+        "all_dmg_": 97.23
+      },
+      "description": ""
+    },
+    {
+      "weight": 1.0028,
+      "path": [
+        "skill",
+        "piercingDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "all_dmgInc": 1800,
+        "electro_enemyRes_": -75,
+        "all_dmg_": 156.33
+      },
+      "description": ""
+    },
+    {
+      "weight": 1.0028,
+      "path": [
+        "skill",
+        "piercingDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "all_dmgInc": 1800,
+        "electro_enemyRes_": -75,
+        "all_dmg_": 173.17
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "skill",
+        "bladeDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "electro_enemyRes_": -75,
+        "all_dmg_": 173.5
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "skill",
+        "thrust3Dmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "all_dmgInc": 1800,
+        "electro_enemyRes_": -75,
+        "all_dmg_": 173.9
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "skill",
+        "thrust3Dmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "all_dmgInc": 1800,
+        "electro_enemyRes_": -75,
+        "all_dmg_": 173.9
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "skill",
+        "thrust3Dmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "all_dmgInc": 1800,
+        "electro_enemyRes_": -75,
+        "all_dmg_": 173.9
+      },
+      "description": ""
+    },
+    {
+      "weight": 1.0028,
+      "path": [
+        "skill",
+        "piercingDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "all_dmgInc": 1800,
+        "electro_enemyRes_": -75,
+        "all_dmg_": 174.1
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "constellation1",
+        "dmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "all_dmgInc": 1800,
+        "electro_enemyRes_": -75,
+        "all_dmg_": 174.7
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "constellation1",
+        "dmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "all_dmgInc": 1800,
+        "electro_enemyRes_": -75,
+        "all_dmg_": 174.7
+      },
+      "description": ""
+    },
+    {
+      "weight": 1.0028,
+      "path": [
+        "skill",
+        "piercingDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "all_dmgInc": 1800,
+        "electro_enemyRes_": -75,
+        "all_dmg_": 174.7
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.9907,
+      "path": [
+        "skill",
+        "piercingDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "all_dmgInc": 1800,
+        "electro_enemyRes_": -75,
+        "all_dmg_": 183.9
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "skill",
+        "thrust3Dmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "all_dmgInc": 1800,
+        "electro_enemyRes_": -75,
+        "all_dmg_": 184.1
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "skill",
+        "thrust3Dmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "all_dmgInc": 1800,
+        "electro_enemyRes_": -75,
+        "all_dmg_": 184.1
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "skill",
+        "thrust3Dmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "all_dmgInc": 1800,
+        "electro_enemyRes_": -75,
+        "all_dmg_": 184.1
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.9967,
+      "path": [
+        "skill",
+        "piercingDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "all_dmgInc": 1800,
+        "electro_enemyRes_": -75,
+        "all_dmg_": 193.5
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.9967,
+      "path": [
+        "skill",
+        "piercingDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "all_dmgInc": 1800,
+        "electro_enemyRes_": -75,
+        "all_dmg_": 193.5
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "constellation1",
+        "dmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "all_dmgInc": 1800,
+        "electro_enemyRes_": -75,
+        "all_dmg_": 193.5
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "constellation1",
+        "dmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "all_dmgInc": 1800,
+        "electro_enemyRes_": -75,
+        "all_dmg_": 193.5
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.9907,
+      "path": [
+        "skill",
+        "piercingDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "all_dmgInc": 1800,
+        "electro_enemyRes_": -75,
+        "all_dmg_": 194.1
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "skill",
+        "thrust3Dmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "all_dmgInc": 1800,
+        "electro_enemyRes_": -75,
+        "all_dmg_": 194.3
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "skill",
+        "thrust3Dmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "all_dmgInc": 1800,
+        "electro_enemyRes_": -75,
+        "all_dmg_": 194.3
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "skill",
+        "thrust3Dmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "all_dmgInc": 1800,
+        "electro_enemyRes_": -75,
+        "all_dmg_": 194.3
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.9967,
+      "path": [
+        "skill",
+        "piercingDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "all_dmgInc": 1800,
+        "electro_enemyRes_": -75,
+        "all_dmg_": 203.7
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.9967,
+      "path": [
+        "skill",
+        "piercingDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "all_dmgInc": 1800,
+        "electro_enemyRes_": -75,
+        "all_dmg_": 203.7
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.5264,
+      "path": [
+        "skill",
+        "piercingDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "all_dmgInc": 1800,
+        "electro_enemyRes_": -75,
+        "all_dmg_": 194.43
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.525,
+      "path": [
+        "constellation1",
+        "dmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "all_dmgInc": 1800,
+        "electro_enemyRes_": -75,
+        "all_dmg_": 194.43
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "skill",
+        "thrust3Dmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "all_dmgInc": 1800,
+        "electro_enemyRes_": -75,
+        "all_dmg_": 212.82
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.525,
+      "path": [
+        "constellation1",
+        "dmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "all_dmgInc": 1800,
+        "electro_enemyRes_": -75,
+        "all_dmg_": 194.43
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "skill",
+        "thrust3Dmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "all_dmgInc": 1800,
+        "electro_enemyRes_": -75,
+        "all_dmg_": 212.82
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.475,
+      "path": [
+        "constellation1",
+        "dmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "all_dmgInc": 1800,
+        "electro_enemyRes_": -75,
+        "all_dmg_": 213.64
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "skill",
+        "thrust3Dmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "all_dmgInc": 1800,
+        "electro_enemyRes_": -75,
+        "all_dmg_": 212.82
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.475,
+      "path": [
+        "constellation1",
+        "dmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "all_dmgInc": 1800,
+        "electro_enemyRes_": -75,
+        "all_dmg_": 213.64
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.4763,
+      "path": [
+        "skill",
+        "piercingDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "all_dmgInc": 1800,
+        "electro_enemyRes_": -75,
+        "all_dmg_": 213.64
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.5264,
+      "path": [
+        "skill",
+        "piercingDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "all_dmgInc": 1800,
+        "electro_enemyRes_": -75,
+        "all_dmg_": 212.23
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.4763,
+      "path": [
+        "skill",
+        "piercingDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "all_dmgInc": 1800,
+        "electro_enemyRes_": -75,
+        "all_dmg_": 213.64
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.5264,
+      "path": [
+        "skill",
+        "piercingDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "all_dmgInc": 1800,
+        "electro_enemyRes_": -75,
+        "all_dmg_": 212.09
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.4763,
+      "path": [
+        "skill",
+        "piercingDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "all_dmgInc": 1800,
+        "electro_enemyRes_": -75,
+        "all_dmg_": 213.64
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.5014,
+      "path": [
+        "skill",
+        "piercingDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "all_dmgInc": 1800,
+        "electro_enemyRes_": -75,
+        "all_dmg_": 212.35
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "skill",
+        "thrust3Dmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "all_dmgInc": 1800,
+        "electro_enemyRes_": -75,
+        "all_dmg_": 212.75
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "skill",
+        "thrust3Dmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "all_dmgInc": 1800,
+        "electro_enemyRes_": -75,
+        "all_dmg_": 212.75
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "skill",
+        "thrust3Dmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "all_dmgInc": 1800,
+        "electro_enemyRes_": -75,
+        "all_dmg_": 212.75
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.5014,
+      "path": [
+        "skill",
+        "piercingDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "all_dmgInc": 1800,
+        "electro_enemyRes_": -75,
+        "all_dmg_": 213.35
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.5,
+      "path": [
+        "constellation1",
+        "dmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "all_dmgInc": 1800,
+        "electro_enemyRes_": -75,
+        "all_dmg_": 212.15
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.5,
+      "path": [
+        "constellation1",
+        "dmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "all_dmgInc": 1800,
+        "electro_enemyRes_": -75,
+        "all_dmg_": 213.35
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.5,
+      "path": [
+        "constellation1",
+        "dmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "all_dmgInc": 1800,
+        "electro_enemyRes_": -75,
+        "all_dmg_": 212.15
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.5,
+      "path": [
+        "constellation1",
+        "dmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "all_dmgInc": 1800,
+        "electro_enemyRes_": -75,
+        "all_dmg_": 213.35
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.5014,
+      "path": [
+        "skill",
+        "piercingDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "all_dmgInc": 1800,
+        "electro_enemyRes_": -75,
+        "all_dmg_": 212
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.5014,
+      "path": [
+        "skill",
+        "piercingDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "all_dmgInc": 1800,
+        "electro_enemyRes_": -75,
+        "all_dmg_": 213.35
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.5014,
+      "path": [
+        "skill",
+        "piercingDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "all_dmgInc": 1800,
+        "electro_enemyRes_": -75,
+        "all_dmg_": 212
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.5014,
+      "path": [
+        "skill",
+        "piercingDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "all_dmgInc": 1800,
+        "electro_enemyRes_": -75,
+        "all_dmg_": 213.35
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.5014,
+      "path": [
+        "skill",
+        "piercingDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "all_dmgInc": 1800,
+        "electro_enemyRes_": -75,
+        "all_dmg_": 212
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "skill",
+        "thrust3Dmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "all_dmgInc": 1800,
+        "electro_enemyRes_": -75,
+        "all_dmg_": 212.6
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "skill",
+        "thrust3Dmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "all_dmgInc": 1800,
+        "electro_enemyRes_": -75,
+        "all_dmg_": 212.6
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "skill",
+        "thrust3Dmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "all_dmgInc": 1800,
+        "electro_enemyRes_": -75,
+        "all_dmg_": 212.6
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "burst",
+        "skillDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "all_dmgInc": 1800,
+        "electro_enemyRes_": -75,
+        "all_dmg_": 200.8
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "burst",
+        "skillDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "all_dmgInc": 1800,
+        "electro_enemyRes_": -75,
+        "all_dmg_": 200.8
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "burst",
+        "skillDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "all_dmgInc": 1800,
+        "electro_enemyRes_": -75,
+        "all_dmg_": 200.8
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "burst",
+        "skillDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "all_dmgInc": 1800,
+        "electro_enemyRes_": -75,
+        "all_dmg_": 200.8
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "burst",
+        "skillDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "all_dmgInc": 1800,
+        "electro_enemyRes_": -75,
+        "all_dmg_": 200.8
+      },
+      "description": ""
+    }
+  ]
+}

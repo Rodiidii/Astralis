@@ -1,0 +1,114 @@
+{
+  "category": {
+    "id": "noelle-premium-plunge",
+    "name": "Premium Plunge",
+    "kind": "normal"
+  },
+  "child": {
+    "constellation": 6,
+    "characterLevel": 90,
+    "talents": {
+      "burst": 13,
+      "skill": 13,
+      "normal": 10
+    },
+    "baseTalents": {
+      "burst": 10,
+      "skill": 10,
+      "normal": 10
+    },
+    "weaponId": 12510,
+    "refinement": 1
+  },
+  "reference": {
+    "source": "ceilingStandard"
+  },
+  "goConditions": {
+    "Noelle": {
+      "SweepingTime": "on"
+    }
+  },
+  "characterBonusStats": {
+    "atk_": 20
+  },
+  "enemy": {
+    "level": 100,
+    "res": 0.1
+  },
+  "issues": [
+    {
+      "code": "skippedLines",
+      "reason": "manual",
+      "lines": 1,
+      "share": 0.022464310207654527
+    },
+    {
+      "code": "characterBonusStats",
+      "stats": [
+        {
+          "buff": "Tenacity of the Millelith 4pc ATK",
+          "key": "atk_",
+          "value": 20
+        }
+      ]
+    },
+    {
+      "code": "goSwitch",
+      "switches": [
+        {
+          "condition": [
+            "Noelle",
+            "SweepingTime",
+            "on"
+          ],
+          "source": {
+            "type": "character"
+          },
+          "buffs": [
+            "Sweeping Time"
+          ]
+        }
+      ]
+    },
+    {
+      "code": "setEffects",
+      "setIds": [
+        15031,
+        15007
+      ]
+    }
+  ],
+  "teamIssues": [
+    {
+      "code": "skippedLines",
+      "reason": "manual",
+      "lines": 1,
+      "share": 0.022464310207654527
+    },
+    {
+      "code": "goSwitch",
+      "switches": [
+        {
+          "condition": [
+            "Noelle",
+            "SweepingTime",
+            "on"
+          ],
+          "source": {
+            "type": "character"
+          },
+          "buffs": [
+            "Sweeping Time"
+          ]
+        }
+      ]
+    },
+    {
+      "code": "setEffects",
+      "setIds": [
+        15031,
+        15007
+      ]
+    }
+  ]
+}

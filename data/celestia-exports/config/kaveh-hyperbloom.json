@@ -1,0 +1,462 @@
+{
+  "name": "Hyperbloom",
+  "description": "Celestia",
+  "targets": [
+    {
+      "weight": 1,
+      "path": [
+        "skill",
+        "dmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "dendro_enemyRes_": -30
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "burst",
+        "dmg"
+      ],
+      "hitMode": "avgHit",
+      "reaction": "spread",
+      "bonusStats": {
+        "dendro_enemyRes_": -30
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.8586,
+      "path": [
+        "normal",
+        "0"
+      ],
+      "hitMode": "avgHit",
+      "reaction": "spread",
+      "infusionAura": "dendro",
+      "bonusStats": {
+        "dendro_enemyRes_": -30
+      },
+      "description": ""
+    },
+    {
+      "weight": 1.0183,
+      "path": [
+        "constellation6",
+        "dmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "dendro_enemyRes_": -30
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "normal",
+        "1"
+      ],
+      "hitMode": "avgHit",
+      "infusionAura": "dendro",
+      "bonusStats": {
+        "eleMas": 25,
+        "dendro_enemyRes_": -30
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "normal",
+        "2"
+      ],
+      "hitMode": "avgHit",
+      "infusionAura": "dendro",
+      "bonusStats": {
+        "eleMas": 50,
+        "dendro_enemyRes_": -30
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "normal",
+        "3"
+      ],
+      "hitMode": "avgHit",
+      "infusionAura": "dendro",
+      "bonusStats": {
+        "eleMas": 75,
+        "dendro_enemyRes_": -30
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.8586,
+      "path": [
+        "normal",
+        "0"
+      ],
+      "hitMode": "avgHit",
+      "reaction": "spread",
+      "infusionAura": "dendro",
+      "bonusStats": {
+        "eleMas": 100,
+        "dendro_enemyRes_": -30
+      },
+      "description": ""
+    },
+    {
+      "weight": 1.0183,
+      "path": [
+        "constellation6",
+        "dmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "eleMas": 100,
+        "dendro_enemyRes_": -30
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "normal",
+        "1"
+      ],
+      "hitMode": "avgHit",
+      "infusionAura": "dendro",
+      "bonusStats": {
+        "eleMas": 100,
+        "dendro_enemyRes_": -30
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "normal",
+        "2"
+      ],
+      "hitMode": "avgHit",
+      "infusionAura": "dendro",
+      "bonusStats": {
+        "eleMas": 100,
+        "dendro_enemyRes_": -30
+      },
+      "description": ""
+    },
+    {
+      "weight": 1.328,
+      "path": [
+        "normal",
+        "0"
+      ],
+      "hitMode": "avgHit",
+      "infusionAura": "dendro",
+      "bonusStats": {
+        "eleMas": 100,
+        "dendro_enemyRes_": -30
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "normal",
+        "1"
+      ],
+      "hitMode": "avgHit",
+      "reaction": "spread",
+      "infusionAura": "dendro",
+      "bonusStats": {
+        "eleMas": 100,
+        "dendro_enemyRes_": -30
+      },
+      "description": ""
+    },
+    {
+      "weight": 1.0183,
+      "path": [
+        "constellation6",
+        "dmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "eleMas": 100,
+        "dendro_enemyRes_": -30
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "normal",
+        "2"
+      ],
+      "hitMode": "avgHit",
+      "infusionAura": "dendro",
+      "bonusStats": {
+        "eleMas": 100,
+        "dendro_enemyRes_": -30
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "normal",
+        "3"
+      ],
+      "hitMode": "avgHit",
+      "infusionAura": "dendro",
+      "bonusStats": {
+        "eleMas": 100,
+        "dendro_enemyRes_": -30
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "skill",
+        "dmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "eleMas": 100,
+        "dendro_enemyRes_": -30
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.672,
+      "path": [
+        "normal",
+        "0"
+      ],
+      "hitMode": "avgHit",
+      "infusionAura": "dendro",
+      "bonusStats": {
+        "eleMas": 100,
+        "dendro_enemyRes_": -30
+      },
+      "description": ""
+    },
+    {
+      "weight": 1.0183,
+      "path": [
+        "constellation6",
+        "dmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "eleMas": 100,
+        "dendro_enemyRes_": -30
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "normal",
+        "1"
+      ],
+      "hitMode": "avgHit",
+      "infusionAura": "dendro",
+      "bonusStats": {
+        "eleMas": 100,
+        "dendro_enemyRes_": -30
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "normal",
+        "2"
+      ],
+      "hitMode": "avgHit",
+      "infusionAura": "dendro",
+      "bonusStats": {
+        "eleMas": 100,
+        "dendro_enemyRes_": -30
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "normal",
+        "3"
+      ],
+      "hitMode": "avgHit",
+      "infusionAura": "dendro",
+      "bonusStats": {
+        "eleMas": 100,
+        "dendro_enemyRes_": -30
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.8586,
+      "path": [
+        "normal",
+        "0"
+      ],
+      "hitMode": "avgHit",
+      "reaction": "spread",
+      "infusionAura": "dendro",
+      "bonusStats": {
+        "eleMas": 100,
+        "dendro_enemyRes_": -30
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.9267,
+      "path": [
+        "constellation6",
+        "dmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "eleMas": 100,
+        "dendro_enemyRes_": -30
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.4242,
+      "path": [
+        "normal",
+        "0"
+      ],
+      "hitMode": "avgHit",
+      "reaction": "spread",
+      "infusionAura": "dendro",
+      "bonusStats": {
+        "eleMas": 100,
+        "dendro_enemyRes_": -30
+      },
+      "description": ""
+    },
+    {
+      "weight": 1.0065,
+      "path": [
+        "reaction",
+        "bloom"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "dendro_enemyRes_": -30
+      },
+      "description": ""
+    },
+    {
+      "weight": 1.3095,
+      "path": [
+        "reaction",
+        "bloom"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "dendro_enemyRes_": -30
+      },
+      "description": ""
+    },
+    {
+      "weight": 1.5584,
+      "path": [
+        "reaction",
+        "bloom"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "eleMas": 100,
+        "dendro_enemyRes_": -30
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.3788,
+      "path": [
+        "reaction",
+        "bloom"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "eleMas": 100,
+        "dendro_enemyRes_": -30
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.5087,
+      "path": [
+        "reaction",
+        "bloom"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "eleMas": 100,
+        "dendro_enemyRes_": -30
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.2056,
+      "path": [
+        "reaction",
+        "bloom"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "dendro_enemyRes_": -30
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.0108,
+      "path": [
+        "reaction",
+        "bloom"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "dendro_enemyRes_": -30
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.0108,
+      "path": [
+        "reaction",
+        "bloom"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "dendro_enemyRes_": -30
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.0108,
+      "path": [
+        "reaction",
+        "bloom"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "eleMas": 100,
+        "dendro_enemyRes_": -30
+      },
+      "description": ""
+    }
+  ]
+}

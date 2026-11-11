@@ -1,0 +1,298 @@
+{
+  "name": "Citlali Melt",
+  "description": "Celestia",
+  "targets": [
+    {
+      "weight": 0.25,
+      "path": [
+        "passive2",
+        "pyro"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 24,
+        "pyro_enemyRes_": -35,
+        "all_dmg_": 128,
+        "critRate_": -40
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.25,
+      "path": [
+        "passive2",
+        "cryo"
+      ],
+      "hitMode": "avgHit",
+      "reaction": "melt",
+      "bonusStats": {
+        "atk_": 24,
+        "all_dmg_": 88,
+        "critRate_": -40
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.5,
+      "path": [
+        "passive2",
+        "pyro"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk": 300,
+        "atk_": 24,
+        "pyro_enemyRes_": -35,
+        "all_dmg_": 128
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.5,
+      "path": [
+        "passive2",
+        "cryo"
+      ],
+      "hitMode": "avgHit",
+      "reaction": "melt",
+      "bonusStats": {
+        "atk": 300,
+        "atk_": 24,
+        "all_dmg_": 88
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "skill",
+        "activationDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 24,
+        "anemo_enemyRes_": -35,
+        "all_dmg_": 40
+      },
+      "description": ""
+    },
+    {
+      "weight": 2.25,
+      "path": [
+        "skill",
+        "shellDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 24,
+        "anemo_enemyRes_": -35,
+        "all_dmg_": 88
+      },
+      "description": ""
+    },
+    {
+      "weight": 9.25,
+      "path": [
+        "skill",
+        "shellDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk": 300,
+        "atk_": 24,
+        "anemo_enemyRes_": -35,
+        "all_dmg_": 88
+      },
+      "description": ""
+    },
+    {
+      "weight": 2.25,
+      "path": [
+        "skill",
+        "shiningShellDmg_pyro"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 24,
+        "all_dmg_": 163,
+        "pyro_enemyRes_": -35
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.25,
+      "path": [
+        "skill",
+        "shiningShellDmg_pyro"
+      ],
+      "hitMode": "avgHit",
+      "reaction": "melt",
+      "bonusStats": {
+        "atk_": 24,
+        "all_dmg_": 163,
+        "pyro_enemyRes_": -35
+      },
+      "description": ""
+    },
+    {
+      "weight": 9,
+      "path": [
+        "skill",
+        "shiningShellDmg_pyro"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk": 300,
+        "atk_": 24,
+        "all_dmg_": 163,
+        "pyro_enemyRes_": -35
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.5,
+      "path": [
+        "skill",
+        "shiningShellDmg_pyro"
+      ],
+      "hitMode": "avgHit",
+      "reaction": "melt",
+      "bonusStats": {
+        "atk": 300,
+        "atk_": 24,
+        "all_dmg_": 163,
+        "pyro_enemyRes_": -35
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.75,
+      "path": [
+        "skill",
+        "shiningShellDmg_cryo"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 24,
+        "all_dmg_": 123
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.5,
+      "path": [
+        "skill",
+        "shiningShellDmg_cryo"
+      ],
+      "hitMode": "avgHit",
+      "reaction": "melt",
+      "bonusStats": {
+        "atk_": 24,
+        "all_dmg_": 123
+      },
+      "description": ""
+    },
+    {
+      "weight": 3,
+      "path": [
+        "skill",
+        "shiningShellDmg_cryo"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk": 300,
+        "atk_": 24,
+        "all_dmg_": 123
+      },
+      "description": ""
+    },
+    {
+      "weight": 2.5,
+      "path": [
+        "skill",
+        "shiningShellDmg_cryo"
+      ],
+      "hitMode": "avgHit",
+      "reaction": "melt",
+      "bonusStats": {
+        "atk": 300,
+        "atk_": 24,
+        "all_dmg_": 123
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.5,
+      "path": [
+        "burst",
+        "galeSplittingDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk": 300,
+        "atk_": 24,
+        "anemo_enemyRes_": -35,
+        "all_dmg_": 64
+      },
+      "description": ""
+    },
+    {
+      "weight": 2,
+      "path": [
+        "burst",
+        "radiantDmg_pyro"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk": 300,
+        "atk_": 24,
+        "pyro_enemyRes_": -35,
+        "all_dmg_": 104
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.25,
+      "path": [
+        "burst",
+        "radiantDmg_cryo"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk": 300,
+        "atk_": 24,
+        "all_dmg_": 64
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.75,
+      "path": [
+        "burst",
+        "radiantDmg_cryo"
+      ],
+      "hitMode": "avgHit",
+      "reaction": "melt",
+      "bonusStats": {
+        "atk": 300,
+        "atk_": 24,
+        "all_dmg_": 64
+      },
+      "description": ""
+    },
+    {
+      "weight": 7,
+      "path": [
+        "reaction",
+        "pyroSwirl"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk": 300,
+        "atk_": 24,
+        "pyro_enemyRes_": -35
+      },
+      "description": ""
+    }
+  ]
+}

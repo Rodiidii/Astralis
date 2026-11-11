@@ -1,0 +1,216 @@
+{
+  "category": {
+    "id": "hu-tao-nuke",
+    "name": "Nuke",
+    "kind": "nuke"
+  },
+  "child": {
+    "constellation": 0,
+    "characterLevel": 90,
+    "talents": {
+      "burst": 10,
+      "skill": 10,
+      "normal": 10
+    },
+    "baseTalents": {
+      "burst": 10,
+      "skill": 10,
+      "normal": 10
+    },
+    "weaponId": 13501,
+    "refinement": 1
+  },
+  "reference": {
+    "source": "ceilingStandard"
+  },
+  "goConditions": {
+    "HuTao": {
+      "GuideToAfterlifeVoyage": "on",
+      "SanguineRouge": "on"
+    },
+    "StaffOfHoma": {
+      "RecklessCinnabar": "on"
+    }
+  },
+  "characterBonusStats": {
+    "atk": 1680,
+    "eleMas": 749.763,
+    "hp_": 30,
+    "atk_": 25
+  },
+  "enemy": {
+    "level": 90,
+    "res": -1.4
+  },
+  "issues": [
+    {
+      "code": "characterBonusStats",
+      "stats": [
+        {
+          "buff": "Methexis",
+          "key": "atk",
+          "value": 300
+        },
+        {
+          "buff": "Instructor 4pc EM",
+          "key": "eleMas",
+          "value": 120
+        },
+        {
+          "buff": "\"I Will Guide You and Show You the Path You Should Tread\"",
+          "key": "atk",
+          "value": 300
+        },
+        {
+          "buff": "Heart Devourer's Travail",
+          "key": "eleMas",
+          "value": 250
+        },
+        {
+          "buff": "Furina Speciality Dish HP%",
+          "key": "hp_",
+          "value": 30
+        },
+        {
+          "buff": "Gilded Hall ATK",
+          "key": "atk",
+          "value": 372
+        },
+        {
+          "buff": "Pyro Resonance",
+          "key": "atk_",
+          "value": 25
+        },
+        {
+          "buff": "Sunken Song of the Sands",
+          "key": "eleMas",
+          "value": 379.7634063766272
+        },
+        {
+          "buff": "Grace of Kenosis (% of Nicole's ATK)",
+          "key": "atk",
+          "value": 708
+        }
+      ]
+    },
+    {
+      "code": "goSwitch",
+      "switches": [
+        {
+          "condition": [
+            "HuTao",
+            "GuideToAfterlifeVoyage",
+            "on"
+          ],
+          "source": {
+            "type": "character"
+          },
+          "buffs": [
+            "Guide to Afterlife"
+          ]
+        },
+        {
+          "condition": [
+            "StaffOfHoma",
+            "RecklessCinnabar",
+            "on"
+          ],
+          "source": {
+            "type": "weapon",
+            "weaponId": 13501
+          },
+          "buffs": [
+            "Reckless Cinnabar"
+          ]
+        },
+        {
+          "condition": [
+            "HuTao",
+            "SanguineRouge",
+            "on"
+          ],
+          "source": {
+            "type": "character"
+          },
+          "buffs": [
+            "Sanguine Rouge"
+          ]
+        }
+      ]
+    },
+    {
+      "code": "setEffects",
+      "setIds": [
+        15006
+      ]
+    }
+  ],
+  "teamIssues": [
+    {
+      "code": "characterBonusStats",
+      "stats": [
+        {
+          "buff": "Furina Speciality Dish HP%",
+          "key": "hp_",
+          "value": 30
+        },
+        {
+          "buff": "Gilded Hall ATK",
+          "key": "atk",
+          "value": 372
+        }
+      ]
+    },
+    {
+      "code": "goSwitch",
+      "switches": [
+        {
+          "condition": [
+            "HuTao",
+            "GuideToAfterlifeVoyage",
+            "on"
+          ],
+          "source": {
+            "type": "character"
+          },
+          "buffs": [
+            "Guide to Afterlife"
+          ]
+        },
+        {
+          "condition": [
+            "StaffOfHoma",
+            "RecklessCinnabar",
+            "on"
+          ],
+          "source": {
+            "type": "weapon",
+            "weaponId": 13501
+          },
+          "buffs": [
+            "Reckless Cinnabar"
+          ]
+        },
+        {
+          "condition": [
+            "HuTao",
+            "SanguineRouge",
+            "on"
+          ],
+          "source": {
+            "type": "character"
+          },
+          "buffs": [
+            "Sanguine Rouge"
+          ]
+        }
+      ]
+    },
+    {
+      "code": "setEffects",
+      "setIds": [
+        15006
+      ]
+    }
+  ]
+}

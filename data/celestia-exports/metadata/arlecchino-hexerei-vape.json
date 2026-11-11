@@ -1,0 +1,187 @@
+{
+  "category": {
+    "id": "arlecchino-hexerei-vape",
+    "name": "Hexerei Vape",
+    "kind": "normal"
+  },
+  "child": {
+    "constellation": 0,
+    "characterLevel": 90,
+    "talents": {
+      "burst": 10,
+      "skill": 10,
+      "normal": 10
+    },
+    "baseTalents": {
+      "burst": 10,
+      "skill": 10,
+      "normal": 10
+    },
+    "weaponId": 13512,
+    "refinement": 1
+  },
+  "reference": {
+    "source": "ceilingStandard"
+  },
+  "goConditions": {
+    "Arlecchino": {
+      "bondPercent": "120"
+    },
+    "CrimsonMoonsSemblance": {
+      "bond": "2"
+    }
+  },
+  "characterBonusStats": {
+    "atk_": 25,
+    "atk": 575.996
+  },
+  "enemy": {
+    "level": 100,
+    "res": 0.1
+  },
+  "issues": [
+    {
+      "code": "skippedLines",
+      "reason": "teammate",
+      "lines": 1,
+      "share": 0.050119653771905026
+    },
+    {
+      "code": "characterBonusStats",
+      "stats": [
+        {
+          "buff": "Pyro Resonance",
+          "key": "atk_",
+          "value": 25
+        },
+        {
+          "buff": "Grace of Kenosis (% of Nicole's ATK)",
+          "key": "atk",
+          "value": 575.9957275621549
+        }
+      ]
+    },
+    {
+      "code": "selfScaling",
+      "buffs": [
+        "Masque of the Red Death — extra Normal Attack DMG"
+      ]
+    },
+    {
+      "code": "goSwitch",
+      "switches": [
+        {
+          "condition": [
+            "Arlecchino",
+            "bondPercent",
+            "30"
+          ],
+          "source": {
+            "type": "character"
+          },
+          "buffs": [
+            "The Balemoon Alone May Know"
+          ]
+        },
+        {
+          "condition": [
+            "CrimsonMoonsSemblance",
+            "bond",
+            "2"
+          ],
+          "source": {
+            "type": "weapon",
+            "weaponId": 13512
+          },
+          "buffs": [
+            "Ashen Sun's Shadow"
+          ]
+        },
+        {
+          "condition": [
+            "Arlecchino",
+            "bondPercent",
+            "120"
+          ],
+          "source": {
+            "type": "character"
+          },
+          "buffs": [
+            "Bond of Life"
+          ]
+        }
+      ]
+    },
+    {
+      "code": "setEffects",
+      "setIds": [
+        15035
+      ]
+    }
+  ],
+  "teamIssues": [
+    {
+      "code": "skippedLines",
+      "reason": "teammate",
+      "lines": 1,
+      "share": 0.050119653771905026
+    },
+    {
+      "code": "selfScaling",
+      "buffs": [
+        "Masque of the Red Death — extra Normal Attack DMG"
+      ]
+    },
+    {
+      "code": "goSwitch",
+      "switches": [
+        {
+          "condition": [
+            "Arlecchino",
+            "bondPercent",
+            "30"
+          ],
+          "source": {
+            "type": "character"
+          },
+          "buffs": [
+            "The Balemoon Alone May Know"
+          ]
+        },
+        {
+          "condition": [
+            "CrimsonMoonsSemblance",
+            "bond",
+            "2"
+          ],
+          "source": {
+            "type": "weapon",
+            "weaponId": 13512
+          },
+          "buffs": [
+            "Ashen Sun's Shadow"
+          ]
+        },
+        {
+          "condition": [
+            "Arlecchino",
+            "bondPercent",
+            "120"
+          ],
+          "source": {
+            "type": "character"
+          },
+          "buffs": [
+            "Bond of Life"
+          ]
+        }
+      ]
+    },
+    {
+      "code": "setEffects",
+      "setIds": [
+        15035
+      ]
+    }
+  ]
+}

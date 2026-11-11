@@ -1,0 +1,93 @@
+{
+  "category": {
+    "id": "varesa-overload",
+    "name": "Chevreuse Overload",
+    "kind": "normal"
+  },
+  "child": {
+    "constellation": 0,
+    "characterLevel": 90,
+    "talents": {
+      "burst": 10,
+      "skill": 10,
+      "normal": 10
+    },
+    "baseTalents": {
+      "burst": 10,
+      "skill": 10,
+      "normal": 10
+    },
+    "weaponId": 14519,
+    "refinement": 1
+  },
+  "reference": {
+    "source": "ceilingStandard"
+  },
+  "goConditions": null,
+  "characterBonusStats": {
+    "atk_": 112.541,
+    "atk": 690
+  },
+  "enemy": {
+    "level": 100,
+    "res": 0.1
+  },
+  "issues": [
+    {
+      "code": "characterBonusStats",
+      "stats": [
+        {
+          "buff": "Laziness is the Enemy!",
+          "key": "atk_",
+          "value": 30
+        },
+        {
+          "buff": "Noblesse Oblige 4pc",
+          "key": "atk_",
+          "value": 20
+        },
+        {
+          "buff": "Pyro Resonance",
+          "key": "atk_",
+          "value": 25
+        },
+        {
+          "buff": "The Three Principles of Power",
+          "key": "atk",
+          "value": 690
+        },
+        {
+          "buff": "Chevreuse A4 ATK (Pyro/Electro)",
+          "key": "atk_",
+          "value": 37.54054972703511
+        }
+      ]
+    },
+    {
+      "code": "selfScaling",
+      "buffs": [
+        "Tag-Team Triple Jump!"
+      ]
+    },
+    {
+      "code": "setEffects",
+      "setIds": [
+        15039
+      ]
+    }
+  ],
+  "teamIssues": [
+    {
+      "code": "selfScaling",
+      "buffs": [
+        "Tag-Team Triple Jump!"
+      ]
+    },
+    {
+      "code": "setEffects",
+      "setIds": [
+        15039
+      ]
+    }
+  ]
+}

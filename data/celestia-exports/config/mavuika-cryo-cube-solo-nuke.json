@@ -1,0 +1,19 @@
+{
+  "name": "Cryo Cube Solo Nuke",
+  "description": "Celestia",
+  "targets": [
+    {
+      "weight": 1,
+      "path": [
+        "burst",
+        "skillDmg"
+      ],
+      "hitMode": "critHit",
+      "reaction": "melt",
+      "bonusStats": {
+        "all_dmg_": 100
+      },
+      "description": ""
+    }
+  ]
+}

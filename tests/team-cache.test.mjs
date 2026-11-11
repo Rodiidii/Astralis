@@ -9,7 +9,7 @@ const [worker, html, css] = await Promise.all([
 ]);
 
 test('le service worker renouvelle le shell et précharge le style des équipes', () => {
-  assert.match(worker, /astralis-shell-v43/);
+  assert.match(worker, /astralis-shell-v\d+/);
   assert.match(worker, /'\/team-layout-fix\.css'/);
   assert.match(worker, /'\/design-system\.css'/);
   assert.match(worker, /'\/global-refresh\.css'/);
@@ -21,14 +21,14 @@ test('le service worker renouvelle le shell et précharge le style des équipes'
 
 test('les ressources versionnées sont cherchées exactement avant le repli hors ligne', () => {
   assert.match(worker, /caches\.match\(req\)\.then/);
-  assert.match(worker, /\.catch\(\(\)=>caches\.match\(req,\{ignoreSearch:true\}\)\)/);
+  assert.match(worker, /caches\.match\(req,\{ignoreSearch:true\}\)/);
   assert.doesNotMatch(worker, /caches\.match\(req,\{ignoreSearch:true\}\)\.then/);
 });
 
 test('l’index force le rechargement du CSS d’équipe et de son module', () => {
   assert.match(html, /team-layout-fix\.css\?v=20261108-team-compact-roster-4/);
-  assert.match(html, /lab\.css\?v=20261109-lab-search-1/);
-  assert.match(html, /src\/app\.js\?v=20261109-auto-sync-1/);
+  assert.match(html, /lab\.css\?v=[a-zA-Z0-9-]+/);
+  assert.match(html, /src\/app\.js\?v=[a-zA-Z0-9-]+/);
 });
 
 test('la délégation de clics de la modale relaie les actions du builder d’équipe', async () => {

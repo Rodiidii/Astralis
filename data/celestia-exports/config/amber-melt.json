@@ -1,0 +1,101 @@
+{
+  "name": "Melt",
+  "description": "Celestia",
+  "targets": [
+    {
+      "weight": 1,
+      "path": [
+        "normal",
+        "0"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 30,
+        "eleMas": 200,
+        "critRate_": 27.75,
+        "physical_enemyRes_": -20,
+        "all_dmg_": 32
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "normal",
+        "1"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 30,
+        "eleMas": 200,
+        "critRate_": 27.75,
+        "physical_enemyRes_": -20,
+        "all_dmg_": 32
+      },
+      "description": ""
+    },
+    {
+      "weight": 2,
+      "path": [
+        "skill",
+        "dmg"
+      ],
+      "hitMode": "avgHit",
+      "reaction": "melt",
+      "bonusStats": {
+        "atk_": 30,
+        "eleMas": 200,
+        "critRate_": 27.75,
+        "all_dmg_": 247
+      },
+      "description": ""
+    },
+    {
+      "weight": 18,
+      "path": [
+        "burst",
+        "dmgPerWave"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 30,
+        "eleMas": 200,
+        "critRate_": 27.75,
+        "all_dmg_": 47
+      },
+      "description": ""
+    },
+    {
+      "weight": 5,
+      "path": [
+        "charged",
+        "aimedCharged"
+      ],
+      "hitMode": "avgHit",
+      "reaction": "melt",
+      "infusionAura": "pyro",
+      "bonusStats": {
+        "atk_": 30,
+        "eleMas": 200,
+        "critRate_": 27.75,
+        "all_dmg_": 47
+      },
+      "description": ""
+    },
+    {
+      "weight": 5,
+      "path": [
+        "constellation1",
+        "secondAimedCharged"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 30,
+        "eleMas": 200,
+        "critRate_": 27.75,
+        "all_dmg_": 47
+      },
+      "description": ""
+    }
+  ]
+}

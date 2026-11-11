@@ -1,0 +1,68 @@
+{
+  "category": {
+    "id": "wriothesley-c1-ssc-bis",
+    "name": "SSC C1",
+    "kind": "normal"
+  },
+  "child": {
+    "constellation": 1,
+    "characterLevel": 90,
+    "talents": {
+      "burst": 10,
+      "skill": 10,
+      "normal": 10
+    },
+    "baseTalents": {
+      "burst": 10,
+      "skill": 10,
+      "normal": 10
+    },
+    "weaponId": 14513,
+    "refinement": 1
+  },
+  "reference": {
+    "source": "ceilingStandard"
+  },
+  "goConditions": {
+    "reaction": {
+      "polestarStacks": "8"
+    },
+    "Wriothesley": {
+      "lockRevelation": "on",
+      "lockStellarRadianceSc": "on"
+    }
+  },
+  "characterBonusStats": {
+    "atk": 563.754
+  },
+  "enemy": {
+    "level": 100,
+    "res": 0.1
+  },
+  "issues": [
+    {
+      "code": "characterBonusStats",
+      "stats": [
+        {
+          "buff": "Grace of Kenosis (% of Nicole's ATK)",
+          "key": "atk",
+          "value": 563.7538086028549
+        }
+      ]
+    },
+    {
+      "code": "setEffects",
+      "setIds": [
+        15046
+      ]
+    }
+  ],
+  "teamIssues": [
+    {
+      "code": "setEffects",
+      "setIds": [
+        15046
+      ]
+    }
+  ]
+}

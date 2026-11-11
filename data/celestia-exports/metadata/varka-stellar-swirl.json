@@ -1,0 +1,98 @@
+{
+  "category": {
+    "id": "varka-stellar-swirl",
+    "name": "Stellar Swirl",
+    "kind": "normal"
+  },
+  "child": {
+    "constellation": 0,
+    "characterLevel": 90,
+    "talents": {
+      "burst": 10,
+      "skill": 10,
+      "normal": 10
+    },
+    "baseTalents": {
+      "burst": 10,
+      "skill": 10,
+      "normal": 10
+    },
+    "weaponId": 12515,
+    "refinement": 1
+  },
+  "reference": {
+    "source": "ceilingStandard"
+  },
+  "goConditions": {
+    "Varka": {
+      "a4Stacks": "4"
+    },
+    "GestOfTheMightyWolf": {
+      "stacks": "4"
+    }
+  },
+  "characterBonusStats": {
+    "atk_": 30,
+    "atk": 350
+  },
+  "enemy": {
+    "level": 100,
+    "res": 0.1
+  },
+  "issues": [
+    {
+      "code": "characterBonusStats",
+      "stats": [
+        {
+          "buff": "Hexerei: Secret Rite",
+          "key": "atk_",
+          "value": 30
+        },
+        {
+          "buff": "And That's the Story! Share It With Your Friends!",
+          "key": "atk",
+          "value": 350
+        }
+      ]
+    },
+    {
+      "code": "goSwitch",
+      "switches": [
+        {
+          "condition": [
+            "Varka",
+            "a4Stacks",
+            "4"
+          ],
+          "source": {
+            "type": "character"
+          },
+          "buffs": [
+            "Dawn Wind's March"
+          ]
+        },
+        {
+          "condition": [
+            "GestOfTheMightyWolf",
+            "stacks",
+            "4"
+          ],
+          "source": {
+            "type": "weapon",
+            "weaponId": 12515
+          },
+          "buffs": [
+            "Indomitable Chivalry"
+          ]
+        }
+      ]
+    },
+    {
+      "code": "setEffects",
+      "setIds": [
+        15044
+      ]
+    }
+  ],
+  "teamIssues": []
+}

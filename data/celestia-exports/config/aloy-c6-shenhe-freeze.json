@@ -1,0 +1,147 @@
+{
+  "name": "C6 Shenhe Freeze",
+  "description": "Celestia",
+  "targets": [
+    {
+      "weight": 1,
+      "path": [
+        "skill",
+        "freezeBombDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 56,
+        "all_dmgInc": 2750.541,
+        "all_dmg_": 90,
+        "critDMG_": 15,
+        "cryo_enemyRes_": -70,
+        "critRate_": 55
+      },
+      "description": ""
+    },
+    {
+      "weight": 4,
+      "path": [
+        "skill",
+        "chillWaterBomblets"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 56,
+        "all_dmgInc": 2750.541,
+        "all_dmg_": 90,
+        "critDMG_": 15,
+        "cryo_enemyRes_": -70,
+        "critRate_": 55
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "burst",
+        "dmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 56,
+        "all_dmgInc": 2750.541,
+        "all_dmg_": 90,
+        "critDMG_": 15,
+        "cryo_enemyRes_": -70,
+        "critRate_": 55
+      },
+      "description": ""
+    },
+    {
+      "weight": 5,
+      "path": [
+        "normal",
+        "0"
+      ],
+      "hitMode": "avgHit",
+      "infusionAura": "cryo",
+      "bonusStats": {
+        "atk_": 56,
+        "all_dmgInc": 2750.541,
+        "all_dmg_": 162.5,
+        "critDMG_": 15,
+        "cryo_enemyRes_": -70,
+        "critRate_": 55
+      },
+      "description": ""
+    },
+    {
+      "weight": 5,
+      "path": [
+        "normal",
+        "1"
+      ],
+      "hitMode": "avgHit",
+      "infusionAura": "cryo",
+      "bonusStats": {
+        "atk_": 56,
+        "all_dmgInc": 2750.541,
+        "all_dmg_": 162.5,
+        "critDMG_": 15,
+        "cryo_enemyRes_": -70,
+        "critRate_": 55
+      },
+      "description": ""
+    },
+    {
+      "weight": 4,
+      "path": [
+        "normal",
+        "2"
+      ],
+      "hitMode": "avgHit",
+      "infusionAura": "cryo",
+      "bonusStats": {
+        "atk_": 56,
+        "all_dmgInc": 2750.541,
+        "all_dmg_": 162.5,
+        "critDMG_": 15,
+        "cryo_enemyRes_": -70,
+        "critRate_": 55
+      },
+      "description": ""
+    },
+    {
+      "weight": 4,
+      "path": [
+        "normal",
+        "3"
+      ],
+      "hitMode": "avgHit",
+      "infusionAura": "cryo",
+      "bonusStats": {
+        "atk_": 56,
+        "all_dmgInc": 2750.541,
+        "all_dmg_": 162.5,
+        "critDMG_": 15,
+        "cryo_enemyRes_": -70,
+        "critRate_": 55
+      },
+      "description": ""
+    },
+    {
+      "weight": 4,
+      "path": [
+        "normal",
+        "4"
+      ],
+      "hitMode": "avgHit",
+      "infusionAura": "cryo",
+      "bonusStats": {
+        "atk_": 56,
+        "all_dmgInc": 2750.541,
+        "all_dmg_": 162.5,
+        "critDMG_": 15,
+        "cryo_enemyRes_": -70,
+        "critRate_": 55
+      },
+      "description": ""
+    }
+  ]
+}

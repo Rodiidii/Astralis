@@ -1,0 +1,130 @@
+{
+  "category": {
+    "id": "chasca-c6-hex-melt",
+    "name": "C6 Citlali Melt",
+    "kind": "normal"
+  },
+  "child": {
+    "constellation": 6,
+    "characterLevel": 90,
+    "talents": {
+      "burst": 13,
+      "skill": 13,
+      "normal": 10
+    },
+    "baseTalents": {
+      "burst": 10,
+      "skill": 10,
+      "normal": 10
+    },
+    "weaponId": 15514,
+    "refinement": 1
+  },
+  "reference": {
+    "source": "ceilingStandard"
+  },
+  "goConditions": {
+    "ObsidianCodex": {
+      "2NightsoulBlessing": "on",
+      "4NightsoulConsume": "on"
+    }
+  },
+  "characterBonusStats": {
+    "atk": 900,
+    "atk_": 25
+  },
+  "enemy": {
+    "level": 100,
+    "res": 0.1
+  },
+  "issues": [
+    {
+      "code": "characterBonusStats",
+      "stats": [
+        {
+          "buff": "\"I Will Guide You and Show You the Path You Should Tread\"",
+          "key": "atk",
+          "value": 300
+        },
+        {
+          "buff": "Pyro Resonance",
+          "key": "atk_",
+          "value": 25
+        },
+        {
+          "buff": "Grace of Kenosis (% of Nicole's ATK)",
+          "key": "atk",
+          "value": 600
+        }
+      ]
+    },
+    {
+      "code": "goSwitch",
+      "switches": [
+        {
+          "condition": [
+            "ObsidianCodex",
+            "2NightsoulBlessing",
+            "on"
+          ],
+          "source": {
+            "type": "set",
+            "setId": 15038
+          },
+          "buffs": [
+            "Obsidian Codex"
+          ]
+        },
+        {
+          "condition": [
+            "ObsidianCodex",
+            "4NightsoulConsume",
+            "on"
+          ],
+          "source": {
+            "type": "set",
+            "setId": 15038
+          },
+          "buffs": [
+            "Obsidian Codex"
+          ]
+        }
+      ]
+    }
+  ],
+  "teamIssues": [
+    {
+      "code": "goSwitch",
+      "switches": [
+        {
+          "condition": [
+            "ObsidianCodex",
+            "2NightsoulBlessing",
+            "on"
+          ],
+          "source": {
+            "type": "set",
+            "setId": 15038
+          },
+          "buffs": [
+            "Obsidian Codex"
+          ]
+        },
+        {
+          "condition": [
+            "ObsidianCodex",
+            "4NightsoulConsume",
+            "on"
+          ],
+          "source": {
+            "type": "set",
+            "setId": 15038
+          },
+          "buffs": [
+            "Obsidian Codex"
+          ]
+        }
+      ]
+    }
+  ]
+}

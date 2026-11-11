@@ -1,0 +1,837 @@
+{
+  "name": "Hyperbloom",
+  "description": "Celestia",
+  "lastEdit": 1794351131396,
+  "conditional": {
+    "resonance": {},
+    "reaction": {}
+  },
+  "enemyOverride": {
+    "enemyLevel": 100,
+    "enemyDefIgn_": 0,
+    "enemyDefRed_": 0,
+    "pyro_enemyRes_": 10,
+    "hydro_enemyRes_": 10,
+    "electro_enemyRes_": 10,
+    "cryo_enemyRes_": 10,
+    "anemo_enemyRes_": 10,
+    "geo_enemyRes_": 10,
+    "dendro_enemyRes_": 10,
+    "physical_enemyRes_": 10
+  },
+  "loadoutData": [
+    {
+      "key": "Kaveh",
+      "name": "Kaveh (Celestia)",
+      "description": "",
+      "hitMode": "avgHit",
+      "infusionAura": "dendro",
+      "bonusStats": {},
+      "conditional": {
+        "Kaveh": {
+          "afterBurst": "on"
+        }
+      },
+      "customMultiTargets": [
+        {
+          "name": "Hyperbloom",
+          "description": "Celestia",
+          "targets": [
+            {
+              "weight": 1,
+              "path": [
+                "skill",
+                "dmg"
+              ],
+              "hitMode": "avgHit",
+              "bonusStats": {
+                "dendro_enemyRes_": -30
+              },
+              "description": ""
+            },
+            {
+              "weight": 1,
+              "path": [
+                "burst",
+                "dmg"
+              ],
+              "hitMode": "avgHit",
+              "reaction": "spread",
+              "bonusStats": {
+                "dendro_enemyRes_": -30
+              },
+              "description": ""
+            },
+            {
+              "weight": 0.8586,
+              "path": [
+                "normal",
+                "0"
+              ],
+              "hitMode": "avgHit",
+              "reaction": "spread",
+              "infusionAura": "dendro",
+              "bonusStats": {
+                "dendro_enemyRes_": -30
+              },
+              "description": ""
+            },
+            {
+              "weight": 1.0183,
+              "path": [
+                "constellation6",
+                "dmg"
+              ],
+              "hitMode": "avgHit",
+              "bonusStats": {
+                "dendro_enemyRes_": -30
+              },
+              "description": ""
+            },
+            {
+              "weight": 1,
+              "path": [
+                "normal",
+                "1"
+              ],
+              "hitMode": "avgHit",
+              "infusionAura": "dendro",
+              "bonusStats": {
+                "eleMas": 25,
+                "dendro_enemyRes_": -30
+              },
+              "description": ""
+            },
+            {
+              "weight": 1,
+              "path": [
+                "normal",
+                "2"
+              ],
+              "hitMode": "avgHit",
+              "infusionAura": "dendro",
+              "bonusStats": {
+                "eleMas": 50,
+                "dendro_enemyRes_": -30
+              },
+              "description": ""
+            },
+            {
+              "weight": 1,
+              "path": [
+                "normal",
+                "3"
+              ],
+              "hitMode": "avgHit",
+              "infusionAura": "dendro",
+              "bonusStats": {
+                "eleMas": 75,
+                "dendro_enemyRes_": -30
+              },
+              "description": ""
+            },
+            {
+              "weight": 0.8586,
+              "path": [
+                "normal",
+                "0"
+              ],
+              "hitMode": "avgHit",
+              "reaction": "spread",
+              "infusionAura": "dendro",
+              "bonusStats": {
+                "eleMas": 100,
+                "dendro_enemyRes_": -30
+              },
+              "description": ""
+            },
+            {
+              "weight": 1.0183,
+              "path": [
+                "constellation6",
+                "dmg"
+              ],
+              "hitMode": "avgHit",
+              "bonusStats": {
+                "eleMas": 100,
+                "dendro_enemyRes_": -30
+              },
+              "description": ""
+            },
+            {
+              "weight": 1,
+              "path": [
+                "normal",
+                "1"
+              ],
+              "hitMode": "avgHit",
+              "infusionAura": "dendro",
+              "bonusStats": {
+                "eleMas": 100,
+                "dendro_enemyRes_": -30
+              },
+              "description": ""
+            },
+            {
+              "weight": 1,
+              "path": [
+                "normal",
+                "2"
+              ],
+              "hitMode": "avgHit",
+              "infusionAura": "dendro",
+              "bonusStats": {
+                "eleMas": 100,
+                "dendro_enemyRes_": -30
+              },
+              "description": ""
+            },
+            {
+              "weight": 1.328,
+              "path": [
+                "normal",
+                "0"
+              ],
+              "hitMode": "avgHit",
+              "infusionAura": "dendro",
+              "bonusStats": {
+                "eleMas": 100,
+                "dendro_enemyRes_": -30
+              },
+              "description": ""
+            },
+            {
+              "weight": 1,
+              "path": [
+                "normal",
+                "1"
+              ],
+              "hitMode": "avgHit",
+              "reaction": "spread",
+              "infusionAura": "dendro",
+              "bonusStats": {
+                "eleMas": 100,
+                "dendro_enemyRes_": -30
+              },
+              "description": ""
+            },
+            {
+              "weight": 1.0183,
+              "path": [
+                "constellation6",
+                "dmg"
+              ],
+              "hitMode": "avgHit",
+              "bonusStats": {
+                "eleMas": 100,
+                "dendro_enemyRes_": -30
+              },
+              "description": ""
+            },
+            {
+              "weight": 1,
+              "path": [
+                "normal",
+                "2"
+              ],
+              "hitMode": "avgHit",
+              "infusionAura": "dendro",
+              "bonusStats": {
+                "eleMas": 100,
+                "dendro_enemyRes_": -30
+              },
+              "description": ""
+            },
+            {
+              "weight": 1,
+              "path": [
+                "normal",
+                "3"
+              ],
+              "hitMode": "avgHit",
+              "infusionAura": "dendro",
+              "bonusStats": {
+                "eleMas": 100,
+                "dendro_enemyRes_": -30
+              },
+              "description": ""
+            },
+            {
+              "weight": 1,
+              "path": [
+                "skill",
+                "dmg"
+              ],
+              "hitMode": "avgHit",
+              "bonusStats": {
+                "eleMas": 100,
+                "dendro_enemyRes_": -30
+              },
+              "description": ""
+            },
+            {
+              "weight": 0.672,
+              "path": [
+                "normal",
+                "0"
+              ],
+              "hitMode": "avgHit",
+              "infusionAura": "dendro",
+              "bonusStats": {
+                "eleMas": 100,
+                "dendro_enemyRes_": -30
+              },
+              "description": ""
+            },
+            {
+              "weight": 1.0183,
+              "path": [
+                "constellation6",
+                "dmg"
+              ],
+              "hitMode": "avgHit",
+              "bonusStats": {
+                "eleMas": 100,
+                "dendro_enemyRes_": -30
+              },
+              "description": ""
+            },
+            {
+              "weight": 1,
+              "path": [
+                "normal",
+                "1"
+              ],
+              "hitMode": "avgHit",
+              "infusionAura": "dendro",
+              "bonusStats": {
+                "eleMas": 100,
+                "dendro_enemyRes_": -30
+              },
+              "description": ""
+            },
+            {
+              "weight": 1,
+              "path": [
+                "normal",
+                "2"
+              ],
+              "hitMode": "avgHit",
+              "infusionAura": "dendro",
+              "bonusStats": {
+                "eleMas": 100,
+                "dendro_enemyRes_": -30
+              },
+              "description": ""
+            },
+            {
+              "weight": 1,
+              "path": [
+                "normal",
+                "3"
+              ],
+              "hitMode": "avgHit",
+              "infusionAura": "dendro",
+              "bonusStats": {
+                "eleMas": 100,
+                "dendro_enemyRes_": -30
+              },
+              "description": ""
+            },
+            {
+              "weight": 0.8586,
+              "path": [
+                "normal",
+                "0"
+              ],
+              "hitMode": "avgHit",
+              "reaction": "spread",
+              "infusionAura": "dendro",
+              "bonusStats": {
+                "eleMas": 100,
+                "dendro_enemyRes_": -30
+              },
+              "description": ""
+            },
+            {
+              "weight": 0.9267,
+              "path": [
+                "constellation6",
+                "dmg"
+              ],
+              "hitMode": "avgHit",
+              "bonusStats": {
+                "eleMas": 100,
+                "dendro_enemyRes_": -30
+              },
+              "description": ""
+            },
+            {
+              "weight": 0.4242,
+              "path": [
+                "normal",
+                "0"
+              ],
+              "hitMode": "avgHit",
+              "reaction": "spread",
+              "infusionAura": "dendro",
+              "bonusStats": {
+                "eleMas": 100,
+                "dendro_enemyRes_": -30
+              },
+              "description": ""
+            },
+            {
+              "weight": 1.0065,
+              "path": [
+                "reaction",
+                "bloom"
+              ],
+              "hitMode": "avgHit",
+              "bonusStats": {
+                "dendro_enemyRes_": -30
+              },
+              "description": ""
+            },
+            {
+              "weight": 1.3095,
+              "path": [
+                "reaction",
+                "bloom"
+              ],
+              "hitMode": "avgHit",
+              "bonusStats": {
+                "dendro_enemyRes_": -30
+              },
+              "description": ""
+            },
+            {
+              "weight": 1.5584,
+              "path": [
+                "reaction",
+                "bloom"
+              ],
+              "hitMode": "avgHit",
+              "bonusStats": {
+                "eleMas": 100,
+                "dendro_enemyRes_": -30
+              },
+              "description": ""
+            },
+            {
+              "weight": 0.3788,
+              "path": [
+                "reaction",
+                "bloom"
+              ],
+              "hitMode": "avgHit",
+              "bonusStats": {
+                "eleMas": 100,
+                "dendro_enemyRes_": -30
+              },
+              "description": ""
+            },
+            {
+              "weight": 0.5087,
+              "path": [
+                "reaction",
+                "bloom"
+              ],
+              "hitMode": "avgHit",
+              "bonusStats": {
+                "eleMas": 100,
+                "dendro_enemyRes_": -30
+              },
+              "description": ""
+            },
+            {
+              "weight": 0.2056,
+              "path": [
+                "reaction",
+                "bloom"
+              ],
+              "hitMode": "avgHit",
+              "bonusStats": {
+                "dendro_enemyRes_": -30
+              },
+              "description": ""
+            },
+            {
+              "weight": 0.0108,
+              "path": [
+                "reaction",
+                "bloom"
+              ],
+              "hitMode": "avgHit",
+              "bonusStats": {
+                "dendro_enemyRes_": -30
+              },
+              "description": ""
+            },
+            {
+              "weight": 0.0108,
+              "path": [
+                "reaction",
+                "bloom"
+              ],
+              "hitMode": "avgHit",
+              "bonusStats": {
+                "dendro_enemyRes_": -30
+              },
+              "description": ""
+            },
+            {
+              "weight": 0.0108,
+              "path": [
+                "reaction",
+                "bloom"
+              ],
+              "hitMode": "avgHit",
+              "bonusStats": {
+                "eleMas": 100,
+                "dendro_enemyRes_": -30
+              },
+              "description": ""
+            }
+          ]
+        }
+      ],
+      "optConfig": {
+        "optimizationTarget": [
+          "custom",
+          "0"
+        ]
+      },
+      "buildTcs": [
+        {
+          "name": "Celestia",
+          "description": "The leaderboard reference build.",
+          "characterKey": "Kaveh",
+          "character": {
+            "level": 90,
+            "ascension": 6,
+            "constellation": 6,
+            "talent": {
+              "auto": 10,
+              "skill": 10,
+              "burst": 10
+            }
+          },
+          "weapon": {
+            "key": "FavoniusGreatsword",
+            "level": 90,
+            "ascension": 6,
+            "refinement": 5
+          },
+          "artifact": {
+            "sets": {
+              "FlowerOfParadiseLost": 5
+            },
+            "slots": {
+              "flower": {
+                "level": 20,
+                "rarity": 5,
+                "statKey": "hp"
+              },
+              "plume": {
+                "level": 20,
+                "rarity": 5,
+                "statKey": "atk"
+              },
+              "sands": {
+                "level": 20,
+                "rarity": 5,
+                "statKey": "atk_"
+              },
+              "goblet": {
+                "level": 20,
+                "rarity": 5,
+                "statKey": "dendro_dmg_"
+              },
+              "circlet": {
+                "level": 20,
+                "rarity": 5,
+                "statKey": "critRate_"
+              }
+            },
+            "substats": {
+              "type": "max",
+              "rarity": 5,
+              "stats": {
+                "atk_": 9.91,
+                "def": 39.35,
+                "def_": 12.39,
+                "eleMas": 237.78,
+                "critRate_": 16.33,
+                "critDMG_": 59.83,
+                "hp": 507.88,
+                "hp_": 9.91,
+                "enerRech_": 11.01,
+                "atk": 33.07
+              }
+            }
+          },
+          "optimization": {
+            "distributedSubstats": 0,
+            "maxSubstats": {}
+          }
+        }
+      ]
+    },
+    {
+      "key": "KukiShinobu",
+      "name": "KukiShinobu (Celestia)",
+      "description": "",
+      "hitMode": "avgHit",
+      "infusionAura": "",
+      "bonusStats": {},
+      "conditional": {},
+      "customMultiTargets": [],
+      "buildTcs": [
+        {
+          "name": "Celestia",
+          "description": "Celestia teammate assumption (85% of the maximum).",
+          "characterKey": "KukiShinobu",
+          "character": {
+            "level": 90,
+            "ascension": 6,
+            "constellation": 6,
+            "talent": {
+              "auto": 10,
+              "skill": 10,
+              "burst": 10
+            }
+          },
+          "weapon": {
+            "key": "XiphosMoonlight",
+            "level": 90,
+            "ascension": 6,
+            "refinement": 5
+          },
+          "artifact": {
+            "sets": {
+              "FlowerOfParadiseLost": 4
+            },
+            "slots": {
+              "flower": {
+                "level": 20,
+                "rarity": 5,
+                "statKey": "hp"
+              },
+              "plume": {
+                "level": 20,
+                "rarity": 5,
+                "statKey": "atk"
+              },
+              "sands": {
+                "level": 20,
+                "rarity": 5,
+                "statKey": "eleMas"
+              },
+              "goblet": {
+                "level": 20,
+                "rarity": 5,
+                "statKey": "eleMas"
+              },
+              "circlet": {
+                "level": 20,
+                "rarity": 5,
+                "statKey": "eleMas"
+              }
+            },
+            "substats": {
+              "type": "max",
+              "rarity": 5,
+              "stats": {
+                "hp": 2539.4,
+                "atk": 33.08,
+                "def": 39.36,
+                "hp_": 9.92,
+                "atk_": 9.92,
+                "def_": 12.4,
+                "eleMas": 118.92,
+                "enerRech_": 11.02,
+                "critRate_": 19.86,
+                "critDMG_": 39.72
+              }
+            }
+          },
+          "optimization": {
+            "distributedSubstats": 0,
+            "maxSubstats": {}
+          }
+        }
+      ]
+    },
+    {
+      "key": "Xingqiu",
+      "name": "Xingqiu (Celestia)",
+      "description": "",
+      "hitMode": "avgHit",
+      "infusionAura": "",
+      "bonusStats": {},
+      "conditional": {},
+      "customMultiTargets": [],
+      "buildTcs": [
+        {
+          "name": "Celestia",
+          "description": "Celestia teammate assumption (85% of the maximum).",
+          "characterKey": "Xingqiu",
+          "character": {
+            "level": 90,
+            "ascension": 6,
+            "constellation": 6,
+            "talent": {
+              "auto": 10,
+              "skill": 10,
+              "burst": 10
+            }
+          },
+          "weapon": {
+            "key": "XiphosMoonlight",
+            "level": 90,
+            "ascension": 6,
+            "refinement": 5
+          },
+          "artifact": {
+            "sets": {
+              "DeepwoodMemories": 4
+            },
+            "slots": {
+              "flower": {
+                "level": 20,
+                "rarity": 5,
+                "statKey": "hp"
+              },
+              "plume": {
+                "level": 20,
+                "rarity": 5,
+                "statKey": "atk"
+              },
+              "sands": {
+                "level": 20,
+                "rarity": 5,
+                "statKey": "atk_"
+              },
+              "goblet": {
+                "level": 20,
+                "rarity": 5,
+                "statKey": "hydro_dmg_"
+              },
+              "circlet": {
+                "level": 20,
+                "rarity": 5,
+                "statKey": "critRate_"
+              }
+            },
+            "substats": {
+              "type": "max",
+              "rarity": 5,
+              "stats": {
+                "hp": 507.88,
+                "atk": 33.08,
+                "def": 39.36,
+                "hp_": 9.92,
+                "atk_": 9.92,
+                "def_": 12.4,
+                "eleMas": 39.64,
+                "enerRech_": 60.61,
+                "critRate_": 19.86,
+                "critDMG_": 59.58
+              }
+            }
+          },
+          "optimization": {
+            "distributedSubstats": 0,
+            "maxSubstats": {}
+          }
+        }
+      ]
+    },
+    {
+      "key": "Fischl",
+      "name": "Fischl (Celestia)",
+      "description": "",
+      "hitMode": "avgHit",
+      "infusionAura": "",
+      "bonusStats": {},
+      "conditional": {},
+      "customMultiTargets": [],
+      "buildTcs": [
+        {
+          "name": "Celestia",
+          "description": "Celestia teammate assumption (85% of the maximum).",
+          "characterKey": "Fischl",
+          "character": {
+            "level": 90,
+            "ascension": 6,
+            "constellation": 6,
+            "talent": {
+              "auto": 10,
+              "skill": 10,
+              "burst": 10
+            }
+          },
+          "weapon": {
+            "key": "TheStringless",
+            "level": 90,
+            "ascension": 6,
+            "refinement": 5
+          },
+          "artifact": {
+            "sets": {
+              "GoldenTroupe": 4
+            },
+            "slots": {
+              "flower": {
+                "level": 20,
+                "rarity": 5,
+                "statKey": "hp"
+              },
+              "plume": {
+                "level": 20,
+                "rarity": 5,
+                "statKey": "atk"
+              },
+              "sands": {
+                "level": 20,
+                "rarity": 5,
+                "statKey": "atk_"
+              },
+              "goblet": {
+                "level": 20,
+                "rarity": 5,
+                "statKey": "electro_dmg_"
+              },
+              "circlet": {
+                "level": 20,
+                "rarity": 5,
+                "statKey": "critRate_"
+              }
+            },
+            "substats": {
+              "type": "max",
+              "rarity": 5,
+              "stats": {
+                "hp": 507.88,
+                "atk": 33.08,
+                "def": 39.36,
+                "hp_": 9.92,
+                "atk_": 9.92,
+                "def_": 12.4,
+                "eleMas": 39.64,
+                "enerRech_": 22.04,
+                "critRate_": 33.1,
+                "critDMG_": 79.44
+              }
+            }
+          },
+          "optimization": {
+            "distributedSubstats": 0,
+            "maxSubstats": {}
+          }
+        }
+      ]
+    }
+  ]
+}

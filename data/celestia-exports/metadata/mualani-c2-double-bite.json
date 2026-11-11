@@ -1,0 +1,135 @@
+{
+  "category": {
+    "id": "mualani-c2-double-bite",
+    "name": "C2 Double C1 Bite",
+    "kind": "normal"
+  },
+  "child": {
+    "constellation": 2,
+    "characterLevel": 90,
+    "talents": {
+      "burst": 10,
+      "skill": 10,
+      "normal": 10
+    },
+    "baseTalents": {
+      "burst": 10,
+      "skill": 10,
+      "normal": 10
+    },
+    "weaponId": 14516,
+    "refinement": 1
+  },
+  "reference": {
+    "source": "ceilingStandard"
+  },
+  "goConditions": {
+    "ObsidianCodex": {
+      "4NightsoulConsume": "on",
+      "2NightsoulBlessing": "on"
+    }
+  },
+  "characterBonusStats": null,
+  "enemy": {
+    "level": 100,
+    "res": 0.1
+  },
+  "issues": [
+    {
+      "code": "selfScaling",
+      "buffs": [
+        "The Leisurely \"Meztli\"...",
+        "Natlan's Greatest Guide"
+      ]
+    },
+    {
+      "code": "goSwitch",
+      "switches": [
+        {
+          "condition": [
+            "ObsidianCodex",
+            "4NightsoulConsume",
+            "on"
+          ],
+          "source": {
+            "type": "set",
+            "setId": 15038
+          },
+          "buffs": [
+            "Obsidian Codex"
+          ]
+        },
+        {
+          "condition": [
+            "ObsidianCodex",
+            "2NightsoulBlessing",
+            "on"
+          ],
+          "source": {
+            "type": "set",
+            "setId": 15038
+          },
+          "buffs": [
+            "Obsidian Codex"
+          ]
+        }
+      ]
+    },
+    {
+      "code": "setEffects",
+      "setIds": [
+        15037,
+        10007
+      ]
+    }
+  ],
+  "teamIssues": [
+    {
+      "code": "selfScaling",
+      "buffs": [
+        "The Leisurely \"Meztli\"...",
+        "Natlan's Greatest Guide"
+      ]
+    },
+    {
+      "code": "goSwitch",
+      "switches": [
+        {
+          "condition": [
+            "ObsidianCodex",
+            "4NightsoulConsume",
+            "on"
+          ],
+          "source": {
+            "type": "set",
+            "setId": 15038
+          },
+          "buffs": [
+            "Obsidian Codex"
+          ]
+        },
+        {
+          "condition": [
+            "ObsidianCodex",
+            "2NightsoulBlessing",
+            "on"
+          ],
+          "source": {
+            "type": "set",
+            "setId": 15038
+          },
+          "buffs": [
+            "Obsidian Codex"
+          ]
+        }
+      ]
+    },
+    {
+      "code": "setEffects",
+      "setIds": [
+        15037,
+        10007
+      ]
+    }
+  ]
+}

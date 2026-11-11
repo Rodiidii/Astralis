@@ -1,0 +1,174 @@
+{
+  "name": "Skill + Burst",
+  "description": "Celestia",
+  "targets": [
+    {
+      "weight": 1,
+      "path": [
+        "skill",
+        "dmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 92.541,
+        "electro_enemyRes_": -40,
+        "all_dmg_": 104,
+        "all_dmgInc": 1200
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "constellation6",
+        "dmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 92.541,
+        "electro_enemyRes_": -40,
+        "all_dmg_": 104
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "burst",
+        "activationDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 92.541,
+        "electro_enemyRes_": -40,
+        "all_dmg_": 103
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "burst",
+        "soundwaveDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 92.541,
+        "electro_enemyRes_": -40,
+        "all_dmg_": 110
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "burst",
+        "soundwaveDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 62.541,
+        "electro_enemyRes_": -40,
+        "all_dmg_": 104
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "passive1",
+        "dmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 62.541,
+        "all_dmg_": 162,
+        "electro_enemyRes_": -40
+      },
+      "description": ""
+    },
+    {
+      "weight": 2,
+      "path": [
+        "burst",
+        "soundwaveDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 62.541,
+        "electro_enemyRes_": -40,
+        "all_dmg_": 112
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "passive1",
+        "dmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 62.541,
+        "all_dmg_": 122,
+        "electro_enemyRes_": -40
+      },
+      "description": ""
+    },
+    {
+      "weight": 8,
+      "path": [
+        "burst",
+        "soundwaveDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 82.541,
+        "electro_enemyRes_": -40,
+        "all_dmg_": 72
+      },
+      "description": ""
+    },
+    {
+      "weight": 2,
+      "path": [
+        "passive1",
+        "dmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 82.541,
+        "all_dmg_": 122,
+        "electro_enemyRes_": -40
+      },
+      "description": ""
+    },
+    {
+      "weight": 2,
+      "path": [
+        "passive1",
+        "dmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 82.541,
+        "all_dmg_": 90,
+        "electro_enemyRes_": -40
+      },
+      "description": ""
+    },
+    {
+      "weight": 7,
+      "path": [
+        "reaction",
+        "overloaded"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 82.541,
+        "pyro_enemyRes_": -40
+      },
+      "description": ""
+    }
+  ]
+}

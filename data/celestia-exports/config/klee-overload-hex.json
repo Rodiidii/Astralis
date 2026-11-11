@@ -1,0 +1,396 @@
+{
+  "name": "Hex Overload",
+  "description": "Celestia",
+  "targets": [
+    {
+      "weight": 1,
+      "path": [
+        "normal",
+        "0"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 132.541,
+        "pyro_enemyRes_": -75,
+        "all_dmg_": 144,
+        "critRate_": 20
+      },
+      "description": ""
+    },
+    {
+      "weight": 3,
+      "path": [
+        "skill",
+        "jumptyDumptyDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 132.541,
+        "pyro_enemyRes_": -75,
+        "all_dmg_": 144,
+        "critRate_": 20
+      },
+      "description": ""
+    },
+    {
+      "weight": 8,
+      "path": [
+        "skill",
+        "mineDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 132.541,
+        "pyro_enemyRes_": -75,
+        "all_dmg_": 144,
+        "critRate_": 20
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "normal",
+        "0"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 132.541,
+        "pyro_enemyRes_": -75,
+        "all_dmg_": 144,
+        "critRate_": 20
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "normal",
+        "1"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 132.541,
+        "pyro_enemyRes_": -75,
+        "all_dmg_": 144,
+        "critRate_": 20
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "normal",
+        "2"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 132.541,
+        "pyro_enemyRes_": -75,
+        "all_dmg_": 144,
+        "critRate_": 20
+      },
+      "description": ""
+    },
+    {
+      "weight": 1.5,
+      "path": [
+        "passive1",
+        "dmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 132.541,
+        "pyro_enemyRes_": -75,
+        "all_dmg_": 144,
+        "critRate_": 20
+      },
+      "description": ""
+    },
+    {
+      "weight": 3,
+      "path": [
+        "skill",
+        "jumptyDumptyDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 132.541,
+        "pyro_enemyRes_": -75,
+        "all_dmg_": 144,
+        "critRate_": 20
+      },
+      "description": ""
+    },
+    {
+      "weight": 8,
+      "path": [
+        "skill",
+        "mineDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 132.541,
+        "pyro_enemyRes_": -75,
+        "all_dmg_": 144,
+        "critRate_": 20
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "normal",
+        "0"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 132.541,
+        "pyro_enemyRes_": -75,
+        "all_dmg_": 144,
+        "critRate_": 20
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "normal",
+        "1"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 132.541,
+        "pyro_enemyRes_": -75,
+        "all_dmg_": 144,
+        "critRate_": 20
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "normal",
+        "2"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 132.541,
+        "pyro_enemyRes_": -75,
+        "all_dmg_": 144,
+        "critRate_": 20
+      },
+      "description": ""
+    },
+    {
+      "weight": 1.5,
+      "path": [
+        "passive1",
+        "dmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 132.541,
+        "pyro_enemyRes_": -75,
+        "all_dmg_": 144,
+        "critRate_": 20
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "normal",
+        "0"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 132.541,
+        "pyro_enemyRes_": -75,
+        "all_dmg_": 144,
+        "critRate_": 20
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "normal",
+        "1"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 132.541,
+        "pyro_enemyRes_": -75,
+        "all_dmg_": 144,
+        "critRate_": 20
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "normal",
+        "2"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 132.541,
+        "pyro_enemyRes_": -75,
+        "all_dmg_": 144,
+        "critRate_": 20
+      },
+      "description": ""
+    },
+    {
+      "weight": 1.5,
+      "path": [
+        "passive1",
+        "dmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 132.541,
+        "pyro_enemyRes_": -75,
+        "all_dmg_": 144,
+        "critRate_": 20
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "normal",
+        "0"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 132.541,
+        "pyro_enemyRes_": -75,
+        "all_dmg_": 144,
+        "critRate_": 20
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "normal",
+        "1"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 132.541,
+        "pyro_enemyRes_": -75,
+        "all_dmg_": 144,
+        "critRate_": 20
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "normal",
+        "2"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 132.541,
+        "pyro_enemyRes_": -75,
+        "all_dmg_": 144,
+        "critRate_": 20
+      },
+      "description": ""
+    },
+    {
+      "weight": 1.5,
+      "path": [
+        "passive1",
+        "dmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 132.541,
+        "pyro_enemyRes_": -75,
+        "all_dmg_": 144,
+        "critRate_": 20
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "normal",
+        "0"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 132.541,
+        "pyro_enemyRes_": -75,
+        "all_dmg_": 144,
+        "critRate_": 20
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "normal",
+        "1"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 132.541,
+        "pyro_enemyRes_": -75,
+        "all_dmg_": 144,
+        "critRate_": 20
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "normal",
+        "2"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 132.541,
+        "pyro_enemyRes_": -75,
+        "all_dmg_": 144,
+        "critRate_": 20
+      },
+      "description": ""
+    },
+    {
+      "weight": 1.5,
+      "path": [
+        "passive1",
+        "dmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 132.541,
+        "pyro_enemyRes_": -75,
+        "all_dmg_": 144,
+        "critRate_": 20
+      },
+      "description": ""
+    },
+    {
+      "weight": 23,
+      "path": [
+        "burst",
+        "dmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 132.541,
+        "pyro_enemyRes_": -75,
+        "all_dmg_": 144,
+        "critRate_": 20
+      },
+      "description": ""
+    }
+  ]
+}

@@ -1,0 +1,111 @@
+{
+  "name": "F2P Melt",
+  "description": "Celestia",
+  "targets": [
+    {
+      "weight": 1,
+      "path": [
+        "burst",
+        "smashDmg"
+      ],
+      "hitMode": "avgHit",
+      "reaction": "melt",
+      "bonusStats": {
+        "eleMas": 120,
+        "all_dmg_": 80,
+        "critRate_": 48.75
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "skill",
+        "cloudstriderDmg"
+      ],
+      "hitMode": "avgHit",
+      "reaction": "melt",
+      "bonusStats": {
+        "eleMas": 120,
+        "all_dmg_": 55,
+        "critRate_": 48.75
+      },
+      "description": ""
+    },
+    {
+      "weight": 3,
+      "path": [
+        "skill",
+        "cloudstriderDmg"
+      ],
+      "hitMode": "avgHit",
+      "reaction": "melt",
+      "bonusStats": {
+        "eleMas": 120,
+        "all_dmg_": 80,
+        "critRate_": 48.75
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "skill",
+        "cloudstriderDmg"
+      ],
+      "hitMode": "avgHit",
+      "reaction": "melt",
+      "bonusStats": {
+        "eleMas": 120,
+        "all_dmg_": 80,
+        "critRate_": 48.75
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "skill",
+        "cloudstriderDmg"
+      ],
+      "hitMode": "avgHit",
+      "reaction": "melt",
+      "bonusStats": {
+        "eleMas": 120,
+        "all_dmg_": 80,
+        "critRate_": 48.75
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "skill",
+        "cloudstriderDmg"
+      ],
+      "hitMode": "avgHit",
+      "reaction": "melt",
+      "bonusStats": {
+        "eleMas": 120,
+        "all_dmg_": 80,
+        "critRate_": 48.75
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "skill",
+        "cloudstriderDmg"
+      ],
+      "hitMode": "avgHit",
+      "reaction": "melt",
+      "bonusStats": {
+        "eleMas": 120,
+        "all_dmg_": 80,
+        "critRate_": 48.75
+      },
+      "description": ""
+    }
+  ]
+}

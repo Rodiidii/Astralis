@@ -1,0 +1,374 @@
+{
+  "name": "Physical",
+  "description": "Celestia",
+  "targets": [
+    {
+      "weight": 1,
+      "path": [
+        "skill",
+        "press"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 40,
+        "all_dmg_": 39.33,
+        "critRate_": 0.94
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "burst",
+        "dmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 49,
+        "all_dmg_": 73.36,
+        "critRate_": 4.31
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "normal",
+        "0"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 49,
+        "critDMG_": 60,
+        "all_dmg_": 71.07,
+        "physical_enemyRes_": -40,
+        "critRate_": 13.41
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "normal",
+        "1"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 49,
+        "critDMG_": 60,
+        "all_dmg_": 72.41,
+        "physical_enemyRes_": -40
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "normal",
+        "2"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 49,
+        "critDMG_": 60,
+        "all_dmg_": 74.15,
+        "physical_enemyRes_": -40
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "normal",
+        "2"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 49,
+        "critDMG_": 60,
+        "all_dmg_": 74.89,
+        "physical_enemyRes_": -40
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "normal",
+        "3"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 49,
+        "critDMG_": 60,
+        "all_dmg_": 76.65,
+        "physical_enemyRes_": -40
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "skill",
+        "hold"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 69,
+        "all_dmg_": 64.08
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "skill",
+        "icewhirl"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 78,
+        "cryo_enemyRes_": -25,
+        "critRate_": 15,
+        "all_dmg_": 65.17
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "skill",
+        "icewhirl"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 78,
+        "cryo_enemyRes_": -25,
+        "critRate_": 15,
+        "all_dmg_": 65.43
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "passive1",
+        "shatteredLightfallSword"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 78,
+        "all_dmg_": 136.62,
+        "critDMG_": 60,
+        "physical_enemyRes_": -65,
+        "critRate_": 14.25
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "normal",
+        "0"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 78,
+        "all_dmg_": 113.13,
+        "critDMG_": 60,
+        "physical_enemyRes_": -65,
+        "critRate_": 1.41
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "normal",
+        "1"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 78,
+        "all_dmg_": 114.93,
+        "critDMG_": 60,
+        "physical_enemyRes_": -65,
+        "critRate_": 1.03
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "normal",
+        "2"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 78,
+        "all_dmg_": 116.79,
+        "critDMG_": 60,
+        "physical_enemyRes_": -65,
+        "critRate_": 0.47
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "normal",
+        "2"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 78,
+        "all_dmg_": 118.14,
+        "critDMG_": 60,
+        "physical_enemyRes_": -65
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "normal",
+        "3"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 78,
+        "all_dmg_": 118.46,
+        "critDMG_": 60,
+        "physical_enemyRes_": -65
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "normal",
+        "0"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 74.5,
+        "all_dmg_": 120,
+        "critDMG_": 60,
+        "physical_enemyRes_": -65
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "burst",
+        "lightFallSwordNew"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 74.5,
+        "all_dmg_": 144,
+        "critDMG_": 60,
+        "physical_enemyRes_": -65
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "normal",
+        "1"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 70.5,
+        "all_dmg_": 120,
+        "critDMG_": 60,
+        "physical_enemyRes_": -65
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.9399,
+      "path": [
+        "reaction",
+        "shattered"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 58,
+        "physical_enemyRes_": -40,
+        "critRate_": 15
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.0328,
+      "path": [
+        "reaction",
+        "shattered"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 78,
+        "physical_enemyRes_": -90,
+        "critRate_": 15
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.3169,
+      "path": [
+        "reaction",
+        "shattered"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 58,
+        "physical_enemyRes_": -40,
+        "critRate_": 15
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.7104,
+      "path": [
+        "reaction",
+        "shattered"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 78,
+        "physical_enemyRes_": -90,
+        "critRate_": 15
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.9844,
+      "path": [
+        "reaction",
+        "superconduct"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 78,
+        "critRate_": 15
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.0156,
+      "path": [
+        "reaction",
+        "superconduct"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 58,
+        "critRate_": 15
+      },
+      "description": ""
+    }
+  ]
+}

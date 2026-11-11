@@ -1,0 +1,42 @@
+{
+  "name": "Off-field",
+  "description": "Celestia",
+  "targets": [
+    {
+      "weight": 2,
+      "path": [
+        "skill",
+        "press1"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "hydro_enemyRes_": -15
+      },
+      "description": ""
+    },
+    {
+      "weight": 2,
+      "path": [
+        "skill",
+        "press2"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "hydro_enemyRes_": -15
+      },
+      "description": ""
+    },
+    {
+      "weight": 37,
+      "path": [
+        "burst",
+        "dmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "hydro_enemyRes_": -15
+      },
+      "description": ""
+    }
+  ]
+}

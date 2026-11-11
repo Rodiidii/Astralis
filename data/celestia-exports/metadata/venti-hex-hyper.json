@@ -1,0 +1,91 @@
+{
+  "category": {
+    "id": "venti-hex-hyper",
+    "name": "Hex Hyper",
+    "kind": "normal"
+  },
+  "child": {
+    "constellation": 0,
+    "characterLevel": 90,
+    "talents": {
+      "burst": 10,
+      "skill": 10,
+      "normal": 10
+    },
+    "baseTalents": {
+      "burst": 10,
+      "skill": 10,
+      "normal": 10
+    },
+    "weaponId": 15501,
+    "refinement": 1
+  },
+  "reference": {
+    "source": "ceilingStandard"
+  },
+  "goConditions": {
+    "Venti": {
+      "lockHomework": "on",
+      "burstAbsorption": "pyro"
+    }
+  },
+  "characterBonusStats": {
+    "atk": 1250,
+    "atk_": 75
+  },
+  "enemy": {
+    "level": 100,
+    "res": 0.1
+  },
+  "issues": [
+    {
+      "code": "characterBonusStats",
+      "stats": [
+        {
+          "buff": "Methexis",
+          "key": "atk",
+          "value": 300
+        },
+        {
+          "buff": "Hexerei: Secret Rite",
+          "key": "atk_",
+          "value": 30
+        },
+        {
+          "buff": "And That's the Story! Share It With Your Friends!",
+          "key": "atk",
+          "value": 350
+        },
+        {
+          "buff": "Noblesse Oblige 4pc",
+          "key": "atk_",
+          "value": 20
+        },
+        {
+          "buff": "Pyro Resonance",
+          "key": "atk_",
+          "value": 25
+        },
+        {
+          "buff": "Grace of Kenosis (% of Nicole's ATK)",
+          "key": "atk",
+          "value": 600
+        }
+      ]
+    },
+    {
+      "code": "setEffects",
+      "setIds": [
+        15044
+      ]
+    }
+  ],
+  "teamIssues": [
+    {
+      "code": "setEffects",
+      "setIds": [
+        15044
+      ]
+    }
+  ]
+}

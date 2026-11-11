@@ -1,0 +1,146 @@
+{
+  "category": {
+    "id": "cyno-quickbloom",
+    "name": "Quickbloom",
+    "kind": "normal"
+  },
+  "child": {
+    "constellation": 1,
+    "characterLevel": 90,
+    "talents": {
+      "burst": 10,
+      "skill": 10,
+      "normal": 10
+    },
+    "baseTalents": {
+      "burst": 10,
+      "skill": 10,
+      "normal": 10
+    },
+    "weaponId": 13511,
+    "refinement": 1
+  },
+  "reference": {
+    "source": "ceilingStandard"
+  },
+  "goConditions": {
+    "Cyno": {
+      "afterBurst": "on"
+    },
+    "StaffOfTheScarletSands": {
+      "stacks": "3"
+    }
+  },
+  "characterBonusStats": {
+    "eleMas": 160
+  },
+  "enemy": {
+    "level": 100,
+    "res": 0.1
+  },
+  "issues": [
+    {
+      "code": "characterBonusStats",
+      "stats": [
+        {
+          "buff": "Silken Moon's Serenade · 4pc Silken Moon Team Lunarbloom Window",
+          "key": "eleMas",
+          "value": 60
+        },
+        {
+          "buff": "Dendro Resonance EM",
+          "key": "eleMas",
+          "value": 50
+        },
+        {
+          "buff": "Dendro Resonance EM · Burning/Quicken/Bloom",
+          "key": "eleMas",
+          "value": 30
+        },
+        {
+          "buff": "Dendro Resonance EM · Aggravate/Spread/Hyperbloom/Burgeon",
+          "key": "eleMas",
+          "value": 20
+        }
+      ]
+    },
+    {
+      "code": "goSwitch",
+      "switches": [
+        {
+          "condition": [
+            "Cyno",
+            "afterBurst",
+            "on"
+          ],
+          "source": {
+            "type": "character"
+          },
+          "buffs": [
+            "Sacred Rite: Wolf's Swiftness"
+          ]
+        },
+        {
+          "condition": [
+            "StaffOfTheScarletSands",
+            "stacks",
+            "3"
+          ],
+          "source": {
+            "type": "weapon",
+            "weaponId": 13511
+          },
+          "buffs": [
+            "Heat Haze at Horizon's End"
+          ]
+        }
+      ]
+    },
+    {
+      "code": "setEffects",
+      "setIds": [
+        15005
+      ]
+    }
+  ],
+  "teamIssues": [
+    {
+      "code": "goSwitch",
+      "switches": [
+        {
+          "condition": [
+            "Cyno",
+            "afterBurst",
+            "on"
+          ],
+          "source": {
+            "type": "character"
+          },
+          "buffs": [
+            "Sacred Rite: Wolf's Swiftness"
+          ]
+        },
+        {
+          "condition": [
+            "StaffOfTheScarletSands",
+            "stacks",
+            "3"
+          ],
+          "source": {
+            "type": "weapon",
+            "weaponId": 13511
+          },
+          "buffs": [
+            "Heat Haze at Horizon's End"
+          ]
+        }
+      ]
+    },
+    {
+      "code": "setEffects",
+      "setIds": [
+        15005
+      ]
+    }
+  ]
+}

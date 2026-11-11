@@ -1,0 +1,159 @@
+{
+  "category": {
+    "id": "cyno-cyno-ssc",
+    "name": "SSC",
+    "kind": "normal"
+  },
+  "child": {
+    "constellation": 1,
+    "characterLevel": 90,
+    "talents": {
+      "burst": 10,
+      "skill": 10,
+      "normal": 10
+    },
+    "baseTalents": {
+      "burst": 10,
+      "skill": 10,
+      "normal": 10
+    },
+    "weaponId": 13511,
+    "refinement": 1
+  },
+  "reference": {
+    "source": "ceilingStandard"
+  },
+  "goConditions": {
+    "Cyno": {
+      "afterBurst": "on",
+      "lockRevelation": "on",
+      "lockStellarRadianceSc": "on"
+    },
+    "DisenchantmentInDeepShadow": {
+      "state": "on"
+    },
+    "reaction": {
+      "polestarStacks": "10"
+    }
+  },
+  "characterBonusStats": {
+    "atk_": 70.032,
+    "eleMas": 100
+  },
+  "enemy": {
+    "level": 100,
+    "res": 0.1
+  },
+  "issues": [
+    {
+      "code": "characterBonusStats",
+      "stats": [
+        {
+          "buff": "Hunter's Precision (2 stacks)",
+          "key": "atk_",
+          "value": 50.032
+        },
+        {
+          "buff": "Standard Reclaimed",
+          "key": "eleMas",
+          "value": 100
+        },
+        {
+          "buff": "Noblesse Oblige 4pc",
+          "key": "atk_",
+          "value": 20
+        }
+      ]
+    },
+    {
+      "code": "selfScaling",
+      "buffs": [
+        "Heat Haze at Horizon's End"
+      ]
+    },
+    {
+      "code": "goSwitch",
+      "switches": [
+        {
+          "condition": [
+            "Cyno",
+            "afterBurst",
+            "on"
+          ],
+          "source": {
+            "type": "character"
+          },
+          "buffs": [
+            "Sacred Rite: Wolf's Swiftness"
+          ]
+        },
+        {
+          "condition": [
+            "DisenchantmentInDeepShadow",
+            "state",
+            "on"
+          ],
+          "source": {
+            "type": "set",
+            "setId": 15046
+          },
+          "buffs": [
+            "Disenchantment in Deep Shadow - 4pc"
+          ]
+        }
+      ]
+    },
+    {
+      "code": "setEffects",
+      "setIds": [
+        15046
+      ]
+    }
+  ],
+  "teamIssues": [
+    {
+      "code": "selfScaling",
+      "buffs": [
+        "Heat Haze at Horizon's End"
+      ]
+    },
+    {
+      "code": "goSwitch",
+      "switches": [
+        {
+          "condition": [
+            "Cyno",
+            "afterBurst",
+            "on"
+          ],
+          "source": {
+            "type": "character"
+          },
+          "buffs": [
+            "Sacred Rite: Wolf's Swiftness"
+          ]
+        },
+        {
+          "condition": [
+            "DisenchantmentInDeepShadow",
+            "state",
+            "on"
+          ],
+          "source": {
+            "type": "set",
+            "setId": 15046
+          },
+          "buffs": [
+            "Disenchantment in Deep Shadow - 4pc"
+          ]
+        }
+      ]
+    },
+    {
+      "code": "setEffects",
+      "setIds": [
+        15046
+      ]
+    }
+  ]
+}

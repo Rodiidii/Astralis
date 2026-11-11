@@ -1,0 +1,156 @@
+{
+  "category": {
+    "id": "clorinde-c6-overload",
+    "name": "C6 Overload",
+    "kind": "normal"
+  },
+  "child": {
+    "constellation": 6,
+    "characterLevel": 90,
+    "talents": {
+      "burst": 13,
+      "skill": 13,
+      "normal": 10
+    },
+    "baseTalents": {
+      "burst": 10,
+      "skill": 10,
+      "normal": 10
+    },
+    "weaponId": 11515,
+    "refinement": 1
+  },
+  "reference": {
+    "source": "ceilingStandard"
+  },
+  "goConditions": {
+    "Clorinde": {
+      "c6AfterSkill": "on",
+      "c4BondPercent": "90"
+    }
+  },
+  "characterBonusStats": {
+    "atk_": 107.541
+  },
+  "enemy": {
+    "level": 100,
+    "res": 0.1
+  },
+  "issues": [
+    {
+      "code": "characterBonusStats",
+      "stats": [
+        {
+          "buff": "Hexerei: Secret Rite — after an Overloaded",
+          "key": "atk_",
+          "value": 22.5
+        },
+        {
+          "buff": "Evernight Raven — Secret Rite doubled (after an Overloaded)",
+          "key": "atk_",
+          "value": 22.5
+        },
+        {
+          "buff": "Pyro Resonance",
+          "key": "atk_",
+          "value": 25
+        },
+        {
+          "buff": "Chevreuse A4 ATK (Pyro/Electro)",
+          "key": "atk_",
+          "value": 37.54054972703511
+        }
+      ]
+    },
+    {
+      "code": "selfScaling",
+      "buffs": [
+        "Dark-Shattering Flame",
+        "\"Now, As We Face the Perils of the Long Night\""
+      ]
+    },
+    {
+      "code": "goSwitch",
+      "switches": [
+        {
+          "condition": [
+            "Clorinde",
+            "c6AfterSkill",
+            "on"
+          ],
+          "source": {
+            "type": "character"
+          },
+          "buffs": [
+            "Hunter's Vigil"
+          ]
+        },
+        {
+          "condition": [
+            "Clorinde",
+            "c4BondPercent",
+            "90"
+          ],
+          "source": {
+            "type": "character"
+          },
+          "buffs": [
+            "Last Lightfall"
+          ]
+        }
+      ]
+    },
+    {
+      "code": "setEffects",
+      "setIds": [
+        15035
+      ]
+    }
+  ],
+  "teamIssues": [
+    {
+      "code": "selfScaling",
+      "buffs": [
+        "Dark-Shattering Flame",
+        "\"Now, As We Face the Perils of the Long Night\""
+      ]
+    },
+    {
+      "code": "goSwitch",
+      "switches": [
+        {
+          "condition": [
+            "Clorinde",
+            "c6AfterSkill",
+            "on"
+          ],
+          "source": {
+            "type": "character"
+          },
+          "buffs": [
+            "Hunter's Vigil"
+          ]
+        },
+        {
+          "condition": [
+            "Clorinde",
+            "c4BondPercent",
+            "90"
+          ],
+          "source": {
+            "type": "character"
+          },
+          "buffs": [
+            "Last Lightfall"
+          ]
+        }
+      ]
+    },
+    {
+      "code": "setEffects",
+      "setIds": [
+        15035
+      ]
+    }
+  ]
+}

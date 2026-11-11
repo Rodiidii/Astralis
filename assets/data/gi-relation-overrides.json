@@ -1,0 +1,46 @@
+{
+  "regions": {
+    "10000126": "Liyue",
+    "10000133": "Snezhnaya",
+    "10000136": "Snezhnaya",
+    "10000137": "Snezhnaya",
+    "10000140": "Snezhnaya",
+    "10000143": "Snezhnaya",
+    "10000148": "Snezhnaya",
+    "10000150": "Snezhnaya",
+    "danica": "Snezhnaya",
+    "tsaritsa": "Snezhnaya"
+  },
+  "portraits": {
+    "10000136": "./assets/relations/lore/mitya.png",
+    "10000137": "./assets/relations/lore/valeriy.png",
+    "danica": "./assets/relations/lore/danica.webp",
+    "focalors": "./assets/relations/lore/focalors.webp",
+    "tsaritsa": "./assets/relations/lore/tsaritsa.webp"
+  },
+  "roster": [
+    {
+      "id": "10000136",
+      "name": "Mitya",
+      "region": "Snezhnaya",
+      "element": "Électro",
+      "page": "Mitya",
+      "rarity": "5",
+      "portrait": "./assets/relations/lore/mitya.png"
+    },
+    {
+      "id": "10000137",
+      "name": "Valeriy",
+      "region": "Snezhnaya",
+      "element": "Électro",
+      "page": "Valeriy",
+      "rarity": "4",
+      "portrait": "./assets/relations/lore/valeriy.png"
+    }
+  ],
+  "dossierPortraits": {
+    "10000136": "./assets/relations/lore/mitya-card.webp",
+    "10000137": "./assets/relations/lore/valeriy-card.webp",
+    "danica": "./assets/relations/lore/danica-card.webp"
+  }
+}

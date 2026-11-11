@@ -1,0 +1,234 @@
+{
+  "category": {
+    "id": "mavuika-melt-sucrose",
+    "name": "Sucrose Melt",
+    "kind": "normal"
+  },
+  "child": {
+    "constellation": 0,
+    "characterLevel": 90,
+    "talents": {
+      "burst": 10,
+      "skill": 10,
+      "normal": 10
+    },
+    "baseTalents": {
+      "burst": 10,
+      "skill": 10,
+      "normal": 10
+    },
+    "weaponId": 12514,
+    "refinement": 1
+  },
+  "reference": {
+    "source": "ceilingStandard"
+  },
+  "goConditions": {
+    "AThousandBlazingSuns": {
+      "passive": "on",
+      "nightsoul": "on"
+    },
+    "ObsidianCodex": {
+      "4NightsoulConsume": "on",
+      "2NightsoulBlessing": "on"
+    },
+    "Mavuika": {
+      "a1NsBurst": "on"
+    }
+  },
+  "characterBonusStats": {
+    "atk_": 25
+  },
+  "enemy": {
+    "level": 100,
+    "res": 0.1
+  },
+  "issues": [
+    {
+      "code": "characterBonusStats",
+      "stats": [
+        {
+          "buff": "Pyro Resonance",
+          "key": "atk_",
+          "value": 25
+        }
+      ]
+    },
+    {
+      "code": "selfScaling",
+      "buffs": [
+        "Crucible — Sunfell Slice (gcsim)"
+      ]
+    },
+    {
+      "code": "goSwitch",
+      "switches": [
+        {
+          "condition": [
+            "AThousandBlazingSuns",
+            "passive",
+            "on"
+          ],
+          "source": {
+            "type": "weapon",
+            "weaponId": 12514
+          },
+          "buffs": [
+            "Sunset Reignites the Dawn"
+          ]
+        },
+        {
+          "condition": [
+            "AThousandBlazingSuns",
+            "nightsoul",
+            "on"
+          ],
+          "source": {
+            "type": "weapon",
+            "weaponId": 12514
+          },
+          "buffs": [
+            "Sunset Reignites the Dawn"
+          ]
+        },
+        {
+          "condition": [
+            "ObsidianCodex",
+            "4NightsoulConsume",
+            "on"
+          ],
+          "source": {
+            "type": "set",
+            "setId": 15038
+          },
+          "buffs": [
+            "Obsidian Codex"
+          ]
+        },
+        {
+          "condition": [
+            "ObsidianCodex",
+            "2NightsoulBlessing",
+            "on"
+          ],
+          "source": {
+            "type": "set",
+            "setId": 15038
+          },
+          "buffs": [
+            "Obsidian Codex"
+          ]
+        },
+        {
+          "condition": [
+            "Mavuika",
+            "a1NsBurst",
+            "on"
+          ],
+          "source": {
+            "type": "character"
+          },
+          "buffs": [
+            "Gift of Flaming Flowers"
+          ]
+        }
+      ]
+    },
+    {
+      "code": "setEffects",
+      "setIds": [
+        15037,
+        15007
+      ]
+    }
+  ],
+  "teamIssues": [
+    {
+      "code": "selfScaling",
+      "buffs": [
+        "Crucible — Sunfell Slice (gcsim)"
+      ]
+    },
+    {
+      "code": "goSwitch",
+      "switches": [
+        {
+          "condition": [
+            "AThousandBlazingSuns",
+            "passive",
+            "on"
+          ],
+          "source": {
+            "type": "weapon",
+            "weaponId": 12514
+          },
+          "buffs": [
+            "Sunset Reignites the Dawn"
+          ]
+        },
+        {
+          "condition": [
+            "AThousandBlazingSuns",
+            "nightsoul",
+            "on"
+          ],
+          "source": {
+            "type": "weapon",
+            "weaponId": 12514
+          },
+          "buffs": [
+            "Sunset Reignites the Dawn"
+          ]
+        },
+        {
+          "condition": [
+            "ObsidianCodex",
+            "4NightsoulConsume",
+            "on"
+          ],
+          "source": {
+            "type": "set",
+            "setId": 15038
+          },
+          "buffs": [
+            "Obsidian Codex"
+          ]
+        },
+        {
+          "condition": [
+            "ObsidianCodex",
+            "2NightsoulBlessing",
+            "on"
+          ],
+          "source": {
+            "type": "set",
+            "setId": 15038
+          },
+          "buffs": [
+            "Obsidian Codex"
+          ]
+        },
+        {
+          "condition": [
+            "Mavuika",
+            "a1NsBurst",
+            "on"
+          ],
+          "source": {
+            "type": "character"
+          },
+          "buffs": [
+            "Gift of Flaming Flowers"
+          ]
+        }
+      ]
+    },
+    {
+      "code": "setEffects",
+      "setIds": [
+        15037,
+        15007
+      ]
+    }
+  ]
+}

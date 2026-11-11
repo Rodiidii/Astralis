@@ -1,0 +1,318 @@
+{
+  "name": "Linnea Lunar-Crystallize",
+  "description": "Celestia",
+  "lastEdit": 1794351011631,
+  "conditional": {
+    "resonance": {},
+    "reaction": {}
+  },
+  "enemyOverride": {
+    "enemyLevel": 100,
+    "enemyDefIgn_": 0,
+    "enemyDefRed_": 0,
+    "pyro_enemyRes_": 10,
+    "hydro_enemyRes_": 10,
+    "electro_enemyRes_": 10,
+    "cryo_enemyRes_": 10,
+    "anemo_enemyRes_": 10,
+    "geo_enemyRes_": 10,
+    "dendro_enemyRes_": 10,
+    "physical_enemyRes_": 10
+  },
+  "loadoutData": [
+    {
+      "key": "Zibai",
+      "name": "Zibai (Celestia)",
+      "description": "",
+      "hitMode": "avgHit",
+      "infusionAura": "",
+      "bonusStats": {
+        "eleMas": 339.931,
+        "def": 200
+      },
+      "conditional": {
+        "LightbearingMoonshard": {
+          "passive": "on"
+        },
+        "Zibai": {
+          "a1Moonfall": "on"
+        }
+      },
+      "customMultiTargets": [
+        {
+          "name": "Linnea Lunar-Crystallize",
+          "description": "Celestia",
+          "targets": [
+            {
+              "weight": 4,
+              "path": [
+                "skill",
+                "stride1Dmg"
+              ],
+              "hitMode": "avgHit",
+              "bonusStats": {
+                "def_": 30,
+                "eleMas": 60,
+                "all_dmgInc": 1063.645,
+                "geo_enemyRes_": -50,
+                "critRate_": 40,
+                "critDMG_": 30,
+                "all_dmg_": 35
+              },
+              "description": ""
+            },
+            {
+              "weight": 4,
+              "path": [
+                "skill",
+                "stride2Dmg"
+              ],
+              "hitMode": "avgHit",
+              "bonusStats": {
+                "def_": 30,
+                "eleMas": 60,
+                "lunarcrystallize_baseDmg_": 20.8,
+                "lunarcrystallize_dmgInc": 7136.457,
+                "lunarcrystallize_dmg_": 80,
+                "geo_enemyRes_": -50,
+                "critRate_": 40,
+                "critDMG_": 30
+              },
+              "description": ""
+            },
+            {
+              "weight": 4,
+              "path": [
+                "skill",
+                "shift1Dmg"
+              ],
+              "hitMode": "avgHit",
+              "bonusStats": {
+                "def_": 30,
+                "eleMas": 60,
+                "all_dmgInc": 1063.645,
+                "geo_enemyRes_": -50,
+                "critRate_": 40,
+                "critDMG_": 30,
+                "all_dmg_": 35
+              },
+              "description": ""
+            },
+            {
+              "weight": 3,
+              "path": [
+                "skill",
+                "shift2Dmg"
+              ],
+              "hitMode": "avgHit",
+              "bonusStats": {
+                "def_": 30,
+                "eleMas": 60,
+                "all_dmgInc": 1063.645,
+                "geo_enemyRes_": -50,
+                "critRate_": 40,
+                "critDMG_": 30,
+                "all_dmg_": 35
+              },
+              "description": ""
+            },
+            {
+              "weight": 6,
+              "path": [
+                "skill",
+                "shift3Dmg"
+              ],
+              "hitMode": "avgHit",
+              "bonusStats": {
+                "def_": 30,
+                "eleMas": 60,
+                "all_dmgInc": 1063.645,
+                "geo_enemyRes_": -50,
+                "critRate_": 40,
+                "critDMG_": 30,
+                "all_dmg_": 35
+              },
+              "description": ""
+            },
+            {
+              "weight": 3,
+              "path": [
+                "skill",
+                "shift4Dmg"
+              ],
+              "hitMode": "avgHit",
+              "bonusStats": {
+                "def_": 30,
+                "eleMas": 60,
+                "all_dmgInc": 1063.645,
+                "geo_enemyRes_": -50,
+                "critRate_": 40,
+                "critDMG_": 30,
+                "all_dmg_": 35
+              },
+              "description": ""
+            },
+            {
+              "weight": 3,
+              "path": [
+                "skill",
+                "shift4GleamDmg"
+              ],
+              "hitMode": "avgHit",
+              "bonusStats": {
+                "def_": 30,
+                "eleMas": 60,
+                "lunarcrystallize_baseDmg_": 20.8,
+                "lunarcrystallize_dmgInc": 7136.457,
+                "lunarcrystallize_dmg_": 80,
+                "geo_enemyRes_": -50,
+                "critRate_": 40,
+                "critDMG_": 30
+              },
+              "description": ""
+            },
+            {
+              "weight": 1,
+              "path": [
+                "burst",
+                "skill1Dmg"
+              ],
+              "hitMode": "avgHit",
+              "bonusStats": {
+                "def_": 30,
+                "eleMas": 60,
+                "all_dmgInc": 1063.645,
+                "geo_enemyRes_": -50,
+                "critRate_": 40,
+                "critDMG_": 30,
+                "all_dmg_": 35
+              },
+              "description": ""
+            },
+            {
+              "weight": 1,
+              "path": [
+                "burst",
+                "skill2Dmg"
+              ],
+              "hitMode": "avgHit",
+              "bonusStats": {
+                "def_": 30,
+                "eleMas": 60,
+                "lunarcrystallize_baseDmg_": 20.8,
+                "lunarcrystallize_dmgInc": 7136.457,
+                "lunarcrystallize_dmg_": 80,
+                "geo_enemyRes_": -50,
+                "critRate_": 40,
+                "critDMG_": 30
+              },
+              "description": ""
+            },
+            {
+              "weight": 11.2299,
+              "path": [
+                "reaction",
+                "lunarcrystallize"
+              ],
+              "hitMode": "avgHit",
+              "bonusStats": {
+                "def_": 30,
+                "eleMas": 60,
+                "lunarcrystallize_baseDmg_": 20.8,
+                "lunarcrystallize_dmg_": 80,
+                "geo_enemyRes_": -50,
+                "critRate_": 40,
+                "critDMG_": 30
+              },
+              "description": ""
+            }
+          ]
+        }
+      ],
+      "optConfig": {
+        "optimizationTarget": [
+          "custom",
+          "0"
+        ]
+      },
+      "buildTcs": [
+        {
+          "name": "Celestia",
+          "description": "The leaderboard reference build.",
+          "characterKey": "Zibai",
+          "character": {
+            "level": 90,
+            "ascension": 6,
+            "constellation": 0,
+            "talent": {
+              "auto": 10,
+              "skill": 10,
+              "burst": 10
+            }
+          },
+          "weapon": {
+            "key": "LightbearingMoonshard",
+            "level": 90,
+            "ascension": 6,
+            "refinement": 1
+          },
+          "artifact": {
+            "sets": {
+              "NightOfTheSkysUnveiling": 5
+            },
+            "slots": {
+              "flower": {
+                "level": 20,
+                "rarity": 5,
+                "statKey": "hp"
+              },
+              "plume": {
+                "level": 20,
+                "rarity": 5,
+                "statKey": "atk"
+              },
+              "sands": {
+                "level": 20,
+                "rarity": 5,
+                "statKey": "def_"
+              },
+              "goblet": {
+                "level": 20,
+                "rarity": 5,
+                "statKey": "def_"
+              },
+              "circlet": {
+                "level": 20,
+                "rarity": 5,
+                "statKey": "critRate_"
+              }
+            },
+            "substats": {
+              "type": "max",
+              "rarity": 5,
+              "stats": {
+                "def": 39.35,
+                "def_": 43.73,
+                "critRate_": 22.94,
+                "critDMG_": 79.26,
+                "hp": 507.88,
+                "hp_": 9.91,
+                "enerRech_": 11.01,
+                "eleMas": 39.63,
+                "atk": 33.07,
+                "atk_": 9.91
+              }
+            }
+          },
+          "optimization": {
+            "distributedSubstats": 0,
+            "maxSubstats": {}
+          }
+        }
+      ]
+    },
+    null,
+    null,
+    null
+  ]
+}

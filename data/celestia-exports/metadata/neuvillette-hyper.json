@@ -1,0 +1,88 @@
+{
+  "category": {
+    "id": "neuvillette-hyper",
+    "name": "Hyper",
+    "kind": "normal"
+  },
+  "child": {
+    "constellation": 0,
+    "characterLevel": 90,
+    "talents": {
+      "burst": 10,
+      "skill": 10,
+      "normal": 10
+    },
+    "baseTalents": {
+      "burst": 10,
+      "skill": 10,
+      "normal": 10
+    },
+    "weaponId": 14514,
+    "refinement": 1
+  },
+  "reference": {
+    "source": "ceilingStandard"
+  },
+  "goConditions": {
+    "Neuvillette": {
+      "a4Hp": "50"
+    }
+  },
+  "characterBonusStats": null,
+  "enemy": {
+    "level": 100,
+    "res": 0.1
+  },
+  "issues": [
+    {
+      "code": "goSwitch",
+      "switches": [
+        {
+          "condition": [
+            "Neuvillette",
+            "a4Hp",
+            "50"
+          ],
+          "source": {
+            "type": "character"
+          },
+          "buffs": [
+            "Discipline of the Supreme Arbitration"
+          ]
+        }
+      ]
+    },
+    {
+      "code": "setEffects",
+      "setIds": [
+        15031
+      ]
+    }
+  ],
+  "teamIssues": [
+    {
+      "code": "goSwitch",
+      "switches": [
+        {
+          "condition": [
+            "Neuvillette",
+            "a4Hp",
+            "50"
+          ],
+          "source": {
+            "type": "character"
+          },
+          "buffs": [
+            "Discipline of the Supreme Arbitration"
+          ]
+        }
+      ]
+    },
+    {
+      "code": "setEffects",
+      "setIds": [
+        15031
+      ]
+    }
+  ]
+}

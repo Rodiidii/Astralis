@@ -63,3 +63,7 @@ Date : 2026-11-08. Établi avant les refontes du cahier joint à partir du regis
 ## Limite de cet inventaire initial
 
 L’inventaire des commandes individuelles n’est pas encore complet : aucune page n’a été remplacée. Il sera enrichi avant modification de chaque page et comparé au rendu final.
+
+## Compagnon avant la mission
+
+Sélection du personnage et profil actif, jusqu’à cinq profils, rôles, contexte personnalisé, voix et fréquence des notifications, messages personnalisés, tests de rappel et de conversation, interactions de groupe et fermeture. Les préférences et profils restent locaux.

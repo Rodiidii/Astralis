@@ -1,0 +1,91 @@
+{
+  "name": "Skill DMG",
+  "description": "Celestia",
+  "targets": [
+    {
+      "weight": 1,
+      "path": [
+        "skill",
+        "skillDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "critRate_": 15
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "skill",
+        "codaStellarconductDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "stellarconduct_dmg_": 60,
+        "critRate_": 15
+      },
+      "description": ""
+    },
+    {
+      "weight": 5,
+      "path": [
+        "skill",
+        "plumeDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "critRate_": 15
+      },
+      "description": ""
+    },
+    {
+      "weight": 5,
+      "path": [
+        "skill",
+        "plumeStellarconductDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "critRate_": 15
+      },
+      "description": ""
+    },
+    {
+      "weight": 5,
+      "path": [
+        "skill",
+        "wingDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "critRate_": 15
+      },
+      "description": ""
+    },
+    {
+      "weight": 5,
+      "path": [
+        "skill",
+        "wingStellarconductDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "critRate_": 15
+      },
+      "description": ""
+    },
+    {
+      "weight": 4,
+      "path": [
+        "skill",
+        "codaDotDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "critRate_": 15
+      },
+      "description": ""
+    }
+  ]
+}

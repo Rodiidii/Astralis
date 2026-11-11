@@ -1,0 +1,131 @@
+{
+  "name": "Citlali Melt",
+  "description": "Celestia",
+  "targets": [
+    {
+      "weight": 1,
+      "path": [
+        "skill",
+        "skillDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "eleMas": 120,
+        "all_dmg_": 68
+      },
+      "description": ""
+    },
+    {
+      "weight": 2,
+      "path": [
+        "skill",
+        "radianceDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "eleMas": 120,
+        "all_dmg_": 68
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "skill",
+        "radianceDmg"
+      ],
+      "hitMode": "avgHit",
+      "reaction": "melt",
+      "bonusStats": {
+        "atk_": 20,
+        "eleMas": 120,
+        "pyro_enemyRes_": -20,
+        "all_dmg_": 68
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "burst",
+        "skillDmg"
+      ],
+      "hitMode": "avgHit",
+      "reaction": "melt",
+      "bonusStats": {
+        "atk_": 50,
+        "eleMas": 120,
+        "atk": 1860.758,
+        "all_dmg_": 148,
+        "pyro_enemyRes_": -20
+      },
+      "description": ""
+    },
+    {
+      "weight": 5,
+      "path": [
+        "skill",
+        "chargedCyclicDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 50,
+        "eleMas": 120,
+        "atk": 1860.758,
+        "all_dmg_": 148,
+        "pyro_enemyRes_": -20
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "skill",
+        "chargedCyclicDmg"
+      ],
+      "hitMode": "avgHit",
+      "reaction": "melt",
+      "bonusStats": {
+        "atk_": 50,
+        "eleMas": 120,
+        "atk": 1860.758,
+        "all_dmg_": 148,
+        "pyro_enemyRes_": -20
+      },
+      "description": ""
+    },
+    {
+      "weight": 4,
+      "path": [
+        "skill",
+        "sprintDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 50,
+        "eleMas": 120,
+        "atk": 1860.758,
+        "all_dmg_": 148,
+        "pyro_enemyRes_": -20
+      },
+      "description": ""
+    },
+    {
+      "weight": 4,
+      "path": [
+        "skill",
+        "chargedFinalDmg"
+      ],
+      "hitMode": "avgHit",
+      "reaction": "melt",
+      "bonusStats": {
+        "atk_": 50,
+        "eleMas": 120,
+        "atk": 1860.758,
+        "all_dmg_": 148,
+        "pyro_enemyRes_": -20
+      },
+      "description": ""
+    }
+  ]
+}

@@ -1,0 +1,12 @@
+astralis-card{display:block;width:100%;aspect-ratio:220/308;min-width:0}
+.binder-card>astralis-card{grid-area:1/1;width:100%;height:auto}
+.binder-flip-front>astralis-card{width:100%;height:100%}
+.booster-card-arrival>astralis-card{width:100%;height:100%}
+.cards-page-overlay{position:fixed;inset:0;z-index:11000;overflow:auto;padding:70px 28px 40px;background:#111015f5;overscroll-behavior:contain}
+.cards-consult-grid{max-width:1420px;margin:auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,320px));gap:42px;justify-content:center}
+.cards-page-close{position:fixed;top:14px;right:24px;z-index:1;padding:10px 18px;border:1px solid #ffffff44;border-radius:8px;background:#24202b;color:white;cursor:pointer}
+#cards-debug{position:fixed;bottom:12px;left:12px;z-index:20000;max-width:min(650px,90vw);max-height:60vh;overflow:auto;background:#15131c;color:#eee;border:1px solid #777;padding:10px;font:12px/1.4 monospace}#cards-debug pre{white-space:pre-wrap}
+/* Companions must not intercept consultation or booster controls. */
+.booster-opening-overlay,.binder-view-overlay{z-index:15000!important}
+body:has(.booster-opening-overlay,.binder-view-overlay,.cards-page-overlay) .assistant-toast-stack{visibility:hidden;pointer-events:none}
+.binder-card:has(astralis-card){min-height:0!important;aspect-ratio:220/308}

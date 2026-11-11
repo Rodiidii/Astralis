@@ -1,0 +1,109 @@
+{
+  "name": "Hyperbloom",
+  "description": "Celestia",
+  "targets": [
+    {
+      "weight": 1,
+      "path": [
+        "skill",
+        "stack0"
+      ],
+      "hitMode": "avgHit",
+      "reaction": "aggravate",
+      "bonusStats": {
+        "eleMas": 350,
+        "hp_": 25,
+        "enemyDefRed_": 15
+      },
+      "description": ""
+    },
+    {
+      "weight": 36,
+      "path": [
+        "burst",
+        "tick"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "eleMas": 350,
+        "hp_": 25,
+        "enemyDefRed_": 15
+      },
+      "description": ""
+    },
+    {
+      "weight": 6,
+      "path": [
+        "burst",
+        "tick"
+      ],
+      "hitMode": "avgHit",
+      "reaction": "aggravate",
+      "bonusStats": {
+        "eleMas": 350,
+        "hp_": 25,
+        "enemyDefRed_": 15
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "reaction",
+        "hyperbloom"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "eleMas": 350,
+        "hp_": 25,
+        "enemyDefRed_": 15,
+        "dendro_enemyRes_": -30
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "reaction",
+        "hyperbloom"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "eleMas": 350,
+        "hp_": 25,
+        "enemyDefRed_": 15,
+        "dendro_enemyRes_": -30
+      },
+      "description": ""
+    },
+    {
+      "weight": 22,
+      "path": [
+        "reaction",
+        "hyperbloom"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "eleMas": 350,
+        "hp_": 25,
+        "enemyDefRed_": 15,
+        "dendro_enemyRes_": -30
+      },
+      "description": ""
+    },
+    {
+      "weight": 3,
+      "path": [
+        "reaction",
+        "electrocharged"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "eleMas": 350,
+        "hp_": 25,
+        "enemyDefRed_": 15
+      },
+      "description": ""
+    }
+  ]
+}

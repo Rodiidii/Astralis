@@ -1,0 +1,88 @@
+{
+  "name": "C0 Vape",
+  "description": "Celestia",
+  "targets": [
+    {
+      "weight": 1,
+      "path": [
+        "skill",
+        "skillDmg"
+      ],
+      "hitMode": "avgHit",
+      "reaction": "vaporize",
+      "bonusStats": {
+        "eleMas": 268.88,
+        "all_dmg_": 35
+      },
+      "description": ""
+    },
+    {
+      "weight": 6,
+      "path": [
+        "skill",
+        "dance1Dmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "eleMas": 268.88,
+        "all_dmg_": 35
+      },
+      "description": ""
+    },
+    {
+      "weight": 6,
+      "path": [
+        "skill",
+        "dance2Dmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "eleMas": 268.88,
+        "all_dmg_": 35
+      },
+      "description": ""
+    },
+    {
+      "weight": 6,
+      "path": [
+        "skill",
+        "moonDmg"
+      ],
+      "hitMode": "avgHit",
+      "reaction": "vaporize",
+      "bonusStats": {
+        "eleMas": 268.88,
+        "all_dmg_": 35
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "burst",
+        "skillDmg"
+      ],
+      "hitMode": "avgHit",
+      "reaction": "vaporize",
+      "bonusStats": {
+        "eleMas": 268.88,
+        "all_dmg_": 35
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "burst",
+        "aeonDmg"
+      ],
+      "hitMode": "avgHit",
+      "reaction": "vaporize",
+      "bonusStats": {
+        "eleMas": 268.88,
+        "all_dmg_": 35
+      },
+      "description": ""
+    }
+  ]
+}

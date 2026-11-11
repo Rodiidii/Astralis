@@ -1,0 +1,58 @@
+{
+  "name": "Buffed EQ",
+  "description": "Celestia",
+  "targets": [
+    {
+      "weight": 1,
+      "path": [
+        "skill",
+        "dmgTwoHits"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "electro_enemyRes_": -55,
+        "all_dmg_": 72
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "skill",
+        "baseDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "electro_enemyRes_": -55,
+        "all_dmg_": 72
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "burst",
+        "burstDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "electro_enemyRes_": -55,
+        "all_dmg_": 72
+      },
+      "description": ""
+    },
+    {
+      "weight": 50,
+      "path": [
+        "burst",
+        "lightningDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "electro_enemyRes_": -55,
+        "all_dmg_": 72
+      },
+      "description": ""
+    }
+  ]
+}
