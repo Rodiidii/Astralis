@@ -5,7 +5,7 @@ const ElementBase=globalThis.HTMLElement||class {};
 const active=new Set(),textures=new Map(),rotations=new Map();let timer;
 const photographic=new Map();
 let regionalRenderer,regionalLoading;
-function loadRegionalRenderer(){return regionalLoading||=(import('./planet-diorama.js?v=87').then(module=>{regionalRenderer=module.drawRegionalModel;return module;}));}
+function loadRegionalRenderer(){return regionalLoading||=(import('./planet-diorama.js?v=88').then(module=>{regionalRenderer=module.drawRegionalModel;return module;}));}
 // Replace only the near-white background connected to the image edges; snow stays snow.
 export function replaceMapBackground(rgba,w,h){
  const seen=new Uint8Array(w*h),queue=new Uint32Array(w*h);let head=0,tail=0;

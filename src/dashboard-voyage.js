@@ -60,7 +60,7 @@ function orbit(now){
   if(host._orbitVisible!==false&&host.dataset.editing!=='true'&&host.dataset.view==='orbit'&&host.dataset.exploring!=='true'&&host.dataset.flight!=='true'){
    const config=cachedConfig,free=config.freeOrbits===true,nodes=[...host.querySelectorAll('.orbit-node')],paused=config.motion===false||reduced(),speed=Math.max(.2,Math.min(3,Number(config.speed)||1));
    const blocked=new Set(nodes.map((node,i)=>(node.matches(':hover')||node===document.activeElement||node.dataset.orbitSelect===heldId&&now<interactionUntil)?i%3:-1));
-   const tracks=[0,1,2].map(track=>{const key=host.dataset.studioGame+':track:'+track;let phase=phases.get(key)||0;if(!paused&&!blocked.has(track))phase+=delta/1000*Math.PI*2/(90+track*45)*speed;phases.set(key,phase);return phase;});
+   const tracks=[0,1,2].map(track=>{const key=host.dataset.studioGame+':track:'+track;let phase=phases.get(key)||0;if(!paused&&!blocked.has(track))phase+=delta/1000*Math.PI*2/([180,135,210][track])*speed;phases.set(key,phase);return phase;});
    const proposed=[];nodes.forEach((node,index)=>{const entry=config.icons?.[node.dataset.orbitSelect]||{},key=host.dataset.studioGame+':'+node.dataset.orbitSelect;let phase=tracks[index%3];if(free){phase=phases.get(key)||0;if(!paused&&!node.matches(':hover')&&node!==document.activeElement)phase+=delta/1000*Math.PI*2/Math.max(35,Math.min(200,Number(entry.period)||90+index%3*45))*speed;phases.set(key,phase);}
     const position=orbitTrackPosition(index,nodes.length,phase,entry,free);proposed.push({node,position,index});node.style.setProperty('--node-x',position.x+'%');node.style.setProperty('--node-y',position.y+'%');if(!node._reported||now-node._reported>180){node.dataset.orbitAngle=position.angle.toFixed(5);node._reported=now;}
    });
