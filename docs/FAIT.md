@@ -781,3 +781,7 @@ La principale proposée suit le niveau et le type de pièce. Modifier une valeur
 `tests/artifact_entry_browser.py` : réussi sur la vraie page Sets. Vérification d’une coupe Cryo à +0 puis +20, refus d’un doublon sans écriture, acceptation de DÉF 39, conservation des deux sous-stats, réinitialisation puis création d’une seconde pièce dans la même fenêtre. Aucune erreur JavaScript.
 
 Les tests portent sur le formulaire et les données enregistrées. La validation complète de tous les builds, passifs et résultats du laboratoire reste distincte.
+
+## EQUIPER-ARTEFACT-POSSEDE-20261111
+
+Sélection de set compatible avec les identifiants numériques/noms, remplacement correct de l’image et des sous-stats, copie indépendante de l’inventaire et vérification d’emplacement. 221 tests unitaires réussis ; `tests/artifact_equip_browser.py` réussi pour l’équipement d’une coupe Cryo avec quatre sous-stats, recalcul et persistance après rechargement. Preuves dans `docs/VALIDATION-EQUIPER-ARTEFACT-20261111.md`. Le point global RESTE-032 reste ouvert pour ses autres exigences.
