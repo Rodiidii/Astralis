@@ -1,3 +1,4 @@
+import {farmArtwork} from './farm-art.js';
 import {equipmentArtwork} from './equipment-art.js';
 import {CHARACTER_SPLASHES} from './character-splashes.js';
 import {CHARACTER_SKILL_ICONS} from './character-skill-icons.js';
@@ -406,7 +407,7 @@ export function imageSet(game, item, category = item?._category || 'character') 
       item?.images?.flower, item?.images?.circlet, `https://genshin.jmp.blue/artifacts/${id}/flower-of-life`].filter(Boolean);
     if (category === 'material') {
       const filename=item?.images?.filename_icon;
-      return [filename&&`https://gi.yatta.moe/assets/UI/${encodeURIComponent(filename)}.png`,
+      return [farmArtwork(filename),filename&&`https://gi.yatta.moe/assets/UI/${encodeURIComponent(filename)}.png`,
         filename&&`https://enka.network/ui/${encodeURIComponent(filename)}.png`,
         item?.images?.icon, item?.images?.item, item?.images?.['hoyowiki_icon'], item?.icon,
         filename&&`https://upload-os-bbs.hoyolab.com/game_record/genshin/item_icon/${encodeURIComponent(filename)}.png`,

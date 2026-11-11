@@ -629,3 +629,51 @@ Les tests d’import vérifient le sablier Recharge, les coupes Cryo/Hydro, le d
 - Vérification de syntaxe des modules et `git diff --check` : réussie.
 
 Ces vérifications clôturent les causes de statistiques de build décrites ci-dessus et la stabilité de l’atelier. Elles ne valident pas la simulation complète des dégâts, tous les passifs conditionnels ni l’optimisation des équipes du laboratoire. P0-BUILD-02 (comparaison complète, laboratoire compris), P0-TEAM-03 et les chantiers du laboratoire restent ouverts.
+
+## RESTE-039 · 2026-11-11T15:45:26+01:00
+
+- [x] **RESTE-039** — Stock partagé, priorités par personnage, talents actuels/cibles individuellement ; synthèse 3:1 pour livres et matériaux de monstres APRÈS réservation des besoins de tous les personnages.
+
+# Farm — validation du 11 novembre 2026
+
+196 tests unitaires réussis. `tests/farm_workshop_browser.py` réussit sur la page réelle : niveaux actuels/cibles normalisés pour chaque talent, maintien du panneau ouvert, stock consolidé, synthèse 3:1 après réservation globale, calendrier et réclamations hebdomadaires, scénarios 0–4, dates vertes actualisées, dates manuelles réservées, priorité par glisser-déposer, largeur mobile et recherche des personnages.
+
+Le test télécharge un vrai PNG 2×, compare son SHA-256 au canevas de l’aperçu et vérifie la copie image/png dans le presse-papiers. Captures avant/après et PNG dans `docs/captures/farm-workshop/`.
+
+Correction du rendement des talents : chaque rareté dispose de son stock, aucune conversion descendante ; moyennes par journée de 180 résines = 20 verts, 18 bleus et 2 violets. Les stocks inutilisés persistent. Les bonus hebdomadaires réduisent la résine disponible. Les allocations de stock entre personnages sont partagées par le planning, les fiches du tableau de bord et les exports.
+
+317 visuels originaux de matériaux disponibles localement ; URLs, dimensions et empreintes dans `assets/genshin/farm-materials/sources.json`, vérifiées par `tests/farm-art.test.mjs`. Aucun fichier manquant parmi les coûts de niveaux/talents du catalogue local.
+
+Les besoins hors résine sont explicitement affichés et donnent accès au stock à saisir. Les dates restent des estimations sur rendements moyens ; la capacité réelle de récolte et l’exhaustivité des futurs personnages restent à auditer. P0-FARM-04, RESTE-041/044/117/118 demeurent ouverts : cette validation ne prétend pas clôturer leurs exigences intégrales.
+
+## RESTE-042 · 2026-11-11T15:45:26+01:00
+
+- [x] **RESTE-042** — Scénarios 0–4 jours d’artéfacts/semaine, dates par personnage, recalcul au changement de stock ou de planning manuel ; priorité réordonnable par glisser-déposer.
+
+# Farm — validation du 11 novembre 2026
+
+196 tests unitaires réussis. `tests/farm_workshop_browser.py` réussit sur la page réelle : niveaux actuels/cibles normalisés pour chaque talent, maintien du panneau ouvert, stock consolidé, synthèse 3:1 après réservation globale, calendrier et réclamations hebdomadaires, scénarios 0–4, dates vertes actualisées, dates manuelles réservées, priorité par glisser-déposer, largeur mobile et recherche des personnages.
+
+Le test télécharge un vrai PNG 2×, compare son SHA-256 au canevas de l’aperçu et vérifie la copie image/png dans le presse-papiers. Captures avant/après et PNG dans `docs/captures/farm-workshop/`.
+
+Correction du rendement des talents : chaque rareté dispose de son stock, aucune conversion descendante ; moyennes par journée de 180 résines = 20 verts, 18 bleus et 2 violets. Les stocks inutilisés persistent. Les bonus hebdomadaires réduisent la résine disponible. Les allocations de stock entre personnages sont partagées par le planning, les fiches du tableau de bord et les exports.
+
+317 visuels originaux de matériaux disponibles localement ; URLs, dimensions et empreintes dans `assets/genshin/farm-materials/sources.json`, vérifiées par `tests/farm-art.test.mjs`. Aucun fichier manquant parmi les coûts de niveaux/talents du catalogue local.
+
+Les besoins hors résine sont explicitement affichés et donnent accès au stock à saisir. Les dates restent des estimations sur rendements moyens ; la capacité réelle de récolte et l’exhaustivité des futurs personnages restent à auditer. P0-FARM-04, RESTE-041/044/117/118 demeurent ouverts : cette validation ne prétend pas clôturer leurs exigences intégrales.
+
+## RESTE-043 · 2026-11-11T15:45:26+01:00
+
+- [x] **RESTE-043** — Rendements du scénario utilisateur : 180 résines/jour ; Mora 540 000/jour, EXP environ 1 102 500/jour, boss normal environ 15–16 matériaux/jour ; livres environ 20 verts/18 bleus/2 violets par jour ; hebdomadaire 2–3 matériaux/run, une fois/semaine/boss, coût réel pris en compte.
+
+# Farm — validation du 11 novembre 2026
+
+196 tests unitaires réussis. `tests/farm_workshop_browser.py` réussit sur la page réelle : niveaux actuels/cibles normalisés pour chaque talent, maintien du panneau ouvert, stock consolidé, synthèse 3:1 après réservation globale, calendrier et réclamations hebdomadaires, scénarios 0–4, dates vertes actualisées, dates manuelles réservées, priorité par glisser-déposer, largeur mobile et recherche des personnages.
+
+Le test télécharge un vrai PNG 2×, compare son SHA-256 au canevas de l’aperçu et vérifie la copie image/png dans le presse-papiers. Captures avant/après et PNG dans `docs/captures/farm-workshop/`.
+
+Correction du rendement des talents : chaque rareté dispose de son stock, aucune conversion descendante ; moyennes par journée de 180 résines = 20 verts, 18 bleus et 2 violets. Les stocks inutilisés persistent. Les bonus hebdomadaires réduisent la résine disponible. Les allocations de stock entre personnages sont partagées par le planning, les fiches du tableau de bord et les exports.
+
+317 visuels originaux de matériaux disponibles localement ; URLs, dimensions et empreintes dans `assets/genshin/farm-materials/sources.json`, vérifiées par `tests/farm-art.test.mjs`. Aucun fichier manquant parmi les coûts de niveaux/talents du catalogue local.
+
+Les besoins hors résine sont explicitement affichés et donnent accès au stock à saisir. Les dates restent des estimations sur rendements moyens ; la capacité réelle de récolte et l’exhaustivité des futurs personnages restent à auditer. P0-FARM-04, RESTE-041/044/117/118 demeurent ouverts : cette validation ne prétend pas clôturer leurs exigences intégrales.

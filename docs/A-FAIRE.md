@@ -94,13 +94,10 @@ Règles et détails : [MISSION-AUTONOME-COMPLETE.md](MISSION-AUTONOME-COMPLETE.m
 
 - [ ] **RESTE-038** — Configs/Team exports JSON fournis et Celestia : téléchargement dans le projet, vérification périodique, badge Nouveau sur ajout/changement jusqu’à consultation, imports persistés et équipe éditable. Les restrictions des sources ne doivent pas effacer les exports valides.
 
-- [ ] **RESTE-039** — Stock partagé, priorités par personnage, talents actuels/cibles individuellement ; synthèse 3:1 pour livres et matériaux de monstres APRÈS réservation des besoins de tous les personnages.
 
 - [ ] **RESTE-041** — Calendrier : vrais portraits/icônes, philosophies pour les aptitudes, boss normaux/EXP/Mora/artéfacts/hebdomadaires visibles. Plantes hors cases à résine, couronnes non farmables. Repli de liste par défaut, jours valides de talents bleus, jour estimé de fin vert.
 
-- [ ] **RESTE-042** — Scénarios 0–4 jours d’artéfacts/semaine, dates par personnage, recalcul au changement de stock ou de planning manuel ; priorité réordonnable par glisser-déposer.
 
-- [ ] **RESTE-043** — Rendements du scénario utilisateur : 180 résines/jour ; Mora 540 000/jour, EXP environ 1 102 500/jour, boss normal environ 15–16 matériaux/jour ; livres environ 20 verts/18 bleus/2 violets par jour ; hebdomadaire 2–3 matériaux/run, une fois/semaine/boss, coût réel pris en compte.
 
 - [ ] **RESTE-044** — Spécialités : capacité du monde sourcée, repousse 48 h, nombre de passages, stocks partagés, pas de capacité inventée.
 
