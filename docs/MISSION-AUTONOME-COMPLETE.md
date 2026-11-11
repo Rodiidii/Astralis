@@ -8,6 +8,10 @@ Ce document réunit les derniers bugs signalés, l’audit des manques, les règ
 
 > Lis ce suivi en entier, vérifie le code réel, puis exécute toute la mission de façon autonome. Commence par les points P0 signalés par l’utilisateur. Ensuite termine les autres chantiers, en réservant le laboratoire à la dernière grande étape fonctionnelle. Conserve les fonctions et données existantes, corrige les causes et teste les vrais parcours/pages/PNG. Mets à jour les cases avec preuves au fur et à mesure. N’annonce pas qu’un point est fini parce qu’un ancien rapport le dit. Les limites de données ou de sources doivent être démontrées et documentées, jamais remplacées par des valeurs inventées.
 
+## Suivi demandé par l’utilisateur
+
+La liste active est désormais **docs/A-FAIRE.md**. Quand un point est réalisé et vérifié, le retirer de ce fichier et inscrire son texte, ses fichiers et ses preuves dans **docs/FAIT.md**. Ne pas supprimer un point partiel ou seulement décrit. Les cases du présent document et de ses annexes sont une référence historique ; elles ne sont pas une seconde liste active.
+
 ## Projet et priorité des consignes
 
 - Projet : C:/Users/Ravon/Downloads/Astralis-v96-Genshin/Astralis-v76-Genshin.

@@ -1,3 +1,4 @@
+import {CHARACTER_LEVEL_EXP} from './character-level-costs.js';
 
 const DAY=86400000;
 const dateNumber=value=>Date.parse(String(value).slice(0,10)+'T00:00:00Z');
@@ -63,19 +64,14 @@ export function orderedGuarantees(targets,state={}){
 }
 
 const LEVEL_STOPS=[1,20,40,50,60,70,80,90];
-const LEVEL_MORA=[24200,115600,115800,170800,239200,322200,684800];
+
 
 export function farmLevelGoal(goal={}) {
  const from=Math.max(1,Math.min(90,Math.floor(Number(goal.levelFrom)||1)));
  const to=Math.max(from,Math.min(90,Math.floor(Number(goal.levelTo)||90)));
- let mora=0;
- for(let index=0;index<LEVEL_MORA.length;index++){
-  const start=LEVEL_STOPS[index],end=LEVEL_STOPS[index+1];
-  const overlap=Math.max(0,Math.min(end,to)-Math.max(start,from));
-  mora+=LEVEL_MORA[index]*overlap/(end-start);
- }
+ const xp=CHARACTER_LEVEL_EXP.slice(from,to).reduce((sum,value)=>sum+value,0),mora=xp/5;
  const ascensions=LEVEL_STOPS.slice(1,-1).map((level,i)=>({level,stage:i+1})).filter(row=>row.level>=from&&row.level<to).map(row=>row.stage);
- return {from,to,ascensions,mora:Math.round(mora),xp:Math.round(mora*5)};
+ return {from,to,ascensions,mora:Math.ceil(mora),xp};
 }
 
 export const forecastVersions=[...Array.from({length:7},(_,i)=>'7.'+(i+2)),...Array.from({length:9},(_,i)=>'8.'+i)];

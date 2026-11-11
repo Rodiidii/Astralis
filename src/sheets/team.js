@@ -3,7 +3,7 @@ import {I,esc,fr,pct,act,shares,statRows,context} from './common.js';
 export function template(data,el){
 const {CH,IMG,asset}=context(data,el);
 
- const cards=data.members.map((m,i)=>[String(i),m.role||'',m.weapon?.name||'—',m.set?.name||'—','C'+(m.constellation??'—')+' · '+(m.talents||[]).join('/'),[['ATQ',fr(m.stats?.atk)],['CRIT',fr(m.stats?.critRate)+' / '+fr(m.stats?.critDmg)],['MÎ',fr(m.stats?.em)]],m.focalX||50]);
+ const cards=data.members.map((m,i)=>[String(i),m.role||'',m.weapon?.name||'—',m.set?.name||'—','C'+(m.constellation??'—')+' · '+(m.talents||[]).join('/'),[['ATQ',fr(m.stats?.atk)],['CRIT %',fr(m.stats?.critRate)+' / '+fr(m.stats?.critDmg)],['MÎ',fr(m.stats?.em)]],m.focalX||50]);
  const rot=(data.rotation||[]).map(a=>[esc(a.name||a.label||a.code||'Action'),String(Math.max(0,data.members.findIndex(m=>String(m.id)===String(a.character)))),({E:'skill',Q:'burst',N:'atk',A:'atk',C:'atk',comboStart:'combo',comboEnd:'end'})[a.code||a.type]||a.type||'atk']);
  const share=shares(data.members.map(m=>m.damage)).map((value,i)=>[String(i),value]);
  return `<div class="in">
@@ -25,7 +25,7 @@ const {CH,IMG,asset}=context(data,el);
   <div style="padding:16px 22px;display:grid;gap:10px">
    <div style="display:flex;gap:16px;align-items:center"><span class="ico" style="width:54px;height:54px;border-radius:14px;background:${col}22;border:1.5px solid ${col}77;color:${col}">${asset(data.members[Number(k)]?.weapon?.image,h.el,'sword')}</span><div><div style="font:600 25px/1.15 var(--sans)">${esc(w)}</div><div class="mut" style="font:500 18px var(--sans)">Arme</div></div></div>
    <div style="display:flex;gap:16px;align-items:center"><span class="ico" style="width:54px;height:54px;border-radius:14px;background:${col}22;border:1.5px solid ${col}77;color:${col}">${asset(data.members[Number(k)]?.set?.image,h.el,'flower')}</span><div><div style="font:600 25px/1.15 var(--sans)">${esc(s)}</div><div class="mut" style="font:500 18px var(--sans)">${esc(data.members[Number(k)]?.set?.detail||'Set équipé')}</div></div></div>
-   <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:10px">${st.map(([a,b])=>`<div style="border-radius:12px;padding:8px 10px;background:#ffffff0d;border:1px solid #ffffff1c;text-align:center"><div class="mut" style="font:600 15px var(--sans);letter-spacing:.08em">${a}</div><div style="font:700 21px/1.2 var(--sans)">${b}</div></div>`).join('')}</div>
+   <div class="sheet-team-stats" style="display:grid;grid-template-columns:repeat(3,1fr);gap:0;padding:9px 0;border-top:1px solid #ffffff25;border-bottom:1px solid #ffffff25">${st.map(([a,b])=>`<div style="padding:3px 8px;text-align:center"><div class="mut" style="font:600 15px var(--sans);letter-spacing:.08em">${a}</div><div style="font:700 21px/1.2 var(--sans)">${b}</div></div>`).join('')}</div>
    <div style="font:700 20px var(--sans);letter-spacing:.16em;color:${col}">${c}</div></div></div>`}).join('')}
  </div>
 
@@ -34,7 +34,7 @@ const {CH,IMG,asset}=context(data,el);
   <div style="position:absolute;left:100px;right:100px;top:41px;height:3px;background:linear-gradient(90deg,transparent,var(--e1) 12%,var(--e1) 88%,transparent);opacity:.55;box-shadow:0 0 14px var(--e1)"></div>
   <div style="display:grid;grid-template-columns:repeat(8,1fr);gap:6px">
   ${rot.map(([n,k,t],i)=>{const col=ELC[CH[k].el];return `<div style="text-align:center;position:relative">
-   <div class="ico" style="width:84px;height:84px;margin:0 auto;background:radial-gradient(circle at 35% 30%,${col}55,#0b0b12 70%);border:3px solid ${col};box-shadow:0 0 22px ${col}77;color:#fff;position:relative">${I(act(t),40,'#fff',1.7)}
+   <div class="ico" style="width:84px;height:84px;margin:0 auto;background:radial-gradient(circle at 35% 30%,${col}55,#0b0b12 70%);border:3px solid ${col};box-shadow:0 0 22px ${col}77;color:#fff;position:relative">${asset(data.rotation[i]?.image,CH[k].el,act(t)).replace('class="sheet-item-image"','class="sheet-item-image sheet-rotation-skill"')}
     <b style="position:absolute;right:-6px;top:-6px;width:32px;height:32px;border-radius:50%;background:var(--e1);color:#10131a;font:800 18px/32px var(--sans)">${i+1}</b></div>
    <div style="font:600 21px/1.2 var(--sans);margin-top:12px;padding:0 4px">${n}</div>
    <div class="mut" style="font:500 17px var(--sans);margin-top:3px">${CH[k].n}</div></div>`}).join('')}</div></div>
