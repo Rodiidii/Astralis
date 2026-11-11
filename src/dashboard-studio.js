@@ -1,7 +1,7 @@
 import {travelTo} from './dashboard-voyage.js?v=20261111-moon-orbits-1';
 import {renderFeature} from './dashboard-features.js?v=20261110-voyage-5';
 import { ic } from './icons.js';
-import './cosmos-planet.js?v=20261111-orbital-3d-1';
+import './cosmos-planet.js?v=20261111-satellite-motion-2';
 const esc=value=>String(value??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const read=(key,fallback)=>{try{return JSON.parse(localStorage.getItem(key))??fallback}catch{return fallback}};
 export const WIDGETS={banners:'Bannières',week:'La semaine',wishes:'Objectif de vœux',team:'Daily Challenge',session:'Ma session',events:'Événements à venir',progress:'Préparation des personnages',wall:'Mon build Enka',endgame:'Prochain endgame',farm:'Farm & ressources',favorites:'Favoris'};

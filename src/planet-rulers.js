@@ -27,9 +27,12 @@ export async function addRulerSatellites(model){
    const object=new T.Mesh(rulerGeometry(source),[face,edge]);object.scale.setScalar(.47/source.aspect);root.add(object);model.orbits.add(root);
    const plane=new T.Quaternion().setFromEuler(new T.Euler([.42,1.13,-.68][i],0,[.32,-.7,1.05][i]));
    model.animated.push(t=>{
-    const a=t*[.29,-.23,.19][i]+i*2.094,r=1.55+i*.12;
-    root.position.set(Math.cos(a)*r,Math.sin(a*2+i)*.12,Math.sin(a)*(r*.78)).applyQuaternion(plane);
-    root.quaternion.copy(plane);root.rotateZ(Math.sin(t*.4+i)*.16);object.rotation.y=Math.sin(t*.55+i)*.35;
+    // Keep each orbital path clearly outside Teyvat and give the three
+    // silhouettes distinct, steady orbital periods and axial spins.
+    const a=t*[.42,.34,.27][i]+i*2.094,r=1.78+i*.18;
+    root.position.set(Math.cos(a)*r,Math.sin(a*2+i)*.1,Math.sin(a)*(r*.82)).applyQuaternion(plane);
+    root.quaternion.copy(plane);root.rotateZ(Math.sin(t*.32+i)*.06);
+    object.rotation.set(Math.sin(t*.23+i)*.12,t*[.72,.91,1.08][i],t*[.58,.76,.94][i]);
    });
   }
   model.onReady?.();
@@ -49,6 +52,6 @@ export function addCentralMoons(model){
   geometry.setAttribute('color',new T.Float32BufferAttribute(colors,3));geometry.computeVertexNormals();
   const moon=new T.Mesh(geometry,new T.MeshStandardMaterial({vertexColors:true,roughness:.96}));group.add(moon);
   const plane=new T.Quaternion().setFromEuler(new T.Euler(.56,0,-.32));
-  model.animated.push(t=>{const a=t*[.24,.17,.12][i]+i*2.094,r=1.44+i*.19;group.position.set(Math.cos(a)*r,0,Math.sin(a)*r*.85).applyQuaternion(plane);moon.rotation.y=t*(.25+i*.05);});
+  model.animated.push(t=>{const a=t*[.32,.245,.19][i]+i*2.094,r=1.5+i*.2;group.position.set(Math.cos(a)*r,0,Math.sin(a)*r*.85).applyQuaternion(plane);moon.rotation.y=t*(.32+i*.08);});
  }
 }

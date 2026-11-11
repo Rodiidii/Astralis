@@ -2,7 +2,7 @@ import * as T from '../assets/vendor/three/three.module.js';
 import {loadPlanetGeography,regionalGeography,geographicalSample} from './planet-geography.js';
 import {buildGeographicLandmarks} from './planet-landmarks.js';
 import {addRegionalWeather} from './planet-weather.js?v=20261111-sandstorm-drift-1';
-import {addRulerSatellites,addCentralMoons} from './planet-rulers.js';
+import {addRulerSatellites,addCentralMoons} from './planet-rulers.js?v=20261111-satellite-motion-2';
 
 // One GPU context shared by every DOM planet. Models contain geometry, never AI images.
 export const REGIONAL_WORLDS={
@@ -189,7 +189,7 @@ export function createRegionalModel(region,tint,geography=regionalGeography(regi
  model.scene.add(model.surface,model.orbits);model.surface.rotation.z=-.13;
  model.scene.add(new T.HemisphereLight('#dceeff','#29364c',1.35));const key=new T.DirectionalLight('#fff0d6',2.5);key.position.set(-3,4,5);key.shadow.mapSize.set(512,512);Object.assign(key.shadow.camera,{left:-2,right:2,top:2,bottom:-2,near:1,far:12});key.shadow.bias=-.0004;key.shadow.normalBias=.018;model.key=key;model.scene.add(key);const rim=new T.DirectionalLight(model.palette.light,1.5);rim.position.set(3,1,-3);model.scene.add(rim);
  terrain(model,tint);if(geography){buildGeographicLandmarks(model);addRegionalWeather(model);if(region==='liyue')asteroidBelt(model);if(region==='snezhnaya')asteroidBelt(model,true);}else if(region==='primordial'){addRegionalWeather(model);}else buildLandmarks(model);batchLandmarks(model);if(region==='teyvat'){addCentralMoons(model);if(typeof window!=='undefined')addRulerSatellites(model);}
- model.camera=new T.OrthographicCamera(-2.35,2.35,2.35,-2.35,.1,20);model.camera.position.set(0,0,6);model.camera.lookAt(0,0,0);
+ const view=region==='teyvat'?2.7:2.35;model.camera=new T.OrthographicCamera(-view,view,view,-view,.1,20);model.camera.position.set(0,0,6);model.camera.lookAt(0,0,0);
  model.update=(time,angle)=>{model.surface.rotation.y=angle*Math.PI*2;for(const animate of model.animated)animate(time);};
  model.dispose=()=>{model.disposed=true;const geometries=new Set(),materials=new Set();model.scene.traverse(o=>{if(o.geometry)geometries.add(o.geometry);if(o.material)(Array.isArray(o.material)?o.material:[o.material]).forEach(m=>materials.add(m));});geometries.forEach(g=>g.dispose());materials.forEach(m=>{m.map?.dispose();m.dispose();});};
  return model;
