@@ -648,3 +648,20 @@ Détail de l’implémentation et des vérifications : [VALIDATION-STUDIO.md](VA
 - [x] Ombres en détail, regroupement des géométries, contexte GPU partagé et cache v81.
 - [x] Contrôle des neuf scènes et parcours dans le tableau de bord.
 Détails : [PLANETES-3D.md](PLANETES-3D.md).
+
+## Réouverture sur retour utilisateur — 11 novembre 2026
+
+Les clôtures historiques ne valent pas acceptation des points signalés de nouveau. La page de farm est visuellement contestée, les lignes d’artéfacts/listes de sets ont été inversées, les icônes de rotation et les statistiques d’équipe/build doivent être reprises, et le splash de la fiche personnage est trop lumineux.
+
+Suivi complet autonome et demandes originales : [MISSION-AUTONOME-COMPLETE.md](MISSION-AUTONOME-COMPLETE.md). Tous les P0 y sont ouverts avec critères de vérification. Aucune correction applicative n’est revendiquée par cette mise à jour documentaire.
+
+### Complément utilisateur — laboratoire, pourcentages et équipes
+
+- [ ] Refonte réelle du laboratoire (P0-LAB-01).
+- [ ] Fiabilité des pourcentages, gains et références (P0-LAB-02).
+- [ ] Qualité/exactitude/performance du calcul d’optimisation (P0-LAB-03).
+- [ ] Simulation et optimisation reliées aux équipes (P0-LAB-04).
+- [ ] Tests numériques croisés et scénarios complexes (P0-LAB-05).
+- [ ] Refonte et fonctionnement complet de la page Équipes (P0-TEAM-03).
+
+Critères détaillés conservés dans [MISSION-AUTONOME-COMPLETE.md](MISSION-AUTONOME-COMPLETE.md). Aucun de ces points n’est déclaré corrigé par cette mise à jour documentaire.
