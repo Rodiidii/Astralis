@@ -1,20 +1,38 @@
 /* Recovery: horizontal equipment rows, vertical set menus, readable farm projections. */
-.builds-hub .build-artifact-grid{display:grid!important;grid-template-columns:minmax(0,1fr)!important;gap:20px;overflow:visible;padding:0}
-.builds-hub .build-artifact-grid>.build-artifact-piece{display:grid!important;grid-template-columns:150px minmax(0,1fr) 240px!important;grid-template-rows:auto!important;align-items:start;gap:22px;min-width:0;padding:20px;background:linear-gradient(115deg,color-mix(in srgb,var(--build-tint,var(--accent)) 8%,var(--surface)),var(--surface) 65%)}
+.builds-hub .build-artifact-grid{display:grid!important;grid-template-columns:minmax(0,1fr)!important;gap:12px;overflow:visible;padding:0}
+.builds-hub .build-artifact-grid>.build-artifact-piece{display:grid!important;grid-template-columns:120px minmax(0,1fr)!important;grid-template-rows:auto!important;align-items:start;gap:14px;min-width:0;padding:12px;background:linear-gradient(115deg,color-mix(in srgb,var(--build-tint,var(--accent)) 8%,var(--surface)),var(--surface) 65%)}
 .build-artifact-piece>.build-piece-identity{display:grid;gap:12px;min-width:0}
-.build-artifact-piece .build-piece-visual{height:110px;min-height:110px;justify-content:center}
-.build-artifact-piece .build-piece-image{width:100px!important;height:100px!important}
+.build-artifact-piece .build-piece-visual{height:84px;min-height:84px;justify-content:center}
+.build-artifact-piece .build-piece-image{width:76px!important;height:76px!important}
 .build-piece-name{white-space:normal;font-size:13px;line-height:1.5;overflow:visible}
 .build-artifact-piece>.build-piece-fields{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;min-width:0}
 .build-piece-fields>label:first-child{grid-column:1/-1}
 .build-artifact-piece .build-stat-input{display:grid!important;grid-template-columns:minmax(0,1fr) 88px!important;gap:8px}
 .build-artifact-piece .build-stat-input input,.build-artifact-piece .build-stat-input select{font-size:12px;min-height:40px}
-.build-piece-selection{display:grid;gap:16px;min-width:0}
+.build-piece-selection{display:grid;grid-column:1/-1;grid-template-columns:minmax(0,1fr);gap:9px;min-width:0;width:100%}
 .build-piece-selection .image-picker-pop{width:min(390px,80vw);max-width:100%;position:relative!important;inset:auto!important}
 .build-relic-set-grid,.build-piece-selection .image-picker-grid{display:grid!important;grid-template-columns:minmax(0,1fr)!important;overflow-x:hidden;max-height:360px;overflow-y:auto}
 .build-relic-set-choice{display:grid!important;grid-template-columns:38px minmax(0,1fr);align-items:center;text-align:left;gap:12px;min-height:55px;width:100%}
 .build-relic-set-choice img{width:38px;height:38px;object-fit:contain}.build-relic-set-choice b{white-space:normal;overflow:visible}
-.build-relic-piece-list{display:grid;max-height:450px;overflow-y:auto;gap:10px}.build-relic-piece-list[hidden]{display:none}
+.build-relic-piece-list{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,360px),1fr));max-height:450px;overflow-y:auto;gap:10px;padding:2px}.build-relic-piece-list[hidden]{display:none}
+.build-piece-selection .build-relic-picker{width:100%;min-width:0;margin:0}
+.build-piece-selection .build-relic-piece{grid-template-columns:56px minmax(120px,.7fr) minmax(0,1.3fr);width:100%;min-width:0}
+.build-piece-selection .build-relic-piece-main,.build-piece-selection .build-relic-piece-subs{min-width:0}
+.build-piece-selection .build-relic-piece-subs small{min-width:0;overflow:hidden}
+.build-piece-selection .build-relic-set-grid{display:grid!important;grid-template-columns:minmax(0,1fr)!important;gap:4px;max-height:min(24vh,190px);padding:2px;background:transparent}
+.build-piece-selection .build-relic-set-choice{display:block!important;width:100%;min-height:0;padding:7px 12px;border-color:transparent;background:transparent}
+.build-piece-selection .build-relic-set-choice:hover,.build-piece-selection .build-relic-set-choice.active{border-color:color-mix(in srgb,var(--accent) 55%,transparent);background:color-mix(in srgb,var(--accent) 9%,var(--surface-2))}
+.build-relic-set-icons{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));align-items:center;justify-items:center;gap:8px;width:100%}
+.build-relic-set-icons>span{display:grid;place-items:center;min-width:0;width:100%;min-height:40px}
+.build-relic-set-icons img,.build-relic-set-icons .art-fallback{width:38px;height:38px;object-fit:contain}
+.build-piece-selection .build-relic-piece-list{grid-template-columns:minmax(0,1fr);max-height:min(30vh,235px);gap:5px;padding:1px}
+.build-piece-selection .build-relic-piece{grid-template-columns:42px minmax(88px,.65fr) minmax(0,1.35fr);gap:7px;padding:5px 7px;min-height:52px}
+.build-piece-selection .build-relic-piece-icon{width:40px;height:40px;border-radius:9px}
+.build-piece-selection .build-relic-piece-icon img{width:36px;height:36px}
+.build-piece-selection .build-relic-piece-subs{gap:3px}
+.build-piece-selection .build-relic-piece-subs small{padding:3px 4px;font-size:8px}
+.build-piece-selection .build-relic-piece-icon{overflow:hidden;border:1px solid var(--line);border-radius:12px}
+.build-piece-selection .build-relic-piece-icon img{width:100%;height:100%;object-fit:contain}
 .build-derived-stats{padding:22px;border-radius:18px;background:color-mix(in srgb,var(--build-tint,var(--accent)) 5%,var(--surface))}
 .build-stat-grid{display:grid!important;grid-template-columns:repeat(4,minmax(0,1fr))!important;gap:0!important;border-top:1px solid var(--line)}
 .build-stat-grid>div{display:flex!important;flex-direction:column;gap:9px;min-width:0;padding:17px!important;background:transparent!important;border:0!important;border-bottom:1px solid var(--line)!important;border-radius:0!important}
@@ -44,7 +62,7 @@
 .detail-hero{isolation:isolate;background-color:#14161f!important}.detail-hero:after{content:'';position:absolute;inset:0;background:linear-gradient(90deg,#11141b6b,#11141b12 60%,#11141b44);pointer-events:none;z-index:0}.detail-hero>.detail-hero-copy{position:relative;z-index:2}
 .detail-hero .unit-portrait{filter:brightness(.82) saturate(.95) drop-shadow(0 15px 25px #0007)!important}
 .detail-tab-content{font-size:14px;line-height:1.7}.detail-skill h3{font-size:19px;color:var(--character-accent,var(--accent))}.detail-skill{padding:20px 0;border-bottom:1px solid var(--line)}
-@media(max-width:1100px){.builds-hub .build-artifact-grid>.build-artifact-piece{grid-template-columns:110px minmax(0,1fr)!important}.build-piece-selection{grid-column:1/-1;grid-template-columns:1fr 1fr}.farm-projection-options{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media(max-width:1100px){.builds-hub .build-artifact-grid>.build-artifact-piece{grid-template-columns:110px minmax(0,1fr)!important}.build-piece-selection{grid-column:1/-1;grid-template-columns:minmax(0,1fr)}.farm-projection-options{grid-template-columns:repeat(3,minmax(0,1fr))}}
 @media(max-width:650px){.builds-hub .build-artifact-grid>.build-artifact-piece{grid-template-columns:minmax(0,1fr)!important;padding:16px}.build-piece-identity{grid-template-columns:100px minmax(0,1fr);align-items:center}.build-piece-selection{grid-template-columns:1fr}.build-piece-fields{grid-template-columns:1fr!important}.build-piece-fields>label:first-child{grid-column:auto}.build-stat-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important}.farm-resource-grid{grid-template-columns:1fr}.farm-projection-options{grid-template-columns:repeat(2,minmax(0,1fr))}.farm-projections{padding:18px}.farm-projection-options header{padding:14px 10px;grid-template-columns:30px 1fr}.farm-projection-options header i{display:none}.farm-scenario-number{font-size:34px}}
 
 .gi-character-detail .detail-art{background-color:#11151f!important}.gi-character-detail .detail-art-main{filter:brightness(.72) saturate(.88)!important}.gi-character-detail .detail-art::before{filter:blur(14px) brightness(.35) saturate(.65)!important}.gi-character-detail .detail-art-shade{background:linear-gradient(180deg,#11151f15 15%,#11151f66 60%,#11151fee)!important}.gi-character-detail .detail-title{z-index:3}.gi-character-detail .detail-title h2{font-size:clamp(28px,4vw,48px)}

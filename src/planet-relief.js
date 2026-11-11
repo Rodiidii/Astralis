@@ -1,8 +1,9 @@
 
 const palettes={mondstadt:['#207c90','#77bd8b'],liyue:['#8f7a55','#e6bd58'],inazuma:['#603c85','#b576a9'],sumeru:['#588a42','#d6b775'],fontaine:['#397e96','#99b7a0'],primordial:['#175773','#63bacb'],natlan:['#776944','#cb6745'],nodkrai:['#6b6481','#9aaea0'],snezhnaya:['#48768d','#e1e9e8']};
+const motionScale=()=>typeof matchMedia==='function'&&matchMedia('(prefers-reduced-motion: reduce)').matches ? 0.24 : 1;
 function reliefCanvas(world){if(!world.relief){const canvas=document.createElement('canvas');canvas.className='planet-relief';canvas.width=canvas.height=world.size*1.6;canvas.setAttribute('aria-hidden','true');canvas.style.cssText='position:absolute;inset:0;z-index:4;width:100%;height:100%;pointer-events:none;border-radius:50%';world.append(canvas);world.relief=canvas;}return world.relief;}
 export function drawSumeruStormOverlay(world,now){
- const canvas=reliefCanvas(world),ctx=canvas.getContext('2d'),size=canvas.width,center=size/2,r=world.size/2,time=matchMedia('(prefers-reduced-motion: reduce)').matches?0:now/1000;
+ const canvas=reliefCanvas(world),ctx=canvas.getContext('2d'),size=canvas.width,center=size/2,r=world.size/2,time=now/1000*motionScale();
  ctx.clearRect(0,0,size,size);
  const project=(longitude,latitude,height=0)=>{const a=longitude+world.angle*2*Math.PI,z=Math.cos(latitude)*Math.cos(a),radius=r*(1+height);return{x:center+Math.sin(a)*Math.cos(latitude)*radius,y:center+Math.sin(latitude)*radius,z};};
  const storm=project(2+Math.sin(time*.16)*.58,.3+Math.sin(time*.11+1.1)*.2,.16);if(storm.z<.02)return;
@@ -19,7 +20,7 @@ export function drawPlanetRelief(world,now){
  reliefCanvas(world);
  const canvas=world.relief,ctx=canvas.getContext('2d'),size=canvas.width,center=size/2,r=world.size/2;
  ctx.clearRect(0,0,size,size);
- const motion=!matchMedia('(prefers-reduced-motion: reduce)').matches,time=motion?now/1000:0;
+ const time=now/1000*motionScale();
  const project=(longitude,latitude,height=0)=>{
   const a=longitude+world.angle*2*Math.PI,z=Math.cos(latitude)*Math.cos(a),radius=r*(1+height);
   return {x:center+Math.sin(a)*Math.cos(latitude)*radius,y:center+Math.sin(latitude)*radius,z};

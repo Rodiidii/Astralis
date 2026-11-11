@@ -1,3 +1,9 @@
+# 1.0.48 — 11 novembre 2026
+
+- Relance les planètes et leurs effets après une reconstruction de la vue, y compris avec la préférence système de réduction des animations.
+- Normalise les reliques GOOD historiques à leur lecture afin qu’elles apparaissent et s’équipent dans Mes builds.
+- Réduit la hauteur des listes de pièces et de sets et compacte les lignes d’artéfacts.
+
 # 1.0.47 — 11 novembre 2026
 
 - Regroupe les feuilles de style globales dans `styles/`, avec chargement, cache hors ligne et ressources liées mis à jour.
