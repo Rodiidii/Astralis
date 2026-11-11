@@ -16,7 +16,7 @@ export const REGIONAL_WORLDS={
  nodkrai:{sea:'#535c80',land:'#729788',high:'#c1bad8',rock:'#9696ac',light:'#c6e5e1'},
  snezhnaya:{sea:'#264b6c',land:'#b6d6e1',high:'#edf4f4',rock:'#8fa7be',light:'#d5efff'}
 };
-let renderer,failed=false,software=false,frameBucket=-1,frameDraws=0;const pendingWorlds=new Set();
+let renderer,failed=false,software=false,frameBucket=-1,frameDraws=0;
 const Y=new T.Vector3(0,1,0),V=new T.Vector3();
 const clamp=(x,a=0,b=1)=>Math.max(a,Math.min(b,x));
 function rand(seed){let state=seed|0;return ()=>{state=Math.imul(1664525,state)+1013904223|0;return (state>>>0)/4294967296;};}
@@ -205,8 +205,15 @@ export function drawRegionalModel(world,now){
   const map=regionalGeography(world.getAttribute('region'));if(!map&&world.getAttribute('region')!=='primordial'&&!world.geographyFailed)return true;if(world.diorama&&!world.diorama.geography&&map){world.diorama.dispose();world.diorama=null;}
   if(!world.diorama){world.diorama=createRegionalModel(world.getAttribute('region'),world.getAttribute('color-shift'));world.diorama.rulerColors=Object.fromEntries(['death','time','life'].map(name=>[name,world.getAttribute(name+'-color')]));world.canvas.classList.add('regional-diorama');world.relief?.remove();world.dataset.engine='webgl-diorama';world.dataset.geography=world.diorama.geography?.coverage||'procedural';world.canvas.width=world.canvas.height=world.hasAttribute('detail')?(software?640:1024):world.getAttribute('region')==='teyvat'?(software?320:640):(software?192:320);world.ctx=world.canvas.getContext('2d');world.diorama.onReady=()=>{if(world.isConnected){world.painted=false;world.draw(performance.now());}};}
   const paused=world.closest('.dashboard-studio')?.dataset.cosmosMotion==='off'||matchMedia('(prefers-reduced-motion: reduce)').matches;
-  if(world.gpuLast&&now-world.gpuLast<(world.hasAttribute('detail')?(software?90:32):(software?90:58))&&!paused)return true;
-  const bucket=Math.floor(now/16);if(bucket!==frameBucket){frameBucket=bucket;frameDraws=0;}pendingWorlds.add(world);for(const candidate of pendingWorlds)if(!candidate.isConnected)pendingWorlds.delete(candidate);if(!paused&&software){const candidates=[...pendingWorlds].filter(w=>w.diorama&&w.visible&&w.getClientRects().length&&(!w.painted||w.closest('.dashboard-studio')?.dataset.cosmosMotion!=='off')).sort((a,b)=>(a.gpuLast||0)-(b.gpuLast||0));if(candidates[0]!==world||frameDraws>=2)return true;}else if(!paused&&!world.hasAttribute('detail')&&frameDraws>=4)return true;frameDraws++;
+  const bucket=Math.floor(now/16);if(bucket!==frameBucket){frameBucket=bucket;frameDraws=0;}
+  const maxDraws=world.hasAttribute('detail')?(software?2:4):(software?4:8);
+  const minimumInterval=world.hasAttribute('detail')?(software?80:28):(software?48:24);
+  if(!paused&&world.gpuLast&&now-world.gpuLast<minimumInterval)return true;
+  // The dashboard revisits every visible world each animation frame. Throttle
+  // heavy software rendering, but let the next eligible worlds use this frame's
+  // budget; selecting by a stale queue head used to starve the later planets.
+  if(!paused&&frameDraws>=maxDraws)return true;
+  frameDraws++;
   world.gpuLast=now;world.effectTime=(world.effectTime||0)+(paused?0:(world.effectLast?Math.min(100,now-world.effectLast)/1000:0));world.effectLast=now;
   world.diorama.update(world.effectTime,world.angle);world.diorama.orbits.visible=world.getAttribute('satellites')!=='off';if(world.getAttribute('region')==='teyvat')for(const child of world.diorama.orbits.children){if(child.userData.satellite==='moon'){child.visible=world.getAttribute('moons')!=='off';const tint=world.getAttribute(['life-color','time-color','death-color'][child.userData.moonIndex]);if(/^#[a-f0-9]{6}$/i.test(tint||'')&&child.userData.appliedTint!==tint){child.children[0].material.color.set(tint);child.userData.appliedTint=tint;}}if(child.userData.satellite==='ruler')child.visible=world.getAttribute('rulers')==='on';}if(world.diorama.textureReady)world.dataset.mapReady='true';
   const size=world.canvas.width;if(renderer.domElement.width!==size)renderer.setSize(size,size,false);
