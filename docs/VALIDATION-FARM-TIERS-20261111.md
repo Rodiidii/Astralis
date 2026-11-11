@@ -9,3 +9,7 @@ Correction du rendement des talents : chaque rareté dispose de son stock, aucun
 317 visuels originaux de matériaux disponibles localement ; URLs, dimensions et empreintes dans `assets/genshin/farm-materials/sources.json`, vérifiées par `tests/farm-art.test.mjs`. Aucun fichier manquant parmi les coûts de niveaux/talents du catalogue local.
 
 Les besoins hors résine sont explicitement affichés et donnent accès au stock à saisir. Les dates restent des estimations sur rendements moyens ; la capacité réelle de récolte et l’exhaustivité des futurs personnages restent à auditer. P0-FARM-04, RESTE-041/044/117/118 demeurent ouverts : cette validation ne prétend pas clôturer leurs exigences intégrales.
+
+## Fiabilité des dates — complément
+
+Trois tests `tests/farm-completion.test.mjs` couvrent une récolte inconnue combinée à une récolte connue, le dépassement de l’horizon de simulation et les stocks hors résine. Le moteur expose un état explicite par personnage. Aucune date ni contour vert ne doit être créé si une récolte reste sans capacité ou si les activités dépassent l’horizon. Une date estimée avec des matériaux hors résine manquants conserve le signalement de stock à compléter. Les points de couverture générale des données et récoltes restent ouverts.

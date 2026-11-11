@@ -133,5 +133,11 @@ export function simulateFarm({characters,materials,inventory={},start,artifactDa
   if(!harvest.capacity){delete dates[harvest.person];continue;}
   if(harvest.capacity){harvest.cycles=Math.ceil(total/harvest.capacity);const ready=new Date(initial);ready.setDate(ready.getDate()+Math.max(0,harvest.cycles-1)*2);harvest.ready=ready.toLocaleDateString('sv-SE');if(dates[harvest.person]&&dates[harvest.person]<harvest.ready)dates[harvest.person]=harvest.ready;}
  }
- return {sessions,dates,harvests,unresolved:passive,unfinished:jobs.filter(job=>job.units>.00001)};
+ const unfinished=jobs.filter(job=>job.units>.00001),completion={};
+ for(const character of characters){
+  const missingHarvest=harvests.filter(row=>row.person===character.id&&!row.capacity),manual=passive.filter(row=>row.person===character.id&&row.kind!=='specialty'&&row.count>0),pending=unfinished.filter(row=>row.person===character.id);
+  if(missingHarvest.length||pending.length)delete dates[character.id];
+  completion[character.id]={estimatedDate:dates[character.id]||null,status:pending.length?'horizon-exceeded':missingHarvest.length?'missing-harvest-data':manual.length?'manual-stock-needed':'estimated',manualIds:manual.map(row=>row.id),unknownHarvestIds:missingHarvest.map(row=>row.id)};
+ }
+ return {sessions,dates,harvests,completion,unresolved:passive,unfinished};
 }
