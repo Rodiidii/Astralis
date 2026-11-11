@@ -30,6 +30,16 @@ def main():
    page.locator('[data-reward=daily]').click();expect(page.locator('wish-wallet [role=status]')).to_contain_text('déjà enregistrée')
    page.locator('[data-reward=reset]').click();page.wait_for_function("JSON.parse(localStorage.getItem('astralis:gi:wish-plan')).wishes===8")
    expect(page.locator('.wish-donut')).to_have_count(2);assert page.locator('.wish-history-chart rect').count()==30
+   expect(page.locator('.wish-period-comparisons article')).to_have_count(2)
+   expect(page.locator('.wish-period-comparisons')).to_contain_text('Cette semaine')
+   page.locator('[data-income=end]').fill('2027-08-25');page.locator('[data-income=end]').press('Tab')
+   expect(page.locator('[data-income=maps]')).to_be_disabled()
+   expect(page.locator('[data-income-ledger]')).to_contain_text('Exploration')
+   page.locator('[data-income=autoMaps]').uncheck();expect(page.locator('[data-income=maps]')).to_be_enabled()
+   assert page.evaluate("JSON.parse(localStorage.getItem('astralis:gi:objectives-v2')).income.autoMaps===false")
+   page.locator('[data-income=versionGifts]').uncheck()
+   assert page.evaluate("JSON.parse(localStorage.getItem('astralis:gi:objectives-v2')).income.versionGifts===false")
+
    page.locator('[data-wish-stat=fiftyAttempts]').fill('10');page.locator('[data-wish-stat=fiftyAttempts]').press('Tab')
    page.locator('[data-wish-stat=fiftyLost]').fill('7');page.locator('[data-wish-stat=fiftyLost]').press('Tab');expect(page.locator('.wish-observed-stats>p')).to_contain_text('70 %')
    page.screenshot(path=str(ROOT/'docs/wallet-rest.png'),full_page=True);page.screenshot(path=str(ROOT/'docs/wallet-rest-head.png'));page.set_viewport_size({'width':390,'height':844});assert page.evaluate('document.documentElement.scrollWidth<=innerWidth+1');page.screenshot(path=str(ROOT/'docs/wallet-rest-mobile.png'),full_page=True);page.set_viewport_size({'width':1440,'height':1000})

@@ -1,5 +1,5 @@
 """Regression against the user's rejected layouts, real assets and numeric IDs."""
-import json,subprocess,threading,sys
+import json,subprocess,threading,sys,re
 from functools import partial
 from urllib.parse import urlsplit
 from playwright.sync_api import sync_playwright,expect
@@ -27,12 +27,12 @@ def main():
      elif url.startswith(base+'/api/'):r.fulfill(json={})
      elif url.startswith(base):r.continue_()
      elif 'lunaris' in url:r.fulfill(json={})
-     elif any(word in path.lower() for word in ['splash','gacha','avatarimg']):r.fulfill(path=str(ROOT/'assets/card-art/gi/skirk-1.webp'))
+     elif any(word in path.lower() for word in ['splash','gacha','avatarimg']):r.fulfill(path=str(ROOT/'assets/genshin/splashes/alhaitham.png'))
      elif '/ui/' in path.lower():r.fulfill(path=str(ROOT/'assets/ui/game-genshin.png'))
      else:r.abort()
     page.route('**/*',route)
     seed={'astralis:active-game':'gi','astralis:gi:lab-demo-complex-v2':'1','astralis:gi:assistant-profile':json.dumps({'enabled':False}),
-      'astralis:gi:builds':json.dumps([{**build,'character':'skirk'} if mode=='before' else build]),'astralis:gi:farm-roster':json.dumps([{'id':'skirk','active':True},{'id':'furina','active':True}])}
+      'astralis:teams:gi':json.dumps([{'id':'recovery-team','name':'Équipe de contrôle','members':[{'character':'skirk','buildId':'numeric-build','automaticBuffs':'off','buffs':[{'type':'atk','value':20,'scope':'active'}]},{},{},{}],'rotation':[{'character':'skirk','code':'E','name':'Ravage · E'},{'character':'skirk','code':'Q','name':'Ravage · Q'}]}]),'astralis:gi:builds':json.dumps([{**build,'character':'skirk'} if mode=='before' else build]),'astralis:gi:farm-roster':json.dumps([{'id':'skirk','active':True},{'id':'furina','active':True}])}
     page.add_init_script('for(const [k,v]of Object.entries('+json.dumps(seed)+'))localStorage.setItem(k,v)')
     page.goto(base,wait_until='domcontentloaded');page.wait_for_selector('#astralis-launch-screen',state='detached')
     page.locator('[data-nav=builds]').first.click();page.wait_for_selector('#build-character');page.locator('#build-character').select_option('skirk')
@@ -80,21 +80,30 @@ def main():
     if mode=='after':
      page.set_viewport_size({'width':1440,'height':1000});page.locator('[data-nav=characters]').first.click();page.wait_for_selector('#catalog-search');page.locator('#catalog-search').fill('Skirk');page.locator('.character-catalog-card').filter(has_text='Skirk').first.click()
      expect(page.locator('.gi-character-detail')).to_be_visible()
-     assert 'brightness(0.72)' in page.locator('.gi-character-detail .detail-art-main').evaluate('(el)=>getComputedStyle(el).filter')
+     expect(page.locator('.gi-character-detail .detail-art-main')).to_have_css('filter',re.compile(r'brightness\(0\.72\)'))
      page.screenshot(path=str(captures/'after-character.png'),full_page=True)
      page.keyboard.press('Escape')
+     page.locator('[data-nav=teams]').first.click();page.locator('[data-team-details-toggle]').click()
+     expect(page.locator('.team-active-stats')).to_be_visible()
+     team_atk=float(''.join(page.locator('.team-stats-table tr').filter(has_text='ATQ').locator('td').inner_text().split()).replace(',','.'))
+     assert abs(team_atk-(expected+atk*.2))<1.1,(team_atk,expected,atk)
+     icons=page.locator('.rotation-line .rotation-skill-image');expect(icons).to_have_count(2)
+     assert icons.nth(0).get_attribute('src').endswith('Skill_S_SkirkNew_01.png')
+     assert icons.nth(1).get_attribute('src').endswith('Skill_E_SkirkNew_01.png')
+     page.wait_for_function("[...document.querySelectorAll('.rotation-line .rotation-skill-image')].every(i=>i.complete&&i.naturalWidth)")
+     page.locator('.team-active-stats').scroll_into_view_if_needed();page.screenshot(path=str(captures/'after-team-stats.png'),full_page=True)
     assert not errors,errors
     context.close()
    # Real action images must be preserved in the mounted export, not replaced by generic SVGs.
    page=browser.new_page();page.goto(base+'/tests/sheets-harness.html');page.wait_for_function('window.ready')
    result=page.evaluate('''async()=>{
     const {mountSheet}=await import('/src/sheet-renderer.js');const d=sheetData('cryo','complete');
-    d.rotation=d.rotation.map(a=>({...a,image:'/assets/ui/game-genshin.png'}));
+    d.rotation=d.rotation.map(a=>({...a,image:'/assets/genshin/skills/Skill_E_SkirkNew_01.png'}));
     const sheet=await mountSheet('team',d);const images=sheet.root.querySelectorAll('img.sheet-rotation-skill');
     const result={count:images.length,broken:[...images].filter(i=>!i.complete||!i.naturalWidth).length};sheet.dispose();return result;
    }''')
    assert result=={'count':8,'broken':0},result
-   page.evaluate("""async()=>{const {renderSheet}=await import('/src/sheet-renderer.js');const d=sheetData('cryo','complete');d.rotation=d.rotation.map(a=>({...a,image:'/assets/ui/game-genshin.png'}));const canvas=await renderSheet('team',d,{pixelRatio:2});window.recoveryCanvas=canvas;}""")
+   page.evaluate("""async()=>{const {renderSheet}=await import('/src/sheet-renderer.js');const d=sheetData('cryo','complete');d.rotation=d.rotation.map(a=>({...a,image:'/assets/genshin/skills/Skill_E_SkirkNew_01.png'}));const canvas=await renderSheet('team',d,{pixelRatio:2});window.recoveryCanvas=canvas;}""")
    with page.expect_download() as download:
     page.evaluate("""async()=>{const blob=await new Promise(r=>recoveryCanvas.toBlob(r,'image/png'));const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='team-after.png';a.click();}""")
    download.value.save_as(str(captures/'team-after.png'))

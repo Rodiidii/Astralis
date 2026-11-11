@@ -12,15 +12,12 @@ Règles et détails : [MISSION-AUTONOME-COMPLETE.md](MISSION-AUTONOME-COMPLETE.m
 
 - [ ] **P0-FARM-04 — Revalider toute la page.** Considérer la page comme non acceptée visuellement. Reprendre les autres exigences de farm ci-dessous : portraits, objectifs compacts, talents individuels, synthèse, priorités, hebdomadaires, calendrier, récoltes, export. Prouver les changements dans la page réellement utilisée, après vérification du serveur et du cache.
 
-- [ ] **P0-TEAM-01 — Icônes de rotation dans la fiche/image d’équipe.** Les vraies icônes NA/CA/E/Q de chaque personnage doivent charger dans la page, l’aperçu et le PNG téléchargé. Distinguer cela de l’icône du personnage. Vérifier le bon personnage/talent ; précharger les fichiers avant capture. En cas d’indisponibilité réelle, repli propre et explicitement testé, sans icône cassée ni emplacement vide.
 
-- [ ] **P0-TEAM-02 — Statistiques plus simples.** Simplifier/améliorer leur présentation dans la fiche d’équipe : statistiques essentielles mises en avant, unités et valeurs cohérentes, grille compacte, détails secondaires dépliables si utile, pas une accumulation de grosses tuiles. Préserver les vraies données et les détails accessibles.
 
 - [ ] **P0-BUILD-01 — Statistiques toujours erronées.** Le dernier message dit exactement « Statistiques du personnage dans son build toujours à » ; la valeur finale n’a pas été écrite. Ne pas inventer « 0 », « 14 k ATQ » ou une autre valeur comme nouvelle observation. Reproduire les anomalies de statistiques déjà signalées, comparer base/arme/artéfacts/sets/buffs/Enka et corriger la cause. Aucun zéro fictif si une donnée manque.
 
 - [ ] **P0-BUILD-02 — Cohérence des vues.** Vérifier les mêmes statistiques dans Mes builds, la fiche personnelle, l’équipe, le laboratoire et le PNG ; contrôler les pourcentages/plats, bonus élémentaires et doubles applications. Tester les changements d’arme, de pièce et de build, puis la persistance après rechargement.
 
-- [ ] **P0-PERSO-01 — Splash trop lumineux.** Réduire l’exposition apparente avec le traitement de la fiche (fond, dégradé, voile, contraste), préserver le visage et l’illustration ; éviter l’effet brûlé/blanchi. Ne pas remplacer par une icône ni retoucher arbitrairement l’art officiel.
 
 - [ ] **P0-PERSO-02 — Finitions visuelles.** Améliorer aussi le reste de la fiche : hiérarchie, tailles de textes, espacements, couleurs, séparations, informations utiles et défilement. Pas seulement assombrir l’image.
 
@@ -136,9 +133,7 @@ Règles et détails : [MISSION-AUTONOME-COMPLETE.md](MISSION-AUTONOME-COMPLETE.m
 
 - [ ] **RESTE-049** — Revenus période : 60/jour +90 si Faveur ; cycle 42 j depuis 04/11/2026 puis 16/12/2026 ; code live +300 le deuxième vendredi avant prochaine MAJ ; +450 à J7 ; +40 à J20 ; boutique 5 vœux le 1er ; Théâtre le 1er et Abysses le 16 avec montants moyens saisis ; événements troisième dimanche +1000, quatrième dimanche +420, cinquième mercredi après lancement +420 ; autres +140/MAJ, +500 et 2 vœux/MAJ ; cartes environ 3000 selon scénario ; cadeaux/multis/primos libres saisissables ; transfert vers graphe théorique.
 
-- [ ] **RESTE-050** — Complément plus récent : exploration un patch sur deux depuis 7.2 (7.3 sans carte, 7.4 avec), multi en 7.4 et deux multis en 8.0. Implémenter comme hypothèses personnelles visibles/modifiables, ne pas les retirer silencieusement sous prétexte qu’elles ne sont pas des annonces officielles.
 
-- [ ] **RESTE-051** — Comparaisons gains semaine/mois avec précédentes périodes et écarts +/− ; journaux et camemberts lisibles.
 
 - [ ] **RESTE-052** — Actualités officielles séparées des sessions/objectifs de farm ; calendrier compact avec plages événements/bannières/endgames, MAJ, compteurs et rafraîchissement ; historiques/prochaines rotations si vraiment publiés, pas de composition copiée pour remplir.
 
@@ -228,7 +223,6 @@ Règles et détails : [MISSION-AUTONOME-COMPLETE.md](MISSION-AUTONOME-COMPLETE.m
 
 - [ ] **RESTE-095** — Garantie de récupérer tous les exports et prochaines rotations malgré des sources indisponibles ; les fichiers précédents sont conservés, mais l’indisponibilité n’est pas résolue.
 
-- [ ] **RESTE-096** — Icônes PNG iOS 180/192/512 : le manifeste actuel n’utilise qu’un SVG.
 
 - [ ] **RESTE-097** — Hébergement gratuit HTTPS déployé pour cette application avec les routes dépendant du serveur.
 
@@ -236,7 +230,6 @@ Règles et détails : [MISSION-AUTONOME-COMPLETE.md](MISSION-AUTONOME-COMPLETE.m
 
 - [ ] **RESTE-099** — Validation WebKit/iPhone de l’installation, du démarrage autonome et du fonctionnement hors ligne.
 
-- [ ] **RESTE-100** — Guide docs/INSTALLER-SUR-IPHONE.md : absent.
 
 - [ ] **RESTE-101** — Parcours complet de sauvegarde/restauration et rappels pour les données locales de l’iPhone.
 
@@ -268,7 +261,6 @@ Règles et détails : [MISSION-AUTONOME-COMPLETE.md](MISSION-AUTONOME-COMPLETE.m
 
 - [ ] **RESTE-115** — Ampleur/qualité finale des effets par région et fluidité sur la machine de l’utilisateur : pas validées exhaustivement dans toutes les personnalisations, tailles, destinations et configurations.
 
-- [ ] **RESTE-116** — Progression de niveau : XP/Mora intermédiaires encore interpolées ; farmLevelGoal calcule l’XP depuis la Mora. Table exacte par niveau à substituer.
 
 - [ ] **RESTE-117** — Couverture des matériaux, jours de domaine, boss et spécialités pour tous les personnages et futurs ajouts : non certifiée exhaustive.
 
@@ -278,7 +270,6 @@ Règles et détails : [MISSION-AUTONOME-COMPLETE.md](MISSION-AUTONOME-COMPLETE.m
 
 - [ ] **RESTE-120** — Les graphes sont basés sur une simulation reproductible de 6 000 essais et des courbes communautaires, pas une énumération exacte de toutes les branches de résultats.
 
-- [ ] **RESTE-121** — Gains : histogrammes et comparaison mensuelle en camemberts présents ; comparaison hebdomadaire explicite et écarts +/− semaine/mois non finalisés.
 
 - [ ] **RESTE-122** — Les cartes d’exploration alternées et cadeaux de versions demandés comme hypothèse personnelle ne sont plus activés automatiquement ; leur nombre est saisi explicitement. Ce choix diffère de la dernière règle d’autocalcul demandée.
 

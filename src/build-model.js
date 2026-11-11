@@ -95,3 +95,10 @@ export function applyTeamStatBonuses(totals, bonuses = {}) {
   result.dmgBonus = Number(totals.dmgBonus || 0) + Number(bonuses.dmg || 0) + Number(bonuses.elemental || 0);
   return result;
 }
+
+/** Values sent to both the team UI and its export; includes each applicable buff once. */
+export function teamCombatStats(totals,buffs=[]){
+ if(!totals)return null;
+ const bonuses={};for(const row of buffs){if(row.active===false||!row.type||!Number.isFinite(Number(row.value)))continue;bonuses[row.type]=(bonuses[row.type]||0)+Number(row.value);}
+ return applyTeamStatBonuses(totals,bonuses);
+}

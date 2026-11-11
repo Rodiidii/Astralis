@@ -1,0 +1,771 @@
+{
+  "source": "https://raw.githubusercontent.com/EnkaNetwork/API-docs/master/store/characters.json",
+  "mappingSha256": "51dbaef256968a41dab3429d60f88f77f29645c4b79bf606fc93d4fbf3be33e4",
+  "fetchedAt": "2026-11-11T13:00:33Z",
+  "artworks": {
+    "10000005": {
+      "file": "./assets/genshin/splashes/10000005.webp",
+      "url": "https://enka.network/ui/UI_Gacha_AvatarImg_PlayerBoy.png",
+      "width": 1198,
+      "height": 1350,
+      "sha256": "0629ca68a0b82f749be4510041d008f1686aad1e8462923de668b7a981182310"
+    },
+    "10000121": {
+      "file": "./assets/genshin/splashes/10000121.webp",
+      "url": "https://enka.network/ui/UI_Gacha_AvatarImg_Aino.png",
+      "width": 2048,
+      "height": 1024,
+      "sha256": "e4595e88460f6c5dcdcafd01fe04784bb80c1b85fbd604a7d996fade86468a81"
+    },
+    "10000038": {
+      "file": "./assets/genshin/splashes/10000038.webp",
+      "url": "https://enka.network/ui/UI_Gacha_AvatarImg_Albedo.png",
+      "width": 2048,
+      "height": 1024,
+      "sha256": "e6459210adfb132e241d6ee0a2ba2de407a4224474d3024dba6331625e4fe58d"
+    },
+    "10000078": {
+      "file": "./assets/genshin/splashes/10000078.webp",
+      "url": "https://enka.network/ui/UI_Gacha_AvatarImg_Alhatham.png",
+      "width": 2048,
+      "height": 1024,
+      "sha256": "cd0349536ffd4c77215db896e5d6129a07324e780141ea7d0a52ab07cdb99707"
+    },
+    "10000062": {
+      "file": "./assets/genshin/splashes/10000062.webp",
+      "url": "https://enka.network/ui/UI_Gacha_AvatarImg_Aloy.png",
+      "width": 2048,
+      "height": 1024,
+      "sha256": "3e8cb9cbb97da2469e200038382584870b6b81b4b7369f663a421485f19be1ad"
+    },
+    "10000021": {
+      "file": "./assets/genshin/splashes/10000021.webp",
+      "url": "https://enka.network/ui/UI_Gacha_AvatarImg_Ambor.png",
+      "width": 2048,
+      "height": 1024,
+      "sha256": "e6e9a1cc090f4ee749e2dae2ee3afb1451b8c4475f663c9619277744aad08f5a"
+    },
+    "10000057": {
+      "file": "./assets/genshin/splashes/10000057.webp",
+      "url": "https://enka.network/ui/UI_Gacha_AvatarImg_Itto.png",
+      "width": 2048,
+      "height": 1024,
+      "sha256": "77ee35cb184b08eb3ecb977d9ff58f8915442eea0f0af61f33f1453d31a3c63a"
+    },
+    "10000096": {
+      "file": "./assets/genshin/splashes/10000096.webp",
+      "url": "https://enka.network/ui/UI_Gacha_AvatarImg_Arlecchino.png",
+      "width": 2048,
+      "height": 1024,
+      "sha256": "031b13e5d38ed75a75bf6073e87f29233990265840e7da412d9b69c9ebe27e07"
+    },
+    "10000082": {
+      "file": "./assets/genshin/splashes/10000082.webp",
+      "url": "https://enka.network/ui/UI_Gacha_AvatarImg_Baizhuer.png",
+      "width": 2048,
+      "height": 1024,
+      "sha256": "fbd6e2563e822fbdc2cfe280e8739b26c425ea30bf3494c7102e7b7113300463"
+    },
+    "10000014": {
+      "file": "./assets/genshin/splashes/10000014.webp",
+      "url": "https://enka.network/ui/UI_Gacha_AvatarImg_Barbara.png",
+      "width": 2048,
+      "height": 1024,
+      "sha256": "5f269140eb8e8f5a377694ce25ce43fff47f79ac1eff4e93ff836bb9d43102ed"
+    },
+    "10000024": {
+      "file": "./assets/genshin/splashes/10000024.webp",
+      "url": "https://enka.network/ui/UI_Gacha_AvatarImg_Beidou.png",
+      "width": 2048,
+      "height": 1024,
+      "sha256": "f987124d197dc67bc3c0c91baba470bdbd4134be28f82d2f4c4b66291efa8992"
+    },
+    "10000032": {
+      "file": "./assets/genshin/splashes/10000032.webp",
+      "url": "https://enka.network/ui/UI_Gacha_AvatarImg_Bennett.png",
+      "width": 2048,
+      "height": 1024,
+      "sha256": "da23a5867c0aca6f84c66dfdeb566dfb3f501028738471aafa9b3adbfcd9faf7"
+    },
+    "10000072": {
+      "file": "./assets/genshin/splashes/10000072.webp",
+      "url": "https://enka.network/ui/UI_Gacha_AvatarImg_Candace.png",
+      "width": 2048,
+      "height": 1024,
+      "sha256": "01c5498ac588742fa2907330b0916ef1675dfedc529fc74eea65f0be8b2d83ac"
+    },
+    "10000088": {
+      "file": "./assets/genshin/splashes/10000088.webp",
+      "url": "https://enka.network/ui/UI_Gacha_AvatarImg_Charlotte.png",
+      "width": 2048,
+      "height": 1024,
+      "sha256": "c52bfa86e0b5181f351bc664bc55a5f188326f0b97d0a4872b3f8043b2951b15"
+    },
+    "10000104": {
+      "file": "./assets/genshin/splashes/10000104.webp",
+      "url": "https://enka.network/ui/UI_Gacha_AvatarImg_Chasca.png",
+      "width": 2048,
+      "height": 1024,
+      "sha256": "a917a785b0a14b311f56a6edc16c5210f4fe5f140de5b90d3fad9067fd52a4f7"
+    },
+    "10000090": {
+      "file": "./assets/genshin/splashes/10000090.webp",
+      "url": "https://enka.network/ui/UI_Gacha_AvatarImg_Chevreuse.png",
+      "width": 2048,
+      "height": 1024,
+      "sha256": "720d915abfb60a2acdf5decd52659e3ace3ef2e8cc5c089cf2b24047353c02c2"
+    },
+    "10000094": {
+      "file": "./assets/genshin/splashes/10000094.webp",
+      "url": "https://enka.network/ui/UI_Gacha_AvatarImg_Chiori.png",
+      "width": 2048,
+      "height": 1024,
+      "sha256": "b82945e564f281f86a16a6ef932d1894e1b8bdf39d42d5404e2ea21c05d54326"
+    },
+    "10000036": {
+      "file": "./assets/genshin/splashes/10000036.webp",
+      "url": "https://enka.network/ui/UI_Gacha_AvatarImg_Chongyun.png",
+      "width": 2048,
+      "height": 1024,
+      "sha256": "0c41d3bbc76fcbdcd31614668f75a15391a5082d43959020614e3ea21dce71eb"
+    },
+    "10000107": {
+      "file": "./assets/genshin/splashes/10000107.webp",
+      "url": "https://enka.network/ui/UI_Gacha_AvatarImg_Citlali.png",
+      "width": 2048,
+      "height": 1024,
+      "sha256": "d81073e4ef2b761f916565df51c504d3aab0eae9c0cf68cc6ab59de72eb82e81"
+    },
+    "10000098": {
+      "file": "./assets/genshin/splashes/10000098.webp",
+      "url": "https://enka.network/ui/UI_Gacha_AvatarImg_Clorinde.png",
+      "width": 2048,
+      "height": 1024,
+      "sha256": "1180f2bc6b88ce0d03887dd5a11a90d6e0918eb23702e3a8fedb5d0aa94c704d"
+    },
+    "10000067": {
+      "file": "./assets/genshin/splashes/10000067.webp",
+      "url": "https://enka.network/ui/UI_Gacha_AvatarImg_Collei.png",
+      "width": 2048,
+      "height": 1024,
+      "sha256": "82aa960bf2c07cfc208def7be19362afdb1ce886a7b30b79f7315d328efcd7c4"
+    },
+    "10000071": {
+      "file": "./assets/genshin/splashes/10000071.webp",
+      "url": "https://enka.network/ui/UI_Gacha_AvatarImg_Cyno.png",
+      "width": 2048,
+      "height": 1024,
+      "sha256": "814f9451acd79cdf4bd305d6aeeaa9a0dd9d2ed7bcf6cf5c5bc19df82c42365f"
+    },
+    "10000115": {
+      "file": "./assets/genshin/splashes/10000115.webp",
+      "url": "https://enka.network/ui/UI_Gacha_AvatarImg_Dahlia.png",
+      "width": 2048,
+      "height": 1024,
+      "sha256": "0d891d259177acb7f3a1dc66c8097f1aa5aa4589208a3e0189437bd034b9f828"
+    },
+    "10000079": {
+      "file": "./assets/genshin/splashes/10000079.webp",
+      "url": "https://enka.network/ui/UI_Gacha_AvatarImg_Dehya.png",
+      "width": 2048,
+      "height": 1024,
+      "sha256": "aca85a793e7a516d4474d5c2ef1a476d2e491737881f1ca7481d417d2b1da05a"
+    },
+    "10000016": {
+      "file": "./assets/genshin/splashes/10000016.webp",
+      "url": "https://enka.network/ui/UI_Gacha_AvatarImg_Diluc.png",
+      "width": 2048,
+      "height": 1024,
+      "sha256": "eb750db6b8c88a6440b6efc5155d455ad0347f0c671a0b4c3fbcf6c18b0d6247"
+    },
+    "10000039": {
+      "file": "./assets/genshin/splashes/10000039.webp",
+      "url": "https://enka.network/ui/UI_Gacha_AvatarImg_Diona.png",
+      "width": 2048,
+      "height": 1024,
+      "sha256": "281708b159ae5b2b065671da5e81e1863d9c412080d5e80cf15621e358c5c185"
+    },
+    "10000068": {
+      "file": "./assets/genshin/splashes/10000068.webp",
+      "url": "https://enka.network/ui/UI_Gacha_AvatarImg_Dori.png",
+      "width": 2048,
+      "height": 1024,
+      "sha256": "e01b2dcdc1d38cdbc123b20e325fb15d5628221b19c84227711ad3ff5419e179"
+    },
+    "10000123": {
+      "file": "./assets/genshin/splashes/10000123.webp",
+      "url": "https://enka.network/ui/UI_Gacha_AvatarImg_Durin.png",
+      "width": 2048,
+      "height": 1024,
+      "sha256": "504256874faef222bdfc711f92addfa2b8c5d1d9082ef6faa528b1a2373811ee"
+    },
+    "10000099": {
+      "file": "./assets/genshin/splashes/10000099.webp",
+      "url": "https://enka.network/ui/UI_Gacha_AvatarImg_Emilie.png",
+      "width": 2048,
+      "height": 1024,
+      "sha256": "774d80bd6aadc42bf76b42262476d2629cb2ebf004a4fa305599286637d1162b"
+    },
+    "10000112": {
+      "file": "./assets/genshin/splashes/10000112.webp",
+      "url": "https://enka.network/ui/UI_Gacha_AvatarImg_Escoffier.png",
+      "width": 2048,
+      "height": 1024,
+      "sha256": "ab4c0ba75a66641361340cdb467b7c85a2338a88a47a85156c2c8878ae344368"
+    },
+    "10000051": {
+      "file": "./assets/genshin/splashes/10000051.webp",
+      "url": "https://enka.network/ui/UI_Gacha_AvatarImg_Eula.png",
+      "width": 2048,
+      "height": 1024,
+      "sha256": "f67f0f726615c5ce6cc360a309e162977581a19c71c4f7813be80ddebd75b4ff"
+    },
+    "10000076": {
+      "file": "./assets/genshin/splashes/10000076.webp",
+      "url": "https://enka.network/ui/UI_Gacha_AvatarImg_Faruzan.png",
+      "width": 2048,
+      "height": 1024,
+      "sha256": "1949de31c68956fea9fb9915e614d2aa73ee1d939f537e60a8a51eddf5dc79cd"
+    },
+    "10000031": {
+      "file": "./assets/genshin/splashes/10000031.webp",
+      "url": "https://enka.network/ui/UI_Gacha_AvatarImg_Fischl.png",
+      "width": 2048,
+      "height": 1024,
+      "sha256": "58f940839bbd4ce2bb3dc13864188ef34eca90f8b72d23a0cce0d3c55b5777fd"
+    },
+    "10000120": {
+      "file": "./assets/genshin/splashes/10000120.webp",
+      "url": "https://enka.network/ui/UI_Gacha_AvatarImg_Flins.png",
+      "width": 2048,
+      "height": 1024,
+      "sha256": "55a12f8e4f888f189503a46c0ec48db3d44327fdd5f2b331cfd8555b4a53b11e"
+    },
+    "10000085": {
+      "file": "./assets/genshin/splashes/10000085.webp",
+      "url": "https://enka.network/ui/UI_Gacha_AvatarImg_Freminet.png",
+      "width": 2048,
+      "height": 1024,
+      "sha256": "52fc541015d4fb407587f60bba470ac7c0214be79d658237525d0a0902c62863"
+    },
+    "10000089": {
+      "file": "./assets/genshin/splashes/10000089.webp",
+      "url": "https://enka.network/ui/UI_Gacha_AvatarImg_Furina.png",
+      "width": 2048,
+      "height": 1024,
+      "sha256": "9d4569a04770ce5701142311d7633df0885d9ff75efb439bf9c3ce9297f9247c"
+    },
+    "10000092": {
+      "file": "./assets/genshin/splashes/10000092.webp",
+      "url": "https://enka.network/ui/UI_Gacha_AvatarImg_Gaming.png",
+      "width": 2048,
+      "height": 1024,
+      "sha256": "da9c098941cbbad2a97a95abb615101c3e25e56b44dad75f1c6c42edd55bc4aa"
+    },
+    "10000037": {
+      "file": "./assets/genshin/splashes/10000037.webp",
+      "url": "https://enka.network/ui/UI_Gacha_AvatarImg_Ganyu.png",
+      "width": 2048,
+      "height": 1024,
+      "sha256": "a4fcef0b68fc7d1ee0b16f08f4f4d35d6c4247b714625c6f763f3e1009bca4ab"
+    },
+    "10000055": {
+      "file": "./assets/genshin/splashes/10000055.webp",
+      "url": "https://enka.network/ui/UI_Gacha_AvatarImg_Gorou.png",
+      "width": 2048,
+      "height": 1024,
+      "sha256": "353fd6e5b1739ca279251899ecb18468c9947bd94e320931ef5dfed3e6d13146"
+    },
+    "10000046": {
+      "file": "./assets/genshin/splashes/10000046.webp",
+      "url": "https://enka.network/ui/UI_Gacha_AvatarImg_Hutao.png",
+      "width": 2048,
+      "height": 1024,
+      "sha256": "3cde04877b44384e1db442dd488f9d2bcd93ef5a72157208f2be663a7e49045b"
+    },
+    "10000110": {
+      "file": "./assets/genshin/splashes/10000110.webp",
+      "url": "https://enka.network/ui/UI_Gacha_AvatarImg_Iansan.png",
+      "width": 2048,
+      "height": 1024,
+      "sha256": "f70e978b6137dfce30cb6c2b8889e20ca9cbcb7426672220f9c5516cb1dd1611"
+    },
+    "10000113": {
+      "file": "./assets/genshin/splashes/10000113.webp",
+      "url": "https://enka.network/ui/UI_Gacha_AvatarImg_Ifa.png",
+      "width": 2048,
+      "height": 1024,
+      "sha256": "ccb7fbe14b76bd1983c0ad55e8f82b3fa9ec694f511cf9a2f399afb857fa3d1e"
+    },
+    "10000116": {
+      "file": "./assets/genshin/splashes/10000116.webp",
+      "url": "https://enka.network/ui/UI_Gacha_AvatarImg_Ineffa.png",
+      "width": 2048,
+      "height": 1024,
+      "sha256": "f2a5a5d4bcf3d9c1faa56d6b9c6cd74e3c929bb171d6170aa954285822e22d66"
+    },
+    "10000124": {
+      "file": "./assets/genshin/splashes/10000124.webp",
+      "url": "https://enka.network/ui/UI_Gacha_AvatarImg_Jahoda.png",
+      "width": 2048,
+      "height": 1024,
+      "sha256": "6311011b985bc7f32f1b4964e94677767c88d2424ebc18fd4f168893fba8c788"
+    },
+    "10000003": {
+      "file": "./assets/genshin/splashes/10000003.webp",
+      "url": "https://enka.network/ui/UI_Gacha_AvatarImg_Qin.png",
+      "width": 2048,
+      "height": 1024,
+      "sha256": "ac788233e1f23b603c9c5b7e3590008e5422fd2a1447181fe033fac34e739fd0"
+    },
+    "10000100": {
+      "file": "./assets/genshin/splashes/10000100.webp",
+      "url": "https://enka.network/ui/UI_Gacha_AvatarImg_Kachina.png",
+      "width": 2048,
+      "height": 1024,
+      "sha256": "c841b8f286067cb24fa07e5c19dc20478bf2528b592262774e9535e429b2d247"
+    },
+    "10000047": {
+      "file": "./assets/genshin/splashes/10000047.webp",
+      "url": "https://enka.network/ui/UI_Gacha_AvatarImg_Kazuha.png",
+      "width": 2048,
+      "height": 1024,
+      "sha256": "3b5217921644a2e5579f7bd57eb4ffccd3ddb1a6e024ee7bc2565daf38f9f7ee"
+    },
+    "10000015": {
+      "file": "./assets/genshin/splashes/10000015.webp",
+      "url": "https://enka.network/ui/UI_Gacha_AvatarImg_Kaeya.png",
+      "width": 2048,
+      "height": 1024,
+      "sha256": "bee7e8751a15e2ec4a01b2748e43f643985ceb9cf1cc75dd381a8beba2602888"
+    },
+    "10000002": {
+      "file": "./assets/genshin/splashes/10000002.webp",
+      "url": "https://enka.network/ui/UI_Gacha_AvatarImg_Ayaka.png",
+      "width": 2048,
+      "height": 1024,
+      "sha256": "8e90effc40a8eca17b310967e262e02b60b8f94b970bc7c1b187ecfb1b2befe6"
+    },
+    "10000066": {
+      "file": "./assets/genshin/splashes/10000066.webp",
+      "url": "https://enka.network/ui/UI_Gacha_AvatarImg_Ayato.png",
+      "width": 2048,
+      "height": 1024,
+      "sha256": "a45aed5fe2caf0ccba8b444f7545f40852ae0027374cdc9785ae96509db68352"
+    },
+    "10000081": {
+      "file": "./assets/genshin/splashes/10000081.webp",
+      "url": "https://enka.network/ui/UI_Gacha_AvatarImg_Kaveh.png",
+      "width": 2048,
+      "height": 1024,
+      "sha256": "52b9e2cb3c6dc49ab1b5937fabc13d345ead00afee22cacf576c6c567141db6d"
+    },
+    "10000042": {
+      "file": "./assets/genshin/splashes/10000042.webp",
+      "url": "https://enka.network/ui/UI_Gacha_AvatarImg_Keqing.png",
+      "width": 2048,
+      "height": 1024,
+      "sha256": "14faf459f65541b0431996b591d9a3df7abdc2f14f6e1da7da34ac27eb310caa"
+    },
+    "10000101": {
+      "file": "./assets/genshin/splashes/10000101.webp",
+      "url": "https://enka.network/ui/UI_Gacha_AvatarImg_Kinich.png",
+      "width": 2048,
+      "height": 1024,
+      "sha256": "fd359114b1cad595e143cc57eee0302b289c94795ad84aa81e25f02e55d3ac15"
+    },
+    "10000061": {
+      "file": "./assets/genshin/splashes/10000061.webp",
+      "url": "https://enka.network/ui/UI_Gacha_AvatarImg_Momoka.png",
+      "width": 2048,
+      "height": 1024,
+      "sha256": "aace7483d15070b43cc1ea9ac76787ffb4aec54fabf7d51000d29924a06eec4c"
+    },
+    "10000029": {
+      "file": "./assets/genshin/splashes/10000029.webp",
+      "url": "https://enka.network/ui/UI_Gacha_AvatarImg_Klee.png",
+      "width": 2048,
+      "height": 1024,
+      "sha256": "d7c92db634b5977ba7946b1558bd506993eecb4400825ed048c8a5bcbedd8977"
+    },
+    "10000056": {
+      "file": "./assets/genshin/splashes/10000056.webp",
+      "url": "https://enka.network/ui/UI_Gacha_AvatarImg_Sara.png",
+      "width": 2048,
+      "height": 1024,
+      "sha256": "9d1bde3d91807baee15a189bb35277385ef7790f13943d992a7e71cb8aa9094b"
+    },
+    "10000065": {
+      "file": "./assets/genshin/splashes/10000065.webp",
+      "url": "https://enka.network/ui/UI_Gacha_AvatarImg_Shinobu.png",
+      "width": 2048,
+      "height": 1024,
+      "sha256": "0efcf718d03c7182aaece8d79b25ea6d8ebe46543ed9f283cda40dd4180c132e"
+    },
+    "10000108": {
+      "file": "./assets/genshin/splashes/10000108.webp",
+      "url": "https://enka.network/ui/UI_Gacha_AvatarImg_Lanyan.png",
+      "width": 2048,
+      "height": 1024,
+      "sha256": "4dc71d4e90603f7bd02473aff506e46653c9255a3c2352179481e12eab56ac91"
+    },
+    "10000119": {
+      "file": "./assets/genshin/splashes/10000119.webp",
+      "url": "https://enka.network/ui/UI_Gacha_AvatarImg_Lauma.png",
+      "width": 2048,
+      "height": 1024,
+      "sha256": "21d4f33bb6b09828803293ff7b429ef89bb557aedfa4093ce3a1c28d1ca48a25"
+    },
+    "10000074": {
+      "file": "./assets/genshin/splashes/10000074.webp",
+      "url": "https://enka.network/ui/UI_Gacha_AvatarImg_Layla.png",
+      "width": 2048,
+      "height": 1024,
+      "sha256": "59bdb62224ef3c36b8775e11b9bfec9f72503674c831824134d7ff8451cd3062"
+    },
+    "10000006": {
+      "file": "./assets/genshin/splashes/10000006.webp",
+      "url": "https://enka.network/ui/UI_Gacha_AvatarImg_Lisa.png",
+      "width": 2048,
+      "height": 1024,
+      "sha256": "4a35f9bb455a2b4ca3292fe3c235c6ab43ccbd433bfd054847c2b3b8949ca5ff"
+    },
+    "10000007": {
+      "file": "./assets/genshin/splashes/10000007.webp",
+      "url": "https://enka.network/ui/UI_Gacha_AvatarImg_PlayerGirl.png",
+      "width": 1031,
+      "height": 1200,
+      "sha256": "d44b0c14083cde775e87e7de23b32178b621e81b534de98f993d9633cdc0036c"
+    },
+    "10000083": {
+      "file": "./assets/genshin/splashes/10000083.webp",
+      "url": "https://enka.network/ui/UI_Gacha_AvatarImg_Linette.png",
+      "width": 2048,
+      "height": 1024,
+      "sha256": "7192bb41999859c80ca229e1850815f0c7b0131d5b56bb09a4665ea5156c4ea1"
+    },
+    "10000084": {
+      "file": "./assets/genshin/splashes/10000084.webp",
+      "url": "https://enka.network/ui/UI_Gacha_AvatarImg_Liney.png",
+      "width": 2048,
+      "height": 1024,
+      "sha256": "327d94135d4b3e850c043790305ff00ec417715ca7c77e2e04ea0277ffe18195"
+    },
+    "10000106": {
+      "file": "./assets/genshin/splashes/10000106.webp",
+      "url": "https://enka.network/ui/UI_Gacha_AvatarImg_Mavuika.png",
+      "width": 2048,
+      "height": 1024,
+      "sha256": "13516cfd184194069531d08b8dbb26627e7d5d239ec912647eb1ab53e81da7d4"
+    },
+    "10000080": {
+      "file": "./assets/genshin/splashes/10000080.webp",
+      "url": "https://enka.network/ui/UI_Gacha_AvatarImg_Mika.png",
+      "width": 2048,
+      "height": 1024,
+      "sha256": "c4077629754928bae608bd6293e846927657a42488c39b7d8cfbec6022c8ad7a"
+    },
+    "10000041": {
+      "file": "./assets/genshin/splashes/10000041.webp",
+      "url": "https://enka.network/ui/UI_Gacha_AvatarImg_Mona.png",
+      "width": 2048,
+      "height": 1024,
+      "sha256": "fd8b638783151c29df364c422347072407c80312e0864ffb0f77450c5db1fb48"
+    },
+    "10000102": {
+      "file": "./assets/genshin/splashes/10000102.webp",
+      "url": "https://enka.network/ui/UI_Gacha_AvatarImg_Mualani.png",
+      "width": 2048,
+      "height": 1024,
+      "sha256": "88d91dcba0530b401cf848ddae776e09108937b68b28fa840a92351ae94e2ea7"
+    },
+    "10000073": {
+      "file": "./assets/genshin/splashes/10000073.webp",
+      "url": "https://enka.network/ui/UI_Gacha_AvatarImg_Nahida.png",
+      "width": 2048,
+      "height": 1024,
+      "sha256": "3a65e00b59cc792ea4eca8dfa46eebd8e0cb74aa0b3eb2859f9d64e7bbfa3732"
+    },
+    "10000091": {
+      "file": "./assets/genshin/splashes/10000091.webp",
+      "url": "https://enka.network/ui/UI_Gacha_AvatarImg_Navia.png",
+      "width": 2048,
+      "height": 1024,
+      "sha256": "7a7f99fc560480ad484ce2866b853b454c7e9fcaad422fbf081cb71f665c0755"
+    },
+    "10000122": {
+      "file": "./assets/genshin/splashes/10000122.webp",
+      "url": "https://enka.network/ui/UI_Gacha_AvatarImg_Nefer.png",
+      "width": 2048,
+      "height": 1024,
+      "sha256": "8a482ec676bf850d0aacfaa8d33e41907ba51d6715ada3270dead385fd973cc9"
+    },
+    "10000087": {
+      "file": "./assets/genshin/splashes/10000087.webp",
+      "url": "https://enka.network/ui/UI_Gacha_AvatarImg_Neuvillette.png",
+      "width": 2048,
+      "height": 1024,
+      "sha256": "77700aa0b848605b09e166a2f9a990043f6a94cb88bae67a60ebdc1bbbfad888"
+    },
+    "10000070": {
+      "file": "./assets/genshin/splashes/10000070.webp",
+      "url": "https://enka.network/ui/UI_Gacha_AvatarImg_Nilou.png",
+      "width": 2048,
+      "height": 1024,
+      "sha256": "56a8b28d843aaef30fb62ed78baf0dc6c0175350a4ab1d9bf3ce85b0a0e025c9"
+    },
+    "10000027": {
+      "file": "./assets/genshin/splashes/10000027.webp",
+      "url": "https://enka.network/ui/UI_Gacha_AvatarImg_Ningguang.png",
+      "width": 2048,
+      "height": 1024,
+      "sha256": "c9e6c4c57048dee4c8efbe7a0ad8cce25839cad6869d6d0d76088f32ce899aef"
+    },
+    "10000034": {
+      "file": "./assets/genshin/splashes/10000034.webp",
+      "url": "https://enka.network/ui/UI_Gacha_AvatarImg_Noel.png",
+      "width": 2048,
+      "height": 1024,
+      "sha256": "306b6ce1b0fed3a6b5123cf53560a0aa3d8263f73f138158d40e85757f1931a9"
+    },
+    "10000105": {
+      "file": "./assets/genshin/splashes/10000105.webp",
+      "url": "https://enka.network/ui/UI_Gacha_AvatarImg_Olorun.png",
+      "width": 2048,
+      "height": 1024,
+      "sha256": "9e0deee39e7286832233d9116b2bfab3e12bd1438d7931908f9b958072053022"
+    },
+    "10000035": {
+      "file": "./assets/genshin/splashes/10000035.webp",
+      "url": "https://enka.network/ui/UI_Gacha_AvatarImg_Qiqi.png",
+      "width": 2048,
+      "height": 1024,
+      "sha256": "feddd6aea5c6a9d2dc85abbd1efb5e6cdc1379ab03b530e33ba5179fb815434e"
+    },
+    "10000052": {
+      "file": "./assets/genshin/splashes/10000052.webp",
+      "url": "https://enka.network/ui/UI_Gacha_AvatarImg_Shougun.png",
+      "width": 2048,
+      "height": 1024,
+      "sha256": "5a598241d3fe69954492058cbf8b7c7a391ad21c4241ed50b3a1a70d397a4f48"
+    },
+    "10000020": {
+      "file": "./assets/genshin/splashes/10000020.webp",
+      "url": "https://enka.network/ui/UI_Gacha_AvatarImg_Razor.png",
+      "width": 2048,
+      "height": 1024,
+      "sha256": "18600c95bfc15700faac879eb1368b5bcd2fa1f50b36aec7b3d1d6c5217403c2"
+    },
+    "10000045": {
+      "file": "./assets/genshin/splashes/10000045.webp",
+      "url": "https://enka.network/ui/UI_Gacha_AvatarImg_Rosaria.png",
+      "width": 2048,
+      "height": 1024,
+      "sha256": "98f8b40d04c33291fd348122f3951b70bbc46c9201046eeced85e21e8c134162"
+    },
+    "10000054": {
+      "file": "./assets/genshin/splashes/10000054.webp",
+      "url": "https://enka.network/ui/UI_Gacha_AvatarImg_Kokomi.png",
+      "width": 2048,
+      "height": 1024,
+      "sha256": "b90c84f9b02481bad29e11fd3043a8ff2143691656feb4ab289bbd9ea25bddfa"
+    },
+    "10000053": {
+      "file": "./assets/genshin/splashes/10000053.webp",
+      "url": "https://enka.network/ui/UI_Gacha_AvatarImg_Sayu.png",
+      "width": 2048,
+      "height": 1024,
+      "sha256": "e2d625cb8b4954ab0f24006364b70a3e54529440c4b7b3a05816d515a51260a6"
+    },
+    "10000097": {
+      "file": "./assets/genshin/splashes/10000097.webp",
+      "url": "https://enka.network/ui/UI_Gacha_AvatarImg_Sethos.png",
+      "width": 2048,
+      "height": 1024,
+      "sha256": "ad1ec72f66785ac6dc43fd68e6150d4a66272e958362fbd04cf57bef44fb09d2"
+    },
+    "10000063": {
+      "file": "./assets/genshin/splashes/10000063.webp",
+      "url": "https://enka.network/ui/UI_Gacha_AvatarImg_Shenhe.png",
+      "width": 2048,
+      "height": 1024,
+      "sha256": "41fcc7d9215548541e7d26901014714deb7d3ebb3e0aa9bd76237043634c0720"
+    },
+    "10000059": {
+      "file": "./assets/genshin/splashes/10000059.webp",
+      "url": "https://enka.network/ui/UI_Gacha_AvatarImg_Heizo.png",
+      "width": 2048,
+      "height": 1024,
+      "sha256": "fa34470faec84c8ea95d9d4b133afb70e91ca7531e7ea1dc3cf31e4f4a81ab34"
+    },
+    "10000095": {
+      "file": "./assets/genshin/splashes/10000095.webp",
+      "url": "https://enka.network/ui/UI_Gacha_AvatarImg_Sigewinne.png",
+      "width": 2048,
+      "height": 1024,
+      "sha256": "606840f28229eaa99564117271f6a328b62a68f9c2eade244ff8c86ff201cb98"
+    },
+    "10000114": {
+      "file": "./assets/genshin/splashes/10000114.webp",
+      "url": "https://enka.network/ui/UI_Gacha_AvatarImg_SkirkNew.png",
+      "width": 2048,
+      "height": 1024,
+      "sha256": "599d9336ebbc54d14f652076232de99a6e35dfe27d698a20caf7df84c151bc93"
+    },
+    "10000043": {
+      "file": "./assets/genshin/splashes/10000043.webp",
+      "url": "https://enka.network/ui/UI_Gacha_AvatarImg_Sucrose.png",
+      "width": 2048,
+      "height": 1024,
+      "sha256": "49c06744d936a0b748862655d86d282c5206579129700f6e26507a5be7a57f7e"
+    },
+    "10000033": {
+      "file": "./assets/genshin/splashes/10000033.webp",
+      "url": "https://enka.network/ui/UI_Gacha_AvatarImg_Tartaglia.png",
+      "width": 2048,
+      "height": 1024,
+      "sha256": "b5e2e0b589bd7707f2b474adde51adb9ca3c5e1b25f475290aa6c073f51bbd36"
+    },
+    "10000050": {
+      "file": "./assets/genshin/splashes/10000050.webp",
+      "url": "https://enka.network/ui/UI_Gacha_AvatarImg_Tohma.png",
+      "width": 2048,
+      "height": 1024,
+      "sha256": "fd9d8a75eb8bd1fc5029aae4b359438e6eff92e051adc8d3ce8b826fcfcc1a81"
+    },
+    "10000069": {
+      "file": "./assets/genshin/splashes/10000069.webp",
+      "url": "https://enka.network/ui/UI_Gacha_AvatarImg_Tighnari.png",
+      "width": 2048,
+      "height": 1024,
+      "sha256": "d61b253e46f62c1a4d3cad8f5dad4431d069ce260bcce58f7e381f53c446b4ac"
+    },
+    "10000111": {
+      "file": "./assets/genshin/splashes/10000111.webp",
+      "url": "https://enka.network/ui/UI_Gacha_AvatarImg_Varesa.png",
+      "width": 2048,
+      "height": 1024,
+      "sha256": "c0c2c6fbbf3b585768399f98a5240bd538541a168d0b8670a808ed0c6c510baa"
+    },
+    "10000022": {
+      "file": "./assets/genshin/splashes/10000022.webp",
+      "url": "https://enka.network/ui/UI_Gacha_AvatarImg_Venti.png",
+      "width": 2048,
+      "height": 1024,
+      "sha256": "a985d36ab30391d9ef84cf7d005d165dd828d613af0910d114786fb46e3ebc15"
+    },
+    "10000075": {
+      "file": "./assets/genshin/splashes/10000075.webp",
+      "url": "https://enka.network/ui/UI_Gacha_AvatarImg_Wanderer.png",
+      "width": 2048,
+      "height": 1024,
+      "sha256": "285a5eacfaab49bc33b9bc6240dcb254e5dd8fb8095492021c7b5bcee9ad63bc"
+    },
+    "10000086": {
+      "file": "./assets/genshin/splashes/10000086.webp",
+      "url": "https://enka.network/ui/UI_Gacha_AvatarImg_Wriothesley.png",
+      "width": 2048,
+      "height": 1024,
+      "sha256": "e98a0d2bbb0a694bc72e8d631a15d88437c41ea3a89f3d84b1f7851116d20d67"
+    },
+    "10000023": {
+      "file": "./assets/genshin/splashes/10000023.webp",
+      "url": "https://enka.network/ui/UI_Gacha_AvatarImg_Xiangling.png",
+      "width": 2048,
+      "height": 1024,
+      "sha256": "3169aa2f12d19c798a3ba21ff773202f78f11882479be921d98b2715b25e25ac"
+    },
+    "10000093": {
+      "file": "./assets/genshin/splashes/10000093.webp",
+      "url": "https://enka.network/ui/UI_Gacha_AvatarImg_Liuyun.png",
+      "width": 2048,
+      "height": 1024,
+      "sha256": "9bd64f5cfd461d0be944b36ac1ca473b6353ab9a5cb7af91a6e19dafdad53087"
+    },
+    "10000026": {
+      "file": "./assets/genshin/splashes/10000026.webp",
+      "url": "https://enka.network/ui/UI_Gacha_AvatarImg_Xiao.png",
+      "width": 2048,
+      "height": 1024,
+      "sha256": "87e6ec267ab73025dc5892d21bcdcd4062d283ad99a57738a925dec26df1b361"
+    },
+    "10000103": {
+      "file": "./assets/genshin/splashes/10000103.webp",
+      "url": "https://enka.network/ui/UI_Gacha_AvatarImg_Xilonen.png",
+      "width": 2048,
+      "height": 1024,
+      "sha256": "869aae411ee1e8b4c3be712fd3d51ca0e047bf59888df961217d3ebe7d5c55ea"
+    },
+    "10000025": {
+      "file": "./assets/genshin/splashes/10000025.webp",
+      "url": "https://enka.network/ui/UI_Gacha_AvatarImg_Xingqiu.png",
+      "width": 2048,
+      "height": 1024,
+      "sha256": "5f9b405080c8a65ec9bb84aaec1d76f7a26c191f611e3b1df66d03048c3399db"
+    },
+    "10000044": {
+      "file": "./assets/genshin/splashes/10000044.webp",
+      "url": "https://enka.network/ui/UI_Gacha_AvatarImg_Xinyan.png",
+      "width": 2048,
+      "height": 1024,
+      "sha256": "19e1301ecf9e3fd7f79bf29ddf759f85ab9400fa035a5a1d73dfc992b67bff9d"
+    },
+    "10000058": {
+      "file": "./assets/genshin/splashes/10000058.webp",
+      "url": "https://enka.network/ui/UI_Gacha_AvatarImg_Yae.png",
+      "width": 2048,
+      "height": 1024,
+      "sha256": "53dc77719b59286623a0cad408dba05cc8ad55e1152b4193ea1defdfce3c761a"
+    },
+    "10000048": {
+      "file": "./assets/genshin/splashes/10000048.webp",
+      "url": "https://enka.network/ui/UI_Gacha_AvatarImg_Feiyan.png",
+      "width": 2048,
+      "height": 1024,
+      "sha256": "feee870a8ef56c7f50c2b2b78184edab3ff04647bf8dc9e0ce62ee2d32305135"
+    },
+    "10000077": {
+      "file": "./assets/genshin/splashes/10000077.webp",
+      "url": "https://enka.network/ui/UI_Gacha_AvatarImg_Yaoyao.png",
+      "width": 2048,
+      "height": 1024,
+      "sha256": "667d4424d635bb3a4a5fe00ee0bcc53cc3bccbb461098f083803b9902a359b71"
+    },
+    "10000060": {
+      "file": "./assets/genshin/splashes/10000060.webp",
+      "url": "https://enka.network/ui/UI_Gacha_AvatarImg_Yelan.png",
+      "width": 2048,
+      "height": 1024,
+      "sha256": "322d2548a11d66192b1e4f2354930608aafce7a1556a7def261609e271cd4a80"
+    },
+    "10000049": {
+      "file": "./assets/genshin/splashes/10000049.webp",
+      "url": "https://enka.network/ui/UI_Gacha_AvatarImg_Yoimiya.png",
+      "width": 2048,
+      "height": 1024,
+      "sha256": "e782edb0fabc064994685b913d7bdb6c22ebf3059bf4d07deaa8b3d27e84fa23"
+    },
+    "10000109": {
+      "file": "./assets/genshin/splashes/10000109.webp",
+      "url": "https://enka.network/ui/UI_Gacha_AvatarImg_Mizuki.png",
+      "width": 2048,
+      "height": 1024,
+      "sha256": "86255563522f82f2f0200c8230c1603fb92100e21f75cbfd770cdf21030190e9"
+    },
+    "10000064": {
+      "file": "./assets/genshin/splashes/10000064.webp",
+      "url": "https://enka.network/ui/UI_Gacha_AvatarImg_Yunjin.png",
+      "width": 2048,
+      "height": 1024,
+      "sha256": "14cc4ec218987ff96a6c6865d77a87e12481180ec137530ae0901bfc8ea8264b"
+    },
+    "10000030": {
+      "file": "./assets/genshin/splashes/10000030.webp",
+      "url": "https://enka.network/ui/UI_Gacha_AvatarImg_Zhongli.png",
+      "width": 2048,
+      "height": 1024,
+      "sha256": "ec159d87cb42fda38aefe380a24fb3632c913722a00657febf87eeaa1b548984"
+    }
+  },
+  "missing": []
+}

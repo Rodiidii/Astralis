@@ -1,3 +1,5 @@
+import {CHARACTER_SPLASHES} from './character-splashes.js';
+import {CHARACTER_SKILL_ICONS} from './character-skill-icons.js';
 import { getLocal, putLocal } from './persistence.js?v=20261107-stability-6';
 import { ic } from './icons.js?v=20261107-stability-6';
 import { talentValuesAtLevel } from './character-content.js?v=20261108-character-polish-1';
@@ -418,6 +420,7 @@ export function imageSet(game, item, category = item?._category || 'character') 
 
 export function splashImage(game, item) {
   if (game === 'gi' && item?._category === 'character') {
+    if(CHARACTER_SPLASHES[String(item.id)])return CHARACTER_SPLASHES[String(item.id)];
     if(item._id==='alhaitham')return './assets/genshin/splashes/alhaitham.png';
     if(item._id==='aino'||String(item.id)==='10000121')return './assets/genshin/splashes/aino.webp';
     const lunarisSplash = item?.images?.lunarisSplash || item?.images?.filename_gachaSplash;
@@ -495,7 +498,7 @@ export function skillList(game, character, details) {
           : index === 2 ? ['Q'] : [];
       const table = details?.talentValues?.[`combat${index + 1}`]?.attributes;
       const values = table?.labels?.length ? table.labels.map(line => formatTalentValue(line, table.parameters)).filter(Boolean) : (skill.values || []);
-      return { id: `gi-${index}`, name: skill.name || 'Compétence', label, description, level: 10, values, image: skill.icon || `https://genshin.jmp.blue/characters/${encodeURIComponent(character._id)}/${types[index] || 'talent-skill'}`, fallbacks: skill.iconFallbacks || [], variants };
+      return { id: `gi-${index}`, name: skill.name || 'Compétence', label, description, level: 10, values, image: CHARACTER_SKILL_ICONS[String(character.id)]?.[index] || skill.icon || `https://genshin.jmp.blue/characters/${encodeURIComponent(character._id)}/${types[index] || 'talent-skill'}`, fallbacks: [skill.icon,...(skill.iconFallbacks || [])].filter(Boolean), variants };
     });
   }
   const types = details?.skills || [];
