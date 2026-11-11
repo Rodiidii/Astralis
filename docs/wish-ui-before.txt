@@ -1,0 +1,61 @@
+function renderWishTracker(){for(const category of ['character','weapon'])if(!state.catalogs[`gi:${category}`]&&!state.loaders.has(`gi:${category}`))loadCatalog('gi',category,{quiet:true}).then(()=>state.section==='wishes'&&renderPageOnly());const p=wishPlan();if(!(Number(p.currentPrimos)||0)&&Number(p.primos)>0&&!p.currentPrimosExplicit){p.currentPrimos=Number(p.primos);localStorage.setItem(GI_WISH_KEY,JSON.stringify(p));}const days=Math.max(0,Math.ceil((new Date(`${p.patchEnd||'2026-12-16'}T23:59:59`)-new Date())/86400000)),recent=p.history.slice(-14),max=Math.max(1,...recent.map(x=>x.count));return `<section class="wish-hub">
+<header class="wish-hero">
+<div>
+<span class="eyebrow">PLANIFICATEUR DE VŒUX · GENSHIN</span>
+<h2>Objectif, pity et budget</h2>
+<p>Suivi enregistré sur cet appareil. Les chances sont une estimation Monte-Carlo selon les règles publiques et une approximation communautaire de la pity progressive; elles ne garantissent aucun résultat.</p>
+</div>
+</header>${renderWishWallet(p)}<div class="wish-form-grid">
+<label>Vœux disponibles (primos converties incluses)<input type="number" min="0" readonly value="${Number(p.wishes||0)+Math.floor(Number(p.currentPrimos??p.primos??0)/160)}">
+</label>
+<label>Pity personnage<input type="number" min="0" max="89" data-wish-field="characterPity" value="${p.characterPity}">
+</label>
+<label>50/50 perdus consécutifs<input type="number" min="0" max="3" data-wish-field="radiance" value="${p.radiance}">
+<small>${Number(p.radiance)>=3?'Capture de radiance garantie · prochain 5★ violet.':Number(p.radiance)>=2?'Encore une perte consécutive avant la garantie de radiance.':'Progression vers la Capture de radiance.'}</small>
+</label>
+<label>Pity arme<input type="number" min="0" max="79" data-wish-field="weaponPity" value="${p.weaponPity}">
+</label>
+<label class="wish-check">
+<input type="checkbox" data-wish-field="characterGuarantee" ${p.characterGuarantee?'checked':''}> Prochain personnage vedette garanti</label>
+<label class="wish-check">
+<input type="checkbox" data-wish-field="weaponGuarantee" ${p.weaponGuarantee?'checked':''}> Prochaine arme 5★ garantie sur la bannière</label>
+</div>
+<section class="wish-current-account">
+<div>
+<span class="eyebrow">MON COMPTE GENSHIN</span>
+<h3>Primos et vœux disponibles</h3>
+<p>Solde saisi par toi, conservé sur cet appareil.</p>
+</div>
+<label>Primos actuelles<input type="number" min="0" data-wish-field="currentPrimos" value="${Number(p.currentPrimos??p.primos)||0}">
+</label>
+<b>${Math.floor((Number(p.currentPrimos??p.primos)||0)/160)} vœux</b>
+</section>
+<wish-objectives>
+</wish-objectives>${renderWishPullHistory(p)}<section class="wish-daily">
+<div>
+<span class="eyebrow">ÉPARGNE QUOTIDIENNE</span>
+<h3>Ajouter les gains du jour</h3>
+<p>Chaque entrée s’ajoute à ton total et reste modifiable dans l’historique.</p>
+</div>
+<label>Primos gagnés<input id="wish-daily-primos" type="number" min="0" placeholder="Ex. 60">
+</label>
+<label>Vœux gagnés<input id="wish-daily-pulls" type="number" min="0" placeholder="Ex. 1">
+</label>
+<button class="button-primary" data-action="wish-log">Ajouter aujourd’hui</button>
+</section>${wishSavingsChart(p.history)}<section class="wish-chart">
+<header>
+<div>
+<span class="eyebrow">HISTORIQUE · 14 DERNIERS JOURS</span>
+<h3>Progression de l’épargne</h3>
+</div>
+<span>${p.primos.toLocaleString('fr-FR')} primos · ${p.wishes} vœux</span>
+</header>
+<div class="wish-bars">${recent.map(row=>`<div title="${esc(row.date)} · ${row.primos} primos · ${row.count} vœu(x)" style="--bar:${Math.max(8,row.count/max*100)}%">
+<i>
+</i>
+<small>${esc(row.label)}</small>
+</div>`).join('')||'<p>Enregistre ton premier jour de farm pour tracer ta progression.</p>'}</div>
+</section>
+<p class="farm-disclaimer">HoYoverse indique 0,6 % de taux de base et 55 % de probabilité consolidée du personnage vedette (« Capturing Radiance »). Le mécanisme interne exact et les taux progressifs par vœu ne sont pas publiés : le pourcentage ci-dessus sert à comparer des budgets, pas à prévoir un résultat individuel. <a href="https://genshin.hoyoverse.com/en/news/detail/125274" target="_blank" rel="noreferrer">Règles officielles des vœux</a>
+</p>
+</section>`;}

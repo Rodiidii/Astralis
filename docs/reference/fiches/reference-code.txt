@@ -1,0 +1,374 @@
+<!doctype html>
+<html lang="fr"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Fiches Astralis — aperçu</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--e1:#8fd13f;--e2:#d6f0b0;--e3:#0c150a;--e4:#2f5a16;
+--serif:'Cormorant Garamond','Lora',Georgia,serif;--sans:Inter,system-ui,sans-serif}
+*{box-sizing:border-box;margin:0}
+html,body{background:#07080c;color:#eee;font-family:var(--sans)}
+.bar{position:sticky;top:0;z-index:9;display:flex;flex-wrap:wrap;gap:10px 22px;align-items:center;padding:12px 20px;background:#0d0f16ee;border-bottom:1px solid #ffffff18}
+.bar h1{font:600 15px var(--sans);letter-spacing:.14em;text-transform:uppercase;color:#9aa3b8;margin-right:6px}
+.seg{display:flex;gap:6px;flex-wrap:wrap}
+.seg button{all:unset;cursor:pointer;padding:7px 13px;border-radius:999px;border:1px solid #ffffff24;font:500 13px var(--sans);color:#c9cfdd;display:flex;gap:7px;align-items:center}
+.seg button[aria-pressed=true]{background:var(--e1);color:#10131a;border-color:transparent;font-weight:700}
+.seg svg{width:15px;height:15px}
+.hint{font:400 12px var(--sans);color:#7f889c;margin-left:auto}
+.stage{padding:22px 0 60px;display:flex;justify-content:center}
+.fit{position:relative}
+.sheet{position:absolute;left:0;top:0;transform-origin:0 0;overflow:hidden;color:#f6f1e7;font-family:var(--sans);font-variant-numeric:tabular-nums lining-nums;box-shadow:0 30px 80px #000a}
+.sheet>.bgsvg,.sheet>.bgsvg svg{position:absolute;inset:0;width:100%;height:100%}
+.sheet .in{position:absolute;inset:0}
+/* briques communes */
+.kick{font:600 21px var(--sans);letter-spacing:.32em;text-transform:uppercase;color:color-mix(in srgb,var(--e2) 82%,transparent)}
+.kick b{color:var(--e1);font-weight:700}
+.ttl{font:700 118px/.95 var(--serif);letter-spacing:-.01em;text-shadow:0 4px 30px color-mix(in srgb,var(--e1) 45%,transparent),0 2px 0 #0006}
+.sub{font:500 27px var(--sans);color:color-mix(in srgb,var(--e2) 85%,#fff 0%)}
+.sl{display:flex;align-items:center;gap:16px;font:600 21px var(--sans);letter-spacing:.2em;text-transform:uppercase;color:color-mix(in srgb,var(--e2) 88%,transparent)}
+.sl .dia{width:11px;height:11px;background:var(--e1);transform:rotate(45deg);box-shadow:0 0 14px var(--e1)}
+.sl i{flex:1;height:1px;background:linear-gradient(90deg,color-mix(in srgb,var(--e2) 45%,transparent),transparent)}
+.sl em{font:500 20px var(--sans);letter-spacing:.04em;text-transform:none;color:color-mix(in srgb,var(--e2) 65%,transparent);font-style:normal}
+.pn{background:linear-gradient(165deg,color-mix(in srgb,var(--e4) 34%,#0b0b12 66%) 0%,color-mix(in srgb,var(--e3) 78%,#000 22%) 100%);border:1.5px solid color-mix(in srgb,var(--e2) 20%,transparent);border-radius:22px;box-shadow:inset 0 1px 0 #ffffff14,0 22px 44px #0007;position:relative;overflow:hidden}
+.pn.glow::after{content:"";position:absolute;inset:0;background:radial-gradient(120% 90% at 0% 0%,color-mix(in srgb,var(--e1) 20%,transparent),transparent 60%);pointer-events:none}
+.chip{display:inline-flex;align-items:center;gap:10px;height:46px;padding:0 20px;border-radius:999px;font:600 22px var(--sans);background:color-mix(in srgb,var(--e1) 16%,#0a0a10 84%);border:1.5px solid color-mix(in srgb,var(--e1) 50%,transparent);color:var(--e2)}
+.chip svg{width:24px;height:24px}
+.ico{display:inline-grid;place-items:center;border-radius:50%;flex:none}
+.foot{position:absolute;left:70px;right:70px;bottom:46px;display:flex;justify-content:space-between;align-items:center;font:600 20px var(--sans);letter-spacing:.2em;text-transform:uppercase;color:color-mix(in srgb,var(--e2) 60%,transparent)}
+.foot b{color:var(--e2);font-weight:700}
+.num{font-family:var(--serif);font-weight:700;font-variant-numeric:lining-nums}
+.art{position:absolute;object-fit:cover}
+.mut{color:color-mix(in srgb,var(--e2) 60%,transparent)}
+</style></head><body>
+<div class="bar">
+ <h1>Fiches Astralis · aperçu</h1>
+ <div class="seg" id="tabs"></div>
+ <div class="seg" id="els"></div>
+ <span class="hint">Changer d'élément = changer toute la palette. Textes et valeurs d'exemple.</span>
+</div>
+<div class="stage"><div class="fit" id="fit"><div class="sheet" id="sheet"></div></div></div>
+<script>
+const EL={
+ pyro:{n:'Pyro',e1:'#ff7a45',e2:'#ffd6bd',e3:'#170a0a',e4:'#6a2616'},
+ hydro:{n:'Hydro',e1:'#4aa8ff',e2:'#c4e3ff',e3:'#08111f',e4:'#17457a'},
+ anemo:{n:'Anémo',e1:'#4fe0c0',e2:'#c8f7ec',e3:'#061617',e4:'#16584f'},
+ electro:{n:'Électro',e1:'#b27dff',e2:'#e5d4ff',e3:'#110a21',e4:'#47307f'},
+ dendro:{n:'Dendro',e1:'#93d443',e2:'#dcf2b7',e3:'#0a1409',e4:'#2f5c17'},
+ cryo:{n:'Cryo',e1:'#7fd6ff',e2:'#dcf3ff',e3:'#081420',e4:'#25587a'},
+ geo:{n:'Géo',e1:'#f2b73f',e2:'#ffe6a9',e3:'#161008',e4:'#65491a'}};
+const GL={
+ pyro:'<path d="M12 2c1 3.5 5.5 5.5 5.5 10.2a5.5 5.5 0 0 1-11 0c0-2.3 1.2-3.6 2.4-4.7.1 2 .9 3 2 3.2-.8-3 .2-6.4 1.1-8.7z"/>',
+ hydro:'<path d="M12 2.5c4 5 7 8.2 7 12a7 7 0 0 1-14 0c0-3.800 3-7 7-12z"/>',
+ anemo:'<path d="M3.500 9h10.500a3 3 0 1 0-3-3M2.500 14h15a3 3 0 1 1-3 3M6 19h6"/>',
+ electro:'<path d="M13.500 2 5 14h6l-1 8 9-12.500h-6.200z"/>',
+ dendro:'<path d="M4.500 19.500C4.500 10 10.500 4 20 4c0 9.500-5.500 15.500-15.500 15.500zM4.500 19.500l9-9"/>',
+ cryo:'<path d="M12 2v20M3.500 7l17 10M3.500 17l17-10M9 3.500l3 2.500 3-2.500M9 20.500l3-2.500 3 2.500"/>',
+ geo:'<path d="M12 2l8 7-8 13L4 9zM4 9h16M9 9l3 13M15 9l-3 13"/>'};
+const G=(el,s=24,col='currentColor',sw=1.8)=>`<svg viewBox="0 0 24 24" width="${s}" height="${s}" fill="none" stroke="${col}" stroke-width="${sw}" stroke-linecap="round" stroke-linejoin="round">${GL[el]}</svg>`;
+const ICO={
+ sword:'<path d="M5 19 19 5M14 5h5v5M5 19l-1.500 1.500M7 14l3 3"/>',
+ star:'<path d="M12 3l2.600 5.700 6.200.700-4.600 4.200 1.300 6.100L12 16.600 6.500 19.700l1.300-6.100L3.200 9.400l6.200-.7z"/>',
+ ring:'<circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="3.500"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3"/>',
+ x2:'<path d="M5 6l6 6-6 6M13 8h6M13 12h6M13 16h6"/>',
+ flag:'<path d="M6 21V4M6 5h11l-2 4 2 4H6"/>',
+ arrow:'<path d="M12 4v13M6 12l6 6 6-6"/>',
+ hp:'<path d="M12 20s-8-4.500-8-10.300A4.500 4.500 0 0 1 12 7a4.500 4.500 0 0 1 8 2.700C20 15.500 12 20 12 20z"/>',
+ atk:'<path d="M5 19 19 5M14 5h5v5M5 19l-1.500 1.500M7 14l3 3"/>',
+ def:'<path d="M12 3l8 3v6c0 4.500-3.300 7.800-8 9-4.700-1.200-8-4.500-8-9V6z"/>',
+ em:'<path d="M12 3a9 9 0 1 0 0 18 9 9 0 0 0 0-18zM12 7v5l3.500 2"/>',
+ cr:'<circle cx="12" cy="12" r="8"/><path d="M12 4v4M12 16v4M4 12h4M16 12h4"/>',
+ cd:'<path d="M4 20 20 4M9 4h11v11"/>',
+ er:'<path d="M20 12a8 8 0 1 1-3-6.200M20 4v5h-5"/>',
+ flower:'<circle cx="12" cy="12" r="2.500"/><path d="M12 9.500C10 6 10.500 3.500 12 3c1.500.500 2 3 0 6.500zM14.500 12c3.500-2 6-1.500 6.500 0-.500 1.500-3 2-6.500 0zM12 14.500c2 3.500 1.500 6-0 6.500-1.500-.500-2-3 0-6.500zM9.500 12C6 14 3.500 13.500 3 12c.500-1.500 3-2 6.500 0z"/>',
+ plume:'<path d="M20 4C10 4 5 9 5 17l-1 3 3-1c8 0 13-5 13-15zM5 17l9-9"/>',
+ sands:'<path d="M7 3h10M7 21h10M8 3c0 5 4 6 4 9s-4 4-4 9M16 3c0 5-4 6-4 9s4 4 4 9"/>',
+ goblet:'<path d="M6 4h12c0 6-2 9-6 9S6 10 6 4zM12 13v6M8 21h8"/>',
+ circlet:'<path d="M3 17l2-10 4.500 4L12 5l2.500 6L19 7l2 10zM3 20h18"/>',
+ gem:'<path d="M6 3h12l4 6-10 12L2 9zM2 9h20M9 3l-2 6 5 12 5-12-2-6"/>',
+ book:'<path d="M5 4h11a3 3 0 0 1 3 3v13H8a3 3 0 0 1-3-3zM5 17a3 3 0 0 1 3-3h11"/>',
+ coin:'<circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5.500"/><path d="M12 9v6M9.500 12h5"/>',
+ leaf:'<path d="M4.500 19.500C4.500 10 10.500 4 20 4c0 9.500-5.500 15.500-15.500 15.500zM4.500 19.500l9-9"/>',
+ cloth:'<path d="M5 4h14l-1 6c-1 3-3 4-6 4s-5-1-6-4zM9 14l-2 7M15 14l2 7"/>',
+ shard:'<path d="M12 2l6 8-6 12-6-12zM6 10h12"/>'
+};
+const I=(k,s=24,col='currentColor',sw=1.8)=>`<svg viewBox="0 0 24 24" width="${s}" height="${s}" fill="none" stroke="${col}" stroke-width="${sw}" stroke-linecap="round" stroke-linejoin="round">${ICO[k]}</svg>`;
+const ELC={pyro:'#ff7a45',hydro:'#4aa8ff',anemo:'#4fe0c0',electro:'#b27dff',dendro:'#93d443',cryo:'#7fd6ff',geo:'#f2b73f'};
+
+/* ------------ Fond généré : motifs UNIQUES (graine), jamais répétés ------------ */
+function rng(a){return()=>{a|=0;a=a+0x6D2B79F5|0;let t=Math.imul(a^a>>>15,1|a);t=t+Math.imul(t^t>>>7,61|t)^t;return((t^t>>>14)>>>0)/4294967296}}
+const hx=h=>[1,3,5].map(i=>parseInt(h.slice(i,i+2),16));
+const mixc=(a,b,t)=>{const A=hx(a),B=hx(b);return'#'+A.map((v,i)=>Math.round(v+(B[i]-v)*t).toString(16).padStart(2,'0')).join('')};
+function backdrop(W,H,el,seed){
+ const P=EL[el],r=rng(seed),R=(a,b)=>a+(b-a)*r(),f=n=>(+n).toFixed(1);
+ let s=`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${W} ${H}" preserveAspectRatio="none"><defs>
+ <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="${mixc(P.e3,P.e4,.18)}"/><stop offset=".5" stop-color="${mixc(P.e3,P.e4,.5)}"/><stop offset="1" stop-color="${P.e3}"/></linearGradient>
+ <radialGradient id="vg" cx=".5" cy=".5" r=".78"><stop offset=".5" stop-color="#000" stop-opacity="0"/><stop offset="1" stop-color="#000" stop-opacity=".62"/></radialGradient>
+ <linearGradient id="ray" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#fff" stop-opacity="0"/><stop offset=".5" stop-color="${P.e2}" stop-opacity=".09"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></linearGradient>
+ <filter id="bl" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="${W/22}"/></filter>
+ <filter id="gl" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="4"/></filter>
+ <filter id="gr"><feTurbulence type="fractalNoise" baseFrequency=".9" numOctaves="2" seed="${seed%97}"/><feColorMatrix type="saturate" values="0"/></filter></defs>
+ <rect width="${W}" height="${H}" fill="url(#bg)"/>`;
+ // lueurs douces décalées
+ for(let i=0;i<3;i++)s+=`<ellipse cx="${f(R(.05,.95)*W)}" cy="${f(R(.05,.95)*H)}" rx="${f(R(.18,.34)*W)}" ry="${f(R(.12,.26)*H)}" fill="${i?P.e4:P.e1}" opacity="${i?.5:.26}" filter="url(#bl)" transform="rotate(${f(R(-30,30))} ${W/2} ${H/2})"/>`;
+ // rayons de lumière
+ for(let i=0;i<2;i++){const x=R(.1,.9)*W,w=R(.05,.12)*W;s+=`<polygon points="${f(x)},0 ${f(x+w)},0 ${f(x+w-R(.2,.5)*W)},${H} ${f(x-R(.2,.5)*W)},${H}" fill="url(#ray)"/>`}
+ // astrolabe (coin tiré au sort)
+ const cx=(r()<.5?R(-.04,.12):R(.88,1.04))*W,cy=(r()<.5?R(-.06,.2):R(.8,1.06))*H,u=Math.min(W,H)/1000;
+ [150,230,310,410,520].forEach((rad,i)=>{const d=rad*u;s+=`<circle cx="${f(cx)}" cy="${f(cy)}" r="${f(d)}" fill="none" stroke="${P.e2}" stroke-opacity="${[.22,.14,.18,.1,.08][i]}" stroke-width="${i%2?1.5:2.5}"/>`;
+  if(i%2==0)s+=`<circle cx="${f(cx)}" cy="${f(cy)}" r="${f(d+14*u)}" fill="none" stroke="${P.e1}" stroke-opacity=".28" stroke-width="${f(12*u)}" stroke-dasharray="${f(1.6*u)} ${f(11*u)}"/>`});
+ s+=`<g stroke="${P.e2}" stroke-opacity=".14" stroke-width="1.5"><path d="M${f(cx-560*u)} ${f(cy)}H${f(cx+560*u)}M${f(cx)} ${f(cy-560*u)}V${f(cy+560*u)}"/></g>`;
+ const a0=R(0,6.28),a1=a0+R(.9,1.8),rr=310*u;s+=`<path d="M${f(cx+rr*Math.cos(a0))} ${f(cy+rr*Math.sin(a0))}A${f(rr)} ${f(rr)} 0 0 1 ${f(cx+rr*Math.cos(a1))} ${f(cy+rr*Math.sin(a1))}" fill="none" stroke="${P.e1}" stroke-opacity=".7" stroke-width="${f(4*u)}" stroke-linecap="round"/>`;
+ // glyphe filigrane géant
+ const gs=Math.min(W,H)*R(.5,.75);s+=`<g transform="translate(${f(R(.1,.7)*W)} ${f(R(.15,.6)*H)}) rotate(${f(R(-18,18))}) scale(${f(gs/24)})" fill="none" stroke="${P.e2}" stroke-opacity=".055" stroke-width="${f(.55)}" stroke-linejoin="round">${GL[el]}</g>`;
+ // motif propre à l'élément
+ const M={
+  pyro(){let o='';for(let i=0;i<46;i++){const x=R(0,W),y=R(.15,1)*H,q=R(1.5,6.5);o+=`<circle cx="${f(x)}" cy="${f(y)}" r="${f(q)}" fill="${i%5?P.e1:P.e2}" opacity="${f(R(.2,.8))}"/>`;if(q>4)o+=`<circle cx="${f(x)}" cy="${f(y)}" r="${f(q*3)}" fill="${P.e1}" opacity=".08"/>`}
+   for(let i=0;i<5;i++){const x=R(0,W),y=R(.5,1)*H;o+=`<path d="M${f(x)} ${f(y)}c${f(R(-60,60))} ${f(-R(80,160))} ${f(R(-80,80))} ${f(-R(200,380))} ${f(R(-30,30))} ${f(-R(300,520))}" fill="none" stroke="${P.e1}" stroke-opacity=".16" stroke-width="${f(R(2,6))}" stroke-linecap="round"/>`}return o},
+  hydro(){let o='';for(let k=0;k<3;k++){const x=R(0,W),y=R(.1,.95)*H;for(let i=1;i<=7;i++)o+=`<circle cx="${f(x)}" cy="${f(y)}" r="${f(i*R(38,52))}" fill="none" stroke="${P.e1}" stroke-opacity="${f(.2-i*.02)}" stroke-width="2"/>`}
+   for(let i=0;i<22;i++){const x=R(0,W),y=R(0,H),q=R(4,18);o+=`<circle cx="${f(x)}" cy="${f(y)}" r="${f(q)}" fill="none" stroke="${P.e2}" stroke-opacity=".3" stroke-width="1.5"/><circle cx="${f(x-q*.3)}" cy="${f(y-q*.3)}" r="${f(q*.18)}" fill="${P.e2}" opacity=".5"/>`}return o},
+  anemo(){let o='';for(let k=0;k<4;k++){const x=R(0,W),y=R(0,H),sc=R(8,18);let p='';for(let t=0;t<14;t+=.2)p+=(t?'L':'M')+f(x+Math.cos(t+k)*t*sc)+' '+f(y+Math.sin(t+k)*t*sc*.8);o+=`<path d="${p}" fill="none" stroke="${P.e1}" stroke-opacity=".2" stroke-width="${f(R(1.5,4))}" stroke-linecap="round"/>`}
+   for(let i=0;i<7;i++){const x=R(0,W),y=R(0,H);o+=`<path d="M${f(x)} ${f(y)}h${f(R(160,420))}a40 40 0 1 0 -40 -40" fill="none" stroke="${P.e2}" stroke-opacity=".16" stroke-width="3" stroke-linecap="round"/>`}return o},
+  electro(){let o='';for(let k=0;k<6;k++){let x=R(0,W),y=R(-.05,.2)*H,p='M'+f(x)+' '+f(y);const n=Math.floor(R(7,12));for(let i=0;i<n;i++){x+=R(-90,90);y+=R(60,130);p+='L'+f(x)+' '+f(y)}
+    o+=`<path d="${p}" fill="none" stroke="${P.e1}" stroke-opacity=".5" stroke-width="${f(R(5,9))}" filter="url(#gl)"/><path d="${p}" fill="none" stroke="${P.e2}" stroke-opacity=".5" stroke-width="2"/>`}
+   for(let i=0;i<30;i++)o+=`<circle cx="${f(R(0,W))}" cy="${f(R(0,H))}" r="${f(R(1,3.5))}" fill="${P.e2}" opacity=".5"/>`;return o},
+  dendro(){let o='';for(let k=0;k<6;k++){const left=r()<.5,x0=left?R(-30,.15*W):R(.85*W,W+30),y0=R(.05,.95)*H,dx=(left?1:-1);let x=x0,y=y0,p=`M${f(x)} ${f(y)}`;
+    for(let i=0;i<6;i++){const nx=x+dx*R(60,150),ny=y+R(-120,120);p+=`Q${f(x+dx*R(0,90))} ${f(y+R(-130,130))} ${f(nx)} ${f(ny)}`;
+      o+=`<ellipse cx="${f(nx)}" cy="${f(ny)}" rx="${f(R(14,30))}" ry="${f(R(7,13))}" transform="rotate(${f(R(-80,80))} ${f(nx)} ${f(ny)})" fill="${P.e1}" opacity="${f(R(.12,.3))}" stroke="${P.e2}" stroke-opacity=".25"/>`;x=nx;y=ny}
+    o=`<path d="${p}" fill="none" stroke="${P.e1}" stroke-opacity=".3" stroke-width="${f(R(2,4))}" stroke-linecap="round"/>`+o}
+   for(let i=0;i<26;i++)o+=`<circle cx="${f(R(0,W))}" cy="${f(R(0,H))}" r="${f(R(1.5,4))}" fill="${P.e2}" opacity="${f(R(.2,.6))}"/>`;return o},
+  cryo(){let o='';for(let k=0;k<11;k++){const x=R(0,W),y=R(0,H),q=R(30,120),a=R(0,60);let p='';for(let i=0;i<6;i++){const t=(a+i*60)*Math.PI/180;p+=(i?'L':'M')+f(x+Math.cos(t)*q)+' '+f(y+Math.sin(t)*q)}
+    o+=`<path d="${p}Z" fill="${P.e1}" fill-opacity="${f(R(.03,.09))}" stroke="${P.e2}" stroke-opacity=".3" stroke-width="2"/><path d="M${f(x-q)} ${f(y)}H${f(x+q)}M${f(x)} ${f(y-q)}V${f(y+q)}" stroke="${P.e2}" stroke-opacity=".12"/>`}
+   for(let i=0;i<40;i++)o+=`<circle cx="${f(R(0,W))}" cy="${f(R(0,H))}" r="${f(R(1,3.5))}" fill="#fff" opacity="${f(R(.2,.7))}"/>`;return o},
+  geo(){let o='';const hx0=R(.1,.9)*W,hy0=R(.1,.9)*H,q=R(46,70);for(let a=-2;a<=2;a++)for(let b=-2;b<=2;b++){if(r()<.35)continue;const x=hx0+a*q*1.75+(b%2)*q*.87,y=hy0+b*q*1.5;let p='';for(let i=0;i<6;i++){const t=(60*i-30)*Math.PI/180;p+=(i?'L':'M')+f(x+Math.cos(t)*q*.9)+' '+f(y+Math.sin(t)*q*.9)}
+    o+=`<path d="${p}Z" fill="${P.e1}" fill-opacity="${f(R(0,.1))}" stroke="${P.e2}" stroke-opacity=".2" stroke-width="2"/>`}
+   for(let i=0;i<12;i++){const x=R(0,W),y=R(0,H),q2=R(40,160),a=R(0,6.28);o+=`<polygon points="${f(x)},${f(y)} ${f(x+Math.cos(a)*q2)},${f(y+Math.sin(a)*q2)} ${f(x+Math.cos(a+1.3)*q2*.7)},${f(y+Math.sin(a+1.3)*q2*.7)}" fill="${P.e1}" fill-opacity="${f(R(.04,.12))}" stroke="${P.e2}" stroke-opacity=".18"/>`}return o}
+ };s+=M[el]();
+ // constellation
+ const pts=[];for(let i=0;i<24;i++)pts.push([R(0,W),R(0,H)]);
+ pts.forEach((a,i)=>{let b=null,bd=1e9;pts.forEach((c,j)=>{if(j==i)return;const d=Math.hypot(a[0]-c[0],a[1]-c[1]);if(d<bd){bd=d;b=c}});if(b&&bd<Math.min(W,H)*.32)s+=`<line x1="${f(a[0])}" y1="${f(a[1])}" x2="${f(b[0])}" y2="${f(b[1])}" stroke="${P.e2}" stroke-opacity=".16"/>`});
+ pts.forEach(p=>{const q=R(1.5,4);s+=`<circle cx="${f(p[0])}" cy="${f(p[1])}" r="${f(q*3.2)}" fill="${P.e2}" opacity=".08"/><circle cx="${f(p[0])}" cy="${f(p[1])}" r="${f(q)}" fill="${P.e2}" opacity=".8"/>`});
+ // grain, vignette, cadre
+ s+=`<rect width="${W}" height="${H}" filter="url(#gr)" opacity=".075" style="mix-blend-mode:overlay"/><rect width="${W}" height="${H}" fill="url(#vg)"/>`;
+ s+=`<rect x="22" y="22" width="${W-44}" height="${H-44}" rx="10" fill="none" stroke="${P.e1}" stroke-opacity=".5" stroke-width="2.5"/><rect x="36" y="36" width="${W-72}" height="${H-72}" rx="6" fill="none" stroke="${P.e2}" stroke-opacity=".14"/>`;
+ [[22,22],[W-22,22],[22,H-22],[W-22,H-22]].forEach(([x,y])=>s+=`<rect x="${x-8}" y="${y-8}" width="16" height="16" transform="rotate(45 ${x} ${y})" fill="${P.e3}" stroke="${P.e1}" stroke-width="2.5"/>`);
+ return s+'</svg>'}
+
+/* ------------ fiches ------------ */
+const pct=(a,b)=>Math.round(a/b*100);
+const fr=n=>Math.round(n).toLocaleString('fr-FR');
+const CH={columbina:{n:'Columbina',el:'hydro',img:'columbina'},chiori:{n:'Chiori',el:'geo',img:'chiori'},bennett:{n:'Bennett',el:'pyro',img:'bennett'},charlotte:{n:'Charlotte',el:'cryo',img:'charlotte'}};
+const act=t=>({atk:'sword',skill:'star',burst:'ring',combo:'x2',end:'flag'})[t];
+
+const SHEETS={
+/* ========== 1. ÉQUIPE ========== */
+team:{W:2000,H:1570,seed:11,html:(el)=>{
+ const cards=[['columbina','Support','Mouvement vagabond','Nuit de la révélation céleste','C0 · 10/10/10',[['ATQ','1 840'],['CRIT','62/131'],['MÎ','96']],42],['chiori','DPS principal','Lame de la tisseuse','Emblème du destin brisé','C2 · 10/10/10',[['ATQ','2 410'],['CRIT','74/218'],['MÎ','38']],64],['bennett','Support','Athame Artis','Sorcière des flammes ardentes','C6 · 9/9/9',[['ATQ','1 960'],['CRIT','52/100'],['REC','241 %']],60],['charlotte','Soutien','Une cuillerée de transcendance','Cœur du Brave','C1 · 8/8/8',[['ATQ','1 520'],['CRIT','58/120'],['REC','178 %']],55]];
+ const rot=[['Épée chanceuse','chiori','atk'],['Merveilleux voile','columbina','skill'],['Hiyoku : lame d\'éclat','chiori','burst'],['Combo ×2','bennett','combo'],['Lame de tissage','chiori','atk'],['Merveilleux voile','columbina','skill'],['Surpassion','bennett','burst'],['Fin du combo','charlotte','end']];
+ const share=[['chiori',58],['columbina',22],['bennett',14],['charlotte',6]];
+ return `<div class="in">
+ <div style="position:absolute;left:78px;top:62px"><div class="kick"><b>Astralis</b> &nbsp;/&nbsp; Équipe</div>
+  <div class="ttl" style="margin-top:14px">Test</div>
+  <div style="display:flex;gap:14px;margin-top:20px;align-items:center">
+   <span class="chip">${Object.values(CH).map(c=>G(c.el,24,ELC[c.el],2)).join('')}&nbsp;Résonance · 4 éléments distincts</span>
+   <span class="chip" style="background:#ffffff0d;border-color:#ffffff30;color:#f3eee4">${I('flag',22)}Rotation de 19 s</span></div></div>
+
+ <div style="position:absolute;left:78px;right:78px;top:332px"><div class="sl"><span class="dia"></span>Composition<i></i></div></div>
+ <div style="position:absolute;left:78px;right:78px;top:384px;display:grid;grid-template-columns:repeat(4,1fr);gap:26px">
+ ${cards.map(([k,role,w,s,c,st,pos])=>{const h=CH[k],col=ELC[h.el];return `<div class="pn" style="height:690px;border-color:${col}99;box-shadow:0 22px 44px #0007,0 0 36px ${col}33">
+  <div style="position:relative;height:400px"><img class="art" src="${IMG[h.img]}" style="inset:0;width:100%;height:100%;object-position:${pos}% 35%"/>
+   <div style="position:absolute;inset:0;background:linear-gradient(180deg,#0000 42%,#0b0b12f2 100%),radial-gradient(90% 60% at 50% 0%,${col}33,transparent)"></div>
+   <div class="ico" style="position:absolute;left:18px;top:18px;width:62px;height:62px;background:#0b0b12cc;border:2.5px solid ${col};box-shadow:0 0 22px ${col}99">${G(h.el,34,col,2)}</div>
+   <div style="position:absolute;right:18px;top:22px;height:42px;padding:0 20px;border-radius:999px;font:700 21px/42px var(--sans);background:${col};color:#0b0b12">${role}</div>
+   <div style="position:absolute;left:22px;right:22px;bottom:16px"><div style="font:700 72px/.95 var(--serif);text-shadow:0 3px 16px #000">${h.n}</div>
+    <div style="height:3px;width:90px;margin-top:10px;border-radius:2px;background:${col};box-shadow:0 0 12px ${col}"></div></div></div>
+  <div style="padding:18px 22px;display:grid;gap:14px">
+   <div style="display:flex;gap:16px;align-items:center"><span class="ico" style="width:54px;height:54px;border-radius:14px;background:${col}22;border:1.5px solid ${col}77;color:${col}">${I('sword',30)}</span><div><div style="font:600 25px/1.15 var(--sans)">${w}</div><div class="mut" style="font:500 18px var(--sans)">Arme</div></div></div>
+   <div style="display:flex;gap:16px;align-items:center"><span class="ico" style="width:54px;height:54px;border-radius:14px;background:${col}22;border:1.5px solid ${col}77;color:${col}">${I('flower',30)}</span><div><div style="font:600 25px/1.15 var(--sans)">${s}</div><div class="mut" style="font:500 18px var(--sans)">Set 4 pièces</div></div></div>
+   <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:10px">${st.map(([a,b])=>`<div style="border-radius:12px;padding:8px 10px;background:#ffffff0d;border:1px solid #ffffff1c;text-align:center"><div class="mut" style="font:600 15px var(--sans);letter-spacing:.08em">${a}</div><div style="font:700 24px/1.2 var(--sans)">${b}</div></div>`).join('')}</div>
+   <div style="font:700 20px var(--sans);letter-spacing:.16em;color:${col}">${c}</div></div></div>`}).join('')}
+ </div>
+
+ <div style="position:absolute;left:78px;right:78px;top:1110px"><div class="sl"><span class="dia"></span>Rotation<i></i><em>8 étapes</em></div></div>
+ <div style="position:absolute;left:78px;right:78px;top:1164px;height:170px">
+  <div style="position:absolute;left:100px;right:100px;top:41px;height:3px;background:linear-gradient(90deg,transparent,var(--e1) 12%,var(--e1) 88%,transparent);opacity:.55;box-shadow:0 0 14px var(--e1)"></div>
+  <div style="display:grid;grid-template-columns:repeat(8,1fr);gap:6px">
+  ${rot.map(([n,k,t],i)=>{const col=ELC[CH[k].el];return `<div style="text-align:center;position:relative">
+   <div class="ico" style="width:84px;height:84px;margin:0 auto;background:radial-gradient(circle at 35% 30%,${col}55,#0b0b12 70%);border:3px solid ${col};box-shadow:0 0 22px ${col}77;color:#fff;position:relative">${I(act(t),40,'#fff',1.7)}
+    <b style="position:absolute;right:-6px;top:-6px;width:32px;height:32px;border-radius:50%;background:var(--e1);color:#10131a;font:800 18px/32px var(--sans)">${i+1}</b></div>
+   <div style="font:600 21px/1.2 var(--sans);margin-top:12px;padding:0 4px">${n}</div>
+   <div class="mut" style="font:500 17px var(--sans);margin-top:3px">${CH[k].n}</div></div>`}).join('')}</div></div>
+
+ <div style="position:absolute;left:78px;right:78px;top:1370px;height:126px" class="pn glow">
+  <div style="position:absolute;left:32px;top:18px"><div class="mut" style="font:600 17px var(--sans);letter-spacing:.2em;text-transform:uppercase">Dégâts théoriques · cible niv. 100</div>
+   <div class="num" style="font-size:66px;line-height:1.05;margin-top:2px">1 284 530 <span style="font:600 24px var(--sans);color:var(--e2)">/ rotation</span></div></div>
+  <div style="position:absolute;left:760px;right:32px;top:26px"><div style="display:flex;height:28px;border-radius:14px;overflow:hidden;gap:3px">
+   ${share.map(([k,p])=>`<div style="width:${p}%;background:${ELC[CH[k].el]};border-radius:6px"></div>`).join('')}</div>
+   <div style="display:flex;gap:26px;margin-top:16px;font:600 20px var(--sans)">${share.map(([k,p])=>`<span style="display:flex;gap:9px;align-items:center"><i style="width:14px;height:14px;border-radius:50%;background:${ELC[CH[k].el]}"></i>${CH[k].n} <b>${p} %</b></span>`).join('')}</div></div></div>
+ <div class="foot" style="bottom:30px"><span>Signé · <b>Rodi</b></span><span>Astralis · Équipe</span></div></div>`}},
+
+/* ========== 2. COMPARATIF ========== */
+comp:{W:2000,H:1530,seed:23,html:(el)=>{
+ const A=[['bennett',121],['chiori',162],['columbina',98],['charlotte',47]],B=[['bennett',104],['chiori',171],['columbina',110],['charlotte',89]];
+ const tA=A.reduce((s,x)=>s+x[1],0),tB=B.reduce((s,x)=>s+x[1],0),d=(tB/tA-1)*100;
+ const bar=(v,m,col,l)=>`<div style="margin-top:20px"><div style="display:flex;justify-content:space-between;font:600 22px var(--sans)"><span>${l}</span><span class="num" style="font-size:40px;line-height:1">${fr(v*100)}</span></div><div style="margin-top:10px;height:24px;border-radius:12px;background:#ffffff12"><div style="width:${v/m*100}%;height:100%;border-radius:12px;background:linear-gradient(90deg,${col}99,${col});box-shadow:0 0 18px ${col}77"></div></div></div>`;
+ return `<div class="in">
+ <img class="art" src="${IMG.bennettHero}" style="right:0;top:0;width:900px;height:333px;-webkit-mask-image:linear-gradient(90deg,transparent,#000 45%),linear-gradient(180deg,#000 62%,transparent);-webkit-mask-composite:source-in;mask-image:linear-gradient(90deg,transparent,#000 45%),linear-gradient(180deg,#000 62%,transparent);mask-composite:intersect"/>
+ <div style="position:absolute;left:78px;top:62px"><div class="kick"><b>Astralis</b> &nbsp;/&nbsp; Comparatif d'équipe</div>
+  <div class="ttl" style="margin-top:14px">Test</div><div class="sub" style="margin-top:16px">Rotation de 19 s · avant / après modification</div></div>
+
+ <div style="position:absolute;left:78px;right:78px;top:372px"><div class="sl"><span class="dia"></span>Résultats<i></i></div></div>
+ <div class="pn glow" style="position:absolute;left:78px;top:424px;width:900px;height:320px;padding:30px 36px">
+  <div style="display:flex;justify-content:space-between;align-items:center"><span class="mut" style="font:600 20px var(--sans);letter-spacing:.18em;text-transform:uppercase">DPS d'équipe</span>
+   <span style="padding:8px 20px;border-radius:999px;background:var(--e1);color:#10131a;font:800 28px var(--sans)">+${d.toFixed(1).replace('.',',')} %</span></div>
+  ${bar(tA,tB,'#8d93a6','Équipe actuelle')}${bar(tB,tB,EL[el].e1,'Équipe modifiée')}</div>
+ <div class="pn" style="position:absolute;left:1002px;top:424px;width:920px;height:320px;padding:30px 36px">
+  <span class="mut" style="font:600 20px var(--sans);letter-spacing:.18em;text-transform:uppercase">Dégâts par rotation</span>
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:30px;margin-top:26px">
+   <div><div class="mut" style="font:600 20px var(--sans)">Actuelle</div><div class="num" style="font-size:78px;line-height:1.05;margin-top:6px">${fr(tA*3920)}</div></div>
+   <div><div style="font:600 20px var(--sans);color:var(--e1)">Modifiée</div><div class="num" style="font-size:78px;line-height:1.05;margin-top:6px;color:var(--e2)">${fr(tB*3920)}</div></div></div>
+  <div style="margin-top:26px;font:500 21px/1.4 var(--sans);color:color-mix(in srgb,var(--e2) 75%,transparent)">Le gain vient surtout de Charlotte (+42 DPS) et de la montée de Columbina.</div></div>
+
+ <div style="position:absolute;left:78px;right:78px;top:782px"><div class="sl"><span class="dia"></span>Répartition des dégâts<i></i><em>somme = 100 %</em></div></div>
+ <div style="position:absolute;left:78px;right:78px;top:834px;display:grid;gap:18px">
+ ${[['Actuelle',A,tA],['Modifiée',B,tB]].map(([l,T,t])=>`<div style="display:flex;align-items:center;gap:22px"><span style="width:150px;font:600 22px var(--sans)">${l}</span>
+  <div style="flex:1;display:flex;height:50px;border-radius:14px;overflow:hidden;gap:4px">${T.map(([k,v])=>`<div style="width:${v/t*100}%;background:linear-gradient(180deg,${ELC[CH[k].el]},${ELC[CH[k].el]}bb);display:flex;align-items:center;padding-left:14px;font:700 20px var(--sans);color:#0b0b12;border-radius:6px;white-space:nowrap;overflow:hidden">${CH[k].n} ${pct(v,t)} %</div>`).join('')}</div></div>`).join('')}</div>
+
+ <div style="position:absolute;left:78px;right:78px;top:1020px"><div class="sl"><span class="dia"></span>Détail par personnage<i></i></div></div>
+ <div style="position:absolute;left:78px;right:78px;top:1070px;display:grid;grid-template-columns:repeat(4,1fr);gap:24px">
+ ${A.map(([k,v],i)=>{const h=CH[k],col=ELC[h.el],w=B[i][1],dd=w-v,m=Math.max(v,w);return `<div class="pn" style="height:372px;border-color:${col}99;box-shadow:0 22px 44px #0007,0 0 30px ${col}33"><div style="position:relative;height:210px"><img class="art" src="${IMG[h.img]}" style="inset:0;width:100%;height:100%;object-position:${({columbina:42,chiori:64,bennett:60,charlotte:55})[k]}% 30%"/>
+  <div style="position:absolute;inset:0;background:linear-gradient(180deg,#0000 40%,#0b0b12f2 100%)"></div>
+  <div class="ico" style="position:absolute;left:14px;top:14px;width:50px;height:50px;background:#0b0b12cc;border:2.5px solid ${col}">${G(h.el,28,col,2)}</div>
+  <div style="position:absolute;right:14px;top:16px;padding:6px 16px;border-radius:999px;font:800 22px var(--sans);background:${dd>=0?col:'#ff8a8a'};color:#0b0b12">${dd>=0?'+':'−'}${Math.abs(dd)} DPS</div>
+  <div style="position:absolute;left:18px;bottom:8px;font:700 52px/1 var(--serif);text-shadow:0 3px 14px #000">${h.n}</div></div>
+  <div style="padding:16px 20px;display:grid;gap:12px">
+   <div style="display:grid;grid-template-columns:70px 1fr 64px;align-items:center;gap:12px;font:600 19px var(--sans)"><span class="mut">Avant</span><div style="height:12px;border-radius:6px;background:#ffffff16"><div style="width:${v/m*100}%;height:100%;border-radius:6px;background:#8d93a6"></div></div><b style="text-align:right">${v}</b></div>
+   <div style="display:grid;grid-template-columns:70px 1fr 64px;align-items:center;gap:12px;font:600 19px var(--sans)"><span style="color:${col}">Après</span><div style="height:12px;border-radius:6px;background:#ffffff16"><div style="width:${w/m*100}%;height:100%;border-radius:6px;background:${col};box-shadow:0 0 12px ${col}88"></div></div><b style="text-align:right">${w}</b></div>
+   <div class="mut" style="font:500 18px var(--sans)">Part de l'équipe : ${pct(v,tA)} % → ${pct(w,tB)} %</div></div></div>`}).join('')}</div>
+ <div class="foot" style="bottom:30px"><span>Signé · <b>Rodi</b></span><span>Astralis · Comparatif</span></div></div>`}},
+
+/* ========== 3. LABORATOIRE ========== */
+lab:{W:2000,H:2000,seed:37,html:(el)=>{
+ const ch=[['Base',3412,'×'],['Bonus de dégâts',1.86,'×'],['Crit moyen',1.54,'×'],['DEF ennemie',.50,'×'],['RES ennemie',.90,'×'],['Réaction',1.00,'']];
+ const st=[['hp','PV','21 316,7',.82],['atk','ATQ','2 709,9',.74],['def','DÉF','915',.35],['em','Maîtrise',' 61',.12],['cr','Taux CRIT','70,2 %',.70],['cd','DGT CRIT','219 %',.88],['er','Recharge','100 %',.40]];
+ const sens=[['+1 % Taux CRIT',1.08],['+1 % DGT CRIT',.64],['+10 Maîtrise',.19],['+1 roll d\'ATQ %',.95]];
+ return `<div class="in">
+ <img class="art" src="${IMG.skirk}" style="right:0;top:0;width:1180px;height:500px;filter:saturate(1.15) contrast(1.05);-webkit-mask-image:linear-gradient(90deg,transparent,#000 50%),linear-gradient(180deg,#000 55%,transparent);-webkit-mask-composite:source-in;mask-image:linear-gradient(90deg,transparent,#000 50%),linear-gradient(180deg,#000 55%,transparent);mask-composite:intersect"/>
+ <div style="position:absolute;left:90px;top:80px"><div class="kick"><b>Astralis</b> &nbsp;/&nbsp; Laboratoire de dégâts</div>
+  <div class="ttl" style="margin-top:16px;font-size:150px">Skirk</div>
+  <div style="display:flex;gap:14px;margin-top:22px"><span class="chip">${G(el,24,'currentColor',2)}${EL[el].n}</span><span class="chip" style="background:#ffffff0d;border-color:#ffffff30;color:#f3eee4">Niveau 90 · C0</span></div></div>
+
+ <div style="position:absolute;left:90px;right:90px;top:560px"><div class="sl"><span class="dia"></span>Résultat · dégâts moyens<i></i></div></div>
+ <div class="pn glow" style="position:absolute;left:90px;right:90px;top:614px;height:476px;padding:44px 56px">
+  <div style="font:600 26px var(--sans);color:var(--e2)">Ravage : Scission · DGT attaque chargée · 2 coups</div>
+  <div class="num" style="font-size:210px;line-height:1;margin-top:18px;text-shadow:0 0 50px color-mix(in srgb,var(--e1) 55%,transparent)">7 961<span style="font-size:88px;color:var(--e2)">,25</span> <span style="font:700 52px var(--sans);color:var(--e1);letter-spacing:.06em">DGT</span></div>
+  <div style="position:absolute;right:56px;top:46px;width:640px"><div class="mut" style="font:600 18px var(--sans);letter-spacing:.18em;text-transform:uppercase;margin-bottom:16px">Autres attaques du kit</div>
+   ${[['Attaque normale · enchaînement',5620,.71],['Compétence élémentaire',4980,.63],['Déflagration',18340,1],['Réaction Surcharge',2210,.28]].map(([l,v,b])=>`<div style="margin-bottom:15px"><div style="display:flex;justify-content:space-between;font:600 21px var(--sans)"><span>${l}</span><b>${fr(v)}</b></div><div style="margin-top:7px;height:10px;border-radius:5px;background:#ffffff14"><div style="width:${b*100}%;height:100%;border-radius:5px;background:linear-gradient(90deg,var(--e4),var(--e1))"></div></div></div>`).join('')}</div>
+  <div style="display:flex;gap:18px;margin-top:34px">
+   ${[['Sans crit',4112],['Moyen',7961],['Crit',12980]].map(([l,v],i)=>`<div style="flex:1;border-radius:16px;padding:16px 22px;background:${i==1?'color-mix(in srgb,var(--e1) 22%,#0b0b12)':'#ffffff0c'};border:1.5px solid ${i==1?'var(--e1)':'#ffffff22'}"><div class="mut" style="font:600 19px var(--sans);letter-spacing:.14em;text-transform:uppercase">${l}</div><div class="num" style="font-size:46px;line-height:1.1">${fr(v)}</div></div>`).join('')}</div></div>
+
+ <div style="position:absolute;left:90px;right:90px;top:1126px"><div class="sl"><span class="dia"></span>Décomposition du calcul<i></i><em>chaque terme est vérifiable</em></div></div>
+ <div style="position:absolute;left:90px;right:90px;top:1180px;display:flex;align-items:center;gap:12px">
+  ${ch.map(([l,v,o],i)=>`<div class="pn" style="flex:1;border-radius:16px;padding:16px 8px;text-align:center"><div class="mut" style="font:600 16px var(--sans);letter-spacing:.06em;text-transform:uppercase">${l}</div><div class="num" style="font-size:44px;line-height:1.15;margin-top:4px">${i==0?fr(v):String(v.toFixed(2)).replace('.',',')}</div></div>${o?`<span style="font:700 34px var(--sans);color:var(--e1)">${o}</span>`:''}`).join('')}</div>
+
+ <div style="position:absolute;left:90px;right:90px;top:1368px"><div class="sl"><span class="dia"></span>Statistiques du calcul<i></i></div></div>
+ <div style="position:absolute;left:90px;right:90px;top:1420px;display:grid;grid-template-columns:repeat(4,1fr);gap:18px">
+  ${st.map(([k,l,v,b])=>`<div class="pn" style="height:132px;border-radius:18px;padding:18px 22px"><div style="display:flex;align-items:center;gap:12px;color:var(--e1)">${I(k,26)}<span class="mut" style="font:600 20px var(--sans);letter-spacing:.04em">${l}</span></div>
+   <div style="font:700 42px/1.15 var(--sans);margin-top:8px">${v}</div><div style="margin-top:8px;height:6px;border-radius:3px;background:#ffffff14"><div style="width:${b*100}%;height:100%;border-radius:3px;background:var(--e1)"></div></div></div>`).join('')}
+  <div class="pn" style="height:132px;border-radius:18px;display:grid;place-items:center;border-style:dashed;color:color-mix(in srgb,var(--e2) 55%,transparent);font:500 19px var(--sans)">Cible niv. 100 · RES 10 %</div></div>
+
+ <div style="position:absolute;left:90px;right:90px;top:1736px"><div class="sl"><span class="dia"></span>Sensibilité<i></i><em>gain moyen pour chaque amélioration</em></div></div>
+ <div style="position:absolute;left:90px;right:90px;top:1788px;display:grid;grid-template-columns:repeat(4,1fr);gap:18px">
+  ${sens.map(([l,v])=>`<div><div style="display:flex;justify-content:space-between;font:600 21px var(--sans)"><span>${l}</span><b style="color:var(--e1)">+${v.toFixed(2).replace('.',',')} %</b></div><div style="margin-top:10px;height:12px;border-radius:6px;background:#ffffff14"><div style="width:${v/1.1*100}%;height:100%;border-radius:6px;background:linear-gradient(90deg,var(--e4),var(--e1))"></div></div></div>`).join('')}</div>
+ <div class="foot" style="left:90px;right:90px;bottom:38px"><span><b>Astralis</b></span><span>Laboratoire de dégâts</span></div></div>`}},
+
+/* ========== 4. BUILD ========== */
+build:{W:2000,H:1420,seed:41,html:(el)=>{
+ const stats=[['hp','PV','12 858'],['atk','ATQ','2 145'],['def','DÉF','784'],['em','Maîtrise','42'],['cr','Taux CRIT','71,2 %'],['cd','DGT CRIT','148,6 %'],['er','Recharge','118 %'],['atk','Bonus Cryo','61,6 %']];
+ const arts=[['flower','Fleur','PV','4 780',[['Taux CRIT','11,3 %',2],['ATQ','33',1],['DGT CRIT','13,2 %',2],['Maîtrise','23',1]]],
+  ['plume','Plume','ATQ','311',[['DGT CRIT','13,2 %',2],['Taux CRIT','16,7 %',3],['ATQ %','5 %',1],['Recharge','11,0 %',2]]],
+  ['sands','Sablier','ATQ %','47 %',[['ATQ','37',1],['Taux CRIT','9,7 %',2],['PV','448',2],['DGT CRIT','15,5 %',2]]],
+  ['goblet','Coupe','Bonus Cryo','46,6 %',[['Maîtrise','23',1],['Taux CRIT','2,7 %',1],['DGT CRIT','25,7 %',3],['DÉF','16',1]]],
+  ['circlet','Couronne','Taux CRIT','31,1 %',[['ATQ %','12 %',2],['DGT CRIT','18,7 %',2],['ATQ','37',1],['PV','209',1]]]];
+ return `<div class="in">
+ <div style="position:absolute;left:0;top:0;bottom:0;width:690px;overflow:hidden"><img class="art" src="${IMG.ayaka}" style="left:0;top:0;width:690px;height:1420px;object-position:50% 0;filter:brightness(2) contrast(1.08) saturate(1.2)"/>
+  <div style="position:absolute;inset:0;background:linear-gradient(90deg,#0000 55%,${EL[el].e3} 100%),linear-gradient(180deg,${EL[el].e3}aa 0%,#0000 24%,#0000 66%,${EL[el].e3}f0 100%)"></div></div>
+ <div style="position:absolute;left:70px;top:62px"><div class="kick"><b>Astralis</b> &nbsp;/&nbsp; Build</div>
+  <div class="ttl" style="margin-top:12px;font-size:122px">Build 1</div>
+  <div class="sub" style="margin-top:14px;color:#fff">Kamisato Ayaka</div>
+  <div style="display:flex;gap:12px;margin-top:18px"><span class="chip">${G(el,24,'currentColor',2)}${EL[el].n}</span><span class="chip" style="background:#0b0b12cc;border-color:#ffffff30;color:#f3eee4">Niv. 90</span></div></div>
+ <div style="position:absolute;left:70px;bottom:118px"><div class="mut" style="font:600 18px var(--sans);letter-spacing:.24em;text-transform:uppercase;margin-bottom:12px">Constellation · C0</div>
+  <div style="display:flex;gap:12px">${[0,1,2,3,4,5].map(i=>`<span style="width:40px;height:40px;transform:rotate(45deg);border:2.5px solid var(--e1);background:#0b0b12bb;border-radius:6px"></span>`).join('')}</div></div>
+ <div class="foot" style="left:70px;right:auto;width:560px;bottom:44px"><span>Signé · <b>Rodi</b></span></div>
+
+ <div style="position:absolute;left:740px;right:70px;top:62px;display:grid;grid-template-columns:1.25fr 1fr 1fr 1fr;gap:18px">
+  <div class="pn glow" style="height:178px;padding:22px;display:flex;gap:18px;align-items:center"><span class="ico" style="width:98px;height:98px;border-radius:22px;background:radial-gradient(circle at 30% 25%,color-mix(in srgb,var(--e1) 55%,transparent),#0b0b12 75%);border:2px solid var(--e1);color:#fff">${I('sword',54,'#fff',1.6)}</span>
+   <div><div class="mut" style="font:600 17px var(--sans);letter-spacing:.2em;text-transform:uppercase">Arme</div><div style="font:700 36px/1.1 var(--serif);margin-top:6px">Éclazur</div><div style="font:600 21px var(--sans);margin-top:8px;color:var(--e2)">Niv. 90 · R1</div></div></div>
+  ${[['Attaque normale',10],['Compétence',10],['Déflagration',10]].map(([l,n])=>`<div class="pn" style="height:178px;padding:22px;text-align:center"><div style="width:84px;height:84px;margin:0 auto;border-radius:50%;background:conic-gradient(var(--e1) ${n*10}%,#ffffff18 0);display:grid;place-items:center"><div style="width:68px;height:68px;border-radius:50%;background:#0d0d14;display:grid;place-items:center;font:800 32px var(--sans)">${n}</div></div><div style="font:600 21px/1.2 var(--sans);margin-top:14px">${l}</div></div>`).join('')}</div>
+
+ <div style="position:absolute;left:740px;right:70px;top:268px"><div class="sl"><span class="dia"></span>Statistiques finales<i></i></div></div>
+ <div style="position:absolute;left:740px;right:70px;top:318px;display:grid;grid-template-columns:repeat(4,1fr);gap:16px">
+  ${stats.map(([k,l,v])=>`<div class="pn" style="height:112px;border-radius:18px;padding:16px 20px"><div style="display:flex;align-items:center;gap:10px;color:var(--e1)">${I(k,24)}<span class="mut" style="font:600 19px var(--sans)">${l}</span></div><div style="font:700 40px/1.2 var(--sans);margin-top:8px">${v}</div></div>`).join('')}</div>
+
+ <div style="position:absolute;left:740px;right:70px;top:590px"><div class="sl"><span class="dia"></span>Artéfacts<i></i><em>Set 4 pièces · Emblème du destin brisé</em></div></div>
+ <div style="position:absolute;left:740px;right:70px;top:640px;display:grid;grid-template-columns:repeat(5,1fr);gap:14px">
+  ${arts.map(([ic,l,ms,mv,sb])=>`<div class="pn" style="height:446px;border-radius:20px;border-color:color-mix(in srgb,var(--e1) 40%,transparent)">
+   <div style="height:118px;position:relative;background:radial-gradient(circle at 50% 100%,color-mix(in srgb,var(--e1) 38%,transparent),transparent 72%);display:grid;place-items:center;color:var(--e2)">${I(ic,64,'currentColor',1.4)}
+    <span style="position:absolute;left:12px;top:10px;font:700 18px var(--sans);color:var(--e1)">${l}</span><span style="position:absolute;right:12px;top:8px;font:800 18px var(--sans);padding:2px 10px;border-radius:999px;background:var(--e1);color:#10131a">+20</span>
+    <span style="position:absolute;left:0;right:0;bottom:8px;text-align:center;color:#ffd777;font-size:17px;letter-spacing:3px">★★★★★</span></div>
+   <div style="padding:12px 16px 0"><div class="mut" style="font:600 17px var(--sans)">${ms}</div><div class="num" style="font-size:46px;line-height:1.05;color:#fff">${mv}</div></div>
+   <div style="margin:10px 16px 0;height:1px;background:linear-gradient(90deg,var(--e1),transparent)"></div>
+   <div style="padding:12px 16px;display:grid;gap:13px">${sb.map(([a,b,p])=>`<div><div style="display:flex;justify-content:space-between;font:600 17px var(--sans)"><span class="mut">${a}</span><b>${b}</b></div><div style="display:flex;gap:3px;margin-top:3px">${[1,2,3,4,5].map(j=>`<i style="height:4px;flex:1;border-radius:2px;background:${j<=p+1?'var(--e1)':'#ffffff18'}"></i>`).join('')}</div></div>`).join('')}</div></div>`).join('')}</div>
+
+ <div style="position:absolute;left:740px;right:70px;top:1110px;display:grid;grid-template-columns:1fr 1fr;gap:16px">
+  ${[['2 pièces','Recharge d\'énergie +20 %'],['4 pièces','Les dégâts de Déflagration augmentent de 25 % de la Recharge d\'énergie (max. 75 %)']].map(([a,b])=>`<div class="pn" style="padding:16px 22px;display:flex;gap:18px;align-items:center;border-radius:18px"><span class="chip" style="height:42px;font-size:20px;flex:none">${a}</span><span style="font:500 21px/1.3 var(--sans);color:#f4efe6">${b}</span></div>`).join('')}</div>
+ <div style="position:absolute;left:740px;right:70px;top:1262px;height:126px" class="pn glow">
+  <div style="position:absolute;left:30px;top:16px"><div class="mut" style="font:600 17px var(--sans);letter-spacing:.2em;text-transform:uppercase">Dégâts théoriques · cible niv. 100</div><div style="font:600 24px var(--sans);margin-top:6px;color:var(--e2)">Déflagration · Soumetsu</div></div>
+  <div style="position:absolute;right:30px;top:12px;display:flex;gap:26px;align-items:flex-end">${[['Sans crit','48 120'],['Moyen','96 410'],['Crit','152 300']].map(([l,v],i)=>`<div style="text-align:right"><div class="mut" style="font:600 16px var(--sans)">${l}</div><div class="num" style="font-size:${i==1?60:44}px;line-height:1.1;color:${i==1?'#fff':'var(--e2)'}">${v}</div></div>`).join('')}</div></div>
+ </div>`}},
+
+/* ========== 5. PLAN DE FARM ========== */
+farm:{W:1080,H:1736,seed:53,html:(el)=>{
+ const m=[['cloth','Brocart rouge luxueux',129],['shard','Couronne de la sagesse',3],['gem','Éclat d\'émeraude nagadus',1],['book','Enseignement de l\'Ingénuité',9],['gem','Fragment d\'émeraude nagadus',9],['book','Guide de l\'Ingénuité',63],['em','Miroir de mushin',18],['coin','Mora',5377500],['gem','Morceau d\'émeraude nagadus',9],['book','Philosophie de l\'Ingénuité',114],['gem','Pierre d\'émeraude nagadus',6],['leaf','Pseudo-étamines',46],['shard','Pupe graisseuse des sables',168],['cloth','Satin rouge délavé',36],['cloth','Soie rouge brodée',96]];
+ return `<div class="in">
+ <div style="position:absolute;left:44px;right:44px;top:112px;height:318px;border-radius:30px;overflow:hidden;border:2px solid color-mix(in srgb,var(--e1) 55%,transparent);box-shadow:0 0 60px color-mix(in srgb,var(--e1) 30%,transparent),inset 0 0 0 1px #ffffff14;background:radial-gradient(70% 90% at 70% 40%,color-mix(in srgb,var(--e1) 40%,transparent),transparent 70%),linear-gradient(160deg,var(--e4),var(--e3))">
+  <!-- EMPLACEMENT DU SPLASH ART : <img> du personnage, object-fit:cover, object-position: centre-haut -->
+  <svg viewBox="0 0 400 320" style="position:absolute;right:30px;bottom:-4px;height:330px;opacity:.9"><defs><linearGradient id="si" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="${EL[el].e2}" stop-opacity=".95"/><stop offset="1" stop-color="${EL[el].e1}" stop-opacity=".25"/></linearGradient></defs><path d="M200 20c34 0 52 26 52 56 0 18-6 30-16 40 40 14 76 40 86 204H78C88 156 124 130 164 116c-10-10-16-22-16-40 0-30 18-56 52-56z" fill="url(#si)"/></svg>
+  <div style="position:absolute;inset:0;background:linear-gradient(180deg,#0000 55%,#0a0d12e6 100%),linear-gradient(90deg,#0a0d1299,#0000 45%)"></div>
+  <div style="position:absolute;left:24px;top:22px;display:flex;gap:10px"><span class="chip" style="height:40px;font-size:19px;letter-spacing:.1em;background:#0b0b12cc">NIV. 90</span><span class="chip" style="height:40px;font-size:19px;letter-spacing:.1em;background:#0b0b12cc">TALENTS 10/10/10</span></div>
+  <div style="position:absolute;right:24px;top:22px" class="ico"><span class="ico" style="width:52px;height:52px;background:#0b0b12cc;border:2px solid var(--e1);color:var(--e1)">${G(el,28,'currentColor',2)}</span></div></div>
+
+ <div style="position:absolute;left:44px;right:44px;top:446px"><div class="kick" style="font-size:20px;letter-spacing:.3em;color:var(--e1)">Plan de farm · ${EL[el].n}</div>
+  <div class="ttl" style="font-size:112px;margin-top:8px">Alhaitham</div></div>
+
+ <div class="pn" style="position:absolute;left:44px;right:44px;top:586px;height:96px;border-radius:24px;padding:20px 28px">
+  <div style="display:flex;justify-content:space-between;align-items:baseline;font:500 25px var(--sans)"><span><b class="num" style="font-size:38px">0</b> <span class="mut">/ 15 matériaux au complet</span></span><b style="color:var(--e1);font-size:23px">0 %</b></div>
+  <div style="margin-top:10px;height:9px;border-radius:5px;background:#ffffff18"><div style="width:2%;height:100%;border-radius:5px;background:var(--e1);box-shadow:0 0 12px var(--e1)"></div></div></div>
+
+ <div style="position:absolute;left:44px;right:44px;top:704px;display:grid;grid-template-columns:1fr 1fr;gap:12px 14px">
+  ${m.map(([ic,n,q])=>`<div class="pn" style="height:100px;border-radius:20px;display:flex;align-items:center;gap:14px;padding:0 20px 0 12px">
+   <span class="ico" style="width:80px;height:80px;border-radius:18px;background:radial-gradient(circle at 30% 25%,color-mix(in srgb,var(--e1) 38%,transparent),#0b0b12 78%);border:1.5px solid color-mix(in srgb,var(--e1) 45%,transparent);color:var(--e2)">${I(ic,42,'currentColor',1.5)}</span>
+   <div style="flex:1;min-width:0"><div style="font:600 22px/1.15 var(--sans)">${n}</div><div class="mut" style="font:500 17px var(--sans);margin-top:5px">Possédé 0 / ${fr(q)}</div></div>
+   <b class="num" style="font-size:${q>9999?34:46}px;color:var(--e1);white-space:nowrap">×${fr(q)}</b></div>`).join('')}</div>
+ <div class="foot" style="left:44px;right:44px;bottom:30px;justify-content:center;font-size:18px"><span>Astralis · Plan de farm</span></div></div>`}}
+};
+const TABS=[['team','Équipe'],['comp','Comparatif d\'équipe'],['lab','Laboratoire'],['build','Build'],['farm','Plan de farm']];
+let cur='team',curEl='cryo';
+function mount(){
+ const S=SHEETS[cur],P=EL[curEl],sh=document.getElementById('sheet');
+ for(const k of['e1','e2','e3','e4'])document.documentElement.style.setProperty('--'+k,P[k]);
+ sh.style.width=S.W+'px';sh.style.height=S.H+'px';
+ sh.innerHTML='<div class="bgsvg">'+backdrop(S.W,S.H,curEl,S.seed)+'</div>'+S.html(curEl);
+ fit();document.querySelectorAll('#tabs button').forEach(b=>b.setAttribute('aria-pressed',b.dataset.k==cur));
+ document.querySelectorAll('#els button').forEach(b=>b.setAttribute('aria-pressed',b.dataset.k==curEl));
+}
+function fit(){const S=SHEETS[cur],sc=Math.min(1,(innerWidth-40)/S.W);const sh=document.getElementById('sheet'),f=document.getElementById('fit');sh.style.transform=`scale(${sc})`;f.style.width=S.W*sc+'px';f.style.height=S.H*sc+'px'}
+document.getElementById('tabs').innerHTML=TABS.map(([k,l])=>`<button data-k="${k}">${l}</button>`).join('');
+document.getElementById('els').innerHTML=Object.entries(EL).map(([k,v])=>`<button data-k="${k}">${G(k,15,'currentColor',2)}${v.n}</button>`).join('');
+document.getElementById('tabs').onclick=e=>{const b=e.target.closest('button');if(b){cur=b.dataset.k;mount()}};
+document.getElementById('els').onclick=e=>{const b=e.target.closest('button');if(b){curEl=b.dataset.k;mount()}};
+addEventListener('resize',fit);
+const q=new URLSearchParams(location.search);if(q.get('s'))cur=q.get('s');if(q.get('e'))curEl=q.get('e');
+if(q.get('cap')){document.querySelector('.bar').style.display='none';document.querySelector('.stage').style.padding='0'}
+mount();document.fonts&&document.fonts.ready.then(()=>{});
+</script></body></html>

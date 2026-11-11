@@ -10,3 +10,12 @@ data/lab-user-exports/
 _backup_avant_modif/
 
 _backup_avant_modif/
+
+# Fichiers locaux et sorties temporaires de diagnostic
+.idea/
+*.log
+/*.tmp.txt
+/tmp-source-*.html
+/tests/preview-mualani-check*.png
+/docs/captures/farm-workshop/manual-events.json
+/docs/ww-source-response.json
