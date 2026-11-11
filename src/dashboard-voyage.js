@@ -54,7 +54,7 @@ function boot(){
  const debris=document.createElement('div');debris.className='voyage-debris';debris.setAttribute('aria-hidden','true');debris.innerHTML=Array.from({length:66},(_,i)=>`<i style="--rock-x:${(i*47.31)%112-6}%;--rock-y:${i<44?22+(i*7.37)%42:(i*29)%100}%;--rock-size:${i%8===0?20:i%3===0?11:4+i%6}px;--rock-delay:-${i*2.3}s;--rock-duration:${42+i%9*7}s;--rock-opacity:${.4+i%5*.12}"></i>`).join('');host.prepend(debris);host.prepend(createSpaceEffects());if(heldId&&performance.now()<interactionUntil&&document.activeElement===document.body)host.querySelector('[data-orbit-select="'+heldId+'"]')?.focus({preventScroll:true});if(exploring)hero(host,host.dataset.orbitActive);
 }
 function orbit(now){
- boot();const host=currentHost,delta=clock?Math.min(80,now-clock):0;clock=now;
+ boot();const host=currentHost,delta=clock?Math.min(34,now-clock):0;clock=now;
  if(host?.isConnected&&!document.hidden){
   if(!configAt||now-configAt>250){cachedConfig=settings(host);configAt=now;host.dataset.asteroids=String(cachedConfig.asteroids!==false);}
   if(host._orbitVisible!==false&&host.dataset.editing!=='true'&&host.dataset.view==='orbit'&&host.dataset.exploring!=='true'&&host.dataset.flight!=='true'){

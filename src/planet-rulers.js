@@ -28,7 +28,7 @@ export async function addRulerSatellites(model){
    const plane=new T.Quaternion().setFromEuler(new T.Euler([.42,1.13,-.68][i],0,[.32,-.7,1.05][i]));
    model.animated.push(t=>{
     const a=t*[.29,-.23,.19][i]+i*2.094,r=1.55+i*.12;
-    root.position.set(Math.cos(a)*r,0,Math.sin(a)*(r*.78)).applyQuaternion(plane);
+    root.position.set(Math.cos(a)*r,Math.sin(a*2+i)*.12,Math.sin(a)*(r*.78)).applyQuaternion(plane);
     root.quaternion.copy(model.camera.quaternion);root.rotateZ(Math.sin(t*.4+i)*.16);object.rotation.y=Math.sin(t*.55+i)*.35;
    });
   }
@@ -39,8 +39,8 @@ export async function addRulerSatellites(model){
 export function addCentralMoons(model){
  for(let i=0;i<3;i++){
   const group=new T.Group();group.name='central-moon';group.userData.satellite='moon';group.userData.moonIndex=i;model.orbits.add(group);
-  const radius=.105+i*.014,geometry=new T.SphereGeometry(radius,28,20),p=geometry.attributes.position,colors=[];
-  const base=new T.Color(['#ded8bc','#b9d5e3','#c7b5d4'][i]);
+  const radius=[.09,.072,.055][i],geometry=new T.SphereGeometry(radius,28,20),p=geometry.attributes.position,colors=[];
+  const base=new T.Color(['#ffe16b','#58c9ff','#f25365'][i]);
   for(let vertex=0;vertex<p.count;vertex++){
    const n=new T.Vector3().fromBufferAttribute(p,vertex).normalize();let crater=0;
    for(let c=0;c<9;c++){const a=c*2.399+i,lat=Math.sin(c*4+i)*1.1,axis=new T.Vector3(Math.sin(a)*Math.cos(lat),Math.sin(lat),Math.cos(a)*Math.cos(lat));crater+=Math.exp((n.dot(axis)-1)*(65+c%3*30));}
@@ -48,7 +48,7 @@ export function addCentralMoons(model){
   }
   geometry.setAttribute('color',new T.Float32BufferAttribute(colors,3));geometry.computeVertexNormals();
   const moon=new T.Mesh(geometry,new T.MeshStandardMaterial({vertexColors:true,roughness:.96}));group.add(moon);
-  const plane=new T.Quaternion().setFromEuler(new T.Euler([.4,1.12,-.72][i],0,[.35,-.6,.95][i]));
-  model.animated.push(t=>{const a=t*[.22,-.17,.13][i]+i*2.094,r=1.44+i*.19;group.position.set(Math.cos(a)*r,0,Math.sin(a)*r*.85).applyQuaternion(plane);moon.rotation.y=t*(.25+i*.05);});
+  const plane=new T.Quaternion().setFromEuler(new T.Euler(.56,0,-.32));
+  model.animated.push(t=>{const a=t*[.24,.17,.12][i]+i*2.094,r=1.44+i*.19;group.position.set(Math.cos(a)*r,0,Math.sin(a)*r*.85).applyQuaternion(plane);moon.rotation.y=t*(.25+i*.05);});
  }
 }
