@@ -63,13 +63,13 @@ function precipitation(model,type){
   const count=1100,positions=new Float32Array(count*3),seeds=Array.from({length:count},()=>[model.random(),model.random(),model.random()]);
   const g=new T.BufferGeometry();g.setAttribute('position',new T.BufferAttribute(positions,3));
   const shader=new T.ShaderMaterial({transparent:true,depthWrite:false,uniforms:{tint:{value:new T.Color('#ebf9ff')}},
-   vertexShader:'varying float fade;void main(){vec4 p=modelViewMatrix*vec4(position,1.);fade=.96;gl_PointSize=12.+8.*sin(position.x*13.);gl_Position=projectionMatrix*p;}',
+   vertexShader:'varying float fade;void main(){vec4 p=modelViewMatrix*vec4(position,1.);fade=.9;gl_PointSize=5.+3.*sin(position.x*13.);gl_Position=projectionMatrix*p;}',
    fragmentShader:'uniform vec3 tint;varying float fade;void main(){float d=length(gl_PointCoord-.5);float alpha=1.-smoothstep(.14,.5,d);float core=1.-smoothstep(0.,.2,d);gl_FragColor=vec4(mix(tint,vec3(1.),core*.55),alpha*fade);}'});
   const flakes=new T.Points(g,shader);flakes.name='snow-blizzard';model.orbits.add(flakes);
   model.animated.push(t=>{
    for(let i=0;i<count;i++){
     const [a,b,c]=seeds[i],latitude=(((b-t*.20)%1+1)%1-.5)*Math.PI;
-    const n=axis(a*Math.PI*2+t*.42,latitude).multiplyScalar(1.12+c*.68);
+    const n=axis(a*Math.PI*2+t*1.25,latitude).multiplyScalar(1.12+c*.68);
     positions.set([n.x,n.y,n.z],i*3);
    }
    g.attributes.position.needsUpdate=true;
