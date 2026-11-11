@@ -167,7 +167,7 @@ async function fetchCatalog(game, category, force) {
         const extras=Array.isArray(secondary)?secondary:Object.values(secondary||{});
         const byName=new Map(extras.map(row=>[normName(row.name||row.enName),row]));
         data=lunaris.items.map(row=>({...((byName.get(normName(row.enName))||byName.get(normName(row.name)))||{}),...row,images:{...((byName.get(normName(row.enName))||{}).images||{}),...(row.images||{})}}));
-      } else if(secondary)data=secondary;
+      } else if(secondary&&(Array.isArray(secondary)?secondary:Object.values(secondary)).some(row=>row&&typeof row==='object'&&(row.name||row.frName||row.enName)))data=secondary;
       else data=await json(`assets/data/gi-${file}.json`,AbortSignal.timeout(30000));
       // The live database has French text; the bundled Hakushin-era export is
       // retained only as a complete source for stable icon filenames and costs.
@@ -300,7 +300,7 @@ export async function characterDetails(game, character) {
       levelStatsFor('characters',character).catch(()=>null),
     ]);
     const skillTalents=['combat1','combat2','combat3'].map(key=>talentValues?.[key]).filter(Boolean);
-    details = { ...character, description:character.description, levelStats, talentValues, skillTalents:skillTalents.map((skill,index)=>{const legacy=`https://genshin.jmp.blue/characters/${encodeURIComponent(character._id)}/talent-${['na','skill','burst'][index]}`;const filename=talentValues?.images?.[`filename_combat${index+1}`];return {...skill,icon:filename?`https://enka.network/ui/${encodeURIComponent(filename)}.png`:legacy,iconFallbacks:[legacy]}}), talentCosts:talentValues?.costs||await characterTalentCosts(character), passives:['passive1','passive2','passive3'].map(key=>talentValues?.[key]).filter(Boolean), constellations:constellations?['c1','c2','c3','c4','c5','c6'].map((key,index)=>constellations[key]&&({name:`Constellation ${index+1} · ${constellations[key].name}`,description:constellations[key].description,icon:`https://genshin.jmp.blue/characters/${encodeURIComponent(character._id)}/constellation-${index+1}`,level:10})).filter(Boolean):[] };
+    details = { ...character, description:character.description, levelStats, talentValues, skillTalents:skillTalents.map((skill,index)=>{const legacy=`https://genshin.jmp.blue/characters/${encodeURIComponent(character._id)}/talent-${['na','skill','burst'][index]}`;const filename=talentValues?.images?.[`filename_combat${index+1}`];return {...skill,icon:filename?`https://enka.network/ui/${encodeURIComponent(filename)}.png`:legacy,iconFallbacks:[legacy]}}), talentCosts:talentValues?.costs||await characterTalentCosts(character), passives:['passive1','passive2','passive3'].map(key=>{const value=talentValues?.[key],filename=talentValues?.images?.['filename_'+key];return value?{...value,icon:value.icon||(filename?'https://enka.network/ui/'+encodeURIComponent(filename)+'.png':'')}:null}).filter(Boolean), constellations:constellations?['c1','c2','c3','c4','c5','c6'].map((key,index)=>constellations[key]&&({name:`Constellation ${index+1} · ${constellations[key].name}`,description:constellations[key].description,icon:`https://genshin.jmp.blue/characters/${encodeURIComponent(character._id)}/constellation-${index+1}`,level:10})).filter(Boolean):[] };
   }
   if (game === 'ww'&&!character.preRelease) details = { ...character, ...await json(`/detail/ww/character/${encodeURIComponent(character.apiId||character._id)}`, AbortSignal.timeout(25000)) };
   if (game === 'hsr') {

@@ -4,12 +4,14 @@ import json
 import tempfile
 import threading
 import unittest
+import sys
 from http.client import HTTPConnection
 from http.server import ThreadingHTTPServer
 from pathlib import Path
 from unittest.mock import patch
 
 ROOT=Path(__file__).resolve().parents[1]
+sys.path.insert(0,str(ROOT))
 spec=importlib.util.spec_from_file_location('astralis_server',ROOT/'server.py')
 server_module=importlib.util.module_from_spec(spec)
 spec.loader.exec_module(server_module)

@@ -30,7 +30,7 @@ export function calculateHit(input={}){
   if(!Number.isFinite(Number(attackerLevel))||attackerLevel<1||attackerLevel>100)return {ok:false,error:'Niveau du personnage requis (1–100).',warnings};
   if(!Number.isFinite(Number(enemyLevel))||enemyLevel<1)return {ok:false,error:'Niveau de l’ennemi invalide.',warnings};
   if(!['average','crit','nonCrit'].includes(critMode))return {ok:false,error:'Mode CRIT inconnu.',warnings};
-  const base=Number(stats[baseStat])*Number(talentMultiplier)+finite(flatDamage),def=DEFENSE_MULTIPLIER(attackerLevel,enemyLevel,enemyDefenseReduction,defenseIgnore);
+  const base=Number(stats[baseStat])*Number(talentMultiplier)*finite(input.talentScale,1)+finite(flatDamage),def=DEFENSE_MULTIPLIER(attackerLevel,enemyLevel,enemyDefenseReduction,defenseIgnore);
   const effectiveResistance=Math.max(-1,Math.min(10,finite(enemyResistance)-finite(resistanceReduction))),res=RESISTANCE_MULTIPLIER(effectiveResistance);
   const rate=Math.max(0,finite(stats.critRate))/100,cd=Math.max(0,finite(stats.critDmg))/100;
   const crit=critMode==='nonCrit'?1:critMode==='crit'?1+cd:1+Math.min(rate,1)*cd;
@@ -53,7 +53,7 @@ export function calculateHit(input={}){
     }else warnings.push('TODO_DATA: type de réaction non reconnu.');
   }
   if(warnings.length)return {ok:false,error:warnings.join(' '),warnings};
-  const elementBonus=input.elementKey?finite(stats[`${input.elementKey}Dmg`]):0;
+  const elementBonus=finite(stats[`${input.elementKey||'physical'}Dmg`]);
   // La réduction des dégâts est une mécanique défensive entrante : elle ne réduit
   // pas les dégâts infligés par cette attaque.
   const totalBonus=(finite(stats.dmgBonus)+elementBonus+finite(damageBonus))/100,bonusMultiplier=Math.max(0,1+totalBonus);
@@ -62,7 +62,7 @@ export function calculateHit(input={}){
   // n'utilisent pas la DEF ni les bonus DGT classiques. Ils restent séparés du direct.
   const transformative=transformCoefficient==null?0:transformCoefficient*transformLevel*transformEm*transformRes;
   return {ok:true,total:direct+transformative,direct,base,additive,transformative,bonusMultiplier,critMultiplier:crit,defenseMultiplier:def,resistanceMultiplier:res,reactionMultiplier,reactionName,elementBonusPercent:elementBonus,warnings,
-    terms:{formula:'(stat finale × multiplicateur du talent + dégâts plats + additif) × bonus DGT × CRIT × DEF × RÉS × amplification ; dégâts transformateurs séparés',baseStat,referencedStat:finite(stats[baseStat]),talentMultiplier:Number(talentMultiplier),flatDamage:finite(flatDamage),enemyLevel:Number(enemyLevel),enemyResistance:effectiveResistance,transformativeCoefficient:transformCoefficient,transformativeLevelMultiplier:transformLevel,reactionBonusFraction:reactionBonus,damageBonusPercent:totalBonus*100,critMode,additiveEmMultiplier:reaction?.kind==='additive'?ADDITIVE_REACTION_EM_MULTIPLIER(em):null,transformativeEmMultiplier:transformCoefficient==null?null:transformEm}};
+    terms:{formula:'(stat finale × multiplicateur du talent + dégâts plats + additif) × bonus DGT × CRIT × DEF × RÉS × amplification ; dégâts transformateurs séparés',baseStat,referencedStat:finite(stats[baseStat]),talentMultiplier:Number(talentMultiplier),talentScale:finite(input.talentScale,1),flatDamage:finite(flatDamage),enemyLevel:Number(enemyLevel),enemyResistance:effectiveResistance,transformativeCoefficient:transformCoefficient,transformativeLevelMultiplier:transformLevel,reactionBonusFraction:reactionBonus,damageBonusPercent:totalBonus*100,critMode,additiveEmMultiplier:reaction?.kind==='additive'?ADDITIVE_REACTION_EM_MULTIPLIER(em):null,transformativeEmMultiplier:transformCoefficient==null?null:transformEm}};
 }
 
 /** Resolve separate hit groups with an explicit number of reaction-triggering hits. */
@@ -73,17 +73,28 @@ export function calculateAction(input={}) {
   let reacting=input.reaction?Math.max(0,Math.min(totalHits,Number(input.reactingHits??totalHits))):0;
   if(!Number.isInteger(reacting))return {ok:false,error:'Nombre de coups avec réaction invalide.',warnings:[]};
   let result;
+  const poolState={...(input.poolState||{})},triggered={};
+  const targets=Math.max(1,Math.min(100,Math.floor(Number(input.targetCount)||1)));
   for(const part of parts){
     const count=Number(part.count??1);
     if(!Number.isInteger(count)||count<1)return {ok:false,error:'Groupe de coups invalide.',warnings:[]};
-    const reactCount=Math.min(reacting,count);
-    reacting-=reactCount;
-    for(const [amount,reaction]of [[reactCount,input.reaction],[count-reactCount,null]]){
-      if(!amount)continue;
-      const hit=calculateHit({...input,talentMultiplier:part.talentMultiplier,baseStat:part.baseStat||input.baseStat,reaction});
-      if(!hit.ok)return hit;
-      if(!result)result={...hit,total:0,direct:0,base:0,additive:0,transformative:0,totalHits};
-      for(const key of ['total','direct','base','additive','transformative'])result[key]+=hit[key]*amount;
+    for(let index=0;index<count;index++){
+      const reaction=reacting-->0?input.reaction:null;
+      for(let target=0;target<targets;target++){
+        let extra=0;
+        for(const pool of input.additivePools||[]){
+          if(pool.element&&pool.element!==input.elementKey||pool.kinds&&!pool.kinds.includes(input.actionKind)||Number(input.elapsed||0)>=Number(pool.expiresAt??Infinity))continue;
+          const remaining=poolState[pool.id]??Number(pool.charges||0),unlimited=pool.unlimitedKinds?.includes(input.actionKind);
+          if(remaining<=0)continue;
+          extra+=Number(pool.flatDamage)||0;
+          poolState[pool.id]=unlimited?remaining:remaining-1;
+          triggered[pool.id]=(triggered[pool.id]||0)+1;
+        }
+        const hit=calculateHit({...input,flatDamage:finite(input.flatDamage)+extra,talentMultiplier:part.talentMultiplier,baseStat:part.baseStat||input.baseStat,reaction});
+        if(!hit.ok)return hit;
+        if(!result)result={...hit,total:0,direct:0,base:0,additive:0,transformative:0,totalHits,poolState,triggered};
+        for(const key of ['total','direct','base','additive','transformative'])result[key]+=hit[key];
+      }
     }
   }
   return {...result,terms:{...result.terms,hitGroups:parts,totalHits,reactingHits:Number(input.reactingHits??totalHits)}};

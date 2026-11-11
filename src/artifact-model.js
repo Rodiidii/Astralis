@@ -111,6 +111,9 @@ export function validateArtifact(piece={}){
   }
   return {valid:issues.length===0,issues};
 }
+export function usableArtifact(piece={}){
+ return ARTIFACT_SLOTS.includes(piece.slot)&&!!piece.setKey&&[4,5].includes(Number(piece.rarity))&&Number.isInteger(Number(piece.level))&&piece.level>=0&&piece.level<=Number(piece.rarity)*4&&MAIN_BY_SLOT[piece.slot]?.includes(piece.mainType)&&Number.isFinite(Number(piece.mainValue))&&Number(piece.mainValue)>0&&(piece.substats||[]).every(s=>Object.hasOwn(ARTIFACT_SUBSTAT_VALUES[piece.rarity]||{},s.type)&&Number.isFinite(Number(s.value))&&Number(s.value)>=0);
+}
 export function statVector(piece,relevant=null){const vector=Object.create(null),add=(k,v)=>{if(k&&(!relevant||relevant.has(k)))vector[k]=(vector[k]||0)+number(v);};add(piece.mainType,piece.mainValue);for(const s of piece.substats||[])add(s.type,s.value);return vector;}
 // Retire seulement les doublons strictement identiques; pas de dominance qui masquerait des résultats top-N.
 export function pruneDominatedArtifacts(pieces,relevant=null){const seen=new Set();return pieces.filter(p=>{const v=statVector(p,relevant),sig=[p.slotIndex,p.setKey,p.mainType,...Object.keys(v).sort().flatMap(k=>[k,v[k]])].join('|');if(seen.has(sig))return false;seen.add(sig);return true;});}

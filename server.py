@@ -1,4 +1,7 @@
 from __future__ import annotations
+from endgame_archive import refresh_background as endgame_archive
+from lab_data_sync import refresh as refresh_lab_data
+from app_maintenance import start_maintenance,celestia_status
 
 import json
 import os
@@ -1230,6 +1233,10 @@ class Handler(SimpleHTTPRequestHandler):
         request_url = urlsplit(self.path)
         path = request_url.path
         refresh = parse_qs(request_url.query).get("refresh") == ["1"]
+        if path == "/api/lab/export-status":
+            self.send_json(200,celestia_status()); return
+        if path == "/api/lab/data-status":
+            self.send_json(200,refresh_lab_data(force=refresh)); return
         if path == "/api/update/check":
             try:
                 repo = parse_qs(request_url.query).get("repo", [""])[0].strip()
@@ -1576,7 +1583,8 @@ class Handler(SimpleHTTPRequestHandler):
                     else:
                         self.send_json(502, {"error": "La source Endgame est indisponible.", "detail": str(exc)})
                         return
-            self.send_bytes(200, payload, "application/json; charset=utf-8")
+            current=json.loads(payload);current["archive"]=endgame_archive(fetch,current)
+            self.send_json(200,current)
             return
         public_profile = re.fullmatch(r"/api/gi/profile/(\d{8,10})", path)
         if public_profile:
@@ -1756,6 +1764,7 @@ if __name__ == "__main__":
         ThreadingHTTPServer.allow_reuse_address = False
     server = ThreadingHTTPServer((HOST, PORT), Handler)
     print(f"Astralis lancé sur http://{HOST}:{PORT}")
+    start_maintenance()
     server.serve_forever()
 
 

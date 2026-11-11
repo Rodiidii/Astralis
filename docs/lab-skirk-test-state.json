@@ -1,0 +1,54 @@
+{
+  "conditions": {
+    "azurelight": {
+      "enabled": true,
+      "zeroEnergy": true
+    },
+    "skirk": {
+      "enabled": true,
+      "sevenPhase": true,
+      "deathStacks": 3,
+      "serpentExtra": 12,
+      "burstLevel": 10
+    },
+    "furina": {
+      "enabled": true,
+      "constellation": 2,
+      "talentLevel": 10,
+      "mode": "partyHPdelta",
+      "hpChangePercent": 100
+    },
+    "escoffier": {
+      "enabled": true,
+      "constellation": 0
+    },
+    "mona": {
+      "enabled": true,
+      "constellation": 4,
+      "talentLevel": 10
+    }
+  },
+  "stats": {
+    "hp": 18392.3538435,
+    "atk": 2340.866717736,
+    "def": 829.36353413,
+    "em": 116.55,
+    "critRate": 94.5512,
+    "critDmg": 274.6,
+    "dmgBonus": 160,
+    "er": 100,
+    "healing": 0,
+    "defReduction": 0,
+    "defIgnore": 0,
+    "pyroDmg": 0,
+    "hydroDmg": 0,
+    "cryoDmg": 61.6,
+    "electroDmg": 0,
+    "anemoDmg": 0,
+    "geoDmg": 0,
+    "dendroDmg": 0,
+    "physicalDmg": 0
+  },
+  "displayedDamage": 1028264.32,
+  "independentExpected": 1028264.3220313315
+}

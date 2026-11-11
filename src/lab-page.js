@@ -1,3 +1,5 @@
+import {complexEffects} from './complex-effects.js';
+import {effectCatalog} from './lab-effect-catalog.js';
 import {drawPoster, posterBitmap, previewPng} from './poster-export.js?v=84';
 import {attackOptions,attackKind,configuredSetEffects,configuredWeaponBonuses,typedAttackBonus,kitEffectDescriptions} from './lab-config.js?v=84';
 import { LAB_REACTIONS, talentValueRows, parseActionValue, activeBuffBonuses } from './lab-actions.js?v=84';
@@ -5,15 +7,15 @@ import { pieceSubstats } from './build-model.js?v=20261110-builds-3';
 import { prepareArtifactPools } from './optimizer.js';
 import { renderLabWorkspace, renderLabResults, LAB_STAT_LABELS, labStatValue } from './lab-view.js?v=84';
 import { renderGameText, skillValuesAtLevel } from './character-content.js?v=20261109-rich-text-1';
-import { ARTIFACT_SLOTS, ARTIFACT_SLOT_LABELS, normalizeGoodArtifact, validateArtifact, parseArtifactInventory, artifactSignature, artifactImportDelta, ARTIFACT_SUBSTAT_ROLLS, statVector } from './artifact-model.js?v=20261110-builds-3';
-import { getCharacterPriority, setCharacterPriority, movePriority, priorityArtifactPool, getPriorityConfig, setPriorityConfig } from './priority-list.js';
+import { ARTIFACT_SLOTS, ARTIFACT_SLOT_LABELS, normalizeGoodArtifact, validateArtifact, usableArtifact, parseArtifactInventory, artifactSignature, artifactImportDelta, ARTIFACT_SUBSTAT_ROLLS, statVector } from './artifact-model.js?v=20261110-builds-3';
+import { getCharacterPriority, setCharacterPriority, movePriority, positionPriority, priorityArtifactPool, getPriorityConfig, setPriorityConfig } from './priority-list.js';
 import { characterDetails, skillList } from './data.js?v=84';
 import { finalStats } from './damage-engine.js';
 
 const esc = value => String(value ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const fmt = value => Number.isFinite(Number(value)) ? Number(value).toLocaleString('fr-FR',{maximumFractionDigits:2}) : '—';
 const KEY='astralis:gi:damage-lab:v1';
-const defaults={tab:'overview',controlsVersion:1,effectStates:{},customEffects:{},weaponOverride:null,weaponRefinement:1,weaponLevel:90,attackSelection:'',characterLevel:90,constellation:0,buffs:[],referenceBonuses:{},statSchema:3,hitCount:1,reactingHits:1,simulationMode:'single',components:[],actionKind:'skill',loadout:'equipped',searchPreset:'balanced',talentLevel:10,targetName:'',referenceBuild:'',character:'',build:'',level:'',enemyLevel:100,atk:'',hp:'',def:'',em:'',critRate:'',critDmg:'',er:'',bonus:'',elementBonus:0,resistance:10,resReduction:0,defReduction:0,defIgnore:0,talent:'',baseStat:'atk',flat:0,critMode:'average',reaction:'none',reactionCoeff:'',reactionLevel:'',reactionBonus:0,ampBase:'',rotations:[],savedOptimizations:[],setEffects:'{}',topN:5,respectPriority:false,artifactLevelPreset:'0',configuration:'any',objective:'damage',mainStats:{sands:[],goblet:[],circlet:[]},minimums:{},allowedSets:[],requiredSets:[],excludedSets:[],excludedIds:[],rotationSeconds:'',repeatRotation:1};
+const defaults={tab:'overview',controlsVersion:1,effectStates:{},customEffects:{},weaponOverride:null,weaponRefinement:1,weaponLevel:90,attackSelection:'',characterLevel:90,constellation:0,buffs:[],referenceBonuses:{},statSchema:3,hitCount:1,reactingHits:1,simulationMode:'single',components:[],actionKind:'skill',loadout:'equipped',searchPreset:'balanced',talentLevel:10,targetName:'',referenceBuild:'',character:'',build:'',level:'',enemyLevel:100,atk:'',hp:'',def:'',em:'',critRate:'',critDmg:'',er:'',bonus:'',elementBonus:0,resistance:10,resReduction:0,defReduction:0,defIgnore:0,talent:'',baseStat:'atk',flat:0,critMode:'average',reaction:'none',reactionCoeff:'',reactionLevel:'',reactionBonus:0,ampBase:'',rotations:[],savedOptimizations:[],setEffects:'{}',topN:5,respectPriority:false,includeLocked:true,artifactLevelPreset:'0',configuration:'any',objective:'damage',mainStats:{sands:[],goblet:[],circlet:[]},minimums:{},allowedSets:[],requiredSets:[],excludedSets:[],excludedIds:[],rotationSeconds:'',repeatRotation:1};
 const read=()=>{try{return {...defaults,...JSON.parse(localStorage.getItem(KEY)||'{}')}}catch{return {...defaults}}};
 const write=data=>{localStorage.setItem(KEY,JSON.stringify(data));return data};
 const field=(label,key,value,step='any',min='0')=>`<label class="lab-field"><span>${label}</span><input data-lab="${key}" type="number" step="${step}" min="${min}" value="${esc(value)}"></label>`;
@@ -26,7 +28,7 @@ async function getAttackIndex(chars){if(attackIndex)return attackIndex;if(attack
 export function attackMatches(index,q){const query=foldAttackQuery(q);if(!query)return [];const parts=query.split(/\s+/),scored=[];for(const x of index){const exact=x.search.includes(query);let misses=0;for(const part of parts){let found=false;for(const token of x.tokens){if(token.startsWith(part)||part.length>=4&&editDistance(part,token)<=Math.min(2,Math.floor(part.length/4))){found=true;break;}}if(!found){misses++;break;}}if(exact||misses===0)scored.push({...x,score:exact?0:1});}return scored.sort((a,b)=>a.score-b.score||a.name.localeCompare(b.name)).slice(0,12);}
 export function summarizeRotation(rows=[],repeatCount=1,durationOverride=0){
  const repeat=Math.max(1,Math.min(99,Number(repeatCount)||1)),known=rows.filter(row=>typeof row.damage==='number'&&Number.isFinite(row.damage)&&(row.damageKnown===true||!row.attackId)),unknown=rows.length-known.length;
- const knownTotal=known.reduce((sum,row)=>sum+row.damage,0)*repeat,measuredDuration=Number(durationOverride)||rows.reduce((sum,row)=>sum+(Number(row.duration)||0),0),duration=measuredDuration*repeat;
+ const knownTotal=known.reduce((sum,row)=>sum+(row.cycleDamages?.length===repeat?row.cycleDamages.reduce((a,b)=>a+b,0):row.damage*repeat),0),measuredDuration=Number(durationOverride)||rows.reduce((sum,row)=>sum+(Number(row.duration)||0),0),duration=measuredDuration*repeat;
  return {repeat,unknown,knownTotal,total:unknown?null:knownTotal,duration,dps:unknown||duration<=0?null:knownTotal/duration};
 }
 
@@ -70,19 +72,23 @@ async function calculate(p,overrides={}) {
   const buffs=activeBuffBonuses(p,p.elapsed||0);
   const allEffects={...(p.loadout==='equipped'&&p.build?equippedBonuses(p):p.referenceBonuses)};
   for(const source of [buffs,configuredWeaponBonuses(activeWeapon(p),p),p.importBonuses||{}])for(const [key,value]of Object.entries(source||{}))allEffects[key]=(allEffects[key]||0)+value;
+  const complex=resolveComplex(p,stats);
+  if(complex.warnings.some(w=>/ATQ finale|composition à renseigner/.test(w)))return {ok:false,error:complex.warnings.join(" · "),warnings:complex.warnings,stats};
+  for(const [key,value]of Object.entries(complex.bonuses))allEffects[key]=(allEffects[key]||0)+value;
   const attackBonus=typedAttackBonus(allEffects,p.actionKind,stats);
   const result=calculateAction({
     stats,baseStat:p.baseStat,talentMultiplier:p.talent===''?NaN:Number(p.talent),
-    flatDamage:(Number(p.flat)||0)+(allEffects.flatDamage||0),damageBonus:(Number(p.elementBonus)||0)+attackBonus,
+    talentScale:complex.talentScale,additivePools:complex.pools,poolState:overrides.poolState,targetCount:Number(p.targetCount)||1,elapsed:p.elapsed||0,actionKind:p.actionKind,
+    flatDamage:(Number(p.flat)||0)+(allEffects.flatDamage||0)+complex.flatDamage,damageBonus:(Number(p.elementBonus)||0)+attackBonus,
     hitCount:Number(p.hitCount)||1,components:p.components?.length?p.components:undefined,reactingHits:Number(p.reactingHits)||0,
     attackerLevel:Number(p.level),enemyLevel:Number(p.enemyLevel),enemyResistance:Number(p.resistance)/100,
     resistanceReduction:((Number(p.resReduction)||0)+(allEffects.resReduction||0))/100,enemyDefenseReduction:((Number(p.defReduction)||0)+(allEffects.defReduction||0))/100,
     defenseIgnore:((Number(p.defIgnore)||0)+(allEffects.defIgnore||0))/100,critMode:overrides.critMode||p.critMode,
     reaction:Object.hasOwn(overrides,'reaction')?overrides.reaction:reactionFromForm(p),elementKey:p.elementKey||'',
   });
-  return {...result,stats};
+  return {...result,stats,warnings:[...(result.warnings||[]),...complex.warnings],complexDetails:complex.details};
 }
-function showResult(result){const root=document.querySelector('[data-damage-lab]');if(!root)return;root.querySelector('[data-lab-result-title]').textContent='Dégâts de l’attaque · '+(result.totalHits||1)+' coup(s)';const damage=root.querySelector('[data-lab-damage]'),warn=root.querySelector('[data-lab-warning]'),breakdown=root.querySelector('[data-lab-breakdown]');if(!result.ok){damage.textContent='TODO_DATA';warn.textContent=result.error;breakdown.innerHTML='<p>Calcul interrompu : complète les valeurs signalées TODO_DATA.</p>';return;}damage.textContent=fmt(result.total);warn.textContent=result.warnings.join(' · ')||`Niveau personnage ${getForm().level} · ennemi ${getForm().enemyLevel} · hypothèses éditables`;const rows=[['Base talent',result.base],['Terme additif',result.additive],['Bonus dégâts',`× ${fmt(result.bonusMultiplier)}`],['CRIT',`× ${fmt(result.critMultiplier)}`],['Défense',`× ${fmt(result.defenseMultiplier)}`],['Résistance',`× ${fmt(result.resistanceMultiplier)}`],['Multiplicateur amplifiant',`× ${fmt(result.reactionMultiplier)}`],['Réaction transformative',result.transformative],['Total',result.total]];breakdown.innerHTML=`<div class="lab-breakdown-table">${rows.map(([k,v])=>`<div><span>${k}</span><b>${typeof v==='number'?fmt(v):esc(v)}</b></div>`).join('')}</div>`;}
+function showResult(result){const root=document.querySelector('[data-damage-lab]');if(!root)return;root.querySelector('[data-lab-result-title]').textContent='Dégâts de l’attaque · '+(result.totalHits||1)+' coup(s)';const damage=root.querySelector('[data-lab-damage]'),warn=root.querySelector('[data-lab-warning]'),breakdown=root.querySelector('[data-lab-breakdown]');if(!result.ok){damage.textContent='TODO_DATA';warn.textContent=result.error;breakdown.innerHTML='<p>Calcul interrompu : complète les valeurs signalées TODO_DATA.</p>';return;}damage.textContent=fmt(result.total);warn.textContent=result.warnings.join(' · ')||`Niveau personnage ${getForm().level} · ennemi ${getForm().enemyLevel} · hypothèses éditables`;const rows=[['Base talent',result.base],['Terme additif',result.additive],['Bonus dégâts',`× ${fmt(result.bonusMultiplier)}`],['CRIT',`× ${fmt(result.critMultiplier)}`],['Défense',`× ${fmt(result.defenseMultiplier)}`],['Résistance',`× ${fmt(result.resistanceMultiplier)}`],['Multiplicateur amplifiant',`× ${fmt(result.reactionMultiplier)}`],['Réaction transformative',result.transformative],['Total',result.total]];if(result.complexDetails?.length)rows.push(...result.complexDetails.map(row=>[row.name,row.flatDamage!=null?row.flatDamage:JSON.stringify(row.bonuses||{hpPct:row.hpPct})]));if(result.triggered&&Object.keys(result.triggered).length)rows.push(['Plumes consommées',JSON.stringify(result.triggered)]);breakdown.innerHTML=`<div class="lab-breakdown-table">${rows.map(([k,v])=>`<div><span>${k}</span><b>${typeof v==='number'?fmt(v):esc(v)}</b></div>`).join('')}</div>`;}
 function updateRotationSummary(root,p) {
   const summary=summarizeRotation(p.rotations||[],p.repeatRotation,p.rotationSeconds);
   const damage=summary.total==null?fmt(summary.knownTotal)+' connus · données manquantes':fmt(summary.total);
@@ -94,13 +100,7 @@ function displayRotation() {
   const root=document.querySelector('[data-damage-lab]');
   if(!root)return;
   const p=read(),context=viewContext(p);
-  const choices=[];
-  for(const [index,skill]of (context.skills||[]).entries()){
-    const source=context.details?.talentValues?.['combat'+(index+1)]||context.details?.skillTalents?.[index]||skill;
-    talentValueRows(source,Number(p.talentLevel)||10,skill.values).forEach((value,row)=>{
-      if(parseActionValue(value))choices.push({id:index+':'+row,label:skill.name+' · '+value});
-    });
-  }
+  const choices=attackOptions(context,p);
   root.querySelector('[data-lab-rotation-list]').innerHTML=(p.rotations||[]).map((row,index)=>
     '<li class="lab-rotation-step" draggable="true" data-rotation-index="'+index+'">'+
     '<span class="lab-rotation-step-icon rotation-icon">'+(row.icon?'<img src="'+esc(row.icon)+'" alt="" onerror="this.hidden=true">':'<b>'+esc(row.code||row.params?.actionKind?.[0]?.toUpperCase()||'A')+'</b>')+'</span>'+
@@ -159,12 +159,12 @@ function syncSetFilterArrays(p) {
 }
 function inventoryAnalysis(p) {
   const inventory=normalizeLabInventory(jsonRead('astralis:gi:owned-artifacts',[]));
-  const valid=inventory.filter(piece=>validateArtifact(piece).valid);
+  const valid=inventory.filter(piece=>usableArtifact(piece));
   const source=p.respectPriority&&p.character
     ? priorityArtifactPool(valid,String(p.character),{enabled:true,characters:labContext.characters})
     : valid;
   const prepared=prepareArtifactPools(source,{
-    minLevel:Number(p.artifactLevelPreset)||0,allowedSets:p.allowedSets,requiredSets:p.requiredSets,
+    includeLocked:p.includeLocked!==false,minLevel:Number(p.artifactLevelPreset)||0,allowedSets:p.allowedSets,requiredSets:p.requiredSets,
     excludedSets:p.excludedSets,excludedIds:p.excludedIds,mainStats:p.mainStats,
   });
   return {inventory,valid,...prepared};
@@ -175,7 +175,7 @@ function updateEstimate(root,p) {
   const missing=ARTIFACT_SLOTS.filter(slot=>!analysis.counts[slot]);
   const label=root.querySelector('[data-lab-metrics]');
   if(!label.dataset.running) {
-    label.textContent=analysis.source.length+' pièces retenues sur '+analysis.valid.length+' valides · '+
+    label.textContent=analysis.source.length+' pièces retenues sur '+analysis.valid.length+' utilisables · '+
       analysis.combinations.toLocaleString('fr-FR')+' assemblages'+
       (missing.length?' · Manque '+missing.map(slot=>ARTIFACT_SLOT_LABELS[slot]).join(', '):' avant élagage');
   }
@@ -183,7 +183,7 @@ function updateEstimate(root,p) {
 }
 function bind(){if(document.documentElement.dataset.labBound)return;document.documentElement.dataset.labBound='1';let searchTimer=0;document.addEventListener('input',e=>{const root=e.target.closest?.('[data-damage-lab]');if(root&&e.target.matches('[data-lab]')){const p=persist();if(['talent','hitCount'].includes(e.target.dataset.lab)){p.components=[];write(p);}updateEstimate(root,p);displayRotation();}if(e.target.matches('[data-attack-search]')){clearTimeout(searchTimer);searchTimer=setTimeout(()=>renderAttackResults(e.target),50);}});document.addEventListener('change',e=>{const root=e.target.closest?.('[data-damage-lab]');if(root&&e.target.matches('[data-lab], [data-lab-main]')){const p=persist();updateEstimate(root,p);displayRotation();if(e.target.dataset.lab==='character')saveCharacterMemo(p);}});document.addEventListener('click',async e=>{const root=e.target.closest?.('[data-damage-lab]');if(!root)return;const hit=e.target.closest('[data-attack-hit]');if(hit){const row=attackIndex?.find(x=>x.id===hit.dataset.attackHit);if(row)addAttackToRotation(row);return;}const b=e.target.closest('[data-lab-action]');if(b){const action=b.dataset.labAction,p=syncSetFilterArrays(getForm());write(p);if(action==='save'){root.querySelector('[data-lab-status]').textContent='Paramètres enregistrés localement.';saveCharacterMemo(p);}if(action==='calculate'){if(p.simulationMode==='rotation')await showRotationResult(root,p);else showResult(await calculate(p));}if(action==='compare')await compareCurrent(root,p);if(action==='sensitivity')await showSensitivity(root,p);if(action==='add-hit'){const result=await calculate(p);if(result.ok){p.rotations=[...(p.rotations||[]),{label:p.targetName||'Attaque · '+p.baseStat.toUpperCase(),damage:result.total,damageKnown:true,params:captureTarget(p),characterId:p.character,count:1,icon:p.targetIcon||'',duration:0}];write(p);displayRotation();}}if(action==='clear-rotation'){p.rotations=[];write(p);displayRotation();}if(action==='remove-hit'){p.rotations.splice(Number(b.dataset.index),1);write(p);displayRotation();}if(action==='priority-up')move(b.dataset.id,-1);if(action==='priority-down')move(b.dataset.id,1);if(action==='optimize')runOptimizer(root,p);if(action==='apply-result')applyResult(root,p,Number(b.dataset.index));if(action==='cancel'&&labWorker){labWorker.terminate();labWorker=null;delete root.querySelector('[data-lab-metrics]').dataset.running;root.querySelector('[data-lab-metrics]').textContent='Recherche annulée.';b.disabled=true;}if(action==='commit-import')commitInventory(root);if(action==='reset-filters')resetFilters(root);if(action==='undo-filters')undoFilters(root);if(action==='apply-preset')applyPreset(root);return;}const level=e.target.closest('[data-lab-preset]');if(level){const p=persist();filterSnapshot={...p};p.artifactLevelPreset=level.dataset.labPreset;write(p);root.querySelectorAll('[data-lab-preset]').forEach(x=>x.classList.toggle('active',x===level));updateEstimate(root,p);return;}const config=e.target.closest('[data-lab-config]');if(config){const p=persist();p.configuration=config.dataset.labConfig;write(p);root.querySelectorAll('[data-lab-config]').forEach(x=>{const yes=x===config;x.classList.toggle('active',yes);x.setAttribute('aria-pressed',String(yes));});return;}const set=e.target.closest('[data-lab-set]');if(set){setCycle(set);updateEstimate(root,read());return;}const remove=e.target.closest('[data-remove-filter]');if(remove){removeFilter(root,remove.dataset.removeFilter);return;}} ,true);document.addEventListener('dragstart',e=>{const priority=e.target.closest?.('[data-priority-id]'),rotation=e.target.closest?.('[data-rotation-index]');if(priority){labDragId=`priority:${priority.dataset.priorityId}`;e.dataTransfer?.setData('text/plain',labDragId);}else if(rotation){labDragId=`rotation:${rotation.dataset.rotationIndex}`;e.dataTransfer?.setData('text/plain',labDragId);}});document.addEventListener('dragover',e=>{if(e.target.closest?.('[data-priority-id],[data-rotation-index]'))e.preventDefault();});document.addEventListener('drop',e=>{const row=e.target.closest?.('[data-priority-id],[data-rotation-index]');if(!row||!labDragId)return;e.preventDefault();const [kind,index]=labDragId.split(':');if(kind==='priority'&&row.dataset.priorityId){const ids=getCharacterPriority(),from=ids.indexOf(index),to=ids.indexOf(row.dataset.priorityId);if(from>=0&&to>=0){ids.splice(to,0,ids.splice(from,1)[0]);setCharacterPriority(ids);refreshLab();}}else if(kind==='rotation'&&row.dataset.rotationIndex!==undefined){const p=read(),from=Number(index),to=Number(row.dataset.rotationIndex);p.rotations.splice(to,0,p.rotations.splice(from,1)[0]);write(p);displayRotation();}labDragId='';});document.addEventListener('keydown',e=>{const row=e.target.closest?.('[data-priority-id]');if(!row||!['ArrowUp','ArrowDown'].includes(e.key))return;e.preventDefault();move(row.dataset.priorityId,e.key==='ArrowUp'?-1:1);});document.addEventListener('change',e=>{if(!e.target.matches('[data-lab-import]'))return;previewInventory(e.target);});}
 function saveCharacterMemo(p){if(!p.character)return;const all=jsonRead('astralis:gi:lab-character-settings:v1',{});all[p.character]={...p,rotations:undefined};localStorage.setItem('astralis:gi:lab-character-settings:v1',JSON.stringify(all));}
-function previewInventory(input){const root=input.closest('[data-damage-lab]'),box=root.querySelector('[data-lab-import-preview]'),status=root.querySelector('[data-lab-import-status]'),commit=root.querySelector('[data-lab-action="commit-import"]'),file=input.files?.[0];pendingInventory=[];commit.disabled=true;if(!file){box.hidden=true;return;}if(file.size>25*1024*1024){status.textContent='Fichier supérieur à 25 Mo : aperçu refusé.';return;}const reader=new FileReader();reader.onload=()=>{try{const result=parseArtifactInventory(String(reader.result||''));pendingInventory=result.rows.filter(x=>validateArtifact(x).valid);const validCopies=pendingInventory.length,invalid=result.invalid,existing=jsonRead('astralis:gi:owned-artifacts',[]).map((x,i)=>normalizeGoodArtifact(x,i)),delta=artifactImportDelta(existing,pendingInventory);status.textContent=`${validCopies} exemplaires valides · ${delta.length} nouveaux à ajouter · ${invalid} invalide(s) · doublons conservés comme exemplaires`;box.hidden=false;box.innerHTML=`<b>Aperçu local · ${esc(file.name)}</b><div class="lab-import-counts">${ARTIFACT_SLOTS.map(s=>`<span>${ARTIFACT_SLOT_LABELS[s]} · ${pendingInventory.filter(x=>x.slot===s).length}</span>`).join('')}</div><ul>${result.rows.slice(0,8).map(x=>`<li class="${validateArtifact(x).valid?'':'is-invalid'}">${esc(x.setKey)} · ${ARTIFACT_SLOT_LABELS[x.slot]||'Emplacement inconnu'} · niv. ${x.level} · ${x.mainType} ${fmt(x.mainValue)}${x.duplicate?' · exemplaire répété conservé':''}${!validateArtifact(x).valid?` · ${esc(validateArtifact(x).issues[0])}`:''}</li>`).join('')}</ul>${result.rows.length>8?`<small>${result.rows.length-8} ligne(s) supplémentaires omises de l’aperçu.</small>`:''}`;commit.disabled=!delta.length;}catch(error){box.hidden=true;status.textContent=String(error.message||error);}};reader.onerror=()=>status.textContent='Lecture impossible. Le fichier local est peut-être endommagé.';reader.readAsText(file);}
+function previewInventory(input){const root=input.closest('[data-damage-lab]'),box=root.querySelector('[data-lab-import-preview]'),status=root.querySelector('[data-lab-import-status]'),commit=root.querySelector('[data-lab-action="commit-import"]'),file=input.files?.[0];pendingInventory=[];commit.disabled=true;if(!file){box.hidden=true;return;}if(file.size>25*1024*1024){status.textContent='Fichier supérieur à 25 Mo : aperçu refusé.';return;}const reader=new FileReader();reader.onload=()=>{try{const result=parseArtifactInventory(String(reader.result||''));pendingInventory=result.rows.filter(x=>usableArtifact(x));const validCopies=pendingInventory.length,invalid=result.invalid,existing=jsonRead('astralis:gi:owned-artifacts',[]).map((x,i)=>normalizeGoodArtifact(x,i)),delta=artifactImportDelta(existing,pendingInventory);status.textContent=`${validCopies} exemplaires utilisables · ${delta.length} nouveaux à ajouter · ${invalid} avec avertissement(s) de paliers · doublons conservés comme exemplaires`;box.hidden=false;box.innerHTML=`<b>Aperçu local · ${esc(file.name)}</b><div class="lab-import-counts">${ARTIFACT_SLOTS.map(s=>`<span>${ARTIFACT_SLOT_LABELS[s]} · ${pendingInventory.filter(x=>x.slot===s).length}</span>`).join('')}</div><ul>${result.rows.slice(0,8).map(x=>`<li class="${validateArtifact(x).valid?'':'is-invalid'}">${esc(x.setKey)} · ${ARTIFACT_SLOT_LABELS[x.slot]||'Emplacement inconnu'} · niv. ${x.level} · ${x.mainType} ${fmt(x.mainValue)}${x.duplicate?' · exemplaire répété conservé':''}${!validateArtifact(x).valid?` · ${esc(validateArtifact(x).issues[0])}`:''}</li>`).join('')}</ul>${result.rows.length>8?`<small>${result.rows.length-8} ligne(s) supplémentaires omises de l’aperçu.</small>`:''}`;commit.disabled=!delta.length;}catch(error){box.hidden=true;status.textContent=String(error.message||error);}};reader.onerror=()=>status.textContent='Lecture impossible. Le fichier local est peut-être endommagé.';reader.readAsText(file);}
 function commitInventory(root){const stored=jsonRead('astralis:gi:owned-artifacts',[]),existing=stored.map((x,i)=>normalizeGoodArtifact(x,i)),fresh=artifactImportDelta(existing,pendingInventory),saved=[...stored,...fresh];localStorage.setItem('astralis:gi:owned-artifacts',JSON.stringify(saved));pendingInventory=[];root.querySelector('[data-lab-action="commit-import"]').disabled=true;root.querySelector('[data-lab-import-status]').textContent=`${fresh.length} nouvelle(s) relique(s) ajoutée(s) · ${saved.length} exemplaires au total`;root.querySelector('[data-lab-import-preview]').hidden=true;updateEstimate(root,read());}
 function removeFilter(root,key){const p=getForm();if(key==='level')p.artifactLevelPreset='0';else if(key.startsWith('set:')){const id=key.slice(4);p.excludedSets=p.excludedSets.filter(x=>x!==id);p.requiredSets=p.requiredSets.filter(x=>x!==id);p.allowedSets=p.allowedSets.filter(x=>x!==id);const button=root.querySelector(`[data-lab-set="${CSS.escape(id)}"]`);if(button){button.dataset.state='allow';button.className='lab-set-choice is-allow';button.querySelector('small').textContent='Autorisé';}}else if(key.startsWith('main:')){const [,slot,value]=key.split(':');p.mainStats[slot]=p.mainStats[slot].filter(x=>x!==value);const cb=root.querySelector(`[data-lab-main="${CSS.escape(`${slot}:${value}`)}"]`);if(cb)cb.checked=false;}else if(key.startsWith('min:')){delete p.minimums[key.slice(4)];const field=root.querySelector(`[data-lab="minimum-${CSS.escape(key.slice(4))}"]`);if(field)field.value='';}write(p);updateEstimate(root,p);}
 function resetFilters(root){filterSnapshot=getForm();const p={...read(),artifactLevelPreset:'0',mainStats:{sands:[],goblet:[],circlet:[]},minimums:{},allowedSets:[],requiredSets:[],excludedSets:[],excludedIds:[]};write(p);root.querySelectorAll('[data-lab-main]').forEach(x=>x.checked=false);root.querySelectorAll('[data-lab-allow-set]').forEach(x=>x.checked=true);root.querySelectorAll('[data-lab-require-set]').forEach(x=>x.checked=false);root.querySelectorAll('[data-lab-set]').forEach(x=>{x.dataset.state='allow';x.className='lab-set-choice is-allow';x.querySelector('small').textContent='Autorisé';});root.querySelectorAll('[data-lab^="minimum-"]').forEach(x=>x.value='');root.querySelectorAll('[data-lab-preset]').forEach(x=>x.classList.toggle('active',x.dataset.labPreset==='0'));updateEstimate(root,p);}
@@ -192,7 +192,7 @@ function applyPreset(root){const mode=root.querySelector('[data-lab-preset-selec
 function renderAttackResults(input){const box=input.closest('[data-damage-lab]')?.querySelector('[data-attack-results]'),q=input.value.trim();if(!box)return;if(!q){box.hidden=true;return;}box.hidden=false;if(!attackIndex){box.innerHTML='<div class="lab-search-loading">Index des talents en cours de préparation…</div>';getAttackIndex(attackCharacters).then(()=>{if(input.isConnected&&input.value.trim())renderAttackResults(input);});return;}const rows=attackMatches(attackIndex,q);box.innerHTML=rows.length?rows.map(x=>`<article class="lab-attack-result"><div class="lab-attack-icon">${x.icon?`<img src="${esc(x.icon)}" alt="" onerror="this.remove();this.parentElement.textContent='✦'">`:'✦'}</div><div><b>${esc(x.name)}</b><small>${esc(x.character._name)} · ${esc(x.kind)}</small></div><button class="quiet-btn" data-attack-hit="${esc(x.id)}">Ajouter à la rotation</button></article>`).join(''):'<p class="lab-search-empty">Aucun talent correspondant dans les données chargées.</p>';}
 function estimateText(pool,p){const counts=ARTIFACT_SLOTS.map(s=>pool.filter(x=>x.slot===s).length);const n=counts.reduce((a,b)=>a*b,1);const measured=Number(localStorage.getItem('astralis:gi:lab-speed:v1'))||0;return {n,seconds:measured?Math.ceil(n/measured):null,counts};}
 function optimizerHit(p){
- return {actionKind:p.actionKind,hitCount:Number(p.hitCount)||1,components:p.components?.length?p.components:undefined,
+ return {targetCount:Number(p.targetCount)||1,complexEffects:p.complexEffects,complexContext:{character:labContext.characters.find(c=>String(c._id)===String(p.character))?.id||p.character,weaponId:activeWeapon(p)?.id,refinement:p.weaponRefinement,constellation:p.constellation,teamElements:p.complexTeamElements||[],elapsed:p.elapsed||0,fightPosition:p.fightPosition},actionKind:p.actionKind,hitCount:Number(p.hitCount)||1,components:p.components?.length?p.components:undefined,
   reactingHits:Number(p.reactingHits)||0,talentMultiplier:p.talent===''?NaN:Number(p.talent),baseStat:p.baseStat,flatDamage:Number(p.flat)||0,
   attackerLevel:Number(p.level),enemyLevel:Number(p.enemyLevel),enemyResistance:Number(p.resistance)/100,
   resistanceReduction:(Number(p.resReduction)||0)/100,enemyDefenseReduction:(Number(p.defReduction)||0)/100,
@@ -268,7 +268,7 @@ async function runOptimizer(root,p,weighted=[]) {
       rotationDuration:Number(p.rotationSeconds)||0,
     },
     topN:Number(p.topN)||5,objective:p.objective,filters:{
-      configuration:p.configuration,minLevel:Number(p.artifactLevelPreset)||0,allowedSets:p.allowedSets,
+      configuration:p.configuration,includeLocked:p.includeLocked!==false,minLevel:Number(p.artifactLevelPreset)||0,allowedSets:p.allowedSets,
       requiredSets:p.requiredSets,excludedSets:p.excludedSets,mainStats:p.mainStats,minimums:p.minimums,excludedIds:p.excludedIds,
     },
   }});
@@ -346,7 +346,7 @@ function applyResult(root,p,index,createNew=false) {
   document.querySelector('[data-lab-status]').textContent=createNew?'Nouveau build enregistré avec les cinq pièces.':'Les cinq pièces du build ont été remplacées par ce résultat.';
 }
 export function initDamageLab() {
-  bind();bindWorkspace();
+  bind();bindWorkspace();checkLabSync();
   const root=document.querySelector('[data-damage-lab]');
   if (!root) return;
   displayRotation();updateEstimate(root,read());
@@ -415,10 +415,14 @@ function equippedBonuses(p) {
   return bonuses;
 }
 
+function resolveComplex(p,stats={}) {
+ return complexEffects(p.complexEffects||{},{character:labContext.characters.find(c=>String(c._id)===String(p.character))?.id||p.character,weaponId:activeWeapon(p)?.id,refinement:p.weaponRefinement,constellation:p.constellation,elementKey:p.elementKey,actionKind:p.actionKind,elapsed:p.elapsed||0,fightPosition:p.fightPosition,teamElements:p.complexTeamElements||[],stats});
+}
 function statsForCalculation(p) {
   const base=statFromForm(p);
   const bonuses=p.loadout==='equipped'&&p.build?equippedBonuses(p):{...p.referenceBonuses};
   for(const source of [activeBuffBonuses(p,p.elapsed||0),configuredWeaponBonuses(activeWeapon(p),p),p.importBonuses||{}])for(const [key,value]of Object.entries(source))bonuses[key]=(bonuses[key]||0)+value;
+  for(const [key,value]of Object.entries(resolveComplex(p).bonuses))bonuses[key]=(bonuses[key]||0)+value;
   return finalStats(base,bonuses);
 }
 
@@ -430,7 +434,7 @@ function viewContext(p) {
   const priority = [...saved,...labContext.characters.map(c=>String(c._id)).filter(id=>!saved.includes(id))];
   const currentStats = p.referenceCharacter!==p.character && !p.referenceStats ? {} : statsForCalculation(p);
   if (currentStats.dmgBonus != null) currentStats.dmgBonus += (Number(p.elementBonus)||0)+(currentStats[(p.elementKey||'')+'Dmg']||0);
-  return {...labContext,priority,activeBuild:effectiveBuild(p),activeWeapon:activeWeapon(p),equipped:equippedPieces(p),currentStats,details,
+  return {...labContext,character,inventory:normalizeLabInventory(labContext.inventory||[]),priority,activeBuild:effectiveBuild(p),activeWeapon:activeWeapon(p),equipped:equippedPieces(p),currentStats,details,
     skills:details ? skillList('gi',character,details) : [],
     detailError:details?.error,invalidCount:labContext.invalidCount??0};
 }
@@ -442,7 +446,9 @@ function refreshLab(focus) {
   if (Array.isArray(saved)) labContext.builds=saved.map(build=>({...labContext.builds.find(b=>b.id===build.id),...build,_labWeapon:labContext.builds.find(b=>b.weapon===build.weapon)?._labWeapon,character:canonicalLabCharacter(build.character)}));
   labContext.inventory=normalizeLabInventory(jsonRead('astralis:gi:owned-artifacts',labContext.inventory));
   if(labWorker){labWorker.terminate();labWorker=null;labJob++;}
+  const disclosureState=new Map([...root.querySelectorAll('details')].map(el=>[el.querySelector(':scope > summary')?.textContent.trim(),el.open]));
   root.outerHTML=renderLabWorkspace(viewContext(read()),read());
+  for(const el of document.querySelectorAll('[data-damage-lab] details')){const key=el.querySelector(':scope > summary')?.textContent.trim();if(disclosureState.has(key))el.open=disclosureState.get(key);}
   initDamageLab();
   if (focus) document.querySelector(focus)?.focus({preventScroll:true});
 }
@@ -531,6 +537,7 @@ function chooseLabCharacter(id) {
 function useTalentValue(index,rowIndex) {
   const p=persist();
   const context=viewContext(p);
+  if(index===99){const definition=actionDefinition(index,rowIndex,p);if(!definition)return;write({...p,...definition});refreshLab();setLabTab('overview');return;}
   const skill=context.skills[index];
   const source=context.details?.talentValues?.['combat'+(index+1)]||context.details?.skillTalents?.[index]||skill;
   const value=String(talentValueRows(source,Number(p.talentLevel)||10,skill?.values)[rowIndex]||'');
@@ -577,6 +584,10 @@ function convertImportBonuses(raw,element){
 function openConfigMapping({host,group,key}){
  const p=persist(),context=viewContext(p),options=attackOptions(context,p);
  host.replaceChildren();
+ if(group.member){
+  const owner=labContext.characters.find(c=>[c._id,c.id,c._name,c.name,c.enName].some(value=>foldAttackQuery(value).replaceAll(' ','')===foldAttackQuery(group.member).replaceAll(' ','')));
+  if(!owner||String(owner._id)!==String(p.character)){host.textContent='Cette cible appartient à '+group.member+'. Charge ce personnage avant d’associer ses attaques ; le calcul sur un autre kit est bloqué.';return;}
+ }
  if(!options.length){host.textContent='Sélectionne le personnage et attends le chargement de son kit.';return;}
  const id='astralis:gi:lab-config-mapping:'+key+':'+p.character;
  const saved=jsonRead(id,{}),paths=[...new Set(group.targets.map(row=>JSON.stringify(row.path)))],selectors=new Map();
@@ -676,6 +687,13 @@ function openConfigMapping({host,group,key}){
 }
 
 let setGuideRequest;
+function renderSetRecommendations(rows){
+ const fold=value=>String(value||'').normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/[^a-z0-9]/gi,'').toLowerCase();
+ return '<div class="lab-recommended-cards">'+rows.map(row=>{
+  const matches=[...new Set((row.sets||[]).flatMap(name=>labContext.sets.filter(set=>[set._name,set.name,set.enName,set.id,set._id,...(set._labAliases||[])].some(alias=>fold(alias)===fold(name)))) )];
+  return '<article><header><b>'+esc(row.role||'Build conseillé')+'</b><a href="'+esc(row.url||'https://genshin.gg/builds/')+'" target="_blank" rel="noopener">Guide ↗</a></header><ul>'+row.sets.map(name=>'<li>'+esc(name)+'</li>').join('')+'</ul>'+(matches.length?'<button type="button" class="quiet-btn" data-lab-apply-recommended="'+esc(JSON.stringify(matches.map(s=>String(s._labKey||s._id))))+'">Limiter la recherche à ces sets</button>':'<small>Correspondance à confirmer dans le catalogue.</small>')+'</article>';
+ }).join('')+'</div>';
+}
 async function showSetGuide(root,p){
  const host=root.querySelector('[data-lab-guide-output]'),character=labContext.characters.find(c=>c._id===p.character);
  if(!character){host.textContent='Choisis un personnage.';return;}
@@ -687,7 +705,7 @@ async function showSetGuide(root,p){
     return {role:build.role,sets:names,url:remote.sourceUrl};
   }).filter(row=>row.sets.length);
   if(recommendations.length){
-    host.innerHTML=recommendations.map(row=>'<p><b>'+esc(row.role||'Build')+'</b> · '+row.sets.map((name,index)=>(index+1)+'. '+esc(name)).join(' · ')+' <a href="'+esc(row.url||'https://genshin.gg/builds/')+'" target="_blank" rel="noopener">Guide source ↗</a></p>').join('');
+    host.innerHTML=renderSetRecommendations(recommendations);
     return;
   }
   setGuideRequest ||= fetch('./public/gi-build-reverse-fallback.json').then(response=>{if(!response.ok)throw new Error();return response.json();}).catch(error=>{setGuideRequest=null;throw error;});
@@ -696,7 +714,7 @@ async function showSetGuide(root,p){
   const names=new Set([character._name,character.name,character._id].map(fold));
   const rows=(data.characters||[]).filter(row=>names.has(fold(row.name)));
   if(!rows.length){host.textContent='Aucun set conseillé dans le guide disponible pour ce personnage.';return;}
-  host.innerHTML=rows.map(row=>'<p><b>'+esc(row.role||'Build')+'</b> · '+esc((row.sets||[]).join(' / '))+' <a href="'+esc(row.url||data.sourceUrl)+'" target="_blank" rel="noopener">Guide source ↗</a></p>').join('');
+  host.innerHTML=renderSetRecommendations(rows.map(row=>({...row,url:row.url||data.sourceUrl})));
  }catch{host.textContent='Guides temporairement indisponibles.';}
 }
 async function showAllyEffects(root,p,index){
@@ -705,17 +723,18 @@ async function showAllyEffects(root,p,index){
  const ally = own ? p : p.allies?.[index] || {};
  const character = labContext.characters.find(c => c._id === ally.character);
  const weapon = own ? activeWeapon(p) : labContext.weapons.find(w => w._id === ally.weapon);
- const set = own ? null : labContext.sets.find(row => row._id === ally.set);
+ const set = own ? (equippedPieces(p).map(piece=>labContext.sets.find(row=>String(row._labKey||row._id)===String(piece.setKey)||String(row._id)===String(piece.set))).find(Boolean)) : labContext.sets.find(row => row._id === ally.set);
  host.textContent = 'Chargement des effets…';
  let details;
  if (character) {
   try { details = await characterDetails('gi',character); } catch { details = character; }
  }
  if (!host.isConnected) return;
- const rows = kitEffectDescriptions(details, ally.constellation, weapon, own ? p.weaponRefinement : ally.refinement, set);
+ const rows = kitEffectDescriptions(details, ally.constellation, weapon, own ? p.weaponRefinement : ally.refinement, own?null:set);
+ if(own){const counts=new Map();for(const piece of equippedPieces(p).filter(Boolean)){const selected=labContext.sets.find(s=>[s._labKey,s._id,s.id,...(s._labAliases||[])].map(String).includes(String(piece.setKey)));if(selected)counts.set(selected,(counts.get(selected)||0)+1);}for(const [selected,count]of counts)if(count>=2)rows.push(...kitEffectDescriptions(null,0,null,1,selected,count));}
  host.innerHTML = rows.map(row =>
   '<details><summary>'+esc(row.name)+(row.locked?' · verrouillé':'')+'</summary><div class="lab-effect-description">'+renderGameText(row.description)+'</div>'+
-  (row.locked?'':'<button type="button" data-lab-add-source-buff="'+esc(row.name)+'" data-buff-description="'+esc(row.description)+'">Configurer ce buff</button>')+
+  (row.locked?'':'<button type="button" data-lab-add-source-buff="'+esc(row.name)+'" data-buff-description="'+esc(row.description)+'" data-buff-owner="'+esc(own?p.character:ally.character)+'" data-source-position="'+esc(own?(p.fightPosition||'on'):(ally.position||'off'))+'">Configurer ce buff</button>')+
   '</details>').join('') || '<p>Aucun effet publié pour ces choix.</p>';
 }
 function bindWorkspace() {
@@ -775,7 +794,7 @@ function bindWorkspace() {
     }
     const sourceBuff=event.target.closest('[data-lab-add-source-buff]');
     if(sourceBuff||event.target.closest('[data-lab-add-buff]')){
-      const p=persist();p.buffs=[...(p.buffs||[]),{type:'atkPct',value:sourceBuff?0:20,stacks:1,duration:0,active:!sourceBuff,source:sourceBuff?.dataset.labAddSourceBuff,description:sourceBuff?.dataset.buffDescription||''}];
+      const p=persist();p.buffs=[...(p.buffs||[]),{type:'atkPct',value:sourceBuff?0:20,stacks:1,duration:0,active:!sourceBuff,source:sourceBuff?.dataset.labAddSourceBuff,description:sourceBuff?.dataset.buffDescription||'',sourceCharacter:sourceBuff?.dataset.buffOwner||'',sourcePosition:sourceBuff?.dataset.sourcePosition||'off'}];
       write(p);refreshLab();return;
     }
     const removeBuff=event.target.closest('[data-lab-remove-buff]');
@@ -901,7 +920,7 @@ function bindWorkspace() {
     const key=event.target.dataset.lab;
     if (key==='build') { const p=persist();p.weaponOverride=null;const build=selectedBuild(p);p.weaponLevel=Number(build?.weaponLevelValue)||90;p.weaponRefinement=Number(build?.weaponRefinement)||1;p.referenceCharacter='';write(p);loadActiveBuild(root,p); }
     if (key==='talentLevel') { persist();refreshLab(); }
-    if(key==='constellation'){persist();refreshLab();}
+    if(key==='constellation'){const p=persist();if(p.attackSelection?.startsWith('99:'))useTalentValue(...p.attackSelection.split(':').map(Number));else refreshLab();}
     if(key==='reaction'){const p=read();p.reactingHits=p.reaction==='none'?0:Math.max(1,Number(p.reactingHits)||1);if(['vaporize','melt'].includes(p.reaction))p.ampBase=p.reaction==='melt'?(p.elementKey==='pyro'?2:1.5):(p.elementKey==='hydro'?2:1.5);write(p);refreshLab();}
     if (key) updateLiveStats(root,read());
     if (event.target.matches('[data-lab-duration]')) {
@@ -942,7 +961,9 @@ function addAttackToRotation(row) {
 }
 
 function actionDefinition(skillIndex,valueIndex,p=read()) {
-  const context=viewContext(p),skill=context.skills[skillIndex];
+  const context=viewContext(p);
+  if(skillIndex===99){const row=attackOptions(context,p).find(r=>r.id===skillIndex+':'+valueIndex);if(!row)return null;return {attackSelection:row.id,targetName:row.label,targetSource:row.text,targetIcon:row.skill?.image||'',components:row.parsed.components,hitCount:row.parsed.hitCount,talent:row.parsed.components[0].talentMultiplier,baseStat:'atk',elementKey:'cryo',actionKind:row.kind,reactingHits:0,reaction:'none',flat:0,characterId:p.character};}
+  const skill=context.skills[skillIndex];
   if(!skill)return null;
   const source=context.details?.talentValues?.['combat'+(skillIndex+1)]||context.details?.skillTalents?.[skillIndex]||skill;
   const text=talentValueRows(source,Number(p.talentLevel)||10,skill.values)[valueIndex];
@@ -965,21 +986,25 @@ let rotationEvaluation=0;
 async function recomputeRotation(root,p=read()) {
   const revision=++rotationEvaluation;
   const rows=(p.rotations||[]).map(row=>({...row}));
-  let elapsed=0;
-  for(const row of rows){
-    const count=Math.max(1,Math.min(100,Number(row.count)||1));
-    if(row.params&&(!row.characterId||canonicalLabCharacter(row.characterId)===canonicalLabCharacter(p.character))){
-      let damage=0,ok=true;
-      for(let i=0;i<count;i++){
-        const result=await calculate({...p,...row.params,elapsed:elapsed+i*(Number(row.duration)||0)/count});
-        if(!result.ok){ok=false;row.error=result.error;break;}
-        damage+=result.total;
-      }
-      row.damage=ok?damage:null;row.damageKnown=ok;
-    }else{
-      row.damage=null;row.damageKnown=false;
+  let elapsed=0,poolState={};
+  const repeat=Math.max(1,Math.min(99,Number(p.repeatRotation)||1)),cycleDuration=Number(p.rotationSeconds)||rows.reduce((sum,row)=>sum+Math.max(0,Number(row.duration)||0),0);
+  for(const row of rows){row.cycleDamages=[];row.damageKnown=true;}
+  for(let cycle=0;cycle<repeat;cycle++){
+    elapsed=cycle*cycleDuration;
+    for(const row of rows){
+      const count=Math.max(1,Math.min(100,Number(row.count)||1));
+      if(row.params&&(!row.characterId||canonicalLabCharacter(row.characterId)===canonicalLabCharacter(p.character))){
+        let damage=0,ok=true;
+        for(let i=0;i<count;i++){
+          const result=await calculate({...p,...row.params,elapsed:elapsed+i*(Number(row.duration)||0)/count},{poolState});
+          poolState=result.poolState||poolState;
+          if(!result.ok){ok=false;row.error=result.error;break;}
+          damage+=result.total;
+        }
+        row.cycleDamages.push(ok?damage:0);row.damageKnown&&=ok;if(cycle===0)row.damage=ok?damage:null;
+      }else{row.damage=null;row.damageKnown=false;}
+      elapsed+=Math.max(0,Number(row.duration)||0);
     }
-    elapsed+=Math.max(0,Number(row.duration)||0);
   }
   if(revision!==rotationEvaluation||!root.isConnected)return null;
   write({...read(),rotations:rows});
@@ -1033,9 +1058,9 @@ function optimizerBonuses(p) {
 
 function normalizeLabInventory(rows) {
  const setsByAlias=new Map();
- for(const set of labContext.sets)for(const alias of [set._id,set.id,...(set._labAliases||[])])setsByAlias.set(String(alias),set);
+ for(const set of labContext.sets)for(const alias of [set._id,set.id,set._name,set.name,set.enName,set._labKey,set._key,...(set._labAliases||[])].filter(Boolean))setsByAlias.set(String(alias).normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/[^a-z0-9]/gi,'').toLowerCase(),set);
  return rows.map((raw,index)=>{
-  const row=normalizeGoodArtifact(raw,index),set=setsByAlias.get(String(row.setKey));
+  const row=normalizeGoodArtifact(raw,index),set=setsByAlias.get(String(row.setKey).normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/[^a-z0-9]/gi,'').toLowerCase());
   return set?{...row,setKey:String(set._labKey||set._id)}:row;
  });
 }
@@ -1077,3 +1102,29 @@ async function exportLaboratory(p) {
   render:options => drawPoster(data, options, posterBitmap)
  });
 }
+
+globalThis.document?.addEventListener('input',event=>{if(!event.target.matches('[data-priority-search]'))return;const term=foldAttackQuery(event.target.value);for(const row of document.querySelectorAll('[data-priority-id]'))row.hidden=!!term&&!foldAttackQuery(row.textContent).includes(term);});
+globalThis.document?.addEventListener('change',event=>{const field=event.target;if(!field.matches('[data-priority-position]'))return;positionPriority(field.dataset.priorityPosition,field.value,labContext.characters.map(c=>c._id));refreshLab();});
+
+globalThis.document?.addEventListener('click',event=>{const button=event.target.closest?.('[data-lab-apply-recommended]');if(!button)return;const p=persist();p.allowedSets=JSON.parse(button.dataset.labApplyRecommended);p.excludedSets=[];p.requiredSets=[];write(p);refreshLab();});
+
+globalThis.document?.addEventListener('click',async event=>{
+ const button=event.target.closest?.('[data-effect-catalog]');if(!button)return;
+ const dialog=document.createElement('dialog');dialog.className='lab-effects-catalog';dialog.innerHTML='<header><h2>Répertoire des effets publiés</h2><button type="button" data-close aria-label="Fermer">×</button></header><p>Descriptions des armes (R1 à R5), sets et kit chargé. Un effet complexe demande une configuration explicite ; son texte n’est pas converti en bonus inventé.</p><input type="search" data-search aria-label="Rechercher un effet" placeholder="Arme, set, personnage, effet…"><select data-kind aria-label="Type de source"><option value="">Toutes les sources</option><option value="weapon">Armes</option><option value="set">Sets</option><option value="character">Personnage actif</option></select><button type="button" data-download>Télécharger le répertoire JSON</button><p role="status"></p><div data-rows></div>';
+ const p=read(),context=viewContext(p),rows=effectCatalog(context,context.details||{},p.constellation);
+ const draw=()=>{const term=foldAttackQuery(dialog.querySelector('[data-search]').value),kind=dialog.querySelector('[data-kind]').value,shown=rows.filter(row=>(!kind||row.type===kind)&&(!term||foldAttackQuery(row.owner+' '+row.name+' '+row.description).includes(term)));dialog.querySelector('[role=status]').textContent=shown.length+' effets publiés · '+shown.filter(r=>Object.keys(r.bonuses).length).length+' effets simples interprétés';dialog.querySelector('[data-rows]').innerHTML=shown.slice(0,100).map(row=>'<details><summary>'+esc(row.owner)+' · '+esc(row.name)+(row.locked?' · verrouillé':'')+'</summary><div>'+renderGameText(row.description)+'</div><small>'+esc(Object.keys(row.bonuses).length?'Bonus simple disponible : '+JSON.stringify(row.bonuses):'Conditions ou coefficients à configurer explicitement')+'</small></details>').join('')+(shown.length>100?'<p>Affichage limité à 100 résultats. Affine la recherche ou télécharge le répertoire complet.</p>':'');};
+ dialog.querySelector('[data-close]').onclick=()=>dialog.close();dialog.onclose=()=>dialog.remove();dialog.querySelector('[data-search]').oninput=draw;dialog.querySelector('[data-kind]').onchange=draw;dialog.querySelector('[data-download]').onclick=()=>{const url=URL.createObjectURL(new Blob([JSON.stringify({exportedAt:new Date().toISOString(),effects:rows},null,2)],{type:'application/json'})),a=document.createElement('a');a.href=url;a.download='astralis-effets-publies.json';a.click();setTimeout(()=>URL.revokeObjectURL(url),1000);};document.body.append(dialog);dialog.showModal();draw();
+});
+
+let labSyncTimer;
+async function checkLabSync(force=false){
+ const host=document.querySelector('[data-lab-sync-status]');if(!host)return;clearTimeout(labSyncTimer);
+ try{const response=await fetch('/api/lab/data-status'+(force?'?refresh=1':''),{cache:'no-store'});if(!response.ok)throw new Error();const data=await response.json();if(!host.isConnected)return;
+ host.textContent=data.state==='running'?'Mise à jour des tables en arrière-plan · tu peux continuer à calculer':data.state==='error'?'Actualisation indisponible · tables locales conservées':data.state==='ready'?'Tables vérifiées · '+data.characters+' personnages · '+data.weapons+' armes · '+String(data.revision||'').slice(0,8):'Tables numériques locales disponibles';
+ if(data.state==='running')labSyncTimer=setTimeout(()=>checkLabSync(),5000);
+ if(data.changed&&data.revision!==labContext.sourceSnapshot?.revision){const source=await fetch('./data/lab-source-snapshot.json',{cache:'no-store'}).then(r=>r.json());labContext.sourceSnapshot=source;document.dispatchEvent(new CustomEvent('astralis:lab-snapshot-updated',{detail:source}));host.textContent+=' · nouvelles données chargées';}
+ }catch{host.textContent='Tables numériques locales · relance le serveur pour activer la vérification automatique';}
+}
+globalThis.document?.addEventListener('click',event=>{if(event.target.closest?.('[data-lab-sync-refresh]'))checkLabSync(true);});
+
+globalThis.document?.addEventListener('click',async event=>{if(!event.target.closest?.('[data-complex-effects]'))return;const p=persist(),{editComplexEffects}=await import('./complex-controls.js'),result=await editComplexEffects(p.complexEffects,p.complexTeamElements);if(result){p.complexEffects=result.config;p.complexTeamElements=result.elements;if(p.complexEffects.skirk)p.complexEffects.skirk.constellation=Number(p.constellation)||0;write(p);if(p.attackSelection?.startsWith('99:'))useTalentValue(...p.attackSelection.split(':').map(Number));else refreshLab();}});

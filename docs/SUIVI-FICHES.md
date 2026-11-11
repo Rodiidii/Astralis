@@ -44,6 +44,6 @@ En trois clics : **Équipes → Exporter PNG → Enregistrer le PNG**. La copie 
 - Les portraits d’équipe, l’atelier de builds et les projections de farm ont des styles dédiés. Les messages du compagnon ne bloquent plus les clics sur le contenu.
 - Les filtres de régions du réseau permettent plusieurs régions. Les trois objets orbitaux sont réactivés à la migration des anciens réglages ; la file de rendu des planètes évite de toujours servir les premières planètes.
 
-## Travaux plus larges restant à terminer
+## Suite des travaux
 
-Cette validation des fiches ne vaut pas validation de tous les chantiers du texte collé : la refonte complète du portefeuille et des camemberts de vœux, l’exhaustivité automatisée de tous les buffs et nouveaux équipements, les interactions détaillées du calendrier de farm et la couverture intégrale des données de lore nécessitent encore leur propre vérification. Les fiches affichent les informations disponibles sans combler ces lacunes par des valeurs inventées.
+Le portefeuille, le calendrier, les priorités du laboratoire et plusieurs mécaniques complexes ont été traités dans la révision suivante. Voir [SUIVI-AUTRES-POINTS.md](SUIVI-AUTRES-POINTS.md) et [TEST-SKIRK.md](TEST-SKIRK.md), qui précisent les validations et les limites restantes.

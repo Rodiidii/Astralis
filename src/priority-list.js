@@ -5,6 +5,7 @@ const configs=()=>{const value=safeRead(CONFIG_KEY,{});return value&&typeof valu
 export const getCharacterPriority=()=>read();
 export function setCharacterPriority(ids){const unique=[...new Set((ids||[]).map(String).filter(Boolean))];localStorage.setItem(ORDER_KEY,JSON.stringify(unique));return unique;}
 export function movePriority(id,delta){const rows=read(),index=rows.indexOf(String(id));if(index<0)return rows;const next=Math.max(0,Math.min(rows.length-1,index+delta));rows.splice(next,0,rows.splice(index,1)[0]);return setCharacterPriority(rows);}
+export function positionPriority(id,position,characters=[]){const rows=[...new Set([...read(),...characters.map(String)])],key=String(id),index=rows.indexOf(key);if(index<0)return rows;rows.splice(index,1);rows.splice(Math.max(0,Math.min(rows.length,Math.floor(Number(position)||1)-1)),0,key);return setCharacterPriority(rows);}
 export function reorderPriority(fromId,toId){const rows=read(),from=rows.indexOf(String(fromId)),to=rows.indexOf(String(toId));if(from<0||to<0)return rows;rows.splice(to,0,rows.splice(from,1)[0]);return setCharacterPriority(rows);}
 export function getPriorityConfig(characterId){return configs()[String(characterId)]||{locked:false,lockedIds:[],excludedIds:[],ignorePriority:false,rotation:[]};}
 export function setPriorityConfig(characterId,patch){const all=configs(),id=String(characterId);all[id]={...getPriorityConfig(id),...patch};localStorage.setItem(CONFIG_KEY,JSON.stringify(all));return all[id];}

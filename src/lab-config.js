@@ -1,3 +1,4 @@
+import {COMPLEX_PARAMS as CD} from './complex-effect-data.js';
 
 import {talentValueRows,parseActionValue} from './lab-actions.js?v=20261110-lab-controls-4';
 
@@ -9,6 +10,11 @@ export function attackKind(skillIndex,label='') {
  return /charg|charged/.test(text)?'charged':/plong|plung|chute/.test(text)?'plunge':'normal';
 }
 export function attackOptions(context,p) {
+ if(['10000114','skirk'].includes(String(context.character?.id||context.character?._id||p.character).toLowerCase())){
+  let serial=0;const team=p.complexTeamElements||[],c=Number(p.constellation)||0,boost=team.length===4&&team.every(e=>['hydro','cryo'].includes(e))&&team.includes('hydro')&&team.includes('cryo')?1:0,n=Math.max(0,Math.min(14,Number(p.talentLevel||10)-1+boost+(c>=5?3:0))),q=Math.max(0,Math.min(14,Number(p.talentLevel||10)-1+(c>=3?3:0))),make=(id,label,kind,components)=>({id:'99:'+serial++,label,kind,text:label,parsed:{components,hitCount:components.reduce((s,x)=>s+x.count,0),baseStat:'atk'},skill:context.skills?.[kind==='burst'?2:1]||{}});
+  return [0,1,3,5,6].map((i,j)=>make('skirk:N'+(j+1),'Sept phases · N'+(j+1),'normal',[{talentMultiplier:CD.Skirk.skill[i][n],count:j===2||j===3?2:1}]))
+   .concat(make('skirk:CA','Sept phases · Chargée (3 impacts)','charged',[{talentMultiplier:CD.Skirk.skill[7][n],count:3}]),make('skirk:Q','Déchaînement complet · 5 entailles + finale','burst',[{talentMultiplier:CD.Skirk.burst[0][q],count:5},{talentMultiplier:CD.Skirk.burst[1][q],count:1}]),make('skirk:Q-slash','Déchaînement · une entaille','burst',[{talentMultiplier:CD.Skirk.burst[0][q],count:1}]),make('skirk:Q-final','Déchaînement · entaille finale','burst',[{talentMultiplier:CD.Skirk.burst[1][q],count:1}]));
+ }
  return (context.skills||[]).slice(0,3).flatMap((skill,index)=>{
   const source=context.details?.talentValues?.['combat'+(index+1)]||context.details?.skillTalents?.[index]||skill;
   return talentValueRows(source,Number(p.talentLevel)||10,skill.values).flatMap((label,row)=>{
@@ -41,7 +47,7 @@ export function simpleStatBonus(text='') {
 }
 export function setEffectOptions(set) {
  const id=String(set.id);
- const text=set.effect2Pc||'';
+ const text=set.effect2Pc||set.twoPieceBonus||set['2pc']||'';
  // Only unconditional short two-piece descriptions are inferred.
  let two=!/lorsque|quand|si |après|pendant|when|while/i.test(text)?simpleStatBonus(text):{};
  const four=[];
@@ -114,9 +120,9 @@ export function configuredSetEffects(sets,p) {
  return out;
 }
 export function weaponEffectOptions(weapon,refinement=1) {
- if(!weapon)return [];
+ if(!weapon||String(weapon.id)==='11517')return [];
  const tier=weapon['r'+Math.max(1,Math.min(5,Number(refinement)||1))];
- const text=tier?.description||'';
+ const text=tier?.description||weapon.passiveDesc||weapon.effectDescription||'';
  const first=text.split(/\.\s/)[0];
  // Keep the full passive visible; only a simple unconditional first sentence is automatic.
  const bonus=!/lorsque|quand|si |après|pendant|par |when|while/i.test(first)?simpleStatBonus(first):{};
@@ -164,11 +170,11 @@ export function kitEffectDescriptions(details, constellation, weapon, refinement
  const rank = Math.max(1, Math.min(5, Number(refinement) || 1));
  const weaponEffects = weapon ? [{
   name:(weapon.effectName || weapon._name) + ' · R' + rank,
-  description:weapon['r' + rank]?.description || weapon.passiveDesc
+  description:weapon['r' + rank]?.description || weapon.passiveDesc || weapon.effectDescription
  }] : [];
  const setEffects = set ? [
-  {name:set._name + ' · 2 pièces', description:set.effect2Pc},
-  {name:set._name + ' · 4 pièces', description:set.effect4Pc, locked:Number(pieces) < 4}
+  {name:set._name + ' · 2 pièces', description:set.effect2Pc||set.twoPieceBonus||set['2pc']},
+  {name:set._name + ' · 4 pièces', description:set.effect4Pc||set.fourPieceBonus||set['4pc'], locked:Number(pieces) < 4}
  ] : [];
  return [...characterEffects, ...constellations, ...weaponEffects, ...setEffects].filter(row => row.description);
 }

@@ -48,7 +48,7 @@ export function simulateFarm({characters,materials,inventory={},start,artifactDa
  }
  jobs.splice(0,jobs.length,...groupedJobs.values());
  const harvests=passive.filter(job=>job.kind==='specialty').map(job=>{const source=specialties[job.id],capacity=Number(source?.capacity)||0;return {...job,capacity,cycles:capacity?Math.ceil(job.count/capacity):null,source:source?.source};});
- const discounts=new Map(),artifactWeeks=new Map(),reserved=new Set(reservedDates),incomeCycle=new Map();
+ const discounts=new Map(),artifactWeeks=new Map(),weeklySlots=new Map(),reserved=new Set(reservedDates),incomeCycle=new Map();
  const initial=new Date(start+'T12:00:00');
  if(!Number.isFinite(initial.getTime()))return {sessions:[],dates:{},unresolved:passive};
  const priority={talent:0,boss:1,xp:2,mora:3,weekly:5};
@@ -63,15 +63,19 @@ export function simulateFarm({characters,materials,inventory={},start,artifactDa
   const eligible=pending.filter(job=>job.kind!=='weekly'&&(!job.days.length||job.days.includes(weekday)));
   eligible.sort((a,b)=>a.rank-b.rank||priority[a.kind]-priority[b.kind]);
   if(!artifactWeeks.has(week)){
-   const days=Array.from({length:7},(_,day)=>{const candidates=pending.filter(job=>job.kind!=='weekly'&&(!job.days.length||job.days.includes(day)));return {day,urgency:candidates.length?Math.min(...candidates.map(job=>job.rank*10+priority[job.kind])):100000};});
+   const days=Array.from({length:7},(_,day)=>{const target=new Date(weekStart);target.setDate(target.getDate()+day);const candidates=pending.filter(job=>job.kind!=='weekly'&&(!job.days.length||job.days.includes(day)));return {day,available:target>=initial&&!reserved.has(target.toLocaleDateString('sv-SE')),urgency:candidates.length?Math.min(...candidates.map(job=>job.rank*10+priority[job.kind])):100000};}).filter(row=>row.available);
    days.sort((a,b)=>b.urgency-a.urgency||a.day-b.day);artifactWeeks.set(week,new Set(days.slice(0,Math.max(0,Math.min(4,artifactDays))).map(row=>row.day)));
+  }
+  if(!weeklySlots.has(week)){
+   const days=Array.from({length:7},(_,index)=>{const target=new Date(weekStart);target.setDate(target.getDate()+index);const candidates=pending.filter(job=>job.kind!=='weekly'&&(!job.days.length||job.days.includes(index)));return {day:index,available:target>=initial&&!reserved.has(target.toLocaleDateString('sv-SE')),urgency:artifactWeeks.get(week).has(index)?100001:candidates.length?Math.min(...candidates.map(job=>job.rank*10+priority[job.kind])):100000};}).filter(row=>row.available);
+   days.sort((a,b)=>b.urgency-a.urgency||a.day-b.day);weeklySlots.set(week,new Set(days.slice(0,3).map(row=>row.day)));
   }
   const artifact=artifactWeeks.get(week).has(weekday);
   if(reserved.has(date))continue;let primary=artifact?{kind:'artifact',person:characters[0]?.id}:eligible[0];if(primary&&['xp','mora'].includes(primary.kind)){const cycle=incomeCycle.get(primary.person)||0,wanted=cycle%3===2?'mora':'xp';primary=eligible.find(job=>job.person===primary.person&&job.kind===wanted)||primary;incomeCycle.set(primary.person,cycle+1);}
   const supplementary=pending.filter(job=>job.kind==='weekly'&&(discounts.get(week)||0)<3&&!weeklyCharacters.has(week+':'+job.person)&&!weeklyDone.has(week+':'+(job.item?.sources?.[0]||job.id))).sort((a,b)=>a.rank-b.rank)[0];
   const entry={date,kind:primary?.kind||'rest',characterIds:primary?[primary.person]:[],materialIds:primary?.id&&primary.id!=='xp'?(primary.materialIds||[primary.id]):[],supplements:[],auto:true};
   // Weekly claims accompany the least urgent main activity of the week.
-  if(supplementary&&(artifact||!primary||primary.kind==='mora'||weekday===6)){
+  if(supplementary&&weeklySlots.get(week).has(weekday)){
    let drops=2.5;const boss=supplementary.item?.sources?.[0]||supplementary.id;
    for(const job of [supplementary]){const use=Math.min(drops,job.units);if(use>0)weeklyCharacters.add(week+':'+job.person);job.units-=use;drops-=use;if(drops<=0)break;}
    weeklyDone.add(week+':'+(supplementary.item?.sources?.[0]||supplementary.id));

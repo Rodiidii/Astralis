@@ -86,7 +86,8 @@ export function activeBuffBonuses(p,elapsed=0) {
   for(const buff of p.buffs||[]){
     if(buff.active===false||(Number(buff.duration)>0&&elapsed>=Number(buff.duration)))continue;
     if(buff.position&&buff.position!=='any'&&buff.position!==(p.fightPosition||'on'))continue;
-    if(buff.sourceCondition && buff.sourceCondition!=='any' && buff.sourceCondition!==(buff.sourcePosition||'off'))continue;
+    const sourcePosition=buff.sourceCharacter?String(buff.sourceCharacter)===String(p.character)?(p.fightPosition||'on'):(p.allies||[]).find(ally=>String(ally.character)===String(buff.sourceCharacter))?.position||buff.sourcePosition||'off':buff.sourcePosition||'off';
+    if(buff.sourceCondition && buff.sourceCondition!=='any' && buff.sourceCondition!==sourcePosition)continue;
     const scaling=Number(buff.sourceStat||0)*Number(buff.sourcePercent||0)/100;
     const amount=(Number(buff.value||0)+scaling)*Math.max(1,Math.min(100,Number(buff.stacks)||1));
     const maximum=buff.maximum===''||buff.maximum==null?null:Number(buff.maximum);

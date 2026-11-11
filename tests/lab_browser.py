@@ -30,6 +30,10 @@ def main():
             page=browser.new_page(viewport={'width':1440,'height':1000},service_workers='block')
             page.set_default_navigation_timeout(120000)
             page.set_default_timeout(120000)
+            def open_allies():
+                if not page.locator('[data-lab-allies]').evaluate('(el)=>el.open'):
+                    page.locator('[data-lab-allies]>summary').click()
+
             errors=[]
             page.on('pageerror',lambda e:(errors.append(str(e)),print('PAGE ERROR',str(e),flush=True)))
             def route(handler):
@@ -61,7 +65,7 @@ def main():
                     handler.continue_()
             page.route('**/*',route)
             page.add_init_script('localStorage.setItem("astralis:gi:assistant-profile",JSON.stringify({enabled:false,proactive:false}));localStorage.setItem("astralis:active-game","gi");'+
-                'if(!sessionStorage.getItem("labTestSeeded")){sessionStorage.setItem("labTestSeeded","1");localStorage.setItem("astralis:gi:lab-demo-v1","1");localStorage.setItem("astralis:gi:owned-artifacts",'+json.dumps(json.dumps(pieces))+');'+
+                'if(!sessionStorage.getItem("labTestSeeded")){sessionStorage.setItem("labTestSeeded","1");localStorage.setItem("astralis:gi:lab-demo-complex-v2","1");localStorage.setItem("astralis:gi:owned-artifacts",'+json.dumps(json.dumps(pieces))+');'+
                 'localStorage.setItem("astralis:gi:builds",'+json.dumps(json.dumps([build]))+');'+
                 'localStorage.setItem("astralis:gi:damage-lab:v1",'+json.dumps(json.dumps(settings))+');}')
             page.goto(base,wait_until='domcontentloaded')
@@ -146,6 +150,12 @@ def main():
             first=page.locator('[data-priority-id]').first.get_attribute('data-priority-id')
             page.locator('[data-lab-action=priority-down]').first.click()
             assert page.locator('[data-priority-id]').nth(1).get_attribute('data-priority-id')==first
+            rank=page.locator('[data-priority-position]').first
+            moved=rank.get_attribute('data-priority-position');rank.fill('3');rank.press('Tab')
+            assert page.locator('[data-priority-id]').nth(2).get_attribute('data-priority-id')==moved
+            page.locator('[data-priority-search]').fill('Furina');assert page.locator('[data-priority-id]:visible').count()==1
+            page.locator('[data-priority-search]').fill('')
+            page.locator('#lab-tab-overview').click();open_allies();page.locator('[data-effect-catalog]').click();page.wait_for_selector('.lab-effects-catalog');page.locator('.lab-effects-catalog [data-search]').fill('Codex');assert page.locator('.lab-effects-catalog [data-rows]').inner_text();page.locator('.lab-effects-catalog [data-close]').click()
             page.locator('[data-lab-action=load-build]').click()
             assert 900<float(page.locator('[data-lab=atk]').input_value())<950
             page.locator('#lab-tab-overview').click()
@@ -157,7 +167,7 @@ def main():
             page.locator('.lab-masthead').scroll_into_view_if_needed()
             page.screenshot(path=str(Path(tempfile.gettempdir())/'astralis-lab-mobile.png'),full_page=True)
             page.set_viewport_size({'width':1440,'height':1000})
-            page.evaluate('localStorage.removeItem("astralis:gi:lab-demo-v1")')
+            page.evaluate('localStorage.removeItem("astralis:gi:lab-demo-complex-v2")')
             page.reload(wait_until='domcontentloaded')
             page.wait_for_selector('#astralis-launch-screen',state='detached')
             page.locator('[data-nav=lab]').first.click()
@@ -165,13 +175,46 @@ def main():
             expect(page.locator('.lab-portrait-caption h2')).to_have_text('Skirk')
             expect(page.locator('[data-lab=hitCount]')).to_have_value('6')
             page.wait_for_function('JSON.parse(localStorage.getItem("astralis:gi:damage-lab:v1")).referenceCharacter===JSON.parse(localStorage.getItem("astralis:gi:damage-lab:v1")).character')
-            assert 350<float(page.locator('[data-lab=atk]').input_value())<370
+            assert 1000<float(page.locator('[data-lab=atk]').input_value())<1050
             page.locator('.lab-current-equipment>summary').click()
             page.locator('.lab-equipped-detail summary').click()
             assert page.locator('.lab-equipped-grid article').count()==5
             page.locator('[data-lab-action=calculate]').click()
             expect(page.locator('[data-lab-damage]')).not_to_have_text('TODO_DATA')
             first_damage=page.locator('[data-lab-damage]').inner_text()
+            stored=page.evaluate('JSON.parse(localStorage.getItem("astralis:gi:damage-lab:v1"))')
+            # Independently compute the six Q impacts, using the UI final stats.
+            stats=stored['referenceStats']
+            expected=(stats['atk']*(5*2.20968+3.6828)*1.6+6*stats['atk']*12*.34782*1.6)*(1+(stats['dmgBonus']+stats['cryoDmg'])/100)*(1+min(stats['critRate'],100)*stats['critDmg']/10000)*(190/390)*1.225
+            displayed=float(''.join(first_damage.split()).replace(',','.'))
+            assert abs(displayed-expected)<.02,(displayed,expected,stats)
+            (ROOT/'docs/lab-skirk-test-state.json').write_text(json.dumps({'conditions':stored['complexEffects'],'stats':stats,'displayedDamage':displayed,'independentExpected':expected},ensure_ascii=False,indent=2),encoding='utf-8')
+            open_allies()
+            page.locator('[data-complex-effects]').click()
+            expect(page.locator('dialog input[name="furina.constellation"]')).to_have_value('2')
+            expect(page.locator('dialog input[name="mona.constellation"]')).to_have_value('4')
+            page.locator('dialog input[name="furina.enabled"]').uncheck()
+            page.locator('dialog button[value=save]').click()
+            page.locator('[data-lab-action=calculate]').click()
+            expect(page.locator('[data-lab-damage]')).not_to_have_text(first_damage)
+            open_allies()
+            page.locator('[data-complex-effects]').click()
+            page.locator('dialog input[name="furina.enabled"]').check()
+            page.locator('dialog button[value=save]').click()
+            page.locator('[data-lab-action=calculate]').click()
+            expect(page.locator('[data-lab-damage]')).to_have_text(first_damage)
+            page.locator('[data-lab-attack-kind=normal]').click()
+            page.locator('[data-lab-target-attack]').select_option('99:2')
+            expect(page.locator('[data-lab=hitCount]')).to_have_value('2')
+            page.locator('[data-lab-attack-kind=charged]').click()
+            expect(page.locator('[data-lab=hitCount]')).to_have_value('3')
+            page.locator('[data-lab-attack-kind=burst]').click()
+            page.locator('[data-lab-target-attack]').select_option('99:6')
+            expect(page.locator('[data-lab=hitCount]')).to_have_value('6')
+            page.locator('[data-lab-action=calculate]').click()
+            expect(page.locator('[data-lab-damage]')).to_have_text(first_damage)
+            page.locator('.lab-masthead').scroll_into_view_if_needed()
+            page.screenshot(path=str(ROOT/'docs/lab-complex-team.png'),full_page=True)
             page.locator('[data-lab-add-buff]').click()
             page.locator('[data-lab-action=calculate]').click()
             expect(page.locator('[data-lab-damage]')).not_to_have_text(first_damage)

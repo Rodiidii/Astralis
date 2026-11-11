@@ -1,3 +1,4 @@
+import {complexEffects} from './complex-effects.js';
 import { ARTIFACT_SLOTS, pruneDominatedArtifacts, statVector } from './artifact-model.js?v=20261110-builds-3';
 import {typedAttackBonus} from './lab-config.js?v=20261110-lab-controls-4';
 import { calculateAction, finalStats } from './damage-engine.js';
@@ -32,9 +33,12 @@ function mergedBonuses(base, artifactStats, counts, effects) {
 export function evaluateDamageStats(input, artifactStats, counts = new Map()) {
   const bonuses = mergedBonuses(input.bonuses, artifactStats, counts, input.setEffects);
   const evaluate=(hit,localBonuses)=>{
-    const stats=finalStats(input.baseStats||{},localBonuses);
-    const result=calculateAction({...hit,stats,
-      flatDamage:(Number(hit?.flatDamage)||0)+(Number(localBonuses.flatDamage)||0),
+    const context={...hit?.complexContext,actionKind:hit?.actionKind,elementKey:hit?.elementKey};
+    const initial=complexEffects(hit?.complexEffects,context),combined={...localBonuses};add(combined,initial.bonuses);
+    const stats=finalStats(input.baseStats||{},combined),complex=complexEffects(hit?.complexEffects,{...context,stats});
+    localBonuses=combined;
+    const result=calculateAction({...hit,stats,talentScale:complex.talentScale,additivePools:complex.pools,
+      flatDamage:(Number(hit?.flatDamage)||0)+(Number(localBonuses.flatDamage)||0)+complex.flatDamage,
       damageBonus:(Number(hit?.damageBonus)||0)+typedAttackBonus(localBonuses,hit?.actionKind,stats),
       resistanceReduction:(Number(hit?.resistanceReduction)||0)+(Number(localBonuses.resReduction)||0)/100,
       enemyDefenseReduction:(Number(hit?.enemyDefenseReduction)||0)+(Number(localBonuses.defReduction)||0)/100,

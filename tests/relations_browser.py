@@ -50,11 +50,17 @@ def main():
                 ],rotation:[{character:'10000005',name:'Compétence',code:'E',count:2}]
               }]));
             """)
+            page.add_init_script("localStorage.setItem('astralis:cosmos:gi',JSON.stringify({revision:3,view:'blocks',background:'none',motion:false}))")
             page.goto(base, wait_until='domcontentloaded')
             page.wait_for_selector('#astralis-launch-screen', state='detached')
             page.locator('[data-nav=relations]').first.click()
             page.wait_for_selector('.relations-board canvas')
             assert page.locator('.relations-board button').count() > 80
+            page.locator('[data-rel-region="Mondstadt"]').first.click()
+            page.locator('[data-rel-region="Liyue"]').first.click()
+            assert page.locator('astralis-relations').evaluate("g=>g.settings.regions.includes('Mondstadt')&&g.settings.regions.includes('Liyue')")
+            page.locator('[data-rel-region=""]').first.click()
+            page.wait_for_function("document.querySelectorAll('.relations-board button').length>80")
             assert page.locator('.relations-board button[aria-label="Voyageur & Paimon"]').count() == 1
             assert page.locator('.relations-board button[aria-label=Lumine]').count() == 0
             assert page.locator('astralis-relations').evaluate('''g=>{
@@ -88,7 +94,7 @@ def main():
             page.wait_for_function("document.querySelector('.relations-board [data-rel-select=capitano]').style.left==='50%'")
             assert selected.evaluate("n=>parseFloat(n.style.width)") > 8
             graph = page.locator('astralis-relations')
-            assert page.locator('[data-reading-roster] button').count() > 80
+            assert 5 < page.locator('[data-reading-roster] button').count() < 20
             page.locator('[data-reading=graph]').click()
             assert not page.locator('.relations-sidebar').is_visible()
             page.locator('[data-reading=graph]').click()

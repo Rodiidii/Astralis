@@ -26,9 +26,9 @@ export function labConfigurations() {
 
 class LabConfigurations extends (globalThis.HTMLElement || class {}) {
   connectedCallback() {
-    this.innerHTML = '<details><summary>Configurations JSON et équipes importées</summary><label>Importer depuis Genshin Optimizer ou Celestia<input type="file" accept=".json,application/json" multiple></label><button type="button" data-celestia-list>Parcourir les exports Celestia locaux</button><div data-celestia-choices></div><p role="status"></p><div data-config-list></div></details>';
+    this.innerHTML = '<details><summary>Configurations JSON et équipes importées</summary><label>Importer depuis Genshin Optimizer ou Celestia<input type="file" accept=".json,application/json" multiple></label><button type="button" data-celestia-list>Parcourir les exports Celestia locaux</button><p data-celestia-sync-status role="status"></p><div data-celestia-choices></div><p data-import-status role="status"></p><div data-config-list></div></details>';
     this.querySelector('input').addEventListener('change', async event => {
-      const status = this.querySelector('[role=status]'), messages = [], saved = labConfigurations();
+      const status = this.querySelector('[data-import-status]'), messages = [], saved = labConfigurations();
       for (const file of event.target.files) {
         try {
           if (file.size > MAX_BYTES) throw new Error('Fichier trop volumineux.');
@@ -45,10 +45,12 @@ class LabConfigurations extends (globalThis.HTMLElement || class {}) {
       this.renderList();
     });
     this.querySelector('[data-celestia-list]').addEventListener('click', () => this.loadCelestia());
-    this.renderList();
+    this.renderList();this.checkUpdates();this.syncTimer=setInterval(()=>this.checkUpdates(),60000);
   }
+  disconnectedCallback(){clearInterval(this.syncTimer);}
+  async checkUpdates(){const host=this.querySelector('[data-celestia-sync-status]');if(!host)return;try{const data=await fetch('/api/lab/export-status',{cache:'no-store'}).then(r=>r.ok?r.json():{});if(data.checkedAt&&this.lastSync!==data.checkedAt&&this.querySelector('[data-celestia-choices] input'))await this.loadCelestia(this.querySelector('[data-celestia-choices] input').value);this.lastSync=data.checkedAt;host.textContent=data.state==='running'?'Recherche automatique de nouveaux exports Celestia…':data.state==='ready'?'Exports Celestia vérifiés · '+new Date(data.checkedAt*1000).toLocaleString('fr-FR'):data.state==='partial'||data.state==='error'?'Exports conservés · certaines sources sont temporairement indisponibles':'Les nouveaux exports sont vérifiés automatiquement toutes les six heures pendant qu’Astralis est ouvert.';}catch{host.textContent='Exports locaux disponibles.';}}
 
-  async loadCelestia() {
+  async loadCelestia(previousQuery='') {
     const host = this.querySelector('[data-celestia-choices]');
     host.textContent = 'Chargement de l’index local…';
     try {
@@ -72,7 +74,7 @@ class LabConfigurations extends (globalThis.HTMLElement || class {}) {
       }
       if (!exports.length) throw new Error('Aucun export disponible dans l’index.');
       const search = document.createElement('input'),list = document.createElement('div');
-      search.type = 'search';
+      search.type = 'search';search.value=previousQuery;
       search.placeholder = 'Chercher un classement';
       search.setAttribute('aria-label','Chercher un classement Celestia');
       list.className = 'celestia-export-list';
@@ -97,7 +99,7 @@ class LabConfigurations extends (globalThis.HTMLElement || class {}) {
               button.append(badge);
             }
             button.addEventListener('click', async () => {
-              const status = this.querySelector('[role=status]');
+              const status = this.querySelector('[data-import-status]');
               button.disabled=true;
               try {
                 const response = await fetch(base + row.file, {cache:'no-store'});
