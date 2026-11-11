@@ -743,3 +743,13 @@ Normalisation commune des copies restant à obtenir pour les plafonds et la simu
 ## VOEUX-BUDGET-PERIODE-20261111
 
 Budget théorique et période d’origine visibles et persistés. Estimation modifiée signalée, mise à jour explicite des graphes, période invalide bloquée. Tests unitaires et navigateur décrits dans `docs/VALIDATION-OBJECTIFS-20261111.md`. Aucun point global de probabilités n’est clôturé par cette correction.
+
+## SAUVEGARDE-ATELIER-20261111
+
+Données auparavant absentes ajoutées à la sauvegarde portable : objectifs de vœux, budgets, talents, EXP et priorités/scénario de farm, dispositions, profil local et collection. Extension versionnée et validée avant restauration ; retour arrière de ses clés en cas d’écriture interrompue.
+
+## RAPPEL-EXPORT-20261111
+
+Rappel local d’export après sept jours ou en l’absence d’export, désactivable et reportable de 24 h. Suppression du rappel après téléchargement déclenché. Guide iPhone enrichi.
+
+Validation : 215 tests unitaires réussis et `tests/backup_browser.py` réussi avec téléchargement réel, import du fichier, comparaison des données restaurées et interactions du rappel. Détails dans `docs/VALIDATION-SAUVEGARDE-20261111.md`. RESTE-101 reste ouvert pour l’essai sur iPhone physique et les limites de restauration globale.

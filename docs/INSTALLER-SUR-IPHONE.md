@@ -41,3 +41,11 @@ L’iPhone peut supprimer le stockage d’un site dans certaines situations ; l�
 ## Vérification fournie
 
 Les tests vérifient le manifeste, les tailles PNG, le lancement WebKit en viewport iPhone et le fonctionnement hors ligne sur Chromium. Ils ne remplacent pas un essai d’ajout sur un véritable iPhone ni la disponibilité permanente d’un hébergement HTTPS et de son backend.
+
+## Sauvegarde de l’atelier
+
+Le bouton **Exporter** télécharge `astralis-sauvegarde-portable.json`. Garde-le dans Fichiers ou un emplacement de ton choix. Le bouton **Importer** permet de le sélectionner sur la nouvelle installation. L’export inclut désormais aussi les objectifs détaillés de vœux, leurs budgets théoriques, les talents actuels/cibles, le stock d’EXP, les priorités et réglages de farm, le classeur et les dispositions enregistrées.
+
+Un rappel local propose l’export lorsqu’aucun export n’a été enregistré sur l’appareil ou après sept jours. **Demain** le reporte de 24 h ; le réglage **Rappel de sauvegarde** permet de le désactiver. Le rappel ne crée pas de copie à lui seul. Une fois le téléchargement déclenché, vérifie la présence du fichier dans Fichiers : le navigateur ne permet pas à Astralis de confirmer où tu l’as conservé.
+
+Les clés de cette extension de sauvegarde sont contrôlées avant import. Une erreur d’écriture pendant la restauration de cette extension remet ses valeurs précédentes ; cela ne constitue pas une transaction atomique de tous les médias et de toutes les bases de l’application. Fais un export de l’appareil de destination avant de restaurer une autre sauvegarde.
