@@ -85,7 +85,7 @@ export function calculateAction(input={}) {
         for(const pool of input.additivePools||[]){
           if(pool.element&&pool.element!==input.elementKey||pool.kinds&&!pool.kinds.includes(input.actionKind)||Number(input.elapsed||0)>=Number(pool.expiresAt??Infinity))continue;
           const remaining=poolState[pool.id]??Number(pool.charges||0),unlimited=pool.unlimitedKinds?.includes(input.actionKind);
-          if(remaining<=0)continue;
+          if(remaining<=0&&!unlimited)continue;
           extra+=Number(pool.flatDamage)||0;
           poolState[pool.id]=unlimited?remaining:remaining-1;
           triggered[pool.id]=(triggered[pool.id]||0)+1;

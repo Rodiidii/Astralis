@@ -74,7 +74,7 @@ async function calculate(p,overrides={}) {
   const allEffects={...(p.loadout==='equipped'&&p.build?equippedBonuses(p):p.referenceBonuses)};
   for(const source of [buffs,configuredWeaponBonuses(activeWeapon(p),p),p.importBonuses||{}])for(const [key,value]of Object.entries(source||{}))allEffects[key]=(allEffects[key]||0)+value;
   const complex=resolveComplex(p,stats);
-  if(complex.warnings.some(w=>/ATQ finale|composition à renseigner/.test(w)))return {ok:false,error:complex.warnings.join(" · "),warnings:complex.warnings,stats};
+  if(complex.warnings.some(w=>/ATQ finale|DÉF finale|composition à renseigner/.test(w)))return {ok:false,error:complex.warnings.join(" · "),warnings:complex.warnings,stats};
   for(const [key,value]of Object.entries(complex.bonuses))allEffects[key]=(allEffects[key]||0)+value;
   const attackBonus=typedAttackBonus(allEffects,p.actionKind,stats);
   const result=calculateAction({

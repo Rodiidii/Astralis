@@ -32,16 +32,16 @@ export function complexEffects(config={},context={}){
  }
  if(esco?.enabled&&Number(esco.constellation)>=1&&active(esco,time,D.Escoffier.constellation1[1])&&team.length===4&&team.every(el=>['hydro','cryo'].includes(el))&&isCryo)add({critDmg:D.Escoffier.constellation1[0]*100},'Escoffier C1 · DGT CRIT Cryo');
  if(esco?.enabled&&Number(esco.constellation)>=2&&id!=='10000112'&&isCryo&&active(esco,time,D.Escoffier.constellation2[0])){
-  if(!(Number(esco.atk)>0))warnings.push('Escoffier C2 : ATQ finale source requise.');
-  else pools.push({id:'escoffier-c2:'+id,flatDamage:Number(esco.atk)*D.Escoffier.constellation2[1],charges:D.Escoffier.constellation2[2],element:'cryo',expiresAt:Number(esco.startedAt||0)+D.Escoffier.constellation2[0]});
+  if(!(Number(esco.atk)>0)||!Number.isFinite(Number(esco.atk)))warnings.push('Escoffier C2 : ATQ finale source requise.');
+  else pools.push({id:'escoffier-c2:'+id+':'+Number(esco.startedAt||0),flatDamage:Number(esco.atk)*D.Escoffier.constellation2[1],charges:D.Escoffier.constellation2[2],element:'cryo',expiresAt:Number(esco.startedAt||0)+D.Escoffier.constellation2[0]});
  }
  const mona=config.mona;
  if(active(mona,time,level(D.Mona.burst[3],mona?.talentLevel||10)+clamp(mona?.freezeExtension,0,30))){add({dmgBonus:level(D.Mona.burst[6],mona.talentLevel||10)*100,...(Number(mona.constellation)>=4?{critRate:Math.abs(D.Mona.constellation4[0])*100}:{})},'Mona · Présage'+(Number(mona.constellation)>=4?' · C4':''));}
  const shenhe=config.shenhe,hold=shenhe?.cast==='hold',shenheLevel=clamp(shenhe?.talentLevel||10,1,13)+(Number(shenhe?.constellation)>=3&&shenhe?.includeConstellationLevels!==false?3:0),shenheDuration=D.Shenhe.skill[hold?4:3][0];
  if(active(shenhe,time,shenheDuration)){
   if(isCryo){
-   if(!(Number(shenhe.atk)>0))warnings.push('Shenhe : ATQ finale source requise pour les plumes de glace.');
-   else pools.push({id:'shenhe-quill:'+id,flatDamage:Number(shenhe.atk)*level(D.Shenhe.skill[2],shenheLevel),charges:D.Shenhe.skill[hold?6:5][0],element:'cryo',expiresAt:Number(shenhe.startedAt||0)+shenheDuration,unlimitedKinds:Number(shenhe.constellation)>=6?['normal','charged']:[]});
+   if(!(Number(shenhe.atk)>0)||!Number.isFinite(Number(shenhe.atk)))warnings.push('Shenhe : ATQ finale source requise pour les plumes de glace.');
+   else pools.push({id:'shenhe-quill:'+id+':'+Number(shenhe.startedAt||0),flatDamage:Number(shenhe.atk)*level(D.Shenhe.skill[2],shenheLevel),charges:D.Shenhe.skill[hold?6:5][0],element:'cryo',expiresAt:Number(shenhe.startedAt||0)+shenheDuration,unlimitedKinds:Number(shenhe.constellation)>=6?['normal','charged']:[]});
   }
   if((hold&&['normal','charged','plunge'].includes(kind))||(!hold&&['skill','burst'].includes(kind)))add({[kind+'Dmg']:D.Shenhe.passive2[hold?2:0][0]*100},'Shenhe · passif après '+(hold?'appui long':'appui court'));
  }
@@ -49,6 +49,20 @@ export function complexEffects(config={},context={}){
  if(shenhe?.enabled&&shenhe.burst&&time>=Number(shenhe.burstStartedAt??shenhe.startedAt??0)&&time<Number(shenhe.burstStartedAt??shenhe.startedAt??0)+burstDuration){
   if(isCryo||element==='physical')add({resReduction:level(D.Shenhe.burst[1],shenhe.burstLevel||10)*100},'Shenhe · réduction de RES du déchaînement');
   if(isCryo&&context.fightPosition!=='off'&&shenhe.insideField!==false)add({cryoDmg:D.Shenhe.passive1[0][0]*100,...(Number(shenhe.constellation)>=2?{critDmg:D.Shenhe.passive1[0][0]*100}:{})},'Shenhe · dans le champ du déchaînement');
+ }
+ const yunjin=config.yunjin;
+ if(active(yunjin,time,D.YunJin.burst[2][0])&&kind==='normal'){
+  const sourceDef=Number(yunjin.def),diversity=new Set(team.filter(el=>['pyro','hydro','cryo','electro','anemo','geo','dendro'].includes(el))).size;
+  const talent=clamp(yunjin.talentLevel||10,1,13)+(Number(yunjin.constellation)>=3&&yunjin.includeConstellationLevels!==false?3:0);
+  if(!(sourceDef>0)||!Number.isFinite(sourceDef))warnings.push('Yun Jin : DÉF finale source requise pour la formation.');
+  else if(yunjin.passive2!==false&&!diversity)warnings.push('Yun Jin : composition à renseigner pour le passif de diversité élémentaire.');
+  else{
+   const ratio=level(D.YunJin.burst[1],talent)+(yunjin.passive2!==false?D.YunJin.passive2[Math.min(diversity,4)-1][0]:0);
+   pools.push({id:'yunjin-banner:'+id+':'+Number(yunjin.startedAt||0),flatDamage:sourceDef*ratio,charges:D.YunJin.burst[5][0],kinds:['normal'],expiresAt:Number(yunjin.startedAt||0)+D.YunJin.burst[2][0]});
+   details.push({name:'Yun Jin · formation · '+diversity+' élément(s) · 30 déclenchements / 12 s',flatDamage:sourceDef*ratio,sourceDef,ratio,diversity,charges:30});
+  }
+  if(Number(yunjin.constellation)>=2)add({normalDmg:D.YunJin.constellation2[0]*100},'Yun Jin C2 · DGT attaques normales');
+  if(Number(yunjin.constellation)>=6)details.push({name:'Yun Jin C6 · vitesse des attaques normales +12 % ; ajuster la durée de rotation manuellement'});
  }
  const skirk=config.skirk;
  if(skirk?.enabled&&id==='10000114'){

@@ -36,6 +36,7 @@ export function evaluateDamageStats(input, artifactStats, counts = new Map()) {
     const context={...hit?.complexContext,actionKind:hit?.actionKind,elementKey:hit?.elementKey};
     const initial=complexEffects(hit?.complexEffects,context),combined={...localBonuses};add(combined,initial.bonuses);
     const stats=finalStats(input.baseStats||{},combined),complex=complexEffects(hit?.complexEffects,{...context,stats});
+    if(complex.warnings.some(w=>/ATQ finale|DÉF finale|composition à renseigner/.test(w)))return {ok:false,error:complex.warnings.join(' · '),warnings:complex.warnings,stats};
     localBonuses=combined;
     const result=calculateAction({...hit,stats,talentScale:complex.talentScale,additivePools:complex.pools,
       flatDamage:(Number(hit?.flatDamage)||0)+(Number(localBonuses.flatDamage)||0)+complex.flatDamage,

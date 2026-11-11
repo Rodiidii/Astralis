@@ -121,7 +121,7 @@ Règles et détails : [MISSION-AUTONOME-COMPLETE.md](MISSION-AUTONOME-COMPLETE.m
 
 - [ ] **RESTE-059** — Fiches lore plus profondes, événements passés classables par région, factions revues, trailers officiels attribués au bon sujet, lecture au clic et youtube-nocookie, repli lien si indisponible, badge Non confirmé pour ce qui n’est pas prouvé.
 
-- [ ] **RESTE-060** — Yun Jin : bonus de dégâts ajoutés, DEF source dynamique, quotas, éléments d’équipe, constellations et interactions.
+- [ ] **RESTE-060** — Yun Jin : relier automatiquement la DÉF source au build de Yun Jin et à ses changements/buffs C4 dans une vraie équipe ; intégrer la vitesse C6 au modèle temporel lorsque celui-ci sait simuler les cadences. Formation, quota par bénéficiaire/activation, diversité, C2/C3 et saisie de DÉF finale sont traités dans FAIT.md (YUNJIN-QUOTAS-20261111).
 
 - [ ] **RESTE-061** — Lauma : bonus spécifiques Bloom/Hyperbloom/Burgeon/Lunar-Bloom et leurs conditions/consommations.
 

@@ -793,3 +793,7 @@ Comparaison partagée entre vues, signes et unités respectés, référence chif
 ## OPTIMISEUR-RECHERCHE-COMPLEXE-20261111
 
 Bornes des coups simples désactivées pour effets complexes actifs et coups pondérés ; vecteurs complets conservés, annulation coopérative et stratégie explicite. Deux top 5 comparés à des recherches brutes, annulation testée, benchmark représentatif partiel 1 000/5 000 pièces publié. Preuves et limites dans `docs/VALIDATION-OPTIMISEUR-RECHERCHE-20261111.md`. Les points globaux restent ouverts.
+
+## YUNJIN-QUOTAS-20261111
+
+Formation de Yun Jin et réglages (DÉF finale, diversité, C2/C3, quota, expiration), quotas renouvelés par activation et séparés par bénéficiaire, correction Shenhe C6 après épuisement, refus des sources absentes/infinies dans le calcul et l’optimiseur. Panneau avec quatre éléments éditables et correction du débordement mobile. Six nouveaux tests ; 235 tests unitaires réussis ; test navigateur desktop/mobile et parcours complet laboratoire/inventaire/buffs/rotation/PNG réussis. Preuves et limites : `docs/VALIDATION-YUNJIN-QUOTAS-20261111.md`. RESTE-060 ne conserve que ses raccordements dynamiques et temporels encore à faire ; les autres exigences globales restent ouvertes.
