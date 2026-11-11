@@ -32,6 +32,40 @@ cache_lock = threading.Lock()
 _HOYOLAB_RESIN_CACHE: tuple[float, dict] | None = None
 _UPDATE_STATUS: dict[str, object] = {"state": "idle"}
 _UPDATE_LOCK = threading.Lock()
+_APP_SESSIONS: dict[str, float] = {}
+_APP_SESSION_LOCK = threading.Lock()
+_APP_SESSIONS_SEEN = False
+_APP_SHUTDOWN_TIMER: threading.Timer | None = None
+_APP_HTTP_SERVER: ThreadingHTTPServer | None = None
+
+def _shutdown_app_if_idle() -> None:
+    global _APP_SHUTDOWN_TIMER
+    with _APP_SESSION_LOCK:
+        _APP_SHUTDOWN_TIMER = None
+        if not _APP_SESSIONS_SEEN or _APP_SESSIONS or not _APP_HTTP_SERVER:
+            return
+        server = _APP_HTTP_SERVER
+    print("[Astralis] Toutes les fenêtres sont fermées; arrêt du serveur local.")
+    server.shutdown()
+
+def _schedule_app_shutdown_locked() -> None:
+    global _APP_SHUTDOWN_TIMER
+    if _APP_SHUTDOWN_TIMER:
+        return
+    _APP_SHUTDOWN_TIMER = threading.Timer(12, _shutdown_app_if_idle)
+    _APP_SHUTDOWN_TIMER.daemon = True
+    _APP_SHUTDOWN_TIMER.start()
+
+def _watch_app_sessions() -> None:
+    while True:
+        time.sleep(30)
+        now = time.time()
+        with _APP_SESSION_LOCK:
+            for session, heartbeat in list(_APP_SESSIONS.items()):
+                if now - heartbeat > 180:
+                    _APP_SESSIONS.pop(session, None)
+            if _APP_SESSIONS_SEEN and not _APP_SESSIONS:
+                _schedule_app_shutdown_locked()
 
 def _github_release(repo: str) -> dict:
     if not re.fullmatch(r"[A-Za-z0-9_.-]{1,100}/[A-Za-z0-9_.-]{1,100}", repo):
@@ -1179,15 +1213,32 @@ class Handler(SimpleHTTPRequestHandler):
     def do_POST(self) -> None:
         global _HOYOLAB_RESIN_CACHE
         path = urlsplit(self.path).path
-        if path not in {"/api/hoyolab/credentials", "/api/hoyolab/disconnect", "/api/update/install", "/api/lab/team-export"}:
+        if path not in {"/api/hoyolab/credentials", "/api/hoyolab/disconnect", "/api/update/install", "/api/lab/team-export", "/api/app-session/open", "/api/app-session/close"}:
             self.send_json(404, {"error":"Route inconnue."}); return
         origin = self.headers.get("Origin", "")
         if not _is_local_origin(origin):
             self.send_json(403, {"error":"Origine refusée."}); return
+        if path.startswith("/api/app-session/") and not ipaddress.ip_address(self.client_address[0]).is_loopback:
+            self.send_json(403, {"error":"Arrêt réservé à Astralis sur cet appareil."}); return
         try:
             length = int(self.headers.get("Content-Length", "0"))
             if length < 1 or length > (2_000_000 if path == "/api/lab/team-export" else 8192): raise ValueError("Taille de requête invalide.")
             body = json.loads(self.rfile.read(length))
+            if path in {"/api/app-session/open", "/api/app-session/close"}:
+                session = str(body.get("id", ""))
+                if not re.fullmatch(r"[A-Za-z0-9_-]{16,80}", session): raise ValueError("Session locale invalide.")
+                global _APP_SESSIONS_SEEN, _APP_SHUTDOWN_TIMER
+                with _APP_SESSION_LOCK:
+                    if path.endswith("/open"):
+                        _APP_SESSIONS_SEEN = True
+                        _APP_SESSIONS[session] = time.time()
+                        if _APP_SHUTDOWN_TIMER:
+                            _APP_SHUTDOWN_TIMER.cancel(); _APP_SHUTDOWN_TIMER = None
+                    else:
+                        removed = _APP_SESSIONS.pop(session, None) is not None
+                        if removed and _APP_SESSIONS_SEEN and not _APP_SESSIONS:
+                            _schedule_app_shutdown_locked()
+                self.send_json(200, {"ok": True}); return
             if path == "/api/lab/team-export":
                 if body.get("format") != "astralis-team" or not isinstance(body.get("name"), str) or not isinstance(body.get("team"), dict):
                     raise ValueError("Export d’équipe Astralis invalide.")
@@ -1763,8 +1814,13 @@ if __name__ == "__main__":
     if os.name == "nt":
         ThreadingHTTPServer.allow_reuse_address = False
     server = ThreadingHTTPServer((HOST, PORT), Handler)
+    _APP_HTTP_SERVER = server
     print(f"Astralis lancé sur http://{HOST}:{PORT}")
     start_maintenance()
-    server.serve_forever()
+    threading.Thread(target=_watch_app_sessions, daemon=True).start()
+    try:
+        server.serve_forever()
+    finally:
+        server.server_close()
 
 

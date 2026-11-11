@@ -22,14 +22,14 @@ export async function addRulerSatellites(model){
   for(let i=0;i<data.length;i++){
    const source=data[i],root=new T.Group();root.name='ruler-'+source.name;root.userData.satellite='ruler';root.visible=false;
    const texture=new T.TextureLoader().load(new URL(`../assets/cosmos/rulers/${source.name}/reference.png`,import.meta.url).href,()=>model.onReady?.());texture.colorSpace=T.SRGBColorSpace;
-   const face=new T.MeshStandardMaterial({map:texture,color:'#ffffff',roughness:.38,metalness:.22,side:T.DoubleSide});
+   const face=new T.MeshStandardMaterial({map:texture,color:'#ffffff',roughness:.38,metalness:.22,side:T.DoubleSide,transparent:true,alphaTest:.035,depthWrite:false});
    const edge=new T.MeshStandardMaterial({color:model.rulerColors?.[source.name]||['#8b1830','#aaa0ff','#d8ae50'][i],roughness:.35,metalness:.6});
    const object=new T.Mesh(rulerGeometry(source),[face,edge]);object.scale.setScalar(.47/source.aspect);root.add(object);model.orbits.add(root);
    const plane=new T.Quaternion().setFromEuler(new T.Euler([.42,1.13,-.68][i],0,[.32,-.7,1.05][i]));
    model.animated.push(t=>{
     const a=t*[.29,-.23,.19][i]+i*2.094,r=1.55+i*.12;
     root.position.set(Math.cos(a)*r,Math.sin(a*2+i)*.12,Math.sin(a)*(r*.78)).applyQuaternion(plane);
-    root.quaternion.copy(model.camera.quaternion);root.rotateZ(Math.sin(t*.4+i)*.16);object.rotation.y=Math.sin(t*.55+i)*.35;
+    root.quaternion.copy(plane);root.rotateZ(Math.sin(t*.4+i)*.16);object.rotation.y=Math.sin(t*.55+i)*.35;
    });
   }
   model.onReady?.();

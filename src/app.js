@@ -1,3 +1,4 @@
+import './app-lifecycle.js?v=20261111-close-server-1';
 import {validateManualArtifact} from './artifact-entry.js';
 import {showReleaseNotes} from './release-notes.js';
 import {backupReminderDue,exportWorkspaceState,validateWorkspaceState,restoreWorkspaceState} from './backup-workspace.js';
@@ -25,7 +26,7 @@ import relationOverrides from '../assets/data/gi-relation-overrides.json' with {
 import { documentedRelationPairs, isTravelerVariant, relationId, renderRelations } from './relations.js?v=83';
 import relationTeamIcons from '../assets/relations/team-portrait-sources.json' with { type: 'json' };
 import { drawPoster, posterBitmap, previewPng } from './poster-export.js?v=84';
-import { renderStudio } from './dashboard-studio.js?v=20261111-orbit-repair-1';
+import { renderStudio } from './dashboard-studio.js?v=20261111-orbital-3d-1';
 import { buildCardCatalog, RARITIES } from './card-catalog.js?v=20261109-cards-2';
 import { cardMarkup, configureCardKits, ensureCardKit, preloadCards, cardAssetsReady, exportCardPng } from './card-renderer.js?v=20261109-cards-2';
 import { importSourcesStatus } from './import-sources.js?v=20261109-sources-1';
