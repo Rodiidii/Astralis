@@ -1,0 +1,813 @@
+{
+  "name": "Furina Yelan Xilonen",
+  "description": "Celestia",
+  "lastEdit": 1794419956002,
+  "conditional": {
+    "resonance": {},
+    "reaction": {}
+  },
+  "enemyOverride": {
+    "enemyLevel": 100,
+    "enemyDefIgn_": 0,
+    "enemyDefRed_": 0,
+    "pyro_enemyRes_": 10,
+    "hydro_enemyRes_": 10,
+    "electro_enemyRes_": 10,
+    "cryo_enemyRes_": 10,
+    "anemo_enemyRes_": 10,
+    "geo_enemyRes_": 10,
+    "dendro_enemyRes_": 10,
+    "physical_enemyRes_": 10
+  },
+  "loadoutData": [
+    {
+      "key": "HuTao",
+      "name": "HuTao (Celestia)",
+      "description": "",
+      "hitMode": "avgHit",
+      "infusionAura": "",
+      "bonusStats": {},
+      "conditional": {
+        "HuTao": {
+          "GuideToAfterlifeVoyage": "on"
+        }
+      },
+      "customMultiTargets": [
+        {
+          "name": "Furina Yelan Xilonen",
+          "description": "Celestia",
+          "targets": [
+            {
+              "weight": 0.2376,
+              "path": [
+                "skill",
+                "dmg"
+              ],
+              "hitMode": "avgHit",
+              "bonusStats": {
+                "eleMas": 117.932,
+                "all_dmg_": 25.6,
+                "pyro_enemyRes_": -36,
+                "atk": -2292.871
+              },
+              "description": ""
+            },
+            {
+              "weight": 1.8673,
+              "path": [
+                "skill",
+                "dmg"
+              ],
+              "hitMode": "avgHit",
+              "bonusStats": {
+                "eleMas": 117.932,
+                "all_dmg_": 25.6,
+                "pyro_enemyRes_": -36,
+                "atk": -2292.871
+              },
+              "description": ""
+            },
+            {
+              "weight": 2.1028,
+              "path": [
+                "skill",
+                "dmg"
+              ],
+              "hitMode": "avgHit",
+              "bonusStats": {
+                "eleMas": 117.932,
+                "all_dmg_": 123.95,
+                "pyro_enemyRes_": -36,
+                "atk": -2292.871
+              },
+              "description": ""
+            },
+            {
+              "weight": 1,
+              "path": [
+                "normal",
+                "0"
+              ],
+              "hitMode": "avgHit",
+              "reaction": "vaporize",
+              "infusionAura": "pyro",
+              "bonusStats": {
+                "eleMas": 217.932,
+                "atk_": 20,
+                "all_dmg_": 137.6,
+                "pyro_enemyRes_": -36,
+                "critRate_": 22.92
+              },
+              "description": ""
+            },
+            {
+              "weight": 1,
+              "path": [
+                "charged",
+                "dmg"
+              ],
+              "hitMode": "avgHit",
+              "reaction": "vaporize",
+              "infusionAura": "pyro",
+              "bonusStats": {
+                "eleMas": 217.932,
+                "atk_": 20,
+                "all_dmg_": 140.6,
+                "pyro_enemyRes_": -36,
+                "critRate_": 34.68
+              },
+              "description": ""
+            },
+            {
+              "weight": 1,
+              "path": [
+                "normal",
+                "0"
+              ],
+              "hitMode": "avgHit",
+              "infusionAura": "pyro",
+              "bonusStats": {
+                "eleMas": 217.932,
+                "atk_": 20,
+                "all_dmg_": 140.6,
+                "pyro_enemyRes_": -36,
+                "critRate_": 34.68
+              },
+              "description": ""
+            },
+            {
+              "weight": 1,
+              "path": [
+                "charged",
+                "dmg"
+              ],
+              "hitMode": "avgHit",
+              "reaction": "vaporize",
+              "infusionAura": "pyro",
+              "bonusStats": {
+                "eleMas": 217.932,
+                "atk_": 20,
+                "all_dmg_": 144.6,
+                "pyro_enemyRes_": -36,
+                "critRate_": 34.68
+              },
+              "description": ""
+            },
+            {
+              "weight": 1,
+              "path": [
+                "normal",
+                "0"
+              ],
+              "hitMode": "avgHit",
+              "infusionAura": "pyro",
+              "bonusStats": {
+                "eleMas": 217.932,
+                "atk_": 20,
+                "all_dmg_": 144.6,
+                "pyro_enemyRes_": -36,
+                "critRate_": 36
+              },
+              "description": ""
+            },
+            {
+              "weight": 1,
+              "path": [
+                "charged",
+                "dmg"
+              ],
+              "hitMode": "avgHit",
+              "reaction": "vaporize",
+              "infusionAura": "pyro",
+              "bonusStats": {
+                "eleMas": 217.932,
+                "atk_": 20,
+                "all_dmg_": 147.6,
+                "pyro_enemyRes_": -36,
+                "critRate_": 36
+              },
+              "description": ""
+            },
+            {
+              "weight": 1,
+              "path": [
+                "normal",
+                "0"
+              ],
+              "hitMode": "avgHit",
+              "reaction": "vaporize",
+              "infusionAura": "pyro",
+              "bonusStats": {
+                "eleMas": 217.932,
+                "atk_": 20,
+                "all_dmg_": 147.6,
+                "pyro_enemyRes_": -36,
+                "critRate_": 36
+              },
+              "description": ""
+            },
+            {
+              "weight": 1,
+              "path": [
+                "charged",
+                "dmg"
+              ],
+              "hitMode": "avgHit",
+              "reaction": "vaporize",
+              "infusionAura": "pyro",
+              "bonusStats": {
+                "eleMas": 217.932,
+                "atk_": 20,
+                "all_dmg_": 150.6,
+                "pyro_enemyRes_": -36,
+                "critRate_": 36
+              },
+              "description": ""
+            },
+            {
+              "weight": 1,
+              "path": [
+                "normal",
+                "0"
+              ],
+              "hitMode": "avgHit",
+              "infusionAura": "pyro",
+              "bonusStats": {
+                "eleMas": 217.932,
+                "atk_": 20,
+                "all_dmg_": 150.6,
+                "pyro_enemyRes_": -36,
+                "critRate_": 36
+              },
+              "description": ""
+            },
+            {
+              "weight": 1,
+              "path": [
+                "charged",
+                "dmg"
+              ],
+              "hitMode": "avgHit",
+              "reaction": "vaporize",
+              "infusionAura": "pyro",
+              "bonusStats": {
+                "eleMas": 217.932,
+                "atk_": 20,
+                "all_dmg_": 154.6,
+                "pyro_enemyRes_": -36,
+                "critRate_": 36
+              },
+              "description": ""
+            },
+            {
+              "weight": 1,
+              "path": [
+                "normal",
+                "0"
+              ],
+              "hitMode": "avgHit",
+              "infusionAura": "pyro",
+              "bonusStats": {
+                "eleMas": 217.932,
+                "atk_": 20,
+                "all_dmg_": 154.6,
+                "pyro_enemyRes_": -36,
+                "critRate_": 36
+              },
+              "description": ""
+            },
+            {
+              "weight": 2.3081,
+              "path": [
+                "skill",
+                "dmg"
+              ],
+              "hitMode": "avgHit",
+              "bonusStats": {
+                "eleMas": 217.932,
+                "atk_": 20,
+                "all_dmg_": 154.6,
+                "pyro_enemyRes_": -36,
+                "critRate_": 36
+              },
+              "description": ""
+            },
+            {
+              "weight": 1,
+              "path": [
+                "charged",
+                "dmg"
+              ],
+              "hitMode": "avgHit",
+              "reaction": "vaporize",
+              "infusionAura": "pyro",
+              "bonusStats": {
+                "eleMas": 217.932,
+                "atk_": 20,
+                "all_dmg_": 157.6,
+                "pyro_enemyRes_": -36,
+                "critRate_": 36
+              },
+              "description": ""
+            },
+            {
+              "weight": 1,
+              "path": [
+                "normal",
+                "0"
+              ],
+              "hitMode": "avgHit",
+              "reaction": "vaporize",
+              "infusionAura": "pyro",
+              "bonusStats": {
+                "eleMas": 217.932,
+                "atk_": 20,
+                "all_dmg_": 157.6,
+                "pyro_enemyRes_": -36,
+                "critRate_": 36
+              },
+              "description": ""
+            },
+            {
+              "weight": 1,
+              "path": [
+                "charged",
+                "dmg"
+              ],
+              "hitMode": "avgHit",
+              "reaction": "vaporize",
+              "infusionAura": "pyro",
+              "bonusStats": {
+                "eleMas": 217.932,
+                "atk_": 20,
+                "all_dmg_": 161.6,
+                "pyro_enemyRes_": -36,
+                "critRate_": 36
+              },
+              "description": ""
+            },
+            {
+              "weight": 1,
+              "path": [
+                "normal",
+                "0"
+              ],
+              "hitMode": "avgHit",
+              "infusionAura": "pyro",
+              "bonusStats": {
+                "eleMas": 217.932,
+                "atk_": 20,
+                "all_dmg_": 161.6,
+                "pyro_enemyRes_": -36,
+                "critRate_": 36
+              },
+              "description": ""
+            },
+            {
+              "weight": 1,
+              "path": [
+                "charged",
+                "dmg"
+              ],
+              "hitMode": "avgHit",
+              "reaction": "vaporize",
+              "infusionAura": "pyro",
+              "bonusStats": {
+                "eleMas": 217.932,
+                "atk_": 20,
+                "all_dmg_": 165.6,
+                "pyro_enemyRes_": -36,
+                "critRate_": 36
+              },
+              "description": ""
+            },
+            {
+              "weight": 1,
+              "path": [
+                "normal",
+                "0"
+              ],
+              "hitMode": "avgHit",
+              "infusionAura": "pyro",
+              "bonusStats": {
+                "eleMas": 217.932,
+                "atk_": 20,
+                "all_dmg_": 165.6,
+                "pyro_enemyRes_": -36,
+                "critRate_": 36
+              },
+              "description": ""
+            },
+            {
+              "weight": 1,
+              "path": [
+                "normal",
+                "1"
+              ],
+              "hitMode": "avgHit",
+              "reaction": "vaporize",
+              "infusionAura": "pyro",
+              "bonusStats": {
+                "eleMas": 217.932,
+                "atk_": 20,
+                "all_dmg_": 165.6,
+                "pyro_enemyRes_": -36,
+                "critRate_": 36
+              },
+              "description": ""
+            },
+            {
+              "weight": 1,
+              "path": [
+                "charged",
+                "dmg"
+              ],
+              "hitMode": "avgHit",
+              "reaction": "vaporize",
+              "infusionAura": "pyro",
+              "bonusStats": {
+                "eleMas": 217.932,
+                "atk_": 20,
+                "all_dmg_": 168.6,
+                "pyro_enemyRes_": -36,
+                "critRate_": 36
+              },
+              "description": ""
+            },
+            {
+              "weight": 1,
+              "path": [
+                "normal",
+                "0"
+              ],
+              "hitMode": "avgHit",
+              "reaction": "vaporize",
+              "infusionAura": "pyro",
+              "bonusStats": {
+                "eleMas": 217.932,
+                "atk_": 20,
+                "all_dmg_": 168.6,
+                "pyro_enemyRes_": -36,
+                "critRate_": 36
+              },
+              "description": ""
+            },
+            {
+              "weight": 2.3081,
+              "path": [
+                "skill",
+                "dmg"
+              ],
+              "hitMode": "avgHit",
+              "bonusStats": {
+                "eleMas": 217.932,
+                "atk_": 20,
+                "all_dmg_": 125.6,
+                "pyro_enemyRes_": -36,
+                "critRate_": 36,
+                "atk": -2292.871
+              },
+              "description": ""
+            }
+          ]
+        }
+      ],
+      "optConfig": {
+        "optimizationTarget": [
+          "custom",
+          "0"
+        ]
+      },
+      "buildTcs": [
+        {
+          "name": "Celestia",
+          "description": "The leaderboard reference build.",
+          "characterKey": "HuTao",
+          "character": {
+            "level": 90,
+            "ascension": 6,
+            "constellation": 0,
+            "talent": {
+              "auto": 10,
+              "skill": 10,
+              "burst": 10
+            }
+          },
+          "weapon": {
+            "key": "StaffOfHoma",
+            "level": 90,
+            "ascension": 6,
+            "refinement": 1
+          },
+          "artifact": {
+            "sets": {
+              "MarechausseeHunter": 5
+            },
+            "slots": {
+              "flower": {
+                "level": 20,
+                "rarity": 5,
+                "statKey": "hp"
+              },
+              "plume": {
+                "level": 20,
+                "rarity": 5,
+                "statKey": "atk"
+              },
+              "sands": {
+                "level": 20,
+                "rarity": 5,
+                "statKey": "hp_"
+              },
+              "goblet": {
+                "level": 20,
+                "rarity": 5,
+                "statKey": "pyro_dmg_"
+              },
+              "circlet": {
+                "level": 20,
+                "rarity": 5,
+                "statKey": "critRate_"
+              }
+            },
+            "substats": {
+              "type": "max",
+              "rarity": 5,
+              "stats": {
+                "def": 39.35,
+                "def_": 12.39,
+                "eleMas": 118.89,
+                "critRate_": 26.44,
+                "critDMG_": 79.26,
+                "hp": 507.88,
+                "hp_": 9.91,
+                "enerRech_": 11.01,
+                "atk": 33.07,
+                "atk_": 9.91
+              }
+            }
+          },
+          "optimization": {
+            "distributedSubstats": 0,
+            "maxSubstats": {}
+          }
+        }
+      ]
+    },
+    {
+      "key": "Xilonen",
+      "name": "Xilonen (Celestia)",
+      "description": "",
+      "hitMode": "avgHit",
+      "infusionAura": "",
+      "bonusStats": {},
+      "conditional": {},
+      "customMultiTargets": [],
+      "buildTcs": [
+        {
+          "name": "Celestia",
+          "description": "Celestia teammate assumption (85% of the maximum).",
+          "characterKey": "Xilonen",
+          "character": {
+            "level": 90,
+            "ascension": 6,
+            "constellation": 0,
+            "talent": {
+              "auto": 10,
+              "skill": 10,
+              "burst": 10
+            }
+          },
+          "weapon": {
+            "key": "PeakPatrolSong",
+            "level": 90,
+            "ascension": 6,
+            "refinement": 1
+          },
+          "artifact": {
+            "sets": {
+              "ScrollOfTheHeroOfCinderCity": 4
+            },
+            "slots": {
+              "flower": {
+                "level": 20,
+                "rarity": 5,
+                "statKey": "hp"
+              },
+              "plume": {
+                "level": 20,
+                "rarity": 5,
+                "statKey": "atk"
+              },
+              "sands": {
+                "level": 20,
+                "rarity": 5,
+                "statKey": "enerRech_"
+              },
+              "goblet": {
+                "level": 20,
+                "rarity": 5,
+                "statKey": "def_"
+              },
+              "circlet": {
+                "level": 20,
+                "rarity": 5,
+                "statKey": "def_"
+              }
+            },
+            "substats": {
+              "type": "max",
+              "rarity": 5,
+              "stats": {
+                "hp": 507.88,
+                "atk": 33.08,
+                "def": 236.16,
+                "hp_": 9.92,
+                "atk_": 9.92,
+                "def_": 49.6,
+                "eleMas": 39.64,
+                "enerRech_": 27.55,
+                "critRate_": 9.93,
+                "critDMG_": 13.24
+              }
+            }
+          },
+          "optimization": {
+            "distributedSubstats": 0,
+            "maxSubstats": {}
+          }
+        }
+      ]
+    },
+    {
+      "key": "Furina",
+      "name": "Furina (Celestia)",
+      "description": "",
+      "hitMode": "avgHit",
+      "infusionAura": "",
+      "bonusStats": {},
+      "conditional": {},
+      "customMultiTargets": [],
+      "buildTcs": [
+        {
+          "name": "Celestia",
+          "description": "Celestia teammate assumption (85% of the maximum).",
+          "characterKey": "Furina",
+          "character": {
+            "level": 90,
+            "ascension": 6,
+            "constellation": 2,
+            "talent": {
+              "auto": 10,
+              "skill": 10,
+              "burst": 10
+            }
+          },
+          "weapon": {
+            "key": "KeyOfKhajNisut",
+            "level": 90,
+            "ascension": 6,
+            "refinement": 1
+          },
+          "artifact": {
+            "sets": {
+              "GoldenTroupe": 4
+            },
+            "slots": {
+              "flower": {
+                "level": 20,
+                "rarity": 5,
+                "statKey": "hp"
+              },
+              "plume": {
+                "level": 20,
+                "rarity": 5,
+                "statKey": "atk"
+              },
+              "sands": {
+                "level": 20,
+                "rarity": 5,
+                "statKey": "hp_"
+              },
+              "goblet": {
+                "level": 20,
+                "rarity": 5,
+                "statKey": "hp_"
+              },
+              "circlet": {
+                "level": 20,
+                "rarity": 5,
+                "statKey": "critDMG_"
+              }
+            },
+            "substats": {
+              "type": "max",
+              "rarity": 5,
+              "stats": {
+                "hp": 1523.64,
+                "atk": 33.08,
+                "def": 39.36,
+                "hp_": 39.68,
+                "atk_": 9.92,
+                "def_": 12.4,
+                "eleMas": 39.64,
+                "enerRech_": 66.12,
+                "critRate_": 6.62,
+                "critDMG_": 13.24
+              }
+            }
+          },
+          "optimization": {
+            "distributedSubstats": 0,
+            "maxSubstats": {}
+          }
+        }
+      ]
+    },
+    {
+      "key": "Yelan",
+      "name": "Yelan (Celestia)",
+      "description": "",
+      "hitMode": "avgHit",
+      "infusionAura": "",
+      "bonusStats": {},
+      "conditional": {},
+      "customMultiTargets": [],
+      "buildTcs": [
+        {
+          "name": "Celestia",
+          "description": "Celestia teammate assumption (85% of the maximum).",
+          "characterKey": "Yelan",
+          "character": {
+            "level": 90,
+            "ascension": 6,
+            "constellation": 0,
+            "talent": {
+              "auto": 10,
+              "skill": 10,
+              "burst": 10
+            }
+          },
+          "weapon": {
+            "key": "ElegyForTheEnd",
+            "level": 90,
+            "ascension": 6,
+            "refinement": 1
+          },
+          "artifact": {
+            "sets": {
+              "EmblemOfSeveredFate": 4
+            },
+            "slots": {
+              "flower": {
+                "level": 20,
+                "rarity": 5,
+                "statKey": "hp"
+              },
+              "plume": {
+                "level": 20,
+                "rarity": 5,
+                "statKey": "atk"
+              },
+              "sands": {
+                "level": 20,
+                "rarity": 5,
+                "statKey": "hp_"
+              },
+              "goblet": {
+                "level": 20,
+                "rarity": 5,
+                "statKey": "hydro_dmg_"
+              },
+              "circlet": {
+                "level": 20,
+                "rarity": 5,
+                "statKey": "critDMG_"
+              }
+            },
+            "substats": {
+              "type": "max",
+              "rarity": 5,
+              "stats": {
+                "hp": 507.88,
+                "atk": 33.08,
+                "def": 39.36,
+                "hp_": 9.92,
+                "atk_": 9.92,
+                "def_": 12.4,
+                "eleMas": 39.64,
+                "enerRech_": 33.06,
+                "critRate_": 39.72,
+                "critDMG_": 52.96
+              }
+            }
+          },
+          "optimization": {
+            "distributedSubstats": 0,
+            "maxSubstats": {}
+          }
+        }
+      ]
+    }
+  ]
+}

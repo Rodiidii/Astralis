@@ -1,7 +1,7 @@
 {
   "name": "Off-field Lunar-Charged",
   "description": "Celestia",
-  "lastEdit": 1794350979014,
+  "lastEdit": 1794419949688,
   "conditional": {
     "resonance": {},
     "reaction": {}
@@ -663,7 +663,7 @@
               "description": ""
             },
             {
-              "weight": 1.1181,
+              "weight": 1.188,
               "path": [
                 "reaction",
                 "lunarcharged"
@@ -744,54 +744,6 @@
             },
             {
               "weight": 0.1198,
-              "path": [
-                "reaction",
-                "lunarcharged"
-              ],
-              "hitMode": "avgHit",
-              "bonusStats": {
-                "eleMas": 179.171,
-                "atk_": -0.795,
-                "lunarcharged_baseDmg_": 21,
-                "lunarcharged_dmg_": 166.928,
-                "electro_enemyRes_": -40
-              },
-              "description": ""
-            },
-            {
-              "weight": 0.0449,
-              "path": [
-                "reaction",
-                "lunarcharged"
-              ],
-              "hitMode": "avgHit",
-              "bonusStats": {
-                "eleMas": 179.171,
-                "atk_": -0.795,
-                "lunarcharged_baseDmg_": 21,
-                "lunarcharged_dmg_": 166.928,
-                "electro_enemyRes_": -40
-              },
-              "description": ""
-            },
-            {
-              "weight": 0.005,
-              "path": [
-                "reaction",
-                "lunarcharged"
-              ],
-              "hitMode": "avgHit",
-              "bonusStats": {
-                "eleMas": 179.171,
-                "atk_": -0.795,
-                "lunarcharged_baseDmg_": 21,
-                "lunarcharged_dmg_": 166.928,
-                "electro_enemyRes_": -40
-              },
-              "description": ""
-            },
-            {
-              "weight": 0.02,
               "path": [
                 "reaction",
                 "lunarcharged"

@@ -1,7 +1,7 @@
 {
   "name": "Nilou Lunar-Bloom",
   "description": "Celestia",
-  "lastEdit": 1794350926736,
+  "lastEdit": 1794419925203,
   "conditional": {
     "resonance": {},
     "reaction": {}
@@ -84,24 +84,6 @@
               "description": ""
             },
             {
-              "weight": 0.0379,
-              "path": [
-                "skill",
-                "lunarbloomDmg"
-              ],
-              "hitMode": "avgHit",
-              "bonusStats": {
-                "lunarbloom_baseDmg_": 14,
-                "lunarbloom_dmgInc": 5512.508,
-                "eleMas": 208.333,
-                "lunarbloom_critRate_": 10,
-                "lunarbloom_critDMG_": 20,
-                "dendro_enemyRes_": -55,
-                "lunarbloom_dmg_": 39.333
-              },
-              "description": ""
-            },
-            {
               "weight": 0.9442,
               "path": [
                 "charged",
@@ -120,19 +102,6 @@
               "description": ""
             },
             {
-              "weight": 0.0563,
-              "path": [
-                "charged",
-                "dmg"
-              ],
-              "hitMode": "avgHit",
-              "bonusStats": {
-                "eleMas": 178.571,
-                "hydro_enemyRes_": -25
-              },
-              "description": ""
-            },
-            {
               "weight": 0.9442,
               "path": [
                 "charged",
@@ -150,25 +119,7 @@
               "description": ""
             },
             {
-              "weight": 0.0688,
-              "path": [
-                "skill",
-                "lunarbloomDmg"
-              ],
-              "hitMode": "avgHit",
-              "bonusStats": {
-                "lunarbloom_baseDmg_": 14,
-                "lunarbloom_dmgInc": 3608.187,
-                "eleMas": 136.364,
-                "lunarbloom_critRate_": 10,
-                "lunarbloom_critDMG_": 20,
-                "dendro_enemyRes_": -55,
-                "lunarbloom_dmg_": 35.091
-              },
-              "description": ""
-            },
-            {
-              "weight": 0.6151,
+              "weight": 0.6904,
               "path": [
                 "skill",
                 "continuousDmg"
@@ -177,42 +128,6 @@
               "bonusStats": {
                 "eleMas": 155.612,
                 "hydro_enemyRes_": -25
-              },
-              "description": ""
-            },
-            {
-              "weight": 0.0558,
-              "path": [
-                "skill",
-                "lunarbloomDmg"
-              ],
-              "hitMode": "avgHit",
-              "bonusStats": {
-                "lunarbloom_baseDmg_": 14,
-                "lunarbloom_dmgInc": 2205.003,
-                "eleMas": 138.889,
-                "lunarbloom_critRate_": 10,
-                "lunarbloom_critDMG_": 20,
-                "dendro_enemyRes_": -55,
-                "lunarbloom_dmg_": 42.091
-              },
-              "description": ""
-            },
-            {
-              "weight": 0.0309,
-              "path": [
-                "skill",
-                "lunarbloomDmg"
-              ],
-              "hitMode": "avgHit",
-              "bonusStats": {
-                "lunarbloom_baseDmg_": 14,
-                "lunarbloom_dmgInc": 2646.004,
-                "eleMas": 50,
-                "lunarbloom_critRate_": 10,
-                "lunarbloom_critDMG_": 20,
-                "dendro_enemyRes_": -55,
-                "lunarbloom_dmg_": 30
               },
               "description": ""
             },
@@ -307,7 +222,7 @@
               "description": ""
             },
             {
-              "weight": 0.2123,
+              "weight": 0.3429,
               "path": [
                 "skill",
                 "lunarbloomDmg"
@@ -319,18 +234,6 @@
                 "lunarbloom_critDMG_": 20,
                 "dendro_enemyRes_": -55,
                 "lunarbloom_dmg_": 39.19
-              },
-              "description": ""
-            },
-            {
-              "weight": 0.0753,
-              "path": [
-                "skill",
-                "continuousDmg"
-              ],
-              "hitMode": "avgHit",
-              "bonusStats": {
-                "hydro_enemyRes_": -25
               },
               "description": ""
             },
@@ -412,22 +315,6 @@
                 "lunarbloom_critDMG_": 20,
                 "dendro_enemyRes_": -55,
                 "lunarbloom_dmg_": 108.49
-              },
-              "description": ""
-            },
-            {
-              "weight": 0.0808,
-              "path": [
-                "skill",
-                "lunarbloomDmg"
-              ],
-              "hitMode": "avgHit",
-              "bonusStats": {
-                "lunarbloom_baseDmg_": 14,
-                "lunarbloom_critRate_": 10,
-                "lunarbloom_critDMG_": 20,
-                "dendro_enemyRes_": -55,
-                "lunarbloom_dmg_": 97.1
               },
               "description": ""
             },
@@ -630,38 +517,6 @@
               "description": ""
             },
             {
-              "weight": 0.0498,
-              "path": [
-                "skill",
-                "lunarbloomDmg"
-              ],
-              "hitMode": "avgHit",
-              "bonusStats": {
-                "lunarbloom_baseDmg_": 14,
-                "lunarbloom_critRate_": 10,
-                "lunarbloom_critDMG_": 20,
-                "dendro_enemyRes_": -55,
-                "lunarbloom_dmg_": 98.66
-              },
-              "description": ""
-            },
-            {
-              "weight": 0.0379,
-              "path": [
-                "skill",
-                "lunarbloomDmg"
-              ],
-              "hitMode": "avgHit",
-              "bonusStats": {
-                "lunarbloom_baseDmg_": 14,
-                "lunarbloom_critRate_": 10,
-                "lunarbloom_critDMG_": 20,
-                "dendro_enemyRes_": -55,
-                "lunarbloom_dmg_": 98.073
-              },
-              "description": ""
-            },
-            {
               "weight": 0.1436,
               "path": [
                 "skill",
@@ -702,34 +557,6 @@
                 "lunarbloom_critDMG_": 20,
                 "dendro_enemyRes_": -55,
                 "lunarbloom_dmg_": 108.949
-              },
-              "description": ""
-            },
-            {
-              "weight": 0.0502,
-              "path": [
-                "skill",
-                "continuousDmg"
-              ],
-              "hitMode": "avgHit",
-              "bonusStats": {
-                "hydro_enemyRes_": -25
-              },
-              "description": ""
-            },
-            {
-              "weight": 0.0309,
-              "path": [
-                "skill",
-                "lunarbloomDmg"
-              ],
-              "hitMode": "avgHit",
-              "bonusStats": {
-                "lunarbloom_baseDmg_": 14,
-                "lunarbloom_critRate_": 10,
-                "lunarbloom_critDMG_": 20,
-                "dendro_enemyRes_": -55,
-                "lunarbloom_dmg_": 88.77
               },
               "description": ""
             },
@@ -842,23 +669,7 @@
               "description": ""
             },
             {
-              "weight": 0.0877,
-              "path": [
-                "skill",
-                "lunarbloomDmg"
-              ],
-              "hitMode": "avgHit",
-              "bonusStats": {
-                "lunarbloom_baseDmg_": 14,
-                "lunarbloom_critRate_": 10,
-                "lunarbloom_critDMG_": 20,
-                "dendro_enemyRes_": -55,
-                "lunarbloom_dmg_": 96.001
-              },
-              "description": ""
-            },
-            {
-              "weight": 0.4486,
+              "weight": 1.0917,
               "path": [
                 "skill",
                 "lunarbloomDmg"
@@ -891,39 +702,7 @@
               "description": ""
             },
             {
-              "weight": 0.0877,
-              "path": [
-                "skill",
-                "lunarbloomDmg"
-              ],
-              "hitMode": "avgHit",
-              "bonusStats": {
-                "lunarbloom_baseDmg_": 14,
-                "lunarbloom_critRate_": 10,
-                "lunarbloom_critDMG_": 20,
-                "dendro_enemyRes_": -55,
-                "lunarbloom_dmg_": 96.001
-              },
-              "description": ""
-            },
-            {
-              "weight": 0.0997,
-              "path": [
-                "skill",
-                "lunarbloomDmg"
-              ],
-              "hitMode": "avgHit",
-              "bonusStats": {
-                "lunarbloom_baseDmg_": 14,
-                "lunarbloom_critRate_": 10,
-                "lunarbloom_critDMG_": 20,
-                "dendro_enemyRes_": -55,
-                "lunarbloom_dmg_": 91
-              },
-              "description": ""
-            },
-            {
-              "weight": 1.0035,
+              "weight": 1.1229,
               "path": [
                 "skill",
                 "continuousDmg"
@@ -947,22 +726,6 @@
                 "lunarbloom_critDMG_": 20,
                 "dendro_enemyRes_": -55,
                 "lunarbloom_dmg_": 93.586
-              },
-              "description": ""
-            },
-            {
-              "weight": 0.0628,
-              "path": [
-                "skill",
-                "lunarbloomDmg"
-              ],
-              "hitMode": "avgHit",
-              "bonusStats": {
-                "lunarbloom_baseDmg_": 14,
-                "lunarbloom_critRate_": 10,
-                "lunarbloom_critDMG_": 20,
-                "dendro_enemyRes_": -55,
-                "lunarbloom_dmg_": 90
               },
               "description": ""
             },
@@ -1000,23 +763,7 @@
               "description": ""
             },
             {
-              "weight": 0.0748,
-              "path": [
-                "skill",
-                "lunarbloomDmg"
-              ],
-              "hitMode": "avgHit",
-              "bonusStats": {
-                "lunarbloom_baseDmg_": 14,
-                "lunarbloom_critRate_": 10,
-                "lunarbloom_critDMG_": 20,
-                "dendro_enemyRes_": -55,
-                "lunarbloom_dmg_": 97.67
-              },
-              "description": ""
-            },
-            {
-              "weight": 0.3429,
+              "weight": 1.5772,
               "path": [
                 "skill",
                 "lunarbloomDmg"
@@ -1047,50 +794,6 @@
                 "lunarbloom_critDMG_": 20,
                 "dendro_enemyRes_": -55,
                 "lunarbloom_dmg_": 92.39
-              },
-              "description": ""
-            },
-            {
-              "weight": 0.0558,
-              "path": [
-                "skill",
-                "lunarbloomDmg"
-              ],
-              "hitMode": "avgHit",
-              "bonusStats": {
-                "lunarbloom_baseDmg_": 14,
-                "lunarbloom_critRate_": 10,
-                "lunarbloom_critDMG_": 20,
-                "dendro_enemyRes_": -55,
-                "lunarbloom_dmg_": 92.667
-              },
-              "description": ""
-            },
-            {
-              "weight": 0.0498,
-              "path": [
-                "skill",
-                "lunarbloomDmg"
-              ],
-              "hitMode": "avgHit",
-              "bonusStats": {
-                "lunarbloom_baseDmg_": 14,
-                "lunarbloom_critRate_": 10,
-                "lunarbloom_critDMG_": 20,
-                "dendro_enemyRes_": -55,
-                "lunarbloom_dmg_": 96
-              },
-              "description": ""
-            },
-            {
-              "weight": 0.0692,
-              "path": [
-                "skill",
-                "continuousDmg"
-              ],
-              "hitMode": "avgHit",
-              "bonusStats": {
-                "hydro_enemyRes_": -25
               },
               "description": ""
             },
@@ -1126,40 +829,6 @@
                 "lunarbloom_critDMG_": 20,
                 "dendro_enemyRes_": -55,
                 "lunarbloom_dmg_": 85.636
-              },
-              "description": ""
-            },
-            {
-              "weight": 0.0558,
-              "path": [
-                "skill",
-                "lunarbloomDmg"
-              ],
-              "hitMode": "avgHit",
-              "bonusStats": {
-                "lunarbloom_baseDmg_": 14,
-                "lunarbloom_critRate_": 10,
-                "lunarbloom_critDMG_": 20,
-                "dendro_enemyRes_": -55,
-                "lunarbloom_dmg_": 92.667
-              },
-              "description": ""
-            },
-            {
-              "weight": 0.0379,
-              "path": [
-                "skill",
-                "lunarbloomDmg"
-              ],
-              "hitMode": "avgHit",
-              "bonusStats": {
-                "lunarbloom_dmgInc": 6615.009,
-                "lunarbloom_baseDmg_": 14,
-                "eleMas": 125,
-                "lunarbloom_critRate_": 10,
-                "lunarbloom_critDMG_": 20,
-                "dendro_enemyRes_": -55,
-                "lunarbloom_dmg_": 99.333
               },
               "description": ""
             },
@@ -1367,24 +1036,6 @@
               "description": ""
             },
             {
-              "weight": 0.0558,
-              "path": [
-                "skill",
-                "lunarbloomDmg"
-              ],
-              "hitMode": "avgHit",
-              "bonusStats": {
-                "lunarbloom_dmgInc": 6615.009,
-                "lunarbloom_baseDmg_": 14,
-                "eleMas": 111.111,
-                "lunarbloom_critRate_": 10,
-                "lunarbloom_critDMG_": 20,
-                "dendro_enemyRes_": -55,
-                "lunarbloom_dmg_": 45.507
-              },
-              "description": ""
-            },
-            {
               "weight": 0.9324,
               "path": [
                 "charged",
@@ -1399,24 +1050,6 @@
                 "lunarbloom_critDMG_": 20,
                 "dendro_enemyRes_": -55,
                 "lunarbloom_dmg_": 91.96
-              },
-              "description": ""
-            },
-            {
-              "weight": 0.0558,
-              "path": [
-                "skill",
-                "lunarbloomDmg"
-              ],
-              "hitMode": "avgHit",
-              "bonusStats": {
-                "lunarbloom_dmgInc": 6615.009,
-                "lunarbloom_baseDmg_": 14,
-                "eleMas": 111.111,
-                "lunarbloom_critRate_": 10,
-                "lunarbloom_critDMG_": 20,
-                "dendro_enemyRes_": -55,
-                "lunarbloom_dmg_": 32.667
               },
               "description": ""
             },
@@ -1452,37 +1085,6 @@
               "description": ""
             },
             {
-              "weight": 0.0558,
-              "path": [
-                "skill",
-                "lunarbloomDmg"
-              ],
-              "hitMode": "avgHit",
-              "bonusStats": {
-                "lunarbloom_dmgInc": 6615.009,
-                "lunarbloom_baseDmg_": 14,
-                "eleMas": 111.111,
-                "lunarbloom_critRate_": 10,
-                "lunarbloom_critDMG_": 20,
-                "dendro_enemyRes_": -55,
-                "lunarbloom_dmg_": 32.667
-              },
-              "description": ""
-            },
-            {
-              "weight": 0.0717,
-              "path": [
-                "charged",
-                "dmg"
-              ],
-              "hitMode": "avgHit",
-              "bonusStats": {
-                "eleMas": 27.778,
-                "hydro_enemyRes_": -25
-              },
-              "description": ""
-            },
-            {
               "weight": 1,
               "path": [
                 "normal",
@@ -1492,60 +1094,6 @@
               "bonusStats": {
                 "eleMas": 125,
                 "hydro_enemyRes_": -25
-              },
-              "description": ""
-            },
-            {
-              "weight": 0.0558,
-              "path": [
-                "skill",
-                "lunarbloomDmg"
-              ],
-              "hitMode": "avgHit",
-              "bonusStats": {
-                "lunarbloom_dmgInc": 6615.009,
-                "lunarbloom_baseDmg_": 14,
-                "eleMas": 111.111,
-                "lunarbloom_critRate_": 10,
-                "lunarbloom_critDMG_": 20,
-                "dendro_enemyRes_": -55,
-                "lunarbloom_dmg_": 32.667
-              },
-              "description": ""
-            },
-            {
-              "weight": 0.0309,
-              "path": [
-                "skill",
-                "lunarbloomDmg"
-              ],
-              "hitMode": "avgHit",
-              "bonusStats": {
-                "lunarbloom_dmgInc": 6615.009,
-                "lunarbloom_baseDmg_": 14,
-                "eleMas": 100,
-                "lunarbloom_critRate_": 10,
-                "lunarbloom_critDMG_": 20,
-                "dendro_enemyRes_": -55,
-                "lunarbloom_dmg_": 30
-              },
-              "description": ""
-            },
-            {
-              "weight": 0.0379,
-              "path": [
-                "skill",
-                "lunarbloomDmg"
-              ],
-              "hitMode": "avgHit",
-              "bonusStats": {
-                "lunarbloom_dmgInc": 6615.009,
-                "lunarbloom_baseDmg_": 14,
-                "eleMas": 125,
-                "lunarbloom_critRate_": 10,
-                "lunarbloom_critDMG_": 20,
-                "dendro_enemyRes_": -55,
-                "lunarbloom_dmg_": 39.333
               },
               "description": ""
             },
@@ -1564,42 +1112,6 @@
                 "lunarbloom_critDMG_": 20,
                 "dendro_enemyRes_": -55,
                 "lunarbloom_dmg_": 91.96
-              },
-              "description": ""
-            },
-            {
-              "weight": 0.0498,
-              "path": [
-                "skill",
-                "lunarbloomDmg"
-              ],
-              "hitMode": "avgHit",
-              "bonusStats": {
-                "lunarbloom_dmgInc": 6615.009,
-                "lunarbloom_baseDmg_": 14,
-                "eleMas": 93.75,
-                "lunarbloom_critRate_": 10,
-                "lunarbloom_critDMG_": 20,
-                "dendro_enemyRes_": -55,
-                "lunarbloom_dmg_": 26
-              },
-              "description": ""
-            },
-            {
-              "weight": 0.0937,
-              "path": [
-                "skill",
-                "lunarbloomDmg"
-              ],
-              "hitMode": "avgHit",
-              "bonusStats": {
-                "lunarbloom_dmgInc": 6615.009,
-                "lunarbloom_baseDmg_": 14,
-                "eleMas": 133.333,
-                "lunarbloom_critRate_": 10,
-                "lunarbloom_critDMG_": 20,
-                "dendro_enemyRes_": -55,
-                "lunarbloom_dmg_": 32.667
               },
               "description": ""
             },
@@ -1653,42 +1165,6 @@
               "description": ""
             },
             {
-              "weight": 0.0937,
-              "path": [
-                "skill",
-                "lunarbloomDmg"
-              ],
-              "hitMode": "avgHit",
-              "bonusStats": {
-                "lunarbloom_dmgInc": 6615.009,
-                "lunarbloom_baseDmg_": 14,
-                "eleMas": 133.333,
-                "lunarbloom_critRate_": 10,
-                "lunarbloom_critDMG_": 20,
-                "dendro_enemyRes_": -55,
-                "lunarbloom_dmg_": 32.667
-              },
-              "description": ""
-            },
-            {
-              "weight": 0.0688,
-              "path": [
-                "skill",
-                "lunarbloomDmg"
-              ],
-              "hitMode": "avgHit",
-              "bonusStats": {
-                "lunarbloom_dmgInc": 6615.009,
-                "lunarbloom_baseDmg_": 14,
-                "eleMas": 136.364,
-                "lunarbloom_critRate_": 10,
-                "lunarbloom_critDMG_": 20,
-                "dendro_enemyRes_": -55,
-                "lunarbloom_dmg_": 38.727
-              },
-              "description": ""
-            },
-            {
               "weight": 0.1057,
               "path": [
                 "skill",
@@ -1721,42 +1197,6 @@
                 "lunarbloom_critDMG_": 20,
                 "dendro_enemyRes_": -55,
                 "lunarbloom_dmg_": 30.81
-              },
-              "description": ""
-            },
-            {
-              "weight": 0.0558,
-              "path": [
-                "skill",
-                "lunarbloomDmg"
-              ],
-              "hitMode": "avgHit",
-              "bonusStats": {
-                "lunarbloom_dmgInc": 6615.009,
-                "lunarbloom_baseDmg_": 14,
-                "eleMas": 111.111,
-                "lunarbloom_critRate_": 10,
-                "lunarbloom_critDMG_": 20,
-                "dendro_enemyRes_": -55,
-                "lunarbloom_dmg_": 28.222
-              },
-              "description": ""
-            },
-            {
-              "weight": 0.0748,
-              "path": [
-                "skill",
-                "lunarbloomDmg"
-              ],
-              "hitMode": "avgHit",
-              "bonusStats": {
-                "lunarbloom_dmgInc": 6615.009,
-                "lunarbloom_baseDmg_": 14,
-                "eleMas": 166.667,
-                "lunarbloom_critRate_": 10,
-                "lunarbloom_critDMG_": 20,
-                "dendro_enemyRes_": -55,
-                "lunarbloom_dmg_": 36
               },
               "description": ""
             },
@@ -1801,42 +1241,6 @@
                 "lunarbloom_critDMG_": 20,
                 "dendro_enemyRes_": -55,
                 "lunarbloom_dmg_": 30.81
-              },
-              "description": ""
-            },
-            {
-              "weight": 0.0688,
-              "path": [
-                "skill",
-                "lunarbloomDmg"
-              ],
-              "hitMode": "avgHit",
-              "bonusStats": {
-                "lunarbloom_dmgInc": 6615.009,
-                "lunarbloom_baseDmg_": 14,
-                "eleMas": 136.364,
-                "lunarbloom_critRate_": 10,
-                "lunarbloom_critDMG_": 20,
-                "dendro_enemyRes_": -55,
-                "lunarbloom_dmg_": 38.727
-              },
-              "description": ""
-            },
-            {
-              "weight": 0.0498,
-              "path": [
-                "skill",
-                "lunarbloomDmg"
-              ],
-              "hitMode": "avgHit",
-              "bonusStats": {
-                "lunarbloom_dmgInc": 6615.009,
-                "lunarbloom_baseDmg_": 14,
-                "eleMas": 125,
-                "lunarbloom_critRate_": 10,
-                "lunarbloom_critDMG_": 20,
-                "dendro_enemyRes_": -55,
-                "lunarbloom_dmg_": 31
               },
               "description": ""
             },
@@ -1939,42 +1343,6 @@
               "description": ""
             },
             {
-              "weight": 0.0688,
-              "path": [
-                "skill",
-                "lunarbloomDmg"
-              ],
-              "hitMode": "avgHit",
-              "bonusStats": {
-                "lunarbloom_dmgInc": 6615.009,
-                "lunarbloom_baseDmg_": 14,
-                "eleMas": 113.636,
-                "lunarbloom_critRate_": 10,
-                "lunarbloom_critDMG_": 20,
-                "dendro_enemyRes_": -55,
-                "lunarbloom_dmg_": 35.091
-              },
-              "description": ""
-            },
-            {
-              "weight": 0.0498,
-              "path": [
-                "skill",
-                "lunarbloomDmg"
-              ],
-              "hitMode": "avgHit",
-              "bonusStats": {
-                "lunarbloom_dmgInc": 6615.009,
-                "lunarbloom_baseDmg_": 14,
-                "eleMas": 125,
-                "lunarbloom_critRate_": 10,
-                "lunarbloom_critDMG_": 20,
-                "dendro_enemyRes_": -55,
-                "lunarbloom_dmg_": 31
-              },
-              "description": ""
-            },
-            {
               "weight": 0.7901,
               "path": [
                 "charged",
@@ -2011,42 +1379,6 @@
               "description": ""
             },
             {
-              "weight": 0.0558,
-              "path": [
-                "skill",
-                "lunarbloomDmg"
-              ],
-              "hitMode": "avgHit",
-              "bonusStats": {
-                "lunarbloom_dmgInc": 6615.009,
-                "lunarbloom_baseDmg_": 14,
-                "eleMas": 111.111,
-                "lunarbloom_critRate_": 10,
-                "lunarbloom_critDMG_": 20,
-                "dendro_enemyRes_": -55,
-                "lunarbloom_dmg_": 106
-              },
-              "description": ""
-            },
-            {
-              "weight": 0.0688,
-              "path": [
-                "skill",
-                "lunarbloomDmg"
-              ],
-              "hitMode": "avgHit",
-              "bonusStats": {
-                "lunarbloom_dmgInc": 6615.009,
-                "lunarbloom_baseDmg_": 14,
-                "eleMas": 113.636,
-                "lunarbloom_critRate_": 10,
-                "lunarbloom_critDMG_": 20,
-                "dendro_enemyRes_": -55,
-                "lunarbloom_dmg_": 95.091
-              },
-              "description": ""
-            },
-            {
               "weight": 0.2801,
               "path": [
                 "skill",
@@ -2061,24 +1393,6 @@
                 "lunarbloom_critDMG_": 20,
                 "dendro_enemyRes_": -55,
                 "lunarbloom_dmg_": 93.556
-              },
-              "description": ""
-            },
-            {
-              "weight": 0.0558,
-              "path": [
-                "skill",
-                "lunarbloomDmg"
-              ],
-              "hitMode": "avgHit",
-              "bonusStats": {
-                "lunarbloom_dmgInc": 6615.009,
-                "lunarbloom_baseDmg_": 14,
-                "eleMas": 111.111,
-                "lunarbloom_critRate_": 10,
-                "lunarbloom_critDMG_": 20,
-                "dendro_enemyRes_": -55,
-                "lunarbloom_dmg_": 106
               },
               "description": ""
             },
@@ -2199,24 +1513,6 @@
               "description": ""
             },
             {
-              "weight": 0.0498,
-              "path": [
-                "skill",
-                "lunarbloomDmg"
-              ],
-              "hitMode": "avgHit",
-              "bonusStats": {
-                "lunarbloom_dmgInc": 6615.009,
-                "lunarbloom_baseDmg_": 14,
-                "eleMas": 93.75,
-                "lunarbloom_critRate_": 10,
-                "lunarbloom_critDMG_": 20,
-                "dendro_enemyRes_": -55,
-                "lunarbloom_dmg_": 106
-              },
-              "description": ""
-            },
-            {
               "weight": 0.9571,
               "path": [
                 "charged",
@@ -2311,19 +1607,6 @@
                 "lunarbloom_critDMG_": 20,
                 "dendro_enemyRes_": -55,
                 "lunarbloom_dmg_": 85.636
-              },
-              "description": ""
-            },
-            {
-              "weight": 0.0397,
-              "path": [
-                "charged",
-                "dmg"
-              ],
-              "hitMode": "avgHit",
-              "bonusStats": {
-                "eleMas": 150,
-                "hydro_enemyRes_": -25
               },
               "description": ""
             },
@@ -2449,7 +1732,7 @@
               "description": ""
             },
             {
-              "weight": 0.5184,
+              "weight": 0.7118,
               "path": [
                 "skill",
                 "lunarbloomDmg"
@@ -2467,7 +1750,7 @@
               "description": ""
             },
             {
-              "weight": 0.5762,
+              "weight": 0.7439,
               "path": [
                 "charged",
                 "dmg"
@@ -2498,7 +1781,7 @@
               "description": ""
             },
             {
-              "weight": 1.9657,
+              "weight": 2.1444,
               "path": [
                 "reaction",
                 "bloom"
@@ -2578,7 +1861,7 @@
               "description": ""
             },
             {
-              "weight": 1.7671,
+              "weight": 1.787,
               "path": [
                 "reaction",
                 "bloom"
@@ -2607,7 +1890,7 @@
               "description": ""
             },
             {
-              "weight": 1.3204,
+              "weight": 1.3899,
               "path": [
                 "reaction",
                 "bloom"
@@ -2647,20 +1930,6 @@
               "description": ""
             },
             {
-              "weight": 0.0894,
-              "path": [
-                "reaction",
-                "bloom"
-              ],
-              "hitMode": "avgHit",
-              "bonusStats": {
-                "bloom_dmgInc": 8267.571,
-                "bloom_dmg_": 325.258,
-                "dendro_enemyRes_": -55
-              },
-              "description": ""
-            },
-            {
               "weight": 1.4693,
               "path": [
                 "reaction",
@@ -2676,34 +1945,7 @@
               "description": ""
             },
             {
-              "weight": 0.0397,
-              "path": [
-                "reaction",
-                "bloom"
-              ],
-              "hitMode": "avgHit",
-              "bonusStats": {
-                "bloom_dmg_": 325.258,
-                "dendro_enemyRes_": -55
-              },
-              "description": ""
-            },
-            {
               "weight": 0.7148,
-              "path": [
-                "reaction",
-                "bloom"
-              ],
-              "hitMode": "avgHit",
-              "bonusStats": {
-                "bloom_dmgInc": 8267.571,
-                "bloom_dmg_": 325.258,
-                "dendro_enemyRes_": -55
-              },
-              "description": ""
-            },
-            {
-              "weight": 0.0298,
               "path": [
                 "reaction",
                 "bloom"
@@ -2731,20 +1973,6 @@
               "description": ""
             },
             {
-              "weight": 0.0298,
-              "path": [
-                "reaction",
-                "bloom"
-              ],
-              "hitMode": "avgHit",
-              "bonusStats": {
-                "bloom_dmgInc": 8267.571,
-                "bloom_dmg_": 325.258,
-                "dendro_enemyRes_": -55
-              },
-              "description": ""
-            },
-            {
               "weight": 0.1489,
               "path": [
                 "reaction",
@@ -2753,90 +1981,6 @@
               "hitMode": "avgHit",
               "bonusStats": {
                 "bloom_dmg_": 325.258,
-                "dendro_enemyRes_": -55
-              },
-              "description": ""
-            },
-            {
-              "weight": 0.0199,
-              "path": [
-                "reaction",
-                "bloom"
-              ],
-              "hitMode": "avgHit",
-              "bonusStats": {
-                "bloom_dmgInc": 8267.571,
-                "bloom_dmg_": 325.258,
-                "dendro_enemyRes_": -55
-              },
-              "description": ""
-            },
-            {
-              "weight": 0.0199,
-              "path": [
-                "reaction",
-                "bloom"
-              ],
-              "hitMode": "avgHit",
-              "bonusStats": {
-                "bloom_dmg_": 325.258,
-                "dendro_enemyRes_": -55
-              },
-              "description": ""
-            },
-            {
-              "weight": 0.0099,
-              "path": [
-                "reaction",
-                "bloom"
-              ],
-              "hitMode": "avgHit",
-              "bonusStats": {
-                "bloom_dmgInc": 8267.571,
-                "bloom_dmg_": 325.258,
-                "eleMas": 250,
-                "dendro_enemyRes_": -55
-              },
-              "description": ""
-            },
-            {
-              "weight": 0.0099,
-              "path": [
-                "reaction",
-                "bloom"
-              ],
-              "hitMode": "avgHit",
-              "bonusStats": {
-                "bloom_dmgInc": 8267.571,
-                "bloom_dmg_": 325.258,
-                "dendro_enemyRes_": -55
-              },
-              "description": ""
-            },
-            {
-              "weight": 0.0099,
-              "path": [
-                "reaction",
-                "bloom"
-              ],
-              "hitMode": "avgHit",
-              "bonusStats": {
-                "bloom_dmg_": 325.258,
-                "dendro_enemyRes_": -55
-              },
-              "description": ""
-            },
-            {
-              "weight": 0.0099,
-              "path": [
-                "reaction",
-                "bloom"
-              ],
-              "hitMode": "avgHit",
-              "bonusStats": {
-                "bloom_dmgInc": 8267.571,
-                "bloom_dmg_": 325.258,
-                "eleMas": 250,
                 "dendro_enemyRes_": -55
               },
               "description": ""
