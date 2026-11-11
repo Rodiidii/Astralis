@@ -1,0 +1,38 @@
+
+:root{--e1:#8fd13f;--e2:#d6f0b0;--e3:#0c150a;--e4:#2f5a16;
+--serif:'Cormorant Garamond','Lora',Georgia,serif;--sans:Inter,system-ui,sans-serif}
+*{box-sizing:border-box;margin:0}
+html,body{background:#07080c;color:#eee;font-family:var(--sans)}
+.bar{position:sticky;top:0;z-index:9;display:flex;flex-wrap:wrap;gap:10px 22px;align-items:center;padding:12px 20px;background:#0d0f16ee;border-bottom:1px solid #ffffff18}
+.bar h1{font:600 15px var(--sans);letter-spacing:.14em;text-transform:uppercase;color:#9aa3b8;margin-right:6px}
+.seg{display:flex;gap:6px;flex-wrap:wrap}
+.seg button{all:unset;cursor:pointer;padding:7px 13px;border-radius:999px;border:1px solid #ffffff24;font:500 13px var(--sans);color:#c9cfdd;display:flex;gap:7px;align-items:center}
+.seg button[aria-pressed=true]{background:var(--e1);color:#10131a;border-color:transparent;font-weight:700}
+.seg svg{width:15px;height:15px}
+.hint{font:400 12px var(--sans);color:#7f889c;margin-left:auto}
+.stage{padding:22px 0 60px;display:flex;justify-content:center}
+.fit{position:relative}
+.sheet{position:absolute;left:0;top:0;transform-origin:0 0;overflow:hidden;color:#f6f1e7;font-family:var(--sans);font-variant-numeric:tabular-nums lining-nums;box-shadow:0 30px 80px #000a}
+.sheet>.bgsvg,.sheet>.bgsvg svg{position:absolute;inset:0;width:100%;height:100%}
+.sheet .in{position:absolute;inset:0}
+/* briques communes */
+.kick{font:600 21px var(--sans);letter-spacing:.32em;text-transform:uppercase;color:color-mix(in srgb,var(--e2) 82%,transparent)}
+.kick b{color:var(--e1);font-weight:700}
+.ttl{font:700 118px/.95 var(--serif);letter-spacing:-.01em;text-shadow:0 4px 30px color-mix(in srgb,var(--e1) 45%,transparent),0 2px 0 #0006}
+.sub{font:500 27px var(--sans);color:color-mix(in srgb,var(--e2) 85%,#fff 0%)}
+.sl{display:flex;align-items:center;gap:16px;font:600 21px var(--sans);letter-spacing:.2em;text-transform:uppercase;color:color-mix(in srgb,var(--e2) 88%,transparent)}
+.sl .dia{width:11px;height:11px;background:var(--e1);transform:rotate(45deg);box-shadow:0 0 14px var(--e1)}
+.sl i{flex:1;height:1px;background:linear-gradient(90deg,color-mix(in srgb,var(--e2) 45%,transparent),transparent)}
+.sl em{font:500 20px var(--sans);letter-spacing:.04em;text-transform:none;color:color-mix(in srgb,var(--e2) 65%,transparent);font-style:normal}
+.pn{background:linear-gradient(165deg,color-mix(in srgb,var(--e4) 34%,#0b0b12 66%) 0%,color-mix(in srgb,var(--e3) 78%,#000 22%) 100%);border:1.5px solid color-mix(in srgb,var(--e2) 20%,transparent);border-radius:22px;box-shadow:inset 0 1px 0 #ffffff14,0 22px 44px #0007;position:relative;overflow:hidden}
+.pn.glow::after{content:"";position:absolute;inset:0;background:radial-gradient(120% 90% at 0% 0%,color-mix(in srgb,var(--e1) 20%,transparent),transparent 60%);pointer-events:none}
+.chip{display:inline-flex;align-items:center;gap:10px;height:46px;padding:0 20px;border-radius:999px;font:600 22px var(--sans);background:color-mix(in srgb,var(--e1) 16%,#0a0a10 84%);border:1.5px solid color-mix(in srgb,var(--e1) 50%,transparent);color:var(--e2)}
+.chip svg{width:24px;height:24px}
+.ico{display:inline-grid;place-items:center;border-radius:50%;flex:none}
+.foot{position:absolute;left:70px;right:70px;bottom:46px;display:flex;justify-content:space-between;align-items:center;font:600 20px var(--sans);letter-spacing:.2em;text-transform:uppercase;color:color-mix(in srgb,var(--e2) 60%,transparent)}
+.foot b{color:var(--e2);font-weight:700}
+.num{font-family:var(--serif);font-weight:700;font-variant-numeric:lining-nums}
+.art{position:absolute;object-fit:cover}
+.mut{color:color-mix(in srgb,var(--e2) 60%,transparent)}
+
+:root{--serif:"Sheet Cormorant",Georgia,serif;--sans:"Sheet Inter",sans-serif}
