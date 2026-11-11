@@ -86,7 +86,6 @@ Règles et détails : [MISSION-AUTONOME-COMPLETE.md](MISSION-AUTONOME-COMPLETE.m
 
 - [ ] **RESTE-034** — Propriété : constellation possédée pour chaque personnage et nombre possédé pour chaque arme. Passifs/constellations complets, dont conditions Hexerei ; Aino a son splash adapté.
 
-- [ ] **RESTE-035** — Création de pièce : set/emplacement/principale/sous-stats ; validation structurelle, paliers suspects en diagnostic selon la décision utilisateur, formulaire qui reste ouvert et se réinitialise proprement.
 
 - [ ] **RESTE-036** — Laboratoire : choix NA/CA/plongeante/E/Q et coup précis, multi-impacts corrects, arme directement modifiable, sets autorisés/imposés/exclus et conditions. Inventaire utilisateur par défaut. Liste de priorité pratique avec recherche/position/glisser et option claire. Sauvegarde TC - nom.
 
