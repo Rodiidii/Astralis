@@ -1,5 +1,5 @@
 import {createSpaceEffects} from './space-effects.js';
-let currentHost,lastGame,exploring=false,flying=false,clock=0,panelSide='right',cachedConfig={},configAt=0,resize,stageObserver;
+let currentHost,lastGame,exploring=false,flying=false,clock=0,panelSide='right',cachedConfig={},configAt=0,resize,stageObserver,layoutMetrics={};
 const phases=new Map();let interactionUntil=0,heldId='';
 const reduced=()=>matchMedia('(prefers-reduced-motion: reduce)').matches;
 function settings(host){try{return JSON.parse(localStorage.getItem(`astralis:cosmos:${host.dataset.studioGame}`)||'{}')}catch{return {}}}
@@ -48,7 +48,7 @@ export function leaveVoyage(){
  const host=document.querySelector('.dashboard-studio');exploring=false;flying=false;if(!host)return;host.dataset.exploring='false';host.dataset.flight='false';host.removeAttribute('aria-busy');host.querySelector(`[data-orbit-select="${host.dataset.orbitActive}"]`)?.focus({preventScroll:true});host.querySelector('.studio-toolbar')?.scrollIntoView({block:'start',behavior:reduced()?'instant':'smooth'});
 }
 function boot(){
- const host=document.querySelector('.dashboard-studio');if(host===currentHost)return;currentHost=host;configAt=0;resize?.disconnect();stageObserver?.disconnect();if(!host)return;host.dataset.voyageWide=String(host.clientWidth-40>=760);resize=new ResizeObserver(([entry])=>host.dataset.voyageWide=String(entry.contentRect.width>=760));resize.observe(host);host._orbitVisible=true;const stage=host.querySelector('.orbit-stage');if(stage){stageObserver=new IntersectionObserver(entries=>host._orbitVisible=entries[0].isIntersecting);stageObserver.observe(stage);}
+ const host=document.querySelector('.dashboard-studio');if(host===currentHost)return;currentHost=host;configAt=0;layoutMetrics={};resize?.disconnect();stageObserver?.disconnect();if(!host)return;host.dataset.voyageWide=String(host.clientWidth-40>=760);resize=new ResizeObserver(([entry])=>host.dataset.voyageWide=String(entry.contentRect.width>=760));resize.observe(host);host._orbitVisible=true;const stage=host.querySelector('.orbit-stage');if(stage){stageObserver=new IntersectionObserver(entries=>host._orbitVisible=entries[0].isIntersecting);stageObserver.observe(stage);}
  if(lastGame!==host.dataset.studioGame){lastGame=host.dataset.studioGame;exploring=false;}else if(flying){exploring=true;flying=false;}host.dataset.exploring=String(exploring);host.dataset.flight='false';
  const header=document.createElement('header');header.className='voyage-destination';header.innerHTML='<button type="button" data-voyage-back>← Retour au système</button><div class="voyage-world-preview"></div><div class="voyage-world-caption"><small>ESCALE PERSONNELLE</small><h2></h2><p>Ton monde, tes outils.</p></div>';host.querySelector('.studio-canvas')?.before(header);
  const debris=document.createElement('div');debris.className='voyage-debris';debris.setAttribute('aria-hidden','true');debris.innerHTML=Array.from({length:66},(_,i)=>`<i style="--rock-x:${(i*47.31)%112-6}%;--rock-y:${i<44?22+(i*7.37)%42:(i*29)%100}%;--rock-size:${i%8===0?20:i%3===0?11:4+i%6}px;--rock-delay:-${i*2.3}s;--rock-duration:${42+i%9*7}s;--rock-opacity:${.4+i%5*.12}"></i>`).join('');host.prepend(debris);host.prepend(createSpaceEffects());if(heldId&&performance.now()<interactionUntil&&document.activeElement===document.body)host.querySelector('[data-orbit-select="'+heldId+'"]')?.focus({preventScroll:true});if(exploring)hero(host,host.dataset.orbitActive);
@@ -66,15 +66,24 @@ function orbit(now){
    });
    const stage=host.querySelector('.orbit-stage'),width=stage?.clientWidth||800,height=stage?.clientHeight||600;
    const points=proposed.map(({node,position,index})=>{const bodyRadius=((width<500?18:27)+[0,5,-2,2,-3,3,-1,4,1][index%9])*Math.max(.8,Math.min(1.8,Number(config.worldScale)||1.3));const locked=node.matches(':hover')||node===document.activeElement||node.dataset.orbitSelect===heldId&&now<interactionUntil;const previous=locked?node._orbitPoint:null;return {node,x:previous?.x??position.x*width/100,y:previous?.y??position.y*height/100-12,offsetY:12,bodyRadius,r:bodyRadius*1.5+3,locked};});
-   const centralRadius=(width<500?55:90)*(Number(config.globeScale)||1);
-   for(const p of points){const dx=p.x-width*.5,dy=p.y-height*.5,d=Math.hypot(dx,dy)||1,min=centralRadius+p.r+18;if(d<min){p.x=width*.5+dx/d*min;p.y=height*.5+dy/d*min;}}
+   if(layoutMetrics.stage!==stage||now-layoutMetrics.measured>250){
+    const marker=stage?.querySelector('.orbit-center-marker'),markerRect=marker?.getBoundingClientRect(),stageRect=stage?.getBoundingClientRect(),globe=marker?.querySelector('astralis-planet');
+    layoutMetrics={stage,measured:now,centerX:markerRect&&stageRect?markerRect.left-stageRect.left+markerRect.width/2:width/2,centerY:markerRect&&stageRect?markerRect.top-stageRect.top+markerRect.height/2:height/2,globeRadius:(globe?.getBoundingClientRect().width||((width<500?112:140)*(Number(config.globeScale)||1)))/2};
+   }
+   const {centerX,centerY,globeRadius}=layoutMetrics;
+   // Reserve the full outer paths of the three moons and the three ruler relics,
+   // then keep each world circle beyond their reach. The marker may be offset
+   // vertically by the responsive dashboard layout, so use its actual position.
+   const centralRadius=globeRadius*(1+1.79/2.35)+18;
+   const keepClear=p=>{const dx=p.x-centerX,dy=p.y-centerY,d=Math.hypot(dx,dy)||1,min=centralRadius+p.r+18;if(d<min){p.x=centerX+dx/d*min;p.y=centerY+dy/d*min;}};
+   for(const p of points)keepClear(p);
 
-   for(let pass=0;pass<12;pass++){for(const p of points){const margin=p.bodyRadius+12;p.x=Math.max(margin,Math.min(width-margin,p.x));p.y=Math.max(margin,Math.min(height-margin-20,p.y));const dx=p.x-width*.5,dy=p.y-height*.5,d=Math.hypot(dx,dy)||1,min=centralRadius+p.r+18;if(d<min){p.x=width*.5+dx/d*min;p.y=height*.5+dy/d*min;}}for(let i=0;i<points.length;i++)for(let j=i+1;j<points.length;j++){
+   for(let pass=0;pass<12;pass++){for(const p of points){const margin=p.bodyRadius+12;p.x=Math.max(margin,Math.min(width-margin,p.x));p.y=Math.max(margin,Math.min(height-margin-20,p.y));keepClear(p);}for(let i=0;i<points.length;i++)for(let j=i+1;j<points.length;j++){
     const a=points[i],b=points[j],dx=b.x-a.x,dy=b.y-a.y,d=Math.hypot(dx,dy)||1,min=a.r+b.r+16;
     if(d<min){const push=min-d;if(!a.locked){const ratio=b.locked?1:.5;a.x-=dx/d*push*ratio;a.y-=dy/d*push*ratio;}if(!b.locked){const ratio=a.locked?1:.5;b.x+=dx/d*push*ratio;b.y+=dy/d*push*ratio;}}
    }
    }
-   for(const p of points){p.node._orbitPoint={x:p.x,y:p.y};p.node.style.setProperty('--node-x',p.x/width*100+'%');p.node.style.setProperty('--node-y',(p.y+p.offsetY)/height*100+'%');p.node.style.setProperty('--regional-size',p.bodyRadius*2+'px');}
+   for(const p of points){keepClear(p);p.node._orbitPoint={x:p.x,y:p.y};p.node.style.setProperty('--node-x',p.x/width*100+'%');p.node.style.setProperty('--node-y',(p.y+p.offsetY)/height*100+'%');p.node.style.setProperty('--regional-size',p.bodyRadius*2+'px');}
   }
  }
  requestAnimationFrame(orbit);

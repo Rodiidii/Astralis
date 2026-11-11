@@ -35,7 +35,7 @@ export function windGusts(model,color='#d1ffed',count=110,speed=.48,name='wind-g
   for(let vertex=0;vertex<6;vertex++)colors.set([strength,strength,strength],(i*segments+s)*18+vertex*3);
  }
  geometry.setAttribute('position',new T.BufferAttribute(positions,3));geometry.setAttribute('color',new T.BufferAttribute(colors,3));
- const object=new T.Mesh(geometry,new T.MeshBasicMaterial({color,vertexColors:true,transparent:true,opacity:.8,
+ const object=new T.Mesh(geometry,new T.MeshBasicMaterial({color,vertexColors:true,transparent:true,opacity:.96,
   side:T.DoubleSide,depthWrite:false,blending:T.AdditiveBlending}));
  object.name=name;model.orbits.add(object);
  model.animated.push(time=>{
@@ -47,7 +47,7 @@ export function windGusts(model,color='#d1ffed',count=110,speed=.48,name='wind-g
     const p=axis(a,lat).multiplyScalar(radius+Math.sin(time*.25+phase)*.025);
     points.push(p);
    }
-   const width=.010+Math.sin((s+.5)/segments*Math.PI)*.006;
+   const width=.022+Math.sin((s+.5)/segments*Math.PI)*.012;
    for(const [point,sign] of [[points[0],-1],[points[0],1],[points[1],1],[points[0],-1],[points[1],1],[points[1],-1]]){
     positions.set([point.x,point.y+sign*width,point.z],at);at+=3;
    }
@@ -63,7 +63,7 @@ function precipitation(model,type){
   const count=1100,positions=new Float32Array(count*3),seeds=Array.from({length:count},()=>[model.random(),model.random(),model.random()]);
   const g=new T.BufferGeometry();g.setAttribute('position',new T.BufferAttribute(positions,3));
   const shader=new T.ShaderMaterial({transparent:true,depthWrite:false,uniforms:{tint:{value:new T.Color('#ebf9ff')}},
-   vertexShader:'varying float fade;void main(){vec4 p=modelViewMatrix*vec4(position,1.);fade=.8;gl_PointSize=5.+3.*sin(position.x*13.);gl_Position=projectionMatrix*p;}',
+   vertexShader:'varying float fade;void main(){vec4 p=modelViewMatrix*vec4(position,1.);fade=.9;gl_PointSize=8.+4.*sin(position.x*13.);gl_Position=projectionMatrix*p;}',
    fragmentShader:'uniform vec3 tint;varying float fade;void main(){float d=length(gl_PointCoord-.5);gl_FragColor=vec4(tint,smoothstep(.5,.16,d)*fade);}'});
   const flakes=new T.Points(g,shader);flakes.name='snow-blizzard';model.orbits.add(flakes);
   model.animated.push(t=>{
@@ -78,10 +78,10 @@ function precipitation(model,type){
   for(let i=0;i<3;i++)cloud(localRoot(model,i*2.1,.65,1.28),true,1.1);
   return;
  }
- for(let j=0;j<(thunder?9:6);j++){
+ for(let j=0;j<(thunder?12:8);j++){
   const root=localRoot(model,thunder?-.6+j*2.399:j*2.399,thunder?Math.sin(j*2.4)*.68:.65-(j%3)*.55,thunder?1.18:1.13);
-  const clouds=cloud(root,thunder,thunder?1.05:1.6);clouds.position.y=thunder?.15:.32;
-  const drops=thunder?48:64,segments=new Float32Array(drops*6),g=new T.BufferGeometry();
+  const clouds=cloud(root,thunder,thunder?1.55:2.05);clouds.position.y=thunder?.15:.32;
+  const drops=thunder?64:82,segments=new Float32Array(drops*6),g=new T.BufferGeometry();
   g.setAttribute('position',new T.BufferAttribute(segments,3));
   const rain=new T.LineSegments(g,new T.LineBasicMaterial({color:thunder?'#c3c8ff':'#acdcff',transparent:true,opacity:.60,depthWrite:false}));
   rain.name='rain-shower';root.add(rain);
@@ -89,18 +89,18 @@ function precipitation(model,type){
    for(let i=0;i<drops;i++){
     const x=Math.sin(i*32.71)*.25,z=Math.cos(i*17.73)*.19;
     const y=.33-((t*(thunder?1.3:1.05)+i*.034)%1)*.60;
-    segments.set([x,y,z,x-.055,y-.11,z+.012],i*6);
+    segments.set([x,y,z,x-.075,y-.16,z+.012],i*6);
    }
    g.attributes.position.needsUpdate=true;
    clouds.position.x=Math.sin(t*.3+j)*.045;
   });
   if(thunder){
    const points=[[0,.12,0],[-.035,.03,.01],[.02,.035,0],[-.04,-.13,.015]];
-   const bolt=tube(root,points,'#ead7ff',.012);bolt.name='lightning-bolt';
-   const light=new T.PointLight('#cda0ff',0,1.2);light.position.y=.1;root.add(light);
+   const bolt=tube(root,points,'#ead7ff',.026);bolt.name='lightning-bolt';bolt.scale.set(2.35,1.8,2.35);
+   const light=new T.PointLight('#cda0ff',0,1.8);light.position.y=.1;root.add(light);
    model.animated.push(t=>{
     const phase=(t+j*.67)%6,flash=phase<.2||phase>.32&&phase<.45||phase>.58&&phase<.7;
-    bolt.visible=flash;light.intensity=flash?2.5:0;
+    bolt.visible=flash;light.intensity=flash?4.5:0;
    });
   }
  }
@@ -162,7 +162,7 @@ export function addRegionalWeather(model){
  if(region==='primordial')tidalWaves(model);
  if(region==='snezhnaya')precipitation(model,'snow');
  if(region==='nodkrai'){
-  windGusts(model,'#b8d9e4',22,.2,'northern-wind');
+  windGusts(model,'#d6f4ed',110,.62,'northern-wind');
  }
  if(region==='sumeru')sandstorm(model);
  if(region==='natlan'){
