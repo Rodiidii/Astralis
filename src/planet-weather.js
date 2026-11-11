@@ -75,7 +75,9 @@ function precipitation(model,type){
    g.attributes.position.needsUpdate=true;
   });
   windGusts(model,'#c7e7ff',38,.65,'blizzard-gusts');
-  for(let i=0;i<3;i++)cloud(localRoot(model,i*2.1,.65,1.28),true,1.1);
+  // Keep the snowstorm as the region's main atmosphere: one compact cloud
+  // cluster avoids hiding the ice terrain under a belt of dark cloud puffs.
+  cloud(localRoot(model,.45,.65,1.24),true,.72);
   return;
  }
  for(let j=0;j<(thunder?12:8);j++){

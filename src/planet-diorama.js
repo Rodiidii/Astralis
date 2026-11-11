@@ -1,7 +1,7 @@
 import * as T from '../assets/vendor/three/three.module.js';
 import {loadPlanetGeography,regionalGeography,geographicalSample} from './planet-geography.js';
 import {buildGeographicLandmarks} from './planet-landmarks.js';
-import {addRegionalWeather} from './planet-weather.js?v=20261111-sandstorm-drift-1';
+import {addRegionalWeather} from './planet-weather.js?v=20261111-snow-cloud-2';
 import {addRulerSatellites,addCentralMoons} from './planet-rulers.js?v=20261111-satellite-motion-2';
 
 // One GPU context shared by every DOM planet. Models contain geometry, never AI images.
