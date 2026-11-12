@@ -7,6 +7,41 @@ ROOT=Path(__file__).resolve().parent.parent
 def slug(value):return re.sub(r'[^a-z0-9]+','-',unicodedata.normalize('NFD',str(value)).encode('ascii','ignore').decode().lower()).strip('-')
 def get(url):
  with urlopen(Request(url,headers={'User-Agent':'Astralis-card-kits/1.0'}),timeout=18) as response:return json.loads(response.read(16*1024*1024))
+def get_large(url):
+ with urlopen(Request(url,headers={'User-Agent':'Astralis-card-kits/1.0'}),timeout=90) as response:return json.loads(response.read())
+def current_hsr_kits(cards):
+ base='https://raw.githubusercontent.com/DimbreathBot/TurnBasedGameData/main/'
+ avatars=get(base+'ExcelOutput/AvatarConfig.json')
+ skill_rows=get_large(base+'ExcelOutput/AvatarSkillConfig.json')
+ text_map=get_large(base+'TextMap/TextMapFR.json')
+ by_avatar={int(row['AvatarID']):row for row in avatars}
+ by_skill={int(row['SkillID']):row for row in skill_rows}
+ result={}
+ for card in cards:
+  if card['game']!='hsr' or card['kind']!='character':continue
+  try: avatar=by_avatar.get(int(card.get('sourceId')))
+  except (TypeError,ValueError): avatar=None
+  if not avatar:continue
+  moves=[]
+  for skill_id in avatar.get('SkillList',[]):
+   skill=by_skill.get(int(skill_id),{});trigger=skill.get('SkillTriggerKey')
+   if trigger not in {'Skill02','Skill03'}:continue
+   name=text_map.get(str((skill.get('SkillName')or{}).get('Hash','')),'')
+   description=text_map.get(str((skill.get('SkillDesc')or{}).get('Hash','')),'')
+   if not name or not description:continue
+   params=[row.get('Value') for row in skill.get('ParamList',[])]
+   def replace(match):
+    index=int(match.group(1))-1
+    if index<0 or index>=len(params) or not isinstance(params[index],(int,float)):return match.group(0)
+    value=float(params[index]);percent=match.group(2)=='%'
+    if percent:value*=100
+    rendered=f'{value:.1f}'.rstrip('0').rstrip('.')
+    return rendered+('%' if percent else '')
+   description=re.sub(r'#(\d+)\[(?:i|f\d+|s)\](%)?',replace,description).replace('\\n','\n')
+   if re.search(r'#[0-9]+\[',description):continue
+   moves.append({'name':name,'description':description,'label':'Compétence' if trigger=='Skill02' else 'Ultime','variants':['E' if trigger=='Skill02' else 'Q'],'source':base+'ExcelOutput/AvatarSkillConfig.json + TextMap/TextMapFR.json'})
+  if moves:result['hsr:'+card['artSlug']]=moves
+ return result
 def main():
  cards=json.loads((ROOT/'public/card-catalog.json').read_text(encoding='utf-8'))['cards'];kits={};errors=[]
  def failed(source,exc):errors.append({'source':source,'error':str(exc)})
@@ -35,23 +70,8 @@ def main():
    if moves:kits['gi:'+key]=moves
  except Exception as exc:failed(source,exc)
  try:
-  source='https://vizualabstract.github.io/StarRailStaticAPI/db/fr/characters.json';characters=get(source)
-  source='https://vizualabstract.github.io/StarRailStaticAPI/db/fr/character_skills.json';skills=get(source)
-  for card in cards:
-   if card['game']!='hsr' or card['kind']!='character':continue
-   char=characters.get(str(card.get('sourceId')),{})
-   moves=[]
-   for key in char.get('skills',[]):
-    skill=skills.get(str(key),{});kind=skill.get('type_text')or skill.get('type','')
-    if kind not in {'Skill','Ultimate','Compétence','Ultime'}:continue
-    params=skill.get('params',[])
-    def substitute(match):
-     values=params[int(match[1])-1] if len(params)>=int(match[1]) else []
-     if not values:return match[0]
-     value=values[min(9,len(values)-1)];return str(round(value*(100 if match[2] else 1),2))+match[2]
-    description=re.sub(r'#(\d+)\[(?:i|f1|f2|f3|s)\](%?)',substitute,skill.get('desc',''))
-    moves.append({'name':skill.get('name',''),'description':description,'label':kind,'variants':['Q' if kind in {'Ultimate','Ultime'} else 'E'],'source':source})
-   if moves:kits['hsr:'+card['artSlug']]=moves
+  source='https://raw.githubusercontent.com/DimbreathBot/TurnBasedGameData/main/ExcelOutput/AvatarSkillConfig.json + TextMap/TextMapFR.json'
+  kits.update(current_hsr_kits(cards))
  except Exception as exc:failed(source,exc)
  ww={card['sourceId']:card for card in cards if card['game']=='ww' and card['kind']=='character' and card.get('_item')}
  def ww_kit(pair):

@@ -3,15 +3,15 @@ export const RARITIES = Object.freeze({common:'Common',super:'Super Common',rare
 const names = text => text.split('|');
 export const SPECIAL_ROSTERS = {
  full: {
-  gi:names('Furina|Nahida|Neuvillette|Hu Tao|Ganyu|Arlecchino|Kamisato Ayaka|Nilou|Yelan|Eula|Klee|Mona|Keqing|Kokomi|Yae Miko|Yoimiya|Shenhe|Clorinde|Wriothesley|Tartaglia|Wanderer|Albedo'),
-  hsr:names('Acheron|Firefly|Kafka|Jingliu|Ruan Mei|Feixiao|Sparkle|Robin|The Herta|Castorice|Phainon|Tribbie|Aglaea|Evernight|March 7th|Dan Heng|Himeko|Welt|Bronya|Seele|Serval|Blade|Topaz|Hanya|Xueyi'),
-  ww:names('Camellya|Cantarella|Baizhi|Calcharo|Changli|Jiyan|Jinhsi|Shorekeeper|Roccia|Zani|Carlotta|Phoebe|Cartethyia'),
+  gi:names('Lisa|Barbara|Razor|Xiangling|Beidou|Xingqiu|Ningguang|Fischl|Bennett|Noelle|Chongyun|Sucrose|Jean|Kaeya|Diona|Xinyan|Rosaria|Yanfei|Yoimiya|Kujou Sara|Yun Jin|Kuki Shinobu|Shikanoin Heizou|Layla|Faruzan|Yaoyao|Dehya|Mika|Kaveh|Baizhu|Lynette|Kinich|Kachina|Emilie|Gaming'),
+  hsr:names('Himeko|Welt|Bronya|Serval|Gepard|Clara|Bailu|Yanqing|Sampo|Hook|Pela|Natasha|Qingque|Tingyun|Luka|Sushang|Arlan|Asta|Herta|Dan Heng|March 7th|Trailblazer|Yukong|Dan Heng • Imbibitor Lunae|Guinaifen|Misha|Jiaoqiu|Lingsha|Gallagher|Tribbie|Hyacine|Cipher|Xueyi|Hanya|Lynx'),
+  ww:names('Rover (Spectro)|Rover (Havoc)|Rover (Aero)|Encore|Calcharo|Verina|Yangyang|Chixia|Baizhi|Sanhua|Danjin|Taoqi|Mortefi|Jianxin|Lingyang|Xiangli Yao|Youhu|Lupa|Zani|Ciaccona'),
  },
- gold:{gi:names('Zhongli|Navia|Chiori|Raiden Shogun|Mavuika|Xilonen'),hsr:names('Huohuo|Aventurine|Kafka|Ruan Mei|Jingliu|Feixiao|Fu Xuan'),ww:names('Jinhsi|Changli|Augusta|Zani')},
- astral:{gi:names('Mitya|Alhaitham|Ronova|Istaroth'),hsr:names('Evernight|Hysilens|The Herta|Phainon|Robin'),ww:['Shorekeeper']},
- secret:{gi:names('Skirk|Rhinedottir|Nefer|Columbina|Dainsleif|Sandrone|La Signora|Alice|Nicole|Barbeloth'),hsr:names('Sunday|Cerydra|Black Swan|Sparkle|Silver Wolf|Screwllum|Rappa|Jade|Lingsha|Gallagher'),ww:names('Rover (Female)|Camellya|Cantarella|Phrolova|Scar')},
- legend:{gi:names('Focalors|Rukkhadevata|Xiao|Venti|Egeria|Makoto|Kitsune Saiguu|Guizhong|Havria|Nabu Malikata|King Deshret'),hsr:names('Cyrene|Anaxa|Aha|Akivili|Fuli|Lan|Nanook|Nous|Qlipoth|Yaoshi|Xipe|IX'),ww:names('Jue|Sentinel Imperator')},
- eternal:{gi:[],hsr:['Obsidian'],ww:[]},
+ gold:{gi:names('Xilonen|Chasca|Citlali|Sangonomiya Kokomi|Nilou|Cyno|Lyney|Wriothesley|Chiori|Mualani'),hsr:names('Huohuo|Feixiao|The Herta|Fugue|Luocha|Jade|Aventurine|Boothill|Dr. Ratio'),ww:names('Yinlin|Zhezhi|Brant')},
+ astral:{gi:names('Zhongli|Raiden Shogun|Venti|Mavuika|Sandrone|Columbina|Varka'),hsr:names('Acheron|Kafka|Castorice|Aglaea|Sunday|Cyrene|Jing Yuan|Seele'),ww:names('Shorekeeper|Camellya|Jinhsi|Chisa|Suoming')},
+ secret:{gi:names('Rhinedottir|Shenhe|Kamisato Ayato|Arataki Itto|Tighnari|Mona|Klee|Qiqi|Xianyun|Sigewinne|Charlotte'),hsr:names('Argenti|Moze|Rappa|Anaxa|Yunli|Topaz & Numby'),ww:names('Cantarella|Phrolova|Roccia')},
+ legend:{gi:names('Neuvillette|Arlecchino|Skirk|Hu Tao|Ganyu|Xiao|Kaedehara Kazuha|Yae Miko|Kamisato Ayaka|Wanderer|Clorinde|Navia|Tartaglia|Albedo|Eula|Yelan|Keqing|Diluc'),hsr:names('Firefly|Sparkle|Blade|Jingliu|Black Swan|Ruan Mei|Silver Wolf|Fu Xuan'),ww:names('Cartethyia|Changli|Phoebe|Carlotta')},
+ eternal:{gi:names('Alhaitham|Furina|Mitya|Nahida|Ronova|Istaroth|Capitano'),hsr:names('Hysilens|Evernight|Obsidian|Phainon|Ashveil|Robin|Aha (forme Nihilux)|The Herta'),ww:names('Mornye|Aemeath')},
  aeon:{gi:[],hsr:names('Aha|Akivili|Fuli|Lan|Nanook|Nous|Qlipoth|Yaoshi|Xipe|IX'),ww:[]},
 };
 export const GROUP_ROSTERS = [
@@ -35,6 +35,13 @@ export const GROUP_ROSTERS = [
 ].map(([game,name,members])=>({game,name,members:names(members)}));
 const norm = value => cardSlug(value).replaceAll('-','');
 const banned = value => /lauma/i.test(String(value));
+const sourceAliases=Object.freeze({
+ 'aha-forme-nihilux':'aha',
+ 'topaz-numby':'topaz',
+ 'rover-spectro':'rover',
+ 'rover-havoc':'rover',
+ 'rover-aero':'rover',
+});
 export function buildCardCatalog(catalogs, equipment = []) {
  const cards=[];
  for(const game of ['gi','hsr','ww']) {
@@ -43,11 +50,14 @@ export function buildCardCatalog(catalogs, equipment = []) {
   for(const item of rows) for(const name of [item._name,item.name,item.en,item.enName]) if(name)byName.set(norm(name),item);
   if(byName.has('sangonomiyakokomi'))byName.set('kokomi',byName.get('sangonomiyakokomi'));
   const add=(name,rarity,item,members)=>{
-   const sourceId=String(item?._id||item?.id||cardSlug(name));
+   const requestedSlug=cardSlug(name),sourceName=sourceAliases[requestedSlug],variantRover=/^Rover\s*\((?:Spectro|Havoc|Aero)\)$/i.test(name);
+   item=item||byName.get(norm(sourceName||''));
+   const baseSourceId=String(item?._id||item?.id||cardSlug(sourceName||name));
+   const sourceId=variantRover?`${baseSourceId}-${requestedSlug}`:baseSourceId;
    const displayName=String(name)==='{NICKNAME}'?`Pionnier · ${item?.damageType||item?.element||sourceId}`:name;
-   const originalSlug=cardSlug(item?.en||item?.enName||displayName);
-   const sameName=rows.filter(row=>cardSlug(row.en||row.enName||row._name||row.name)===originalSlug).length>1;
-   const artSlug=originalSlug+(sameName?'-'+cardSlug(sourceId):'');
+   const originalSlug=cardSlug(item?.en||item?.enName||sourceName||displayName);
+   const sameName=rows.filter(row=>cardSlug(row.en||row.enName||row._name||row.name)===originalSlug||norm(row._name||row.name||row.en||row.enName)===norm(displayName)).length>1;
+   const artSlug=variantRover?requestedSlug:originalSlug+(sameName?'-'+cardSlug(sourceId):'');
    const id=members?`${game}-group-${cardSlug(name)}-group`:`${game}-char-${cardSlug(sourceId)}-${rarity}`;
    if(cards.some(card=>card.id===id))return;
    cards.push({id,game,name:displayName,rarity,rarityLabel:RARITIES[rarity],kind:members?'group':'character',categoryLabel:members?'Groupe':'Personnage',sourceId,

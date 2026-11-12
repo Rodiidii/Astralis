@@ -1,7 +1,7 @@
 {
   "name": "Off-field Stellar Swirl",
   "description": "Celestia",
-  "lastEdit": 1794350975906,
+  "lastEdit": 1794479427389,
   "conditional": {
     "resonance": {},
     "reaction": {}
@@ -28,7 +28,7 @@
       "infusionAura": "",
       "bonusStats": {
         "atk_": 20,
-        "eleMas": 106.727
+        "eleMas": 121.727
       },
       "conditional": {
         "WhitelakeFrostfeather": {
@@ -55,7 +55,7 @@
               "hitMode": "avgHit",
               "bonusStats": {
                 "eleMas": 120,
-                "all_dmg_": 42.691,
+                "all_dmg_": 48.691,
                 "cryo_enemyRes_": -60,
                 "critRate_": 15
               },
@@ -70,7 +70,7 @@
               "hitMode": "avgHit",
               "bonusStats": {
                 "eleMas": 120,
-                "all_dmg_": 42.691,
+                "all_dmg_": 48.691,
                 "cryo_enemyRes_": -60,
                 "critRate_": 15
               },
@@ -85,7 +85,7 @@
               "hitMode": "avgHit",
               "bonusStats": {
                 "eleMas": 120,
-                "all_dmg_": 42.691,
+                "all_dmg_": 48.691,
                 "cryo_enemyRes_": -60,
                 "critRate_": 15
               },
@@ -100,7 +100,7 @@
               "hitMode": "avgHit",
               "bonusStats": {
                 "eleMas": 120,
-                "all_dmg_": 42.691,
+                "all_dmg_": 48.691,
                 "cryo_enemyRes_": -60,
                 "critRate_": 15
               },
@@ -116,8 +116,8 @@
               "bonusStats": {
                 "eleMas": 120,
                 "stellarswirl_baseDmg_": 7,
-                "stellarswirl_dmgInc": 5869.996,
-                "stellarswirl_dmg_": 158.027,
+                "stellarswirl_dmgInc": 6694.996,
+                "stellarswirl_dmg_": 164.777,
                 "cryo_enemyRes_": -60,
                 "critRate_": 15
               },
@@ -131,7 +131,7 @@
               ],
               "hitMode": "avgHit",
               "bonusStats": {
-                "all_dmg_": 42.691,
+                "all_dmg_": 48.691,
                 "cryo_enemyRes_": -60,
                 "critRate_": 15
               },
@@ -146,8 +146,8 @@
               "hitMode": "avgHit",
               "bonusStats": {
                 "stellarswirl_baseDmg_": 7,
-                "stellarswirl_dmgInc": 5869.996,
-                "stellarswirl_dmg_": 98.027,
+                "stellarswirl_dmgInc": 6694.996,
+                "stellarswirl_dmg_": 104.777,
                 "cryo_enemyRes_": -60,
                 "critRate_": 15
               },
@@ -161,7 +161,7 @@
               ],
               "hitMode": "avgHit",
               "bonusStats": {
-                "all_dmg_": 42.691,
+                "all_dmg_": 48.691,
                 "cryo_enemyRes_": -60,
                 "critRate_": 15
               },
@@ -176,15 +176,15 @@
               "hitMode": "avgHit",
               "bonusStats": {
                 "stellarswirl_baseDmg_": 7,
-                "stellarswirl_dmgInc": 5869.996,
-                "stellarswirl_dmg_": 98.027,
+                "stellarswirl_dmgInc": 6694.996,
+                "stellarswirl_dmg_": 104.777,
                 "cryo_enemyRes_": -60,
                 "critRate_": 15
               },
               "description": ""
             },
             {
-              "weight": 1.8,
+              "weight": 2.4547,
               "path": [
                 "reaction",
                 "stellarswirl"
@@ -192,8 +192,8 @@
               "hitMode": "avgHit",
               "bonusStats": {
                 "stellarswirl_baseDmg_": 7,
-                "stellarswirl_dmgInc": 5869.996,
-                "stellarswirl_dmg_": 98.027,
+                "stellarswirl_dmgInc": 6694.996,
+                "stellarswirl_dmg_": 104.777,
                 "anemo_enemyRes_": -50,
                 "critDMG_": 40,
                 "critRate_": 15
@@ -201,7 +201,7 @@
               "description": ""
             },
             {
-              "weight": 1.653,
+              "weight": 1.6588,
               "path": [
                 "reaction",
                 "stellarswirl_vortex1"
@@ -209,8 +209,8 @@
               "hitMode": "avgHit",
               "bonusStats": {
                 "stellarswirl_baseDmg_": 7,
-                "stellarswirl_dmgInc": 5869.996,
-                "stellarswirl_dmg_": 98.027,
+                "stellarswirl_dmgInc": 6694.996,
+                "stellarswirl_dmg_": 104.777,
                 "cryo_enemyRes_": -60,
                 "critRate_": 15
               },
@@ -225,7 +225,7 @@
               "hitMode": "avgHit",
               "bonusStats": {
                 "eleMas": 120,
-                "all_dmg_": 42.691,
+                "all_dmg_": 48.691,
                 "cryo_enemyRes_": -60,
                 "critRate_": 15
               },
@@ -240,7 +240,7 @@
               "hitMode": "avgHit",
               "bonusStats": {
                 "eleMas": 120,
-                "all_dmg_": 42.691,
+                "all_dmg_": 48.691,
                 "cryo_enemyRes_": -60,
                 "critRate_": 15
               },
@@ -256,8 +256,8 @@
               "bonusStats": {
                 "eleMas": 120,
                 "stellarswirl_baseDmg_": 7,
-                "stellarswirl_dmgInc": 5869.996,
-                "stellarswirl_dmg_": 108.027,
+                "stellarswirl_dmgInc": 6694.996,
+                "stellarswirl_dmg_": 114.777,
                 "cryo_enemyRes_": -60,
                 "critRate_": 15
               },
@@ -271,7 +271,7 @@
               ],
               "hitMode": "avgHit",
               "bonusStats": {
-                "all_dmg_": 42.691,
+                "all_dmg_": 48.691,
                 "cryo_enemyRes_": -60,
                 "critRate_": 15
               },
@@ -286,8 +286,8 @@
               "hitMode": "avgHit",
               "bonusStats": {
                 "stellarswirl_baseDmg_": 7,
-                "stellarswirl_dmgInc": 5869.996,
-                "stellarswirl_dmg_": 48.027,
+                "stellarswirl_dmgInc": 6694.996,
+                "stellarswirl_dmg_": 54.777,
                 "cryo_enemyRes_": -60,
                 "critRate_": 15
               },
@@ -301,7 +301,7 @@
               ],
               "hitMode": "avgHit",
               "bonusStats": {
-                "all_dmg_": 42.691,
+                "all_dmg_": 48.691,
                 "cryo_enemyRes_": -60,
                 "critRate_": 15
               },
@@ -316,15 +316,15 @@
               "hitMode": "avgHit",
               "bonusStats": {
                 "stellarswirl_baseDmg_": 7,
-                "stellarswirl_dmgInc": 5869.996,
-                "stellarswirl_dmg_": 48.027,
+                "stellarswirl_dmgInc": 6694.996,
+                "stellarswirl_dmg_": 54.777,
                 "cryo_enemyRes_": -60,
                 "critRate_": 15
               },
               "description": ""
             },
             {
-              "weight": 1.8,
+              "weight": 2.4976,
               "path": [
                 "reaction",
                 "stellarswirl"
@@ -332,8 +332,8 @@
               "hitMode": "avgHit",
               "bonusStats": {
                 "stellarswirl_baseDmg_": 7,
-                "stellarswirl_dmgInc": 5869.996,
-                "stellarswirl_dmg_": 48.027,
+                "stellarswirl_dmgInc": 6694.996,
+                "stellarswirl_dmg_": 54.777,
                 "anemo_enemyRes_": -50,
                 "critDMG_": 40,
                 "critRate_": 15
@@ -341,7 +341,7 @@
               "description": ""
             },
             {
-              "weight": 1.7081,
+              "weight": 1.7103,
               "path": [
                 "reaction",
                 "stellarswirl_vortex1"
@@ -349,8 +349,8 @@
               "hitMode": "avgHit",
               "bonusStats": {
                 "stellarswirl_baseDmg_": 7,
-                "stellarswirl_dmgInc": 5869.996,
-                "stellarswirl_dmg_": 48.027,
+                "stellarswirl_dmgInc": 6694.996,
+                "stellarswirl_dmg_": 54.777,
                 "cryo_enemyRes_": -60,
                 "critRate_": 15
               },

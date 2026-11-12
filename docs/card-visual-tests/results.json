@@ -307,11 +307,11 @@
     },
     {
       "card": "epic-castorice",
-      "identical": true
+      "identical": false
     },
     {
       "card": "epic-castorice-t1600",
-      "identical": true
+      "identical": false
     },
     {
       "card": "epic-robin",
@@ -394,12 +394,16 @@
       "identical": true
     }
   ],
+  "comparisonCaptures": "docs\\card-visual-tests\\run-20261112-143200",
   "production": {
     "rows": [
       {
         "id": "ww-char-1512-common",
         "rarity": "common",
+        "identity": "ww:lily",
+        "fallback": "",
         "artwork": "",
+        "source": "",
         "status": "missing",
         "broken": false,
         "overflow": [],
@@ -408,7 +412,10 @@
       {
         "id": "ww-char-1512-super",
         "rarity": "super",
+        "identity": "ww:lily",
+        "fallback": "",
         "artwork": "",
+        "source": "",
         "status": "missing",
         "broken": false,
         "overflow": [],
@@ -417,8 +424,11 @@
       {
         "id": "ww-char-1512-rare",
         "rarity": "rare",
-        "artwork": "",
-        "status": "missing",
+        "identity": "ww:lily",
+        "fallback": "",
+        "artwork": "63162ba5bd9025b78a930b1017507565becbdf171de1563cc3fd91d6189a813e",
+        "source": "/assets/card-art/ww/lily-4.webp?v=aef485d61d2ab2c3",
+        "status": "ready",
         "broken": false,
         "overflow": [],
         "error": null
@@ -426,53 +436,83 @@
       {
         "id": "ww-char-1512-epic",
         "rarity": "epic",
-        "artwork": "",
-        "status": "missing",
+        "identity": "ww:lily",
+        "fallback": "",
+        "artwork": "73f3ae72296ce8fadfd8d11a483b0a8ae8dda7eadbcd670d89143fd817445076",
+        "source": "/assets/card-art/ww/lily-3.webp?v=601b54f2cf536dfb",
+        "status": "ready",
         "broken": false,
         "overflow": [],
         "error": null
       },
       {
-        "id": "ww-char-1409-full",
+        "id": "ww-char-1407-full",
         "rarity": "full",
-        "artwork": "",
-        "status": "missing",
+        "identity": "ww:ciaccona",
+        "fallback": "single-source",
+        "artwork": "dbbc2a505f0b33f28d32383a4c5c4c7d2d8e167065a4ab18fc725c9e15368c59",
+        "source": "/assets/card-art/ww/ciaccona-4.webp?v=8de6bb87f8f2f627",
+        "status": "ready",
         "broken": false,
         "overflow": [],
         "error": null
       },
       {
-        "id": "ww-char-1507-gold",
+        "id": "ww-char-1206-gold",
         "rarity": "gold",
-        "artwork": "",
-        "status": "missing",
+        "identity": "ww:brant",
+        "fallback": "single-source",
+        "artwork": "ae1458c7bd8fa631848fba69e3d2875335208744bb4718851989a46053782a4c",
+        "source": "/assets/card-art/ww/brant-4.webp?v=4cf46f1aba46d2e0",
+        "status": "ready",
         "broken": false,
         "overflow": [],
         "error": null
       },
       {
-        "id": "ww-char-1505-astral",
+        "id": "ww-char-1312-astral",
         "rarity": "astral",
-        "artwork": "",
-        "status": "missing",
+        "identity": "ww:suoming",
+        "fallback": "",
+        "artwork": "0c0a1410057141b1296e52ebfa0f23f3497dae118815af11884664f1f03c6c46",
+        "source": "/assets/card-art/ww/suoming-2.webp?v=31c7fd6e395d020e",
+        "status": "pending",
         "broken": false,
         "overflow": [],
         "error": null
       },
       {
-        "id": "ww-char-scar-secret",
+        "id": "ww-char-1606-secret",
         "rarity": "secret",
-        "artwork": "",
-        "status": "missing",
+        "identity": "ww:roccia",
+        "fallback": "single-source",
+        "artwork": "85776ed3a023ed6414c4a0b31e067c6524a2114b7cff42451bbd82d42252b2a9",
+        "source": "/assets/card-art/ww/roccia-1.webp?v=d050e59ff9e0ea9e",
+        "status": "pending",
         "broken": false,
         "overflow": [],
         "error": null
       },
       {
-        "id": "ww-char-sentinel-imperator-legend",
+        "id": "ww-char-1107-legend",
         "rarity": "legend",
-        "artwork": "",
-        "status": "missing",
+        "identity": "ww:carlotta",
+        "fallback": "single-source",
+        "artwork": "2188be301ea00650bf7329a420e233ce8b85fbb81e5fa640b93a7d53766b86f1",
+        "source": "/assets/card-art/ww/carlotta-7.webp?v=0c3838a69fea34fb",
+        "status": "pending",
+        "broken": false,
+        "overflow": [],
+        "error": null
+      },
+      {
+        "id": "ww-char-1210-eternal",
+        "rarity": "eternal",
+        "identity": "ww:aemeath",
+        "fallback": "single-source",
+        "artwork": "3815b96f17e4ceeee04a6ed4f9dd10a6098978ba07f0ac171a432d660aa6e7e4",
+        "source": "/assets/card-art/ww/aemeath-2.webp?v=abf565127f9f5410",
+        "status": "pending",
         "broken": false,
         "overflow": [],
         "error": null
@@ -480,16 +520,10 @@
       {
         "id": "ww-group-jiyan-mortefi-group",
         "rarity": "group",
+        "identity": "ww:jiyan-mortefi",
+        "fallback": "",
         "artwork": "",
-        "status": "missing",
-        "broken": false,
-        "overflow": [],
-        "error": null
-      },
-      {
-        "id": "hsr-char-obsidian-eternal",
-        "rarity": "eternal",
-        "artwork": "",
+        "source": "",
         "status": "missing",
         "broken": false,
         "overflow": [],
@@ -498,7 +532,10 @@
       {
         "id": "hsr-char-ix-aeon",
         "rarity": "aeon",
+        "identity": "hsr:ix",
+        "fallback": "",
         "artwork": "",
+        "source": "",
         "status": "missing",
         "broken": false,
         "overflow": [],
@@ -507,8 +544,11 @@
       {
         "id": "hsr-equipment-23019",
         "rarity": "equipment",
-        "artwork": "",
-        "status": "missing",
+        "identity": "hsr:past-self-in-mirror",
+        "fallback": "single-source",
+        "artwork": "cbec75d1c4b212545f88d3670b9db03a3b92400b2f798070c8138635b786dcbb",
+        "source": "/assets/card-art/hsr/past-self-in-mirror-1.webp?v=c17e9daf2c03ded5",
+        "status": "pending",
         "broken": false,
         "overflow": [],
         "error": null
@@ -516,7 +556,10 @@
       {
         "id": "hsr-energy-elation",
         "rarity": "energy",
+        "identity": "hsr:energy-elation",
+        "fallback": "",
         "artwork": "",
+        "source": "",
         "status": "missing",
         "broken": false,
         "overflow": [],
@@ -525,7 +568,10 @@
       {
         "id": "hsr-char-1506-common",
         "rarity": "common",
+        "identity": "hsr:silver-wolf-lv-unbreak-999-unbreak",
+        "fallback": "",
         "artwork": "",
+        "source": "",
         "status": "missing",
         "broken": false,
         "overflow": [],
@@ -534,7 +580,10 @@
       {
         "id": "hsr-char-1506-super",
         "rarity": "super",
+        "identity": "hsr:silver-wolf-lv-unbreak-999-unbreak",
+        "fallback": "",
         "artwork": "",
+        "source": "",
         "status": "missing",
         "broken": false,
         "overflow": [],
@@ -543,7 +592,10 @@
       {
         "id": "hsr-char-1506-rare",
         "rarity": "rare",
+        "identity": "hsr:silver-wolf-lv-unbreak-999-unbreak",
+        "fallback": "",
         "artwork": "",
+        "source": "",
         "status": "missing",
         "broken": false,
         "overflow": [],
@@ -552,7 +604,10 @@
       {
         "id": "hsr-char-1506-epic",
         "rarity": "epic",
+        "identity": "hsr:silver-wolf-lv-unbreak-999-unbreak",
+        "fallback": "",
         "artwork": "",
+        "source": "",
         "status": "missing",
         "broken": false,
         "overflow": [],
@@ -561,7 +616,10 @@
       {
         "id": "gi-equipment-15034",
         "rarity": "equipment",
+        "identity": "gi:murmure-nocturne-en-foret-d-echos",
+        "fallback": "",
         "artwork": "",
+        "source": "",
         "status": "missing",
         "broken": false,
         "overflow": [],
@@ -570,7 +628,10 @@
       {
         "id": "gi-equipment-11516",
         "rarity": "equipment",
+        "identity": "gi:chanson-de-patrouille-de-sommet",
+        "fallback": "",
         "artwork": "",
+        "source": "",
         "status": "missing",
         "broken": false,
         "overflow": [],
@@ -579,7 +640,10 @@
       {
         "id": "gi-equipment-15027",
         "rarity": "equipment",
+        "identity": "gi:chronique-du-pavillon-du-desert",
+        "fallback": "",
         "artwork": "",
+        "source": "",
         "status": "missing",
         "broken": false,
         "overflow": [],
@@ -588,8 +652,11 @@
       {
         "id": "hsr-equipment-24006",
         "rarity": "equipment",
-        "artwork": "",
-        "status": "missing",
+        "identity": "hsr:elation-brimming-with-blessings",
+        "fallback": "single-source",
+        "artwork": "da4f42141beddda749df94e1599f6ab7253fd5dd99985ab25741597d83223376",
+        "source": "/assets/card-art/hsr/elation-brimming-with-blessings-1.webp?v=738b1565c784b7ef",
+        "status": "pending",
         "broken": false,
         "overflow": [],
         "error": null
@@ -597,8 +664,11 @@
       {
         "id": "hsr-equipment-23025",
         "rarity": "equipment",
-        "artwork": "",
-        "status": "missing",
+        "identity": "hsr:whereabouts-should-dreams-rest",
+        "fallback": "single-source",
+        "artwork": "0f4f0d4683ce35422d2e90df48f09513b26ef4a4078e7461342c73570054a5ba",
+        "source": "/assets/card-art/hsr/whereabouts-should-dreams-rest-1.webp?v=b65e446f454ba6ba",
+        "status": "pending",
         "broken": false,
         "overflow": [],
         "error": null
@@ -606,7 +676,10 @@
       {
         "id": "gi-equipment-15041",
         "rarity": "equipment",
+        "identity": "gi:nuit-de-la-revelation-celeste",
+        "fallback": "",
         "artwork": "",
+        "source": "",
         "status": "missing",
         "broken": false,
         "overflow": [],
@@ -615,8 +688,11 @@
       {
         "id": "hsr-equipment-23058",
         "rarity": "equipment",
-        "artwork": "",
-        "status": "missing",
+        "identity": "hsr:until-the-flowers-bloom-again",
+        "fallback": "single-source",
+        "artwork": "4557a8a3921af29727f3cd6300002edcfd7bba3996690b249c537c9fbd82e755",
+        "source": "/assets/card-art/hsr/until-the-flowers-bloom-again-1.webp?v=595a720455fb790c",
+        "status": "pending",
         "broken": false,
         "overflow": [],
         "error": null
@@ -624,7 +700,10 @@
       {
         "id": "hsr-group-commission-des-dix-seigneurs-group",
         "rarity": "group",
+        "identity": "hsr:commission-des-dix-seigneurs",
+        "fallback": "",
         "artwork": "",
+        "source": "",
         "status": "missing",
         "broken": false,
         "overflow": [],
@@ -633,8 +712,11 @@
       {
         "id": "hsr-char-1414-common",
         "rarity": "common",
-        "artwork": "",
-        "status": "missing",
+        "identity": "hsr:dan-heng-permansor-terrae",
+        "fallback": "single-source",
+        "artwork": "8206d5c1ef07ea13becb7a31dd9b7f4560ea66469e3ef6935146722f9020ea88",
+        "source": "/assets/card-art/hsr/dan-heng-permansor-terrae-1.webp?v=996c62d7d9fbfcef",
+        "status": "pending",
         "broken": false,
         "overflow": [],
         "error": null
@@ -642,8 +724,11 @@
       {
         "id": "hsr-char-1414-super",
         "rarity": "super",
-        "artwork": "",
-        "status": "missing",
+        "identity": "hsr:dan-heng-permansor-terrae",
+        "fallback": "single-source",
+        "artwork": "8206d5c1ef07ea13becb7a31dd9b7f4560ea66469e3ef6935146722f9020ea88",
+        "source": "/assets/card-art/hsr/dan-heng-permansor-terrae-1.webp?v=996c62d7d9fbfcef",
+        "status": "pending",
         "broken": false,
         "overflow": [],
         "error": null
@@ -651,8 +736,11 @@
       {
         "id": "hsr-char-1414-rare",
         "rarity": "rare",
-        "artwork": "",
-        "status": "missing",
+        "identity": "hsr:dan-heng-permansor-terrae",
+        "fallback": "single-source",
+        "artwork": "8206d5c1ef07ea13becb7a31dd9b7f4560ea66469e3ef6935146722f9020ea88",
+        "source": "/assets/card-art/hsr/dan-heng-permansor-terrae-1.webp?v=996c62d7d9fbfcef",
+        "status": "pending",
         "broken": false,
         "overflow": [],
         "error": null
@@ -660,116 +748,143 @@
       {
         "id": "gi-char-aether-common",
         "rarity": "common",
+        "identity": "gi:aether",
+        "fallback": "",
         "artwork": "",
+        "source": "",
         "status": "missing",
         "broken": false,
         "overflow": [],
         "error": null
       },
       {
-        "id": "gi-char-alhaitham-common",
-        "rarity": "common",
-        "artwork": "",
-        "status": "missing",
+        "id": "gi-char-alhaitham-super",
+        "rarity": "super",
+        "identity": "gi:alhaitham",
+        "fallback": "",
+        "artwork": "05f92582ac4f25dc9415246fff632604ed62e5616458f74735f1fe384718ff3c",
+        "source": "/assets/card-art/gi/alhaitham-4.webp?v=4a367cfdeb4f1c41",
+        "status": "pending",
         "broken": false,
         "overflow": [],
         "error": null
       },
       {
-        "id": "gi-char-amber-common",
-        "rarity": "common",
-        "artwork": "",
-        "status": "missing",
+        "id": "gi-char-amber-rare",
+        "rarity": "rare",
+        "identity": "gi:amber",
+        "fallback": "",
+        "artwork": "517febcbff3ed0549f67dfa15060a246c8b3333b8da15389bd1acc869574e723",
+        "source": "/assets/card-art/gi/amber-2.webp?v=1876192163f8aaf1",
+        "status": "pending",
         "broken": false,
         "overflow": [],
         "error": null
       },
       {
-        "id": "gi-char-baizhu-common",
-        "rarity": "common",
-        "artwork": "",
-        "status": "missing",
+        "id": "gi-char-baizhu-epic",
+        "rarity": "epic",
+        "identity": "gi:baizhu",
+        "fallback": "",
+        "artwork": "1522a8d466946088ad7c601cfd2225c9225bb70f6275a70948e600011e0f5c14",
+        "source": "/assets/card-art/gi/baizhu-2.webp?v=ecedcb1deaf426a1",
+        "status": "pending",
         "broken": false,
         "overflow": [],
         "error": null
       },
       {
-        "id": "gi-char-bennett-common",
+        "id": "gi-char-candace-common",
         "rarity": "common",
-        "artwork": "63304101342069483f2816d1f5e2aafe439650ccc2f9bb4508cae1dce554e8e6",
-        "status": "missing",
+        "identity": "gi:candace",
+        "fallback": "",
+        "artwork": "3cea6910ea0b5736397f29b89bd3f11e8b29a02326d3391c5dbfbf3ad9aaeb84",
+        "source": "/assets/card-art/gi/candace-4.webp?v=5a140ccb5f048f66",
+        "status": "pending",
         "broken": false,
         "overflow": [],
         "error": null
       },
       {
-        "id": "gi-char-chasca-common",
-        "rarity": "common",
-        "artwork": "",
-        "status": "missing",
+        "id": "gi-char-chevreuse-super",
+        "rarity": "super",
+        "identity": "gi:chevreuse",
+        "fallback": "",
+        "artwork": "fe477794fe63498f0aa4bb40f93248693584993d0e527c40398a440748d66985",
+        "source": "/assets/card-art/gi/chevreuse-3.webp?v=deead17b119377d6",
+        "status": "pending",
         "broken": false,
         "overflow": [],
         "error": null
       },
       {
-        "id": "gi-char-chongyun-common",
-        "rarity": "common",
-        "artwork": "e9b8b70263d5715ccd34e3be66cfe1644ccafa25caeeb947ec7d5b5e37b53da5",
-        "status": "missing",
+        "id": "gi-char-citlali-rare",
+        "rarity": "rare",
+        "identity": "gi:citlali",
+        "fallback": "",
+        "artwork": "c483743fbdc3b7c7b168523f56a935d15b963a6d376d31429cb80911497f89ae",
+        "source": "/assets/card-art/gi/citlali-3.webp?v=d767489664722a31",
+        "status": "pending",
         "broken": false,
         "overflow": [],
         "error": null
       },
       {
-        "id": "gi-char-collei-common",
-        "rarity": "common",
-        "artwork": "1f0579a71e3dbfa1343a893f57c3e63bb1b7217d9f9cf05bfb65533a88a79d36",
-        "status": "missing",
+        "id": "gi-char-columbina-epic",
+        "rarity": "epic",
+        "identity": "gi:columbina",
+        "fallback": "",
+        "artwork": "f16aceab01e77a7870ff9e49cddc4e2cde28641b1adc1a66ff01a675d14f6c33",
+        "source": "/assets/card-art/gi/columbina-2.webp?v=973d294eb98d3182",
+        "status": "pending",
         "broken": false,
         "overflow": [],
         "error": null
       },
       {
-        "id": "gi-char-dahlia-common",
+        "id": "gi-char-diluc-common",
         "rarity": "common",
-        "artwork": "",
-        "status": "missing",
+        "identity": "gi:diluc",
+        "fallback": "",
+        "artwork": "ea728649ebfb1e2193f3221faaadba8097fee33d88b3e6416f9bd524875133a9",
+        "source": "/assets/card-art/gi/diluc-5.webp?v=17b41f0a67145ab7",
+        "status": "pending",
         "broken": false,
         "overflow": [],
         "error": null
       },
       {
-        "id": "gi-char-diona-common",
-        "rarity": "common",
-        "artwork": "8d0450673e05a21d10ceb1fda5d8497a4f384c733ff82ee2248e13c9a6397059",
-        "status": "missing",
+        "id": "gi-char-durin-super",
+        "rarity": "super",
+        "identity": "gi:durin",
+        "fallback": "",
+        "artwork": "788d7c4db5afa0187bd96be7e4cf28f2ea8947139c66139d4a202a1054b67582",
+        "source": "/assets/genshin/splashes/10000123.webp?v=504256874faef222",
+        "status": "pending",
         "broken": false,
         "overflow": [],
         "error": null
       },
       {
-        "id": "gi-char-emilie-common",
-        "rarity": "common",
-        "artwork": "",
-        "status": "missing",
+        "id": "gi-char-eula-rare",
+        "rarity": "rare",
+        "identity": "gi:eula",
+        "fallback": "",
+        "artwork": "ee6937f6d205047a036fbf0e006382e9ec7a71d3c06021b40dd93aebe7bfbccc",
+        "source": "/assets/card-art/gi/eula-3.webp?v=08adbb6d0af29517",
+        "status": "pending",
         "broken": false,
         "overflow": [],
         "error": null
       },
       {
-        "id": "gi-char-faruzan-common",
-        "rarity": "common",
-        "artwork": "",
-        "status": "missing",
-        "broken": false,
-        "overflow": [],
-        "error": null
-      },
-      {
-        "id": "gi-char-freminet-common",
-        "rarity": "common",
-        "artwork": "",
-        "status": "missing",
+        "id": "gi-char-flins-epic",
+        "rarity": "epic",
+        "identity": "gi:flins",
+        "fallback": "",
+        "artwork": "fbc10cd4466c572e9d3452f75074c559ada268ae30244328a7edf644e00bca5d",
+        "source": "/assets/card-art/gi/flins-1.webp?v=d19570e7b180e9aa",
+        "status": "pending",
         "broken": false,
         "overflow": [],
         "error": null
@@ -777,116 +892,143 @@
       {
         "id": "gi-char-ganyu-common",
         "rarity": "common",
+        "identity": "gi:ganyu",
+        "fallback": "",
+        "artwork": "8f185303c41315fd751eb3d3d0eef60651fbefa80c38d4e05b2080c0056e2530",
+        "source": "/assets/card-art/gi/ganyu-6.webp?v=b9d745ce27ef7012",
+        "status": "pending",
+        "broken": false,
+        "overflow": [],
+        "error": null
+      },
+      {
+        "id": "gi-char-iansan-super",
+        "rarity": "super",
+        "identity": "gi:iansan",
+        "fallback": "",
+        "artwork": "12ddabe85c7719f5e94190b83d334fb2eab998ff6860d899d710ba2935d46fab",
+        "source": "/assets/card-art/gi/iansan-3.webp?v=9d31134b341c8cbe",
+        "status": "pending",
+        "broken": false,
+        "overflow": [],
+        "error": null
+      },
+      {
+        "id": "gi-char-ineffa-rare",
+        "rarity": "rare",
+        "identity": "gi:ineffa",
+        "fallback": "",
+        "artwork": "d80be6b4954e14fcfad7ea0e6396e3b33561425231dfc24d2664f570a8a9c9eb",
+        "source": "/assets/card-art/gi/ineffa-2.webp?v=3af67cea2050604e",
+        "status": "pending",
+        "broken": false,
+        "overflow": [],
+        "error": null
+      },
+      {
+        "id": "gi-char-kachina-epic",
+        "rarity": "epic",
+        "identity": "gi:kachina",
+        "fallback": "",
+        "artwork": "7e3677a071abc087d7aed84cf6bcd0fbf74a94f89e6e3900400dee8ff8e809f7",
+        "source": "/assets/card-art/gi/kachina-2.webp?v=55ed52c1d7d859e8",
+        "status": "pending",
+        "broken": false,
+        "overflow": [],
+        "error": null
+      },
+      {
+        "id": "gi-char-kamisato-ayato-common",
+        "rarity": "common",
+        "identity": "gi:kamisato-ayato",
+        "fallback": "",
+        "artwork": "0fce9e66e0af78e1138c4e5fbafc6d6b8b0964b3f5fc80667faef5ae23942e55",
+        "source": "/assets/card-art/gi/kamisato-ayato-5.webp?v=b1de44a102280b22",
+        "status": "pending",
+        "broken": false,
+        "overflow": [],
+        "error": null
+      },
+      {
+        "id": "gi-char-kinich-super",
+        "rarity": "super",
+        "identity": "gi:kinich",
+        "fallback": "",
+        "artwork": "c8f74d4e44adacc07e14731112d5a59c6c379afac2fe7f662485c9abca95ed0b",
+        "source": "/assets/card-art/gi/kinich-4.webp?v=0054a00bb1159eff",
+        "status": "pending",
+        "broken": false,
+        "overflow": [],
+        "error": null
+      },
+      {
+        "id": "gi-char-kujou-sara-rare",
+        "rarity": "rare",
+        "identity": "gi:kujou-sara",
+        "fallback": "",
+        "artwork": "ec94dc960e12862a045aebdc4a65e03529449376ffb1f22e3c0e285e5ad18a5c",
+        "source": "/assets/card-art/gi/kujou-sara-3.webp?v=a0933a0e1b23f4b2",
+        "status": "pending",
+        "broken": false,
+        "overflow": [],
+        "error": null
+      },
+      {
+        "id": "gi-char-layla-epic",
+        "rarity": "epic",
+        "identity": "gi:layla",
+        "fallback": "",
+        "artwork": "f23f4ae47f35cbd8237b3627f3c2505563b47a5a46ad3adb0b61284e46e4bfb6",
+        "source": "/assets/card-art/gi/layla-2.webp?v=0258caf5441fc061",
+        "status": "pending",
+        "broken": false,
+        "overflow": [],
+        "error": null
+      },
+      {
+        "id": "gi-char-lumine-common",
+        "rarity": "common",
+        "identity": "gi:lumine",
+        "fallback": "",
         "artwork": "",
+        "source": "",
         "status": "missing",
         "broken": false,
         "overflow": [],
         "error": null
       },
       {
-        "id": "gi-char-iansan-common",
-        "rarity": "common",
+        "id": "gi-char-manekin-super",
+        "rarity": "super",
+        "identity": "gi:manekin",
+        "fallback": "",
         "artwork": "",
+        "source": "",
         "status": "missing",
         "broken": false,
         "overflow": [],
         "error": null
       },
       {
-        "id": "gi-char-ineffa-common",
-        "rarity": "common",
-        "artwork": "",
-        "status": "missing",
+        "id": "gi-char-mika-rare",
+        "rarity": "rare",
+        "identity": "gi:mika",
+        "fallback": "",
+        "artwork": "b129441e1eea5fb021c174e17b34969bb49ed45674ce1eaa2b34a9defdfb37b4",
+        "source": "/assets/card-art/gi/mika-3.webp?v=aed8ec45787adce4",
+        "status": "pending",
         "broken": false,
         "overflow": [],
         "error": null
       },
       {
-        "id": "gi-char-kachina-common",
-        "rarity": "common",
-        "artwork": "",
-        "status": "missing",
-        "broken": false,
-        "overflow": [],
-        "error": null
-      },
-      {
-        "id": "gi-char-kamisato-ayaka-common",
-        "rarity": "common",
-        "artwork": "fa24cf0f6bf7f9b9d0c772381f84a2d92179edf88fe0c613c8391334c0369569",
-        "status": "missing",
-        "broken": false,
-        "overflow": [],
-        "error": null
-      },
-      {
-        "id": "gi-char-keqing-common",
-        "rarity": "common",
-        "artwork": "",
-        "status": "missing",
-        "broken": false,
-        "overflow": [],
-        "error": null
-      },
-      {
-        "id": "gi-char-klee-common",
-        "rarity": "common",
-        "artwork": "",
-        "status": "missing",
-        "broken": false,
-        "overflow": [],
-        "error": null
-      },
-      {
-        "id": "gi-char-lan-yan-common",
-        "rarity": "common",
-        "artwork": "",
-        "status": "missing",
-        "broken": false,
-        "overflow": [],
-        "error": null
-      },
-      {
-        "id": "gi-char-lisa-common",
-        "rarity": "common",
-        "artwork": "83c50467d3ef5a43f15f51b9a5d5f06c231d797b7b405364612267e3f61a4234",
-        "status": "missing",
-        "broken": false,
-        "overflow": [],
-        "error": null
-      },
-      {
-        "id": "gi-char-lynette-common",
-        "rarity": "common",
-        "artwork": "",
-        "status": "missing",
-        "broken": false,
-        "overflow": [],
-        "error": null
-      },
-      {
-        "id": "gi-char-manekina-common",
-        "rarity": "common",
-        "artwork": "",
-        "status": "missing",
-        "broken": false,
-        "overflow": [],
-        "error": null
-      },
-      {
-        "id": "gi-char-mona-common",
-        "rarity": "common",
-        "artwork": "",
-        "status": "missing",
-        "broken": false,
-        "overflow": [],
-        "error": null
-      },
-      {
-        "id": "gi-char-navia-common",
-        "rarity": "common",
-        "artwork": "",
-        "status": "missing",
+        "id": "gi-char-nahida-epic",
+        "rarity": "epic",
+        "identity": "gi:nahida",
+        "fallback": "",
+        "artwork": "82baa3af141dfffc4fcd302156feadb0211013311b4df4eb843a09d0d2ba2ba5",
+        "source": "/assets/card-art/gi/nahida-2.webp?v=c106394cb7f7da81",
+        "status": "pending",
         "broken": false,
         "overflow": [],
         "error": null
@@ -894,116 +1036,143 @@
       {
         "id": "gi-char-nicole-common",
         "rarity": "common",
+        "identity": "gi:nicole",
+        "fallback": "",
         "artwork": "",
+        "source": "",
         "status": "missing",
         "broken": false,
         "overflow": [],
         "error": null
       },
       {
-        "id": "gi-char-noelle-common",
-        "rarity": "common",
-        "artwork": "",
-        "status": "missing",
+        "id": "gi-char-noelle-super",
+        "rarity": "super",
+        "identity": "gi:noelle",
+        "fallback": "",
+        "artwork": "80a4641de2fd81c5947b2f2a7ad42a03d3fa66d466c4776fbf23555f99aade09",
+        "source": "/assets/card-art/gi/noelle-4.webp?v=763c1abdadb9d1be",
+        "status": "pending",
         "broken": false,
         "overflow": [],
         "error": null
       },
       {
-        "id": "gi-char-prune-common",
-        "rarity": "common",
-        "artwork": "",
-        "status": "missing",
+        "id": "gi-char-prune-rare",
+        "rarity": "rare",
+        "identity": "gi:prune",
+        "fallback": "single-source",
+        "artwork": "3489301621ababcff4195688206d5bdfbe5394e4bb0498c9532d8f0bb706a329",
+        "source": "/assets/card-art/gi/prune-1.webp?v=c4c4f72eba1a49d6",
+        "status": "pending",
         "broken": false,
         "overflow": [],
         "error": null
       },
       {
-        "id": "gi-char-razor-common",
-        "rarity": "common",
-        "artwork": "",
-        "status": "missing",
+        "id": "gi-char-razor-epic",
+        "rarity": "epic",
+        "identity": "gi:razor",
+        "fallback": "",
+        "artwork": "b51dae3f6c9afb9bd4e4ec34ebcdbb4794bf5a0c65f140cccdb978f4e97cc5b9",
+        "source": "/assets/card-art/gi/razor-2.webp?v=4abd4c838735dc78",
+        "status": "pending",
         "broken": false,
         "overflow": [],
         "error": null
       },
       {
-        "id": "gi-char-sangonomiya-kokomi-common",
+        "id": "gi-char-sayu-common",
         "rarity": "common",
-        "artwork": "",
-        "status": "missing",
+        "identity": "gi:sayu",
+        "fallback": "",
+        "artwork": "3b67317bb0f529cfee81fe651e1be4f88b803e611fd068e6598a1346cff938bc",
+        "source": "/assets/card-art/gi/sayu-4.webp?v=32779bf414c97c77",
+        "status": "pending",
         "broken": false,
         "overflow": [],
         "error": null
       },
       {
-        "id": "gi-char-shenhe-common",
-        "rarity": "common",
-        "artwork": "",
-        "status": "missing",
+        "id": "gi-char-shikanoin-heizou-super",
+        "rarity": "super",
+        "identity": "gi:shikanoin-heizou",
+        "fallback": "",
+        "artwork": "9c247d6e5301dd412c990cbf5943dd9b34fbf8cd5640c9fbc2c84ee0a0802d30",
+        "source": "/assets/card-art/gi/shikanoin-heizou-4.webp?v=919ab6aa1335ad11",
+        "status": "pending",
         "broken": false,
         "overflow": [],
         "error": null
       },
       {
-        "id": "gi-char-skirk-common",
-        "rarity": "common",
-        "artwork": "",
-        "status": "missing",
+        "id": "gi-char-sucrose-rare",
+        "rarity": "rare",
+        "identity": "gi:sucrose",
+        "fallback": "",
+        "artwork": "2320468d835ecf9fb707834f4483c16517d5659bdfd60f2d4bf4416a86c5686a",
+        "source": "/assets/card-art/gi/sucrose-3.webp?v=2174c5daef0d82e1",
+        "status": "pending",
         "broken": false,
         "overflow": [],
         "error": null
       },
       {
-        "id": "gi-char-thomas-common",
-        "rarity": "common",
-        "artwork": "",
-        "status": "missing",
+        "id": "gi-char-tighnari-epic",
+        "rarity": "epic",
+        "identity": "gi:tighnari",
+        "fallback": "",
+        "artwork": "1eeef03f9a046bedcd8cfe0edaa6d4ec6a41496b0d62adf813fe1310ea7f4dc9",
+        "source": "/assets/card-art/gi/tighnari-2.webp?v=988e5c600bd67e1a",
+        "status": "pending",
         "broken": false,
         "overflow": [],
         "error": null
       },
       {
-        "id": "gi-char-varka-common",
+        "id": "gi-char-vesna-common",
         "rarity": "common",
-        "artwork": "",
-        "status": "missing",
+        "identity": "gi:vesna",
+        "fallback": "single-source",
+        "artwork": "7d2b9ec65518477ba7f90791499e6ba8414fb4fabb5a2c46919b5ff7f7d6afac",
+        "source": "/assets/card-art/gi/vesna-1.webp?v=5053efa3e9a8e211",
+        "status": "pending",
         "broken": false,
         "overflow": [],
         "error": null
       },
       {
-        "id": "gi-char-vodyanitsa-common",
-        "rarity": "common",
-        "artwork": "",
-        "status": "missing",
+        "id": "gi-char-wriothesley-super",
+        "rarity": "super",
+        "identity": "gi:wriothesley",
+        "fallback": "",
+        "artwork": "09e1c8ab9b76fa5bc469c0decb0e58faabc12892110d0980b88de3d644f315dc",
+        "source": "/assets/card-art/gi/wriothesley-4.webp?v=50bd694e8a118b43",
+        "status": "pending",
         "broken": false,
         "overflow": [],
         "error": null
       },
       {
-        "id": "gi-char-xiangling-common",
-        "rarity": "common",
-        "artwork": "",
-        "status": "missing",
+        "id": "gi-char-xiao-rare",
+        "rarity": "rare",
+        "identity": "gi:xiao",
+        "fallback": "",
+        "artwork": "1dcadcecb065f85d558d7bd2fc42919e86f2ad4ae3d597bf835998574f314ddc",
+        "source": "/assets/card-art/gi/xiao-3.webp?v=99f71b9cf6a0fff0",
+        "status": "pending",
         "broken": false,
         "overflow": [],
         "error": null
       },
       {
-        "id": "gi-char-xilonen-common",
-        "rarity": "common",
-        "artwork": "",
-        "status": "missing",
-        "broken": false,
-        "overflow": [],
-        "error": null
-      },
-      {
-        "id": "gi-char-yae-miko-common",
-        "rarity": "common",
-        "artwork": "",
-        "status": "missing",
+        "id": "gi-char-xinyan-epic",
+        "rarity": "epic",
+        "identity": "gi:xinyan",
+        "fallback": "",
+        "artwork": "c9f992217e04570bbf75e891c8e8d3ad994bf48456d0226bb148a4fb55a64d6a",
+        "source": "/assets/card-art/gi/xinyan-2.webp?v=b642c691f292fa73",
+        "status": "pending",
         "broken": false,
         "overflow": [],
         "error": null
@@ -1011,80 +1180,131 @@
       {
         "id": "gi-char-yelan-common",
         "rarity": "common",
-        "artwork": "",
-        "status": "missing",
+        "identity": "gi:yelan",
+        "fallback": "",
+        "artwork": "0ce664eb66e4fc1fdbd9b848809691ecb9c8ec9c4e7c9cd19a3c7973ac252f97",
+        "source": "/assets/card-art/gi/yelan-5.webp?v=6ec4299961c6cc72",
+        "status": "pending",
         "broken": false,
         "overflow": [],
         "error": null
       },
       {
-        "id": "gi-char-yun-jin-common",
-        "rarity": "common",
-        "artwork": "",
-        "status": "missing",
+        "id": "gi-char-yun-jin-super",
+        "rarity": "super",
+        "identity": "gi:yun-jin",
+        "fallback": "",
+        "artwork": "059c5a342fafb0ae7ce423c65cfe58319b1d63f56337ffcafc23950562cd5dc2",
+        "source": "/assets/card-art/gi/yun-jin-4.webp?v=c3bc3ed59a88154e",
+        "status": "pending",
         "broken": false,
         "overflow": [],
         "error": null
       },
       {
-        "id": "gi-char-furina-full",
+        "id": "gi-char-razor-full",
         "rarity": "full",
-        "artwork": "65fb0cff7291f0da3d3132470d0add696c8d3eeb7b71d35307aecc0066d1d5f6",
-        "status": "missing",
+        "identity": "gi:razor",
+        "fallback": "",
+        "artwork": "8f082c446ea6b2cd8c6fa4a73b9028bee65e9dcd9ea0d000809308cd36e12c53",
+        "source": "/assets/card-art/gi/razor-1.webp?v=369bcd4734b1773d",
+        "status": "pending",
         "broken": false,
         "overflow": [],
         "error": null
       },
       {
-        "id": "gi-char-keqing-full",
+        "id": "gi-char-xinyan-full",
         "rarity": "full",
-        "artwork": "017d1b85217e395cb9ede7a994357a6260939568062fa4756b082dcf3b66e25c",
-        "status": "missing",
+        "identity": "gi:xinyan",
+        "fallback": "",
+        "artwork": "f8c53e5f315656cc454ce2f210dead8f8e36ad28257afc6b328fc52c17f80305",
+        "source": "/assets/card-art/gi/xinyan-1.webp?v=01b5b003fe880345",
+        "status": "pending",
         "broken": false,
         "overflow": [],
         "error": null
       },
       {
-        "id": "gi-char-chiori-gold",
+        "id": "gi-char-kaveh-full",
+        "rarity": "full",
+        "identity": "gi:kaveh",
+        "fallback": "",
+        "artwork": "69b6825b5b78adc71d8d4596ac15e2698847d60f5441e1f2d9866f9ac1a74f5a",
+        "source": "/assets/card-art/gi/kaveh-1.webp?v=baa4a37901244eb1",
+        "status": "pending",
+        "broken": false,
+        "overflow": [],
+        "error": null
+      },
+      {
+        "id": "gi-char-lyney-gold",
         "rarity": "gold",
-        "artwork": "81b1f8140a5af8c75ed491a0659dfb7ec0df106d626524ebdeb600d2a2279769",
-        "status": "missing",
+        "identity": "gi:lyney",
+        "fallback": "",
+        "artwork": "8e9d58d88d30ff1a6e813b71dc30a53dd57bfa3d902032680a51ef77f84fd112",
+        "source": "/assets/card-art/gi/lyney-1.webp?v=a6fa3f49705495eb",
+        "status": "pending",
         "broken": false,
         "overflow": [],
         "error": null
       },
       {
-        "id": "gi-char-dainsleif-secret",
+        "id": "gi-char-kamisato-ayato-secret",
         "rarity": "secret",
-        "artwork": "",
-        "status": "missing",
+        "identity": "gi:kamisato-ayato",
+        "fallback": "",
+        "artwork": "dfe3674162a6c61ea7f728c8f1c1fb359116edf4f01a2bd5e0311cbe33506a21",
+        "source": "/assets/card-art/gi/kamisato-ayato-1.webp?v=5c5543bb6ae09cf1",
+        "status": "pending",
         "broken": false,
         "overflow": [],
         "error": null
       },
       {
-        "id": "gi-char-kitsune-saiguu-legend",
+        "id": "gi-char-ganyu-legend",
         "rarity": "legend",
-        "artwork": "",
-        "status": "missing",
+        "identity": "gi:ganyu",
+        "fallback": "",
+        "artwork": "07dedfc1ddd021d1e45dc1d5f19471ef20b1c3c81e8cec5d54529515c80786fd",
+        "source": "/assets/card-art/gi/ganyu-1.webp?v=7776bd6d9c39a57d",
+        "status": "pending",
         "broken": false,
         "overflow": [],
         "error": null
       },
       {
-        "id": "gi-group-groupe-de-liyue-group",
+        "id": "gi-char-diluc-legend",
+        "rarity": "legend",
+        "identity": "gi:diluc",
+        "fallback": "",
+        "artwork": "eb909155a281edb2eece106dc4ba1af57ad1af1fcfeff1118f3a5b0033f37c64",
+        "source": "/assets/card-art/gi/diluc-1.webp?v=bac5a460fb855464",
+        "status": "pending",
+        "broken": false,
+        "overflow": [],
+        "error": null
+      },
+      {
+        "id": "gi-group-les-fatui-group",
         "rarity": "group",
+        "identity": "gi:les-fatui",
+        "fallback": "",
         "artwork": "",
+        "source": "",
         "status": "missing",
         "broken": false,
         "overflow": [],
         "error": null
       },
       {
-        "id": "hsr-char-1003-common",
-        "rarity": "common",
-        "artwork": "",
-        "status": "missing",
+        "id": "hsr-char-1002-epic",
+        "rarity": "epic",
+        "identity": "hsr:dan-heng",
+        "fallback": "single-source",
+        "artwork": "35940c665ad3470b451eea4ec4fb89b0bec98732d195258c080a4f481e321850",
+        "source": "/assets/card-art/hsr/dan-heng-1.webp?v=596673a1103e798c",
+        "status": "pending",
         "broken": false,
         "overflow": [],
         "error": null
@@ -1092,116 +1312,143 @@
       {
         "id": "hsr-char-1006-common",
         "rarity": "common",
+        "identity": "hsr:silver-wolf",
+        "fallback": "",
         "artwork": "",
+        "source": "",
         "status": "missing",
         "broken": false,
         "overflow": [],
         "error": null
       },
       {
-        "id": "hsr-char-1013-common",
-        "rarity": "common",
-        "artwork": "",
-        "status": "missing",
+        "id": "hsr-char-1013-super",
+        "rarity": "super",
+        "identity": "hsr:herta",
+        "fallback": "single-source",
+        "artwork": "a2f2f8df10728d9a806eff66b5b6db092d586ad4379d47aa7a4441dd82aa467b",
+        "source": "/assets/card-art/hsr/herta-1.webp?v=b40b028bb48fb12b",
+        "status": "pending",
         "broken": false,
         "overflow": [],
         "error": null
       },
       {
-        "id": "hsr-char-1101-common",
-        "rarity": "common",
-        "artwork": "",
-        "status": "missing",
+        "id": "hsr-char-1101-rare",
+        "rarity": "rare",
+        "identity": "hsr:bronya",
+        "fallback": "single-source",
+        "artwork": "c47fa191ad4029569c47c8f0bdf982a5a60f7c857da809b8df9c956d6f984d82",
+        "source": "/assets/card-art/hsr/bronya-1.webp?v=e11cdd3c36d65053",
+        "status": "pending",
         "broken": false,
         "overflow": [],
         "error": null
       },
       {
-        "id": "hsr-char-1104-common",
-        "rarity": "common",
-        "artwork": "",
-        "status": "missing",
+        "id": "hsr-char-1104-epic",
+        "rarity": "epic",
+        "identity": "hsr:gepard",
+        "fallback": "single-source",
+        "artwork": "31b1620684d526abb049ba6a74f89355f460edb116086a0ddd64b531ce8e7c57",
+        "source": "/assets/card-art/hsr/gepard-1.webp?v=50d8f662d55fd020",
+        "status": "pending",
         "broken": false,
         "overflow": [],
         "error": null
       },
       {
-        "id": "hsr-char-1107-common",
+        "id": "hsr-char-1108-common",
         "rarity": "common",
-        "artwork": "",
-        "status": "missing",
+        "identity": "hsr:sampo",
+        "fallback": "single-source",
+        "artwork": "cae8c06f19e2c8a071344e8d13928b1bac28649c14c900a9e33094f063c440ab",
+        "source": "/assets/card-art/hsr/sampo-1.webp?v=a573459ce404dd09",
+        "status": "pending",
         "broken": false,
         "overflow": [],
         "error": null
       },
       {
-        "id": "hsr-char-1110-common",
-        "rarity": "common",
-        "artwork": "",
-        "status": "missing",
+        "id": "hsr-char-1111-super",
+        "rarity": "super",
+        "identity": "hsr:luka",
+        "fallback": "single-source",
+        "artwork": "00f35875650379796da858053f13e5d9d2cd57431cfefc40cbac12a067f84f00",
+        "source": "/assets/card-art/hsr/luka-1.webp?v=033b69989181b22a",
+        "status": "pending",
         "broken": false,
         "overflow": [],
         "error": null
       },
       {
-        "id": "hsr-char-1201-common",
-        "rarity": "common",
-        "artwork": "",
-        "status": "missing",
+        "id": "hsr-char-1202-rare",
+        "rarity": "rare",
+        "identity": "hsr:tingyun",
+        "fallback": "single-source",
+        "artwork": "0500b9b3bc9f373607f7986fc01f24d649644e7357bdfe2a76479847bbdee19d",
+        "source": "/assets/card-art/hsr/tingyun-1.webp?v=086e204ac9f10ea4",
+        "status": "pending",
         "broken": false,
         "overflow": [],
         "error": null
       },
       {
-        "id": "hsr-char-1204-common",
-        "rarity": "common",
-        "artwork": "",
-        "status": "missing",
+        "id": "hsr-char-1205-epic",
+        "rarity": "epic",
+        "identity": "hsr:blade",
+        "fallback": "single-source",
+        "artwork": "5a3f21f0b38a24477e82163f25c1f6141f92063bae37c20b29e26abc68a855e6",
+        "source": "/assets/card-art/hsr/blade-1.webp?v=29c979e909bbc8e5",
+        "status": "pending",
         "broken": false,
         "overflow": [],
         "error": null
       },
       {
-        "id": "hsr-char-1207-common",
+        "id": "hsr-char-1209-common",
         "rarity": "common",
-        "artwork": "",
-        "status": "missing",
+        "identity": "hsr:yanqing",
+        "fallback": "single-source",
+        "artwork": "e9408fe3130c5f531ca9d920cc54d6a535d5c719c688eceeb09315f263dc3e9b",
+        "source": "/assets/card-art/hsr/yanqing-1.webp?v=2db02281d610d328",
+        "status": "pending",
         "broken": false,
         "overflow": [],
         "error": null
       },
       {
-        "id": "hsr-char-1210-common",
-        "rarity": "common",
-        "artwork": "",
-        "status": "missing",
+        "id": "hsr-char-1212-super",
+        "rarity": "super",
+        "identity": "hsr:jingliu",
+        "fallback": "single-source",
+        "artwork": "559bb7ade0b59772dd14bd030c2172c48c91f047fefbc3c81bc3299043b9215f",
+        "source": "/assets/card-art/hsr/jingliu-1.webp?v=8f9ba40fd57ebc23",
+        "status": "pending",
         "broken": false,
         "overflow": [],
         "error": null
       },
       {
-        "id": "hsr-char-1213-common",
-        "rarity": "common",
-        "artwork": "",
-        "status": "missing",
+        "id": "hsr-char-1215-rare",
+        "rarity": "rare",
+        "identity": "hsr:hanya",
+        "fallback": "single-source",
+        "artwork": "fbd8b4239db469288becdb4fe6dbe63d53718b3966cc0b0c40da351009c7e220",
+        "source": "/assets/card-art/hsr/hanya-1.webp?v=5130f5316461c679",
+        "status": "pending",
         "broken": false,
         "overflow": [],
         "error": null
       },
       {
-        "id": "hsr-char-1217-common",
-        "rarity": "common",
-        "artwork": "",
-        "status": "missing",
-        "broken": false,
-        "overflow": [],
-        "error": null
-      },
-      {
-        "id": "hsr-char-1221-common",
-        "rarity": "common",
-        "artwork": "",
-        "status": "missing",
+        "id": "hsr-char-1220-epic",
+        "rarity": "epic",
+        "identity": "hsr:feixiao",
+        "fallback": "single-source",
+        "artwork": "6dbfededa10d6953d563a394e2bb1c3e8fa4139d714a1818afd14e4d78bfa3e5",
+        "source": "/assets/card-art/hsr/feixiao-1.webp?v=b6ed5d01fa355a8c",
+        "status": "pending",
         "broken": false,
         "overflow": [],
         "error": null
@@ -1209,116 +1456,143 @@
       {
         "id": "hsr-char-1224-common",
         "rarity": "common",
-        "artwork": "",
-        "status": "missing",
+        "identity": "hsr:march-7th-1224",
+        "fallback": "single-source",
+        "artwork": "cbed817df593c87d8271a0e8850ce09abf144e2c62eda55289455b9eb7b35273",
+        "source": "/assets/card-art/hsr/march-7th-1224-1.webp?v=2749d9188ea5e7f8",
+        "status": "pending",
         "broken": false,
         "overflow": [],
         "error": null
       },
       {
-        "id": "hsr-char-1302-common",
-        "rarity": "common",
-        "artwork": "",
-        "status": "missing",
+        "id": "hsr-char-1302-super",
+        "rarity": "super",
+        "identity": "hsr:argenti",
+        "fallback": "single-source",
+        "artwork": "ef953ae636f9f8f4e3e6c84d5b55aef7f0858aff59835de9402e16e230d83701",
+        "source": "/assets/card-art/hsr/argenti-1.webp?v=715dda73e5d4819e",
+        "status": "pending",
         "broken": false,
         "overflow": [],
         "error": null
       },
       {
-        "id": "hsr-char-1305-common",
-        "rarity": "common",
-        "artwork": "",
-        "status": "missing",
+        "id": "hsr-char-1305-rare",
+        "rarity": "rare",
+        "identity": "hsr:dr-ratio",
+        "fallback": "single-source",
+        "artwork": "52fb12219796f3696a7afefed2cbfe93a8bdd7f57113616dd728063f944097c7",
+        "source": "/assets/card-art/hsr/dr-ratio-1.webp?v=a4a2c10fa3b0cb48",
+        "status": "pending",
         "broken": false,
         "overflow": [],
         "error": null
       },
       {
-        "id": "hsr-char-1308-common",
-        "rarity": "common",
-        "artwork": "",
-        "status": "missing",
+        "id": "hsr-char-1308-epic",
+        "rarity": "epic",
+        "identity": "hsr:acheron",
+        "fallback": "",
+        "artwork": "2cb200a310d0ff9ea48fb5de13a4947001fc206e29194440acb6a5eeba89763a",
+        "source": "/assets/card-art/hsr/acheron-2.webp?v=8bc912473ae72595",
+        "status": "pending",
         "broken": false,
         "overflow": [],
         "error": null
       },
       {
-        "id": "hsr-char-1312-common",
+        "id": "hsr-char-1313-common",
         "rarity": "common",
-        "artwork": "",
-        "status": "missing",
+        "identity": "hsr:sunday",
+        "fallback": "single-source",
+        "artwork": "ef96ac6f8cb06040ceab95c77537dc9c147601212e9cc3d8217cb232fdcf5930",
+        "source": "/assets/card-art/hsr/sunday-1.webp?v=394cff224b14878d",
+        "status": "pending",
         "broken": false,
         "overflow": [],
         "error": null
       },
       {
-        "id": "hsr-char-1315-common",
-        "rarity": "common",
-        "artwork": "",
-        "status": "missing",
+        "id": "hsr-char-1317-super",
+        "rarity": "super",
+        "identity": "hsr:rappa",
+        "fallback": "single-source",
+        "artwork": "be7092885d7ae588d90aab23018dcb8dcc8fd0b8752844a367067d809cebdc6f",
+        "source": "/assets/card-art/hsr/rappa-1.webp?v=0ce1fed39569deb6",
+        "status": "pending",
         "broken": false,
         "overflow": [],
         "error": null
       },
       {
-        "id": "hsr-char-1401-common",
-        "rarity": "common",
-        "artwork": "",
-        "status": "missing",
+        "id": "hsr-char-1402-rare",
+        "rarity": "rare",
+        "identity": "hsr:aglaea",
+        "fallback": "single-source",
+        "artwork": "12d73057d918387e34203c06c3cb39169b70792ddab5985d1b2f3aa8e58feb55",
+        "source": "/assets/card-art/hsr/aglaea-1.webp?v=044cc737f4b7445c",
+        "status": "pending",
         "broken": false,
         "overflow": [],
         "error": null
       },
       {
-        "id": "hsr-char-1404-common",
-        "rarity": "common",
-        "artwork": "",
-        "status": "missing",
+        "id": "hsr-char-1405-epic",
+        "rarity": "epic",
+        "identity": "hsr:anaxa",
+        "fallback": "single-source",
+        "artwork": "3e9f53cffd1971836d3c1dbf26713e65cd79aea4dee715921d993313f9ca773d",
+        "source": "/assets/card-art/hsr/anaxa-1.webp?v=186f985b71aa4928",
+        "status": "pending",
         "broken": false,
         "overflow": [],
         "error": null
       },
       {
-        "id": "hsr-char-1407-common",
+        "id": "hsr-char-1409-common",
         "rarity": "common",
-        "artwork": "",
-        "status": "missing",
+        "identity": "hsr:hyacine",
+        "fallback": "single-source",
+        "artwork": "65d23200c581dd693e6fcd38a635493a1c3fe013f533de33cdcde89bd00cee02",
+        "source": "/assets/card-art/hsr/hyacine-1.webp?v=380540b6f24312eb",
+        "status": "pending",
         "broken": false,
         "overflow": [],
         "error": null
       },
       {
-        "id": "hsr-char-1410-common",
-        "rarity": "common",
-        "artwork": "",
-        "status": "missing",
+        "id": "hsr-char-1413-super",
+        "rarity": "super",
+        "identity": "hsr:evernight",
+        "fallback": "single-source",
+        "artwork": "6b7e4103b82b762931dd5c4549e6f4634b8f87265a7f49edd89ab9ab92c48f31",
+        "source": "/assets/card-art/hsr/evernight-1.webp?v=4924c0336b5a1a71",
+        "status": "pending",
         "broken": false,
         "overflow": [],
         "error": null
       },
       {
-        "id": "hsr-char-1414-common",
-        "rarity": "common",
-        "artwork": "",
-        "status": "missing",
+        "id": "hsr-char-1501-rare",
+        "rarity": "rare",
+        "identity": "hsr:sparxie",
+        "fallback": "",
+        "artwork": "66603571d87a6751e172ae3605a4257f83948381d1c813ff71980825abe8032b",
+        "source": "/assets/card-art/hsr/sparxie-2.webp?v=48112f74d0ee33ee",
+        "status": "pending",
         "broken": false,
         "overflow": [],
         "error": null
       },
       {
-        "id": "hsr-char-1502-common",
-        "rarity": "common",
-        "artwork": "",
-        "status": "missing",
-        "broken": false,
-        "overflow": [],
-        "error": null
-      },
-      {
-        "id": "hsr-char-1505-common",
-        "rarity": "common",
-        "artwork": "",
-        "status": "missing",
+        "id": "hsr-char-1504-epic",
+        "rarity": "epic",
+        "identity": "hsr:ashveil",
+        "fallback": "",
+        "artwork": "06fede94994864266076fbe3112b131eed9dcbf9e97c80fb718e7f83393b0022",
+        "source": "/assets/card-art/hsr/ashveil-1.webp?v=9eaa9f0031865f9a",
+        "status": "pending",
         "broken": false,
         "overflow": [],
         "error": null
@@ -1326,125 +1600,167 @@
       {
         "id": "hsr-char-1508-common",
         "rarity": "common",
+        "identity": "hsr:rin-tohsaka",
+        "fallback": "single-source",
+        "artwork": "4c0c20c5a00e0956b1d726a60604b9b481bb190cccc782cdd391f2470f267466",
+        "source": "/assets/card-art/hsr/rin-tohsaka-1.webp?v=215d1f234d2109dd",
+        "status": "pending",
+        "broken": false,
+        "overflow": [],
+        "error": null
+      },
+      {
+        "id": "hsr-char-1511-super",
+        "rarity": "super",
+        "identity": "hsr:aeon-aha",
+        "fallback": "",
         "artwork": "",
+        "source": "",
         "status": "missing",
         "broken": false,
         "overflow": [],
         "error": null
       },
       {
-        "id": "hsr-char-1511-common",
-        "rarity": "common",
+        "id": "hsr-char-8001-rare",
+        "rarity": "rare",
+        "identity": "hsr:nickname-8001",
+        "fallback": "",
         "artwork": "",
+        "source": "",
         "status": "missing",
         "broken": false,
         "overflow": [],
         "error": null
       },
       {
-        "id": "hsr-char-8001-common",
-        "rarity": "common",
-        "artwork": "",
-        "status": "missing",
-        "broken": false,
-        "overflow": [],
-        "error": null
-      },
-      {
-        "id": "hsr-char-8004-common",
-        "rarity": "common",
-        "artwork": "",
-        "status": "missing",
-        "broken": false,
-        "overflow": [],
-        "error": null
-      },
-      {
-        "id": "hsr-char-8007-common",
-        "rarity": "common",
-        "artwork": "",
-        "status": "missing",
-        "broken": false,
-        "overflow": [],
-        "error": null
-      },
-      {
-        "id": "hsr-char-8010-common",
-        "rarity": "common",
-        "artwork": "",
-        "status": "missing",
-        "broken": false,
-        "overflow": [],
-        "error": null
-      },
-      {
-        "id": "hsr-char-1401-full",
-        "rarity": "full",
-        "artwork": "",
-        "status": "missing",
-        "broken": false,
-        "overflow": [],
-        "error": null
-      },
-      {
-        "id": "hsr-char-1103-full",
-        "rarity": "full",
-        "artwork": "",
-        "status": "missing",
-        "broken": false,
-        "overflow": [],
-        "error": null
-      },
-      {
-        "id": "hsr-char-1413-astral",
-        "rarity": "astral",
-        "artwork": "",
-        "status": "missing",
-        "broken": false,
-        "overflow": [],
-        "error": null
-      },
-      {
-        "id": "hsr-char-1314-secret",
-        "rarity": "secret",
-        "artwork": "",
-        "status": "missing",
-        "broken": false,
-        "overflow": [],
-        "error": null
-      },
-      {
-        "id": "hsr-char-yaoshi-legend",
-        "rarity": "legend",
-        "artwork": "",
-        "status": "missing",
-        "broken": false,
-        "overflow": [],
-        "error": null
-      },
-      {
-        "id": "hsr-char-xipe-aeon",
-        "rarity": "aeon",
-        "artwork": "",
-        "status": "missing",
-        "broken": false,
-        "overflow": [],
-        "error": null
-      },
-      {
-        "id": "hsr-group-commission-des-dix-seigneurs-group",
-        "rarity": "group",
-        "artwork": "",
-        "status": "missing",
-        "broken": false,
-        "overflow": [],
-        "error": null
-      },
-      {
-        "id": "ww-char-1503-epic",
+        "id": "hsr-char-8004-epic",
         "rarity": "epic",
+        "identity": "hsr:nickname-8004",
+        "fallback": "",
         "artwork": "",
+        "source": "",
         "status": "missing",
+        "broken": false,
+        "overflow": [],
+        "error": null
+      },
+      {
+        "id": "hsr-char-8008-common",
+        "rarity": "common",
+        "identity": "hsr:nickname-8008",
+        "fallback": "",
+        "artwork": "",
+        "source": "",
+        "status": "missing",
+        "broken": false,
+        "overflow": [],
+        "error": null
+      },
+      {
+        "id": "hsr-char-1004-full",
+        "rarity": "full",
+        "identity": "hsr:welt",
+        "fallback": "",
+        "artwork": "",
+        "source": "",
+        "status": "missing",
+        "broken": false,
+        "overflow": [],
+        "error": null
+      },
+      {
+        "id": "hsr-char-1111-full",
+        "rarity": "full",
+        "identity": "hsr:luka",
+        "fallback": "",
+        "artwork": "",
+        "source": "",
+        "status": "missing",
+        "broken": false,
+        "overflow": [],
+        "error": null
+      },
+      {
+        "id": "hsr-char-1222-full",
+        "rarity": "full",
+        "identity": "hsr:lingsha",
+        "fallback": "",
+        "artwork": "",
+        "source": "",
+        "status": "missing",
+        "broken": false,
+        "overflow": [],
+        "error": null
+      },
+      {
+        "id": "hsr-char-1314-gold",
+        "rarity": "gold",
+        "identity": "hsr:jade",
+        "fallback": "",
+        "artwork": "",
+        "source": "",
+        "status": "missing",
+        "broken": false,
+        "overflow": [],
+        "error": null
+      },
+      {
+        "id": "hsr-char-1223-secret",
+        "rarity": "secret",
+        "identity": "hsr:moze",
+        "fallback": "",
+        "artwork": "",
+        "source": "",
+        "status": "missing",
+        "broken": false,
+        "overflow": [],
+        "error": null
+      },
+      {
+        "id": "hsr-char-1410-eternal",
+        "rarity": "eternal",
+        "identity": "hsr:hysilens",
+        "fallback": "",
+        "artwork": "",
+        "source": "",
+        "status": "missing",
+        "broken": false,
+        "overflow": [],
+        "error": null
+      },
+      {
+        "id": "hsr-char-nous-aeon",
+        "rarity": "aeon",
+        "identity": "hsr:nous",
+        "fallback": "",
+        "artwork": "",
+        "source": "",
+        "status": "missing",
+        "broken": false,
+        "overflow": [],
+        "error": null
+      },
+      {
+        "id": "hsr-group-chasseurs-de-stellaron-group",
+        "rarity": "group",
+        "identity": "hsr:chasseurs-de-stellaron",
+        "fallback": "",
+        "artwork": "",
+        "source": "",
+        "status": "missing",
+        "broken": false,
+        "overflow": [],
+        "error": null
+      },
+      {
+        "id": "ww-char-1503-rare",
+        "rarity": "rare",
+        "identity": "ww:verina",
+        "fallback": "single-source",
+        "artwork": "6b114e113c8ab7cf770c937cf1eeb1e28badf3fa50e3e73c721427d870f5fedc",
+        "source": "/assets/card-art/ww/verina-3.webp?v=e226acabffd13290",
+        "status": "pending",
         "broken": false,
         "overflow": [],
         "error": null
@@ -1452,116 +1768,143 @@
       {
         "id": "ww-char-1601-epic",
         "rarity": "epic",
+        "identity": "ww:taoqi",
+        "fallback": "",
         "artwork": "",
+        "source": "",
         "status": "missing",
         "broken": false,
         "overflow": [],
         "error": null
       },
       {
-        "id": "ww-char-1203-epic",
-        "rarity": "epic",
+        "id": "ww-char-1602-common",
+        "rarity": "common",
+        "identity": "ww:danjin",
+        "fallback": "",
         "artwork": "",
+        "source": "",
         "status": "missing",
         "broken": false,
         "overflow": [],
         "error": null
       },
       {
-        "id": "ww-char-1404-epic",
-        "rarity": "epic",
+        "id": "ww-char-1204-super",
+        "rarity": "super",
+        "identity": "ww:mortefi",
+        "fallback": "",
         "artwork": "",
+        "source": "",
         "status": "missing",
         "broken": false,
         "overflow": [],
         "error": null
       },
       {
-        "id": "ww-char-1301-epic",
+        "id": "ww-char-1302-rare",
+        "rarity": "rare",
+        "identity": "ww:yinlin",
+        "fallback": "single-source",
+        "artwork": "4dd94def5dff7986e3e9af97ecf46967cd37d31f03eb07a04efeda9f9f521a72",
+        "source": "/assets/card-art/ww/yinlin-4.webp?v=def9a96fa6de8d41",
+        "status": "pending",
+        "broken": false,
+        "overflow": [],
+        "error": null
+      },
+      {
+        "id": "ww-char-1604-epic",
         "rarity": "epic",
+        "identity": "ww:rover-1604",
+        "fallback": "",
         "artwork": "",
+        "source": "",
         "status": "missing",
         "broken": false,
         "overflow": [],
         "error": null
       },
       {
-        "id": "ww-char-1303-epic",
-        "rarity": "epic",
-        "artwork": "",
-        "status": "missing",
+        "id": "ww-char-1305-common",
+        "rarity": "common",
+        "identity": "ww:xiangli-yao",
+        "fallback": "single-source",
+        "artwork": "ad89cf7b25c9382846cc22996898da8ee9a1c92013cf3ba0290ace472973c8d6",
+        "source": "/assets/card-art/ww/xiangli-yao-1.webp?v=87f4dd0247600fd8",
+        "status": "pending",
         "broken": false,
         "overflow": [],
         "error": null
       },
       {
-        "id": "ww-char-1405-epic",
-        "rarity": "epic",
-        "artwork": "",
-        "status": "missing",
+        "id": "ww-char-1504-super",
+        "rarity": "super",
+        "identity": "ww:lumi",
+        "fallback": "single-source",
+        "artwork": "f52b01e9d77231880f98f56f213e1004fedd217cc18b3feae4644b2c7e556cc5",
+        "source": "/assets/card-art/ww/lumi-4.webp?v=d62031a36a4d619e",
+        "status": "pending",
         "broken": false,
         "overflow": [],
         "error": null
       },
       {
-        "id": "ww-char-1205-epic",
-        "rarity": "epic",
-        "artwork": "",
-        "status": "missing",
+        "id": "ww-char-1606-rare",
+        "rarity": "rare",
+        "identity": "ww:roccia",
+        "fallback": "single-source",
+        "artwork": "85776ed3a023ed6414c4a0b31e067c6524a2114b7cff42451bbd82d42252b2a9",
+        "source": "/assets/card-art/ww/roccia-1.webp?v=d050e59ff9e0ea9e",
+        "status": "pending",
         "broken": false,
         "overflow": [],
         "error": null
       },
       {
-        "id": "ww-char-1106-epic",
+        "id": "ww-char-1506-epic",
         "rarity": "epic",
-        "artwork": "",
-        "status": "missing",
+        "identity": "ww:phoebe",
+        "fallback": "single-source",
+        "artwork": "91710d6fb0fe42adafb7210a9175b40702c260577d7bb9a4a48da0b48908958c",
+        "source": "/assets/card-art/ww/phoebe-1.webp?v=9d5171b7cff9d0ec",
+        "status": "pending",
         "broken": false,
         "overflow": [],
         "error": null
       },
       {
-        "id": "ww-char-1107-epic",
-        "rarity": "epic",
-        "artwork": "",
-        "status": "missing",
+        "id": "ww-char-1507-common",
+        "rarity": "common",
+        "identity": "ww:zani",
+        "fallback": "single-source",
+        "artwork": "60c533a396f64ddb8eaa7be0bf85e3146229561818a05966b7c912b8059ad40a",
+        "source": "/assets/card-art/ww/zani-4.webp?v=c970b0e043005d89",
+        "status": "pending",
         "broken": false,
         "overflow": [],
         "error": null
       },
       {
-        "id": "ww-char-1406-epic",
-        "rarity": "epic",
-        "artwork": "",
-        "status": "missing",
+        "id": "ww-char-1608-super",
+        "rarity": "super",
+        "identity": "ww:phrolova",
+        "fallback": "single-source",
+        "artwork": "db1d3fa37c5c931d76b857779f9425624e30f58a5b3ecb03829914a774d43512",
+        "source": "/assets/card-art/ww/phrolova-1.webp?v=75abc594ae2e2152",
+        "status": "pending",
         "broken": false,
         "overflow": [],
         "error": null
       },
       {
-        "id": "ww-char-1507-epic",
-        "rarity": "epic",
-        "artwork": "",
-        "status": "missing",
-        "broken": false,
-        "overflow": [],
-        "error": null
-      },
-      {
-        "id": "ww-char-1608-epic",
-        "rarity": "epic",
-        "artwork": "",
-        "status": "missing",
-        "broken": false,
-        "overflow": [],
-        "error": null
-      },
-      {
-        "id": "ww-char-1410-epic",
-        "rarity": "epic",
-        "artwork": "",
-        "status": "missing",
+        "id": "ww-char-1410-rare",
+        "rarity": "rare",
+        "identity": "ww:iuno",
+        "fallback": "single-source",
+        "artwork": "92fa33d172573bfe5f7c60baeb061a6b407ce8e9ce6f03fc9cc011a15b80e678",
+        "source": "/assets/card-art/ww/iuno-4.webp?v=b6a787a1dccc20f3",
+        "status": "pending",
         "broken": false,
         "overflow": [],
         "error": null
@@ -1569,106 +1912,142 @@
       {
         "id": "ww-char-1508-epic",
         "rarity": "epic",
+        "identity": "ww:chisa",
+        "fallback": "single-source",
+        "artwork": "bc97496e27c4763808a11ff4b24a64621d8473576ba6ac174962abfcd0c4b84b",
+        "source": "/assets/card-art/ww/chisa-2.webp?v=44a3a2d5a9d82f12",
+        "status": "pending",
+        "broken": false,
+        "overflow": [],
+        "error": null
+      },
+      {
+        "id": "ww-char-1510-common",
+        "rarity": "common",
+        "identity": "ww:luuk-herssen",
+        "fallback": "single-source",
+        "artwork": "63627f82640927e9f60114f1de8656dbc7c8efd369db4925035834cd83edf3bd",
+        "source": "/assets/card-art/ww/luuk-herssen-3.webp?v=45b2c85f7148d72f",
+        "status": "pending",
+        "broken": false,
+        "overflow": [],
+        "error": null
+      },
+      {
+        "id": "ww-char-1211-super",
+        "rarity": "super",
+        "identity": "ww:denia",
+        "fallback": "single-source",
+        "artwork": "e9d8fcd15642d1b2125f0c6d3fc7718c9ef4599d4d1f07a4a5d76a71cb5c43c0",
+        "source": "/assets/card-art/ww/denia-4.webp?v=292e00c2cdef279f",
+        "status": "pending",
+        "broken": false,
+        "overflow": [],
+        "error": null
+      },
+      {
+        "id": "ww-char-1511-rare",
+        "rarity": "rare",
+        "identity": "ww:lucy",
+        "fallback": "",
         "artwork": "",
+        "source": "",
         "status": "missing",
         "broken": false,
         "overflow": [],
         "error": null
       },
       {
-        "id": "ww-char-1209-epic",
+        "id": "ww-char-1310-epic",
         "rarity": "epic",
+        "identity": "ww:rover-electro-1310",
+        "fallback": "",
         "artwork": "",
+        "source": "",
         "status": "missing",
         "broken": false,
         "overflow": [],
         "error": null
       },
       {
-        "id": "ww-char-1412-epic",
-        "rarity": "epic",
+        "id": "ww-char-1311-common",
+        "rarity": "common",
+        "identity": "ww:hsin",
+        "fallback": "",
         "artwork": "",
+        "source": "",
         "status": "missing",
         "broken": false,
         "overflow": [],
         "error": null
       },
       {
-        "id": "ww-char-1109-epic",
-        "rarity": "epic",
+        "id": "ww-char-1512-super",
+        "rarity": "super",
+        "identity": "ww:lily",
+        "fallback": "",
         "artwork": "",
+        "source": "",
         "status": "missing",
         "broken": false,
         "overflow": [],
         "error": null
       },
       {
-        "id": "ww-char-1309-epic",
-        "rarity": "epic",
-        "artwork": "",
-        "status": "missing",
-        "broken": false,
-        "overflow": [],
-        "error": null
-      },
-      {
-        "id": "ww-char-1110-epic",
-        "rarity": "epic",
-        "artwork": "",
-        "status": "missing",
-        "broken": false,
-        "overflow": [],
-        "error": null
-      },
-      {
-        "id": "ww-char-1212-epic",
-        "rarity": "epic",
-        "artwork": "",
-        "status": "missing",
-        "broken": false,
-        "overflow": [],
-        "error": null
-      },
-      {
-        "id": "ww-char-1301-full",
+        "id": "ww-char-1602-full",
         "rarity": "full",
+        "identity": "ww:danjin",
+        "fallback": "",
         "artwork": "",
+        "source": "",
         "status": "missing",
         "broken": false,
         "overflow": [],
         "error": null
       },
       {
-        "id": "ww-char-1306-gold",
-        "rarity": "gold",
-        "artwork": "",
-        "status": "missing",
+        "id": "ww-char-1505-astral",
+        "rarity": "astral",
+        "identity": "ww:shorekeeper",
+        "fallback": "",
+        "artwork": "cd652b13d7420f7f408d6449d070d1766e702e31404b0a456c0e769eaefd3cf6",
+        "source": "/assets/card-art/ww/shorekeeper-6.webp?v=5d148726a73e17c9",
+        "status": "pending",
         "broken": false,
         "overflow": [],
         "error": null
       },
       {
-        "id": "ww-group-jinhsi-changli-group",
-        "rarity": "group",
-        "artwork": "",
-        "status": "missing",
+        "id": "ww-char-1210-eternal",
+        "rarity": "eternal",
+        "identity": "ww:aemeath",
+        "fallback": "single-source",
+        "artwork": "3815b96f17e4ceeee04a6ed4f9dd10a6098978ba07f0ac171a432d660aa6e7e4",
+        "source": "/assets/card-art/ww/aemeath-2.webp?v=abf565127f9f5410",
+        "status": "pending",
         "broken": false,
         "overflow": [],
         "error": null
       },
       {
-        "id": "gi-equipment-11518",
+        "id": "gi-equipment-11512",
         "rarity": "equipment",
+        "identity": "gi:lumiere-d-incision-foliaire",
+        "fallback": "",
         "artwork": "",
+        "source": "",
         "status": "missing",
         "broken": false,
         "overflow": [],
         "error": null
       },
       {
-        "id": "gi-equipment-15031",
+        "id": "gi-equipment-15020",
         "rarity": "equipment",
+        "identity": "gi:embleme-du-destin-brise",
+        "fallback": "",
         "artwork": "",
+        "source": "",
         "status": "missing",
         "broken": false,
         "overflow": [],
@@ -1677,34 +2056,46 @@
       {
         "id": "hsr-equipment-23001",
         "rarity": "equipment",
-        "artwork": "",
-        "status": "missing",
+        "identity": "hsr:in-the-night",
+        "fallback": "single-source",
+        "artwork": "c45121f17bda0cc1488452b9f745b594a3659c7f8c89e3759a13cf25bf91db1e",
+        "source": "/assets/card-art/hsr/in-the-night-1.webp?v=b385847a8ef1f516",
+        "status": "pending",
         "broken": false,
         "overflow": [],
         "error": null
       },
       {
-        "id": "hsr-equipment-23063",
+        "id": "hsr-equipment-23007",
         "rarity": "equipment",
-        "artwork": "",
-        "status": "missing",
+        "identity": "hsr:incessant-rain",
+        "fallback": "single-source",
+        "artwork": "c10fabc51be463ec5d8bf5b1c68c8ab1230796c61b2e9558fd943558c1dc8772",
+        "source": "/assets/card-art/hsr/incessant-rain-1.webp?v=a2c74e6f1941aa24",
+        "status": "pending",
         "broken": false,
         "overflow": [],
         "error": null
       },
       {
-        "id": "hsr-equipment-23019",
-        "rarity": "equipment",
-        "artwork": "",
-        "status": "missing",
-        "broken": false,
-        "overflow": [],
-        "error": null
-      },
-      {
-        "id": "hsr-energy-wind",
+        "id": "gi-energy-hydro",
         "rarity": "energy",
+        "identity": "gi:energy-hydro",
+        "fallback": "",
         "artwork": "",
+        "source": "",
+        "status": "missing",
+        "broken": false,
+        "overflow": [],
+        "error": null
+      },
+      {
+        "id": "hsr-energy-destruction",
+        "rarity": "energy",
+        "identity": "hsr:energy-destruction",
+        "fallback": "",
+        "artwork": "",
+        "source": "",
         "status": "missing",
         "broken": false,
         "overflow": [],
@@ -1712,11 +2103,33 @@
       }
     ],
     "duplicates": [],
+    "singleArtworkExceptions": [
+      {
+        "hash": "85776ed3a023ed6414c4a0b31e067c6524a2114b7cff42451bbd82d42252b2a9",
+        "identity": "ww:roccia",
+        "ids": [
+          "ww-char-1606-secret",
+          "ww-char-1606-rare"
+        ]
+      },
+      {
+        "hash": "8206d5c1ef07ea13becb7a31dd9b7f4560ea66469e3ef6935146722f9020ea88",
+        "identity": "hsr:dan-heng-permansor-terrae",
+        "ids": [
+          "hsr-char-1414-common",
+          "hsr-char-1414-super",
+          "hsr-char-1414-rare"
+        ]
+      }
+    ],
     "missing": [
       {
         "id": "ww-char-1512-common",
         "rarity": "common",
+        "identity": "ww:lily",
+        "fallback": "",
         "artwork": "",
+        "source": "",
         "status": "missing",
         "broken": false,
         "overflow": [],
@@ -1725,70 +2138,10 @@
       {
         "id": "ww-char-1512-super",
         "rarity": "super",
+        "identity": "ww:lily",
+        "fallback": "",
         "artwork": "",
-        "status": "missing",
-        "broken": false,
-        "overflow": [],
-        "error": null
-      },
-      {
-        "id": "ww-char-1512-rare",
-        "rarity": "rare",
-        "artwork": "",
-        "status": "missing",
-        "broken": false,
-        "overflow": [],
-        "error": null
-      },
-      {
-        "id": "ww-char-1512-epic",
-        "rarity": "epic",
-        "artwork": "",
-        "status": "missing",
-        "broken": false,
-        "overflow": [],
-        "error": null
-      },
-      {
-        "id": "ww-char-1409-full",
-        "rarity": "full",
-        "artwork": "",
-        "status": "missing",
-        "broken": false,
-        "overflow": [],
-        "error": null
-      },
-      {
-        "id": "ww-char-1507-gold",
-        "rarity": "gold",
-        "artwork": "",
-        "status": "missing",
-        "broken": false,
-        "overflow": [],
-        "error": null
-      },
-      {
-        "id": "ww-char-1505-astral",
-        "rarity": "astral",
-        "artwork": "",
-        "status": "missing",
-        "broken": false,
-        "overflow": [],
-        "error": null
-      },
-      {
-        "id": "ww-char-scar-secret",
-        "rarity": "secret",
-        "artwork": "",
-        "status": "missing",
-        "broken": false,
-        "overflow": [],
-        "error": null
-      },
-      {
-        "id": "ww-char-sentinel-imperator-legend",
-        "rarity": "legend",
-        "artwork": "",
+        "source": "",
         "status": "missing",
         "broken": false,
         "overflow": [],
@@ -1797,16 +2150,10 @@
       {
         "id": "ww-group-jiyan-mortefi-group",
         "rarity": "group",
+        "identity": "ww:jiyan-mortefi",
+        "fallback": "",
         "artwork": "",
-        "status": "missing",
-        "broken": false,
-        "overflow": [],
-        "error": null
-      },
-      {
-        "id": "hsr-char-obsidian-eternal",
-        "rarity": "eternal",
-        "artwork": "",
+        "source": "",
         "status": "missing",
         "broken": false,
         "overflow": [],
@@ -1815,16 +2162,10 @@
       {
         "id": "hsr-char-ix-aeon",
         "rarity": "aeon",
+        "identity": "hsr:ix",
+        "fallback": "",
         "artwork": "",
-        "status": "missing",
-        "broken": false,
-        "overflow": [],
-        "error": null
-      },
-      {
-        "id": "hsr-equipment-23019",
-        "rarity": "equipment",
-        "artwork": "",
+        "source": "",
         "status": "missing",
         "broken": false,
         "overflow": [],
@@ -1833,7 +2174,10 @@
       {
         "id": "hsr-energy-elation",
         "rarity": "energy",
+        "identity": "hsr:energy-elation",
+        "fallback": "",
         "artwork": "",
+        "source": "",
         "status": "missing",
         "broken": false,
         "overflow": [],
@@ -1842,7 +2186,10 @@
       {
         "id": "hsr-char-1506-common",
         "rarity": "common",
+        "identity": "hsr:silver-wolf-lv-unbreak-999-unbreak",
+        "fallback": "",
         "artwork": "",
+        "source": "",
         "status": "missing",
         "broken": false,
         "overflow": [],
@@ -1851,7 +2198,10 @@
       {
         "id": "hsr-char-1506-super",
         "rarity": "super",
+        "identity": "hsr:silver-wolf-lv-unbreak-999-unbreak",
+        "fallback": "",
         "artwork": "",
+        "source": "",
         "status": "missing",
         "broken": false,
         "overflow": [],
@@ -1860,7 +2210,10 @@
       {
         "id": "hsr-char-1506-rare",
         "rarity": "rare",
+        "identity": "hsr:silver-wolf-lv-unbreak-999-unbreak",
+        "fallback": "",
         "artwork": "",
+        "source": "",
         "status": "missing",
         "broken": false,
         "overflow": [],
@@ -1869,7 +2222,10 @@
       {
         "id": "hsr-char-1506-epic",
         "rarity": "epic",
+        "identity": "hsr:silver-wolf-lv-unbreak-999-unbreak",
+        "fallback": "",
         "artwork": "",
+        "source": "",
         "status": "missing",
         "broken": false,
         "overflow": [],
@@ -1878,7 +2234,10 @@
       {
         "id": "gi-equipment-15034",
         "rarity": "equipment",
+        "identity": "gi:murmure-nocturne-en-foret-d-echos",
+        "fallback": "",
         "artwork": "",
+        "source": "",
         "status": "missing",
         "broken": false,
         "overflow": [],
@@ -1887,7 +2246,10 @@
       {
         "id": "gi-equipment-11516",
         "rarity": "equipment",
+        "identity": "gi:chanson-de-patrouille-de-sommet",
+        "fallback": "",
         "artwork": "",
+        "source": "",
         "status": "missing",
         "broken": false,
         "overflow": [],
@@ -1896,25 +2258,10 @@
       {
         "id": "gi-equipment-15027",
         "rarity": "equipment",
+        "identity": "gi:chronique-du-pavillon-du-desert",
+        "fallback": "",
         "artwork": "",
-        "status": "missing",
-        "broken": false,
-        "overflow": [],
-        "error": null
-      },
-      {
-        "id": "hsr-equipment-24006",
-        "rarity": "equipment",
-        "artwork": "",
-        "status": "missing",
-        "broken": false,
-        "overflow": [],
-        "error": null
-      },
-      {
-        "id": "hsr-equipment-23025",
-        "rarity": "equipment",
-        "artwork": "",
+        "source": "",
         "status": "missing",
         "broken": false,
         "overflow": [],
@@ -1923,16 +2270,10 @@
       {
         "id": "gi-equipment-15041",
         "rarity": "equipment",
+        "identity": "gi:nuit-de-la-revelation-celeste",
+        "fallback": "",
         "artwork": "",
-        "status": "missing",
-        "broken": false,
-        "overflow": [],
-        "error": null
-      },
-      {
-        "id": "hsr-equipment-23058",
-        "rarity": "equipment",
-        "artwork": "",
+        "source": "",
         "status": "missing",
         "broken": false,
         "overflow": [],
@@ -1941,34 +2282,10 @@
       {
         "id": "hsr-group-commission-des-dix-seigneurs-group",
         "rarity": "group",
+        "identity": "hsr:commission-des-dix-seigneurs",
+        "fallback": "",
         "artwork": "",
-        "status": "missing",
-        "broken": false,
-        "overflow": [],
-        "error": null
-      },
-      {
-        "id": "hsr-char-1414-common",
-        "rarity": "common",
-        "artwork": "",
-        "status": "missing",
-        "broken": false,
-        "overflow": [],
-        "error": null
-      },
-      {
-        "id": "hsr-char-1414-super",
-        "rarity": "super",
-        "artwork": "",
-        "status": "missing",
-        "broken": false,
-        "overflow": [],
-        "error": null
-      },
-      {
-        "id": "hsr-char-1414-rare",
-        "rarity": "rare",
-        "artwork": "",
+        "source": "",
         "status": "missing",
         "broken": false,
         "overflow": [],
@@ -1977,232 +2294,34 @@
       {
         "id": "gi-char-aether-common",
         "rarity": "common",
+        "identity": "gi:aether",
+        "fallback": "",
         "artwork": "",
+        "source": "",
         "status": "missing",
         "broken": false,
         "overflow": [],
         "error": null
       },
       {
-        "id": "gi-char-alhaitham-common",
+        "id": "gi-char-lumine-common",
         "rarity": "common",
+        "identity": "gi:lumine",
+        "fallback": "",
         "artwork": "",
+        "source": "",
         "status": "missing",
         "broken": false,
         "overflow": [],
         "error": null
       },
       {
-        "id": "gi-char-amber-common",
-        "rarity": "common",
+        "id": "gi-char-manekin-super",
+        "rarity": "super",
+        "identity": "gi:manekin",
+        "fallback": "",
         "artwork": "",
-        "status": "missing",
-        "broken": false,
-        "overflow": [],
-        "error": null
-      },
-      {
-        "id": "gi-char-baizhu-common",
-        "rarity": "common",
-        "artwork": "",
-        "status": "missing",
-        "broken": false,
-        "overflow": [],
-        "error": null
-      },
-      {
-        "id": "gi-char-bennett-common",
-        "rarity": "common",
-        "artwork": "63304101342069483f2816d1f5e2aafe439650ccc2f9bb4508cae1dce554e8e6",
-        "status": "missing",
-        "broken": false,
-        "overflow": [],
-        "error": null
-      },
-      {
-        "id": "gi-char-chasca-common",
-        "rarity": "common",
-        "artwork": "",
-        "status": "missing",
-        "broken": false,
-        "overflow": [],
-        "error": null
-      },
-      {
-        "id": "gi-char-chongyun-common",
-        "rarity": "common",
-        "artwork": "e9b8b70263d5715ccd34e3be66cfe1644ccafa25caeeb947ec7d5b5e37b53da5",
-        "status": "missing",
-        "broken": false,
-        "overflow": [],
-        "error": null
-      },
-      {
-        "id": "gi-char-collei-common",
-        "rarity": "common",
-        "artwork": "1f0579a71e3dbfa1343a893f57c3e63bb1b7217d9f9cf05bfb65533a88a79d36",
-        "status": "missing",
-        "broken": false,
-        "overflow": [],
-        "error": null
-      },
-      {
-        "id": "gi-char-dahlia-common",
-        "rarity": "common",
-        "artwork": "",
-        "status": "missing",
-        "broken": false,
-        "overflow": [],
-        "error": null
-      },
-      {
-        "id": "gi-char-diona-common",
-        "rarity": "common",
-        "artwork": "8d0450673e05a21d10ceb1fda5d8497a4f384c733ff82ee2248e13c9a6397059",
-        "status": "missing",
-        "broken": false,
-        "overflow": [],
-        "error": null
-      },
-      {
-        "id": "gi-char-emilie-common",
-        "rarity": "common",
-        "artwork": "",
-        "status": "missing",
-        "broken": false,
-        "overflow": [],
-        "error": null
-      },
-      {
-        "id": "gi-char-faruzan-common",
-        "rarity": "common",
-        "artwork": "",
-        "status": "missing",
-        "broken": false,
-        "overflow": [],
-        "error": null
-      },
-      {
-        "id": "gi-char-freminet-common",
-        "rarity": "common",
-        "artwork": "",
-        "status": "missing",
-        "broken": false,
-        "overflow": [],
-        "error": null
-      },
-      {
-        "id": "gi-char-ganyu-common",
-        "rarity": "common",
-        "artwork": "",
-        "status": "missing",
-        "broken": false,
-        "overflow": [],
-        "error": null
-      },
-      {
-        "id": "gi-char-iansan-common",
-        "rarity": "common",
-        "artwork": "",
-        "status": "missing",
-        "broken": false,
-        "overflow": [],
-        "error": null
-      },
-      {
-        "id": "gi-char-ineffa-common",
-        "rarity": "common",
-        "artwork": "",
-        "status": "missing",
-        "broken": false,
-        "overflow": [],
-        "error": null
-      },
-      {
-        "id": "gi-char-kachina-common",
-        "rarity": "common",
-        "artwork": "",
-        "status": "missing",
-        "broken": false,
-        "overflow": [],
-        "error": null
-      },
-      {
-        "id": "gi-char-kamisato-ayaka-common",
-        "rarity": "common",
-        "artwork": "fa24cf0f6bf7f9b9d0c772381f84a2d92179edf88fe0c613c8391334c0369569",
-        "status": "missing",
-        "broken": false,
-        "overflow": [],
-        "error": null
-      },
-      {
-        "id": "gi-char-keqing-common",
-        "rarity": "common",
-        "artwork": "",
-        "status": "missing",
-        "broken": false,
-        "overflow": [],
-        "error": null
-      },
-      {
-        "id": "gi-char-klee-common",
-        "rarity": "common",
-        "artwork": "",
-        "status": "missing",
-        "broken": false,
-        "overflow": [],
-        "error": null
-      },
-      {
-        "id": "gi-char-lan-yan-common",
-        "rarity": "common",
-        "artwork": "",
-        "status": "missing",
-        "broken": false,
-        "overflow": [],
-        "error": null
-      },
-      {
-        "id": "gi-char-lisa-common",
-        "rarity": "common",
-        "artwork": "83c50467d3ef5a43f15f51b9a5d5f06c231d797b7b405364612267e3f61a4234",
-        "status": "missing",
-        "broken": false,
-        "overflow": [],
-        "error": null
-      },
-      {
-        "id": "gi-char-lynette-common",
-        "rarity": "common",
-        "artwork": "",
-        "status": "missing",
-        "broken": false,
-        "overflow": [],
-        "error": null
-      },
-      {
-        "id": "gi-char-manekina-common",
-        "rarity": "common",
-        "artwork": "",
-        "status": "missing",
-        "broken": false,
-        "overflow": [],
-        "error": null
-      },
-      {
-        "id": "gi-char-mona-common",
-        "rarity": "common",
-        "artwork": "",
-        "status": "missing",
-        "broken": false,
-        "overflow": [],
-        "error": null
-      },
-      {
-        "id": "gi-char-navia-common",
-        "rarity": "common",
-        "artwork": "",
+        "source": "",
         "status": "missing",
         "broken": false,
         "overflow": [],
@@ -2211,196 +2330,22 @@
       {
         "id": "gi-char-nicole-common",
         "rarity": "common",
+        "identity": "gi:nicole",
+        "fallback": "",
         "artwork": "",
+        "source": "",
         "status": "missing",
         "broken": false,
         "overflow": [],
         "error": null
       },
       {
-        "id": "gi-char-noelle-common",
-        "rarity": "common",
-        "artwork": "",
-        "status": "missing",
-        "broken": false,
-        "overflow": [],
-        "error": null
-      },
-      {
-        "id": "gi-char-prune-common",
-        "rarity": "common",
-        "artwork": "",
-        "status": "missing",
-        "broken": false,
-        "overflow": [],
-        "error": null
-      },
-      {
-        "id": "gi-char-razor-common",
-        "rarity": "common",
-        "artwork": "",
-        "status": "missing",
-        "broken": false,
-        "overflow": [],
-        "error": null
-      },
-      {
-        "id": "gi-char-sangonomiya-kokomi-common",
-        "rarity": "common",
-        "artwork": "",
-        "status": "missing",
-        "broken": false,
-        "overflow": [],
-        "error": null
-      },
-      {
-        "id": "gi-char-shenhe-common",
-        "rarity": "common",
-        "artwork": "",
-        "status": "missing",
-        "broken": false,
-        "overflow": [],
-        "error": null
-      },
-      {
-        "id": "gi-char-skirk-common",
-        "rarity": "common",
-        "artwork": "",
-        "status": "missing",
-        "broken": false,
-        "overflow": [],
-        "error": null
-      },
-      {
-        "id": "gi-char-thomas-common",
-        "rarity": "common",
-        "artwork": "",
-        "status": "missing",
-        "broken": false,
-        "overflow": [],
-        "error": null
-      },
-      {
-        "id": "gi-char-varka-common",
-        "rarity": "common",
-        "artwork": "",
-        "status": "missing",
-        "broken": false,
-        "overflow": [],
-        "error": null
-      },
-      {
-        "id": "gi-char-vodyanitsa-common",
-        "rarity": "common",
-        "artwork": "",
-        "status": "missing",
-        "broken": false,
-        "overflow": [],
-        "error": null
-      },
-      {
-        "id": "gi-char-xiangling-common",
-        "rarity": "common",
-        "artwork": "",
-        "status": "missing",
-        "broken": false,
-        "overflow": [],
-        "error": null
-      },
-      {
-        "id": "gi-char-xilonen-common",
-        "rarity": "common",
-        "artwork": "",
-        "status": "missing",
-        "broken": false,
-        "overflow": [],
-        "error": null
-      },
-      {
-        "id": "gi-char-yae-miko-common",
-        "rarity": "common",
-        "artwork": "",
-        "status": "missing",
-        "broken": false,
-        "overflow": [],
-        "error": null
-      },
-      {
-        "id": "gi-char-yelan-common",
-        "rarity": "common",
-        "artwork": "",
-        "status": "missing",
-        "broken": false,
-        "overflow": [],
-        "error": null
-      },
-      {
-        "id": "gi-char-yun-jin-common",
-        "rarity": "common",
-        "artwork": "",
-        "status": "missing",
-        "broken": false,
-        "overflow": [],
-        "error": null
-      },
-      {
-        "id": "gi-char-furina-full",
-        "rarity": "full",
-        "artwork": "65fb0cff7291f0da3d3132470d0add696c8d3eeb7b71d35307aecc0066d1d5f6",
-        "status": "missing",
-        "broken": false,
-        "overflow": [],
-        "error": null
-      },
-      {
-        "id": "gi-char-keqing-full",
-        "rarity": "full",
-        "artwork": "017d1b85217e395cb9ede7a994357a6260939568062fa4756b082dcf3b66e25c",
-        "status": "missing",
-        "broken": false,
-        "overflow": [],
-        "error": null
-      },
-      {
-        "id": "gi-char-chiori-gold",
-        "rarity": "gold",
-        "artwork": "81b1f8140a5af8c75ed491a0659dfb7ec0df106d626524ebdeb600d2a2279769",
-        "status": "missing",
-        "broken": false,
-        "overflow": [],
-        "error": null
-      },
-      {
-        "id": "gi-char-dainsleif-secret",
-        "rarity": "secret",
-        "artwork": "",
-        "status": "missing",
-        "broken": false,
-        "overflow": [],
-        "error": null
-      },
-      {
-        "id": "gi-char-kitsune-saiguu-legend",
-        "rarity": "legend",
-        "artwork": "",
-        "status": "missing",
-        "broken": false,
-        "overflow": [],
-        "error": null
-      },
-      {
-        "id": "gi-group-groupe-de-liyue-group",
+        "id": "gi-group-les-fatui-group",
         "rarity": "group",
+        "identity": "gi:les-fatui",
+        "fallback": "",
         "artwork": "",
-        "status": "missing",
-        "broken": false,
-        "overflow": [],
-        "error": null
-      },
-      {
-        "id": "hsr-char-1003-common",
-        "rarity": "common",
-        "artwork": "",
+        "source": "",
         "status": "missing",
         "broken": false,
         "overflow": [],
@@ -2409,358 +2354,154 @@
       {
         "id": "hsr-char-1006-common",
         "rarity": "common",
+        "identity": "hsr:silver-wolf",
+        "fallback": "",
         "artwork": "",
+        "source": "",
         "status": "missing",
         "broken": false,
         "overflow": [],
         "error": null
       },
       {
-        "id": "hsr-char-1013-common",
-        "rarity": "common",
+        "id": "hsr-char-1511-super",
+        "rarity": "super",
+        "identity": "hsr:aeon-aha",
+        "fallback": "",
         "artwork": "",
+        "source": "",
         "status": "missing",
         "broken": false,
         "overflow": [],
         "error": null
       },
       {
-        "id": "hsr-char-1101-common",
-        "rarity": "common",
+        "id": "hsr-char-8001-rare",
+        "rarity": "rare",
+        "identity": "hsr:nickname-8001",
+        "fallback": "",
         "artwork": "",
+        "source": "",
         "status": "missing",
         "broken": false,
         "overflow": [],
         "error": null
       },
       {
-        "id": "hsr-char-1104-common",
-        "rarity": "common",
-        "artwork": "",
-        "status": "missing",
-        "broken": false,
-        "overflow": [],
-        "error": null
-      },
-      {
-        "id": "hsr-char-1107-common",
-        "rarity": "common",
-        "artwork": "",
-        "status": "missing",
-        "broken": false,
-        "overflow": [],
-        "error": null
-      },
-      {
-        "id": "hsr-char-1110-common",
-        "rarity": "common",
-        "artwork": "",
-        "status": "missing",
-        "broken": false,
-        "overflow": [],
-        "error": null
-      },
-      {
-        "id": "hsr-char-1201-common",
-        "rarity": "common",
-        "artwork": "",
-        "status": "missing",
-        "broken": false,
-        "overflow": [],
-        "error": null
-      },
-      {
-        "id": "hsr-char-1204-common",
-        "rarity": "common",
-        "artwork": "",
-        "status": "missing",
-        "broken": false,
-        "overflow": [],
-        "error": null
-      },
-      {
-        "id": "hsr-char-1207-common",
-        "rarity": "common",
-        "artwork": "",
-        "status": "missing",
-        "broken": false,
-        "overflow": [],
-        "error": null
-      },
-      {
-        "id": "hsr-char-1210-common",
-        "rarity": "common",
-        "artwork": "",
-        "status": "missing",
-        "broken": false,
-        "overflow": [],
-        "error": null
-      },
-      {
-        "id": "hsr-char-1213-common",
-        "rarity": "common",
-        "artwork": "",
-        "status": "missing",
-        "broken": false,
-        "overflow": [],
-        "error": null
-      },
-      {
-        "id": "hsr-char-1217-common",
-        "rarity": "common",
-        "artwork": "",
-        "status": "missing",
-        "broken": false,
-        "overflow": [],
-        "error": null
-      },
-      {
-        "id": "hsr-char-1221-common",
-        "rarity": "common",
-        "artwork": "",
-        "status": "missing",
-        "broken": false,
-        "overflow": [],
-        "error": null
-      },
-      {
-        "id": "hsr-char-1224-common",
-        "rarity": "common",
-        "artwork": "",
-        "status": "missing",
-        "broken": false,
-        "overflow": [],
-        "error": null
-      },
-      {
-        "id": "hsr-char-1302-common",
-        "rarity": "common",
-        "artwork": "",
-        "status": "missing",
-        "broken": false,
-        "overflow": [],
-        "error": null
-      },
-      {
-        "id": "hsr-char-1305-common",
-        "rarity": "common",
-        "artwork": "",
-        "status": "missing",
-        "broken": false,
-        "overflow": [],
-        "error": null
-      },
-      {
-        "id": "hsr-char-1308-common",
-        "rarity": "common",
-        "artwork": "",
-        "status": "missing",
-        "broken": false,
-        "overflow": [],
-        "error": null
-      },
-      {
-        "id": "hsr-char-1312-common",
-        "rarity": "common",
-        "artwork": "",
-        "status": "missing",
-        "broken": false,
-        "overflow": [],
-        "error": null
-      },
-      {
-        "id": "hsr-char-1315-common",
-        "rarity": "common",
-        "artwork": "",
-        "status": "missing",
-        "broken": false,
-        "overflow": [],
-        "error": null
-      },
-      {
-        "id": "hsr-char-1401-common",
-        "rarity": "common",
-        "artwork": "",
-        "status": "missing",
-        "broken": false,
-        "overflow": [],
-        "error": null
-      },
-      {
-        "id": "hsr-char-1404-common",
-        "rarity": "common",
-        "artwork": "",
-        "status": "missing",
-        "broken": false,
-        "overflow": [],
-        "error": null
-      },
-      {
-        "id": "hsr-char-1407-common",
-        "rarity": "common",
-        "artwork": "",
-        "status": "missing",
-        "broken": false,
-        "overflow": [],
-        "error": null
-      },
-      {
-        "id": "hsr-char-1410-common",
-        "rarity": "common",
-        "artwork": "",
-        "status": "missing",
-        "broken": false,
-        "overflow": [],
-        "error": null
-      },
-      {
-        "id": "hsr-char-1414-common",
-        "rarity": "common",
-        "artwork": "",
-        "status": "missing",
-        "broken": false,
-        "overflow": [],
-        "error": null
-      },
-      {
-        "id": "hsr-char-1502-common",
-        "rarity": "common",
-        "artwork": "",
-        "status": "missing",
-        "broken": false,
-        "overflow": [],
-        "error": null
-      },
-      {
-        "id": "hsr-char-1505-common",
-        "rarity": "common",
-        "artwork": "",
-        "status": "missing",
-        "broken": false,
-        "overflow": [],
-        "error": null
-      },
-      {
-        "id": "hsr-char-1508-common",
-        "rarity": "common",
-        "artwork": "",
-        "status": "missing",
-        "broken": false,
-        "overflow": [],
-        "error": null
-      },
-      {
-        "id": "hsr-char-1511-common",
-        "rarity": "common",
-        "artwork": "",
-        "status": "missing",
-        "broken": false,
-        "overflow": [],
-        "error": null
-      },
-      {
-        "id": "hsr-char-8001-common",
-        "rarity": "common",
-        "artwork": "",
-        "status": "missing",
-        "broken": false,
-        "overflow": [],
-        "error": null
-      },
-      {
-        "id": "hsr-char-8004-common",
-        "rarity": "common",
-        "artwork": "",
-        "status": "missing",
-        "broken": false,
-        "overflow": [],
-        "error": null
-      },
-      {
-        "id": "hsr-char-8007-common",
-        "rarity": "common",
-        "artwork": "",
-        "status": "missing",
-        "broken": false,
-        "overflow": [],
-        "error": null
-      },
-      {
-        "id": "hsr-char-8010-common",
-        "rarity": "common",
-        "artwork": "",
-        "status": "missing",
-        "broken": false,
-        "overflow": [],
-        "error": null
-      },
-      {
-        "id": "hsr-char-1401-full",
-        "rarity": "full",
-        "artwork": "",
-        "status": "missing",
-        "broken": false,
-        "overflow": [],
-        "error": null
-      },
-      {
-        "id": "hsr-char-1103-full",
-        "rarity": "full",
-        "artwork": "",
-        "status": "missing",
-        "broken": false,
-        "overflow": [],
-        "error": null
-      },
-      {
-        "id": "hsr-char-1413-astral",
-        "rarity": "astral",
-        "artwork": "",
-        "status": "missing",
-        "broken": false,
-        "overflow": [],
-        "error": null
-      },
-      {
-        "id": "hsr-char-1314-secret",
-        "rarity": "secret",
-        "artwork": "",
-        "status": "missing",
-        "broken": false,
-        "overflow": [],
-        "error": null
-      },
-      {
-        "id": "hsr-char-yaoshi-legend",
-        "rarity": "legend",
-        "artwork": "",
-        "status": "missing",
-        "broken": false,
-        "overflow": [],
-        "error": null
-      },
-      {
-        "id": "hsr-char-xipe-aeon",
-        "rarity": "aeon",
-        "artwork": "",
-        "status": "missing",
-        "broken": false,
-        "overflow": [],
-        "error": null
-      },
-      {
-        "id": "hsr-group-commission-des-dix-seigneurs-group",
-        "rarity": "group",
-        "artwork": "",
-        "status": "missing",
-        "broken": false,
-        "overflow": [],
-        "error": null
-      },
-      {
-        "id": "ww-char-1503-epic",
+        "id": "hsr-char-8004-epic",
         "rarity": "epic",
+        "identity": "hsr:nickname-8004",
+        "fallback": "",
         "artwork": "",
+        "source": "",
+        "status": "missing",
+        "broken": false,
+        "overflow": [],
+        "error": null
+      },
+      {
+        "id": "hsr-char-8008-common",
+        "rarity": "common",
+        "identity": "hsr:nickname-8008",
+        "fallback": "",
+        "artwork": "",
+        "source": "",
+        "status": "missing",
+        "broken": false,
+        "overflow": [],
+        "error": null
+      },
+      {
+        "id": "hsr-char-1004-full",
+        "rarity": "full",
+        "identity": "hsr:welt",
+        "fallback": "",
+        "artwork": "",
+        "source": "",
+        "status": "missing",
+        "broken": false,
+        "overflow": [],
+        "error": null
+      },
+      {
+        "id": "hsr-char-1111-full",
+        "rarity": "full",
+        "identity": "hsr:luka",
+        "fallback": "",
+        "artwork": "",
+        "source": "",
+        "status": "missing",
+        "broken": false,
+        "overflow": [],
+        "error": null
+      },
+      {
+        "id": "hsr-char-1222-full",
+        "rarity": "full",
+        "identity": "hsr:lingsha",
+        "fallback": "",
+        "artwork": "",
+        "source": "",
+        "status": "missing",
+        "broken": false,
+        "overflow": [],
+        "error": null
+      },
+      {
+        "id": "hsr-char-1314-gold",
+        "rarity": "gold",
+        "identity": "hsr:jade",
+        "fallback": "",
+        "artwork": "",
+        "source": "",
+        "status": "missing",
+        "broken": false,
+        "overflow": [],
+        "error": null
+      },
+      {
+        "id": "hsr-char-1223-secret",
+        "rarity": "secret",
+        "identity": "hsr:moze",
+        "fallback": "",
+        "artwork": "",
+        "source": "",
+        "status": "missing",
+        "broken": false,
+        "overflow": [],
+        "error": null
+      },
+      {
+        "id": "hsr-char-1410-eternal",
+        "rarity": "eternal",
+        "identity": "hsr:hysilens",
+        "fallback": "",
+        "artwork": "",
+        "source": "",
+        "status": "missing",
+        "broken": false,
+        "overflow": [],
+        "error": null
+      },
+      {
+        "id": "hsr-char-nous-aeon",
+        "rarity": "aeon",
+        "identity": "hsr:nous",
+        "fallback": "",
+        "artwork": "",
+        "source": "",
+        "status": "missing",
+        "broken": false,
+        "overflow": [],
+        "error": null
+      },
+      {
+        "id": "hsr-group-chasseurs-de-stellaron-group",
+        "rarity": "group",
+        "identity": "hsr:chasseurs-de-stellaron",
+        "fallback": "",
+        "artwork": "",
+        "source": "",
         "status": "missing",
         "broken": false,
         "overflow": [],
@@ -2769,259 +2510,154 @@
       {
         "id": "ww-char-1601-epic",
         "rarity": "epic",
+        "identity": "ww:taoqi",
+        "fallback": "",
         "artwork": "",
+        "source": "",
         "status": "missing",
         "broken": false,
         "overflow": [],
         "error": null
       },
       {
-        "id": "ww-char-1203-epic",
+        "id": "ww-char-1602-common",
+        "rarity": "common",
+        "identity": "ww:danjin",
+        "fallback": "",
+        "artwork": "",
+        "source": "",
+        "status": "missing",
+        "broken": false,
+        "overflow": [],
+        "error": null
+      },
+      {
+        "id": "ww-char-1204-super",
+        "rarity": "super",
+        "identity": "ww:mortefi",
+        "fallback": "",
+        "artwork": "",
+        "source": "",
+        "status": "missing",
+        "broken": false,
+        "overflow": [],
+        "error": null
+      },
+      {
+        "id": "ww-char-1604-epic",
         "rarity": "epic",
+        "identity": "ww:rover-1604",
+        "fallback": "",
         "artwork": "",
+        "source": "",
         "status": "missing",
         "broken": false,
         "overflow": [],
         "error": null
       },
       {
-        "id": "ww-char-1404-epic",
+        "id": "ww-char-1511-rare",
+        "rarity": "rare",
+        "identity": "ww:lucy",
+        "fallback": "",
+        "artwork": "",
+        "source": "",
+        "status": "missing",
+        "broken": false,
+        "overflow": [],
+        "error": null
+      },
+      {
+        "id": "ww-char-1310-epic",
         "rarity": "epic",
+        "identity": "ww:rover-electro-1310",
+        "fallback": "",
         "artwork": "",
+        "source": "",
         "status": "missing",
         "broken": false,
         "overflow": [],
         "error": null
       },
       {
-        "id": "ww-char-1301-epic",
-        "rarity": "epic",
+        "id": "ww-char-1311-common",
+        "rarity": "common",
+        "identity": "ww:hsin",
+        "fallback": "",
         "artwork": "",
+        "source": "",
         "status": "missing",
         "broken": false,
         "overflow": [],
         "error": null
       },
       {
-        "id": "ww-char-1303-epic",
-        "rarity": "epic",
+        "id": "ww-char-1512-super",
+        "rarity": "super",
+        "identity": "ww:lily",
+        "fallback": "",
         "artwork": "",
+        "source": "",
         "status": "missing",
         "broken": false,
         "overflow": [],
         "error": null
       },
       {
-        "id": "ww-char-1405-epic",
-        "rarity": "epic",
-        "artwork": "",
-        "status": "missing",
-        "broken": false,
-        "overflow": [],
-        "error": null
-      },
-      {
-        "id": "ww-char-1205-epic",
-        "rarity": "epic",
-        "artwork": "",
-        "status": "missing",
-        "broken": false,
-        "overflow": [],
-        "error": null
-      },
-      {
-        "id": "ww-char-1106-epic",
-        "rarity": "epic",
-        "artwork": "",
-        "status": "missing",
-        "broken": false,
-        "overflow": [],
-        "error": null
-      },
-      {
-        "id": "ww-char-1107-epic",
-        "rarity": "epic",
-        "artwork": "",
-        "status": "missing",
-        "broken": false,
-        "overflow": [],
-        "error": null
-      },
-      {
-        "id": "ww-char-1406-epic",
-        "rarity": "epic",
-        "artwork": "",
-        "status": "missing",
-        "broken": false,
-        "overflow": [],
-        "error": null
-      },
-      {
-        "id": "ww-char-1507-epic",
-        "rarity": "epic",
-        "artwork": "",
-        "status": "missing",
-        "broken": false,
-        "overflow": [],
-        "error": null
-      },
-      {
-        "id": "ww-char-1608-epic",
-        "rarity": "epic",
-        "artwork": "",
-        "status": "missing",
-        "broken": false,
-        "overflow": [],
-        "error": null
-      },
-      {
-        "id": "ww-char-1410-epic",
-        "rarity": "epic",
-        "artwork": "",
-        "status": "missing",
-        "broken": false,
-        "overflow": [],
-        "error": null
-      },
-      {
-        "id": "ww-char-1508-epic",
-        "rarity": "epic",
-        "artwork": "",
-        "status": "missing",
-        "broken": false,
-        "overflow": [],
-        "error": null
-      },
-      {
-        "id": "ww-char-1209-epic",
-        "rarity": "epic",
-        "artwork": "",
-        "status": "missing",
-        "broken": false,
-        "overflow": [],
-        "error": null
-      },
-      {
-        "id": "ww-char-1412-epic",
-        "rarity": "epic",
-        "artwork": "",
-        "status": "missing",
-        "broken": false,
-        "overflow": [],
-        "error": null
-      },
-      {
-        "id": "ww-char-1109-epic",
-        "rarity": "epic",
-        "artwork": "",
-        "status": "missing",
-        "broken": false,
-        "overflow": [],
-        "error": null
-      },
-      {
-        "id": "ww-char-1309-epic",
-        "rarity": "epic",
-        "artwork": "",
-        "status": "missing",
-        "broken": false,
-        "overflow": [],
-        "error": null
-      },
-      {
-        "id": "ww-char-1110-epic",
-        "rarity": "epic",
-        "artwork": "",
-        "status": "missing",
-        "broken": false,
-        "overflow": [],
-        "error": null
-      },
-      {
-        "id": "ww-char-1212-epic",
-        "rarity": "epic",
-        "artwork": "",
-        "status": "missing",
-        "broken": false,
-        "overflow": [],
-        "error": null
-      },
-      {
-        "id": "ww-char-1301-full",
+        "id": "ww-char-1602-full",
         "rarity": "full",
+        "identity": "ww:danjin",
+        "fallback": "",
         "artwork": "",
+        "source": "",
         "status": "missing",
         "broken": false,
         "overflow": [],
         "error": null
       },
       {
-        "id": "ww-char-1306-gold",
-        "rarity": "gold",
-        "artwork": "",
-        "status": "missing",
-        "broken": false,
-        "overflow": [],
-        "error": null
-      },
-      {
-        "id": "ww-group-jinhsi-changli-group",
-        "rarity": "group",
-        "artwork": "",
-        "status": "missing",
-        "broken": false,
-        "overflow": [],
-        "error": null
-      },
-      {
-        "id": "gi-equipment-11518",
+        "id": "gi-equipment-11512",
         "rarity": "equipment",
+        "identity": "gi:lumiere-d-incision-foliaire",
+        "fallback": "",
         "artwork": "",
+        "source": "",
         "status": "missing",
         "broken": false,
         "overflow": [],
         "error": null
       },
       {
-        "id": "gi-equipment-15031",
+        "id": "gi-equipment-15020",
         "rarity": "equipment",
+        "identity": "gi:embleme-du-destin-brise",
+        "fallback": "",
         "artwork": "",
+        "source": "",
         "status": "missing",
         "broken": false,
         "overflow": [],
         "error": null
       },
       {
-        "id": "hsr-equipment-23001",
-        "rarity": "equipment",
-        "artwork": "",
-        "status": "missing",
-        "broken": false,
-        "overflow": [],
-        "error": null
-      },
-      {
-        "id": "hsr-equipment-23063",
-        "rarity": "equipment",
-        "artwork": "",
-        "status": "missing",
-        "broken": false,
-        "overflow": [],
-        "error": null
-      },
-      {
-        "id": "hsr-equipment-23019",
-        "rarity": "equipment",
-        "artwork": "",
-        "status": "missing",
-        "broken": false,
-        "overflow": [],
-        "error": null
-      },
-      {
-        "id": "hsr-energy-wind",
+        "id": "gi-energy-hydro",
         "rarity": "energy",
+        "identity": "gi:energy-hydro",
+        "fallback": "",
         "artwork": "",
+        "source": "",
+        "status": "missing",
+        "broken": false,
+        "overflow": [],
+        "error": null
+      },
+      {
+        "id": "hsr-energy-destruction",
+        "rarity": "energy",
+        "identity": "hsr:energy-destruction",
+        "fallback": "",
+        "artwork": "",
+        "source": "",
         "status": "missing",
         "broken": false,
         "overflow": [],
@@ -3031,7 +2667,1631 @@
     "overflow": [],
     "broken": []
   },
+  "runtimeArtworkAudit": {
+    "cards": 1465,
+    "duplicates": [],
+    "singleArtworkExceptions": [
+      {
+        "artwork": "3264b1a45b20232fc6412add629eb0464d4fb0aa2b429d3cb1d8667987cc426a",
+        "identity": "gi:aino",
+        "ids": [
+          "gi-char-aino-common",
+          "gi-char-aino-super",
+          "gi-char-aino-rare",
+          "gi-char-aino-epic"
+        ]
+      },
+      {
+        "artwork": "dea1eef3fa92e8b8bcdda7f75d3339d2b7a4448e6d8a59a332331b6deac6b0e6",
+        "identity": "gi:alyosha",
+        "ids": [
+          "gi-char-alyosha-common",
+          "gi-char-alyosha-super",
+          "gi-char-alyosha-rare",
+          "gi-char-alyosha-epic"
+        ]
+      },
+      {
+        "artwork": "ed85dce262189eaba7adb4f48cd10e65a5b546b1284785d885fefd574252117e",
+        "identity": "gi:ifa",
+        "ids": [
+          "gi-char-ifa-common",
+          "gi-char-ifa-super",
+          "gi-char-ifa-rare",
+          "gi-char-ifa-epic"
+        ]
+      },
+      {
+        "artwork": "1feeca873ef7ae7eb6d7eb298143600a1c5883a8c1e700b5d987b5b7fb402c94",
+        "identity": "gi:illuga",
+        "ids": [
+          "gi-char-illuga-common",
+          "gi-char-illuga-super",
+          "gi-char-illuga-rare",
+          "gi-char-illuga-epic"
+        ]
+      },
+      {
+        "artwork": "45dfd19c3fda4a5c4ea8b3fefc5e267e80a513d4aa85e19308c645674d0c41ee",
+        "identity": "gi:lohen",
+        "ids": [
+          "gi-char-lohen-common",
+          "gi-char-lohen-super",
+          "gi-char-lohen-rare",
+          "gi-char-lohen-epic"
+        ]
+      },
+      {
+        "artwork": "af4b6f5bdf2898bf883f0c9afbf55e72d6445a3eda3979a2a09f7f21f8a324b8",
+        "identity": "gi:odette",
+        "ids": [
+          "gi-char-odette-common",
+          "gi-char-odette-super",
+          "gi-char-odette-rare",
+          "gi-char-odette-epic"
+        ]
+      },
+      {
+        "artwork": "3489301621ababcff4195688206d5bdfbe5394e4bb0498c9532d8f0bb706a329",
+        "identity": "gi:prune",
+        "ids": [
+          "gi-char-prune-common",
+          "gi-char-prune-super",
+          "gi-char-prune-rare",
+          "gi-char-prune-epic"
+        ]
+      },
+      {
+        "artwork": "3ec12e99fbe73c95fcc9fed2d02a568967cadc473eae486f0bc6ea39ff185b9c",
+        "identity": "gi:sandrone",
+        "ids": [
+          "gi-char-sandrone-common",
+          "gi-char-sandrone-super",
+          "gi-char-sandrone-rare",
+          "gi-char-sandrone-epic"
+        ]
+      },
+      {
+        "artwork": "83c1f82513ba06e517bf8a0d763e64374eee8fdd1bbc8b398d359841c7ba639a",
+        "identity": "gi:varka",
+        "ids": [
+          "gi-char-varka-common",
+          "gi-char-varka-super",
+          "gi-char-varka-rare",
+          "gi-char-varka-epic"
+        ]
+      },
+      {
+        "artwork": "7d2b9ec65518477ba7f90791499e6ba8414fb4fabb5a2c46919b5ff7f7d6afac",
+        "identity": "gi:vesna",
+        "ids": [
+          "gi-char-vesna-common",
+          "gi-char-vesna-super",
+          "gi-char-vesna-rare",
+          "gi-char-vesna-epic"
+        ]
+      },
+      {
+        "artwork": "b0ed19b381674e0eaf19486074668e4b074bf4d4f6783383494ea2c399812499",
+        "identity": "gi:vodyanitsa",
+        "ids": [
+          "gi-char-vodyanitsa-common",
+          "gi-char-vodyanitsa-super",
+          "gi-char-vodyanitsa-rare",
+          "gi-char-vodyanitsa-epic"
+        ]
+      },
+      {
+        "artwork": "35940c665ad3470b451eea4ec4fb89b0bec98732d195258c080a4f481e321850",
+        "identity": "hsr:dan-heng",
+        "ids": [
+          "hsr-char-1002-common",
+          "hsr-char-1002-super",
+          "hsr-char-1002-rare",
+          "hsr-char-1002-epic"
+        ]
+      },
+      {
+        "artwork": "9447a16ff5090886a3ba3a23ad687f15e1aa8a1af3af2f7aa66b88e58181aef2",
+        "identity": "hsr:himeko",
+        "ids": [
+          "hsr-char-1003-common",
+          "hsr-char-1003-super",
+          "hsr-char-1003-rare",
+          "hsr-char-1003-epic"
+        ]
+      },
+      {
+        "artwork": "7b1fa1daf9d047e7233f0d6e85bc15bf0afb32af961b9b7547692551d5401151",
+        "identity": "hsr:welt",
+        "ids": [
+          "hsr-char-1004-common",
+          "hsr-char-1004-super",
+          "hsr-char-1004-rare",
+          "hsr-char-1004-epic"
+        ]
+      },
+      {
+        "artwork": "0bd3c2e45e0fbe5d408a809369435bdb476cb72e4e40adc19ab168e9f6dac947",
+        "identity": "hsr:kafka",
+        "ids": [
+          "hsr-char-1005-common",
+          "hsr-char-1005-super",
+          "hsr-char-1005-rare",
+          "hsr-char-1005-epic"
+        ]
+      },
+      {
+        "artwork": "47ebf31c5b57e55cef392c567ae95efbe1aa077905de6c6b88bc3a826e17f093",
+        "identity": "hsr:arlan",
+        "ids": [
+          "hsr-char-1008-common",
+          "hsr-char-1008-super",
+          "hsr-char-1008-rare",
+          "hsr-char-1008-epic"
+        ]
+      },
+      {
+        "artwork": "e2ff1b91f595660d2ca4112557db56cb4cd3a3965a8b6a399ad7c0cfeef42cda",
+        "identity": "hsr:asta",
+        "ids": [
+          "hsr-char-1009-common",
+          "hsr-char-1009-super",
+          "hsr-char-1009-rare",
+          "hsr-char-1009-epic"
+        ]
+      },
+      {
+        "artwork": "a2f2f8df10728d9a806eff66b5b6db092d586ad4379d47aa7a4441dd82aa467b",
+        "identity": "hsr:herta",
+        "ids": [
+          "hsr-char-1013-common",
+          "hsr-char-1013-super",
+          "hsr-char-1013-rare",
+          "hsr-char-1013-epic"
+        ]
+      },
+      {
+        "artwork": "9ff93c6b799474468a073665fa592dcb8140c18d21f116ebe4de8d4a87cc4c05",
+        "identity": "hsr:saber",
+        "ids": [
+          "hsr-char-1014-common",
+          "hsr-char-1014-super",
+          "hsr-char-1014-rare",
+          "hsr-char-1014-epic"
+        ]
+      },
+      {
+        "artwork": "8ce1f1d0e555ea19cebf4f29b6be051194a4e9e7327e202ae893728a3898a7cc",
+        "identity": "hsr:archer",
+        "ids": [
+          "hsr-char-1015-common",
+          "hsr-char-1015-super",
+          "hsr-char-1015-rare",
+          "hsr-char-1015-epic"
+        ]
+      },
+      {
+        "artwork": "c47fa191ad4029569c47c8f0bdf982a5a60f7c857da809b8df9c956d6f984d82",
+        "identity": "hsr:bronya",
+        "ids": [
+          "hsr-char-1101-common",
+          "hsr-char-1101-super",
+          "hsr-char-1101-rare",
+          "hsr-char-1101-epic"
+        ]
+      },
+      {
+        "artwork": "4458e1f36a993a08b34fc05652445b242cb62f4fc9e42fcfaba4d04f1d29c49a",
+        "identity": "hsr:seele",
+        "ids": [
+          "hsr-char-1102-common",
+          "hsr-char-1102-super",
+          "hsr-char-1102-rare",
+          "hsr-char-1102-epic"
+        ]
+      },
+      {
+        "artwork": "2fb9f5387de45cdf10d1a85c08c352c549ab87ba2b63cc4475e7eb6ae6cd39ea",
+        "identity": "hsr:serval",
+        "ids": [
+          "hsr-char-1103-common",
+          "hsr-char-1103-super",
+          "hsr-char-1103-rare",
+          "hsr-char-1103-epic"
+        ]
+      },
+      {
+        "artwork": "31b1620684d526abb049ba6a74f89355f460edb116086a0ddd64b531ce8e7c57",
+        "identity": "hsr:gepard",
+        "ids": [
+          "hsr-char-1104-common",
+          "hsr-char-1104-super",
+          "hsr-char-1104-rare",
+          "hsr-char-1104-epic"
+        ]
+      },
+      {
+        "artwork": "c8254ee4f95fefc934fefe8d58c88a41861842825ca968b48fdb697e0722e019",
+        "identity": "hsr:natasha",
+        "ids": [
+          "hsr-char-1105-common",
+          "hsr-char-1105-super",
+          "hsr-char-1105-rare",
+          "hsr-char-1105-epic"
+        ]
+      },
+      {
+        "artwork": "19a5f7d0f52283c5d21f5bd28eaa25cf12e7c4657a7ad5a82be1f8b83ad0a57b",
+        "identity": "hsr:pela",
+        "ids": [
+          "hsr-char-1106-common",
+          "hsr-char-1106-super",
+          "hsr-char-1106-rare",
+          "hsr-char-1106-epic"
+        ]
+      },
+      {
+        "artwork": "a9f1acb41023ee2d3c49a635e6faadd5ae801236344321db545ad8389f761566",
+        "identity": "hsr:clara",
+        "ids": [
+          "hsr-char-1107-common",
+          "hsr-char-1107-super",
+          "hsr-char-1107-rare",
+          "hsr-char-1107-epic"
+        ]
+      },
+      {
+        "artwork": "cae8c06f19e2c8a071344e8d13928b1bac28649c14c900a9e33094f063c440ab",
+        "identity": "hsr:sampo",
+        "ids": [
+          "hsr-char-1108-common",
+          "hsr-char-1108-super",
+          "hsr-char-1108-rare",
+          "hsr-char-1108-epic"
+        ]
+      },
+      {
+        "artwork": "e74474a4defe4435c1872c201de5c17fcb43d9b2c0414ee4da434e7ae66059aa",
+        "identity": "hsr:hook",
+        "ids": [
+          "hsr-char-1109-common",
+          "hsr-char-1109-super",
+          "hsr-char-1109-rare",
+          "hsr-char-1109-epic"
+        ]
+      },
+      {
+        "artwork": "c85e28e2bb3da2b592af05658ecdc1f093214a18a06345c1e569014f98c8d239",
+        "identity": "hsr:lynx",
+        "ids": [
+          "hsr-char-1110-common",
+          "hsr-char-1110-super",
+          "hsr-char-1110-rare",
+          "hsr-char-1110-epic"
+        ]
+      },
+      {
+        "artwork": "00f35875650379796da858053f13e5d9d2cd57431cfefc40cbac12a067f84f00",
+        "identity": "hsr:luka",
+        "ids": [
+          "hsr-char-1111-common",
+          "hsr-char-1111-super",
+          "hsr-char-1111-rare",
+          "hsr-char-1111-epic"
+        ]
+      },
+      {
+        "artwork": "3a0267a66c64d1ea4f7a97750b4e37d204b98d3100ab6fba84a455a67c17a4fd",
+        "identity": "hsr:topaz-numby",
+        "ids": [
+          "hsr-char-1112-common",
+          "hsr-char-1112-super",
+          "hsr-char-1112-rare",
+          "hsr-char-1112-epic"
+        ]
+      },
+      {
+        "artwork": "c38b1cee78a5866291916ba9c1e370ce54329f186d0500bac0f2afe8a2b43a33",
+        "identity": "hsr:qingque",
+        "ids": [
+          "hsr-char-1201-common",
+          "hsr-char-1201-super",
+          "hsr-char-1201-rare",
+          "hsr-char-1201-epic"
+        ]
+      },
+      {
+        "artwork": "0500b9b3bc9f373607f7986fc01f24d649644e7357bdfe2a76479847bbdee19d",
+        "identity": "hsr:tingyun",
+        "ids": [
+          "hsr-char-1202-common",
+          "hsr-char-1202-super",
+          "hsr-char-1202-rare",
+          "hsr-char-1202-epic"
+        ]
+      },
+      {
+        "artwork": "533ac7d37e0d7ff1bf1e84bacd1dc28e9572ca8df12e843d6b1e239b98a28930",
+        "identity": "hsr:luocha",
+        "ids": [
+          "hsr-char-1203-common",
+          "hsr-char-1203-super",
+          "hsr-char-1203-rare",
+          "hsr-char-1203-epic"
+        ]
+      },
+      {
+        "artwork": "4d9bb01af73a69f64e2dd2c8705d08530a04be10f0ba07f2e19a521940071d9d",
+        "identity": "hsr:jing-yuan",
+        "ids": [
+          "hsr-char-1204-common",
+          "hsr-char-1204-super",
+          "hsr-char-1204-rare",
+          "hsr-char-1204-epic"
+        ]
+      },
+      {
+        "artwork": "5a3f21f0b38a24477e82163f25c1f6141f92063bae37c20b29e26abc68a855e6",
+        "identity": "hsr:blade",
+        "ids": [
+          "hsr-char-1205-common",
+          "hsr-char-1205-super",
+          "hsr-char-1205-rare",
+          "hsr-char-1205-epic"
+        ]
+      },
+      {
+        "artwork": "2cbc4e72f5a4526d3ea86d1c90acde3afa1b5e40731a6113953381ea4f490241",
+        "identity": "hsr:sushang",
+        "ids": [
+          "hsr-char-1206-common",
+          "hsr-char-1206-super",
+          "hsr-char-1206-rare",
+          "hsr-char-1206-epic"
+        ]
+      },
+      {
+        "artwork": "ee882e51f30cf20a9faafc4b98a428fd7199f25fbab654de293624fb8620d0ce",
+        "identity": "hsr:yukong",
+        "ids": [
+          "hsr-char-1207-common",
+          "hsr-char-1207-super",
+          "hsr-char-1207-rare",
+          "hsr-char-1207-epic"
+        ]
+      },
+      {
+        "artwork": "e9408fe3130c5f531ca9d920cc54d6a535d5c719c688eceeb09315f263dc3e9b",
+        "identity": "hsr:yanqing",
+        "ids": [
+          "hsr-char-1209-common",
+          "hsr-char-1209-super",
+          "hsr-char-1209-rare",
+          "hsr-char-1209-epic"
+        ]
+      },
+      {
+        "artwork": "22163c14fdecb5e23427e822850c85daf484e850bc575f4f17df8f73fcb27c22",
+        "identity": "hsr:guinaifen",
+        "ids": [
+          "hsr-char-1210-common",
+          "hsr-char-1210-super",
+          "hsr-char-1210-rare",
+          "hsr-char-1210-epic"
+        ]
+      },
+      {
+        "artwork": "6a2c7164a15d91d31dad3ea5126bac68b9a92a77674b6e380d5beabae9a0c612",
+        "identity": "hsr:bailu",
+        "ids": [
+          "hsr-char-1211-common",
+          "hsr-char-1211-super",
+          "hsr-char-1211-rare",
+          "hsr-char-1211-epic"
+        ]
+      },
+      {
+        "artwork": "559bb7ade0b59772dd14bd030c2172c48c91f047fefbc3c81bc3299043b9215f",
+        "identity": "hsr:jingliu",
+        "ids": [
+          "hsr-char-1212-common",
+          "hsr-char-1212-super",
+          "hsr-char-1212-rare",
+          "hsr-char-1212-epic"
+        ]
+      },
+      {
+        "artwork": "f3ad28d2cabc947c56a0eb9b02bbc5383af77cf1560e910d8e3ded38b5ff56ff",
+        "identity": "hsr:dan-heng-imbibitor-lunae",
+        "ids": [
+          "hsr-char-1213-common",
+          "hsr-char-1213-super",
+          "hsr-char-1213-rare",
+          "hsr-char-1213-epic"
+        ]
+      },
+      {
+        "artwork": "0525c74465e41bbb1c2e21d2132db2fc034f3c9cc98f11d10fcaa08d5849378f",
+        "identity": "hsr:xueyi",
+        "ids": [
+          "hsr-char-1214-common",
+          "hsr-char-1214-super",
+          "hsr-char-1214-rare",
+          "hsr-char-1214-epic"
+        ]
+      },
+      {
+        "artwork": "fbd8b4239db469288becdb4fe6dbe63d53718b3966cc0b0c40da351009c7e220",
+        "identity": "hsr:hanya",
+        "ids": [
+          "hsr-char-1215-common",
+          "hsr-char-1215-super",
+          "hsr-char-1215-rare",
+          "hsr-char-1215-epic"
+        ]
+      },
+      {
+        "artwork": "df1d87de8383f06c3efeb8c1a548eb4f73cc07cf0abf0fedcbd265832b0e7a57",
+        "identity": "hsr:huohuo",
+        "ids": [
+          "hsr-char-1217-common",
+          "hsr-char-1217-super",
+          "hsr-char-1217-rare",
+          "hsr-char-1217-epic"
+        ]
+      },
+      {
+        "artwork": "fbd360cd41737357ae2dca2d5e2306b04283ef966ceb5136a445b02f93a4ec49",
+        "identity": "hsr:jiaoqiu",
+        "ids": [
+          "hsr-char-1218-common",
+          "hsr-char-1218-super",
+          "hsr-char-1218-rare",
+          "hsr-char-1218-epic"
+        ]
+      },
+      {
+        "artwork": "6dbfededa10d6953d563a394e2bb1c3e8fa4139d714a1818afd14e4d78bfa3e5",
+        "identity": "hsr:feixiao",
+        "ids": [
+          "hsr-char-1220-common",
+          "hsr-char-1220-super",
+          "hsr-char-1220-rare",
+          "hsr-char-1220-epic"
+        ]
+      },
+      {
+        "artwork": "6fcc23448ac0afee3d200b2fcb50a12a81f5083bef5df06c83700af1cde6b25d",
+        "identity": "hsr:yunli",
+        "ids": [
+          "hsr-char-1221-common",
+          "hsr-char-1221-super",
+          "hsr-char-1221-rare",
+          "hsr-char-1221-epic"
+        ]
+      },
+      {
+        "artwork": "485d2710d65d1db387ebfdfe1c52099a416da2f341b1c6f00d931c832e6fb35b",
+        "identity": "hsr:lingsha",
+        "ids": [
+          "hsr-char-1222-common",
+          "hsr-char-1222-super",
+          "hsr-char-1222-rare",
+          "hsr-char-1222-epic"
+        ]
+      },
+      {
+        "artwork": "7e7e3a493a26d06dec1a03f974f860a063b502c2be22e05c5a0912c2fee58af7",
+        "identity": "hsr:moze",
+        "ids": [
+          "hsr-char-1223-common",
+          "hsr-char-1223-super",
+          "hsr-char-1223-rare",
+          "hsr-char-1223-epic"
+        ]
+      },
+      {
+        "artwork": "cbed817df593c87d8271a0e8850ce09abf144e2c62eda55289455b9eb7b35273",
+        "identity": "hsr:march-7th-1224",
+        "ids": [
+          "hsr-char-1224-common",
+          "hsr-char-1224-super",
+          "hsr-char-1224-rare",
+          "hsr-char-1224-epic"
+        ]
+      },
+      {
+        "artwork": "ce94e38048f8a53904d01aefec76a33dfa34cdf8afa8f9c59b94e7739d00b6de",
+        "identity": "hsr:fugue",
+        "ids": [
+          "hsr-char-1225-common",
+          "hsr-char-1225-super",
+          "hsr-char-1225-rare",
+          "hsr-char-1225-epic"
+        ]
+      },
+      {
+        "artwork": "6037faffdcfa368dd75dac742f3bf2d7a3ddc4dd99475e707621c444770a330c",
+        "identity": "hsr:gallagher",
+        "ids": [
+          "hsr-char-1301-common",
+          "hsr-char-1301-super",
+          "hsr-char-1301-rare",
+          "hsr-char-1301-epic"
+        ]
+      },
+      {
+        "artwork": "ef953ae636f9f8f4e3e6c84d5b55aef7f0858aff59835de9402e16e230d83701",
+        "identity": "hsr:argenti",
+        "ids": [
+          "hsr-char-1302-common",
+          "hsr-char-1302-super",
+          "hsr-char-1302-rare",
+          "hsr-char-1302-epic"
+        ]
+      },
+      {
+        "artwork": "b653614a9eb479936af19ab2de4f6612938a0800ff779fb6483cce9150f79740",
+        "identity": "hsr:ruan-mei",
+        "ids": [
+          "hsr-char-1303-common",
+          "hsr-char-1303-super",
+          "hsr-char-1303-rare",
+          "hsr-char-1303-epic"
+        ]
+      },
+      {
+        "artwork": "52fb12219796f3696a7afefed2cbfe93a8bdd7f57113616dd728063f944097c7",
+        "identity": "hsr:dr-ratio",
+        "ids": [
+          "hsr-char-1305-common",
+          "hsr-char-1305-super",
+          "hsr-char-1305-rare",
+          "hsr-char-1305-epic"
+        ]
+      },
+      {
+        "artwork": "7c30e681dddfcd301931ed8ab8bea8bc54f0c3a78d37fad43ac9462c1163049c",
+        "identity": "hsr:sparkle",
+        "ids": [
+          "hsr-char-1306-common",
+          "hsr-char-1306-super",
+          "hsr-char-1306-rare",
+          "hsr-char-1306-epic"
+        ]
+      },
+      {
+        "artwork": "34ad9c398bef965eecb2cdd25192bbb2cf32feb0e0acb6b9c8e047c3b3b0564d",
+        "identity": "hsr:black-swan",
+        "ids": [
+          "hsr-char-1307-common",
+          "hsr-char-1307-super",
+          "hsr-char-1307-rare",
+          "hsr-char-1307-epic"
+        ]
+      },
+      {
+        "artwork": "cfa0d61757934ee59f5498987f8981e93475b6aa39b496c50bcb74e5908baf95",
+        "identity": "hsr:robin",
+        "ids": [
+          "hsr-char-1309-common",
+          "hsr-char-1309-super",
+          "hsr-char-1309-rare",
+          "hsr-char-1309-epic"
+        ]
+      },
+      {
+        "artwork": "b168cac174e32e1914d6b085f88d6689b9f62ce22b307f55b450975d77e28393",
+        "identity": "hsr:firefly",
+        "ids": [
+          "hsr-char-1310-common",
+          "hsr-char-1310-super",
+          "hsr-char-1310-rare",
+          "hsr-char-1310-epic"
+        ]
+      },
+      {
+        "artwork": "56d608a0bbf0d15b8ec747a22107ab2a3babf1418eeb5149deb820a3ae6daa50",
+        "identity": "hsr:misha",
+        "ids": [
+          "hsr-char-1312-common",
+          "hsr-char-1312-super",
+          "hsr-char-1312-rare",
+          "hsr-char-1312-epic"
+        ]
+      },
+      {
+        "artwork": "ef96ac6f8cb06040ceab95c77537dc9c147601212e9cc3d8217cb232fdcf5930",
+        "identity": "hsr:sunday",
+        "ids": [
+          "hsr-char-1313-common",
+          "hsr-char-1313-super",
+          "hsr-char-1313-rare",
+          "hsr-char-1313-epic"
+        ]
+      },
+      {
+        "artwork": "e51ffeb4a3afef41afabcef023a864e3808904d94a24c035c61b7fce9648bc80",
+        "identity": "hsr:jade",
+        "ids": [
+          "hsr-char-1314-common",
+          "hsr-char-1314-super",
+          "hsr-char-1314-rare",
+          "hsr-char-1314-epic"
+        ]
+      },
+      {
+        "artwork": "9443df00c71d57bdb0aa533bf6531c522449cc7925d987ece54d39408c04653f",
+        "identity": "hsr:boothill",
+        "ids": [
+          "hsr-char-1315-common",
+          "hsr-char-1315-super",
+          "hsr-char-1315-rare",
+          "hsr-char-1315-epic"
+        ]
+      },
+      {
+        "artwork": "be7092885d7ae588d90aab23018dcb8dcc8fd0b8752844a367067d809cebdc6f",
+        "identity": "hsr:rappa",
+        "ids": [
+          "hsr-char-1317-common",
+          "hsr-char-1317-super",
+          "hsr-char-1317-rare",
+          "hsr-char-1317-epic"
+        ]
+      },
+      {
+        "artwork": "8fc8cb01f378954fb2da94b097b19d81dd89ebc69071f7bc7130c86d60112a46",
+        "identity": "hsr:the-herta",
+        "ids": [
+          "hsr-char-1401-common",
+          "hsr-char-1401-super",
+          "hsr-char-1401-rare",
+          "hsr-char-1401-epic"
+        ]
+      },
+      {
+        "artwork": "12d73057d918387e34203c06c3cb39169b70792ddab5985d1b2f3aa8e58feb55",
+        "identity": "hsr:aglaea",
+        "ids": [
+          "hsr-char-1402-common",
+          "hsr-char-1402-super",
+          "hsr-char-1402-rare",
+          "hsr-char-1402-epic"
+        ]
+      },
+      {
+        "artwork": "78b137c022ae4909dbf8a30c8fda27f8fa654b264d33b2c834d304b2c2ae54a0",
+        "identity": "hsr:mydei",
+        "ids": [
+          "hsr-char-1404-common",
+          "hsr-char-1404-super",
+          "hsr-char-1404-rare",
+          "hsr-char-1404-epic"
+        ]
+      },
+      {
+        "artwork": "3e9f53cffd1971836d3c1dbf26713e65cd79aea4dee715921d993313f9ca773d",
+        "identity": "hsr:anaxa",
+        "ids": [
+          "hsr-char-1405-common",
+          "hsr-char-1405-super",
+          "hsr-char-1405-rare",
+          "hsr-char-1405-epic"
+        ]
+      },
+      {
+        "artwork": "06b08686b89e1868a121222e7367b52c27f6805892ab7d2593cdb22773281ce2",
+        "identity": "hsr:castorice",
+        "ids": [
+          "hsr-char-1407-common",
+          "hsr-char-1407-super",
+          "hsr-char-1407-rare",
+          "hsr-char-1407-epic"
+        ]
+      },
+      {
+        "artwork": "d971863a2b32b5e92b3dbe5806a443b56e03784d022c9c261b17febbfb7f3213",
+        "identity": "hsr:phainon",
+        "ids": [
+          "hsr-char-1408-common",
+          "hsr-char-1408-super",
+          "hsr-char-1408-rare",
+          "hsr-char-1408-epic"
+        ]
+      },
+      {
+        "artwork": "65d23200c581dd693e6fcd38a635493a1c3fe013f533de33cdcde89bd00cee02",
+        "identity": "hsr:hyacine",
+        "ids": [
+          "hsr-char-1409-common",
+          "hsr-char-1409-super",
+          "hsr-char-1409-rare",
+          "hsr-char-1409-epic"
+        ]
+      },
+      {
+        "artwork": "ced66a8eb276aefbd2d7923ff25a827a2f17396c45c9d2ca5c1b7310f9549961",
+        "identity": "hsr:hysilens",
+        "ids": [
+          "hsr-char-1410-common",
+          "hsr-char-1410-super",
+          "hsr-char-1410-rare",
+          "hsr-char-1410-epic"
+        ]
+      },
+      {
+        "artwork": "69f4610a6cf588c958fe777d7012d319bed2a2e2d6c3f9b36be525fc884042d1",
+        "identity": "hsr:cerydra",
+        "ids": [
+          "hsr-char-1412-common",
+          "hsr-char-1412-super",
+          "hsr-char-1412-rare",
+          "hsr-char-1412-epic"
+        ]
+      },
+      {
+        "artwork": "6b7e4103b82b762931dd5c4549e6f4634b8f87265a7f49edd89ab9ab92c48f31",
+        "identity": "hsr:evernight",
+        "ids": [
+          "hsr-char-1413-common",
+          "hsr-char-1413-super",
+          "hsr-char-1413-rare",
+          "hsr-char-1413-epic"
+        ]
+      },
+      {
+        "artwork": "8206d5c1ef07ea13becb7a31dd9b7f4560ea66469e3ef6935146722f9020ea88",
+        "identity": "hsr:dan-heng-permansor-terrae",
+        "ids": [
+          "hsr-char-1414-common",
+          "hsr-char-1414-super",
+          "hsr-char-1414-rare",
+          "hsr-char-1414-epic"
+        ]
+      },
+      {
+        "artwork": "427d3aff36f8846ed7e23325a004e6899592107e981ad6bbf05f4255fe26849d",
+        "identity": "hsr:mortenax-blade",
+        "ids": [
+          "hsr-char-1507-common",
+          "hsr-char-1507-super",
+          "hsr-char-1507-rare",
+          "hsr-char-1507-epic"
+        ]
+      },
+      {
+        "artwork": "4c0c20c5a00e0956b1d726a60604b9b481bb190cccc782cdd391f2470f267466",
+        "identity": "hsr:rin-tohsaka",
+        "ids": [
+          "hsr-char-1508-common",
+          "hsr-char-1508-super",
+          "hsr-char-1508-rare",
+          "hsr-char-1508-epic"
+        ]
+      },
+      {
+        "artwork": "41c784e30e9852eeeaefa045ceaff93293cb8bdd69149825b88fc32f8dace1cb",
+        "identity": "hsr:gilgamesh",
+        "ids": [
+          "hsr-char-1509-common",
+          "hsr-char-1509-super",
+          "hsr-char-1509-rare",
+          "hsr-char-1509-epic"
+        ]
+      },
+      {
+        "artwork": "63906a6f5eb050d59b8b0520df4c8ddbeb3c463908d776e8b1a60303bd492f2d",
+        "identity": "hsr:himeko-nova",
+        "ids": [
+          "hsr-char-1510-common",
+          "hsr-char-1510-super",
+          "hsr-char-1510-rare",
+          "hsr-char-1510-epic"
+        ]
+      },
+      {
+        "artwork": "f003d8ecdae3ad0da72cf35de400c1b453496d542a6408e0a371446c9be0bccf",
+        "identity": "hsr:robin-summeretto",
+        "ids": [
+          "hsr-char-1512-common",
+          "hsr-char-1512-super",
+          "hsr-char-1512-rare",
+          "hsr-char-1512-epic"
+        ]
+      },
+      {
+        "artwork": "d41f384b90dbf9e0e86cc992af223a74a8b355a90ec92f28461dc0fd84da5572",
+        "identity": "hsr:aventurine-waveflair",
+        "ids": [
+          "hsr-char-1513-common",
+          "hsr-char-1513-super",
+          "hsr-char-1513-rare",
+          "hsr-char-1513-epic"
+        ]
+      },
+      {
+        "artwork": "1173b2fbd038076d8a3f8b80c3f37e0cd403e79a37cd0ced07d0f2056522cdde",
+        "identity": "ww:yangyang",
+        "ids": [
+          "ww-char-1402-common",
+          "ww-char-1402-super",
+          "ww-char-1402-rare",
+          "ww-char-1402-epic"
+        ]
+      },
+      {
+        "artwork": "4d097848bac060ae0c64d0c2bf9beffe01922531342abe551f1b2e48297341d1",
+        "identity": "ww:chixia",
+        "ids": [
+          "ww-char-1202-common",
+          "ww-char-1202-super",
+          "ww-char-1202-rare",
+          "ww-char-1202-epic"
+        ]
+      },
+      {
+        "artwork": "6b114e113c8ab7cf770c937cf1eeb1e28badf3fa50e3e73c721427d870f5fedc",
+        "identity": "ww:verina",
+        "ids": [
+          "ww-char-1503-common",
+          "ww-char-1503-super",
+          "ww-char-1503-rare",
+          "ww-char-1503-epic",
+          "ww-char-1503-full"
+        ]
+      },
+      {
+        "artwork": "16877ce04a443f9e70b6b6bb526886936abbf6946fc02949c8e3983f055f9f8a",
+        "identity": "ww:encore",
+        "ids": [
+          "ww-char-1203-common",
+          "ww-char-1203-super",
+          "ww-char-1203-rare",
+          "ww-char-1203-epic"
+        ]
+      },
+      {
+        "artwork": "9b8a6be9c04a11db74bef185684be0951701af00057c4e9ab05552217b8e93e8",
+        "identity": "ww:camellya",
+        "ids": [
+          "ww-char-1603-common",
+          "ww-char-1603-super",
+          "ww-char-1603-rare",
+          "ww-char-1603-epic",
+          "ww-char-1603-astral"
+        ]
+      },
+      {
+        "artwork": "4fc42ea06a6e678cc4a22f14e9d89e87f660248e6dd4d89c1d5127f9719c0695",
+        "identity": "ww:calcharo",
+        "ids": [
+          "ww-char-1301-common",
+          "ww-char-1301-super",
+          "ww-char-1301-rare",
+          "ww-char-1301-epic",
+          "ww-char-1301-full"
+        ]
+      },
+      {
+        "artwork": "4dd94def5dff7986e3e9af97ecf46967cd37d31f03eb07a04efeda9f9f521a72",
+        "identity": "ww:yinlin",
+        "ids": [
+          "ww-char-1302-common",
+          "ww-char-1302-super",
+          "ww-char-1302-rare",
+          "ww-char-1302-epic",
+          "ww-char-1302-gold"
+        ]
+      },
+      {
+        "artwork": "25662c390baa1fda4227ce8e8e0056b274724d689a7b606076bf54a41902e2be",
+        "identity": "ww:jianxin",
+        "ids": [
+          "ww-char-1405-common",
+          "ww-char-1405-super",
+          "ww-char-1405-rare",
+          "ww-char-1405-epic",
+          "ww-char-1405-full"
+        ]
+      },
+      {
+        "artwork": "06332e61e7caae92c3b1ec35ecdeb01d44fd3fd52eaf86d7e756461a6a7b61ff",
+        "identity": "ww:jinhsi",
+        "ids": [
+          "ww-char-1304-common",
+          "ww-char-1304-super",
+          "ww-char-1304-rare",
+          "ww-char-1304-epic",
+          "ww-char-1304-astral"
+        ]
+      },
+      {
+        "artwork": "ad89cf7b25c9382846cc22996898da8ee9a1c92013cf3ba0290ace472973c8d6",
+        "identity": "ww:xiangli-yao",
+        "ids": [
+          "ww-char-1305-common",
+          "ww-char-1305-super",
+          "ww-char-1305-rare",
+          "ww-char-1305-epic",
+          "ww-char-1305-full"
+        ]
+      },
+      {
+        "artwork": "5b0d95bf6aa2d2bf4fa0205819a32d9854ad4dceda4ed8b0ddde777f97542860",
+        "identity": "ww:changli",
+        "ids": [
+          "ww-char-1205-common",
+          "ww-char-1205-super",
+          "ww-char-1205-rare",
+          "ww-char-1205-epic",
+          "ww-char-1205-legend"
+        ]
+      },
+      {
+        "artwork": "f52b01e9d77231880f98f56f213e1004fedd217cc18b3feae4644b2c7e556cc5",
+        "identity": "ww:lumi",
+        "ids": [
+          "ww-char-1504-common",
+          "ww-char-1504-super",
+          "ww-char-1504-rare",
+          "ww-char-1504-epic"
+        ]
+      },
+      {
+        "artwork": "e98a1c8b357f77691acd3fce614bbdd7b04c30ea16b0fd2309811260b088ca05",
+        "identity": "ww:youhu",
+        "ids": [
+          "ww-char-1106-common",
+          "ww-char-1106-super",
+          "ww-char-1106-rare",
+          "ww-char-1106-epic",
+          "ww-char-1106-full"
+        ]
+      },
+      {
+        "artwork": "85776ed3a023ed6414c4a0b31e067c6524a2114b7cff42451bbd82d42252b2a9",
+        "identity": "ww:roccia",
+        "ids": [
+          "ww-char-1606-common",
+          "ww-char-1606-super",
+          "ww-char-1606-rare",
+          "ww-char-1606-epic",
+          "ww-char-1606-secret"
+        ]
+      },
+      {
+        "artwork": "2188be301ea00650bf7329a420e233ce8b85fbb81e5fa640b93a7d53766b86f1",
+        "identity": "ww:carlotta",
+        "ids": [
+          "ww-char-1107-common",
+          "ww-char-1107-super",
+          "ww-char-1107-rare",
+          "ww-char-1107-epic",
+          "ww-char-1107-legend"
+        ]
+      },
+      {
+        "artwork": "ae1458c7bd8fa631848fba69e3d2875335208744bb4718851989a46053782a4c",
+        "identity": "ww:brant",
+        "ids": [
+          "ww-char-1206-common",
+          "ww-char-1206-super",
+          "ww-char-1206-rare",
+          "ww-char-1206-epic",
+          "ww-char-1206-gold"
+        ]
+      },
+      {
+        "artwork": "91710d6fb0fe42adafb7210a9175b40702c260577d7bb9a4a48da0b48908958c",
+        "identity": "ww:phoebe",
+        "ids": [
+          "ww-char-1506-common",
+          "ww-char-1506-super",
+          "ww-char-1506-rare",
+          "ww-char-1506-epic",
+          "ww-char-1506-legend"
+        ]
+      },
+      {
+        "artwork": "ceca4f0b511d554d6522ba2cc17a7d456f74cddde3c9c9aaf1e6865e42a8669d",
+        "identity": "ww:cantarella",
+        "ids": [
+          "ww-char-1607-common",
+          "ww-char-1607-super",
+          "ww-char-1607-rare",
+          "ww-char-1607-epic",
+          "ww-char-1607-secret"
+        ]
+      },
+      {
+        "artwork": "dbbc2a505f0b33f28d32383a4c5c4c7d2d8e167065a4ab18fc725c9e15368c59",
+        "identity": "ww:ciaccona",
+        "ids": [
+          "ww-char-1407-common",
+          "ww-char-1407-super",
+          "ww-char-1407-rare",
+          "ww-char-1407-epic",
+          "ww-char-1407-full"
+        ]
+      },
+      {
+        "artwork": "60c533a396f64ddb8eaa7be0bf85e3146229561818a05966b7c912b8059ad40a",
+        "identity": "ww:zani",
+        "ids": [
+          "ww-char-1507-common",
+          "ww-char-1507-super",
+          "ww-char-1507-rare",
+          "ww-char-1507-epic",
+          "ww-char-1507-full"
+        ]
+      },
+      {
+        "artwork": "1a75627c9c6bf36d8bc18b53cb56fe79c7d0622dcf1c477f271fc93f0c552420",
+        "identity": "ww:lupa",
+        "ids": [
+          "ww-char-1207-common",
+          "ww-char-1207-super",
+          "ww-char-1207-rare",
+          "ww-char-1207-epic",
+          "ww-char-1207-full"
+        ]
+      },
+      {
+        "artwork": "db1d3fa37c5c931d76b857779f9425624e30f58a5b3ecb03829914a774d43512",
+        "identity": "ww:phrolova",
+        "ids": [
+          "ww-char-1608-common",
+          "ww-char-1608-super",
+          "ww-char-1608-rare",
+          "ww-char-1608-epic",
+          "ww-char-1608-secret"
+        ]
+      },
+      {
+        "artwork": "40dba0de0fababc165725813ab3a5ca3b03f263867983ae435939c17aa01a912",
+        "identity": "ww:cartethyia",
+        "ids": [
+          "ww-char-1409-common",
+          "ww-char-1409-super",
+          "ww-char-1409-rare",
+          "ww-char-1409-epic",
+          "ww-char-1409-legend"
+        ]
+      },
+      {
+        "artwork": "51fd815ae7a681e1c47196767aa6970f55742077d4787ea52f7d639373161bc6",
+        "identity": "ww:augusta",
+        "ids": [
+          "ww-char-1306-common",
+          "ww-char-1306-super",
+          "ww-char-1306-rare",
+          "ww-char-1306-epic"
+        ]
+      },
+      {
+        "artwork": "92fa33d172573bfe5f7c60baeb061a6b407ce8e9ce6f03fc9cc011a15b80e678",
+        "identity": "ww:iuno",
+        "ids": [
+          "ww-char-1410-common",
+          "ww-char-1410-super",
+          "ww-char-1410-rare",
+          "ww-char-1410-epic"
+        ]
+      },
+      {
+        "artwork": "babf50f98d2e7b5c8e38d0f08dce89dd40f072fa619206f416a7fca4f7a6f923",
+        "identity": "ww:buling",
+        "ids": [
+          "ww-char-1307-common",
+          "ww-char-1307-super",
+          "ww-char-1307-rare",
+          "ww-char-1307-epic"
+        ]
+      },
+      {
+        "artwork": "bc4bf401e6ef326c5d0a7ab8455a1618a876d1eb802fe0069f46863238ffa2b0",
+        "identity": "ww:galbrena",
+        "ids": [
+          "ww-char-1208-common",
+          "ww-char-1208-super",
+          "ww-char-1208-rare",
+          "ww-char-1208-epic"
+        ]
+      },
+      {
+        "artwork": "bc97496e27c4763808a11ff4b24a64621d8473576ba6ac174962abfcd0c4b84b",
+        "identity": "ww:chisa",
+        "ids": [
+          "ww-char-1508-common",
+          "ww-char-1508-super",
+          "ww-char-1508-rare",
+          "ww-char-1508-epic",
+          "ww-char-1508-astral"
+        ]
+      },
+      {
+        "artwork": "40e7fc8416dee589c9aaf4810987ebd35a6ae7b08efefec7e066c29d1284ab8c",
+        "identity": "ww:lynae",
+        "ids": [
+          "ww-char-1509-common",
+          "ww-char-1509-super",
+          "ww-char-1509-rare",
+          "ww-char-1509-epic"
+        ]
+      },
+      {
+        "artwork": "d44bf42023d6487f2ef3a8ed2854d1846aa2c262be15650fc9ec6ce6a41eef48",
+        "identity": "ww:mornye",
+        "ids": [
+          "ww-char-1209-common",
+          "ww-char-1209-super",
+          "ww-char-1209-rare",
+          "ww-char-1209-epic",
+          "ww-char-1209-eternal"
+        ]
+      },
+      {
+        "artwork": "63627f82640927e9f60114f1de8656dbc7c8efd369db4925035834cd83edf3bd",
+        "identity": "ww:luuk-herssen",
+        "ids": [
+          "ww-char-1510-common",
+          "ww-char-1510-super",
+          "ww-char-1510-rare",
+          "ww-char-1510-epic"
+        ]
+      },
+      {
+        "artwork": "3815b96f17e4ceeee04a6ed4f9dd10a6098978ba07f0ac171a432d660aa6e7e4",
+        "identity": "ww:aemeath",
+        "ids": [
+          "ww-char-1210-common",
+          "ww-char-1210-super",
+          "ww-char-1210-rare",
+          "ww-char-1210-epic",
+          "ww-char-1210-eternal"
+        ]
+      },
+      {
+        "artwork": "e9d8fcd15642d1b2125f0c6d3fc7718c9ef4599d4d1f07a4a5d76a71cb5c43c0",
+        "identity": "ww:denia",
+        "ids": [
+          "ww-char-1211-common",
+          "ww-char-1211-super",
+          "ww-char-1211-rare",
+          "ww-char-1211-epic"
+        ]
+      },
+      {
+        "artwork": "64002513dd9caf495af3900fd760d647d6edb6f9606f0b6e1c10989904bcb317",
+        "identity": "ww:lucilla",
+        "ids": [
+          "ww-char-1109-common",
+          "ww-char-1109-super",
+          "ww-char-1109-rare",
+          "ww-char-1109-epic"
+        ]
+      }
+    ],
+    "withoutArtworkCandidate": [
+      "gi-char-aether-common",
+      "gi-char-aether-super",
+      "gi-char-aether-rare",
+      "gi-char-aloy-common",
+      "gi-char-aloy-super",
+      "gi-char-aloy-rare",
+      "gi-char-columbina-common",
+      "gi-char-columbina-super",
+      "gi-char-columbina-rare",
+      "gi-char-dahlia-common",
+      "gi-char-durin-common",
+      "gi-char-ineffa-common",
+      "gi-char-jahoda-common",
+      "gi-char-lan-yan-common",
+      "gi-char-linnea-common",
+      "gi-char-linnea-super",
+      "gi-char-lumine-common",
+      "gi-char-lumine-super",
+      "gi-char-lumine-rare",
+      "gi-char-manekin-common",
+      "gi-char-manekin-super",
+      "gi-char-manekin-rare",
+      "gi-char-manekin-epic",
+      "gi-char-manekina-common",
+      "gi-char-manekina-super",
+      "gi-char-manekina-rare",
+      "gi-char-manekina-epic",
+      "gi-char-mavuika-common",
+      "gi-char-nefer-common",
+      "gi-char-nicole-common",
+      "gi-char-nicole-super",
+      "gi-char-zibai-common",
+      "gi-char-zibai-super",
+      "gi-char-sandrone-astral",
+      "gi-char-varka-astral",
+      "gi-char-rhinedottir-secret",
+      "gi-char-mitya-eternal",
+      "gi-char-capitano-eternal",
+      "gi-group-equipe-d-inazuma-group",
+      "gi-group-equipe-de-natlan-group",
+      "gi-group-les-sept-archons-group",
+      "gi-group-hexenzirkel-group",
+      "gi-group-columbina-sandrone-group",
+      "gi-group-les-fatui-group",
+      "gi-group-chevaliers-de-favonius-group",
+      "gi-group-groupe-de-liyue-group",
+      "gi-group-groupe-de-fontaine-group",
+      "gi-group-equipe-de-sumeru-group",
+      "gi-group-duo-de-justice-group",
+      "hsr-char-1006-common",
+      "hsr-char-1006-super",
+      "hsr-char-1208-common",
+      "hsr-char-1208-super",
+      "hsr-char-1208-rare",
+      "hsr-char-1304-common",
+      "hsr-char-1304-super",
+      "hsr-char-1304-rare",
+      "hsr-char-1308-common",
+      "hsr-char-1308-super",
+      "hsr-char-1308-rare",
+      "hsr-char-1321-common",
+      "hsr-char-1321-super",
+      "hsr-char-1403-common",
+      "hsr-char-1403-super",
+      "hsr-char-1406-common",
+      "hsr-char-1406-super",
+      "hsr-char-1415-common",
+      "hsr-char-1415-super",
+      "hsr-char-1501-common",
+      "hsr-char-1501-super",
+      "hsr-char-1502-common",
+      "hsr-char-1502-super",
+      "hsr-char-1503-common",
+      "hsr-char-1503-super",
+      "hsr-char-1504-common",
+      "hsr-char-1504-super",
+      "hsr-char-1505-common",
+      "hsr-char-1505-super",
+      "hsr-char-1506-common",
+      "hsr-char-1506-super",
+      "hsr-char-1506-rare",
+      "hsr-char-1506-epic",
+      "hsr-char-1511-common",
+      "hsr-char-1511-super",
+      "hsr-char-8001-common",
+      "hsr-char-8001-super",
+      "hsr-char-8001-rare",
+      "hsr-char-8001-epic",
+      "hsr-char-8002-common",
+      "hsr-char-8002-super",
+      "hsr-char-8002-rare",
+      "hsr-char-8002-epic",
+      "hsr-char-8003-common",
+      "hsr-char-8003-super",
+      "hsr-char-8003-rare",
+      "hsr-char-8003-epic",
+      "hsr-char-8004-common",
+      "hsr-char-8004-super",
+      "hsr-char-8004-rare",
+      "hsr-char-8004-epic",
+      "hsr-char-8005-common",
+      "hsr-char-8005-super",
+      "hsr-char-8005-rare",
+      "hsr-char-8005-epic",
+      "hsr-char-8006-common",
+      "hsr-char-8006-super",
+      "hsr-char-8006-rare",
+      "hsr-char-8006-epic",
+      "hsr-char-8007-common",
+      "hsr-char-8007-super",
+      "hsr-char-8007-rare",
+      "hsr-char-8007-epic",
+      "hsr-char-8008-common",
+      "hsr-char-8008-super",
+      "hsr-char-8008-rare",
+      "hsr-char-8008-epic",
+      "hsr-char-8009-common",
+      "hsr-char-8009-super",
+      "hsr-char-8009-rare",
+      "hsr-char-8009-epic",
+      "hsr-char-8010-common",
+      "hsr-char-8010-super",
+      "hsr-char-8010-rare",
+      "hsr-char-8010-epic",
+      "hsr-char-1003-full",
+      "hsr-char-1004-full",
+      "hsr-char-1101-full",
+      "hsr-char-1103-full",
+      "hsr-char-1104-full",
+      "hsr-char-1107-full",
+      "hsr-char-1211-full",
+      "hsr-char-1209-full",
+      "hsr-char-1108-full",
+      "hsr-char-1109-full",
+      "hsr-char-1106-full",
+      "hsr-char-1105-full",
+      "hsr-char-1201-full",
+      "hsr-char-1202-full",
+      "hsr-char-1111-full",
+      "hsr-char-1206-full",
+      "hsr-char-1008-full",
+      "hsr-char-1009-full",
+      "hsr-char-1013-full",
+      "hsr-char-1002-full",
+      "hsr-char-1224-full",
+      "hsr-char-trailblazer-full",
+      "hsr-char-1207-full",
+      "hsr-char-1213-full",
+      "hsr-char-1210-full",
+      "hsr-char-1312-full",
+      "hsr-char-1218-full",
+      "hsr-char-1222-full",
+      "hsr-char-1301-full",
+      "hsr-char-1403-full",
+      "hsr-char-1409-full",
+      "hsr-char-1406-full",
+      "hsr-char-1214-full",
+      "hsr-char-1215-full",
+      "hsr-char-1110-full",
+      "hsr-char-1217-gold",
+      "hsr-char-1220-gold",
+      "hsr-char-1401-gold",
+      "hsr-char-1225-gold",
+      "hsr-char-1203-gold",
+      "hsr-char-1314-gold",
+      "hsr-char-1315-gold",
+      "hsr-char-1305-gold",
+      "hsr-char-1005-astral",
+      "hsr-char-1407-astral",
+      "hsr-char-1402-astral",
+      "hsr-char-1313-astral",
+      "hsr-char-1415-astral",
+      "hsr-char-1204-astral",
+      "hsr-char-1102-astral",
+      "hsr-char-1302-secret",
+      "hsr-char-1223-secret",
+      "hsr-char-1317-secret",
+      "hsr-char-1405-secret",
+      "hsr-char-1221-secret",
+      "hsr-char-1112-secret",
+      "hsr-char-1310-legend",
+      "hsr-char-1306-legend",
+      "hsr-char-1205-legend",
+      "hsr-char-1212-legend",
+      "hsr-char-1307-legend",
+      "hsr-char-1303-legend",
+      "hsr-char-1006-legend",
+      "hsr-char-1410-eternal",
+      "hsr-char-1413-eternal",
+      "hsr-char-obsidian-eternal",
+      "hsr-char-1408-eternal",
+      "hsr-char-1504-eternal",
+      "hsr-char-1309-eternal",
+      "hsr-char-aha-eternal",
+      "hsr-char-1401-eternal",
+      "hsr-char-aha-aeon",
+      "hsr-char-akivili-aeon",
+      "hsr-char-fuli-aeon",
+      "hsr-char-lan-aeon",
+      "hsr-char-nanook-aeon",
+      "hsr-char-nous-aeon",
+      "hsr-char-qlipoth-aeon",
+      "hsr-char-yaoshi-aeon",
+      "hsr-char-xipe-aeon",
+      "hsr-char-ix-aeon",
+      "hsr-group-famille-de-penacony-group",
+      "hsr-group-aglaea-tribbie-group",
+      "hsr-group-march-7th-evernight-group",
+      "hsr-group-heritiers-de-chrysos-group",
+      "hsr-group-cerydra-hysilens-group",
+      "hsr-group-madame-herta-herta-group",
+      "hsr-group-etudiants-de-lah-roi-group",
+      "hsr-group-chasseurs-de-stellaron-group",
+      "hsr-group-gardiens-de-belobog-group",
+      "hsr-group-commission-des-dix-seigneurs-group",
+      "ww-char-1501-common",
+      "ww-char-1501-super",
+      "ww-char-1501-rare",
+      "ww-char-1501-epic",
+      "ww-char-1102-common",
+      "ww-char-1102-super",
+      "ww-char-1102-rare",
+      "ww-char-1102-epic",
+      "ww-char-1601-common",
+      "ww-char-1601-super",
+      "ww-char-1601-rare",
+      "ww-char-1601-epic",
+      "ww-char-1502-common",
+      "ww-char-1502-super",
+      "ww-char-1502-rare",
+      "ww-char-1502-epic",
+      "ww-char-1103-common",
+      "ww-char-1103-super",
+      "ww-char-1103-rare",
+      "ww-char-1103-epic",
+      "ww-char-1602-common",
+      "ww-char-1602-super",
+      "ww-char-1602-rare",
+      "ww-char-1602-epic",
+      "ww-char-1403-common",
+      "ww-char-1403-super",
+      "ww-char-1403-rare",
+      "ww-char-1403-epic",
+      "ww-char-1404-common",
+      "ww-char-1204-common",
+      "ww-char-1204-super",
+      "ww-char-1204-rare",
+      "ww-char-1204-epic",
+      "ww-char-1104-common",
+      "ww-char-1104-super",
+      "ww-char-1104-rare",
+      "ww-char-1303-common",
+      "ww-char-1303-super",
+      "ww-char-1303-rare",
+      "ww-char-1303-epic",
+      "ww-char-1604-common",
+      "ww-char-1604-super",
+      "ww-char-1604-rare",
+      "ww-char-1604-epic",
+      "ww-char-1605-common",
+      "ww-char-1605-super",
+      "ww-char-1605-rare",
+      "ww-char-1605-epic",
+      "ww-char-1105-common",
+      "ww-char-1105-super",
+      "ww-char-1105-rare",
+      "ww-char-1505-common",
+      "ww-char-1505-super",
+      "ww-char-1406-common",
+      "ww-char-1406-super",
+      "ww-char-1406-rare",
+      "ww-char-1406-epic",
+      "ww-char-1408-common",
+      "ww-char-1408-super",
+      "ww-char-1408-rare",
+      "ww-char-1408-epic",
+      "ww-char-1411-common",
+      "ww-char-1411-super",
+      "ww-char-1412-common",
+      "ww-char-1412-super",
+      "ww-char-1308-common",
+      "ww-char-1308-super",
+      "ww-char-1308-rare",
+      "ww-char-1308-epic",
+      "ww-char-1511-common",
+      "ww-char-1511-super",
+      "ww-char-1511-rare",
+      "ww-char-1511-epic",
+      "ww-char-1108-common",
+      "ww-char-1309-common",
+      "ww-char-1309-super",
+      "ww-char-1309-rare",
+      "ww-char-1309-epic",
+      "ww-char-1310-common",
+      "ww-char-1310-super",
+      "ww-char-1310-rare",
+      "ww-char-1310-epic",
+      "ww-char-1610-common",
+      "ww-char-1610-super",
+      "ww-char-1610-rare",
+      "ww-char-1610-epic",
+      "ww-char-1110-common",
+      "ww-char-1110-super",
+      "ww-char-1413-common",
+      "ww-char-1413-super",
+      "ww-char-1311-common",
+      "ww-char-1311-super",
+      "ww-char-1212-common",
+      "ww-char-1212-super",
+      "ww-char-1312-common",
+      "ww-char-1312-super",
+      "ww-char-1312-rare",
+      "ww-char-1512-common",
+      "ww-char-1512-super",
+      "ww-char-1502-rover-spectro-full",
+      "ww-char-1605-rover-havoc-full",
+      "ww-char-1408-rover-aero-full",
+      "ww-char-1203-full",
+      "ww-char-1402-full",
+      "ww-char-1202-full",
+      "ww-char-1103-full",
+      "ww-char-1102-full",
+      "ww-char-1602-full",
+      "ww-char-1601-full",
+      "ww-char-1204-full",
+      "ww-group-resonateurs-de-rinascita-group",
+      "ww-group-camellya-shorekeeper-group",
+      "ww-group-jinhsi-changli-group",
+      "ww-group-phoebe-cartethyia-group",
+      "ww-group-equipe-de-jinzhou-group",
+      "ww-group-black-shores-group",
+      "ww-group-fractsidus-group",
+      "ww-group-jiyan-mortefi-group",
+      "gi-equipment-12515",
+      "gi-equipment-14501",
+      "gi-equipment-12514",
+      "gi-equipment-11517",
+      "gi-equipment-11512",
+      "gi-equipment-15503",
+      "gi-equipment-11518",
+      "gi-equipment-11516",
+      "gi-equipment-14509",
+      "gi-equipment-14515",
+      "gi-equipment-11522",
+      "gi-equipment-11513",
+      "gi-equipment-11504",
+      "gi-equipment-15513",
+      "gi-equipment-14524",
+      "gi-equipment-14004",
+      "gi-equipment-14003",
+      "gi-equipment-15020",
+      "gi-equipment-15031",
+      "gi-equipment-15015",
+      "gi-equipment-15027",
+      "gi-equipment-15014",
+      "gi-equipment-15034",
+      "gi-equipment-15030",
+      "gi-equipment-15024",
+      "gi-equipment-15001",
+      "gi-equipment-15041",
+      "gi-equipment-15019",
+      "gi-equipment-15017",
+      "gi-equipment-15028",
+      "gi-energy-pyro",
+      "gi-energy-hydro",
+      "gi-energy-cryo",
+      "gi-energy-electro",
+      "gi-energy-dendro",
+      "gi-energy-anemo",
+      "gi-energy-geo",
+      "hsr-energy-physical",
+      "hsr-energy-fire",
+      "hsr-energy-ice",
+      "hsr-energy-lightning",
+      "hsr-energy-wind",
+      "hsr-energy-quantum",
+      "hsr-energy-imaginary",
+      "hsr-energy-destruction",
+      "hsr-energy-the-hunt",
+      "hsr-energy-erudition",
+      "hsr-energy-harmony",
+      "hsr-energy-nihility",
+      "hsr-energy-preservation",
+      "hsr-energy-abundance",
+      "hsr-energy-remembrance",
+      "hsr-energy-elation"
+    ],
+    "forbiddenSplashCards": [],
+    "forbiddenPromoCards": [],
+    "lowRarityFallbacks": [
+      "gi-char-aether-epic",
+      "gi-char-aloy-epic",
+      "gi-char-charlotte-common",
+      "gi-char-citlali-common",
+      "gi-char-dahlia-super",
+      "gi-char-durin-super",
+      "gi-char-gaming-common",
+      "gi-char-ineffa-super",
+      "gi-char-jahoda-super",
+      "gi-char-kachina-common",
+      "gi-char-lan-yan-super",
+      "gi-char-lumine-epic",
+      "gi-char-mavuika-super",
+      "gi-char-mualani-common",
+      "gi-char-nefer-super",
+      "gi-char-ororon-common",
+      "gi-char-sigewinne-common",
+      "gi-char-skirk-common",
+      "gi-char-varesa-common",
+      "gi-char-xilonen-common"
+    ],
+    "brokenImages": [],
+    "textOverflow": []
+  },
   "failures": [
-    "1101 illustrations manquantes (voir docs/AUDIT-CARTES.md)"
+    "epic-castorice: différence de pixels",
+    "epic-castorice-t1600: différence de pixels",
+    "386 illustrations manquantes au rendu (voir docs/AUDIT-CARTES.md)"
   ]
 }

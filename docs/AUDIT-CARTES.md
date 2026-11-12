@@ -1,177 +1,287 @@
 # Audit des cartes Astralis
 
-Catalogue : **1404 cartes**. Illustrations attribuées sans réutilisation : **280**. Emplacements à fournir : **1124**.
+Catalogue : **1465 cartes**. Illustrations attribuées sans réutilisation : **688**. Emplacements à fournir : **777**.
 
 La source canonique est `public/card-artworks.json` (`ASTRALIS_CARD_ARTWORKS`), fichiers `assets/card-art/<jeu>/<slug>-<n>.webp`.
-Empreintes SHA-256 du fichier ET des pixels décodés, dimensions et dHash perceptuel enregistrés. Une illustration ne peut être attribuée qu’à une carte. Aucun splash, icône ou fan art ne sert de repli.
-Les fichiers hérités ne sont admis que si leur crédit identifie une illustration/anniversaire officiel dans le wiki du jeu. Les titres ambigus sont écartés. Le cadrage central haut reste à valider pour chaque nouvelle image; aucune détection automatique de visage anime n’est prétendue.
+Le rendu ne réutilise aucune image entre deux cartes, y compris entre les raretés d’un même personnage. Une seule image admissible pour une identité ne couvre donc qu’une carte ; les variantes restantes restent signalées comme manquantes et utilisent le repli visuel propre.
+
+| Jeu | Cartes | Attribuées | Manquantes |
+|---|---:|---:|---:|
+| gi | 628 | 489 | 139 |
+| hsr | 532 | 132 | 400 |
+| ww | 305 | 67 | 238 |
+Empreintes SHA-256 du fichier et des pixels décodés, dimensions et dHash perceptuel enregistrés. Une illustration ne peut être attribuée qu’à une carte. Seules les illustrations publiées par HoYoverse ou Kuro Games et leurs comptes officiels sont admises; aucun dessin de fan, croquis ou contenu communautaire n’est importé.
+Règle de rareté : aucun splash art, poster ou visuel promotionnel de personnage n’est attribué aux cartes au-dessus de Full Art (Secrète, Gold, Légende, Astrale, Astrale éternelle, Aeon), ni aux Groupes. Ces visuels restent réservés aux Full Art.
+Contrôle manuel récent : l’illustration éditoriale de Phainon publiée par le compte officiel Honkai: Star Rail JP a été téléchargée et inspectée. Elle est distincte du splash art du jeu et attribuée uniquement à `hsr-char-1408-eternal`. Les visuels de Baizhi, Chixia et Taoqi précédemment inspectés restent rejetés pour leur format d’affiche ou leur sujet trop petit/masqué.
+La miniature officielle de la vidéo d’album INSIDE de Robin a également été vérifiée puis écartée : format paysage et grand logo, donc mauvais cadrage pour une carte plein cadre.
+Les imports officiels sont examinés pour les doublons exacts, les ressemblances perceptuelles et la résolution. Le cadrage central haut reste à valider pour chaque nouvelle image; aucune détection automatique de visage anime n’est prétendue.
+38 visuels Kuro de type guide, fiche de matériaux, panneau de statistiques, vignette « Resonator Review » ou chibi sont écartés par `assets/card-art/quality-exclusions.json`. Les visuels Brant-2/3 sont exclus explicitement; les affiches Wuwa très allongées (ratio largeur/hauteur inférieur à 0.62, dont le format 9:16) sont aussi rejetées automatiquement.
 
 ## Quantités
 
 | Rareté | Cartes |
 |---|---:|
 | aeon | 10 |
-| astral | 10 |
+| astral | 20 |
 | common | 287 |
 | energy | 23 |
 | epic | 287 |
 | equipment | 55 |
-| eternal | 1 |
-| full | 60 |
-| gold | 17 |
+| eternal | 17 |
+| full | 90 |
+| gold | 22 |
 | group | 30 |
-| legend | 25 |
+| legend | 30 |
 | rare | 287 |
-| secret | 25 |
+| secret | 20 |
 | super | 287 |
 
 ## Images uniques disponibles par personnage
 
-Une seule image retrouvée ne signifie pas qu’aucune autre image officielle n’existe. Aucune exception de duplication n’a été activée.
+Une seule image retrouvée ne signifie pas qu’aucune autre image officielle n’existe. Elle est attribuée à une seule carte ; les autres cartes de la même identité attendent des illustrations distinctes.
 
 - gi / aino : **une seule image admissible retrouvée**.
-- gi / columbina : **une seule image admissible retrouvée**.
-- gi / dahlia : **une seule image admissible retrouvée**.
-- gi / durin : **une seule image admissible retrouvée**.
-- gi / escoffier : **une seule image admissible retrouvée**.
-- gi / iansan : **une seule image admissible retrouvée**.
+- gi / alyosha : **une seule image admissible retrouvée**.
 - gi / ifa : **une seule image admissible retrouvée**.
 - gi / il-dottore : **une seule image admissible retrouvée**.
-- gi / ineffa : **une seule image admissible retrouvée**.
+- gi / illuga : **une seule image admissible retrouvée**.
 - gi / istaroth : **une seule image admissible retrouvée**.
-- gi / jahoda : **une seule image admissible retrouvée**.
-- gi / kinich : **une seule image admissible retrouvée**.
 - gi / kokomi : **une seule image admissible retrouvée**.
-- gi / lan-yan : **une seule image admissible retrouvée**.
-- gi / linnea : **une seule image admissible retrouvée**.
-- gi / mualani : **une seule image admissible retrouvée**.
-- gi / nefer : **une seule image admissible retrouvée**.
-- gi / nicole : **une seule image admissible retrouvée**.
-- gi / raiden-shogun : **une seule image admissible retrouvée**.
+- gi / lohen : **une seule image admissible retrouvée**.
+- gi / mitya : **une seule image admissible retrouvée**.
+- gi / odette : **une seule image admissible retrouvée**.
+- gi / prune : **une seule image admissible retrouvée**.
 - gi / ronova : **une seule image admissible retrouvée**.
-- gi / skirk : **une seule image admissible retrouvée**.
-- gi / tighnari : **une seule image admissible retrouvée**.
-- gi / xiangling : **une seule image admissible retrouvée**.
-- hsr / acheron : **une seule image admissible retrouvée**.
+- gi / sandrone : **une seule image admissible retrouvée**.
+- gi / varka : **une seule image admissible retrouvée**.
+- gi / vesna : **une seule image admissible retrouvée**.
+- gi / vodyanitsa : **une seule image admissible retrouvée**.
+- hsr / aglaea : **une seule image admissible retrouvée**.
+- hsr / an-instant-before-a-gaze : **une seule image admissible retrouvée**.
+- hsr / anaxa : **une seule image admissible retrouvée**.
+- hsr / archer : **une seule image admissible retrouvée**.
+- hsr / argenti : **une seule image admissible retrouvée**.
+- hsr / arlan : **une seule image admissible retrouvée**.
+- hsr / asta : **une seule image admissible retrouvée**.
 - hsr / astral-express : **une seule image admissible retrouvée**.
-- hsr / aventurine : **une seule image admissible retrouvée**.
+- hsr / aventurine-waveflair : **une seule image admissible retrouvée**.
+- hsr / bailu : **une seule image admissible retrouvée**.
+- hsr / baptism-of-pure-thought : **une seule image admissible retrouvée**.
+- hsr / before-dawn : **une seule image admissible retrouvée**.
 - hsr / black-swan : **une seule image admissible retrouvée**.
 - hsr / blade : **une seule image admissible retrouvée**.
+- hsr / boothill : **une seule image admissible retrouvée**.
+- hsr / brighter-than-the-sun : **une seule image admissible retrouvée**.
 - hsr / bronya : **une seule image admissible retrouvée**.
-- hsr / fu-xuan : **une seule image admissible retrouvée**.
+- hsr / castorice : **une seule image admissible retrouvée**.
+- hsr / cerydra : **une seule image admissible retrouvée**.
+- hsr / clara : **une seule image admissible retrouvée**.
+- hsr / cruising-in-the-stellar-sea : **une seule image admissible retrouvée**.
+- hsr / dan-heng : **une seule image admissible retrouvée**.
+- hsr / dan-heng-imbibitor-lunae : **une seule image admissible retrouvée**.
+- hsr / dan-heng-permansor-terrae : **une seule image admissible retrouvée**.
+- hsr / dance-at-sunset : **une seule image admissible retrouvée**.
+- hsr / dr-ratio : **une seule image admissible retrouvée**.
+- hsr / elation-brimming-with-blessings : **une seule image admissible retrouvée**.
+- hsr / eternal-calculus : **une seule image admissible retrouvée**.
+- hsr / evernight : **une seule image admissible retrouvée**.
+- hsr / feixiao : **une seule image admissible retrouvée**.
+- hsr / firefly : **une seule image admissible retrouvée**.
+- hsr / fugue : **une seule image admissible retrouvée**.
+- hsr / gallagher : **une seule image admissible retrouvée**.
+- hsr / gepard : **une seule image admissible retrouvée**.
+- hsr / gilgamesh : **une seule image admissible retrouvée**.
+- hsr / guinaifen : **une seule image admissible retrouvée**.
+- hsr / hanya : **une seule image admissible retrouvée**.
+- hsr / herta : **une seule image admissible retrouvée**.
 - hsr / himeko : **une seule image admissible retrouvée**.
+- hsr / himeko-nova : **une seule image admissible retrouvée**.
+- hsr / hook : **une seule image admissible retrouvée**.
 - hsr / huohuo : **une seule image admissible retrouvée**.
+- hsr / hyacine : **une seule image admissible retrouvée**.
+- hsr / hysilens : **une seule image admissible retrouvée**.
+- hsr / i-am-as-you-behold : **une seule image admissible retrouvée**.
+- hsr / i-venture-forth-to-hunt : **une seule image admissible retrouvée**.
+- hsr / in-the-night : **une seule image admissible retrouvée**.
+- hsr / incessant-rain : **une seule image admissible retrouvée**.
+- hsr / inherently-unjust-destiny : **une seule image admissible retrouvée**.
+- hsr / jade : **une seule image admissible retrouvée**.
+- hsr / jiaoqiu : **une seule image admissible retrouvée**.
+- hsr / jing-yuan : **une seule image admissible retrouvée**.
 - hsr / jingliu : **une seule image admissible retrouvée**.
 - hsr / kafka : **une seule image admissible retrouvée**.
-- hsr / march-7th-evernight : **une seule image admissible retrouvée**.
+- hsr / lingsha : **une seule image admissible retrouvée**.
+- hsr / luka : **une seule image admissible retrouvée**.
+- hsr / luocha : **une seule image admissible retrouvée**.
+- hsr / lynx : **une seule image admissible retrouvée**.
+- hsr / march-7th-1224 : **une seule image admissible retrouvée**.
+- hsr / misha : **une seule image admissible retrouvée**.
+- hsr / mortenax-blade : **une seule image admissible retrouvée**.
+- hsr / moze : **une seule image admissible retrouvée**.
+- hsr / mydei : **une seule image admissible retrouvée**.
+- hsr / natasha : **une seule image admissible retrouvée**.
+- hsr / never-forget-her-flame : **une seule image admissible retrouvée**.
+- hsr / past-self-in-mirror : **une seule image admissible retrouvée**.
+- hsr / pela : **une seule image admissible retrouvée**.
+- hsr / phainon : **une seule image admissible retrouvée**.
+- hsr / qingque : **une seule image admissible retrouvée**.
+- hsr / rappa : **une seule image admissible retrouvée**.
+- hsr / rin-tohsaka : **une seule image admissible retrouvée**.
+- hsr / rise-and-sing : **une seule image admissible retrouvée**.
+- hsr / robin : **une seule image admissible retrouvée**.
+- hsr / robin-summeretto : **une seule image admissible retrouvée**.
 - hsr / ruan-mei : **une seule image admissible retrouvée**.
+- hsr / saber : **une seule image admissible retrouvée**.
+- hsr / sampo : **une seule image admissible retrouvée**.
+- hsr / scent-alone-stays-true : **une seule image admissible retrouvée**.
 - hsr / seele : **une seule image admissible retrouvée**.
+- hsr / serval : **une seule image admissible retrouvée**.
+- hsr / she-already-shut-her-eyes : **une seule image admissible retrouvée**.
 - hsr / sparkle : **une seule image admissible retrouvée**.
+- hsr / sunday : **une seule image admissible retrouvée**.
+- hsr / sushang : **une seule image admissible retrouvée**.
+- hsr / the-finale-of-a-lie : **une seule image admissible retrouvée**.
+- hsr / the-hell-where-ideals-burn : **une seule image admissible retrouvée**.
+- hsr / the-herta : **une seule image admissible retrouvée**.
+- hsr / this-love-forever : **une seule image admissible retrouvée**.
+- hsr / though-worlds-apart : **une seule image admissible retrouvée**.
+- hsr / tingyun : **une seule image admissible retrouvée**.
+- hsr / topaz-numby : **une seule image admissible retrouvée**.
+- hsr / until-the-flowers-bloom-again : **une seule image admissible retrouvée**.
+- hsr / welt : **une seule image admissible retrouvée**.
+- hsr / when-she-decided-to-see : **une seule image admissible retrouvée**.
+- hsr / whereabouts-should-dreams-rest : **une seule image admissible retrouvée**.
+- hsr / xueyi : **une seule image admissible retrouvée**.
+- hsr / yanqing : **une seule image admissible retrouvée**.
+- hsr / yukong : **une seule image admissible retrouvée**.
+- hsr / yunli : **une seule image admissible retrouvée**.
+- ww / augusta : **une seule image admissible retrouvée**.
+- ww / brant : **une seule image admissible retrouvée**.
+- ww / buling : **une seule image admissible retrouvée**.
+- ww / calcharo : **une seule image admissible retrouvée**.
+- ww / camellya : **une seule image admissible retrouvée**.
+- ww / cantarella : **une seule image admissible retrouvée**.
+- ww / carlotta : **une seule image admissible retrouvée**.
+- ww / cartethyia : **une seule image admissible retrouvée**.
+- ww / changli : **une seule image admissible retrouvée**.
+- ww / chisa : **une seule image admissible retrouvée**.
+- ww / chixia : **une seule image admissible retrouvée**.
+- ww / ciaccona : **une seule image admissible retrouvée**.
+- ww / denia : **une seule image admissible retrouvée**.
+- ww / galbrena : **une seule image admissible retrouvée**.
+- ww / iuno : **une seule image admissible retrouvée**.
+- ww / jianxin : **une seule image admissible retrouvée**.
+- ww / jinhsi : **une seule image admissible retrouvée**.
+- ww / lucilla : **une seule image admissible retrouvée**.
+- ww / lumi : **une seule image admissible retrouvée**.
+- ww / lupa : **une seule image admissible retrouvée**.
+- ww / luuk-herssen : **une seule image admissible retrouvée**.
+- ww / lynae : **une seule image admissible retrouvée**.
+- ww / phoebe : **une seule image admissible retrouvée**.
+- ww / phrolova : **une seule image admissible retrouvée**.
+- ww / roccia : **une seule image admissible retrouvée**.
+- ww / verina : **une seule image admissible retrouvée**.
+- ww / xiangli-yao : **une seule image admissible retrouvée**.
+- ww / yinlin : **une seule image admissible retrouvée**.
+- ww / youhu : **une seule image admissible retrouvée**.
+- ww / zani : **une seule image admissible retrouvée**.
 
 ## Recherche automatique
 
-331 entrées dans le journal des sources et téléchargements; 19 erreurs consignées. Les premières tentatives HTTP 403 ne sont pas incluses dans le journal reconstruit des téléchargements réussis. Détails et URL dans `docs/card-audit.json`.
+1165 candidats issus de sources éditeur sont inscrits dans le registre local avec leurs URLs et leur provenance. Les collecteurs ne consultent pas de wiki ou galerie communautaire. Les images restent non attribuées si le personnage, la source ou le format ne peuvent pas être vérifiés. Détails dans `docs/card-audit.json`.
 
 ## Doublons et résolution
 
-20 fichiers identiques écartés, 0 paires visuellement proches à vérifier, 0 fichiers sous 500 px sur leur petit côté écartés.
+367 fichiers identiques écartés, 1 paires visuellement proches à vérifier, 1179 fichiers sous 500 px sur leur petit côté écartés.
 
 ## Illustrations restant à fournir
 
 | Jeu | Carte | Rareté | Fichier attendu (numéro libre) |
 |---|---|---|---|
+| gi | Mitya | eternal | assets/card-art/gi/mitya-n.webp |
+| gi | Capitano | eternal | assets/card-art/gi/capitano-n.webp |
+| hsr | Hysilens | eternal | assets/card-art/hsr/hysilens-n.webp |
+| hsr | Evernight | eternal | assets/card-art/hsr/evernight-n.webp |
 | hsr | Obsidian | eternal | assets/card-art/hsr/obsidian-n.webp |
-| gi | Mitya | astral | assets/card-art/gi/mitya-n.webp |
-| hsr | Evernight | astral | assets/card-art/hsr/evernight-n.webp |
-| hsr | Hysilens | astral | assets/card-art/hsr/hysilens-n.webp |
-| hsr | The Herta | astral | assets/card-art/hsr/the-herta-n.webp |
-| hsr | Phainon | astral | assets/card-art/hsr/phainon-n.webp |
-| hsr | Robin | astral | assets/card-art/hsr/robin-n.webp |
-| ww | Shorekeeper | astral | assets/card-art/ww/shorekeeper-n.webp |
-| gi | Xilonen | gold | assets/card-art/gi/xilonen-n.webp |
+| hsr | Ashveil | eternal | assets/card-art/hsr/ashveil-n.webp |
+| hsr | Robin | eternal | assets/card-art/hsr/robin-n.webp |
+| hsr | Aha (forme Nihilux) | eternal | assets/card-art/hsr/aha-n.webp |
+| hsr | The Herta | eternal | assets/card-art/hsr/the-herta-n.webp |
+| gi | Sandrone | astral | assets/card-art/gi/sandrone-n.webp |
+| gi | Varka | astral | assets/card-art/gi/varka-n.webp |
+| hsr | Kafka | astral | assets/card-art/hsr/kafka-n.webp |
+| hsr | Castorice | astral | assets/card-art/hsr/castorice-n.webp |
+| hsr | Aglaea | astral | assets/card-art/hsr/aglaea-n.webp |
+| hsr | Sunday | astral | assets/card-art/hsr/sunday-n.webp |
+| hsr | Cyrene | astral | assets/card-art/hsr/cyrene-n.webp |
+| hsr | Jing Yuan | astral | assets/card-art/hsr/jing-yuan-n.webp |
+| hsr | Seele | astral | assets/card-art/hsr/seele-n.webp |
+| hsr | Huohuo | gold | assets/card-art/hsr/huohuo-n.webp |
 | hsr | Feixiao | gold | assets/card-art/hsr/feixiao-n.webp |
-| ww | Jinhsi | gold | assets/card-art/ww/jinhsi-n.webp |
-| ww | Changli | gold | assets/card-art/ww/changli-n.webp |
-| ww | Augusta | gold | assets/card-art/ww/augusta-n.webp |
-| ww | Zani | gold | assets/card-art/ww/zani-n.webp |
+| hsr | The Herta | gold | assets/card-art/hsr/the-herta-n.webp |
+| hsr | Fugue | gold | assets/card-art/hsr/fugue-n.webp |
+| hsr | Luocha | gold | assets/card-art/hsr/luocha-n.webp |
+| hsr | Jade | gold | assets/card-art/hsr/jade-n.webp |
+| hsr | Boothill | gold | assets/card-art/hsr/boothill-n.webp |
+| hsr | Dr. Ratio | gold | assets/card-art/hsr/dr-ratio-n.webp |
 | gi | Rhinedottir | secret | assets/card-art/gi/rhinedottir-n.webp |
-| gi | Dainsleif | secret | assets/card-art/gi/dainsleif-n.webp |
-| gi | Sandrone | secret | assets/card-art/gi/sandrone-n.webp |
-| gi | La Signora | secret | assets/card-art/gi/la-signora-n.webp |
-| gi | Alice | secret | assets/card-art/gi/alice-n.webp |
-| gi | Barbeloth | secret | assets/card-art/gi/barbeloth-n.webp |
-| hsr | Sunday | secret | assets/card-art/hsr/sunday-n.webp |
-| hsr | Cerydra | secret | assets/card-art/hsr/cerydra-n.webp |
-| hsr | Silver Wolf | secret | assets/card-art/hsr/silver-wolf-n.webp |
-| hsr | Screwllum | secret | assets/card-art/hsr/screwllum-n.webp |
+| hsr | Argenti | secret | assets/card-art/hsr/argenti-n.webp |
+| hsr | Moze | secret | assets/card-art/hsr/moze-n.webp |
 | hsr | Rappa | secret | assets/card-art/hsr/rappa-n.webp |
-| hsr | Jade | secret | assets/card-art/hsr/jade-n.webp |
-| hsr | Lingsha | secret | assets/card-art/hsr/lingsha-n.webp |
-| hsr | Gallagher | secret | assets/card-art/hsr/gallagher-n.webp |
-| ww | Rover (Female) | secret | assets/card-art/ww/rover-female-n.webp |
-| ww | Camellya | secret | assets/card-art/ww/camellya-n.webp |
-| ww | Cantarella | secret | assets/card-art/ww/cantarella-n.webp |
-| ww | Phrolova | secret | assets/card-art/ww/phrolova-n.webp |
-| ww | Scar | secret | assets/card-art/ww/scar-n.webp |
-| gi | Focalors | legend | assets/card-art/gi/focalors-n.webp |
-| gi | Rukkhadevata | legend | assets/card-art/gi/rukkhadevata-n.webp |
-| gi | Egeria | legend | assets/card-art/gi/egeria-n.webp |
-| gi | Makoto | legend | assets/card-art/gi/makoto-n.webp |
-| gi | Kitsune Saiguu | legend | assets/card-art/gi/kitsune-saiguu-n.webp |
-| gi | Guizhong | legend | assets/card-art/gi/guizhong-n.webp |
-| gi | Havria | legend | assets/card-art/gi/havria-n.webp |
-| gi | Nabu Malikata | legend | assets/card-art/gi/nabu-malikata-n.webp |
-| gi | King Deshret | legend | assets/card-art/gi/king-deshret-n.webp |
-| hsr | Cyrene | legend | assets/card-art/hsr/cyrene-n.webp |
-| hsr | Anaxa | legend | assets/card-art/hsr/anaxa-n.webp |
-| hsr | Aha | legend | assets/card-art/hsr/aha-n.webp |
-| hsr | Akivili | legend | assets/card-art/hsr/akivili-n.webp |
-| hsr | Fuli | legend | assets/card-art/hsr/fuli-n.webp |
-| hsr | Lan | legend | assets/card-art/hsr/lan-n.webp |
-| hsr | Nanook | legend | assets/card-art/hsr/nanook-n.webp |
-| hsr | Nous | legend | assets/card-art/hsr/nous-n.webp |
-| hsr | Qlipoth | legend | assets/card-art/hsr/qlipoth-n.webp |
-| hsr | Yaoshi | legend | assets/card-art/hsr/yaoshi-n.webp |
-| hsr | Xipe | legend | assets/card-art/hsr/xipe-n.webp |
-| hsr | IX | legend | assets/card-art/hsr/ix-n.webp |
-| ww | Jue | legend | assets/card-art/ww/jue-n.webp |
-| ww | Sentinel Imperator | legend | assets/card-art/ww/sentinel-imperator-n.webp |
-| gi | Yoimiya | full | assets/card-art/gi/yoimiya-n.webp |
-| gi | Tartaglia | full | assets/card-art/gi/tartaglia-n.webp |
-| gi | Wanderer | full | assets/card-art/gi/wanderer-n.webp |
-| hsr | Firefly | full | assets/card-art/hsr/firefly-n.webp |
-| hsr | Kafka | full | assets/card-art/hsr/kafka-n.webp |
-| hsr | Jingliu | full | assets/card-art/hsr/jingliu-n.webp |
-| hsr | Ruan Mei | full | assets/card-art/hsr/ruan-mei-n.webp |
-| hsr | Feixiao | full | assets/card-art/hsr/feixiao-n.webp |
-| hsr | Sparkle | full | assets/card-art/hsr/sparkle-n.webp |
-| hsr | Robin | full | assets/card-art/hsr/robin-n.webp |
-| hsr | The Herta | full | assets/card-art/hsr/the-herta-n.webp |
-| hsr | Castorice | full | assets/card-art/hsr/castorice-n.webp |
-| hsr | Phainon | full | assets/card-art/hsr/phainon-n.webp |
-| hsr | Tribbie | full | assets/card-art/hsr/tribbie-n.webp |
-| hsr | Aglaea | full | assets/card-art/hsr/aglaea-n.webp |
-| hsr | Evernight | full | assets/card-art/hsr/evernight-n.webp |
-| hsr | March 7th | full | assets/card-art/hsr/march-7th-1224-n.webp |
-| hsr | Dan Heng | full | assets/card-art/hsr/dan-heng-n.webp |
+| hsr | Anaxa | secret | assets/card-art/hsr/anaxa-n.webp |
+| hsr | Yunli | secret | assets/card-art/hsr/yunli-n.webp |
+| hsr | Topaz & Numby | secret | assets/card-art/hsr/topaz-numby-n.webp |
+| hsr | Firefly | legend | assets/card-art/hsr/firefly-n.webp |
+| hsr | Sparkle | legend | assets/card-art/hsr/sparkle-n.webp |
+| hsr | Blade | legend | assets/card-art/hsr/blade-n.webp |
+| hsr | Jingliu | legend | assets/card-art/hsr/jingliu-n.webp |
+| hsr | Black Swan | legend | assets/card-art/hsr/black-swan-n.webp |
+| hsr | Ruan Mei | legend | assets/card-art/hsr/ruan-mei-n.webp |
+| hsr | Silver Wolf | legend | assets/card-art/hsr/silver-wolf-n.webp |
+| hsr | Himeko | full | assets/card-art/hsr/himeko-n.webp |
 | hsr | Welt | full | assets/card-art/hsr/welt-n.webp |
+| hsr | Bronya | full | assets/card-art/hsr/bronya-n.webp |
 | hsr | Serval | full | assets/card-art/hsr/serval-n.webp |
-| hsr | Topaz | full | assets/card-art/hsr/topaz-n.webp |
-| hsr | Hanya | full | assets/card-art/hsr/hanya-n.webp |
+| hsr | Gepard | full | assets/card-art/hsr/gepard-n.webp |
+| hsr | Clara | full | assets/card-art/hsr/clara-n.webp |
+| hsr | Bailu | full | assets/card-art/hsr/bailu-n.webp |
+| hsr | Yanqing | full | assets/card-art/hsr/yanqing-n.webp |
+| hsr | Sampo | full | assets/card-art/hsr/sampo-n.webp |
+| hsr | Hook | full | assets/card-art/hsr/hook-n.webp |
+| hsr | Pela | full | assets/card-art/hsr/pela-n.webp |
+| hsr | Natasha | full | assets/card-art/hsr/natasha-n.webp |
+| hsr | Qingque | full | assets/card-art/hsr/qingque-n.webp |
+| hsr | Tingyun | full | assets/card-art/hsr/tingyun-n.webp |
+| hsr | Luka | full | assets/card-art/hsr/luka-n.webp |
+| hsr | Sushang | full | assets/card-art/hsr/sushang-n.webp |
+| hsr | Arlan | full | assets/card-art/hsr/arlan-n.webp |
+| hsr | Asta | full | assets/card-art/hsr/asta-n.webp |
+| hsr | Herta | full | assets/card-art/hsr/herta-n.webp |
+| hsr | Dan Heng | full | assets/card-art/hsr/dan-heng-n.webp |
+| hsr | March 7th | full | assets/card-art/hsr/march-7th-1224-n.webp |
+| hsr | Trailblazer | full | assets/card-art/hsr/trailblazer-n.webp |
+| hsr | Yukong | full | assets/card-art/hsr/yukong-n.webp |
+| hsr | Dan Heng • Imbibitor Lunae | full | assets/card-art/hsr/dan-heng-imbibitor-lunae-n.webp |
+| hsr | Guinaifen | full | assets/card-art/hsr/guinaifen-n.webp |
+| hsr | Misha | full | assets/card-art/hsr/misha-n.webp |
+| hsr | Jiaoqiu | full | assets/card-art/hsr/jiaoqiu-n.webp |
+| hsr | Lingsha | full | assets/card-art/hsr/lingsha-n.webp |
+| hsr | Gallagher | full | assets/card-art/hsr/gallagher-n.webp |
+| hsr | Tribbie | full | assets/card-art/hsr/tribbie-n.webp |
+| hsr | Hyacine | full | assets/card-art/hsr/hyacine-n.webp |
+| hsr | Cipher | full | assets/card-art/hsr/cipher-n.webp |
 | hsr | Xueyi | full | assets/card-art/hsr/xueyi-n.webp |
-| ww | Camellya | full | assets/card-art/ww/camellya-n.webp |
-| ww | Cantarella | full | assets/card-art/ww/cantarella-n.webp |
+| hsr | Hanya | full | assets/card-art/hsr/hanya-n.webp |
+| hsr | Lynx | full | assets/card-art/hsr/lynx-n.webp |
+| ww | Rover (Spectro) | full | assets/card-art/ww/rover-spectro-n.webp |
+| ww | Rover (Havoc) | full | assets/card-art/ww/rover-havoc-n.webp |
+| ww | Rover (Aero) | full | assets/card-art/ww/rover-aero-n.webp |
+| ww | Chixia | full | assets/card-art/ww/chixia-n.webp |
 | ww | Baizhi | full | assets/card-art/ww/baizhi-n.webp |
-| ww | Calcharo | full | assets/card-art/ww/calcharo-n.webp |
-| ww | Changli | full | assets/card-art/ww/changli-n.webp |
-| ww | Jiyan | full | assets/card-art/ww/jiyan-n.webp |
-| ww | Jinhsi | full | assets/card-art/ww/jinhsi-n.webp |
-| ww | Shorekeeper | full | assets/card-art/ww/shorekeeper-n.webp |
-| ww | Roccia | full | assets/card-art/ww/roccia-n.webp |
-| ww | Zani | full | assets/card-art/ww/zani-n.webp |
-| ww | Carlotta | full | assets/card-art/ww/carlotta-n.webp |
-| ww | Phoebe | full | assets/card-art/ww/phoebe-n.webp |
-| ww | Cartethyia | full | assets/card-art/ww/cartethyia-n.webp |
+| ww | Sanhua | full | assets/card-art/ww/sanhua-n.webp |
+| ww | Danjin | full | assets/card-art/ww/danjin-n.webp |
+| ww | Taoqi | full | assets/card-art/ww/taoqi-n.webp |
+| ww | Mortefi | full | assets/card-art/ww/mortefi-n.webp |
 | gi | Équipe d’Inazuma | group | assets/card-art/gi/equipe-d-inazuma-n.webp |
 | gi | Équipe de Natlan | group | assets/card-art/gi/equipe-de-natlan-n.webp |
 | gi | Les Sept Archons | group | assets/card-art/gi/les-sept-archons-n.webp |
@@ -185,6 +295,7 @@ Une seule image retrouvée ne signifie pas qu’aucune autre image officielle n�
 | gi | Duo de justice | group | assets/card-art/gi/duo-de-justice-n.webp |
 | hsr | Famille de Penacony | group | assets/card-art/hsr/famille-de-penacony-n.webp |
 | hsr | Aglaea & Tribbie | group | assets/card-art/hsr/aglaea-tribbie-n.webp |
+| hsr | March 7th & Evernight | group | assets/card-art/hsr/march-7th-evernight-n.webp |
 | hsr | Héritiers de Chrysos | group | assets/card-art/hsr/heritiers-de-chrysos-n.webp |
 | hsr | Cerydra & Hysilens | group | assets/card-art/hsr/cerydra-hysilens-n.webp |
 | hsr | Madame Herta & Herta | group | assets/card-art/hsr/madame-herta-herta-n.webp |
@@ -212,129 +323,10 @@ Une seule image retrouvée ne signifie pas qu’aucune autre image officielle n�
 | hsr | IX | aeon | assets/card-art/hsr/ix-n.webp |
 | gi | Aether | epic | assets/card-art/gi/aether-n.webp |
 | gi | Aloy | epic | assets/card-art/gi/aloy-n.webp |
-| gi | Alyosha | epic | assets/card-art/gi/alyosha-n.webp |
-| gi | Columbina | epic | assets/card-art/gi/columbina-n.webp |
-| gi | Émilie | epic | assets/card-art/gi/emilie-n.webp |
-| gi | Fréminet | epic | assets/card-art/gi/freminet-n.webp |
-| gi | Illuga | epic | assets/card-art/gi/illuga-n.webp |
-| gi | Lohen | epic | assets/card-art/gi/lohen-n.webp |
 | gi | Lumine | epic | assets/card-art/gi/lumine-n.webp |
 | gi | Manekin | epic | assets/card-art/gi/manekin-n.webp |
 | gi | Manekina | epic | assets/card-art/gi/manekina-n.webp |
-| gi | Nefer | epic | assets/card-art/gi/nefer-n.webp |
-| gi | Nicole | epic | assets/card-art/gi/nicole-n.webp |
-| gi | Noëlle | epic | assets/card-art/gi/noelle-n.webp |
-| gi | Odette | epic | assets/card-art/gi/odette-n.webp |
-| gi | Prune | epic | assets/card-art/gi/prune-n.webp |
-| gi | Shogun Raiden | epic | assets/card-art/gi/raiden-shogun-n.webp |
-| gi | Rosalia | epic | assets/card-art/gi/rosaria-n.webp |
-| gi | Sandrone | epic | assets/card-art/gi/sandrone-n.webp |
-| gi | Sigewinne | epic | assets/card-art/gi/sigewinne-n.webp |
-| gi | Skirk | epic | assets/card-art/gi/skirk-n.webp |
-| gi | Tartaglia | epic | assets/card-art/gi/tartaglia-n.webp |
-| gi | Thomas | epic | assets/card-art/gi/thoma-n.webp |
-| gi | Varesa | epic | assets/card-art/gi/varesa-n.webp |
-| gi | Varka | epic | assets/card-art/gi/varka-n.webp |
-| gi | Vesna | epic | assets/card-art/gi/vesna-n.webp |
-| gi | Vodyanitsa | epic | assets/card-art/gi/vodyanitsa-n.webp |
-| gi | Nomade | epic | assets/card-art/gi/wanderer-n.webp |
-| gi | Xilonen | epic | assets/card-art/gi/xilonen-n.webp |
-| gi | Xingqiu | epic | assets/card-art/gi/xingqiu-n.webp |
-| gi | Xinyan | epic | assets/card-art/gi/xinyan-n.webp |
-| gi | Yanfei | epic | assets/card-art/gi/yanfei-n.webp |
-| gi | Yaoyao | epic | assets/card-art/gi/yaoyao-n.webp |
-| gi | Yoimiya | epic | assets/card-art/gi/yoimiya-n.webp |
-| gi | Yumemizuki Mizuki | epic | assets/card-art/gi/yumemizuki-mizuki-n.webp |
-| gi | Yun Jin | epic | assets/card-art/gi/yun-jin-n.webp |
-| gi | Zibai | epic | assets/card-art/gi/zibai-n.webp |
-| hsr | Dan Heng | epic | assets/card-art/hsr/dan-heng-n.webp |
-| hsr | Himeko | epic | assets/card-art/hsr/himeko-n.webp |
-| hsr | Welt | epic | assets/card-art/hsr/welt-n.webp |
-| hsr | Kafka | epic | assets/card-art/hsr/kafka-n.webp |
-| hsr | Silver Wolf | epic | assets/card-art/hsr/silver-wolf-n.webp |
-| hsr | Arlan | epic | assets/card-art/hsr/arlan-n.webp |
-| hsr | Asta | epic | assets/card-art/hsr/asta-n.webp |
-| hsr | Herta | epic | assets/card-art/hsr/herta-n.webp |
-| hsr | Saber | epic | assets/card-art/hsr/saber-n.webp |
-| hsr | Archer | epic | assets/card-art/hsr/archer-n.webp |
-| hsr | Bronya | epic | assets/card-art/hsr/bronya-n.webp |
-| hsr | Seele | epic | assets/card-art/hsr/seele-n.webp |
-| hsr | Serval | epic | assets/card-art/hsr/serval-n.webp |
-| hsr | Gepard | epic | assets/card-art/hsr/gepard-n.webp |
-| hsr | Natasha | epic | assets/card-art/hsr/natasha-n.webp |
-| hsr | Pela | epic | assets/card-art/hsr/pela-n.webp |
-| hsr | Clara | epic | assets/card-art/hsr/clara-n.webp |
-| hsr | Sampo | epic | assets/card-art/hsr/sampo-n.webp |
-| hsr | Hook | epic | assets/card-art/hsr/hook-n.webp |
-| hsr | Lynx | epic | assets/card-art/hsr/lynx-n.webp |
-| hsr | Luka | epic | assets/card-art/hsr/luka-n.webp |
-| hsr | Topaz & Numby | epic | assets/card-art/hsr/topaz-numby-n.webp |
-| hsr | Qingque | epic | assets/card-art/hsr/qingque-n.webp |
-| hsr | Tingyun | epic | assets/card-art/hsr/tingyun-n.webp |
-| hsr | Luocha | epic | assets/card-art/hsr/luocha-n.webp |
-| hsr | Jing Yuan | epic | assets/card-art/hsr/jing-yuan-n.webp |
-| hsr | Blade | epic | assets/card-art/hsr/blade-n.webp |
-| hsr | Sushang | epic | assets/card-art/hsr/sushang-n.webp |
-| hsr | Yukong | epic | assets/card-art/hsr/yukong-n.webp |
-| hsr | Fu Xuan | epic | assets/card-art/hsr/fu-xuan-n.webp |
-| hsr | Yanqing | epic | assets/card-art/hsr/yanqing-n.webp |
-| hsr | Guinaifen | epic | assets/card-art/hsr/guinaifen-n.webp |
-| hsr | Bailu | epic | assets/card-art/hsr/bailu-n.webp |
-| hsr | Jingliu | epic | assets/card-art/hsr/jingliu-n.webp |
-| hsr | Dan Heng • Imbibitor Lunae | epic | assets/card-art/hsr/dan-heng-imbibitor-lunae-n.webp |
-| hsr | Xueyi | epic | assets/card-art/hsr/xueyi-n.webp |
-| hsr | Hanya | epic | assets/card-art/hsr/hanya-n.webp |
-| hsr | Huohuo | epic | assets/card-art/hsr/huohuo-n.webp |
-| hsr | Jiaoqiu | epic | assets/card-art/hsr/jiaoqiu-n.webp |
-| hsr | Feixiao | epic | assets/card-art/hsr/feixiao-n.webp |
-| hsr | Yunli | epic | assets/card-art/hsr/yunli-n.webp |
-| hsr | Lingsha | epic | assets/card-art/hsr/lingsha-n.webp |
-| hsr | Moze | epic | assets/card-art/hsr/moze-n.webp |
-| hsr | March 7th | epic | assets/card-art/hsr/march-7th-1224-n.webp |
-| hsr | Fugue | epic | assets/card-art/hsr/fugue-n.webp |
-| hsr | Gallagher | epic | assets/card-art/hsr/gallagher-n.webp |
-| hsr | Argenti | epic | assets/card-art/hsr/argenti-n.webp |
-| hsr | Ruan Mei | epic | assets/card-art/hsr/ruan-mei-n.webp |
-| hsr | Aventurine | epic | assets/card-art/hsr/aventurine-n.webp |
-| hsr | Dr. Ratio | epic | assets/card-art/hsr/dr-ratio-n.webp |
-| hsr | Sparkle | epic | assets/card-art/hsr/sparkle-n.webp |
-| hsr | Black Swan | epic | assets/card-art/hsr/black-swan-n.webp |
-| hsr | Acheron | epic | assets/card-art/hsr/acheron-n.webp |
-| hsr | Robin | epic | assets/card-art/hsr/robin-n.webp |
-| hsr | Firefly | epic | assets/card-art/hsr/firefly-n.webp |
-| hsr | Misha | epic | assets/card-art/hsr/misha-n.webp |
-| hsr | Sunday | epic | assets/card-art/hsr/sunday-n.webp |
-| hsr | Jade | epic | assets/card-art/hsr/jade-n.webp |
-| hsr | Boothill | epic | assets/card-art/hsr/boothill-n.webp |
-| hsr | Rappa | epic | assets/card-art/hsr/rappa-n.webp |
-| hsr | The Dahlia | epic | assets/card-art/hsr/the-dahlia-n.webp |
-| hsr | The Herta | epic | assets/card-art/hsr/the-herta-n.webp |
-| hsr | Aglaea | epic | assets/card-art/hsr/aglaea-n.webp |
-| hsr | Tribbie | epic | assets/card-art/hsr/tribbie-n.webp |
-| hsr | Mydei | epic | assets/card-art/hsr/mydei-n.webp |
-| hsr | Anaxa | epic | assets/card-art/hsr/anaxa-n.webp |
-| hsr | Cipher | epic | assets/card-art/hsr/cipher-n.webp |
-| hsr | Castorice | epic | assets/card-art/hsr/castorice-n.webp |
-| hsr | Phainon | epic | assets/card-art/hsr/phainon-n.webp |
-| hsr | Hyacine | epic | assets/card-art/hsr/hyacine-n.webp |
-| hsr | Hysilens | epic | assets/card-art/hsr/hysilens-n.webp |
-| hsr | Cerydra | epic | assets/card-art/hsr/cerydra-n.webp |
-| hsr | Evernight | epic | assets/card-art/hsr/evernight-n.webp |
-| hsr | Dan Heng • Permansor Terrae | epic | assets/card-art/hsr/dan-heng-permansor-terrae-n.webp |
-| hsr | Cyrene | epic | assets/card-art/hsr/cyrene-n.webp |
-| hsr | Sparxie | epic | assets/card-art/hsr/sparxie-n.webp |
-| hsr | Yao Guang | epic | assets/card-art/hsr/yao-guang-n.webp |
-| hsr | Pearl | epic | assets/card-art/hsr/pearl-n.webp |
-| hsr | Ashveil | epic | assets/card-art/hsr/ashveil-n.webp |
-| hsr | Evanescia | epic | assets/card-art/hsr/evanescia-n.webp |
 | hsr | Silver Wolf LV.<unbreak>999</unbreak> | epic | assets/card-art/hsr/silver-wolf-lv-unbreak-999-unbreak-n.webp |
-| hsr | Mortenax Blade | epic | assets/card-art/hsr/mortenax-blade-n.webp |
-| hsr | Rin Tohsaka | epic | assets/card-art/hsr/rin-tohsaka-n.webp |
-| hsr | Gilgamesh | epic | assets/card-art/hsr/gilgamesh-n.webp |
-| hsr | Himeko • Nova | epic | assets/card-art/hsr/himeko-nova-n.webp |
-| hsr | Aeon ★ Aha | epic | assets/card-art/hsr/aeon-aha-n.webp |
-| hsr | Robin • Summeretto | epic | assets/card-art/hsr/robin-summeretto-n.webp |
-| hsr | Aventurine • Waveflair | epic | assets/card-art/hsr/aventurine-waveflair-n.webp |
 | hsr | Pionnier · Physical | epic | assets/card-art/hsr/nickname-8001-n.webp |
 | hsr | Pionnier · Physical | epic | assets/card-art/hsr/nickname-8002-n.webp |
 | hsr | Pionnier · Fire | epic | assets/card-art/hsr/nickname-8003-n.webp |
@@ -345,130 +337,65 @@ Une seule image retrouvée ne signifie pas qu’aucune autre image officielle n�
 | hsr | Pionnier · Ice | epic | assets/card-art/hsr/nickname-8008-n.webp |
 | hsr | Pionnier · Thunder | epic | assets/card-art/hsr/nickname-8009-n.webp |
 | hsr | Pionnier · Thunder | epic | assets/card-art/hsr/nickname-8010-n.webp |
-| ww | Yangyang | epic | assets/card-art/ww/yangyang-n.webp |
-| ww | Chixia | epic | assets/card-art/ww/chixia-n.webp |
 | ww | Verina | epic | assets/card-art/ww/verina-n.webp |
-| ww | Rover: Spectro | epic | assets/card-art/ww/rover-spectro-1501-n.webp |
+| ww | Rover: Spectro | epic | assets/card-art/ww/rover-1501-n.webp |
 | ww | Sanhua | epic | assets/card-art/ww/sanhua-n.webp |
 | ww | Taoqi | epic | assets/card-art/ww/taoqi-n.webp |
-| ww | Rover: Spectro | epic | assets/card-art/ww/rover-spectro-1502-n.webp |
+| ww | Rover: Spectro | epic | assets/card-art/ww/rover-1502-n.webp |
 | ww | Baizhi | epic | assets/card-art/ww/baizhi-n.webp |
-| ww | Encore | epic | assets/card-art/ww/encore-n.webp |
 | ww | Danjin | epic | assets/card-art/ww/danjin-n.webp |
 | ww | Aalto | epic | assets/card-art/ww/aalto-n.webp |
-| ww | Jiyan | epic | assets/card-art/ww/jiyan-n.webp |
 | ww | Mortefi | epic | assets/card-art/ww/mortefi-n.webp |
 | ww | Camellya | epic | assets/card-art/ww/camellya-n.webp |
 | ww | Calcharo | epic | assets/card-art/ww/calcharo-n.webp |
 | ww | Yinlin | epic | assets/card-art/ww/yinlin-n.webp |
-| ww | Lingyang | epic | assets/card-art/ww/lingyang-n.webp |
 | ww | Yuanwu | epic | assets/card-art/ww/yuanwu-n.webp |
-| ww | Rover: Havoc | epic | assets/card-art/ww/rover-havoc-1604-n.webp |
-| ww | Rover: Havoc | epic | assets/card-art/ww/rover-havoc-1605-n.webp |
+| ww | Rover: Havoc | epic | assets/card-art/ww/rover-1604-n.webp |
+| ww | Rover: Havoc | epic | assets/card-art/ww/rover-1605-n.webp |
 | ww | Jianxin | epic | assets/card-art/ww/jianxin-n.webp |
 | ww | Jinhsi | epic | assets/card-art/ww/jinhsi-n.webp |
 | ww | Xiangli Yao | epic | assets/card-art/ww/xiangli-yao-n.webp |
 | ww | Changli | epic | assets/card-art/ww/changli-n.webp |
-| ww | Zhezhi | epic | assets/card-art/ww/zhezhi-n.webp |
-| ww | Lumi | epic | assets/card-art/ww/lumi-n.webp |
 | ww | Youhu | epic | assets/card-art/ww/youhu-n.webp |
-| ww | Shorekeeper | epic | assets/card-art/ww/shorekeeper-n.webp |
 | ww | Roccia | epic | assets/card-art/ww/roccia-n.webp |
 | ww | Carlotta | epic | assets/card-art/ww/carlotta-n.webp |
 | ww | Brant | epic | assets/card-art/ww/brant-n.webp |
 | ww | Phoebe | epic | assets/card-art/ww/phoebe-n.webp |
-| ww | Rover: Aero | epic | assets/card-art/ww/rover-aero-1406-n.webp |
+| ww | Rover: Aero | epic | assets/card-art/ww/rover-1406-n.webp |
 | ww | Cantarella | epic | assets/card-art/ww/cantarella-n.webp |
 | ww | Ciaccona | epic | assets/card-art/ww/ciaccona-n.webp |
 | ww | Zani | epic | assets/card-art/ww/zani-n.webp |
-| ww | Rover: Aero | epic | assets/card-art/ww/rover-aero-1408-n.webp |
+| ww | Rover: Aero | epic | assets/card-art/ww/rover-1408-n.webp |
 | ww | Lupa | epic | assets/card-art/ww/lupa-n.webp |
 | ww | Phrolova | epic | assets/card-art/ww/phrolova-n.webp |
 | ww | Cartethyia | epic | assets/card-art/ww/cartethyia-n.webp |
-| ww | Augusta | epic | assets/card-art/ww/augusta-n.webp |
-| ww | Iuno | epic | assets/card-art/ww/iuno-n.webp |
-| ww | Buling | epic | assets/card-art/ww/buling-n.webp |
-| ww | Galbrena | epic | assets/card-art/ww/galbrena-n.webp |
 | ww | Chisa | epic | assets/card-art/ww/chisa-n.webp |
-| ww | Qiuyuan | epic | assets/card-art/ww/qiuyuan-n.webp |
-| ww | Lynae | epic | assets/card-art/ww/lynae-n.webp |
-| ww | Mornye | epic | assets/card-art/ww/mornye-n.webp |
-| ww | Luuk Herssen | epic | assets/card-art/ww/luuk-herssen-n.webp |
-| ww | Aemeath | epic | assets/card-art/ww/aemeath-n.webp |
-| ww | Sigrika | epic | assets/card-art/ww/sigrika-n.webp |
-| ww | Denia | epic | assets/card-art/ww/denia-n.webp |
 | ww | Rebecca | epic | assets/card-art/ww/rebecca-n.webp |
-| ww | Lucilla | epic | assets/card-art/ww/lucilla-n.webp |
 | ww | Lucy | epic | assets/card-art/ww/lucy-n.webp |
-| ww | Hiyuki | epic | assets/card-art/ww/hiyuki-n.webp |
 | ww | Rover: Electro | epic | assets/card-art/ww/rover-electro-1309-n.webp |
 | ww | Rover: Electro | epic | assets/card-art/ww/rover-electro-1310-n.webp |
 | ww | Yangyang: Xuanling | epic | assets/card-art/ww/yangyang-xuanling-n.webp |
-| ww | Suisui | epic | assets/card-art/ww/suisui-n.webp |
-| ww | Qingxiao | epic | assets/card-art/ww/qingxiao-n.webp |
-| ww | Hsin | epic | assets/card-art/ww/hsin-n.webp |
-| ww | Jingran | epic | assets/card-art/ww/jingran-n.webp |
-| ww | Suoming | epic | assets/card-art/ww/suoming-n.webp |
-| ww | Lily | epic | assets/card-art/ww/lily-n.webp |
 | gi | Aether | rare | assets/card-art/gi/aether-n.webp |
 | gi | Aino | rare | assets/card-art/gi/aino-n.webp |
 | gi | Aloy | rare | assets/card-art/gi/aloy-n.webp |
 | gi | Alyosha | rare | assets/card-art/gi/alyosha-n.webp |
 | gi | Columbina | rare | assets/card-art/gi/columbina-n.webp |
-| gi | Dahlia | rare | assets/card-art/gi/dahlia-n.webp |
-| gi | Durin | rare | assets/card-art/gi/durin-n.webp |
-| gi | Émilie | rare | assets/card-art/gi/emilie-n.webp |
-| gi | Escoffier | rare | assets/card-art/gi/escoffier-n.webp |
-| gi | Fréminet | rare | assets/card-art/gi/freminet-n.webp |
-| gi | Iansan | rare | assets/card-art/gi/iansan-n.webp |
 | gi | Ifa | rare | assets/card-art/gi/ifa-n.webp |
 | gi | Illuga | rare | assets/card-art/gi/illuga-n.webp |
-| gi | Ineffa | rare | assets/card-art/gi/ineffa-n.webp |
-| gi | Jahoda | rare | assets/card-art/gi/jahoda-n.webp |
-| gi | Kinich | rare | assets/card-art/gi/kinich-n.webp |
-| gi | Lan Yan | rare | assets/card-art/gi/lan-yan-n.webp |
-| gi | Linnea | rare | assets/card-art/gi/linnea-n.webp |
 | gi | Lohen | rare | assets/card-art/gi/lohen-n.webp |
 | gi | Lumine | rare | assets/card-art/gi/lumine-n.webp |
 | gi | Manekin | rare | assets/card-art/gi/manekin-n.webp |
 | gi | Manekina | rare | assets/card-art/gi/manekina-n.webp |
-| gi | Mavuika | rare | assets/card-art/gi/mavuika-n.webp |
-| gi | Mualani | rare | assets/card-art/gi/mualani-n.webp |
-| gi | Nefer | rare | assets/card-art/gi/nefer-n.webp |
-| gi | Nicole | rare | assets/card-art/gi/nicole-n.webp |
-| gi | Noëlle | rare | assets/card-art/gi/noelle-n.webp |
 | gi | Odette | rare | assets/card-art/gi/odette-n.webp |
 | gi | Prune | rare | assets/card-art/gi/prune-n.webp |
-| gi | Shogun Raiden | rare | assets/card-art/gi/raiden-shogun-n.webp |
-| gi | Rosalia | rare | assets/card-art/gi/rosaria-n.webp |
 | gi | Sandrone | rare | assets/card-art/gi/sandrone-n.webp |
-| gi | Sigewinne | rare | assets/card-art/gi/sigewinne-n.webp |
-| gi | Skirk | rare | assets/card-art/gi/skirk-n.webp |
-| gi | Tartaglia | rare | assets/card-art/gi/tartaglia-n.webp |
-| gi | Thomas | rare | assets/card-art/gi/thoma-n.webp |
-| gi | Tighnari | rare | assets/card-art/gi/tighnari-n.webp |
-| gi | Varesa | rare | assets/card-art/gi/varesa-n.webp |
 | gi | Varka | rare | assets/card-art/gi/varka-n.webp |
 | gi | Vesna | rare | assets/card-art/gi/vesna-n.webp |
 | gi | Vodyanitsa | rare | assets/card-art/gi/vodyanitsa-n.webp |
-| gi | Nomade | rare | assets/card-art/gi/wanderer-n.webp |
-| gi | Xiangling | rare | assets/card-art/gi/xiangling-n.webp |
-| gi | Xilonen | rare | assets/card-art/gi/xilonen-n.webp |
-| gi | Xingqiu | rare | assets/card-art/gi/xingqiu-n.webp |
-| gi | Xinyan | rare | assets/card-art/gi/xinyan-n.webp |
-| gi | Yae Miko | rare | assets/card-art/gi/yae-miko-n.webp |
-| gi | Yanfei | rare | assets/card-art/gi/yanfei-n.webp |
-| gi | Yaoyao | rare | assets/card-art/gi/yaoyao-n.webp |
-| gi | Yoimiya | rare | assets/card-art/gi/yoimiya-n.webp |
-| gi | Yumemizuki Mizuki | rare | assets/card-art/gi/yumemizuki-mizuki-n.webp |
-| gi | Yun Jin | rare | assets/card-art/gi/yun-jin-n.webp |
-| gi | Zhongli | rare | assets/card-art/gi/zhongli-n.webp |
-| gi | Zibai | rare | assets/card-art/gi/zibai-n.webp |
 | hsr | Dan Heng | rare | assets/card-art/hsr/dan-heng-n.webp |
 | hsr | Himeko | rare | assets/card-art/hsr/himeko-n.webp |
 | hsr | Welt | rare | assets/card-art/hsr/welt-n.webp |
 | hsr | Kafka | rare | assets/card-art/hsr/kafka-n.webp |
-| hsr | Silver Wolf | rare | assets/card-art/hsr/silver-wolf-n.webp |
 | hsr | Arlan | rare | assets/card-art/hsr/arlan-n.webp |
 | hsr | Asta | rare | assets/card-art/hsr/asta-n.webp |
 | hsr | Herta | rare | assets/card-art/hsr/herta-n.webp |
@@ -524,13 +451,10 @@ Une seule image retrouvée ne signifie pas qu’aucune autre image officielle n�
 | hsr | Jade | rare | assets/card-art/hsr/jade-n.webp |
 | hsr | Boothill | rare | assets/card-art/hsr/boothill-n.webp |
 | hsr | Rappa | rare | assets/card-art/hsr/rappa-n.webp |
-| hsr | The Dahlia | rare | assets/card-art/hsr/the-dahlia-n.webp |
 | hsr | The Herta | rare | assets/card-art/hsr/the-herta-n.webp |
 | hsr | Aglaea | rare | assets/card-art/hsr/aglaea-n.webp |
-| hsr | Tribbie | rare | assets/card-art/hsr/tribbie-n.webp |
 | hsr | Mydei | rare | assets/card-art/hsr/mydei-n.webp |
 | hsr | Anaxa | rare | assets/card-art/hsr/anaxa-n.webp |
-| hsr | Cipher | rare | assets/card-art/hsr/cipher-n.webp |
 | hsr | Castorice | rare | assets/card-art/hsr/castorice-n.webp |
 | hsr | Phainon | rare | assets/card-art/hsr/phainon-n.webp |
 | hsr | Hyacine | rare | assets/card-art/hsr/hyacine-n.webp |
@@ -538,18 +462,11 @@ Une seule image retrouvée ne signifie pas qu’aucune autre image officielle n�
 | hsr | Cerydra | rare | assets/card-art/hsr/cerydra-n.webp |
 | hsr | Evernight | rare | assets/card-art/hsr/evernight-n.webp |
 | hsr | Dan Heng • Permansor Terrae | rare | assets/card-art/hsr/dan-heng-permansor-terrae-n.webp |
-| hsr | Cyrene | rare | assets/card-art/hsr/cyrene-n.webp |
-| hsr | Sparxie | rare | assets/card-art/hsr/sparxie-n.webp |
-| hsr | Yao Guang | rare | assets/card-art/hsr/yao-guang-n.webp |
-| hsr | Pearl | rare | assets/card-art/hsr/pearl-n.webp |
-| hsr | Ashveil | rare | assets/card-art/hsr/ashveil-n.webp |
-| hsr | Evanescia | rare | assets/card-art/hsr/evanescia-n.webp |
 | hsr | Silver Wolf LV.<unbreak>999</unbreak> | rare | assets/card-art/hsr/silver-wolf-lv-unbreak-999-unbreak-n.webp |
 | hsr | Mortenax Blade | rare | assets/card-art/hsr/mortenax-blade-n.webp |
 | hsr | Rin Tohsaka | rare | assets/card-art/hsr/rin-tohsaka-n.webp |
 | hsr | Gilgamesh | rare | assets/card-art/hsr/gilgamesh-n.webp |
 | hsr | Himeko • Nova | rare | assets/card-art/hsr/himeko-nova-n.webp |
-| hsr | Aeon ★ Aha | rare | assets/card-art/hsr/aeon-aha-n.webp |
 | hsr | Robin • Summeretto | rare | assets/card-art/hsr/robin-summeretto-n.webp |
 | hsr | Aventurine • Waveflair | rare | assets/card-art/hsr/aventurine-waveflair-n.webp |
 | hsr | Pionnier · Physical | rare | assets/card-art/hsr/nickname-8001-n.webp |
@@ -565,23 +482,22 @@ Une seule image retrouvée ne signifie pas qu’aucune autre image officielle n�
 | ww | Yangyang | rare | assets/card-art/ww/yangyang-n.webp |
 | ww | Chixia | rare | assets/card-art/ww/chixia-n.webp |
 | ww | Verina | rare | assets/card-art/ww/verina-n.webp |
-| ww | Rover: Spectro | rare | assets/card-art/ww/rover-spectro-1501-n.webp |
+| ww | Rover: Spectro | rare | assets/card-art/ww/rover-1501-n.webp |
 | ww | Sanhua | rare | assets/card-art/ww/sanhua-n.webp |
 | ww | Taoqi | rare | assets/card-art/ww/taoqi-n.webp |
-| ww | Rover: Spectro | rare | assets/card-art/ww/rover-spectro-1502-n.webp |
+| ww | Rover: Spectro | rare | assets/card-art/ww/rover-1502-n.webp |
 | ww | Baizhi | rare | assets/card-art/ww/baizhi-n.webp |
 | ww | Encore | rare | assets/card-art/ww/encore-n.webp |
 | ww | Danjin | rare | assets/card-art/ww/danjin-n.webp |
 | ww | Aalto | rare | assets/card-art/ww/aalto-n.webp |
-| ww | Jiyan | rare | assets/card-art/ww/jiyan-n.webp |
 | ww | Mortefi | rare | assets/card-art/ww/mortefi-n.webp |
 | ww | Camellya | rare | assets/card-art/ww/camellya-n.webp |
 | ww | Calcharo | rare | assets/card-art/ww/calcharo-n.webp |
 | ww | Yinlin | rare | assets/card-art/ww/yinlin-n.webp |
 | ww | Lingyang | rare | assets/card-art/ww/lingyang-n.webp |
 | ww | Yuanwu | rare | assets/card-art/ww/yuanwu-n.webp |
-| ww | Rover: Havoc | rare | assets/card-art/ww/rover-havoc-1604-n.webp |
-| ww | Rover: Havoc | rare | assets/card-art/ww/rover-havoc-1605-n.webp |
+| ww | Rover: Havoc | rare | assets/card-art/ww/rover-1604-n.webp |
+| ww | Rover: Havoc | rare | assets/card-art/ww/rover-1605-n.webp |
 | ww | Jianxin | rare | assets/card-art/ww/jianxin-n.webp |
 | ww | Jinhsi | rare | assets/card-art/ww/jinhsi-n.webp |
 | ww | Xiangli Yao | rare | assets/card-art/ww/xiangli-yao-n.webp |
@@ -589,16 +505,15 @@ Une seule image retrouvée ne signifie pas qu’aucune autre image officielle n�
 | ww | Zhezhi | rare | assets/card-art/ww/zhezhi-n.webp |
 | ww | Lumi | rare | assets/card-art/ww/lumi-n.webp |
 | ww | Youhu | rare | assets/card-art/ww/youhu-n.webp |
-| ww | Shorekeeper | rare | assets/card-art/ww/shorekeeper-n.webp |
 | ww | Roccia | rare | assets/card-art/ww/roccia-n.webp |
 | ww | Carlotta | rare | assets/card-art/ww/carlotta-n.webp |
 | ww | Brant | rare | assets/card-art/ww/brant-n.webp |
 | ww | Phoebe | rare | assets/card-art/ww/phoebe-n.webp |
-| ww | Rover: Aero | rare | assets/card-art/ww/rover-aero-1406-n.webp |
+| ww | Rover: Aero | rare | assets/card-art/ww/rover-1406-n.webp |
 | ww | Cantarella | rare | assets/card-art/ww/cantarella-n.webp |
 | ww | Ciaccona | rare | assets/card-art/ww/ciaccona-n.webp |
 | ww | Zani | rare | assets/card-art/ww/zani-n.webp |
-| ww | Rover: Aero | rare | assets/card-art/ww/rover-aero-1408-n.webp |
+| ww | Rover: Aero | rare | assets/card-art/ww/rover-1408-n.webp |
 | ww | Lupa | rare | assets/card-art/ww/lupa-n.webp |
 | ww | Phrolova | rare | assets/card-art/ww/phrolova-n.webp |
 | ww | Cartethyia | rare | assets/card-art/ww/cartethyia-n.webp |
@@ -607,53 +522,29 @@ Une seule image retrouvée ne signifie pas qu’aucune autre image officielle n�
 | ww | Buling | rare | assets/card-art/ww/buling-n.webp |
 | ww | Galbrena | rare | assets/card-art/ww/galbrena-n.webp |
 | ww | Chisa | rare | assets/card-art/ww/chisa-n.webp |
-| ww | Qiuyuan | rare | assets/card-art/ww/qiuyuan-n.webp |
 | ww | Lynae | rare | assets/card-art/ww/lynae-n.webp |
 | ww | Mornye | rare | assets/card-art/ww/mornye-n.webp |
 | ww | Luuk Herssen | rare | assets/card-art/ww/luuk-herssen-n.webp |
 | ww | Aemeath | rare | assets/card-art/ww/aemeath-n.webp |
-| ww | Sigrika | rare | assets/card-art/ww/sigrika-n.webp |
 | ww | Denia | rare | assets/card-art/ww/denia-n.webp |
 | ww | Rebecca | rare | assets/card-art/ww/rebecca-n.webp |
 | ww | Lucilla | rare | assets/card-art/ww/lucilla-n.webp |
 | ww | Lucy | rare | assets/card-art/ww/lucy-n.webp |
-| ww | Hiyuki | rare | assets/card-art/ww/hiyuki-n.webp |
 | ww | Rover: Electro | rare | assets/card-art/ww/rover-electro-1309-n.webp |
 | ww | Rover: Electro | rare | assets/card-art/ww/rover-electro-1310-n.webp |
 | ww | Yangyang: Xuanling | rare | assets/card-art/ww/yangyang-xuanling-n.webp |
-| ww | Suisui | rare | assets/card-art/ww/suisui-n.webp |
-| ww | Qingxiao | rare | assets/card-art/ww/qingxiao-n.webp |
-| ww | Hsin | rare | assets/card-art/ww/hsin-n.webp |
-| ww | Jingran | rare | assets/card-art/ww/jingran-n.webp |
 | ww | Suoming | rare | assets/card-art/ww/suoming-n.webp |
-| ww | Lily | rare | assets/card-art/ww/lily-n.webp |
 | gi | Aether | super | assets/card-art/gi/aether-n.webp |
 | gi | Aino | super | assets/card-art/gi/aino-n.webp |
 | gi | Aloy | super | assets/card-art/gi/aloy-n.webp |
 | gi | Alyosha | super | assets/card-art/gi/alyosha-n.webp |
-| gi | Arlecchino | super | assets/card-art/gi/arlecchino-n.webp |
-| gi | Chasca | super | assets/card-art/gi/chasca-n.webp |
-| gi | Chiori | super | assets/card-art/gi/chiori-n.webp |
-| gi | Citlali | super | assets/card-art/gi/citlali-n.webp |
-| gi | Clorinde | super | assets/card-art/gi/clorinde-n.webp |
 | gi | Columbina | super | assets/card-art/gi/columbina-n.webp |
 | gi | Dahlia | super | assets/card-art/gi/dahlia-n.webp |
 | gi | Durin | super | assets/card-art/gi/durin-n.webp |
-| gi | Émilie | super | assets/card-art/gi/emilie-n.webp |
-| gi | Escoffier | super | assets/card-art/gi/escoffier-n.webp |
-| gi | Flins | super | assets/card-art/gi/flins-n.webp |
-| gi | Fréminet | super | assets/card-art/gi/freminet-n.webp |
-| gi | Furina | super | assets/card-art/gi/furina-n.webp |
-| gi | Gaming | super | assets/card-art/gi/gaming-n.webp |
-| gi | Hu Tao | super | assets/card-art/gi/hu-tao-n.webp |
-| gi | Iansan | super | assets/card-art/gi/iansan-n.webp |
 | gi | Ifa | super | assets/card-art/gi/ifa-n.webp |
 | gi | Illuga | super | assets/card-art/gi/illuga-n.webp |
 | gi | Ineffa | super | assets/card-art/gi/ineffa-n.webp |
 | gi | Jahoda | super | assets/card-art/gi/jahoda-n.webp |
-| gi | Kachina | super | assets/card-art/gi/kachina-n.webp |
-| gi | Kinich | super | assets/card-art/gi/kinich-n.webp |
-| gi | Kirara | super | assets/card-art/gi/kirara-n.webp |
 | gi | Lan Yan | super | assets/card-art/gi/lan-yan-n.webp |
 | gi | Linnea | super | assets/card-art/gi/linnea-n.webp |
 | gi | Lohen | super | assets/card-art/gi/lohen-n.webp |
@@ -661,44 +552,14 @@ Une seule image retrouvée ne signifie pas qu’aucune autre image officielle n�
 | gi | Manekin | super | assets/card-art/gi/manekin-n.webp |
 | gi | Manekina | super | assets/card-art/gi/manekina-n.webp |
 | gi | Mavuika | super | assets/card-art/gi/mavuika-n.webp |
-| gi | Mualani | super | assets/card-art/gi/mualani-n.webp |
 | gi | Nefer | super | assets/card-art/gi/nefer-n.webp |
-| gi | Neuvillette | super | assets/card-art/gi/neuvillette-n.webp |
 | gi | Nicole | super | assets/card-art/gi/nicole-n.webp |
-| gi | Nilou | super | assets/card-art/gi/nilou-n.webp |
-| gi | Noëlle | super | assets/card-art/gi/noelle-n.webp |
 | gi | Odette | super | assets/card-art/gi/odette-n.webp |
-| gi | Ororon | super | assets/card-art/gi/ororon-n.webp |
 | gi | Prune | super | assets/card-art/gi/prune-n.webp |
-| gi | Shogun Raiden | super | assets/card-art/gi/raiden-shogun-n.webp |
-| gi | Rosalia | super | assets/card-art/gi/rosaria-n.webp |
 | gi | Sandrone | super | assets/card-art/gi/sandrone-n.webp |
-| gi | Sethos | super | assets/card-art/gi/sethos-n.webp |
-| gi | Shenhe | super | assets/card-art/gi/shenhe-n.webp |
-| gi | Sigewinne | super | assets/card-art/gi/sigewinne-n.webp |
-| gi | Skirk | super | assets/card-art/gi/skirk-n.webp |
-| gi | Tartaglia | super | assets/card-art/gi/tartaglia-n.webp |
-| gi | Thomas | super | assets/card-art/gi/thoma-n.webp |
-| gi | Tighnari | super | assets/card-art/gi/tighnari-n.webp |
-| gi | Varesa | super | assets/card-art/gi/varesa-n.webp |
 | gi | Varka | super | assets/card-art/gi/varka-n.webp |
 | gi | Vesna | super | assets/card-art/gi/vesna-n.webp |
 | gi | Vodyanitsa | super | assets/card-art/gi/vodyanitsa-n.webp |
-| gi | Nomade | super | assets/card-art/gi/wanderer-n.webp |
-| gi | Wriothesley | super | assets/card-art/gi/wriothesley-n.webp |
-| gi | Xiangling | super | assets/card-art/gi/xiangling-n.webp |
-| gi | Xiao | super | assets/card-art/gi/xiao-n.webp |
-| gi | Xilonen | super | assets/card-art/gi/xilonen-n.webp |
-| gi | Xingqiu | super | assets/card-art/gi/xingqiu-n.webp |
-| gi | Xinyan | super | assets/card-art/gi/xinyan-n.webp |
-| gi | Yae Miko | super | assets/card-art/gi/yae-miko-n.webp |
-| gi | Yanfei | super | assets/card-art/gi/yanfei-n.webp |
-| gi | Yaoyao | super | assets/card-art/gi/yaoyao-n.webp |
-| gi | Yelan | super | assets/card-art/gi/yelan-n.webp |
-| gi | Yoimiya | super | assets/card-art/gi/yoimiya-n.webp |
-| gi | Yumemizuki Mizuki | super | assets/card-art/gi/yumemizuki-mizuki-n.webp |
-| gi | Yun Jin | super | assets/card-art/gi/yun-jin-n.webp |
-| gi | Zhongli | super | assets/card-art/gi/zhongli-n.webp |
 | gi | Zibai | super | assets/card-art/gi/zibai-n.webp |
 | hsr | Dan Heng | super | assets/card-art/hsr/dan-heng-n.webp |
 | hsr | Himeko | super | assets/card-art/hsr/himeko-n.webp |
@@ -801,23 +662,22 @@ Une seule image retrouvée ne signifie pas qu’aucune autre image officielle n�
 | ww | Yangyang | super | assets/card-art/ww/yangyang-n.webp |
 | ww | Chixia | super | assets/card-art/ww/chixia-n.webp |
 | ww | Verina | super | assets/card-art/ww/verina-n.webp |
-| ww | Rover: Spectro | super | assets/card-art/ww/rover-spectro-1501-n.webp |
+| ww | Rover: Spectro | super | assets/card-art/ww/rover-1501-n.webp |
 | ww | Sanhua | super | assets/card-art/ww/sanhua-n.webp |
 | ww | Taoqi | super | assets/card-art/ww/taoqi-n.webp |
-| ww | Rover: Spectro | super | assets/card-art/ww/rover-spectro-1502-n.webp |
+| ww | Rover: Spectro | super | assets/card-art/ww/rover-1502-n.webp |
 | ww | Baizhi | super | assets/card-art/ww/baizhi-n.webp |
 | ww | Encore | super | assets/card-art/ww/encore-n.webp |
 | ww | Danjin | super | assets/card-art/ww/danjin-n.webp |
 | ww | Aalto | super | assets/card-art/ww/aalto-n.webp |
-| ww | Jiyan | super | assets/card-art/ww/jiyan-n.webp |
 | ww | Mortefi | super | assets/card-art/ww/mortefi-n.webp |
 | ww | Camellya | super | assets/card-art/ww/camellya-n.webp |
 | ww | Calcharo | super | assets/card-art/ww/calcharo-n.webp |
 | ww | Yinlin | super | assets/card-art/ww/yinlin-n.webp |
 | ww | Lingyang | super | assets/card-art/ww/lingyang-n.webp |
 | ww | Yuanwu | super | assets/card-art/ww/yuanwu-n.webp |
-| ww | Rover: Havoc | super | assets/card-art/ww/rover-havoc-1604-n.webp |
-| ww | Rover: Havoc | super | assets/card-art/ww/rover-havoc-1605-n.webp |
+| ww | Rover: Havoc | super | assets/card-art/ww/rover-1604-n.webp |
+| ww | Rover: Havoc | super | assets/card-art/ww/rover-1605-n.webp |
 | ww | Jianxin | super | assets/card-art/ww/jianxin-n.webp |
 | ww | Jinhsi | super | assets/card-art/ww/jinhsi-n.webp |
 | ww | Xiangli Yao | super | assets/card-art/ww/xiangli-yao-n.webp |
@@ -830,11 +690,11 @@ Une seule image retrouvée ne signifie pas qu’aucune autre image officielle n�
 | ww | Carlotta | super | assets/card-art/ww/carlotta-n.webp |
 | ww | Brant | super | assets/card-art/ww/brant-n.webp |
 | ww | Phoebe | super | assets/card-art/ww/phoebe-n.webp |
-| ww | Rover: Aero | super | assets/card-art/ww/rover-aero-1406-n.webp |
+| ww | Rover: Aero | super | assets/card-art/ww/rover-1406-n.webp |
 | ww | Cantarella | super | assets/card-art/ww/cantarella-n.webp |
 | ww | Ciaccona | super | assets/card-art/ww/ciaccona-n.webp |
 | ww | Zani | super | assets/card-art/ww/zani-n.webp |
-| ww | Rover: Aero | super | assets/card-art/ww/rover-aero-1408-n.webp |
+| ww | Rover: Aero | super | assets/card-art/ww/rover-1408-n.webp |
 | ww | Lupa | super | assets/card-art/ww/lupa-n.webp |
 | ww | Phrolova | super | assets/card-art/ww/phrolova-n.webp |
 | ww | Cartethyia | super | assets/card-art/ww/cartethyia-n.webp |
@@ -853,7 +713,6 @@ Une seule image retrouvée ne signifie pas qu’aucune autre image officielle n�
 | ww | Rebecca | super | assets/card-art/ww/rebecca-n.webp |
 | ww | Lucilla | super | assets/card-art/ww/lucilla-n.webp |
 | ww | Lucy | super | assets/card-art/ww/lucy-n.webp |
-| ww | Hiyuki | super | assets/card-art/ww/hiyuki-n.webp |
 | ww | Rover: Electro | super | assets/card-art/ww/rover-electro-1309-n.webp |
 | ww | Rover: Electro | super | assets/card-art/ww/rover-electro-1310-n.webp |
 | ww | Yangyang: Xuanling | super | assets/card-art/ww/yangyang-xuanling-n.webp |
@@ -865,104 +724,41 @@ Une seule image retrouvée ne signifie pas qu’aucune autre image officielle n�
 | ww | Lily | super | assets/card-art/ww/lily-n.webp |
 | gi | Aether | common | assets/card-art/gi/aether-n.webp |
 | gi | Aino | common | assets/card-art/gi/aino-n.webp |
-| gi | Albedo | common | assets/card-art/gi/albedo-n.webp |
-| gi | Alhaitham | common | assets/card-art/gi/alhaitham-n.webp |
 | gi | Aloy | common | assets/card-art/gi/aloy-n.webp |
 | gi | Alyosha | common | assets/card-art/gi/alyosha-n.webp |
-| gi | Amber | common | assets/card-art/gi/amber-n.webp |
-| gi | Arlecchino | common | assets/card-art/gi/arlecchino-n.webp |
-| gi | Baizhu | common | assets/card-art/gi/baizhu-n.webp |
-| gi | Barbara | common | assets/card-art/gi/barbara-n.webp |
 | gi | Charlotte | common | assets/card-art/gi/charlotte-n.webp |
-| gi | Chasca | common | assets/card-art/gi/chasca-n.webp |
-| gi | Chevreuse | common | assets/card-art/gi/chevreuse-n.webp |
-| gi | Chiori | common | assets/card-art/gi/chiori-n.webp |
 | gi | Citlali | common | assets/card-art/gi/citlali-n.webp |
-| gi | Clorinde | common | assets/card-art/gi/clorinde-n.webp |
 | gi | Columbina | common | assets/card-art/gi/columbina-n.webp |
 | gi | Dahlia | common | assets/card-art/gi/dahlia-n.webp |
-| gi | Dori | common | assets/card-art/gi/dori-n.webp |
 | gi | Durin | common | assets/card-art/gi/durin-n.webp |
-| gi | Émilie | common | assets/card-art/gi/emilie-n.webp |
-| gi | Escoffier | common | assets/card-art/gi/escoffier-n.webp |
-| gi | Faruzan | common | assets/card-art/gi/faruzan-n.webp |
-| gi | Flins | common | assets/card-art/gi/flins-n.webp |
-| gi | Fréminet | common | assets/card-art/gi/freminet-n.webp |
-| gi | Furina | common | assets/card-art/gi/furina-n.webp |
 | gi | Gaming | common | assets/card-art/gi/gaming-n.webp |
-| gi | Ganyu | common | assets/card-art/gi/ganyu-n.webp |
-| gi | Hu Tao | common | assets/card-art/gi/hu-tao-n.webp |
-| gi | Iansan | common | assets/card-art/gi/iansan-n.webp |
 | gi | Ifa | common | assets/card-art/gi/ifa-n.webp |
 | gi | Illuga | common | assets/card-art/gi/illuga-n.webp |
 | gi | Ineffa | common | assets/card-art/gi/ineffa-n.webp |
 | gi | Jahoda | common | assets/card-art/gi/jahoda-n.webp |
 | gi | Kachina | common | assets/card-art/gi/kachina-n.webp |
-| gi | Kaeya | common | assets/card-art/gi/kaeya-n.webp |
-| gi | Keqing | common | assets/card-art/gi/keqing-n.webp |
-| gi | Kinich | common | assets/card-art/gi/kinich-n.webp |
-| gi | Kirara | common | assets/card-art/gi/kirara-n.webp |
-| gi | Klee | common | assets/card-art/gi/klee-n.webp |
-| gi | Kujou Sara | common | assets/card-art/gi/kujou-sara-n.webp |
 | gi | Lan Yan | common | assets/card-art/gi/lan-yan-n.webp |
-| gi | Layla | common | assets/card-art/gi/layla-n.webp |
 | gi | Linnea | common | assets/card-art/gi/linnea-n.webp |
 | gi | Lohen | common | assets/card-art/gi/lohen-n.webp |
 | gi | Lumine | common | assets/card-art/gi/lumine-n.webp |
-| gi | Lynette | common | assets/card-art/gi/lynette-n.webp |
-| gi | Lyney | common | assets/card-art/gi/lyney-n.webp |
 | gi | Manekin | common | assets/card-art/gi/manekin-n.webp |
 | gi | Manekina | common | assets/card-art/gi/manekina-n.webp |
 | gi | Mavuika | common | assets/card-art/gi/mavuika-n.webp |
-| gi | Mona | common | assets/card-art/gi/mona-n.webp |
 | gi | Mualani | common | assets/card-art/gi/mualani-n.webp |
-| gi | Nahida | common | assets/card-art/gi/nahida-n.webp |
-| gi | Navia | common | assets/card-art/gi/navia-n.webp |
 | gi | Nefer | common | assets/card-art/gi/nefer-n.webp |
-| gi | Neuvillette | common | assets/card-art/gi/neuvillette-n.webp |
 | gi | Nicole | common | assets/card-art/gi/nicole-n.webp |
-| gi | Nilou | common | assets/card-art/gi/nilou-n.webp |
-| gi | Ningguang | common | assets/card-art/gi/ningguang-n.webp |
-| gi | Noëlle | common | assets/card-art/gi/noelle-n.webp |
 | gi | Odette | common | assets/card-art/gi/odette-n.webp |
 | gi | Ororon | common | assets/card-art/gi/ororon-n.webp |
 | gi | Prune | common | assets/card-art/gi/prune-n.webp |
-| gi | Shogun Raiden | common | assets/card-art/gi/raiden-shogun-n.webp |
-| gi | Razor | common | assets/card-art/gi/razor-n.webp |
-| gi | Rosalia | common | assets/card-art/gi/rosaria-n.webp |
 | gi | Sandrone | common | assets/card-art/gi/sandrone-n.webp |
-| gi | Sangonomiya Kokomi | common | assets/card-art/gi/sangonomiya-kokomi-n.webp |
-| gi | Sethos | common | assets/card-art/gi/sethos-n.webp |
-| gi | Shenhe | common | assets/card-art/gi/shenhe-n.webp |
 | gi | Sigewinne | common | assets/card-art/gi/sigewinne-n.webp |
 | gi | Skirk | common | assets/card-art/gi/skirk-n.webp |
-| gi | Sucrose | common | assets/card-art/gi/sucrose-n.webp |
-| gi | Tartaglia | common | assets/card-art/gi/tartaglia-n.webp |
-| gi | Thomas | common | assets/card-art/gi/thoma-n.webp |
-| gi | Tighnari | common | assets/card-art/gi/tighnari-n.webp |
 | gi | Varesa | common | assets/card-art/gi/varesa-n.webp |
 | gi | Varka | common | assets/card-art/gi/varka-n.webp |
-| gi | Venti | common | assets/card-art/gi/venti-n.webp |
 | gi | Vesna | common | assets/card-art/gi/vesna-n.webp |
 | gi | Vodyanitsa | common | assets/card-art/gi/vodyanitsa-n.webp |
-| gi | Nomade | common | assets/card-art/gi/wanderer-n.webp |
-| gi | Wriothesley | common | assets/card-art/gi/wriothesley-n.webp |
-| gi | Xiangling | common | assets/card-art/gi/xiangling-n.webp |
-| gi | Xianyun | common | assets/card-art/gi/xianyun-n.webp |
-| gi | Xiao | common | assets/card-art/gi/xiao-n.webp |
 | gi | Xilonen | common | assets/card-art/gi/xilonen-n.webp |
-| gi | Xingqiu | common | assets/card-art/gi/xingqiu-n.webp |
-| gi | Xinyan | common | assets/card-art/gi/xinyan-n.webp |
-| gi | Yae Miko | common | assets/card-art/gi/yae-miko-n.webp |
-| gi | Yanfei | common | assets/card-art/gi/yanfei-n.webp |
-| gi | Yaoyao | common | assets/card-art/gi/yaoyao-n.webp |
-| gi | Yelan | common | assets/card-art/gi/yelan-n.webp |
-| gi | Yoimiya | common | assets/card-art/gi/yoimiya-n.webp |
-| gi | Yumemizuki Mizuki | common | assets/card-art/gi/yumemizuki-mizuki-n.webp |
-| gi | Yun Jin | common | assets/card-art/gi/yun-jin-n.webp |
-| gi | Zhongli | common | assets/card-art/gi/zhongli-n.webp |
 | gi | Zibai | common | assets/card-art/gi/zibai-n.webp |
-| hsr | March 7th | common | assets/card-art/hsr/march-7th-1001-n.webp |
 | hsr | Dan Heng | common | assets/card-art/hsr/dan-heng-n.webp |
 | hsr | Himeko | common | assets/card-art/hsr/himeko-n.webp |
 | hsr | Welt | common | assets/card-art/hsr/welt-n.webp |
@@ -1064,10 +860,10 @@ Une seule image retrouvée ne signifie pas qu’aucune autre image officielle n�
 | ww | Yangyang | common | assets/card-art/ww/yangyang-n.webp |
 | ww | Chixia | common | assets/card-art/ww/chixia-n.webp |
 | ww | Verina | common | assets/card-art/ww/verina-n.webp |
-| ww | Rover: Spectro | common | assets/card-art/ww/rover-spectro-1501-n.webp |
+| ww | Rover: Spectro | common | assets/card-art/ww/rover-1501-n.webp |
 | ww | Sanhua | common | assets/card-art/ww/sanhua-n.webp |
 | ww | Taoqi | common | assets/card-art/ww/taoqi-n.webp |
-| ww | Rover: Spectro | common | assets/card-art/ww/rover-spectro-1502-n.webp |
+| ww | Rover: Spectro | common | assets/card-art/ww/rover-1502-n.webp |
 | ww | Baizhi | common | assets/card-art/ww/baizhi-n.webp |
 | ww | Encore | common | assets/card-art/ww/encore-n.webp |
 | ww | Danjin | common | assets/card-art/ww/danjin-n.webp |
@@ -1079,8 +875,8 @@ Une seule image retrouvée ne signifie pas qu’aucune autre image officielle n�
 | ww | Yinlin | common | assets/card-art/ww/yinlin-n.webp |
 | ww | Lingyang | common | assets/card-art/ww/lingyang-n.webp |
 | ww | Yuanwu | common | assets/card-art/ww/yuanwu-n.webp |
-| ww | Rover: Havoc | common | assets/card-art/ww/rover-havoc-1604-n.webp |
-| ww | Rover: Havoc | common | assets/card-art/ww/rover-havoc-1605-n.webp |
+| ww | Rover: Havoc | common | assets/card-art/ww/rover-1604-n.webp |
+| ww | Rover: Havoc | common | assets/card-art/ww/rover-1605-n.webp |
 | ww | Jianxin | common | assets/card-art/ww/jianxin-n.webp |
 | ww | Jinhsi | common | assets/card-art/ww/jinhsi-n.webp |
 | ww | Xiangli Yao | common | assets/card-art/ww/xiangli-yao-n.webp |
@@ -1093,11 +889,11 @@ Une seule image retrouvée ne signifie pas qu’aucune autre image officielle n�
 | ww | Carlotta | common | assets/card-art/ww/carlotta-n.webp |
 | ww | Brant | common | assets/card-art/ww/brant-n.webp |
 | ww | Phoebe | common | assets/card-art/ww/phoebe-n.webp |
-| ww | Rover: Aero | common | assets/card-art/ww/rover-aero-1406-n.webp |
+| ww | Rover: Aero | common | assets/card-art/ww/rover-1406-n.webp |
 | ww | Cantarella | common | assets/card-art/ww/cantarella-n.webp |
 | ww | Ciaccona | common | assets/card-art/ww/ciaccona-n.webp |
 | ww | Zani | common | assets/card-art/ww/zani-n.webp |
-| ww | Rover: Aero | common | assets/card-art/ww/rover-aero-1408-n.webp |
+| ww | Rover: Aero | common | assets/card-art/ww/rover-1408-n.webp |
 | ww | Lupa | common | assets/card-art/ww/lupa-n.webp |
 | ww | Phrolova | common | assets/card-art/ww/phrolova-n.webp |
 | ww | Cartethyia | common | assets/card-art/ww/cartethyia-n.webp |
@@ -1156,31 +952,6 @@ Une seule image retrouvée ne signifie pas qu’aucune autre image officielle n�
 | gi | Réminiscence nostalgique | equipment | assets/card-art/gi/reminiscence-nostalgique-n.webp |
 | gi | Ténacité du Millelithe | equipment | assets/card-art/gi/tenacite-du-millelithe-n.webp |
 | gi | Fleur du paradis perdu | equipment | assets/card-art/gi/fleur-du-paradis-perdu-n.webp |
-| hsr | In the Night | equipment | assets/card-art/hsr/in-the-night-n.webp |
-| hsr | Though Worlds Apart | equipment | assets/card-art/hsr/though-worlds-apart-n.webp |
-| hsr | Before Dawn | equipment | assets/card-art/hsr/before-dawn-n.webp |
-| hsr | The Hell Where Ideals Burn | equipment | assets/card-art/hsr/the-hell-where-ideals-burn-n.webp |
-| hsr | The Finale of a Lie | equipment | assets/card-art/hsr/the-finale-of-a-lie-n.webp |
-| hsr | She Already Shut Her Eyes | equipment | assets/card-art/hsr/she-already-shut-her-eyes-n.webp |
-| hsr | Baptism of Pure Thought | equipment | assets/card-art/hsr/baptism-of-pure-thought-n.webp |
-| hsr | Brighter Than the Sun | equipment | assets/card-art/hsr/brighter-than-the-sun-n.webp |
-| hsr | Scent Alone Stays True | equipment | assets/card-art/hsr/scent-alone-stays-true-n.webp |
-| hsr | Dance at Sunset | equipment | assets/card-art/hsr/dance-at-sunset-n.webp |
-| hsr | This Love, Forever | equipment | assets/card-art/hsr/this-love-forever-n.webp |
-| hsr | An Instant Before A Gaze | equipment | assets/card-art/hsr/an-instant-before-a-gaze-n.webp |
-| hsr | Rise and Sing | equipment | assets/card-art/hsr/rise-and-sing-n.webp |
-| hsr | Incessant Rain | equipment | assets/card-art/hsr/incessant-rain-n.webp |
-| hsr | I Am As You Behold | equipment | assets/card-art/hsr/i-am-as-you-behold-n.webp |
-| hsr | Eternal Calculus | equipment | assets/card-art/hsr/eternal-calculus-n.webp |
-| hsr | I Venture Forth to Hunt | equipment | assets/card-art/hsr/i-venture-forth-to-hunt-n.webp |
-| hsr | When She Decided to See | equipment | assets/card-art/hsr/when-she-decided-to-see-n.webp |
-| hsr | Whereabouts Should Dreams Rest | equipment | assets/card-art/hsr/whereabouts-should-dreams-rest-n.webp |
-| hsr | Cruising in the Stellar Sea | equipment | assets/card-art/hsr/cruising-in-the-stellar-sea-n.webp |
-| hsr | Inherently Unjust Destiny | equipment | assets/card-art/hsr/inherently-unjust-destiny-n.webp |
-| hsr | Until the Flowers Bloom Again | equipment | assets/card-art/hsr/until-the-flowers-bloom-again-n.webp |
-| hsr | Never Forget Her Flame | equipment | assets/card-art/hsr/never-forget-her-flame-n.webp |
-| hsr | Elation Brimming With Blessings | equipment | assets/card-art/hsr/elation-brimming-with-blessings-n.webp |
-| hsr | Past Self in Mirror | equipment | assets/card-art/hsr/past-self-in-mirror-n.webp |
 | gi | Énergie · Pyro | energy | assets/card-art/gi/energy-pyro-n.webp |
 | gi | Énergie · Hydro | energy | assets/card-art/gi/energy-hydro-n.webp |
 | gi | Énergie · Cryo | energy | assets/card-art/gi/energy-cryo-n.webp |
@@ -1207,16 +978,12 @@ Une seule image retrouvée ne signifie pas qu’aucune autre image officielle n�
 
 ## Ajouter une image
 
-Ajouter une entrée à `assets/card-art/sources.json` avec `game`, `slug`, `local`, `source`, `title`, `provenance` (`user-supplied`, `official-hoyoverse` ou `official-kuro`), puis relancer l’audit. Une présence sur HoYoLAB ne prouve pas à elle seule une origine officielle.
+Ajouter une entrée à `assets/card-art/sources.json` avec game, slug, local, source, title et attribution. Seules les provenances `official-hoyoverse` et `official-kuro` sont admises; dessins de fans et reposts communautaires sont exclus.
 
 ## Reproduire
 
-```text
-node scripts/export_card_catalog.mjs
-python scripts/audit_cards.py --fetch
-python scripts/audit_cards.py --strict
-python tests/cards_browser.py
-```
+node scripts/export_card_catalog.mjs, python scripts/sync_official_art_sources.py --games gi hsr, python scripts/sync_official_wuwa_art_sources.py, python scripts/audit_cards.py --incremental, python scripts/audit_cards.py --strict, python scripts/optimize_card_assets.py --apply, python tests/cards_browser.py
+Les images officielles sont stockées en WebP qualité 89, limitées à 1600 × 2400 px. Les binaires de téléchargement temporaires sont exclus du dépôt et des versions distribuées; les sources et crédits restent dans le manifeste officiel.
 
 Le contrôle strict et le contrôle Playwright des images échouent tant que la liste des images manquantes n’est pas vide. Le rapport ne transforme pas un emplacement de secours en réussite.
 
@@ -1225,88 +992,59 @@ Le contrôle strict et le contrôle Playwright des images échouent tant que la 
 `docs/reference/cards.html` est la copie exacte du fichier fourni. Dix raretés y figurent. Aeon reprend le modèle Légende (classe Aeon déjà présente); Équipement reprend Full Art; Énergie reprend Common sans attaques. Le modèle unique Obsidian reprend la carte Obsidian originale. Aucun modèle inédit absent du fichier n’est présenté comme une correspondance visuelle originale.
 Les textes réels viennent de characterDetails()/skillList() et du rendu riche existants. Un kit non publié reste indiqué, sans attaques, coûts, faiblesses ou chiffres inventés. Les groupes reprennent des compétences réelles de leurs membres, sans inventer de kit collectif.
 
+## Roster demandé
+
+Les raretés prioritaires listées représentent **199 cartes personnage** (The Herta compte deux fois car elle figure dans deux raretés). Images attribuées : **115** ; encore manquantes : **84**.
+La section Astrales annonce 21 cartes mais ne nomme que 20 personnages : sept Genshin (alors que la sous-liste en annonce huit), huit HSR et cinq Wuthering Waves. Aucun nom n’a été ajouté par déduction.
+- **eternal** : 8/17 illustrées — à fournir : Mitya, Capitano, Hysilens, Evernight, Obsidian, Ashveil, Robin, Aha (forme Nihilux), The Herta.
+- **astral** : 11/20 illustrées — à fournir : Sandrone, Varka, Kafka, Castorice, Aglaea, Sunday, Cyrene, Jing Yuan, Seele.
+- **legend** : 23/30 illustrées — à fournir : Firefly, Sparkle, Blade, Jingliu, Black Swan, Ruan Mei, Silver Wolf.
+- **gold** : 14/22 illustrées — à fournir : Huohuo, Feixiao, The Herta, Fugue, Luocha, Jade, Boothill, Dr. Ratio.
+- **secret** : 13/20 illustrées — à fournir : Rhinedottir, Argenti, Moze, Rappa, Anaxa, Yunli, Topaz & Numby.
+- **full** : 46/90 illustrées — à fournir : Himeko, Welt, Bronya, Serval, Gepard, Clara, Bailu, Yanqing, Sampo, Hook, Pela, Natasha, Qingque, Tingyun, Luka, Sushang, Arlan, Asta, Herta, Dan Heng, March 7th, Trailblazer, Yukong, Dan Heng • Imbibitor Lunae, Guinaifen, Misha, Jiaoqiu, Lingsha, Gallagher, Tribbie, Hyacine, Cipher, Xueyi, Hanya, Lynx, Rover (Spectro), Rover (Havoc), Rover (Aero), Chixia, Baizhi, Sanhua, Danjin, Taoqi, Mortefi.
+
+Kits officiels absents pour 8 des cartes de ce roster (personnages de lore, personnages récents ou variantes sans fiche de combat publiée) :
+
+- `gi:capitano`
+- `gi:istaroth`
+- `gi:mitya`
+- `gi:rhinedottir`
+- `gi:ronova`
+- `hsr:aha`
+- `hsr:obsidian`
+- `hsr:trailblazer`
+
+## Provenance à confirmer
+
+346 fichiers ont une archive communautaire comme URL de référence et nécessitent une correspondance avec une publication primaire. 646 fichiers ont été reliés à une pièce jointe HoYoLAB officielle; 67 à une publication Kuro officielle. Les anciennes entrées sans URL primaire prouvée restent signalées ici.
+Le contrôle colorimétrique a écarté les images en niveaux de gris détectées. 235 exclusion(s) noir et blanc sont consignées dans cet audit.
+
 ## Kits de personnages
 
-248 kits réels en cache. Kits non obtenus (dont personnages de lore et Aeons non jouables) :
+290 kits réels en cache. Kits non obtenus (dont personnages de lore et Aeons non jouables) :
 
 - `gi:aether`
-- `gi:alice`
-- `gi:barbeloth`
-- `gi:dainsleif`
-- `gi:egeria`
-- `gi:focalors`
-- `gi:guizhong`
-- `gi:havria`
+- `gi:capitano`
 - `gi:istaroth`
-- `gi:king-deshret`
-- `gi:kitsune-saiguu`
-- `gi:la-signora`
 - `gi:lumine`
-- `gi:makoto`
 - `gi:manekin`
 - `gi:manekina`
 - `gi:mitya`
-- `gi:nabu-malikata`
 - `gi:rhinedottir`
 - `gi:ronova`
-- `gi:rukkhadevata`
-- `hsr:aeon-aha`
-- `hsr:aglaea`
 - `hsr:aha`
 - `hsr:akivili`
-- `hsr:anaxa`
 - `hsr:archer`
-- `hsr:ashveil`
-- `hsr:aventurine-waveflair`
-- `hsr:castorice`
-- `hsr:cerydra`
-- `hsr:cipher`
-- `hsr:cyrene`
-- `hsr:dan-heng-permansor-terrae`
-- `hsr:evanescia`
-- `hsr:evernight`
-- `hsr:feixiao`
-- `hsr:fugue`
 - `hsr:fuli`
 - `hsr:gilgamesh`
-- `hsr:himeko-nova`
-- `hsr:hyacine`
-- `hsr:hysilens`
 - `hsr:ix`
-- `hsr:jiaoqiu`
 - `hsr:lan`
-- `hsr:lingsha`
-- `hsr:march-7th-1224`
-- `hsr:mortenax-blade`
-- `hsr:moze`
-- `hsr:mydei`
 - `hsr:nanook`
-- `hsr:nickname-8007`
-- `hsr:nickname-8008`
-- `hsr:nickname-8009`
-- `hsr:nickname-8010`
 - `hsr:nous`
 - `hsr:obsidian`
-- `hsr:pearl`
-- `hsr:phainon`
 - `hsr:qlipoth`
-- `hsr:rappa`
 - `hsr:rin-tohsaka`
-- `hsr:robin-summeretto`
 - `hsr:saber`
-- `hsr:screwllum`
-- `hsr:silver-wolf-lv-unbreak-999-unbreak`
-- `hsr:sparxie`
-- `hsr:sunday`
-- `hsr:the-dahlia`
-- `hsr:the-herta`
-- `hsr:topaz`
-- `hsr:tribbie`
+- `hsr:trailblazer`
 - `hsr:xipe`
-- `hsr:yao-guang`
 - `hsr:yaoshi`
-- `hsr:yunli`
-- `ww:jue`
-- `ww:rover-female`
-- `ww:scar`
-- `ww:sentinel-imperator`

@@ -11,7 +11,7 @@ ROOT = Path(__file__).resolve().parents[1]
 OUT = Path(sys.argv[1]).resolve() if len(sys.argv) > 1 else ROOT / "releases"
 SKIP_DIRS = {".git", ".idea", ".cache", "__pycache__", "releases", "user-data", "userdata", "local-data", "localdata", "--help"}
 SKIP_FILES = {".env", "hoyolab.dpapi"}
-SKIP_PATHS = {("assets", "user")}
+SKIP_PATHS = {("assets", "user"), ("assets", "card-art", "downloads")}
 
 
 def git_changed_files(base_tag: str) -> tuple[list[str], list[str]]:
@@ -38,7 +38,9 @@ def git_changed_files(base_tag: str) -> tuple[list[str], list[str]]:
 
 
 def should_skip(relative: Path) -> bool:
-    return any(part.lower() in SKIP_DIRS for part in relative.parts) or tuple(part.lower() for part in relative.parts[:2]) in SKIP_PATHS or relative.name.lower() in SKIP_FILES or relative.name.lower().endswith(".tmp.txt") or relative.suffix.lower() in {".pyc", ".pyo"}
+    parts = tuple(part.lower() for part in relative.parts)
+    skipped_path = any(parts[:len(prefix)] == prefix for prefix in SKIP_PATHS)
+    return any(part in SKIP_DIRS for part in parts) or skipped_path or relative.name.lower() in SKIP_FILES or relative.name.lower().endswith(".tmp.txt") or relative.suffix.lower() in {".pyc", ".pyo"}
 
 
 def write_checksum(archive: Path) -> None:

@@ -2,6 +2,25 @@
   "schemaVersion": 1,
   "releases": [
     {
+      "id": "2026-11-12-pokemon-booster-1",
+      "date": "2026-11-12",
+      "title": "Des boosters Pokémon authentiques",
+      "summary": "Les ouvertures affichent les vrais emballages et la barre d’espace révèle la carte suivante.",
+      "changes": [
+        {
+          "area": "Boosters Pokémon",
+          "text": "Les visuels de paquets des 136 extensions sont intégrés localement en WebP ; les galeries liées réutilisent l’emballage de leur extension parente."
+        },
+        {
+          "area": "Ouverture",
+          "text": "La barre d’espace révèle la carte suivante sans faire défiler la page ; le bouton rappelle aussi le raccourci."
+        }
+      ],
+      "limits": [
+        "Quelques collections spéciales réutilisent le visuel du booster parent lorsqu’elles ne possèdent pas d’emballage commercial distinct."
+      ]
+    },
+    {
       "id": "2026-11-11-css-release-1",
       "date": "2026-11-11",
       "title": "Un atelier mieux rangé et des planètes animées",

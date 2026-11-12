@@ -25,6 +25,23 @@
 :host([mode="static"]) .tcg-card.tcg-card.tcg-card,:host([mode="static"]) .tcg-card.tcg-card.tcg-card *,:host([mode="static"]) .tcg-card.tcg-card.tcg-card::before,:host([mode="static"]) .tcg-card.tcg-card.tcg-card::after,:host([mode="static"]) .tcg-card.tcg-card.tcg-card *::before,:host([mode="static"]) .tcg-card.tcg-card.tcg-card *::after{animation:none!important;transition:none!important}
 @media(prefers-reduced-motion:reduce){:host .tcg-card.tcg-card.tcg-card,:host .tcg-card.tcg-card.tcg-card *,:host .tcg-card.tcg-card.tcg-card::before,:host .tcg-card.tcg-card.tcg-card::after,:host .tcg-card.tcg-card.tcg-card *::before,:host .tcg-card.tcg-card.tcg-card *::after{animation:none!important;transition:none!important}}
 
+/* Rendu unifié demandé : pleine illustration, identité lisible, bordure simple par rareté. */
+:host .tcg-card.tcg-card--unified{position:relative;overflow:hidden;border:1px solid var(--unified-border,#aeb7c5)!important;border-radius:12px!important;background:#171820!important;box-shadow:0 5px 14px #0008!important;animation:none!important;transition:transform .16s ease,box-shadow .16s ease!important}
+:host .tcg-card.tcg-card--unified:hover{transform:translateY(-2px)!important;box-shadow:0 8px 20px #0009!important}
+:host .tcg-card.tcg-card--unified::before,:host .tcg-card.tcg-card--unified::after,:host .tcg-card.tcg-card--unified .tcg-card__inner::before,:host .tcg-card.tcg-card--unified .tcg-card__inner::after{content:none!important;display:none!important}
+:host .tcg-card.tcg-card--unified .tcg-card__art{position:absolute;inset:0;border:0;border-radius:0;background:linear-gradient(145deg,#242532,#12131a)!important;box-shadow:none!important;clip-path:none!important}
+:host .tcg-card.tcg-card--unified .tcg-card__art .booster-card-image{object-fit:cover;object-position:center 28%;background:transparent}
+:host .tcg-card.tcg-card--unified .tcg-card__inner{position:absolute;inset:0;padding:9px 10px;border:0;border-radius:0;outline:0;background:linear-gradient(180deg,#05060bc9 0%,#07080d38 18%,transparent 46%,#08091055 76%,#05060bd9 100%);gap:4px;justify-content:space-between}
+:host .tcg-card.tcg-card--unified .tcg-card__head{align-items:center;gap:5px;min-width:0}
+:host .tcg-card.tcg-card--unified .tcg-card__head .lft{min-width:0;gap:4px}
+:host .tcg-card.tcg-card--unified .tcg-card__name{font:800 clamp(9px,2.8vw,14px)/1.05 var(--f-title,system-ui)!important;letter-spacing:0!important;max-height:2.15em!important;color:#101014!important;-webkit-text-stroke:.35px #fff!important;text-shadow:0 1px 3px #000!important}
+:host .tcg-card.tcg-card--unified .tcg-card__hp{flex:none;padding:2px 4px;border:1px solid #ffffff80;border-radius:6px;background:#101117b8;color:#fff;font:700 clamp(8px,2.1vw,11px)/1 var(--f-ui,system-ui)!important;letter-spacing:0;white-space:nowrap}
+:host .tcg-card.tcg-card--unified .tcg-badge{width:23px;height:23px;flex:0 0 23px;margin:0;border:1px solid #ffffffa6;background:#090a0fc9;box-shadow:none;backdrop-filter:none;color:#fff;font:700 7px/1 var(--f-ui,system-ui);text-align:center}
+:host .tcg-card.tcg-card--unified .tcg-card__foot{font:600 7px/1.1 var(--f-ui,system-ui);letter-spacing:.06em;opacity:.94;text-shadow:0 1px 3px #000;gap:4px}
+:host .tcg-card.tcg-card--unified .tcg-card__art .card-art-placeholder{background:linear-gradient(145deg,#252633,#13141a);font-size:11px}
+:host .tcg-card.tcg-card--unified .tcg-card__art .card-art-placeholder b{font-size:12px}
+:host .tcg-card.tcg-card--unified .tcg-card__art .card-art-placeholder small{font-size:9px}
+
 .tcg-move-name{flex-basis:0;min-width:0!important;max-width:100%;overflow:hidden;max-height:2.7em}
 .tcg-en:empty,.tcg-skill__row em:empty{display:none!important}
 .tcg-skill__row em{min-width:0!important;max-width:25%;flex:0 0 auto;font-size:clamp(8px,1em,18px)}

@@ -1,3 +1,8 @@
+# 1.0.51 — 12 novembre 2026
+
+- Révèle la carte suivante d’un booster avec la barre d’espace, sans faire défiler la page.
+- Affiche les vrais visuels de paquets Pokémon pour les 136 extensions, en WebP local pour rester rapide et disponible hors ligne.
+
 # 1.0.48 — 11 novembre 2026
 
 - Relance les planètes et leurs effets après une reconstruction de la vue, y compris avec la préférence système de réduction des animations.

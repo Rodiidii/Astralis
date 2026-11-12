@@ -1,0 +1,371 @@
+{
+  "schemaVersion": 1,
+  "rarities": [
+    "common",
+    "epic",
+    "rare",
+    "super"
+  ],
+  "fallbacks": {
+    "gi-char-aether-epic": {
+      "cardId": "gi-char-aether-epic",
+      "identity": "gi:aether",
+      "rarity": "epic",
+      "src": "/assets/genshin/splashes/10000005.webp",
+      "pixelSha256": "c32d904e3a20603004bd39fb70054607d3befa6ac9fbc274585949eb86e2f0e9",
+      "dhash": "686bcac8e0f07030",
+      "sha256": "0629ca68a0b82f749be4510041d008f1686aad1e8462923de668b7a981182310",
+      "width": 1198,
+      "height": 1350,
+      "focal": [
+        50,
+        35
+      ],
+      "sourceType": "official-in-game-splash-low-rarity",
+      "sourceUrl": "https://enka.network/ui/UI_Gacha_AvatarImg_PlayerBoy.png",
+      "sourceVerifiedBy": "Illustration officielle intégrée au jeu, copie locale issue de l’index d’assets Enka; SHA-256 du fichier contrôlé."
+    },
+    "gi-char-aloy-epic": {
+      "cardId": "gi-char-aloy-epic",
+      "identity": "gi:aloy",
+      "rarity": "epic",
+      "src": "/assets/genshin/splashes/10000062.webp",
+      "pixelSha256": "d0f0298737b1e5fa90336c562c9e4e9a1f364673bf5decd749e8f15269db49bc",
+      "dhash": "76b3a86d6d068e4c",
+      "sha256": "3e8cb9cbb97da2469e200038382584870b6b81b4b7369f663a421485f19be1ad",
+      "width": 1600,
+      "height": 800,
+      "focal": [
+        50,
+        35
+      ],
+      "sourceType": "official-in-game-splash-low-rarity",
+      "sourceUrl": "https://enka.network/ui/UI_Gacha_AvatarImg_Aloy.png",
+      "sourceVerifiedBy": "Illustration officielle intégrée au jeu, copie locale issue de l’index d’assets Enka; SHA-256 du fichier contrôlé."
+    },
+    "gi-char-charlotte-common": {
+      "cardId": "gi-char-charlotte-common",
+      "identity": "gi:charlotte",
+      "rarity": "common",
+      "src": "/assets/genshin/splashes/10000088.webp",
+      "pixelSha256": "7bcfc76c9a05ca8ef97538f8cb486a2cb4e171256b432c1c20ae753ce0842a0b",
+      "dhash": "0c8c565691493618",
+      "sha256": "c52bfa86e0b5181f351bc664bc55a5f188326f0b97d0a4872b3f8043b2951b15",
+      "width": 1600,
+      "height": 800,
+      "focal": [
+        50,
+        35
+      ],
+      "sourceType": "official-in-game-splash-low-rarity",
+      "sourceUrl": "https://enka.network/ui/UI_Gacha_AvatarImg_Charlotte.png",
+      "sourceVerifiedBy": "Illustration officielle intégrée au jeu, copie locale issue de l’index d’assets Enka; SHA-256 du fichier contrôlé."
+    },
+    "gi-char-citlali-common": {
+      "cardId": "gi-char-citlali-common",
+      "identity": "gi:citlali",
+      "rarity": "common",
+      "src": "/assets/genshin/splashes/10000107.webp",
+      "pixelSha256": "6caaacf388a055ab4637e94cb877a8d5596347f483492e3b49c15c6c67ab68ab",
+      "dhash": "767a78592bf37194",
+      "sha256": "d81073e4ef2b761f916565df51c504d3aab0eae9c0cf68cc6ab59de72eb82e81",
+      "width": 1600,
+      "height": 800,
+      "focal": [
+        50,
+        35
+      ],
+      "sourceType": "official-in-game-splash-low-rarity",
+      "sourceUrl": "https://enka.network/ui/UI_Gacha_AvatarImg_Citlali.png",
+      "sourceVerifiedBy": "Illustration officielle intégrée au jeu, copie locale issue de l’index d’assets Enka; SHA-256 du fichier contrôlé."
+    },
+    "gi-char-dahlia-super": {
+      "cardId": "gi-char-dahlia-super",
+      "identity": "gi:dahlia",
+      "rarity": "super",
+      "src": "/assets/genshin/splashes/10000115.webp",
+      "pixelSha256": "933b1bdb9b6e090940e480e5f4dd799ed69cb02ebf9c73faee06247118bad403",
+      "dhash": "2e0e1d5c48589c8c",
+      "sha256": "0d891d259177acb7f3a1dc66c8097f1aa5aa4589208a3e0189437bd034b9f828",
+      "width": 1600,
+      "height": 800,
+      "focal": [
+        50,
+        35
+      ],
+      "sourceType": "official-in-game-splash-low-rarity",
+      "sourceUrl": "https://enka.network/ui/UI_Gacha_AvatarImg_Dahlia.png",
+      "sourceVerifiedBy": "Illustration officielle intégrée au jeu, copie locale issue de l’index d’assets Enka; SHA-256 du fichier contrôlé."
+    },
+    "gi-char-durin-super": {
+      "cardId": "gi-char-durin-super",
+      "identity": "gi:durin",
+      "rarity": "super",
+      "src": "/assets/genshin/splashes/10000123.webp",
+      "pixelSha256": "788d7c4db5afa0187bd96be7e4cf28f2ea8947139c66139d4a202a1054b67582",
+      "dhash": "8edae8763333b479",
+      "sha256": "504256874faef222bdfc711f92addfa2b8c5d1d9082ef6faa528b1a2373811ee",
+      "width": 1600,
+      "height": 800,
+      "focal": [
+        50,
+        35
+      ],
+      "sourceType": "official-in-game-splash-low-rarity",
+      "sourceUrl": "https://enka.network/ui/UI_Gacha_AvatarImg_Durin.png",
+      "sourceVerifiedBy": "Illustration officielle intégrée au jeu, copie locale issue de l’index d’assets Enka; SHA-256 du fichier contrôlé."
+    },
+    "gi-char-gaming-common": {
+      "cardId": "gi-char-gaming-common",
+      "identity": "gi:gaming",
+      "rarity": "common",
+      "src": "/assets/genshin/splashes/10000092.webp",
+      "pixelSha256": "ea3684a16c986b50fc3bdc4c3406297562e91b2ff0ba0e2f9fd3824b22a1a8df",
+      "dhash": "4869694c02480236",
+      "sha256": "da9c098941cbbad2a97a95abb615101c3e25e56b44dad75f1c6c42edd55bc4aa",
+      "width": 1600,
+      "height": 800,
+      "focal": [
+        50,
+        35
+      ],
+      "sourceType": "official-in-game-splash-low-rarity",
+      "sourceUrl": "https://enka.network/ui/UI_Gacha_AvatarImg_Gaming.png",
+      "sourceVerifiedBy": "Illustration officielle intégrée au jeu, copie locale issue de l’index d’assets Enka; SHA-256 du fichier contrôlé."
+    },
+    "gi-char-ineffa-super": {
+      "cardId": "gi-char-ineffa-super",
+      "identity": "gi:ineffa",
+      "rarity": "super",
+      "src": "/assets/genshin/splashes/10000116.webp",
+      "pixelSha256": "fdf81fe828324705ecd99e7e86df2bce4b71dbcb64ff2c95a97df20c3fb2018b",
+      "dhash": "607070706c687030",
+      "sha256": "f2a5a5d4bcf3d9c1faa56d6b9c6cd74e3c929bb171d6170aa954285822e22d66",
+      "width": 1600,
+      "height": 800,
+      "focal": [
+        50,
+        35
+      ],
+      "sourceType": "official-in-game-splash-low-rarity",
+      "sourceUrl": "https://enka.network/ui/UI_Gacha_AvatarImg_Ineffa.png",
+      "sourceVerifiedBy": "Illustration officielle intégrée au jeu, copie locale issue de l’index d’assets Enka; SHA-256 du fichier contrôlé."
+    },
+    "gi-char-jahoda-super": {
+      "cardId": "gi-char-jahoda-super",
+      "identity": "gi:jahoda",
+      "rarity": "super",
+      "src": "/assets/genshin/splashes/10000124.webp",
+      "pixelSha256": "ba6caec364e29ade7f8aea04aa0585e079cb6c5665dd18220f8f01795718e3ad",
+      "dhash": "268e08190e4a6062",
+      "sha256": "6311011b985bc7f32f1b4964e94677767c88d2424ebc18fd4f168893fba8c788",
+      "width": 1600,
+      "height": 800,
+      "focal": [
+        50,
+        35
+      ],
+      "sourceType": "official-in-game-splash-low-rarity",
+      "sourceUrl": "https://enka.network/ui/UI_Gacha_AvatarImg_Jahoda.png",
+      "sourceVerifiedBy": "Illustration officielle intégrée au jeu, copie locale issue de l’index d’assets Enka; SHA-256 du fichier contrôlé."
+    },
+    "gi-char-kachina-common": {
+      "cardId": "gi-char-kachina-common",
+      "identity": "gi:kachina",
+      "rarity": "common",
+      "src": "/assets/genshin/splashes/10000100.webp",
+      "pixelSha256": "e4584208a4ede144b8d949e71c71ac171d2279d671dca404563e053aa4dd31a7",
+      "dhash": "26366969793aa222",
+      "sha256": "c841b8f286067cb24fa07e5c19dc20478bf2528b592262774e9535e429b2d247",
+      "width": 1600,
+      "height": 800,
+      "focal": [
+        50,
+        35
+      ],
+      "sourceType": "official-in-game-splash-low-rarity",
+      "sourceUrl": "https://enka.network/ui/UI_Gacha_AvatarImg_Kachina.png",
+      "sourceVerifiedBy": "Illustration officielle intégrée au jeu, copie locale issue de l’index d’assets Enka; SHA-256 du fichier contrôlé."
+    },
+    "gi-char-lan-yan-super": {
+      "cardId": "gi-char-lan-yan-super",
+      "identity": "gi:lan-yan",
+      "rarity": "super",
+      "src": "/assets/genshin/splashes/10000108.webp",
+      "pixelSha256": "125119fca225e4b8bc271fe7a0c782e2c3dc7d4372d89d959f59c77b79e70d8e",
+      "dhash": "4aba7849880c0e58",
+      "sha256": "4dc71d4e90603f7bd02473aff506e46653c9255a3c2352179481e12eab56ac91",
+      "width": 1600,
+      "height": 800,
+      "focal": [
+        50,
+        35
+      ],
+      "sourceType": "official-in-game-splash-low-rarity",
+      "sourceUrl": "https://enka.network/ui/UI_Gacha_AvatarImg_Lanyan.png",
+      "sourceVerifiedBy": "Illustration officielle intégrée au jeu, copie locale issue de l’index d’assets Enka; SHA-256 du fichier contrôlé."
+    },
+    "gi-char-lumine-epic": {
+      "cardId": "gi-char-lumine-epic",
+      "identity": "gi:lumine",
+      "rarity": "epic",
+      "src": "/assets/genshin/splashes/10000007.webp",
+      "pixelSha256": "84938b239eee37da76960920ae46395cda2e9e02fd21b27f9645107cbd3f259e",
+      "dhash": "143539f83a383818",
+      "sha256": "d44b0c14083cde775e87e7de23b32178b621e81b534de98f993d9633cdc0036c",
+      "width": 1031,
+      "height": 1200,
+      "focal": [
+        50,
+        35
+      ],
+      "sourceType": "official-in-game-splash-low-rarity",
+      "sourceUrl": "https://enka.network/ui/UI_Gacha_AvatarImg_PlayerGirl.png",
+      "sourceVerifiedBy": "Illustration officielle intégrée au jeu, copie locale issue de l’index d’assets Enka; SHA-256 du fichier contrôlé."
+    },
+    "gi-char-mavuika-super": {
+      "cardId": "gi-char-mavuika-super",
+      "identity": "gi:mavuika",
+      "rarity": "super",
+      "src": "/assets/genshin/splashes/10000106.webp",
+      "pixelSha256": "e926f5a0712abbf513e881f6342c7e9bca1ca189f078fded4385a1b769e7e7a4",
+      "dhash": "c6ce4c494868e0e0",
+      "sha256": "13516cfd184194069531d08b8dbb26627e7d5d239ec912647eb1ab53e81da7d4",
+      "width": 1600,
+      "height": 800,
+      "focal": [
+        50,
+        35
+      ],
+      "sourceType": "official-in-game-splash-low-rarity",
+      "sourceUrl": "https://enka.network/ui/UI_Gacha_AvatarImg_Mavuika.png",
+      "sourceVerifiedBy": "Illustration officielle intégrée au jeu, copie locale issue de l’index d’assets Enka; SHA-256 du fichier contrôlé."
+    },
+    "gi-char-mualani-common": {
+      "cardId": "gi-char-mualani-common",
+      "identity": "gi:mualani",
+      "rarity": "common",
+      "src": "/assets/genshin/splashes/10000102.webp",
+      "pixelSha256": "debf384224f66530c0bfab388143056d752b445d4310b23d4d015879a1aa1c19",
+      "dhash": "2767474d96343c6c",
+      "sha256": "88d91dcba0530b401cf848ddae776e09108937b68b28fa840a92351ae94e2ea7",
+      "width": 1600,
+      "height": 800,
+      "focal": [
+        50,
+        35
+      ],
+      "sourceType": "official-in-game-splash-low-rarity",
+      "sourceUrl": "https://enka.network/ui/UI_Gacha_AvatarImg_Mualani.png",
+      "sourceVerifiedBy": "Illustration officielle intégrée au jeu, copie locale issue de l’index d’assets Enka; SHA-256 du fichier contrôlé."
+    },
+    "gi-char-nefer-super": {
+      "cardId": "gi-char-nefer-super",
+      "identity": "gi:nefer",
+      "rarity": "super",
+      "src": "/assets/genshin/splashes/10000122.webp",
+      "pixelSha256": "661795a0b461c74036eae73b4c5fd63532215f7078c7fa061df5ca2992d78cb6",
+      "dhash": "e8ec647174060c5c",
+      "sha256": "8a482ec676bf850d0aacfaa8d33e41907ba51d6715ada3270dead385fd973cc9",
+      "width": 1600,
+      "height": 800,
+      "focal": [
+        50,
+        35
+      ],
+      "sourceType": "official-in-game-splash-low-rarity",
+      "sourceUrl": "https://enka.network/ui/UI_Gacha_AvatarImg_Nefer.png",
+      "sourceVerifiedBy": "Illustration officielle intégrée au jeu, copie locale issue de l’index d’assets Enka; SHA-256 du fichier contrôlé."
+    },
+    "gi-char-ororon-common": {
+      "cardId": "gi-char-ororon-common",
+      "identity": "gi:ororon",
+      "rarity": "common",
+      "src": "/assets/genshin/splashes/10000105.webp",
+      "pixelSha256": "598d33cb86b238e9cc5e591605546f13a9a566fd81b8ead555b50d755fbad34f",
+      "dhash": "0c0c2c4e4c6663a0",
+      "sha256": "9e0deee39e7286832233d9116b2bfab3e12bd1438d7931908f9b958072053022",
+      "width": 1600,
+      "height": 800,
+      "focal": [
+        50,
+        35
+      ],
+      "sourceType": "official-in-game-splash-low-rarity",
+      "sourceUrl": "https://enka.network/ui/UI_Gacha_AvatarImg_Olorun.png",
+      "sourceVerifiedBy": "Illustration officielle intégrée au jeu, copie locale issue de l’index d’assets Enka; SHA-256 du fichier contrôlé."
+    },
+    "gi-char-sigewinne-common": {
+      "cardId": "gi-char-sigewinne-common",
+      "identity": "gi:sigewinne",
+      "rarity": "common",
+      "src": "/assets/genshin/splashes/10000095.webp",
+      "pixelSha256": "dfd1f41d85df0232598a643102b9b62366e6254e3c66614d2af42db7db6409ac",
+      "dhash": "48736f88b030068e",
+      "sha256": "606840f28229eaa99564117271f6a328b62a68f9c2eade244ff8c86ff201cb98",
+      "width": 1600,
+      "height": 800,
+      "focal": [
+        50,
+        35
+      ],
+      "sourceType": "official-in-game-splash-low-rarity",
+      "sourceUrl": "https://enka.network/ui/UI_Gacha_AvatarImg_Sigewinne.png",
+      "sourceVerifiedBy": "Illustration officielle intégrée au jeu, copie locale issue de l’index d’assets Enka; SHA-256 du fichier contrôlé."
+    },
+    "gi-char-skirk-common": {
+      "cardId": "gi-char-skirk-common",
+      "identity": "gi:skirk",
+      "rarity": "common",
+      "src": "/assets/genshin/splashes/10000114.webp",
+      "pixelSha256": "1986d89a9686e270b5d37cbe6e9d89cec308cef82751249d0ea029b5a9599f34",
+      "dhash": "6a2c8494361684ce",
+      "sha256": "599d9336ebbc54d14f652076232de99a6e35dfe27d698a20caf7df84c151bc93",
+      "width": 1600,
+      "height": 800,
+      "focal": [
+        50,
+        35
+      ],
+      "sourceType": "official-in-game-splash-low-rarity",
+      "sourceUrl": "https://enka.network/ui/UI_Gacha_AvatarImg_SkirkNew.png",
+      "sourceVerifiedBy": "Illustration officielle intégrée au jeu, copie locale issue de l’index d’assets Enka; SHA-256 du fichier contrôlé."
+    },
+    "gi-char-varesa-common": {
+      "cardId": "gi-char-varesa-common",
+      "identity": "gi:varesa",
+      "rarity": "common",
+      "src": "/assets/genshin/splashes/10000111.webp",
+      "pixelSha256": "7994b74625396b5ca62e055a7eece17807ef2c3f758cfb51b2414473b862a736",
+      "dhash": "7c3131302226b131",
+      "sha256": "c0c2c6fbbf3b585768399f98a5240bd538541a168d0b8670a808ed0c6c510baa",
+      "width": 1600,
+      "height": 800,
+      "focal": [
+        50,
+        35
+      ],
+      "sourceType": "official-in-game-splash-low-rarity",
+      "sourceUrl": "https://enka.network/ui/UI_Gacha_AvatarImg_Varesa.png",
+      "sourceVerifiedBy": "Illustration officielle intégrée au jeu, copie locale issue de l’index d’assets Enka; SHA-256 du fichier contrôlé."
+    },
+    "gi-char-xilonen-common": {
+      "cardId": "gi-char-xilonen-common",
+      "identity": "gi:xilonen",
+      "rarity": "common",
+      "src": "/assets/genshin/splashes/10000103.webp",
+      "pixelSha256": "b9d5745092aab6aae30d9661587e219f183f0af3bf082d5a118abcde0f62a5e8",
+      "dhash": "0049d91e0c38b090",
+      "sha256": "869aae411ee1e8b4c3be712fd3d51ca0e047bf59888df961217d3ebe7d5c55ea",
+      "width": 1600,
+      "height": 800,
+      "focal": [
+        50,
+        35
+      ],
+      "sourceType": "official-in-game-splash-low-rarity",
+      "sourceUrl": "https://enka.network/ui/UI_Gacha_AvatarImg_Xilonen.png",
+      "sourceVerifiedBy": "Illustration officielle intégrée au jeu, copie locale issue de l’index d’assets Enka; SHA-256 du fichier contrôlé."
+    }
+  }
+}
