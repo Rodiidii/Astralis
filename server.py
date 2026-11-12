@@ -126,6 +126,12 @@ def _set_update_status(**values: object) -> None:
     with _UPDATE_LOCK:
         _UPDATE_STATUS = {**_UPDATE_STATUS, **values, "updatedAt":time.time()}
 
+def _update_archive_paths(updates: Path, download_name: str) -> tuple[Path, Path]:
+    """Give each download private paths so Windows never has to overwrite a locked prior ZIP."""
+    token = secrets.token_hex(8)
+    safe_name = Path(download_name).name or "Astralis-Update.zip"
+    return updates / f"{safe_name}.{token}.part", updates / f"Astralis-Update-{token}.zip"
+
 def _download_update(repo: str, tag: str, from_version: str) -> None:
     global _UPDATE_STATUS
     try:
@@ -139,7 +145,7 @@ def _download_update(repo: str, tag: str, from_version: str) -> None:
         updates.mkdir(parents=True, exist_ok=True)
         patch = next((item for item in release.get("patches", []) if item.get("fromVersion") == from_version), None)
         selected = patch if patch else {"name":"Astralis-Update.zip", "url":release["url"], "digest":release.get("digest"), "checksumUrl":release.get("checksumUrl"), "size":0}
-        archive = updates / (str(selected["name"]) + ".part")
+        archive, final_archive = _update_archive_paths(updates, str(selected["name"]))
         digest = hashlib.sha256()
         total_bytes = int(selected.get("size") or 0)
         _set_update_status(state="downloading", message="Téléchargement des fichiers modifiés…" if patch else "Téléchargement de l’archive complète…", error="", tag=tag, downloadName=selected["name"], receivedBytes=0, totalBytes=total_bytes, percent=0, differential=bool(patch))
@@ -164,7 +170,6 @@ def _download_update(repo: str, tag: str, from_version: str) -> None:
         if not expected or not secrets.compare_digest(actual, expected):
             archive.unlink(missing_ok=True)
             raise ValueError("La vérification SHA-256 a échoué. Aucun fichier n’a été modifié.")
-        final_archive = updates / "Astralis-Update.zip"
         archive.replace(final_archive)
         _set_update_status(state="staged", message=("Mise à jour différentielle vérifiée. Préparation…" if patch else "Archive complète vérifiée. Préparation…"), error="", percent=100)
         helper = root / "scripts" / "apply_update.py"

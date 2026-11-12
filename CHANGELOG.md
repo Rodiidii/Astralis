@@ -1,3 +1,7 @@
+# 1.0.52 — 12 novembre 2026
+
+- Évite les refus d’accès Windows pendant le téléchargement des mises à jour en utilisant un nom d’archive temporaire et final unique à chaque tentative.
+
 # 1.0.51 — 12 novembre 2026
 
 - Révèle la carte suivante d’un booster avec la barre d’espace, sans faire défiler la page.

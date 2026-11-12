@@ -2,6 +2,19 @@
   "schemaVersion": 1,
   "releases": [
     {
+      "id": "2026-11-12-update-staging-1",
+      "date": "2026-11-12",
+      "title": "Mise à jour Windows plus fiable",
+      "summary": "Chaque téléchargement utilise ses propres fichiers temporaires pour éviter le verrouillage d’une ancienne archive.",
+      "changes": [
+        {
+          "area": "Mise à jour",
+          "text": "Le téléchargement ne remplace plus un fichier Astralis-Update.zip existant ; les anciennes archives ouvertes ou verrouillées ne bloquent plus l’installation."
+        }
+      ],
+      "limits": []
+    },
+    {
       "id": "2026-11-12-pokemon-booster-1",
       "date": "2026-11-12",
       "title": "Des boosters Pokémon authentiques",
