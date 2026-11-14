@@ -354,23 +354,24 @@ export function imageSet(game, item, category = item?._category || 'character') 
   const id = encodeURIComponent(item?._id || '');
   if (game === 'hsr') {
     const prefix = 'https://vizualabstract.github.io/StarRailStaticAPI/assets/';
-    const fields = category === 'character' ? [item?.portrait, item?.preview, item?.icon] : [item?.icon, item?.preview, item?.portrait];
-    const urls = fields.filter(Boolean).map(path => path.startsWith('http') ? path : prefix + path);
-    if (category === 'character' && /^\d+$/.test(String(item?._id || ''))) {
-      const id = encodeURIComponent(item._id);
-      urls.push(`https://raw.githubusercontent.com/Mar-7th/StarRailRes/master/image/character_portrait/${id}.png`);
-      urls.push(`https://raw.githubusercontent.com/Mar-7th/StarRailRes/master/image/character_preview/${id}.png`);
+    const rawId=String(item?._id||item?.id||''),assetPath=path=>{
+      if(!path)return '';
+      if(/^https?:\/\//i.test(path))return path;
+      if(path.startsWith('SpriteOutput/'))return '';
+      if(path.startsWith('icon/')||path.startsWith('image/'))return prefix+path;
+      return '';
+    };
+    const urls=[];
+    // Small, square game icons are the first choice for widgets and lists.
+    // Nanoka's `icon` slug (e.g. "mar7th") is an identifier, not an image path.
+    if(/^\d+$/.test(rawId)){
+      const id=encodeURIComponent(rawId);
+      if(category==='character')urls.push(`${prefix}icon/character/${id}.png`,`${prefix}image/character_preview/${id}.png`,`${prefix}image/character_portrait/${id}.png`,`https://static.nanoka.cc/assets/hsr/avatarshopicon/${id}.webp`,`https://raw.githubusercontent.com/Mar-7th/StarRailRes/master/image/character_preview/${id}.png`);
+      else if(category==='weapon')urls.push(`${prefix}icon/light_cone/${id}.png`,`${prefix}image/light_cone_preview/${id}.png`,`${prefix}image/light_cone_portrait/${id}.png`,`https://static.nanoka.cc/assets/hsr/lightconemediumicon/${id}.webp`);
+      else if(category==='artifact')urls.push(`${prefix}icon/relic/${id}.png`);
+      else if(category==='material')urls.push(`${prefix}icon/item/${id}.png`);
     }
-    if (item?.nanokaIcon) {
-      const assetType = category === 'character' ? 'avatarshopicon' : 'lightconemediumicon';
-      urls.push(`https://static.nanoka.cc/assets/hsr/${assetType}/${encodeURIComponent(item._id)}.webp`);
-    }
-    // Nanoka remains as an icon fallback; StarRailStaticAPI/StarRailRes keep
-    // priority for the established character portraits. Its kit data is unchanged.
-    // StarRailRes keeps portraits keyed by the same stable game ID.
-    if (category === 'weapon' && /^\d+$/.test(String(item?._id || ''))) {
-      urls.push(`https://raw.githubusercontent.com/Mar-7th/StarRailRes/master/image/light_cone_portrait/${encodeURIComponent(item._id)}.png`);
-    }
+    for(const candidate of [item?.icon,item?.portrait,item?.preview,item?.item_figure_icon_path,item?.itemIconPath]){const url=assetPath(candidate);if(url)urls.push(url)}
     return [...new Set(urls)];
   }
   if (game === 'gi') {

@@ -9,7 +9,7 @@ import { prepareArtifactPools } from './optimizer.js';
 import { renderLabWorkspace, renderLabResults, LAB_STAT_LABELS, labStatValue } from './lab-view.js?v=84';
 import { renderGameText, skillValuesAtLevel } from './character-content.js?v=20261109-rich-text-1';
 import { ARTIFACT_SLOTS, ARTIFACT_SLOT_LABELS, normalizeGoodArtifact, validateArtifact, usableArtifact, parseArtifactInventory, artifactSignature, artifactImportDelta, ARTIFACT_SUBSTAT_ROLLS, statVector } from './artifact-model.js?v=20261110-builds-3';
-import { getCharacterPriority, setCharacterPriority, movePriority, positionPriority, priorityArtifactPool, getPriorityConfig, setPriorityConfig } from './priority-list.js';
+import { getCharacterPriority, setCharacterPriority, movePriority, positionPriority, priorityArtifactPool, getPriorityConfig, setPriorityConfig } from './priority-list.js?v=20261113-priority-1';
 import { characterDetails, skillList } from './data.js?v=84';
 import { finalStats } from './damage-engine.js';
 

@@ -36,7 +36,8 @@
 :host .tcg-card.tcg-card--unified .tcg-card__head .lft{min-width:0;gap:4px}
 :host .tcg-card.tcg-card--unified .tcg-card__name{font:800 clamp(9px,2.8vw,14px)/1.05 var(--f-title,system-ui)!important;letter-spacing:0!important;max-height:2.15em!important;color:#101014!important;-webkit-text-stroke:.35px #fff!important;text-shadow:0 1px 3px #000!important}
 :host .tcg-card.tcg-card--unified .tcg-card__hp{flex:none;padding:2px 4px;border:1px solid #ffffff80;border-radius:6px;background:#101117b8;color:#fff;font:700 clamp(8px,2.1vw,11px)/1 var(--f-ui,system-ui)!important;letter-spacing:0;white-space:nowrap}
-:host .tcg-card.tcg-card--unified .tcg-badge{width:23px;height:23px;flex:0 0 23px;margin:0;border:1px solid #ffffffa6;background:#090a0fc9;box-shadow:none;backdrop-filter:none;color:#fff;font:700 7px/1 var(--f-ui,system-ui);text-align:center}
+:host .tcg-card.tcg-card--unified .tcg-badge{width:23px;height:23px;flex:0 0 23px;margin:0;border:1px solid #ffffffa6;background:#090a0fc9;box-shadow:none;backdrop-filter:none;color:#fff;font:700 7px/1 var(--f-ui,system-ui);text-align:center;display:grid;place-items:center;box-sizing:border-box;line-height:0;overflow:hidden}
+:host .tcg-card.tcg-card--unified .tcg-badge>img{display:block;width:100%;height:100%;max-width:100%;max-height:100%;object-fit:contain;object-position:center;flex:none}
 :host .tcg-card.tcg-card--unified .tcg-card__foot{font:600 7px/1.1 var(--f-ui,system-ui);letter-spacing:.06em;opacity:.94;text-shadow:0 1px 3px #000;gap:4px}
 :host .tcg-card.tcg-card--unified .tcg-card__art .card-art-placeholder{background:linear-gradient(145deg,#252633,#13141a);font-size:11px}
 :host .tcg-card.tcg-card--unified .tcg-card__art .card-art-placeholder b{font-size:12px}

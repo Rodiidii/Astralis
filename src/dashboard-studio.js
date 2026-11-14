@@ -1,11 +1,11 @@
 import {travelTo} from './dashboard-voyage.js?v=20261111-moon-orbits-1';
-import {renderFeature} from './dashboard-features.js?v=20261110-voyage-5';
+import {renderFeature} from './dashboard-features.js?v=20261114-routine-heatmap-1';
 import { ic } from './icons.js';
 import './cosmos-planet.js?v=20261111-planet-reconnect-motion-1';
 const esc=value=>String(value??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const read=(key,fallback)=>{try{return JSON.parse(localStorage.getItem(key))??fallback}catch{return fallback}};
-export const WIDGETS={banners:'Bannières',week:'La semaine',wishes:'Objectif de vœux',team:'Daily Challenge',session:'Ma session',events:'Événements à venir',progress:'Préparation des personnages',wall:'Mon build Enka',endgame:'Prochain endgame',farm:'Farm & ressources',favorites:'Favoris'};
-const defaults=['week','banners','wishes','team','session','events','progress','wall','endgame'];
+export const WIDGETS={banners:'Bannières',week:'La semaine',wishes:'Objectif de vœux',team:'Daily Challenge',session:'Ma session',routine:'Rituels & objectifs',events:'Événements à venir',progress:'Préparation des personnages',wall:'Mon build Enka',endgame:'Prochain endgame',farm:'Farm & ressources',favorites:'Favoris'};
+const defaults=['week','banners','wishes','team','session','routine','events','progress','wall','endgame'];
 export function defaultLayout(){return {name:'Mon observatoire',widgets:defaults.map(id=>({id,width:['week','banners','wall'].includes(id)?2:1,height:0,hidden:false}))};}
 export function normalizeLayout(layout){const seen=new Set();return {name:String(layout?.name||'Disposition').slice(0,50),widgets:(Array.isArray(layout?.widgets)?layout.widgets:defaultLayout().widgets).filter(w=>w.id!=='companion'&&WIDGETS[w.id]&&!seen.has(w.id)&&seen.add(w.id)).map(w=>({id:w.id,width:Math.max(1,Math.min(3,Number(w.width)||1)),height:Math.max(0,Math.min(900,Number(w.height)||0)),hidden:!!w.hidden}))};}
 function load(game){const saved=read(`astralis:studio:${game}`,null);if(!saved?.layouts?.length)return {active:0,layouts:[defaultLayout()]};return {active:Math.min(Math.max(0,saved.active||0),saved.layouts.length-1),layouts:saved.layouts.map(normalizeLayout)};}

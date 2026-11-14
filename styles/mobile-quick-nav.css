@@ -1,0 +1,102 @@
+.mobile-quick-nav{display:none}
+.app-frame[data-active-game="gi"] .game-tab[data-game="gi"] .game-tab-mark,
+.app-frame[data-active-game="gi"] .game-choice[data-game="gi"] .game-choice-mark{transition:transform .28s cubic-bezier(.2,.8,.2,1),filter .28s ease}
+.app-frame[data-active-game="gi"] .game-tab[data-game="gi"]:hover .game-tab-mark,
+.app-frame[data-active-game="gi"] .game-choice[data-game="gi"]:hover .game-choice-mark{transform:rotate(-9deg) scale(1.09);filter:drop-shadow(0 0 7px color-mix(in srgb,var(--accent),transparent 30%))}
+.app-frame[data-active-game="gi"] .game-tab[data-game="gi"].active .game-tab-mark{animation:giMarkArrive .52s cubic-bezier(.18,.8,.25,1) both}
+@keyframes giMarkArrive{0%{transform:scale(.82) rotate(-12deg);filter:brightness(1.4)}65%{transform:scale(1.12) rotate(4deg)}100%{transform:scale(1) rotate(0)}}
+@media(max-width:760px){
+  .side-rail .rail-nav{display:none!important}
+  .mobile-quick-nav{position:fixed;z-index:8500;right:max(10px,env(safe-area-inset-right));bottom:0;left:max(10px,env(safe-area-inset-left));width:auto;max-width:560px;margin-inline:auto;padding:6px 6px calc(6px + env(safe-area-inset-bottom));display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:4px;border:1px solid color-mix(in srgb,var(--accent),white 18%);border-radius:20px;background:color-mix(in srgb,var(--surface),#101019 16%);box-shadow:0 12px 44px #0009,0 0 30px color-mix(in srgb,var(--accent),transparent 88%);backdrop-filter:blur(22px) saturate(1.35);-webkit-backdrop-filter:blur(22px) saturate(1.35)}
+  .mobile-quick-nav button{min-width:0;min-height:54px;display:grid;align-content:center;justify-items:center;gap:3px;padding:5px 2px;border:1px solid transparent;border-radius:14px;background:transparent;color:var(--muted);cursor:pointer;-webkit-tap-highlight-color:transparent;transition:background .18s ease,color .18s ease,transform .18s ease}
+  .mobile-quick-nav button>span{font:700 21px/1 system-ui,sans-serif;color:currentColor}
+  .mobile-quick-nav button>small{max-width:100%;overflow:hidden;font:650 9px/1.2 system-ui,sans-serif;text-overflow:ellipsis;white-space:nowrap}
+  .mobile-quick-nav button:hover{color:var(--ink);background:color-mix(in srgb,var(--accent),transparent 90%)}
+  .mobile-quick-nav button:active{transform:scale(.94)}
+  .mobile-quick-nav button.is-active{border-color:color-mix(in srgb,var(--accent),transparent 65%);background:linear-gradient(145deg,color-mix(in srgb,var(--accent),transparent 82%),color-mix(in srgb,var(--surface-2),transparent 16%));color:var(--ink);box-shadow:inset 0 1px #ffffff14,0 3px 12px #0003}
+  .mobile-quick-nav button.is-active>span{color:var(--accent);filter:drop-shadow(0 0 7px color-mix(in srgb,var(--accent),transparent 50%))}
+  .mobile-quick-nav button:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+  .workspace{padding-bottom:calc(92px + env(safe-area-inset-bottom))!important}
+  .side-rail{position:sticky;z-index:20;top:0;flex-flow:row nowrap!important;overflow:hidden}
+  .game-list{min-width:0;flex:1;justify-content:flex-end}
+}
+/* Genshin phone mode: keep the universe switch and two high-value actions;
+   the rest moves to the mobile command palette / quick navigation. */
+@media(max-width:760px){
+  .app-frame[data-active-game="gi"] .topbar{min-height:52px;height:auto;gap:7px;padding:6px 10px;overflow:hidden}
+  .app-frame[data-active-game="gi"] .game-tabs{min-width:0;flex:1;gap:4px;overflow-x:auto;scrollbar-width:none}
+  .app-frame[data-active-game="gi"] .game-tabs .game-tab:not(.active){display:none!important}
+  .app-frame[data-active-game="gi"] .game-tabs::-webkit-scrollbar{display:none}
+  .app-frame[data-active-game="gi"] .game-tab{flex:none;min-height:38px;padding:5px 9px;gap:5px}
+  .app-frame[data-active-game="gi"] .game-tab b{font-size:10px}
+  .app-frame[data-active-game="gi"] .topbar-actions{min-width:0;flex:0 0 auto;gap:5px}
+  .app-frame[data-active-game="gi"] .topbar-actions>[data-action="music-toggle"],
+  .app-frame[data-active-game="gi"] .topbar-actions>[data-soundscape-open],
+  .app-frame[data-active-game="gi"] .topbar-actions>[data-action="import"],
+  .app-frame[data-active-game="gi"] .topbar-actions>[data-action="export"],
+  .app-frame[data-active-game="gi"] .topbar-resources,
+  .app-frame[data-active-game="gi"] .topbar-actions .mobile-install-button{display:none!important}
+  .app-frame[data-active-game="gi"] .topbar-actions .command-open-btn,
+  .app-frame[data-active-game="gi"] .topbar-actions .inbox-open{width:38px;min-width:38px;height:38px;justify-content:center;padding:0;font-size:0}
+  .app-frame[data-active-game="gi"] .topbar-actions .command-open-btn kbd,
+  .app-frame[data-active-game="gi"] .topbar-actions .inbox-open>span:not(.inbox-bell){display:none}
+  .app-frame[data-active-game="gi"] .topbar-actions .command-open-btn{font-size:20px}
+  .app-frame[data-active-game="gi"] .topbar-actions .inbox-open .inbox-bell{font-size:18px}
+  .app-frame[data-active-game="gi"] .topbar-profile{width:38px;min-width:38px;height:38px;justify-content:center;padding:2px;border-radius:50%}
+  .app-frame[data-active-game="gi"] .topbar-profile b{display:none}
+}
+.mobile-sidebar-customize{display:none}
+@media(max-width:420px){
+  .app-frame[data-active-game="gi"] .topbar{padding-inline:6px;gap:4px}
+  .app-frame[data-active-game="gi"] .game-tab{padding-inline:7px}
+  .app-frame[data-active-game="gi"] .game-tab b{font-size:9px}
+  .app-frame[data-active-game="gi"] .topbar-actions{gap:3px}
+}
+@media(max-width:760px){
+  .app-frame .side-rail .rail-label,
+  .app-frame .side-rail>.game-list,
+  .app-frame .side-rail>nav.rail-nav,
+  .app-frame .side-rail>.rail-bottom{display:none!important}
+  .app-frame .side-rail .rail-label{display:none!important}
+  .app-frame .workspace{width:100%;max-width:100vw;min-width:0;overflow-x:hidden}
+  .app-frame .workspace>*{min-width:0;max-width:100%}
+  .app-frame .page-hero{grid-template-columns:minmax(0,1fr);min-width:0;padding:18px}
+  .app-frame .page-hero .hero-stat,.app-frame .page-hero .hero-mark{display:none}
+  .app-frame #page-content>*{max-width:100%;min-width:0;box-sizing:border-box}
+  .app-frame #page-content{width:100%;min-width:0;overflow-x:hidden}
+  .app-frame .dashboard-studio{width:100%!important;max-width:100%!important;min-width:0!important;padding:8px!important;overflow:hidden}
+  .app-frame .dashboard-studio .studio-scene{width:100%;min-width:0;max-width:100%;padding-inline:4px}
+  .app-frame .dashboard-studio .studio-toolbar{display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr));gap:6px;width:100%;max-width:100%;min-width:0;overflow:visible}
+  .app-frame .dashboard-studio .studio-toolbar>*{min-width:0;max-width:100%;box-sizing:border-box}
+  .app-frame .dashboard-studio .studio-toolbar button{width:100%;min-width:0;max-width:100%;white-space:normal}
+  .app-frame .dashboard-studio .studio-toolbar label{grid-column:1/-1;width:100%;min-width:0}
+  .app-frame .dashboard-studio .studio-toolbar select{width:100%;max-width:100%;min-width:0}
+  .app-frame .dashboard-studio .orbit-stage{width:100%;max-width:360px;height:300px;margin-inline:auto;overflow:visible}
+  .app-frame .dashboard-studio .orbit-node{width:64px}
+  .app-frame .dashboard-studio .orbit-node-icon{width:34px;height:34px}
+  .app-frame .dashboard-studio .orbit-panels{width:100%;max-width:100%;min-width:0}
+  .app-frame .dashboard-studio .studio-widget{max-width:100%;min-width:0}
+  .app-frame .topbar .game-tabs .game-tab:not(.active){display:none!important}
+  .app-frame .topbar .topbar-actions>[data-action="music-toggle"],
+  .app-frame .topbar .topbar-actions>[data-soundscape-open],
+  .app-frame .topbar .topbar-actions>[data-action="import"],
+  .app-frame .topbar .topbar-actions>[data-action="export"],
+  .app-frame .topbar .topbar-resources,
+  .app-frame .topbar .topbar-actions .mobile-install-button{display:none!important}
+  .app-frame .topbar .topbar-actions>button.quiet-btn:not(.command-open-btn):not(.inbox-open){display:none!important}
+  .app-frame[data-active-game="gi"]{width:100%;max-width:100vw;overflow-x:clip}
+  .app-frame[data-active-game="gi"] .side-rail .game-list,
+  .app-frame[data-active-game="gi"] .side-rail>.rail-label,
+  .app-frame[data-active-game="gi"] .side-rail>.rail-nav,
+  .app-frame[data-active-game="gi"] .side-rail>.rail-bottom{display:none!important}
+  .app-frame[data-active-game="gi"] .workspace{width:100%;max-width:100vw;min-width:0;overflow-x:hidden}
+  .app-frame[data-active-game="gi"] .workspace>*{min-width:0;max-width:100%}
+  .app-frame[data-active-game="gi"] .page-hero{grid-template-columns:minmax(0,1fr);min-width:0;padding:18px}
+  .app-frame[data-active-game="gi"] .page-hero .hero-stat,
+  .app-frame[data-active-game="gi"] .page-hero .hero-mark{display:none}
+  .app-frame[data-active-game="gi"] #page-content>*{max-width:100%;min-width:0;box-sizing:border-box}
+  .app-frame[data-active-game="gi"] #page-content img{max-width:100%}
+  .mobile-sidebar-customize{display:grid;place-items:center;width:34px;height:34px;flex:0 0 auto;border:1px solid color-mix(in srgb,var(--accent),transparent 64%);border-radius:11px;background:color-mix(in srgb,var(--accent),transparent 88%);color:var(--accent);font-size:17px;cursor:pointer}
+  .app-frame[data-active-game="gi"] .topbar-actions{gap:3px}
+}
+@media(prefers-reduced-motion:reduce){.mobile-quick-nav button,.app-frame[data-active-game="gi"] .game-tab[data-game="gi"] .game-tab-mark,.app-frame[data-active-game="gi"] .game-choice[data-game="gi"] .game-choice-mark{transition:none;animation:none}}

@@ -6,6 +6,14 @@ Les anciennes cases de SUIVI.md ne sont pas un décompte fiable : certaines sont
 
 ## Manques confirmés
 
+### Parité Honkai: Star Rail
+- [ ] Multiplicateurs de talents reliés aux niveaux, Eidolons et données exactes du personnage, au lieu d’une saisie manuelle dans le laboratoire.
+- [ ] Calcul automatique des statistiques depuis le personnage, le cône, les six reliques, les effets de sets, les passifs et buffs d’équipe.
+- [ ] Simulation des conditions de cônes/sets, buffs et debuffs, déclencheurs, vitesses et rotations complètes dans le laboratoire et Calc Sheets.
+- [ ] Progression de farm calculée depuis les coûts/quantités détenus, jours de Calices, boss et matériaux de traces ; agenda auto alimenté par des sources vérifiées.
+- [ ] Compléter Calc Sheets HSR avec les vues, éditeur et exports de la version Genshin. Une première grille de comparaison d’équipes est déjà disponible.
+- [ ] Essais visuels et fonctionnels sur plusieurs builds/imports HSR, appareils et sauvegardes réelles ; les contrôles faits pour la première version sont des rendus synthétiques et des vérifications statiques.
+
 ### Laboratoire et calculs
 - [ ] Yun Jin : bonus de dégâts ajoutés, DEF source dynamique, quotas, éléments d’équipe, constellations et interactions.
 - [ ] Lauma : bonus spécifiques Bloom/Hyperbloom/Burgeon/Lunar-Bloom et leurs conditions/consommations.

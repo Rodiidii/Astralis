@@ -10,6 +10,8 @@ import threading
 import time
 import unicodedata
 import hashlib
+import hmac
+import binascii
 import ipaddress
 import secrets
 import xml.etree.ElementTree as ET
@@ -24,8 +26,10 @@ from urllib.error import URLError
 from urllib.request import Request, urlopen
 from urllib.parse import parse_qs, urlsplit, unquote, urlparse, quote, urlencode, urljoin
 
-HOST = "0.0.0.0"
-PORT = 8766
+HOST = os.environ.get("HOST", "0.0.0.0")
+PORT = int(os.environ.get("PORT", "8766"))
+HOSTED = os.environ.get("ASTRALIS_HOSTED", "").strip().lower() in {"1", "true", "yes"} or bool(os.environ.get("RENDER"))
+ACCESS_PASSWORD = os.environ.get("ASTRALIS_ACCESS_PASSWORD", "")
 TTL = 900
 cache: dict[str, tuple[float, bytes]] = {}
 cache_lock = threading.Lock()
@@ -1215,11 +1219,44 @@ class Handler(SimpleHTTPRequestHandler):
     def log_message(self, fmt: str, *args: object) -> None:
         print("[Astralis] " + (fmt % args))
 
+    def _require_access(self) -> bool:
+        """Protect a hosted personal instance; Render supplies the secret at deploy time."""
+        if not HOSTED:
+            return True
+        if not ACCESS_PASSWORD:
+            self.send_error(503, "Astralis n’est pas encore configuré.")
+            return False
+        header = self.headers.get("Authorization", "")
+        scheme = ""
+        try:
+            scheme, encoded = header.split(" ", 1)
+            import base64
+            username, password = base64.b64decode(encoded, validate=True).decode("utf-8").split(":", 1)
+        except (ValueError, UnicodeError, binascii.Error):
+            username, password = "", ""
+        if scheme.lower() == "basic" and username == "astralis" and hmac.compare_digest(password, ACCESS_PASSWORD):
+            return True
+        self.send_response(401)
+        self.send_header("WWW-Authenticate", 'Basic realm="Astralis privé", charset="UTF-8"')
+        self.send_header("Cache-Control", "no-store")
+        self.send_header("Content-Length", "0")
+        self.end_headers()
+        return False
+
     def do_POST(self) -> None:
         global _HOYOLAB_RESIN_CACHE
         path = urlsplit(self.path).path
+        if not self._require_access(): return
         if path not in {"/api/hoyolab/credentials", "/api/hoyolab/disconnect", "/api/update/install", "/api/lab/team-export", "/api/app-session/open", "/api/app-session/close"}:
             self.send_json(404, {"error":"Route inconnue."}); return
+        if HOSTED and path in {"/api/hoyolab/credentials", "/api/hoyolab/disconnect"}:
+            self.send_json(410, {"error":"La connexion HoYoLAB avec cookies est réservée à l’application locale sécurisée."}); return
+        if HOSTED and path == "/api/update/install":
+            self.send_json(410, {"error":"Le service de mise à jour automatique fonctionne uniquement dans l’application Windows."}); return
+        if HOSTED and path == "/api/lab/team-export":
+            self.send_json(410, {"error":"Sur la version hébergée, le JSON est téléchargé dans ton navigateur et n’est pas enregistré sur le serveur."}); return
+        if HOSTED and path in {"/api/app-session/open", "/api/app-session/close"}:
+            self.send_json(200, {"ok": True}); return
         origin = self.headers.get("Origin", "")
         if not _is_local_origin(origin):
             self.send_json(403, {"error":"Origine refusée."}); return
@@ -1286,6 +1323,15 @@ class Handler(SimpleHTTPRequestHandler):
             self.send_json(400, {"error":str(exc)})
 
     def do_GET(self) -> None:
+        if HOSTED and urlsplit(self.path).path == "/healthz":
+            self.send_response(200)
+            self.send_header("Content-Type", "text/plain; charset=utf-8")
+            self.send_header("Content-Length", "2")
+            self.send_header("Cache-Control", "no-store")
+            self.end_headers()
+            self.wfile.write(b"ok")
+            return
+        if not self._require_access(): return
         request_url = urlsplit(self.path)
         path = request_url.path
         refresh = parse_qs(request_url.query).get("refresh") == ["1"]
@@ -1313,12 +1359,16 @@ class Handler(SimpleHTTPRequestHandler):
                 except (OSError, ValueError): pass
             self.send_json(200, status); return
         if path == "/api/hoyolab/status":
+            if HOSTED:
+                self.send_json(200, {"connected":False,"uid":"","storage":"Connexion sécurisée disponible uniquement dans l’application locale"}); return
             try:
                 auth = _read_hoyolab_secret()
                 self.send_json(200, {"connected":bool(auth),"uid":auth.get("uid") if auth else "","storage":"Windows DPAPI · profil utilisateur local"}); return
             except Exception as exc:
                 self.send_json(500, {"connected":False,"error":str(exc)}); return
         if path == "/api/hoyolab/resin":
+            if HOSTED:
+                self.send_json(410, {"error":"La lecture HoYoLAB avec cookies est disponible uniquement dans l’application locale."}); return
             try:
                 if refresh:
                     global _HOYOLAB_RESIN_CACHE
@@ -1821,8 +1871,9 @@ if __name__ == "__main__":
     server = ThreadingHTTPServer((HOST, PORT), Handler)
     _APP_HTTP_SERVER = server
     print(f"Astralis lancé sur http://{HOST}:{PORT}")
-    start_maintenance()
-    threading.Thread(target=_watch_app_sessions, daemon=True).start()
+    if not HOSTED:
+        start_maintenance()
+        threading.Thread(target=_watch_app_sessions, daemon=True).start()
     try:
         server.serve_forever()
     finally:

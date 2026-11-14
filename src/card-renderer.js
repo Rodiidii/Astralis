@@ -61,7 +61,7 @@ function resolveCardArtwork(card,manifest){
 export const cardAssetsReady=fetch('/public/card-artworks.json?v=20261112-full-art-9',{cache:'no-cache'}).then(r=>{if(!r.ok)throw Error('Manifeste des illustrations absent');return r.json()}).catch(error=>({assignments:{},artworks:{},error:error.message}));
 cardAssetsReady.then(manifest=>{ASTRALIS_CARD_ARTWORKS=manifest.ASTRALIS_CARD_ARTWORKS||{};window.ASTRALIS_CARD_ARTWORKS=ASTRALIS_CARD_ARTWORKS;});
 const artworkPlanReady=Promise.all([cardAssetsReady,fetch('/public/card-catalog.json?v=20261112-cards-3',{cache:'no-cache'}).then(r=>{if(!r.ok)throw Error('Catalogue des cartes absent');return r.json()}).catch(()=>({cards:[]})),fetch('/public/card-low-rarity-fallbacks.json?v=20261112-cards-1',{cache:'no-cache'}).then(r=>r.ok?r.json():{fallbacks:{}}).catch(()=>({fallbacks:{}}))]).then(([manifest,catalog,lowFallbacks])=>{planFallbackArtwork(catalog.cards||[],manifest,lowFallbacks.fallbacks||{});return manifest;});
-const runtimeCssReady=fetch('/styles/card-runtime.css?v=20261112-full-art-8').then(r=>{if(!r.ok)throw Error('Styles de consultation absents');return r.text()});
+const runtimeCssReady=fetch('/styles/card-runtime.css?v=20261114-icon-fit-1').then(r=>{if(!r.ok)throw Error('Styles de consultation absents');return r.text()});
 const unifiedCssReady=fetch('/styles/card-unified.css?v=20261112-full-art-8').then(r=>{if(!r.ok)throw Error('Styles Full Art absents');return r.text()});
 const designReady=Promise.all([runtimeCssReady,unifiedCssReady]).then(([runtime,unifiedCss])=>{
  const behavior=new CSSStyleSheet();behavior.replaceSync(runtime);
