@@ -1,0 +1,12 @@
+<!doctype html>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<link rel="stylesheet" href="../../styles/dashboard-studio.css">
+<main id="app"></main>
+<script type="module">
+ import {renderFeature} from '../../src/dashboard-features.js?daily-reward-browser-test';
+ let render;
+ const context={game:'gi',wishes:{wishes:4,currentPrimos:1200,primos:1200,welkin:true,history:[]},people:[],events:[],refresh:()=>render()};
+ render=()=>{try{context.wishes=JSON.parse(localStorage.getItem('astralis:gi:wish-plan'))||context.wishes}catch{};document.querySelector('#app').innerHTML=renderFeature('wishes',context)};
+ render();
+</script>

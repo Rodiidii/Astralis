@@ -5,41 +5,6 @@
     {
       "weight": 1,
       "path": [
-        "plunging",
-        "dmg"
-      ],
-      "hitMode": "avgHit",
-      "bonusStats": {
-        "eleMas": 160.062,
-        "enemyDefRed_": 15,
-        "critRate_": 4,
-        "all_dmg_": 40,
-        "electro_enemyRes_": -40,
-        "critDMG_": 68
-      },
-      "description": ""
-    },
-    {
-      "weight": 1,
-      "path": [
-        "plunging",
-        "high"
-      ],
-      "hitMode": "avgHit",
-      "bonusStats": {
-        "eleMas": 160.062,
-        "all_dmgInc": 6020.975,
-        "enemyDefRed_": 15,
-        "critRate_": 4,
-        "all_dmg_": 40,
-        "electro_enemyRes_": -40,
-        "critDMG_": 68
-      },
-      "description": ""
-    },
-    {
-      "weight": 1,
-      "path": [
         "burst",
         "tick"
       ],
@@ -464,6 +429,41 @@
         "enemyDefRed_": 15,
         "critRate_": 4,
         "all_dmg_": 86,
+        "electro_enemyRes_": -40,
+        "critDMG_": 68
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "plunging",
+        "dmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "eleMas": 160.062,
+        "enemyDefRed_": 15,
+        "critRate_": 4,
+        "all_dmg_": 40,
+        "electro_enemyRes_": -40,
+        "critDMG_": 68
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "plunging",
+        "high"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "eleMas": 160.062,
+        "all_dmgInc": 6020.975,
+        "enemyDefRed_": 15,
+        "critRate_": 4,
+        "all_dmg_": 40,
         "electro_enemyRes_": -40,
         "critDMG_": 68
       },

@@ -26,6 +26,9 @@
   "goConditions": {
     "HuTao": {
       "GuideToAfterlifeVoyage": "on"
+    },
+    "MarechausseeHunter": {
+      "set4": "3"
     }
   },
   "characterBonusStats": {
@@ -73,13 +76,55 @@
           "buffs": [
             "Guide to Afterlife"
           ]
+        },
+        {
+          "condition": [
+            "MarechausseeHunter",
+            "set4",
+            "1"
+          ],
+          "source": {
+            "type": "set",
+            "setId": 15031
+          },
+          "buffs": [
+            "Marechaussee Hunter"
+          ]
+        },
+        {
+          "condition": [
+            "MarechausseeHunter",
+            "set4",
+            "2"
+          ],
+          "source": {
+            "type": "set",
+            "setId": 15031
+          },
+          "buffs": [
+            "Marechaussee Hunter"
+          ]
+        },
+        {
+          "condition": [
+            "MarechausseeHunter",
+            "set4",
+            "3"
+          ],
+          "source": {
+            "type": "set",
+            "setId": 15031
+          },
+          "buffs": [
+            "Marechaussee Hunter"
+          ]
         }
       ]
     },
     {
       "code": "setEffects",
       "setIds": [
-        15019
+        15031
       ]
     }
   ],
@@ -111,13 +156,55 @@
           "buffs": [
             "Guide to Afterlife"
           ]
+        },
+        {
+          "condition": [
+            "MarechausseeHunter",
+            "set4",
+            "1"
+          ],
+          "source": {
+            "type": "set",
+            "setId": 15031
+          },
+          "buffs": [
+            "Marechaussee Hunter"
+          ]
+        },
+        {
+          "condition": [
+            "MarechausseeHunter",
+            "set4",
+            "2"
+          ],
+          "source": {
+            "type": "set",
+            "setId": 15031
+          },
+          "buffs": [
+            "Marechaussee Hunter"
+          ]
+        },
+        {
+          "condition": [
+            "MarechausseeHunter",
+            "set4",
+            "3"
+          ],
+          "source": {
+            "type": "set",
+            "setId": 15031
+          },
+          "buffs": [
+            "Marechaussee Hunter"
+          ]
         }
       ]
     },
     {
       "code": "setEffects",
       "setIds": [
-        15019
+        15031
       ]
     }
   ]

@@ -13,3 +13,7 @@
 button.button-primary,button.quiet-btn{transition:transform .22s cubic-bezier(.2,.8,.2,1),border-color .22s,background-color .22s,box-shadow .22s}
 button.button-primary:hover,button.quiet-btn:hover{transform:translateY(-2px);box-shadow:0 8px 22px color-mix(in srgb,var(--accent) 16%,transparent)}
 @media(max-width:760px){.build-artifact-grid{grid-template-columns:repeat(5,minmax(190px,78vw));gap:9px}.build-piece-visual{height:116px;min-height:116px}}
+.build-relic-piece-list{max-height:clamp(170px,32vh,260px);overscroll-behavior:contain;scrollbar-gutter:stable;scroll-snap-type:y proximity}
+.build-relic-piece-list>.build-relic-piece{scroll-snap-align:start}
+@media(max-width:680px){.build-relic-piece-list{max-height:34vh;min-height:0}}
+@media(prefers-reduced-motion:reduce){.build-relic-piece-list{scroll-behavior:auto}}

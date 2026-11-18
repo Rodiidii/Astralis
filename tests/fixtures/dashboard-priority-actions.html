@@ -1,0 +1,11 @@
+<!doctype html>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<link rel="stylesheet" href="../../styles/dashboard-studio.css">
+<main id="app"></main>
+<script type="module">
+ import {renderFeature} from '../../src/dashboard-features.js?priority-actions-browser-test';
+ const context={game:'gi',gameLabel:'Genshin Impact',people:[],tasks:[{id:'urgent-task',title:'Finir mon défi',due:new Date().toLocaleDateString('sv-SE'),done:false}],events:[],farmRows:[],builds:[],ownedIds:[],team:[],refresh:render,completeTask:id=>{const task=context.tasks.find(row=>row.id===id);if(task)task.done=true;render()}};
+ function render(){document.querySelector('#app').innerHTML=renderFeature('routine',context)}
+ render();
+</script>

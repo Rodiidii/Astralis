@@ -1,0 +1,12 @@
+<!doctype html><html lang="fr"><meta charset="utf-8"><link rel="stylesheet" href="../../styles/astral-arcade.css"><title>Résonateur élémentaire</title>
+<main data-astral-arcade><section data-arcade-view="reactions">
+ <header><div class="reaction-status" data-reaction-status aria-live="polite"></div></header>
+ <div class="reaction-stats"><b data-reaction-score></b><b data-reaction-moves></b><b data-reaction-best></b></div>
+ <div class="reaction-board-frame"><div class="reaction-grid" data-reaction-grid></div></div>
+ <aside data-reaction-quest><i><span data-reaction-bar></span></i><span data-reaction-progress></span></aside>
+ <button data-reaction-restart>Nouvelle partie</button>
+</section></main>
+<script type="module">
+ import {mountAstralReactions} from '../../src/astral-reactions.js?v=20261115-reaction-bursts-1';
+ window.cleanup=mountAstralReactions(document.querySelector('[data-astral-arcade]'),{game:'gi'});
+</script>

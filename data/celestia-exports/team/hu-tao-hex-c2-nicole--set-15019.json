@@ -1,7 +1,7 @@
 {
   "name": "Hex C2 Nicole",
   "description": "Celestia",
-  "lastEdit": 1794350989984,
+  "lastEdit": 1794890168968,
   "conditional": {
     "resonance": {},
     "reaction": {}
@@ -711,7 +711,7 @@
               "description": ""
             },
             {
-              "weight": 1.2476,
+              "weight": 1.2968,
               "path": [
                 "skill",
                 "dmg"
@@ -721,22 +721,6 @@
                 "atk": -990.298,
                 "eleMas": 50.649,
                 "atk_": 10.13,
-                "pyro_enemyRes_": -25,
-                "all_dmg_": 40
-              },
-              "description": ""
-            },
-            {
-              "weight": 0.0486,
-              "path": [
-                "skill",
-                "dmg"
-              ],
-              "hitMode": "avgHit",
-              "bonusStats": {
-                "atk": -990.298,
-                "eleMas": 33.333,
-                "atk_": 6.667,
                 "pyro_enemyRes_": -25,
                 "all_dmg_": 40
               },

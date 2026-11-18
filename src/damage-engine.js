@@ -1,6 +1,9 @@
+import {stellarConductField,calculateContributorReaction} from './special-reactions.js';
 // Moteur pur de dégâts Genshin. Les coefficients de kit et tables de niveau viennent
 // des données publiées; toute valeur absente est refusée avec TODO_DATA.
-export const DAMAGE_FORMULA_VERSION = 'genshin-damage-v5';
+export const DAMAGE_FORMULA_VERSION = 'genshin-damage-v6';
+export const LUNAR_EM_BONUS=em=>6*Math.max(0,Number(em)||0)/(2000+Math.max(0,Number(em)||0));
+export const DIRECT_LUNAR_COEFFICIENTS=Object.freeze({lunarCharged:3,lunarBloom:1,lunarCrystallize:1.6});
 export const RESISTANCE_MULTIPLIER = res => res < 0 ? 1 - res / 2 : res < .75 ? 1 - res : 1 / (4 * res + 1);
 export const DEFENSE_MULTIPLIER = (attackerLevel, enemyLevel, reduction = 0, ignore = 0) => {
   const a=Number(attackerLevel),e=Number(enemyLevel);
@@ -20,17 +23,39 @@ export function finalStats(base={},bonuses={}){
   for(const stat of ['hp','atk','def'])out[stat]=finite(base[stat])*(1+finite(bonuses[`${stat}Pct`])/100)+finite(bonuses[`${stat}Flat`]);
   for(const stat of ['em','critRate','critDmg','dmgBonus','er','healing','defReduction','defIgnore'])out[stat]=finite(base[stat])+finite(bonuses[stat]);
   for(const element of ['pyro','hydro','cryo','electro','anemo','geo','dendro','physical'])out[`${element}Dmg`]=finite(base[`${element}Dmg`])+finite(bonuses[`${element}Dmg`]);
+  out.em+=out.hp*finite(bonuses.emFromHp)/100;
+  out.er+=out.em*finite(bonuses.erFromEm);
+  out.atk+=finite(base.atk)*Math.min(finite(bonuses.atkPctFromErCap,Infinity),Math.max(0,out.er-100)*finite(bonuses.atkPctFromEr))/100;
+  for(const element of ['pyro','hydro','cryo','electro','anemo','geo','dendro'])out[element+'Dmg']+=Math.min(finite(bonuses[element+'DmgFromHpCap'],Infinity),out.hp*finite(bonuses[element+'DmgFromHp']));
+  out.atk+=out.hp*finite(bonuses.atkFromHp)/100+out.def*finite(bonuses.atkFromDef)/100+out.em*finite(bonuses.atkFromEm)/100;
   return out;
 }
 export function calculateHit(input={}){
   const {stats={},baseStat='atk',talentMultiplier,flatDamage=0,attackerLevel,enemyLevel=100,enemyResistance=.1,enemyDefenseReduction=0,defenseIgnore=0,damageBonus=0,damageReduction=0,resistanceReduction=0,critMode='average',reaction=null}=input;
   const warnings=[];
+  if(reaction?.kind==='multiReaction')return calculateContributorReaction({...reaction,critMode,enemyResistance,resistanceReduction,contributors:[{...stats,id:'active',levelMultiplier:reaction.levelMultiplier,bonus:reaction.bonus,baseBonus:reaction.baseBonus,elevation:reaction.elevation,flatDamage:reaction.flatDamage},...(reaction.contributors||[])]});
   if(!Number.isFinite(Number(talentMultiplier))||Number(talentMultiplier)<=0)return {ok:false,error:'TODO_DATA: multiplicateur du talent absent ou invalide.',warnings:['TODO_DATA']};
   if(!['atk','def','hp','em'].includes(baseStat)||!Number.isFinite(Number(stats[baseStat]))||Number(stats[baseStat])<=0)return {ok:false,error:`TODO_DATA: stat de référence ${baseStat||'du personnage'} absente ou invalide.`,warnings:['TODO_DATA']};
   if(!Number.isFinite(Number(attackerLevel))||attackerLevel<1||attackerLevel>100)return {ok:false,error:'Niveau du personnage requis (1–100).',warnings};
   if(!Number.isFinite(Number(enemyLevel))||enemyLevel<1)return {ok:false,error:'Niveau de l’ennemi invalide.',warnings};
   if(!['average','crit','nonCrit'].includes(critMode))return {ok:false,error:'Mode CRIT inconnu.',warnings};
-  const base=Number(stats[baseStat])*Number(talentMultiplier)*finite(input.talentScale,1)+finite(flatDamage),def=DEFENSE_MULTIPLIER(attackerLevel,enemyLevel,enemyDefenseReduction,defenseIgnore);
+  let talentBase=Number(stats[baseStat])*Number(talentMultiplier);
+  if(input.scalingTerms){
+    if(!Array.isArray(input.scalingTerms)||!input.scalingTerms.length||input.scalingTerms.some(term=>!['atk','hp','def','em'].includes(term.baseStat)||!Number.isFinite(Number(term.talentMultiplier))||Number(term.talentMultiplier)<0||!Number.isFinite(Number(stats[term.baseStat]))))return {ok:false,error:'TODO_DATA: composantes multistats invalides.',warnings:['TODO_DATA']};
+    talentBase=input.scalingTerms.reduce((sum,term)=>sum+Number(stats[term.baseStat])*Number(term.talentMultiplier),0);
+  }
+  if(['lunarDirect','stellarDirect'].includes(reaction?.kind)){
+    const coefficient=reaction.kind==='stellarDirect'?(reaction.id==='stellarConduct'?stellarConductField(reaction.fieldHits).coefficient:reaction.id==='stellarSwirl'?1:null):DIRECT_LUNAR_COEFFICIENTS[reaction.id];
+    if(!coefficient)return {ok:false,error:'Type de dégâts lunaires directs inconnu.',warnings:['TODO_DATA']};
+    const rate=Math.max(0,Math.min(1,finite(stats.critRate)/100)),cd=Math.max(0,finite(stats.critDmg)/100);
+    const crit=critMode==='nonCrit'?1:critMode==='crit'?1+cd:1+rate*cd;
+    const base=coefficient*talentBase*finite(input.talentScale,1)*(1+finite(reaction.baseBonus));
+    const em=LUNAR_EM_BONUS(stats.em),bonus=1+em+finite(reaction.bonus),additive=finite(reaction.flatDamage);
+    const resistance=finite(enemyResistance)-finite(resistanceReduction),res=RESISTANCE_MULTIPLIER(resistance);
+    const elevation=1+finite(reaction.elevation),direct=(base*bonus+additive)*elevation*crit*res;
+    return {ok:true,total:direct,direct,base,additive,transformative:0,bonusMultiplier:bonus,critMultiplier:crit,defenseMultiplier:1,resistanceMultiplier:res,reactionMultiplier:coefficient,reactionName:reaction.name||reaction.id,elementBonusPercent:0,warnings:[],terms:{formula:'(coefficient lunaire × stat × talent × bonus de base × (1 + bonus ME + bonus lunaire) + ajout lunaire) × élévation × CRIT × RÉS',baseStat,referencedStat:Number(stats[baseStat]),talentMultiplier:Number(talentMultiplier),critMode,lunarEmBonus:em,lunarBaseBonus:finite(reaction.baseBonus),lunarElevation:elevation,enemyResistance:resistance}};
+  }
+  const base=talentBase*finite(input.talentScale,1)+finite(flatDamage),def=DEFENSE_MULTIPLIER(attackerLevel,enemyLevel,enemyDefenseReduction,defenseIgnore);
   const effectiveResistance=Math.max(-1,Math.min(10,finite(enemyResistance)-finite(resistanceReduction))),res=RESISTANCE_MULTIPLIER(effectiveResistance);
   const rate=Math.max(0,finite(stats.critRate))/100,cd=Math.max(0,finite(stats.critDmg))/100;
   const crit=critMode==='nonCrit'?1:critMode==='crit'?1+cd:1+Math.min(rate,1)*cd;
@@ -67,6 +92,7 @@ export function calculateHit(input={}){
 
 /** Resolve separate hit groups with an explicit number of reaction-triggering hits. */
 export function calculateAction(input={}) {
+  if(input.reaction?.kind==='multiReaction')return calculateHit(input);
   const parts=input.components?.length?input.components:[{talentMultiplier:input.talentMultiplier,count:input.hitCount??1}];
   const totalHits=parts.reduce((sum,part)=>sum+Number(part.count??1),0);
   if(!Number.isInteger(totalHits)||totalHits<1||totalHits>1000)return {ok:false,error:'Nombre de coups invalide.',warnings:[]};
@@ -79,10 +105,11 @@ export function calculateAction(input={}) {
     const count=Number(part.count??1);
     if(!Number.isInteger(count)||count<1)return {ok:false,error:'Groupe de coups invalide.',warnings:[]};
     for(let index=0;index<count;index++){
-      const reaction=reacting-->0?input.reaction:null;
+      const reaction=['lunarDirect','stellarDirect'].includes(input.reaction?.kind)?input.reaction:reacting-->0?input.reaction:null;
       for(let target=0;target<targets;target++){
         let extra=0;
-        for(const pool of input.additivePools||[]){
+        for(const pool of (['lunarDirect','stellarDirect'].includes(input.reaction?.kind)?[]:input.additivePools)||[]){
+          if(pool.oneTarget&&target>0)continue;
           if(pool.element&&pool.element!==input.elementKey||pool.kinds&&!pool.kinds.includes(input.actionKind)||Number(input.elapsed||0)>=Number(pool.expiresAt??Infinity))continue;
           const remaining=poolState[pool.id]??Number(pool.charges||0),unlimited=pool.unlimitedKinds?.includes(input.actionKind);
           if(remaining<=0&&!unlimited)continue;
@@ -90,7 +117,7 @@ export function calculateAction(input={}) {
           poolState[pool.id]=unlimited?remaining:remaining-1;
           triggered[pool.id]=(triggered[pool.id]||0)+1;
         }
-        const hit=calculateHit({...input,flatDamage:finite(input.flatDamage)+extra,talentMultiplier:part.talentMultiplier,baseStat:part.baseStat||input.baseStat,reaction});
+        const hit=calculateHit({...input,flatDamage:finite(input.flatDamage)+extra,talentMultiplier:part.talentMultiplier,baseStat:part.baseStat||input.baseStat,scalingTerms:part.scalingTerms,reaction});
         if(!hit.ok)return hit;
         if(!result)result={...hit,total:0,direct:0,base:0,additive:0,transformative:0,totalHits,poolState,triggered};
         for(const key of ['total','direct','base','additive','transformative'])result[key]+=hit[key];

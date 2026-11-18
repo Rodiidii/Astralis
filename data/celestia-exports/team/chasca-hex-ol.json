@@ -1,7 +1,7 @@
 {
   "name": "Iansan Overload",
   "description": "Celestia",
-  "lastEdit": 1794349020425,
+  "lastEdit": 1794890232420,
   "conditional": {
     "resonance": {},
     "reaction": {}
@@ -38,68 +38,6 @@
           "name": "Iansan Overload",
           "description": "Celestia",
           "targets": [
-            {
-              "weight": 0.25,
-              "path": [
-                "passive2",
-                "electro"
-              ],
-              "hitMode": "avgHit",
-              "bonusStats": {
-                "atk_": 54,
-                "atk": 1290,
-                "electro_enemyRes_": -35,
-                "all_dmg_": 65,
-                "critRate_": -40
-              },
-              "description": ""
-            },
-            {
-              "weight": 0.25,
-              "path": [
-                "passive2",
-                "pyro"
-              ],
-              "hitMode": "avgHit",
-              "bonusStats": {
-                "atk_": 54,
-                "atk": 1290,
-                "pyro_enemyRes_": -35,
-                "all_dmg_": 105,
-                "critRate_": -40
-              },
-              "description": ""
-            },
-            {
-              "weight": 0.25,
-              "path": [
-                "passive2",
-                "electro"
-              ],
-              "hitMode": "avgHit",
-              "bonusStats": {
-                "atk": 1590,
-                "atk_": 54,
-                "electro_enemyRes_": -35,
-                "all_dmg_": 65
-              },
-              "description": ""
-            },
-            {
-              "weight": 0.75,
-              "path": [
-                "passive2",
-                "pyro"
-              ],
-              "hitMode": "avgHit",
-              "bonusStats": {
-                "atk": 1590,
-                "atk_": 54,
-                "pyro_enemyRes_": -35,
-                "all_dmg_": 105
-              },
-              "description": ""
-            },
             {
               "weight": 1,
               "path": [
@@ -275,6 +213,68 @@
                 "atk_": 54,
                 "electro_enemyRes_": -35,
                 "all_dmg_": 65
+              },
+              "description": ""
+            },
+            {
+              "weight": 0.25,
+              "path": [
+                "passive2",
+                "electro"
+              ],
+              "hitMode": "avgHit",
+              "bonusStats": {
+                "atk_": 54,
+                "atk": 1290,
+                "electro_enemyRes_": -35,
+                "all_dmg_": 65,
+                "critRate_": -40
+              },
+              "description": ""
+            },
+            {
+              "weight": 0.25,
+              "path": [
+                "passive2",
+                "pyro"
+              ],
+              "hitMode": "avgHit",
+              "bonusStats": {
+                "atk_": 54,
+                "atk": 1290,
+                "pyro_enemyRes_": -35,
+                "all_dmg_": 105,
+                "critRate_": -40
+              },
+              "description": ""
+            },
+            {
+              "weight": 0.25,
+              "path": [
+                "passive2",
+                "electro"
+              ],
+              "hitMode": "avgHit",
+              "bonusStats": {
+                "atk": 1590,
+                "atk_": 54,
+                "electro_enemyRes_": -35,
+                "all_dmg_": 65
+              },
+              "description": ""
+            },
+            {
+              "weight": 0.75,
+              "path": [
+                "passive2",
+                "pyro"
+              ],
+              "hitMode": "avgHit",
+              "bonusStats": {
+                "atk": 1590,
+                "atk_": 54,
+                "pyro_enemyRes_": -35,
+                "all_dmg_": 105
               },
               "description": ""
             }

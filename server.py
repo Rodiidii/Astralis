@@ -263,6 +263,8 @@ BASE = "https://wutheringdb.com"
 WW_ASSET_INDEX_URL = "https://api.github.com/repos/ryanbenson/wuthering-waves-assets/contents/images"
 ww_asset_cache: tuple[float, dict[str, str]] | None = None
 ENDGAME_URLS = ("https://genshinflex.com/en/abyss/", "https://genshinflex.com/en/theater/history/", "https://genshinflex.com/en/onslaught/")
+GI_ABYSS_WIKI_API = "https://genshin-impact.fandom.com/api.php"
+GI_ABYSS_PATCH_NOTES = "https://genshin.aza.gg/?l=en"
 LORE_INDEX_TTL = 86400
 LORE_INDEX_CATEGORIES = (
     "Character Lore Histories", "Historical Events", "Historical Figures", "Lore",
@@ -767,106 +769,189 @@ def genshinflex_calendar_rows() -> list[dict]:
         raise ValueError("Le calendrier public ne fournit pas ses données structurées.")
     allowed = {"event", "char-banner", "weapon-banner", "version", "theater", "abyss", "onslaught"}
     fields = ("id", "kind", "title", "start", "end", "image", "icons", "primogems", "description", "source")
-    return [{key: row.get(key) for key in fields} for row in json.loads(match.group(1))
-            if row.get("kind") in allowed and row.get("start") and row.get("end")]
+    rows = []
+    for row in json.loads(match.group(1)):
+        if row.get("kind") not in allowed or not row.get("start") or not row.get("end"):
+            continue
+        item = {key: row.get(key) for key in fields}
+        item["source"] = item.get("source") or {"title": "GenshinFlex · calendrier basé sur les annonces officielles", "url": "https://genshinflex.com/en/calendar/"}
+        item["icons"] = item.get("icons") or []
+        rows.append(item)
+    return rows
+
+
+def _calendar_datetime(value: object) -> datetime | None:
+    """Parse feed timestamps consistently; naive GenshinFlex dates are Paris local time."""
+    if not value:
+        return None
+    try:
+        parsed = datetime.fromisoformat(str(value).replace("Z", "+00:00"))
+    except (TypeError, ValueError, OverflowError):
+        return None
+    if parsed.tzinfo is None:
+        # Paris switches between UTC+1 and UTC+2 on the last Sundays of March/October.
+        year = parsed.year
+        march_last = datetime(year, 3, 31).date()
+        march_last -= timedelta(days=(march_last.weekday() + 1) % 7)
+        october_last = datetime(year, 10, 31).date()
+        october_last -= timedelta(days=(october_last.weekday() + 1) % 7)
+        offset = 2 if march_last <= parsed.date() < october_last else 1
+        parsed = parsed.replace(tzinfo=timezone(timedelta(hours=offset)))
+    return parsed.astimezone(timezone.utc)
+
+
+def _clean_genshin_calendar(events: list[dict], now: datetime | None = None) -> list[dict]:
+    """Remove expired feed rows and collapse duplicate records for the same banner phase."""
+    now = now or datetime.now(timezone.utc)
+    valid = []
+    for row in events:
+        start = _calendar_datetime(row.get("start"))
+        end = _calendar_datetime(row.get("end"))
+        if not start or not end or end < now or end <= start:
+            continue
+        if start > now + timedelta(days=400):
+            continue
+        item = dict(row)
+        item["start"] = start.isoformat().replace("+00:00", "Z")
+        item["end"] = end.isoformat().replace("+00:00", "Z")
+        item["icons"] = item.get("icons") or []
+        valid.append(item)
+
+    def banner_window_match(left: dict, right: dict) -> bool:
+        if left.get("kind") != right.get("kind") or left.get("kind") not in {"char-banner", "weapon-banner"}:
+            return False
+        left_start, right_start = _calendar_datetime(left.get("start")), _calendar_datetime(right.get("start"))
+        left_end, right_end = _calendar_datetime(left.get("end")), _calendar_datetime(right.get("end"))
+        return bool(left_start and right_start and left_end and right_end
+                    and abs((left_start-right_start).total_seconds()) <= 12*3600
+                    and abs((left_end-right_end).total_seconds()) <= 12*3600)
+
+    grouped: list[list[dict]] = []
+    for row in sorted(valid, key=lambda item: (item.get("start", ""), item.get("kind", ""))):
+        group = next((candidate for candidate in grouped if banner_window_match(candidate[0], row)), None)
+        if group is None:
+            grouped.append([row])
+        else:
+            group.append(row)
+
+    merged = []
+    for group in grouped:
+        # Prefer a named GenshinFlex banner window when available; its time is the
+        # published phase schedule, while Ennead supplies the official character art.
+        def score(row: dict) -> tuple[int, int, int]:
+            title = str(row.get("title") or "")
+            source = row.get("source") or {}
+            source_url = source.get("url", "") if isinstance(source, dict) else ""
+            return (int("genshinflex.com" in source_url), len(row.get("icons") or []), int("/" in title))
+        primary = max(group, key=score)
+        item = dict(primary)
+        icon_rows = []
+        seen_icons = set()
+        for row in group:
+            for icon in row.get("icons") or []:
+                name = re.sub(r"[^a-z0-9]", "", unicodedata.normalize("NFKD", str(icon.get("name", ""))).encode("ascii", "ignore").decode().lower())
+                if name and name not in seen_icons:
+                    seen_icons.add(name)
+                    icon_rows.append(icon)
+        item["icons"] = icon_rows
+        names = [str(icon.get("name", "")).strip() for icon in icon_rows if icon.get("name")]
+        if item.get("kind") in {"char-banner", "weapon-banner"} and names:
+            featured = [str(icon.get("name", "")).strip() for icon in icon_rows
+                        if int(icon.get("rarity") or 0) == 5 or not icon.get("rarity")]
+            if featured:
+                item["title"] = " / ".join(dict.fromkeys(featured))
+            descriptions = [str(row.get("description") or "").strip() for row in group if row.get("description")]
+            item["description"] = " · ".join(dict.fromkeys(descriptions)) or " · ".join(names)
+        item["primogems"] = max((int(row.get("primogems") or 0) for row in group), default=0) or None
+        merged.append(item)
+
+    # De-duplicate repeated event/endgame/version rows by kind, title and start day.
+    result, seen = [], set()
+    for row in sorted(merged, key=lambda item: (item.get("start", ""), item.get("title", "").casefold())):
+        start = _calendar_datetime(row.get("start"))
+        key = (row.get("kind"), re.sub(r"\W+", "", str(row.get("title", "")).casefold()), start.date().isoformat() if start else "")
+        if key in seen:
+            continue
+        seen.add(key)
+        result.append(row)
+    return result
 
 
 def genshin_events() -> bytes:
-    # Calendar API exposes structured, localized rewards. Keep only active/upcoming
-    # in-game activities with published dates, including non-Primogem rewards.
+    """Use GenshinFlex's complete dated feed as the calendar, with Ennead rewards as enrichment."""
     try:
-        payload = json.loads(fetch("https://api.ennead.cc/mihoyo/genshin/calendar?lang=fr-fr"))
-        now = int(time.time())
-        def iso(stamp: object) -> str:
-            try: return datetime.fromtimestamp(int(stamp), timezone.utc).isoformat().replace("+00:00", "Z")
-            except (TypeError, ValueError, OverflowError): return ""
-        def paris_tz(year: int, month: int, day: int):
-            march_last=datetime(year,3,31).date(); march_last-=timedelta(days=(march_last.weekday()+1)%7)
-            october_last=datetime(year,10,31).date(); october_last-=timedelta(days=(october_last.weekday()+1)%7)
-            current=datetime(year,month,day).date()
-            return timezone(timedelta(hours=2 if march_last<=current<october_last else 1))
+        events = genshinflex_calendar_rows()
+        if not events:
+            raise ValueError("GenshinFlex n'a renvoyé aucun événement daté.")
+        source = "Calendrier Genshin · GenshinFlex (événements, bannières et endgame)"
+    except (ValueError, OSError, TypeError, json.JSONDecodeError):
         events = []
+        source = "Calendrier Genshin de secours · Ennead"
+
+    try:
+        payload = json.loads(fetch("https://api.ennead.cc/mihoyo/genshin/calendar?lang=fr-fr").decode("utf-8", errors="replace"))
+        ennead_source = {"title": "Récompenses et illustrations · Ennead", "url": "https://api.ennead.cc/mihoyo/genshin/calendar?lang=fr-fr"}
+        supplements = []
         for row in payload.get("events", []):
-            end = int(row.get("end_time") or 0)
-            if not end or end < now: continue
             rewards = list(row.get("rewards") or [])
             special = row.get("special_reward") or {}
-            primo_rows = [r for r in [*rewards, special] if "primo" in str(r.get("name", "")).casefold() and int(r.get("amount") or 0) > 0]
-            primogems = sum(int(r.get("amount") or 0) for r in primo_rows)
-            title = str(row.get("name") or "Événement Genshin")
-            item_kind = "onslaught" if "hardchallenge" in str(row.get("type_name", "")).casefold() else "event"
-            events.append({"id": f"ennead:event:{row.get('id', title)}", "kind": item_kind, "title": title,
-                "start": iso(row.get("start_time")), "end": iso(row.get("end_time")), "image": row.get("image_url", ""),
-                "icons": [], "primogems": primogems, "description": str(row.get("description") or ""),
-                "source": {"title": "Calendrier HoYoverse via Ennead API", "url": "https://api.ennead.cc/mihoyo/genshin/calendar?lang=fr-fr"},
-                "rewards": [{"name": r.get("name"), "amount": r.get("amount"), "icon": r.get("icon", "")} for r in rewards], "type": row.get("type_name", "")})
+            primo_rows = [reward for reward in [*rewards, special]
+                          if "primo" in str(reward.get("name", "")).casefold() and int(reward.get("amount") or 0) > 0]
+            stamp_start, stamp_end = int(row.get("start_time") or 0), int(row.get("end_time") or 0)
+            if not stamp_start or not stamp_end:
+                continue
+            supplements.append({"kind": "onslaught" if "hardchallenge" in str(row.get("type_name", "")).casefold() else "event",
+                "title": str(row.get("name") or "Événement Genshin"),
+                "start": datetime.fromtimestamp(stamp_start, timezone.utc).isoformat().replace("+00:00", "Z"),
+                "end": datetime.fromtimestamp(stamp_end, timezone.utc).isoformat().replace("+00:00", "Z"),
+                "image": row.get("image_url", ""), "primogems": sum(int(reward.get("amount") or 0) for reward in primo_rows),
+                "description": str(row.get("description") or ""),
+                "rewards": [{"name": reward.get("name"), "amount": reward.get("amount"), "icon": reward.get("icon", "")} for reward in rewards],
+                "verificationSource": ennead_source})
         for row in payload.get("banners", []):
-            end = int(row.get("end_time") or 0)
-            if not end or end < now: continue
+            stamp_start, stamp_end = int(row.get("start_time") or 0), int(row.get("end_time") or 0)
+            if not stamp_start or not stamp_end:
+                continue
             kind = "weapon-banner" if row.get("weapons") else "char-banner"
             featured = row.get("weapons") or row.get("characters") or []
-            end_utc=datetime.fromtimestamp(end,timezone.utc)
-            end_local=datetime(end_utc.year,end_utc.month,end_utc.day,18,tzinfo=paris_tz(end_utc.year,end_utc.month,end_utc.day))
-            events.append({"id": f"ennead:banner:{row.get('id', row.get('name', ''))}", "kind": kind, "title": str(row.get("name") or "Vœux"),
-                "start": iso(row.get("start_time")), "end": iso(row.get("end_time")), "image": "",
-                "icons": [{"name": x.get("name", ""), "src": x.get("icon", ""), "rarity": x.get("rarity")} for x in featured], "primogems": None,
-                "description": " · ".join(x.get("name", "") for x in featured), "source": {"title": "Calendrier HoYoverse via Ennead API", "url": "https://api.ennead.cc/mihoyo/genshin/calendar?lang=fr-fr"}})
-        # Ennead supplies live banners and published 4★. Gacha Tracker lists announced
-        # future phases; only future character 5★ are used as a supplement.
-        try:
-            tracker = fetch("https://gacha-tracker.com/genshin/banners").decode("utf-8", errors="replace")
-            class BannerCards(HTMLParser):
-                def __init__(self): super().__init__(convert_charrefs=True); self.card=None; self.cards=[]
-                def handle_starttag(self, tag, attrs):
-                    href=dict(attrs).get("href", "")
-                    if tag=="a" and "/genshin/banners/" in href: self.card={"href":href,"text":""}
-                def handle_data(self, data):
-                    if self.card is not None: self.card["text"] += " " + data
-                def handle_endtag(self, tag):
-                    if tag=="a" and self.card is not None: self.cards.append(self.card); self.card=None
-            cards=BannerCards(); cards.feed(tracker)
-            month_pattern=r"(Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)\s+(\d{1,2})"
-            known={(e.get("kind"),e.get("start")) for e in events if e.get("kind")=="char-banner"}
-            for card in cards.cards:
-                href=card["href"]
-                if not re.search(r"-character(?:$|[?#])",href): continue
-                text=" ".join(card["text"].split())
-                phase_match=re.search(r"v(\d+\.\d+).*?Phase\s*(\d+)",text,re.I)
-                names_dates=re.search(r"Phase\s*\d+\s+(.+?)\s+"+month_pattern+r"\s*[^A-Za-z0-9]{1,8}\s*"+month_pattern+r",\s*(\d{4})",text,re.I)
-                if not phase_match or not names_dates: continue
-                version,phase=phase_match.groups();raw_names,m1,d1,m2,d2,year=names_dates.groups();year=int(year)
-                names=[re.sub(r"\s+"," ",n).strip(" ·�&-") for n in re.split(r"[·•�&]+",raw_names) if n.strip(" ·�&-")]
-                slug_date=re.search(r"(\d{4})-(\d{2})-(\d{2})-character",href)
-                if slug_date:
-                    sy,sm,sd=map(int,slug_date.groups());start_dt=datetime(sy,sm,sd,11,tzinfo=paris_tz(sy,sm,sd))
-                else: start_dt=datetime.strptime(f"{m1} {d1} {year}","%b %d %Y").replace(hour=11,tzinfo=paris_tz(year,datetime.strptime(m1,"%b").month,int(d1)))
-                end_dt=datetime.strptime(f"{m2} {d2} {year}","%b %d %Y").replace(hour=18,tzinfo=paris_tz(year,datetime.strptime(m2,"%b").month,int(d2)))
-                if not names or start_dt.timestamp()<=now or end_dt.timestamp()<=now: continue
-                start_iso=start_dt.astimezone(timezone.utc).isoformat().replace("+00:00","Z")
-                if ("char-banner",start_iso) in known: continue
-                events.append({"id":f"gacha-tracker:{version}:phase-{phase}:characters","kind":"char-banner","title":f"Bannière de personnages · phase {phase}","start":start_iso,"end":end_dt.astimezone(timezone.utc).isoformat().replace("+00:00","Z"),"image":"","icons":[{"name":name,"src":"","rarity":5} for name in names],"primogems":None,"description":" · ".join(names),"source":{"title":"Gacha Tracker · phase annoncée (dates susceptibles d’évoluer)","url":"https://gacha-tracker.com/genshin/banners"}})
-        except Exception:
-            pass
-        try:
-            # Ennead can publish event rewards while omitting endgame windows and patch starts.
-            for row in genshinflex_calendar_rows():
-                kind = row["kind"]
-                if kind not in {"theater", "abyss", "onslaught", "version", "char-banner", "weapon-banner"}:
+            supplements.append({"kind": kind, "title": str(row.get("name") or "Vœux"),
+                "start": datetime.fromtimestamp(stamp_start, timezone.utc).isoformat().replace("+00:00", "Z"),
+                "end": datetime.fromtimestamp(stamp_end, timezone.utc).isoformat().replace("+00:00", "Z"),
+                "icons": [{"name": item.get("name", ""), "src": item.get("icon", ""), "rarity": item.get("rarity")} for item in featured],
+                "verificationSource": ennead_source})
+
+        # Only enrich a GenshinFlex row when its type and published time window agree.
+        # This keeps the better calendar's list and dates intact without importing duplicates.
+        for supplement in supplements:
+            start, end = _calendar_datetime(supplement.get("start")), _calendar_datetime(supplement.get("end"))
+            if not start or not end:
+                continue
+            matches = []
+            for event in events:
+                if event.get("kind") != supplement.get("kind"):
                     continue
-                same_window = any(event.get("kind") == kind
-                                  and str(event.get("start", ""))[:10] == str(row["start"])[:10]
-                                  and (kind not in {"char-banner", "weapon-banner"} or not event.get("icons"))
-                                  for event in events)
-                if not same_window:
-                    events.append(row)
-        except (ValueError, OSError, TypeError):
-            pass
-        events.sort(key=lambda x: x.get("start", ""))
-        return json.dumps({"updatedAt": time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime()), "source": "Ennead, GenshinFlex et calendrier des bannières annoncées", "events": events}, ensure_ascii=False).encode("utf-8")
-    except Exception:
+                event_start, event_end = _calendar_datetime(event.get("start")), _calendar_datetime(event.get("end"))
+                if event_start and event_end and abs((event_start-start).total_seconds()) <= 12*3600 and abs((event_end-end).total_seconds()) <= 12*3600:
+                    matches.append(event)
+            if len(matches) != 1:
+                continue
+            event = matches[0]
+            event["image"] = event.get("image") or supplement.get("image", "")
+            event["primogems"] = event.get("primogems") or supplement.get("primogems")
+            event["description"] = event.get("description") or supplement.get("description", "")
+            event["rewards"] = supplement.get("rewards", event.get("rewards", []))
+            event["verificationSource"] = supplement.get("verificationSource")
+            if not event.get("icons") and supplement.get("icons"):
+                event["icons"] = supplement["icons"]
+
+        if not events:
+            events = supplements
+            source = "Calendrier Genshin de secours · Ennead"
+    except (ValueError, OSError, TypeError, json.JSONDecodeError):
         pass
-    events = genshinflex_calendar_rows()
-    return json.dumps({"updatedAt": time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime()), "source": "GenshinFlex calendar · données officielles des annonces", "events": events}, ensure_ascii=False).encode("utf-8")
+
+    events = _clean_genshin_calendar(events)
+    return json.dumps({"updatedAt": time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime()), "source": source, "events": events}, ensure_ascii=False).encode("utf-8")
 
 
 def _xml_text(node: ET.Element | None) -> str:
@@ -1048,6 +1133,97 @@ def theater_db_icon(name: str) -> str:
     _THEATER_DB_ICON_CACHE[key] = icon
     return icon
 
+def _current_abyss_start(today=None):
+    today = today or datetime.now().date()
+    if today.day >= 16:
+        return today.replace(day=16)
+    year, month = today.year, today.month - 1
+    if month == 0: year, month = year - 1, 12
+    return today.replace(year=year, month=month, day=16)
+
+def _wiki_plain_text(value: str) -> str:
+    value = re.sub(r"<[^>]+>", " ", value)
+    value = re.sub(r"\{\{Color\|[^|}]+\|([^}]+)\}\}", r"\1", value)
+    value = re.sub(r"\[\[([^]|]+)\|([^]]+)\]\]", r"\2", value)
+    value = re.sub(r"\[\[([^]]+)\]\]", r"\1", value)
+    value = value.replace("'''", "").replace("''", "")
+    return re.sub(r"\s+", " ", unescape(value)).strip()
+
+def _parse_fandom_abyss_rotation(start_date):
+    query = urlencode({"action":"parse", "page":f"Spiral Abyss/Floors/{start_date.isoformat()}", "prop":"wikitext", "format":"json"})
+    payload = json.loads(fetch(f"{GI_ABYSS_WIKI_API}?{query}").decode("utf-8", "replace"))
+    wikitext = ((payload.get("parse") or {}).get("wikitext") or {}).get("*") or ""
+    if not wikitext: raise RuntimeError("La page de rotation datée est absente du wiki Genshin.")
+    start = re.search(r"^\|start\s*=\s*(\d{4}-\d{2}-\d{2})\s*$", wikitext, re.I | re.M)
+    end = re.search(r"^\|end\s*=\s*(\d{4}-\d{2}-\d{2})\s*$", wikitext, re.I | re.M)
+    if not start or start.group(1) != start_date.isoformat() or not end:
+        raise RuntimeError("La source wiki ne correspond pas au cycle d’Abîme attendu.")
+    floors = []
+    for floor_no in (11, 12):
+        match = re.search(rf"===\s*Floor\s+{floor_no}\s*===(.*?)(?=\n===\s*Floor\s+\d+\s*===|\Z)", wikitext, re.I | re.S)
+        if not match: raise RuntimeError(f"Le wiki ne fournit pas l’étage {floor_no} de ce cycle.")
+        section = match.group(1)
+        domain = re.search(r"\{\{Domain Enemies\s*(.*?)\n\}\}", section, re.I | re.S)
+        if not domain: raise RuntimeError(f"Le wiki ne fournit pas les ennemis de l’étage {floor_no}.")
+        fields = {}
+        for line in domain.group(1).splitlines():
+            field = re.match(r"\s*\|\s*([A-Za-z0-9_]+)\s*=\s*(.*?)\s*$", line)
+            if field: fields[field.group(1).lower()] = field.group(2)
+        chambers = []
+        for chamber_no in range(1, 4):
+            if not fields.get(f"level{chamber_no}"): continue
+            halves = []
+            for half_no, half_label in ((1,"1re moitié"),(2,"2e moitié")):
+                raw = fields.get(f"enemies{chamber_no}_{half_no}", "").strip()
+                enemies = []
+                for token in re.split(r"\s*(?://|;)\s*", raw):
+                    token = token.strip()
+                    if not token: continue
+                    count = re.search(r"\*(\d+)\s*$", token)
+                    name = token[:count.start()].strip() if count else token
+                    if count: name = f"{name} ×{count.group(1)}"
+                    clean_name = re.sub(r"\s*×\d+$", "", name)
+                    enemies.append({"name":name, "icon":theater_db_icon(clean_name)})
+                note = _wiki_plain_text(fields.get(f"note{chamber_no}", ""))
+                halves.append({"name":half_label, "enemies":enemies, "note":note})
+            level = fields.get(f"level{chamber_no}", "")
+            target = fields.get(f"target{chamber_no}", "")
+            chambers.append({"name":f"Salle {floor_no}-{chamber_no}", "level":level, "target":_wiki_plain_text(target), "halves":halves})
+        if len(chambers) != 3 or any(not side["enemies"] for chamber in chambers for side in chamber["halves"]):
+            raise RuntimeError(f"Les données de l’étage {floor_no} sont incomplètes.")
+        disorder_block = section.split("{{Domain Enemies", 1)[0]
+        disorder = []
+        for line in disorder_block.splitlines():
+            line = line.strip().lstrip("*# ")
+            if not line or "Ley Line Disorder" in line: continue
+            line = _wiki_plain_text(line)
+            line = re.sub(r"All party members gain a (\d+%) ([\w -]+) DMG Bonus\.?", r"Bonus DGT \2 +\1", line, flags=re.I)
+            line = re.sub(r"DMG is increased by (\d+%)", r"DGT augmenté de \1", line, flags=re.I)
+            line = re.sub(r"\bFirst Half\b", "1re moitié", line, flags=re.I)
+            line = re.sub(r"\bSecond Half\b", "2e moitié", line, flags=re.I)
+            line = re.sub(r"All party members have their Elemental Mastery increased by (\d+)", r"Maîtrise élémentaire de l’équipe +\1", line, flags=re.I)
+            line = re.sub(r"\bElectro\b", "Électro", line)
+            line = re.sub(r"\bGeo\b", "Géo", line)
+            if line: disorder.append(line)
+        level_values = [int(value) for key,value in fields.items() if re.fullmatch(r"level\d+",key) and value.isdigit()]
+        floors.append({"floor":str(floor_no), "levels":f"{min(level_values)}–{max(level_values)}" if level_values else "", "disorder":" · ".join(disorder), "chambers":chambers})
+    return {"start":start.group(1), "end":end.group(1), "version":re.search(r"^\|startVersion\s*=\s*(.+)$",wikitext,re.I|re.M).group(1).strip() if re.search(r"^\|startVersion\s*=\s*(.+)$",wikitext,re.I|re.M) else "", "floors":floors, "source":"Genshin Impact Wiki · cycle daté"}
+
+def _official_abyss_blessing(start_date):
+    try:
+        page = fetch(GI_ABYSS_PATCH_NOTES).decode("utf-8", "replace")
+        month = start_date.strftime("%B")
+        summary = rf"<summary[^>]*>.*?Update Scheduled for\s+{month}\s+{start_date.day}.*?</summary>"
+        block = re.search(summary + r"(.*?)</details>", page, re.I | re.S)
+        if not block: return ""
+        content = block.group(1)
+        title = re.search(r"Blessing of the Abyssal Moon:\s*</p>\s*<p[^>]*>(.*?)</p>", content, re.I | re.S)
+        detail = re.search(r"Blessing of the Abyssal Moon:\s*</p>\s*<p[^>]*>.*?</p>\s*<p[^>]*>(.*?)</p>", content, re.I | re.S)
+        if not title or not detail: return ""
+        return f"{_wiki_plain_text(title.group(1))} — {_wiki_plain_text(detail.group(1))}"
+    except Exception:
+        return ""
+
 def genshin_endgame() -> bytes:
     def page(url):
         try:
@@ -1055,14 +1231,25 @@ def genshin_endgame() -> bytes:
         except OSError:
             return ""
 
-    with ThreadPoolExecutor(max_workers=4) as pool:
+    cycle_start = _current_abyss_start()
+    with ThreadPoolExecutor(max_workers=6) as pool:
         pages = [pool.submit(page, url) for url in ENDGAME_URLS]
         calendar = pool.submit(genshinflex_calendar_rows)
+        wiki_abyss_future = pool.submit(_parse_fandom_abyss_rotation, cycle_start)
+        official_blessing_future = pool.submit(_official_abyss_blessing, cycle_start)
         abyss, theater, onslaught = [future.result() for future in pages]
         try:
             windows = calendar.result()
         except (OSError, ValueError, TypeError):
             windows = []
+        try:
+            wiki_abyss = wiki_abyss_future.result()
+        except Exception:
+            wiki_abyss = None
+        try:
+            official_blessing = official_blessing_future.result()
+        except Exception:
+            official_blessing = ""
     if not any((abyss, theater, onslaught)):
         raise OSError("Les trois pages de rotation sont indisponibles.")
 
@@ -1201,10 +1388,21 @@ def genshin_endgame() -> bytes:
         "onslaught": html_text(on_date_match.group(1)) if on_date_match else "",
     }
     published = {kind: match_window(kind, text) for kind, text in raw_periods.items()}
+    abyss_source = "GenshinFlex"
+    if wiki_abyss:
+        current_by_floor = {str(row.get("floor")):row for row in floors}
+        current_by_floor.update({str(row["floor"]):row for row in wiki_abyss["floors"]})
+        floors = [current_by_floor[key] for key in sorted(current_by_floor, key=lambda value:int(value))]
+        reset = datetime.fromisoformat(wiki_abyss["end"]) + timedelta(days=1)
+        published["abyss"] = {"start":f"{wiki_abyss['start']}T04:00", "end":reset.strftime("%Y-%m-%dT04:00")}
+        abyss_source = wiki_abyss["source"]
     onslaught_data = {"title": (re.search(r"Version\s+([\d.]+)", html_text(on_title_match.group(1)), re.I) and f"Version {re.search(r'Version\s+([\d.]+)', html_text(on_title_match.group(1)), re.I).group(1)} · rotation publiée") if on_title_match else "Carnage chtonien", "period": french_months(html_text(on_date_match.group(1))) if on_date_match else "", "endAt": published["onslaught"].get("end", ""), "elements": on_elements, "bosses": on_bosses}
+    if official_blessing:
+        blessing_text = official_blessing
     result = {"updatedAt": time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime()),
               "windows": published,
               "blessing": blessing_text,
+              "sources":{"abyss":abyss_source,"theater":"GenshinFlex · saison active","onslaught":"GenshinFlex · rotation active","blessing":"Notes de mise à jour officielles" if official_blessing else "GenshinFlex"},
               "floors": floors,
               "theater": {"title": french_months(html_text(title_match.group(1))) if title_match else "Théâtre de l’imaginarium",
                           "period": french_months(html_text(period_match.group(1))) if period_match else "",
@@ -1650,7 +1848,7 @@ class Handler(SimpleHTTPRequestHandler):
         if path == "/api/gi/events":
             key = "gi/events"; now = time.time()
             with cache_lock:
-                entry = cache.get(key); payload = entry[1] if entry and now-entry[0] < 3600 and not refresh else None
+                entry = cache.get(key); payload = entry[1] if entry and now-entry[0] < 900 and not refresh else None
             if payload is None:
                 try:
                     payload = genshin_events()

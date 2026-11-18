@@ -1,7 +1,7 @@
 {
   "name": "Hex",
   "description": "Celestia",
-  "lastEdit": 1794348989569,
+  "lastEdit": 1794890203483,
   "conditional": {
     "resonance": {},
     "reaction": {}
@@ -41,22 +41,6 @@
           "name": "Hex",
           "description": "Celestia",
           "targets": [
-            {
-              "weight": 1,
-              "path": [
-                "skill",
-                "dmg"
-              ],
-              "hitMode": "avgHit",
-              "bonusStats": {
-                "atk_": 20,
-                "atk": 543.829,
-                "all_dmg_": 78.25,
-                "anemo_enemyRes_": -65,
-                "critDMG_": 40
-              },
-              "description": ""
-            },
             {
               "weight": 0.6608,
               "path": [
@@ -679,7 +663,7 @@
               "description": ""
             },
             {
-              "weight": 0.5622,
+              "weight": 0.5724,
               "path": [
                 "reaction",
                 "pyroSwirl"
@@ -692,7 +676,7 @@
               "description": ""
             },
             {
-              "weight": 1.6354,
+              "weight": 1.6457,
               "path": [
                 "reaction",
                 "pyroSwirl"
@@ -748,7 +732,7 @@
               "description": ""
             },
             {
-              "weight": 0.0818,
+              "weight": 0.6031,
               "path": [
                 "reaction",
                 "pyroSwirl"
@@ -757,34 +741,6 @@
               "bonusStats": {
                 "atk": 843.829,
                 "atk_": 20,
-                "pyro_enemyRes_": -35
-              },
-              "description": ""
-            },
-            {
-              "weight": 0.5928,
-              "path": [
-                "reaction",
-                "pyroSwirl"
-              ],
-              "hitMode": "avgHit",
-              "bonusStats": {
-                "atk": 843.829,
-                "atk_": 20,
-                "pyro_enemyRes_": -35
-              },
-              "description": ""
-            },
-            {
-              "weight": 0.0102,
-              "path": [
-                "reaction",
-                "pyroSwirl"
-              ],
-              "hitMode": "avgHit",
-              "bonusStats": {
-                "atk_": 20,
-                "atk": 543.829,
                 "pyro_enemyRes_": -35
               },
               "description": ""
@@ -804,7 +760,7 @@
               "description": ""
             },
             {
-              "weight": 2.167,
+              "weight": 2.3101,
               "path": [
                 "reaction",
                 "pyroSwirl"
@@ -859,20 +815,6 @@
               "description": ""
             },
             {
-              "weight": 0.0409,
-              "path": [
-                "reaction",
-                "pyroSwirl"
-              ],
-              "hitMode": "avgHit",
-              "bonusStats": {
-                "atk": 843.829,
-                "atk_": 20,
-                "pyro_enemyRes_": -35
-              },
-              "description": ""
-            },
-            {
               "weight": 0.1022,
               "path": [
                 "reaction",
@@ -887,43 +829,18 @@
               "description": ""
             },
             {
-              "weight": 0.0204,
+              "weight": 1,
               "path": [
-                "reaction",
-                "pyroSwirl"
-              ],
-              "hitMode": "avgHit",
-              "bonusStats": {
-                "atk": 843.829,
-                "atk_": 20,
-                "pyro_enemyRes_": -35
-              },
-              "description": ""
-            },
-            {
-              "weight": 0.0102,
-              "path": [
-                "reaction",
-                "pyroSwirl"
-              ],
-              "hitMode": "avgHit",
-              "bonusStats": {
-                "atk": 843.829,
-                "atk_": 20,
-                "pyro_enemyRes_": -35
-              },
-              "description": ""
-            },
-            {
-              "weight": 0.0102,
-              "path": [
-                "reaction",
-                "pyroSwirl"
+                "skill",
+                "dmg"
               ],
               "hitMode": "avgHit",
               "bonusStats": {
                 "atk_": 20,
-                "pyro_enemyRes_": -35
+                "atk": 543.829,
+                "all_dmg_": 78.25,
+                "anemo_enemyRes_": -65,
+                "critDMG_": 40
               },
               "description": ""
             }

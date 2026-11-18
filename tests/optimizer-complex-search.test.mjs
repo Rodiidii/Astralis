@@ -9,10 +9,21 @@ for(const mode of ['complex','weighted'])test('top N complet contre recherche br
  const input={baseStats:{atk:900,critRate:10,critDmg:60},level:90,hit,bonuses:{},relevantStats:['atkFlat']};
  if(mode==='complex')input.hit={...hit,complexEffects:{furina:{enabled:true,constellation:2,hpChangePercent:100,talentLevel:10}}};
  else input.weightedHits=[{hit,weight:2},{hit:{...hit,actionKind:'normal'},weight:1,bonuses:{atkPct:25}}];
- const expected=brute(input),out=await optimizeArtifacts({inventory,input,topN:5});assert.equal(out.exact,true);assert.equal(out.diagnostic.search,'exhaustive');assert.equal(out.visited,243);assert.equal(out.results.length,5);out.results.forEach((row,i)=>assert.ok(Math.abs(row.score-expected[i])<1e-8));
+ const expected=brute(input),out=await optimizeArtifacts({inventory,input,topN:5});assert.equal(out.exact,true);assert.equal(out.diagnostic.search,'bounded');assert.equal(out.visited+out.skippedCombinations,243);assert.ok(out.pruned>0);assert.equal(out.results.length,5);out.results.forEach((row,i)=>assert.ok(Math.abs(row.score-expected[i])<1e-8));
 });
 test('annulation temporelle : une recherche exhaustive rend la main et ne prétend pas être complète',async()=>{
  const many=slots.flatMap((slot,i)=>Array.from({length:20},(_,n)=>({id:i+'-'+n,slot,slotIndex:i,setKey:'a',mainType:'atkFlat',mainValue:n+1,substats:[]})));
  let stop=false,progress=0;setTimeout(()=>{stop=true},20);
- const out=await optimizeArtifacts({inventory:many,input:{baseStats:{atk:1000},hit,weightedHits:[{hit,weight:1}]},cancelled:()=>stop,onProgress:()=>progress++});assert.equal(out.stopped,true);assert.equal(out.exact,false);assert.ok(out.visited<20**5);assert.ok(progress>0);
+ const out=await optimizeArtifacts({inventory:many,input:{disableBounds:true,baseStats:{atk:1000},hit,weightedHits:[{hit,weight:1}]},cancelled:()=>stop,onProgress:()=>progress++});assert.equal(out.stopped,true);assert.equal(out.exact,false);assert.ok(out.visited<20**5);assert.ok(progress>0);
+});
+test('borne complexe et pondérée : même top 5 que le parcours exhaustif avec plumes et sets',async()=>{
+ const config={skirk:{enabled:true,sevenPhase:true,deathStacks:3,serpentExtra:12},furina:{enabled:true,constellation:2,hpChangePercent:100},shenhe:{enabled:true,atk:3000,talentLevel:10}};
+ const advanced={...hit,complexContext:{character:'10000114',constellation:4,teamElements:['cryo','hydro','cryo','hydro']},complexEffects:config};
+ for(const kind of ['normal','burst']){
+  const input={baseStats:{atk:1000,critRate:20,critDmg:100},hit:{...advanced,actionKind:kind},setEffects:{a:{two:{atkPct:18},four:{critRate:36}},b:{two:{cryoDmg:15}}}};
+  input.weightedHits=[{hit:input.hit,weight:2},{hit:{...advanced,actionKind:'burst'},weight:1}];
+  const exact=await optimizeArtifacts({inventory,input:{...input,disableBounds:true},topN:5,filters:{configuration:'any'}});
+  const bounded=await optimizeArtifacts({inventory,input,topN:5,filters:{configuration:'any'}});
+  assert.deepEqual(bounded.results.map(row=>row.score),exact.results.map(row=>row.score));assert.equal(bounded.visited+bounded.skippedCombinations,243);
+ }
 });

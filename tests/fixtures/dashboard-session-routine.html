@@ -1,0 +1,13 @@
+<!doctype html>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<link rel="stylesheet" href="../../styles/dashboard-studio.css">
+<main id="app"></main>
+<script type="module">
+ import {renderFeature} from '../../src/dashboard-features.js?session-routine-browser-test';
+ const today=new Date().toLocaleDateString('sv-SE');
+ let render;
+ const context={game:'gi',people:[{id:'amber',sourceId:'1001',name:'Amber',image:'../../assets/relations/portraits/10000021.png'},{id:'kaeya',sourceId:'1002',name:'Kaeya',image:'../../assets/relations/portraits/10000002.png'}],savedTeams:[{id:'team-1',name:'Exploration',members:[{character:'1001'},{character:'1002'}],rotation:[{type:'comboStart'},{character:'1001',code:'E',name:'Compétence élémentaire'},{type:'comboEnd'},{character:'1002',code:'Q',name:'Déchaînement'}]}],farmRows:[{id:'farm-team',date:today,title:'Livres d’aptitudes',characterIds:['amber','kaeya'],doneCharacters:[]},{id:'farm-mora',date:today,title:'Mora',done:false}],tasks:[],refresh:()=>render()};
+ render=()=>{document.querySelector('#app').innerHTML=renderFeature('session',context)};
+ render();
+</script>

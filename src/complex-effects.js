@@ -17,7 +17,7 @@ export function complexEffects(config={},context={}){
  const azure=config.azurelight;
  if(active(azure,time,12)){
   if(String(context.weaponId)!=='11517')warnings.push('Éclazur : cette arme doit être équipée pour appliquer son passif.');
-  else{const rank=clamp(azure.refinement||context.refinement||1,1,5),attack=24+6*(rank-1);add({atkPct:attack*(azure.zeroEnergy?2:1),...(azure.zeroEnergy?{critDmg:40+10*(rank-1)}:{})},'Éclazur · après E'+(azure.zeroEnergy?' · énergie nulle':''));}
+  else{const rank=clamp(context.refinement||azure.refinement||1,1,5),attack=24+6*(rank-1);add({atkPct:attack*(azure.zeroEnergy?2:1),...(azure.zeroEnergy?{critDmg:40+10*(rank-1)}:{})},'Éclazur · après E'+(azure.zeroEnergy?' · énergie nulle':''));}
  }
  const furina=config.furina;
  if(active(furina,time,D.Furina.burst[1][0])){
@@ -26,8 +26,9 @@ export function complexEffects(config={},context={}){
  }
  const esco=config.escoffier;
  if(active(esco,time,D.Escoffier.passive2[4][0])){
-  const count=team.filter(el=>el==='hydro'||el==='cryo').length;
-  if(!team.length)warnings.push('Escoffier : composition à renseigner pour déterminer la réduction de RES.');
+  const selected=Number(esco.hydroCryoCount)||0;
+  const count=selected>=1&&selected<=4?Math.floor(selected):team.filter(el=>el==='hydro'||el==='cryo').length;
+  if(!team.length&&!selected)warnings.push('Escoffier : composition à renseigner pour déterminer la réduction de RES.');
   else if(isCryo||element==='hydro')add({resReduction:(D.Escoffier.passive2[Math.min(4,count)-1]?.[0]||0)*100},'Escoffier · '+count+' personnages Hydro/Cryo');
  }
  if(esco?.enabled&&Number(esco.constellation)>=1&&active(esco,time,D.Escoffier.constellation1[1])&&team.length===4&&team.every(el=>['hydro','cryo'].includes(el))&&isCryo)add({critDmg:D.Escoffier.constellation1[0]*100},'Escoffier C1 · DGT CRIT Cryo');
@@ -38,7 +39,7 @@ export function complexEffects(config={},context={}){
  const mona=config.mona;
  if(active(mona,time,level(D.Mona.burst[3],mona?.talentLevel||10)+clamp(mona?.freezeExtension,0,30))){add({dmgBonus:level(D.Mona.burst[6],mona.talentLevel||10)*100,...(Number(mona.constellation)>=4?{critRate:Math.abs(D.Mona.constellation4[0])*100}:{})},'Mona · Présage'+(Number(mona.constellation)>=4?' · C4':''));}
  const shenhe=config.shenhe,hold=shenhe?.cast==='hold',shenheLevel=clamp(shenhe?.talentLevel||10,1,13)+(Number(shenhe?.constellation)>=3&&shenhe?.includeConstellationLevels!==false?3:0),shenheDuration=D.Shenhe.skill[hold?4:3][0];
- if(active(shenhe,time,shenheDuration)){
+ if(shenhe?.skillEnabled!==false&&active(shenhe,time,shenheDuration)){
   if(isCryo){
    if(!(Number(shenhe.atk)>0)||!Number.isFinite(Number(shenhe.atk)))warnings.push('Shenhe : ATQ finale source requise pour les plumes de glace.');
    else pools.push({id:'shenhe-quill:'+id+':'+Number(shenhe.startedAt||0),flatDamage:Number(shenhe.atk)*level(D.Shenhe.skill[2],shenheLevel),charges:D.Shenhe.skill[hold?6:5][0],element:'cryo',expiresAt:Number(shenhe.startedAt||0)+shenheDuration,unlimitedKinds:Number(shenhe.constellation)>=6?['normal','charged']:[]});

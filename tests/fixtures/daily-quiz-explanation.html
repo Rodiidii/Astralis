@@ -1,0 +1,14 @@
+<!doctype html>
+<html lang="fr"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<link rel="stylesheet" href="../../styles/daily-quiz.css"><main id="root"></main>
+<script type="module">
+ import {renderDailyQuiz,mountDailyQuiz} from '../../src/daily-quiz.js';
+ const day=new Date().toLocaleDateString('sv-SE'),characters=[
+  {_id:'furina',_name:'Furina',elementText:'Hydro',weaponText:'Catalyseur',region:'Fontaine'},
+  {_id:'neuvillette',_name:'Neuvillette',elementText:'Hydro',weaponText:'Catalyseur',region:'Fontaine'},
+  {_id:'yelan',_name:'Yelan',elementText:'Hydro',weaponText:'Arc',region:'Liyue'},
+  {_id:'mona',_name:'Mona',elementText:'Hydro',weaponText:'Catalyseur',region:'Mondstadt'}
+ ].map(person=>({...person,_quizImage:''})),question={id:`${day}-0-furina`,label:'Élément',value:'Hydro',targetId:'furina',options:characters.map(person=>({id:person._id,name:person._name,image:''}))};
+ localStorage.setItem('astralis:daily-quiz:v1',JSON.stringify({games:{gi:{day,index:0,score:0,answers:[],hints:{},questions:[question]}},records:{gi:{played:0,best:0,streak:0,lastDay:'',mistakes:[{id:'past-region',day:'2026-11-15',label:'Région',value:'Fontaine',targetId:'furina',options:question.options},{id:'past-element',day:'2026-11-15',label:'Élément',value:'Hydro',targetId:'furina',options:question.options}]}}}));
+ const root=document.querySelector('#root');root.innerHTML=renderDailyQuiz('gi',characters);mountDailyQuiz(root.firstElementChild,'gi',characters);
+</script></html>

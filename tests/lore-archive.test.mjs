@@ -1,12 +1,26 @@
 import { readFileSync, existsSync } from 'node:fs';
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { characterTrailers, factionMember, isOfficialTrailer, loreEvents, regionTrailers } from '../src/lore-archive.js';
+import { characterTrailers, factionMember, filterLoreArchive, isOfficialTrailer, loreArchiveCategories, loreEvents, regionTrailers } from '../src/lore-archive.js';
 import { LORE_REGIONS } from '../src/lore.js';
 
 const archive = JSON.parse(readFileSync(new URL('../data/lore-archive.json', import.meta.url), 'utf8'));
 const catalog = JSON.parse(readFileSync(new URL('../assets/data/gi-characters.json', import.meta.url), 'utf8'));
 const figures = JSON.parse(readFileSync(new URL('../assets/data/gi-relation-lore.json', import.meta.url), 'utf8'));
+
+test('archive categories count notices and filter with accent-insensitive search', () => {
+  const rows = [
+    { title: 'La forêt des rêves', extract: 'Un ancien souvenir', categories: ['Livres', 'Sumeru'] },
+    { title: 'Les chroniques', extract: 'Une chronique ancienne', categories: ['Livres'] },
+    { title: 'Fontaine', extract: 'Une région', categories: ['Régions'] },
+  ];
+  assert.deepEqual(loreArchiveCategories(rows), [
+    { label: 'Livres', count: 2 }, { label: 'Régions', count: 1 }, { label: 'Sumeru', count: 1 },
+  ]);
+  assert.deepEqual(filterLoreArchive(rows, { category: 'livres', query: 'foret des reves' }), [rows[0]]);
+  assert.deepEqual(filterLoreArchive(rows, { category: 'all', query: 'CHRONIQUE' }), [rows[1]]);
+  assert.deepEqual(filterLoreArchive(rows, { category: 'inconnue' }), []);
+});
 
 test('filmography matches official full subject, not a name in a subtitle or a hashtag', () => {
   const good = { id: 'aau-c8l5z9c', channel: 'https://www.youtube.com/@GenshinImpact', title: 'Character Teaser - "Furina: Member of the Cast"' };

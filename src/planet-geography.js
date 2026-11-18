@@ -1,5 +1,6 @@
 let geography;
 let request;let retryAfter=0;
+const mapMetrics=new WeakMap();
 
 export function loadPlanetGeography() {
  if (typeof window === 'undefined'||Date.now()<retryAfter) return Promise.resolve(null);
@@ -28,7 +29,9 @@ export function mapPoint(map, u, v) {
 
 export function mapHeight(map, u, v) {
  if (u<0 || u>1 || v<0 || v>1) return .988;
- const size=Math.round(Math.sqrt(map.heights.length));
+ let metrics=mapMetrics.get(map);
+ if(!metrics){metrics={size:Math.round(Math.sqrt(map.heights.length)),peaks:(map.sites||[]).filter(site=>/peak|canyon|volcano|pyramid/.test(site.kind||'')).map(site=>({u:Number(site.u)||0,v:Number(site.v)||0,height:Number(site.height)||0}))};mapMetrics.set(map,metrics);}
+ const {size,peaks}=metrics;
  const x=Math.min(size-1,u*(size-1)),y=Math.min(size-1,v*(size-1));
  const x0=Math.floor(x),y0=Math.floor(y),x1=Math.min(size-1,x0+1),y1=Math.min(size-1,y0+1);
  const ax=x-x0,ay=y-y0;
@@ -36,9 +39,9 @@ export function mapHeight(map, u, v) {
   (map.heights[y1*size+x0]*(1-ax)+map.heights[y1*size+x1]*ax)*ay;
  if(h<5)return .988;
  let elevation=1.005+h*.0006;
- for(const site of map.sites) {
-  if(!/peak|canyon|volcano|pyramid/.test(site.kind))continue;
+ for(const site of peaks) {
   const distance=(u-site.u)**2+(v-site.v)**2;
+  if(distance>.025)continue;
   elevation+=site.height*.3*Math.exp(-distance/.003);
  }
  return elevation;

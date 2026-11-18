@@ -23,9 +23,76 @@
   "reference": {
     "source": "ceilingStandard"
   },
-  "goConditions": null,
-  "characterBonusStats": null,
-  "enemy": null,
-  "issues": [],
+  "goConditions": {
+    "Noelle": {
+      "SweepingTime": "on"
+    }
+  },
+  "characterBonusStats": {
+    "eleMas": 200,
+    "def": 200
+  },
+  "enemy": {
+    "level": 100,
+    "res": 0.1
+  },
+  "issues": [
+    {
+      "code": "characterBonusStats",
+      "stats": [
+        {
+          "buff": "A1 — Moonsign: Ascendant Gleam",
+          "key": "eleMas",
+          "value": 50
+        },
+        {
+          "buff": "Nightmare Orioles",
+          "key": "eleMas",
+          "value": 30
+        },
+        {
+          "buff": "Solarhunting Wolf",
+          "key": "def",
+          "value": 200
+        },
+        {
+          "buff": "Silken Moon's Serenade · 4pc Silken Moon Team Lunarbloom Window",
+          "key": "eleMas",
+          "value": 120
+        }
+      ]
+    },
+    {
+      "code": "selfScaling",
+      "buffs": [
+        "Must Be Spotless",
+        "Moonsign — non-Moonsign party bonus"
+      ]
+    },
+    {
+      "code": "goSwitch",
+      "switches": [
+        {
+          "condition": [
+            "Noelle",
+            "SweepingTime",
+            "on"
+          ],
+          "source": {
+            "type": "character"
+          },
+          "buffs": [
+            "Sweeping Time"
+          ]
+        }
+      ]
+    },
+    {
+      "code": "setEffects",
+      "setIds": [
+        15034
+      ]
+    }
+  ],
   "teamIssues": []
 }

@@ -1,7 +1,7 @@
 {
   "name": "Off-field Lunar-Charged",
   "description": "Celestia",
-  "lastEdit": 1794419931364,
+  "lastEdit": 1794931274078,
   "conditional": {
     "resonance": {},
     "reaction": {}
@@ -40,6 +40,20 @@
           "name": "Off-field Lunar-Charged",
           "description": "Celestia",
           "targets": [
+            {
+              "weight": 0.5,
+              "path": [
+                "skill",
+                "continuousDmg"
+              ],
+              "hitMode": "avgHit",
+              "bonusStats": {
+                "eleMas": 373.786,
+                "critRate_": 15,
+                "hydro_enemyRes_": -40
+              },
+              "description": ""
+            },
             {
               "weight": 0.5,
               "path": [
@@ -682,20 +696,6 @@
                 "critRate_": 15,
                 "lunarcharged_dmg_": 41.69,
                 "electro_enemyRes_": -40
-              },
-              "description": ""
-            },
-            {
-              "weight": 0.5,
-              "path": [
-                "skill",
-                "continuousDmg"
-              ],
-              "hitMode": "avgHit",
-              "bonusStats": {
-                "eleMas": 373.786,
-                "critRate_": 15,
-                "hydro_enemyRes_": -40
               },
               "description": ""
             }

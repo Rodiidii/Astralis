@@ -1,7 +1,7 @@
 {
   "name": "Hyperbloom",
   "description": "Celestia",
-  "lastEdit": 1794351131396,
+  "lastEdit": 1794890307191,
   "conditional": {
     "resonance": {},
     "reaction": {}
@@ -394,7 +394,7 @@
               "description": ""
             },
             {
-              "weight": 1.3095,
+              "weight": 1.3203,
               "path": [
                 "reaction",
                 "bloom"
@@ -406,7 +406,7 @@
               "description": ""
             },
             {
-              "weight": 1.5584,
+              "weight": 1.5693,
               "path": [
                 "reaction",
                 "bloom"
@@ -445,50 +445,13 @@
               "description": ""
             },
             {
-              "weight": 0.2056,
+              "weight": 0.2165,
               "path": [
                 "reaction",
                 "bloom"
               ],
               "hitMode": "avgHit",
               "bonusStats": {
-                "dendro_enemyRes_": -30
-              },
-              "description": ""
-            },
-            {
-              "weight": 0.0108,
-              "path": [
-                "reaction",
-                "bloom"
-              ],
-              "hitMode": "avgHit",
-              "bonusStats": {
-                "dendro_enemyRes_": -30
-              },
-              "description": ""
-            },
-            {
-              "weight": 0.0108,
-              "path": [
-                "reaction",
-                "bloom"
-              ],
-              "hitMode": "avgHit",
-              "bonusStats": {
-                "dendro_enemyRes_": -30
-              },
-              "description": ""
-            },
-            {
-              "weight": 0.0108,
-              "path": [
-                "reaction",
-                "bloom"
-              ],
-              "hitMode": "avgHit",
-              "bonusStats": {
-                "eleMas": 100,
                 "dendro_enemyRes_": -30
               },
               "description": ""

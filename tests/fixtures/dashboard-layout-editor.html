@@ -1,0 +1,18 @@
+<!doctype html>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<link rel="stylesheet" href="../../styles/dashboard-studio.css">
+<link rel="stylesheet" href="../../styles/cosmos.css">
+<main id="app"></main>
+<script type="module">
+ localStorage.setItem('astralis:cosmos:gi',JSON.stringify({view:'blocks',background:'none',motion:false}));
+ import {renderStudio} from '../../src/dashboard-studio.js?layout-editor-browser-test';
+ const samplePortrait='data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"%3E%3Crect width="64" height="64" fill="%233c3448"/%3E%3Ccircle cx="32" cy="25" r="13" fill="%23e8c788"/%3E%3Cpath d="M8 64c2-16 11-24 24-24s22 8 24 24" fill="%23bda0ff"/%3E%3C/svg%3E';
+ const loadingMode=new URLSearchParams(location.search).has('loading');
+ const stepsMode=new URLSearchParams(location.search).has('steps');
+ if(stepsMode)localStorage.setItem('astralis:session:gi',JSON.stringify({teamRoutine:{teamName:'Équipe de test',steps:[{id:'one',label:'Activer la compétence',characterName:'Furina',done:true},{id:'two',label:'Déclencher le déchaînement',characterName:'Furina',done:false}],members:[]}}));
+ const context={game:'gi',gameLabel:'Genshin Impact',player:'Test',people:[],scenePeople:loadingMode?[]:[{id:'venti',name:'Venti',image:samplePortrait},{id:'zhongli',name:'Zhongli',image:samplePortrait}],loading:{characters:loadingMode,events:loadingMode},team:[],tasks:stepsMode?[{id:'weekly',title:'Préparer le boss hebdomadaire',steps:[{id:'one',title:'Choisir le boss',done:true},{id:'two',title:'Récupérer les récompenses',done:true},{id:'three',title:'Dépenser la résine',done:false}]}]:[],events:[],wishes:{},savedTeams:[],builds:[],ownedIds:[],refresh:render};
+ function render(){document.querySelector('#app').innerHTML=renderStudio(context)}
+ window.resolveFixtureLoading=()=>{context.loading={characters:false,events:false};context.people=[{id:'venti',name:'Venti',image:samplePortrait}];context.scenePeople=context.people;render()};
+ render();
+</script>

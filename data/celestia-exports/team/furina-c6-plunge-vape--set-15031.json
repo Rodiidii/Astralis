@@ -1,7 +1,7 @@
 {
   "name": "C6 Plunge Vape",
   "description": "Celestia",
-  "lastEdit": 1794351084538,
+  "lastEdit": 1794890273312,
   "conditional": {
     "resonance": {},
     "reaction": {}
@@ -33,80 +33,6 @@
           "name": "C6 Plunge Vape",
           "description": "Celestia",
           "targets": [
-            {
-              "weight": 0.9572,
-              "path": [
-                "skill",
-                "chevalDmg"
-              ],
-              "hitMode": "avgHit",
-              "bonusStats": {
-                "hp_": 139.5,
-                "critRate_": 36,
-                "all_dmg_": 88.13,
-                "hydro_enemyRes_": -38.507
-              },
-              "description": ""
-            },
-            {
-              "weight": 0.1777,
-              "path": [
-                "skill",
-                "chevalDmg"
-              ],
-              "hitMode": "avgHit",
-              "bonusStats": {
-                "hp_": 166.67,
-                "critRate_": 36,
-                "all_dmg_": 112.19,
-                "hydro_enemyRes_": -38.261
-              },
-              "description": ""
-            },
-            {
-              "weight": 1.2057,
-              "path": [
-                "skill",
-                "crabDmg"
-              ],
-              "hitMode": "avgHit",
-              "bonusStats": {
-                "hp_": 135.13,
-                "critRate_": 36,
-                "all_dmg_": 84.26,
-                "hydro_enemyRes_": -11.282
-              },
-              "description": ""
-            },
-            {
-              "weight": 1.2255,
-              "path": [
-                "skill",
-                "usherDmg"
-              ],
-              "hitMode": "avgHit",
-              "bonusStats": {
-                "hp_": 134.81,
-                "critRate_": 36,
-                "all_dmg_": 83.97,
-                "hydro_enemyRes_": -9.367
-              },
-              "description": ""
-            },
-            {
-              "weight": 1.4475,
-              "path": [
-                "skill",
-                "chevalDmg"
-              ],
-              "hitMode": "avgHit",
-              "bonusStats": {
-                "hp_": 40,
-                "critRate_": 35.52,
-                "hydro_enemyRes_": -8.25
-              },
-              "description": ""
-            },
             {
               "weight": 1,
               "path": [
@@ -241,7 +167,7 @@
               "description": ""
             },
             {
-              "weight": 0.7818,
+              "weight": 0.8303,
               "path": [
                 "skill",
                 "usherDmg"
@@ -252,21 +178,6 @@
                 "atk_": 20,
                 "all_dmg_": 124,
                 "critRate_": 25.92
-              },
-              "description": ""
-            },
-            {
-              "weight": 0.0451,
-              "path": [
-                "skill",
-                "usherDmg"
-              ],
-              "hitMode": "avgHit",
-              "bonusStats": {
-                "hp_": 112.33,
-                "atk_": 20,
-                "all_dmg_": 124,
-                "critRate_": 12
               },
               "description": ""
             },
@@ -591,6 +502,80 @@
                 "hp_": 180,
                 "all_dmg_": 154.31,
                 "critRate_": 36
+              },
+              "description": ""
+            },
+            {
+              "weight": 0.9572,
+              "path": [
+                "skill",
+                "chevalDmg"
+              ],
+              "hitMode": "avgHit",
+              "bonusStats": {
+                "hp_": 139.5,
+                "critRate_": 36,
+                "all_dmg_": 88.13,
+                "hydro_enemyRes_": -38.507
+              },
+              "description": ""
+            },
+            {
+              "weight": 0.1777,
+              "path": [
+                "skill",
+                "chevalDmg"
+              ],
+              "hitMode": "avgHit",
+              "bonusStats": {
+                "hp_": 166.67,
+                "critRate_": 36,
+                "all_dmg_": 112.19,
+                "hydro_enemyRes_": -38.261
+              },
+              "description": ""
+            },
+            {
+              "weight": 1.2057,
+              "path": [
+                "skill",
+                "crabDmg"
+              ],
+              "hitMode": "avgHit",
+              "bonusStats": {
+                "hp_": 135.13,
+                "critRate_": 36,
+                "all_dmg_": 84.26,
+                "hydro_enemyRes_": -11.282
+              },
+              "description": ""
+            },
+            {
+              "weight": 1.2255,
+              "path": [
+                "skill",
+                "usherDmg"
+              ],
+              "hitMode": "avgHit",
+              "bonusStats": {
+                "hp_": 134.81,
+                "critRate_": 36,
+                "all_dmg_": 83.97,
+                "hydro_enemyRes_": -9.367
+              },
+              "description": ""
+            },
+            {
+              "weight": 1.4475,
+              "path": [
+                "skill",
+                "chevalDmg"
+              ],
+              "hitMode": "avgHit",
+              "bonusStats": {
+                "hp_": 40,
+                "critRate_": 35.52,
+                "hydro_enemyRes_": -8.25
               },
               "description": ""
             }

@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import {normalizeWishTarget} from '../src/wish-targets.js';
+import {normalizeWishTarget,wishTargetOwnership} from '../src/wish-targets.js';
 import {orderedGuarantees} from '../src/planning-rules.js';
 import {simulateWishOrder} from '../src/wish-simulation.js';
 test('la possession prévaut sur des compteurs de copies obsolètes',()=>{
@@ -21,4 +21,13 @@ test('pity initiale utilisée une seule fois, budgets restants exacts',()=>{
 test('comptages bornés et entiers, anciens objectifs conservés',()=>{
  assert.equal(normalizeWishTarget({copies:2.9,refinements:1.8}).copies,2);assert.equal(normalizeWishTarget({copies:Infinity}).copies,0);
  assert.equal(normalizeWishTarget({currentC:99,targetC:99}).copies,0);
+});
+test('progression ownership expose seulement les possessions réellement renseignées',()=>{
+ assert.deepEqual(wishTargetOwnership({copies:2,refinements:1}),{character:null,weapon:null});
+ assert.deepEqual(wishTargetOwnership({currentC:-1,targetC:2,currentR:1,targetR:4}),{
+  character:{from:'Non possédé',to:'C2',ownedCopies:0,targetCopies:3,progress:0},
+  weapon:{from:'R1',to:'R4',ownedCopies:1,targetCopies:4,progress:25},
+ });
+ assert.equal(wishTargetOwnership({currentC:2,targetC:2,currentR:4,targetR:4}).character.progress,100);
+ assert.equal(wishTargetOwnership({currentC:-1,targetC:0}).character.progress,0);
 });

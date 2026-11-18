@@ -33,7 +33,7 @@
       "description": ""
     },
     {
-      "weight": 0.5166,
+      "weight": 0.6483,
       "path": [
         "burst",
         "dmg"
@@ -196,20 +196,6 @@
       "description": ""
     },
     {
-      "weight": 0.0188,
-      "path": [
-        "burst",
-        "dmg"
-      ],
-      "hitMode": "avgHit",
-      "bonusStats": {
-        "atk": 848.791,
-        "atk_": 25,
-        "all_dmg_": 40
-      },
-      "description": ""
-    },
-    {
       "weight": 0.4326,
       "path": [
         "charged",
@@ -227,7 +213,7 @@
       "description": ""
     },
     {
-      "weight": 0.4938,
+      "weight": 0.8759,
       "path": [
         "burst",
         "dmg"
@@ -270,20 +256,6 @@
       "description": ""
     },
     {
-      "weight": 0.0494,
-      "path": [
-        "burst",
-        "dmg"
-      ],
-      "hitMode": "avgHit",
-      "bonusStats": {
-        "atk": 848.791,
-        "atk_": 25,
-        "all_dmg_": 40
-      },
-      "description": ""
-    },
-    {
       "weight": 0.4265,
       "path": [
         "charged",
@@ -316,20 +288,6 @@
       "description": ""
     },
     {
-      "weight": 0.0188,
-      "path": [
-        "burst",
-        "dmg"
-      ],
-      "hitMode": "avgHit",
-      "bonusStats": {
-        "atk": 848.791,
-        "atk_": 25,
-        "all_dmg_": 40
-      },
-      "description": ""
-    },
-    {
       "weight": 0.5089,
       "path": [
         "charged",
@@ -354,20 +312,6 @@
       ],
       "hitMode": "avgHit",
       "reaction": "melt",
-      "bonusStats": {
-        "atk": 848.791,
-        "atk_": 25,
-        "all_dmg_": 40
-      },
-      "description": ""
-    },
-    {
-      "weight": 0.0059,
-      "path": [
-        "burst",
-        "dmg"
-      ],
-      "hitMode": "avgHit",
       "bonusStats": {
         "atk": 848.791,
         "atk_": 25,
@@ -813,36 +757,7 @@
       "description": ""
     },
     {
-      "weight": 0.0123,
-      "path": [
-        "burst",
-        "dmg"
-      ],
-      "hitMode": "avgHit",
-      "bonusStats": {
-        "atk": 848.791,
-        "atk_": 25,
-        "all_dmg_": 40
-      },
-      "description": ""
-    },
-    {
       "weight": 0.0775,
-      "path": [
-        "burst",
-        "dmg"
-      ],
-      "hitMode": "avgHit",
-      "reaction": "melt",
-      "bonusStats": {
-        "atk": 848.791,
-        "atk_": 25,
-        "all_dmg_": 40
-      },
-      "description": ""
-    },
-    {
-      "weight": 0.0455,
       "path": [
         "burst",
         "dmg"
@@ -885,36 +800,7 @@
       "description": ""
     },
     {
-      "weight": 0.0123,
-      "path": [
-        "burst",
-        "dmg"
-      ],
-      "hitMode": "avgHit",
-      "bonusStats": {
-        "atk": 848.791,
-        "atk_": 25,
-        "all_dmg_": 40
-      },
-      "description": ""
-    },
-    {
       "weight": 0.0842,
-      "path": [
-        "burst",
-        "dmg"
-      ],
-      "hitMode": "avgHit",
-      "reaction": "melt",
-      "bonusStats": {
-        "atk": 848.791,
-        "atk_": 25,
-        "all_dmg_": 40
-      },
-      "description": ""
-    },
-    {
-      "weight": 0.0258,
       "path": [
         "burst",
         "dmg"
@@ -1049,35 +935,6 @@
       "description": ""
     },
     {
-      "weight": 0.0212,
-      "path": [
-        "burst",
-        "dmg"
-      ],
-      "hitMode": "avgHit",
-      "reaction": "melt",
-      "bonusStats": {
-        "atk": 848.791,
-        "atk_": 25,
-        "all_dmg_": 40
-      },
-      "description": ""
-    },
-    {
-      "weight": 0.0435,
-      "path": [
-        "burst",
-        "dmg"
-      ],
-      "hitMode": "avgHit",
-      "bonusStats": {
-        "atk": 848.791,
-        "atk_": 25,
-        "all_dmg_": 40
-      },
-      "description": ""
-    },
-    {
       "weight": 0.0723,
       "path": [
         "charged",
@@ -1094,20 +951,6 @@
       "description": ""
     },
     {
-      "weight": 0.0494,
-      "path": [
-        "burst",
-        "dmg"
-      ],
-      "hitMode": "avgHit",
-      "bonusStats": {
-        "atk": 848.791,
-        "atk_": 25,
-        "all_dmg_": 40
-      },
-      "description": ""
-    },
-    {
       "weight": 0.1026,
       "path": [
         "charged",
@@ -1120,34 +963,6 @@
         "atk_": 25,
         "all_dmg_": 48,
         "critRate_": 20
-      },
-      "description": ""
-    },
-    {
-      "weight": 0.0188,
-      "path": [
-        "burst",
-        "dmg"
-      ],
-      "hitMode": "avgHit",
-      "bonusStats": {
-        "atk": 848.791,
-        "atk_": 25,
-        "all_dmg_": 40
-      },
-      "description": ""
-    },
-    {
-      "weight": 0.0356,
-      "path": [
-        "burst",
-        "dmg"
-      ],
-      "hitMode": "avgHit",
-      "bonusStats": {
-        "atk": 848.791,
-        "atk_": 25,
-        "all_dmg_": 40
       },
       "description": ""
     },
@@ -1282,35 +1097,6 @@
       "description": ""
     },
     {
-      "weight": 0.0196,
-      "path": [
-        "burst",
-        "dmg"
-      ],
-      "hitMode": "avgHit",
-      "reaction": "melt",
-      "bonusStats": {
-        "atk": 848.791,
-        "atk_": 25,
-        "all_dmg_": 40
-      },
-      "description": ""
-    },
-    {
-      "weight": 0.037,
-      "path": [
-        "burst",
-        "dmg"
-      ],
-      "hitMode": "avgHit",
-      "bonusStats": {
-        "atk": 848.791,
-        "atk_": 25,
-        "all_dmg_": 40
-      },
-      "description": ""
-    },
-    {
       "weight": 0.0741,
       "path": [
         "burst",
@@ -1385,49 +1171,6 @@
     },
     {
       "weight": 0.2098,
-      "path": [
-        "burst",
-        "dmg"
-      ],
-      "hitMode": "avgHit",
-      "bonusStats": {
-        "atk": 848.791,
-        "atk_": 25,
-        "all_dmg_": 40
-      },
-      "description": ""
-    },
-    {
-      "weight": 0.0196,
-      "path": [
-        "burst",
-        "dmg"
-      ],
-      "hitMode": "avgHit",
-      "reaction": "melt",
-      "bonusStats": {
-        "atk": 848.791,
-        "atk_": 25,
-        "all_dmg_": 40
-      },
-      "description": ""
-    },
-    {
-      "weight": 0.0311,
-      "path": [
-        "burst",
-        "dmg"
-      ],
-      "hitMode": "avgHit",
-      "bonusStats": {
-        "atk": 848.791,
-        "atk_": 25,
-        "all_dmg_": 40
-      },
-      "description": ""
-    },
-    {
-      "weight": 0.0494,
       "path": [
         "burst",
         "dmg"

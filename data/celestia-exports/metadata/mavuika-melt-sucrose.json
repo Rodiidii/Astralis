@@ -29,8 +29,8 @@
       "nightsoul": "on"
     },
     "ObsidianCodex": {
-      "4NightsoulConsume": "on",
-      "2NightsoulBlessing": "on"
+      "2NightsoulBlessing": "on",
+      "4NightsoulConsume": "on"
     },
     "Mavuika": {
       "a1NsBurst": "on"
@@ -94,7 +94,7 @@
         {
           "condition": [
             "ObsidianCodex",
-            "4NightsoulConsume",
+            "2NightsoulBlessing",
             "on"
           ],
           "source": {
@@ -108,7 +108,7 @@
         {
           "condition": [
             "ObsidianCodex",
-            "2NightsoulBlessing",
+            "4NightsoulConsume",
             "on"
           ],
           "source": {
@@ -137,8 +137,8 @@
     {
       "code": "setEffects",
       "setIds": [
-        15037,
-        15007
+        15007,
+        15037
       ]
     }
   ],
@@ -183,7 +183,7 @@
         {
           "condition": [
             "ObsidianCodex",
-            "4NightsoulConsume",
+            "2NightsoulBlessing",
             "on"
           ],
           "source": {
@@ -197,7 +197,7 @@
         {
           "condition": [
             "ObsidianCodex",
-            "2NightsoulBlessing",
+            "4NightsoulConsume",
             "on"
           ],
           "source": {
@@ -226,8 +226,8 @@
     {
       "code": "setEffects",
       "setIds": [
-        15037,
-        15007
+        15007,
+        15037
       ]
     }
   ]

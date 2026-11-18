@@ -54,7 +54,7 @@ def main():
                     handler.fulfill(json={'90':{'level':90,'attack':540,'specialized':0}})
                 elif not url.startswith(base):
                     if any(x in path.lower() for x in ('furina','10000089','avatarimage','gacha_avatarimg')):
-                        handler.fulfill(path=str(ROOT/'assets/card-art/gi/furina-1.webp'))
+                        handler.fulfill(path=str(ROOT/'assets/app-icon.svg'))
                     elif any(word in path for word in ('/UI/','/assets/skills/','/genshin/','/assets/UI/')):
                         handler.fulfill(path=str(ROOT/'assets/app-icon.svg'))
                     else:

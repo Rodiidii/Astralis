@@ -1,7 +1,7 @@
 {
   "name": "Hex Overload",
   "description": "Celestia",
-  "lastEdit": 1794348921196,
+  "lastEdit": 1794890143013,
   "conditional": {
     "resonance": {},
     "reaction": {}
@@ -646,7 +646,7 @@
               "description": ""
             },
             {
-              "weight": 0.93,
+              "weight": 1,
               "path": [
                 "reaction",
                 "overloaded"
@@ -660,7 +660,7 @@
               "description": ""
             },
             {
-              "weight": 0.94,
+              "weight": 1.09,
               "path": [
                 "reaction",
                 "overloaded"
@@ -689,48 +689,6 @@
             },
             {
               "weight": 1,
-              "path": [
-                "reaction",
-                "overloaded"
-              ],
-              "hitMode": "avgHit",
-              "bonusStats": {
-                "atk_": 57.541,
-                "atk": 538.503,
-                "pyro_enemyRes_": -75
-              },
-              "description": ""
-            },
-            {
-              "weight": 0.09,
-              "path": [
-                "reaction",
-                "overloaded"
-              ],
-              "hitMode": "avgHit",
-              "bonusStats": {
-                "atk_": 57.541,
-                "atk": 538.503,
-                "pyro_enemyRes_": -75
-              },
-              "description": ""
-            },
-            {
-              "weight": 0.07,
-              "path": [
-                "reaction",
-                "overloaded"
-              ],
-              "hitMode": "avgHit",
-              "bonusStats": {
-                "atk_": 57.541,
-                "atk": 538.503,
-                "pyro_enemyRes_": -75
-              },
-              "description": ""
-            },
-            {
-              "weight": 0.06,
               "path": [
                 "reaction",
                 "overloaded"

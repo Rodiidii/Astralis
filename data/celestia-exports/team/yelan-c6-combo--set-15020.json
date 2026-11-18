@@ -1,7 +1,7 @@
 {
   "name": "C6 Combo",
   "description": "Celestia",
-  "lastEdit": 1794351124192,
+  "lastEdit": 1794890301769,
   "conditional": {
     "resonance": {},
     "reaction": {}
@@ -468,7 +468,7 @@
               "description": ""
             },
             {
-              "weight": 0.038,
+              "weight": 1.0896,
               "path": [
                 "burst",
                 "throwDmg"
@@ -476,7 +476,6 @@
               "hitMode": "avgHit",
               "bonusStats": {
                 "hp_": 85,
-                "eleMas": 66.667,
                 "all_dmg_": 206.36,
                 "hydro_enemyRes_": -76
               },
@@ -491,50 +490,6 @@
               "hitMode": "avgHit",
               "bonusStats": {
                 "hp_": 85,
-                "all_dmg_": 206.36,
-                "hydro_enemyRes_": -76
-              },
-              "description": ""
-            },
-            {
-              "weight": 0.038,
-              "path": [
-                "burst",
-                "throwDmg"
-              ],
-              "hitMode": "avgHit",
-              "bonusStats": {
-                "hp_": 85,
-                "eleMas": 66.667,
-                "all_dmg_": 206.36,
-                "hydro_enemyRes_": -76
-              },
-              "description": ""
-            },
-            {
-              "weight": 0.9755,
-              "path": [
-                "burst",
-                "throwDmg"
-              ],
-              "hitMode": "avgHit",
-              "bonusStats": {
-                "hp_": 85,
-                "all_dmg_": 206.36,
-                "hydro_enemyRes_": -76
-              },
-              "description": ""
-            },
-            {
-              "weight": 0.038,
-              "path": [
-                "burst",
-                "throwDmg"
-              ],
-              "hitMode": "avgHit",
-              "bonusStats": {
-                "hp_": 85,
-                "eleMas": 66.667,
                 "all_dmg_": 206.36,
                 "hydro_enemyRes_": -76
               },

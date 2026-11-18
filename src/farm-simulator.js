@@ -33,6 +33,17 @@ export function allocateFarmInventory(characters,materials,inventory={}){
  }
  return {allocation,remaining,unallocated:stock};
 }
+export function farmRequirementProgress(requirements=[],allocation={}){
+ const rows=(Array.isArray(requirements)?requirements:[]).map(row=>{const id=String(row?.id??row?.name??''),required=Math.max(0,Number(row?.count)||0),owned=Math.min(required,Math.max(0,Number(allocation?.[id])||0));return {...row,id,required,owned,remaining:Math.max(0,required-owned)}}).filter(row=>row.id),required=rows.reduce((sum,row)=>sum+row.required,0),owned=rows.reduce((sum,row)=>sum+row.owned,0),remaining=Math.max(0,required-owned),complete=rows.filter(row=>row.remaining===0).length;
+ return {rows,required,owned,remaining,complete,total:rows.length,percent:required?Math.round(owned/required*100):100};
+}
+export function farmStockDateImpact(withoutStockDate,withStockDate){
+ const parse=value=>{const text=String(value||'');if(!/^\d{4}-\d{2}-\d{2}$/.test(text))return null;const date=new Date(text+'T00:00:00Z');return Number.isFinite(date.getTime())&&date.toISOString().slice(0,10)===text?date:null;};
+ const baseline=parse(withoutStockDate),actual=parse(withStockDate);
+ if(!baseline||!actual)return {daysSaved:null,status:'unknown'};
+ const daysSaved=Math.round((baseline-actual)/86400000);
+ return {daysSaved,status:daysSaved>0?'earlier':daysSaved<0?'later':'same'};
+}
 export function simulateFarm({characters,materials,inventory={},start,artifactDays=0,maxDays=730,xp=0,specialties={},reservedDates=[]}){
  characters=characters.map((character,index)=>({...character,priority:character.priority??index})).sort((a,b)=>a.priority-b.priority);
  const catalog=new Map(materials.map(m=>[String(m.id),m])),bookFamilies=new Map(),talentIds=new Set(),philosophies=new Map();

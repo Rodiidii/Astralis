@@ -1,6 +1,8 @@
-import {complexEffects} from './complex-effects.js';
+import {extendedBuffBonuses,extendedBuffWarnings,extendedBuffPools} from './lab-extended-buffs.js';
+import {additionalPartySetBonuses} from './lab-party-sets.js';
+import {complexEffects} from './complex-effects.js?v=20261117-clear-buffs-2';
 import { ARTIFACT_SLOTS, pruneDominatedArtifacts, statVector } from './artifact-model.js?v=20261110-builds-3';
-import {typedAttackBonus} from './lab-config.js?v=20261110-lab-controls-4';
+import {typedAttackBonus,typedFlatDamage,attackCritStats} from './lab-config.js?v=20261110-lab-controls-4';
 import { calculateAction, finalStats } from './damage-engine.js';
 
 const add = (target, source, factor = 1) => {
@@ -24,22 +26,26 @@ function addSetBonuses(bonuses, counts, effects) {
     if (count >= 4) add(bonuses, effect?.four);
   }
 }
-function mergedBonuses(base, artifactStats, counts, effects) {
+function mergedBonuses(base, artifactStats, counts, effects, party) {
   const bonuses = { ...(base || {}) };
   add(bonuses, artifactStats);
   addSetBonuses(bonuses, counts, effects);
+  add(bonuses,additionalPartySetBonuses(party,counts,effects));
   return bonuses;
 }
 export function evaluateDamageStats(input, artifactStats, counts = new Map()) {
-  const bonuses = mergedBonuses(input.bonuses, artifactStats, counts, input.setEffects);
+  const bonuses = mergedBonuses(input.bonuses, artifactStats, counts, input.setEffects,input.partySetEffects);
   const evaluate=(hit,localBonuses)=>{
+    const kitWarnings=extendedBuffWarnings(hit?.extendedKit);if(kitWarnings.length)return {ok:false,error:kitWarnings.join(' '),warnings:kitWarnings};
     const context={...hit?.complexContext,actionKind:hit?.actionKind,elementKey:hit?.elementKey};
     const initial=complexEffects(hit?.complexEffects,context),combined={...localBonuses};add(combined,initial.bonuses);
+    add(combined,extendedBuffBonuses(hit?.extendedKit,finalStats(input.baseStats||{},combined)));
     const stats=finalStats(input.baseStats||{},combined),complex=complexEffects(hit?.complexEffects,{...context,stats});
     if(complex.warnings.some(w=>/ATQ finale|DÉF finale|composition à renseigner/.test(w)))return {ok:false,error:complex.warnings.join(' · '),warnings:complex.warnings,stats};
     localBonuses=combined;
-    const result=calculateAction({...hit,stats,talentScale:complex.talentScale,additivePools:complex.pools,
-      flatDamage:(Number(hit?.flatDamage)||0)+(Number(localBonuses.flatDamage)||0)+complex.flatDamage,
+    const reaction=hit?.reaction?{...hit.reaction}:null;if(reaction)reaction.bonus=(Number(reaction.bonus)||0)+(localBonuses[reaction.id+'Bonus']||0)/100;
+    const result=calculateAction({...hit,reaction,stats:attackCritStats(stats,localBonuses,hit?.actionKind,reaction),talentScale:complex.talentScale*(localBonuses.talentScale||1),additivePools:[...complex.pools,...extendedBuffPools(hit?.extendedKit,stats)],
+      flatDamage:(Number(hit?.flatDamage)||0)+(Number(localBonuses.flatDamage)||0)+typedFlatDamage(localBonuses,hit?.actionKind,stats)+complex.flatDamage,
       damageBonus:(Number(hit?.damageBonus)||0)+typedAttackBonus(localBonuses,hit?.actionKind,stats),
       resistanceReduction:(Number(hit?.resistanceReduction)||0)+(Number(localBonuses.resReduction)||0)/100,
       enemyDefenseReduction:(Number(hit?.enemyDefenseReduction)||0)+(Number(localBonuses.defReduction)||0)/100,
@@ -66,7 +72,7 @@ function scoreBuild(input, artifactStats, counts, rows, objective) {
     const score = objective === 'dps' ? damage.total / Number(input.rotationDuration) : damage.total;
     return { score, result: damage, rows: [...rows] };
   }
-  const final = finalStats(input.baseStats || {}, mergedBonuses(input.bonuses, artifactStats, counts, input.setEffects));
+  const final = finalStats(input.baseStats || {}, mergedBonuses(input.bonuses, artifactStats, counts, input.setEffects,input.partySetEffects));
   if (objective === 'hp' || objective === 'atk' || objective === 'def') return { score: final[objective], result: { ok: true, total: final[objective], stats: final }, rows: [...rows] };
   if (objective === 'ehp') {
     const resistance = Number(input.incomingResistance), reduction = Number(input.incomingDamageReduction);
@@ -123,6 +129,8 @@ export function prepareArtifactPools(inventory = [], filters = {}) {
   });
   let pools = ARTIFACT_SLOTS.map(slot => source.filter(row => row.slot === slot));
   const conflicts = [];
+  if(required.size>1)conflicts.push('Un seul set de 4 pièces peut être imposé avec cinq artéfacts.');
+  if(required.size&&['2+2','rainbow'].includes(filters.configuration))conflicts.push('Un set de 4 pièces imposé est incompatible avec cette configuration.');
   for (let i = 0; i < ARTIFACT_SLOTS.length; i++) {
     const pinned = pools[i].filter(row => lockedIds.has(String(row.id)));
     if (pinned.length > 1) conflicts.push(`Plusieurs pièces sont verrouillées pour ${ARTIFACT_SLOTS[i]}.`);
@@ -138,12 +146,33 @@ export function prepareArtifactPools(inventory = [], filters = {}) {
   return { source, pools, counts, combinations, conflicts };
 }
 
+// All currently modelled complex effects are monotone in candidate stats: their
+// conditions depend on the fixed combat context, not on an artifact threshold.
+const boundedScopes=new Set(['azurelight','skirk','furina','escoffier','mona','yunjin','shenhe']);
+function safeDamageBound(input){
+ if(input.disableBounds)return false;
+ const nonnegative=values=>Object.values(values||{}).every(value=>Number.isFinite(Number(value))&&Number(value)>=0);
+ if(!nonnegative(input.baseStats)||!nonnegative(input.bonuses)||Object.values(input.setEffects||{}).some(effect=>!nonnegative(effect?.two)||!nonnegative(effect?.four)))return false;
+ const hits=input.weightedHits?.length?input.weightedHits:[{hit:input.hit,weight:1}];
+ return hits.every(({hit,weight=1,bonuses})=>nonnegative(bonuses)&&Number(hit?.flatDamage??0)>=0&&Number.isFinite(Number(weight))&&Number(weight)>=0&&
+  Object.entries(hit?.complexEffects||{}).every(([scope,config])=>!config?.enabled||boundedScopes.has(scope))&&
+  (hit?.components||[]).every(part=>Number(part.talentMultiplier)>=0&&Number(part.count)>=0)&&
+  Number(hit?.talentMultiplier??0)>=0);
+}
 /** Recherche exacte top-N, avec maxima suffixes immuables et borne optimiste pour dégâts/DPS. */
 export async function optimizeArtifacts(options = {}) {
   const { inventory = [], input = {}, topN = 5, currentIds = [], cancelled = () => false, onProgress = () => {}, filters = {}, objective = 'damage' } = options;
   if(objective==='dps'&&(!Number.isFinite(Number(input.rotationDuration))||Number(input.rotationDuration)<=0))return {results:[],combinations:0,rawCombinations:0,visited:0,pruned:0,elapsedMs:0,exact:true,error:'Indique une durée de rotation strictement positive pour optimiser le DPS.'};
   const started = globalThis.performance?.now?.() ?? Date.now();
   const top = Math.max(1, Math.min(50, Number(topN) || 5));
+  let sourceEvaluator;
+  if(input.sourceDamage){const adapter=await import('./lab-wr-adapter.js?v=20261118-all-buffs-1'),engine=await adapter.loadWrEngine();sourceEvaluator=adapter.createSourceEvaluator(engine,input.sourceDamage);}
+  const score=(stats,counts,rows)=>{
+   if(!sourceEvaluator)return scoreBuild(input,stats,counts,rows,objective);
+   const result=sourceEvaluator(rows);if(!result.ok)return null;
+   const value=objective==='dps'?result.total/Number(input.rotationDuration):['atk','hp','def'].includes(objective)?result.stats[objective]:result.total;
+   return {score:value,result,rows:[...rows]};
+  };
   const prepared = prepareArtifactPools(inventory, filters), { source, conflicts } = prepared;
   if (conflicts.length) return { results: [], combinations: 0, rawCombinations: 0, visited: 0, pruned: 0, elapsedMs: 0, exact: true, error: conflicts.join(' '), diagnostic: { filtered: source.length, source: source.length, slotCounts: prepared.counts } };
   const filtered = source;
@@ -165,18 +194,22 @@ export async function optimizeArtifacts(options = {}) {
     suffix[i] = { ...suffix[i + 1] };
     add(suffix[i], max);
   }
-  const bounded = !complex&&!weighted&&(objective === 'damage' || objective === 'dps');
-  let visited = 0, nodes = 0, pruned = 0, stopped = false, lastTick = started;
-  const requiredPossible = idx => (filters.requiredSets || []).every(key => (setCounts.get(key) || 0) + ordered.slice(idx).filter(({ pool }) => pool.some(item => item.piece?.setKey === key)).length >= 2);
+  const bounded = !sourceEvaluator&&safeDamageBound(input)&&(objective === 'damage' || objective === 'dps');
+  // Try promising pieces first so a useful top-N threshold is available early.
+  if(bounded)for(const entry of ordered)entry.pool.sort((a,b)=>(score(b.vector,new Map(),[])?.score||0)-(score(a.vector,new Map(),[])?.score||0));
+  const suffixCombinations=Array(ordered.length+1).fill(1);
+  for(let i=ordered.length-1;i>=0;i--)suffixCombinations[i]=suffixCombinations[i+1]*ordered[i].pool.length;
+  let visited = 0, nodes = 0, pruned = 0, skippedCombinations = 0, stopped = false, lastTick = started;
+  const requiredPossible = idx => (filters.requiredSets || []).every(key => (setCounts.get(key) || 0) + ordered.slice(idx).filter(({ pool }) => pool.some(item => item.piece?.setKey === key)).length >= 4);
   const consider = () => {
     const rows = chosen.filter(Boolean);
     if (rows.length !== ARTIFACT_SLOTS.length && !allowPartial) return;
     if (!sameIds(rows) || !hasValidSetConfiguration(setCounts, filters.configuration || 'standard')) return;
-    if ((filters.requiredSets || []).some(key => (setCounts.get(key) || 0) < 2)) return;
-    const final = finalStats(input.baseStats || {}, mergedBonuses(input.bonuses, running, setCounts, input.setEffects));
-    if (!constraintsPass(final, filters.minimums)) return;
-    const candidate = scoreBuild(input, running, setCounts, chosen, objective);
-    if (!candidate || !Number.isFinite(candidate.score)) return;
+    if ((filters.requiredSets || []).some(key => (setCounts.get(key) || 0) < 4)) return;
+    const final = finalStats(input.baseStats || {}, mergedBonuses(input.bonuses, running, setCounts, input.setEffects,input.partySetEffects));
+    if (!sourceEvaluator&&!constraintsPass(final, filters.minimums)) return;
+    const candidate = score(running,setCounts,chosen);
+    if (!candidate || !Number.isFinite(candidate.score)||sourceEvaluator&&!constraintsPass(candidate.result.stats,filters.minimums)) return;
     const signature = rows.map(row => String(row.id)).sort().join('|');
     if (bestKeys.has(signature)) return;
     bestKeys.add(signature);
@@ -189,23 +222,23 @@ export async function optimizeArtifacts(options = {}) {
     const optimistic = { ...running };
     add(optimistic, suffix[idx]);
     add(optimistic, setCeiling);
-    const upper = scoreBuild(input, optimistic, new Map(), chosen, objective);
+    const upper = score(optimistic,new Map(),chosen);
     return !!upper && upper.score <= best[top - 1].score;
   };
   const visit = async idx => {
     if (stopped) return;
     if (cancelled()) { stopped = true; return; }
     nodes++;const tick=globalThis.performance?.now?.()??Date.now();
-    if(tick-lastTick>75){lastTick=tick;onProgress({visited,nodes,pruned,combinations,rawCombinations,done:false});await new Promise(resolve=>setTimeout(resolve,0));if(cancelled()){stopped=true;return;}}
-    if (!requiredPossible(idx)) { pruned++; return; }
+    if(tick-lastTick>75){lastTick=tick;onProgress({visited,nodes,pruned,skippedCombinations,combinations,rawCombinations,done:false});await new Promise(resolve=>setTimeout(resolve,0));if(cancelled()){stopped=true;return;}}
+    if (!requiredPossible(idx)) { pruned++; skippedCombinations+=suffixCombinations[idx]; return; }
     if (idx === ordered.length) {
       visited++;
       consider();
       const now = globalThis.performance?.now?.() ?? Date.now();
-      if (visited % 1500 === 0 || now - lastTick > 90) { lastTick = now; onProgress({ visited, pruned, combinations, rawCombinations, done: false }); await new Promise(resolve => setTimeout(resolve, 0)); }
+      if (visited % 1500 === 0 || now - lastTick > 90) { lastTick = now; onProgress({ visited, pruned, skippedCombinations, combinations, rawCombinations, done: false }); await new Promise(resolve => setTimeout(resolve, 0)); }
       return;
     }
-    if (cannotBeat(idx)) { pruned++; return; }
+    if (cannotBeat(idx)) { pruned++; skippedCombinations+=suffixCombinations[idx]; return; }
     const { slot, pool } = ordered[idx], originalIndex = ARTIFACT_SLOTS.indexOf(slot);
     for (const { piece, vector } of pool) {
       chosen[originalIndex] = piece;
@@ -226,23 +259,23 @@ export async function optimizeArtifacts(options = {}) {
     if (rows.every(Boolean) && rows.map(row => row.slot).sort().join('|') === [...ARTIFACT_SLOTS].sort().join('|')) {
       const stats = {}, currentCounts = countArtifactSets(rows);
       for (const row of rows) add(stats, statVector(row));
-      const final = finalStats(input.baseStats || {}, mergedBonuses(input.bonuses, stats, currentCounts, input.setEffects));
-      if (hasValidSetConfiguration(currentCounts, filters.configuration || 'standard') && !(filters.requiredSets || []).some(key => (currentCounts.get(key) || 0) < 2) && constraintsPass(final, filters.minimums)) {
-        const seed = scoreBuild(input, stats, currentCounts, rows, objective);
+      const final = finalStats(input.baseStats || {}, mergedBonuses(input.bonuses, stats, currentCounts, input.setEffects,input.partySetEffects));
+      if (hasValidSetConfiguration(currentCounts, filters.configuration || 'standard') && !(filters.requiredSets || []).some(key => (currentCounts.get(key) || 0) < 4) && constraintsPass(final, filters.minimums)) {
+        const seed = score(stats,currentCounts,rows);
       if (seed) { best.push(seed); bestKeys.add(rows.map(row => String(row.id)).sort().join('|')); }
       }
     }
   }
   await visit(0);
   const elapsedMs = (globalThis.performance?.now?.() ?? Date.now()) - started;
-  onProgress({ visited, pruned, combinations, rawCombinations, done: true });
-  return { results: best.map(row => ({ ...row, rows: row.rows.map(piece => piece?.id ?? null) })), visited, pruned, combinations, rawCombinations, elapsedMs, exact: !stopped, stopped, piecesEliminated: Math.max(0, source.length - ordered.reduce((n, item) => n + item.pool.filter(Boolean).length, 0)), diagnostic: { filtered: filtered.length, source: source.length, slotCounts: prepared.counts, search:bounded?'bounded':'exhaustive', boundDisabledReason:complex?'complex-effects':weighted?'weighted-hits':null,nodes }, error: best.length ? '' : diagnoseNoResults(filtered, filters) };
+  onProgress({ visited, pruned, skippedCombinations, combinations, rawCombinations, done: true });
+  return { skippedCombinations, results: best.map(row => ({ ...row, rows: row.rows.map(piece => piece?.id ?? null) })), visited, pruned, combinations, rawCombinations, elapsedMs, exact: !stopped, stopped, piecesEliminated: Math.max(0, source.length - ordered.reduce((n, item) => n + item.pool.filter(Boolean).length, 0)), diagnostic: { filtered: filtered.length, source: source.length, slotCounts: prepared.counts, search:bounded?'bounded':'exhaustive', boundDisabledReason:bounded?null:sourceEvaluator?'source-formula':'unsupported-bound',nodes }, error: best.length ? '' : diagnoseNoResults(filtered, filters) };
 }
 function diagnoseNoResults(rows, filters) {
   if (!rows.length) return 'Les filtres retirent toutes les reliques. Assouplis niveau, sets ou exclusions.';
   for (const slot of ARTIFACT_SLOTS) if (!rows.some(row => row.slot === slot)) return `Aucune relique admissible pour ${slot}. Assouplis les filtres de cet emplacement.`;
   const counts = countArtifactSets(rows);
-  if ((filters.requiredSets || []).some(key => (counts.get(key) || 0) < 2)) return 'Un set imposé ne possède pas deux pièces admissibles.';
+  if ((filters.requiredSets || []).some(key => (counts.get(key) || 0) < 4)) return 'Le set imposé ne possède pas quatre pièces admissibles sur des emplacements compatibles.';
   return 'Aucune combinaison ne respecte la configuration ou les statistiques minimales. Assouplis le filtre signalé.';
 }
 export async function optimizePriorityList({ characters = [], inventory = [], optionsForCharacter = () => ({}), onProgress = () => {}, cancelled = () => false, refinePasses = 0 } = {}) {

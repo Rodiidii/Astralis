@@ -11,16 +11,16 @@ const safeRead = key => {
 };
 
 const objectives = [
-  { id: 'lines', icon: '▤', title: 'Tracer une constellation', detail: 'Efface 3 lignes au Tetris astral', target: 3 },
-  { id: 'memory', icon: '✧', title: 'Réunir les étoiles', detail: 'Résous une Mémoire des constellations', target: 1 },
-  { id: 'boss', icon: '⚔', title: 'Vaincre un gardien', detail: 'Remporte un étage dans l’Arène des échos', target: 1 },
+  { id: 'lines', mode:'tetris', icon: '▤', title: 'Tracer une constellation', detail: 'Efface 3 lignes au Tetris astral', target: 3 },
+  { id: 'memory', mode:'memory', icon: '✧', title: 'Réunir les étoiles', detail: 'Résous une Mémoire des constellations', target: 1 },
+  { id: 'boss', mode:'boss', icon: '⚔', title: 'Vaincre un gardien', detail: 'Remporte un étage dans l’Arène des échos', target: 1 },
 ];
 
 export function renderArcadeContracts() {
   return `<section class="arcade-contracts" data-arcade-contracts aria-labelledby="arcade-contract-title">
     <div class="arcade-contract-heading"><div><small>CONTRAT ASTRAL · RENOUVELÉ À MINUIT</small><h2 id="arcade-contract-title">Trois actes, une récompense</h2><p>Les progrès suivent tes parties et restent enregistrés sur cet appareil.</p></div>
       <div class="arcade-contract-reward"><span>✦</span><b>10</b><small>boosters bonus</small></div></div>
-    <div class="arcade-contract-list">${objectives.map((o,i)=>`<article class="arcade-contract-card" data-contract="${o.id}"><div class="arcade-contract-icon" aria-hidden="true">${o.icon}</div><div class="arcade-contract-copy"><small>ACTE 0${i+1}</small><b>${o.title}</b><span>${o.detail}</span><div class="arcade-contract-meter"><i data-contract-meter="${o.id}"></i></div></div><div class="arcade-contract-count"><b data-contract-count="${o.id}">0/${o.target}</b><span data-contract-state="${o.id}">À faire</span></div></article>`).join('')}</div>
+    <div class="arcade-contract-list">${objectives.map((o,i)=>`<article class="arcade-contract-card" data-contract="${o.id}"><div class="arcade-contract-icon" aria-hidden="true">${o.icon}</div><div class="arcade-contract-copy"><small>ACTE 0${i+1}</small><b>${o.title}</b><span>${o.detail}</span><div class="arcade-contract-meter"><i data-contract-meter="${o.id}"></i></div></div><div class="arcade-contract-count"><b data-contract-count="${o.id}">0/${o.target}</b><span data-contract-state="${o.id}">À faire</span><button type="button" class="arcade-contract-play" data-contract-play="${o.mode}" aria-label="Jouer pour progresser : ${o.title}">Jouer →</button></div></article>`).join('')}</div>
     <footer class="arcade-contract-footer"><span data-contract-summary>0 / 3 actes accomplis</span><b data-contract-reward-state>Récompense à gagner</b></footer>
   </section>`;
 }
@@ -86,8 +86,10 @@ export function mountArcadeContracts(root) {
     else if (event.type === 'astralis:arcade-memory-solved') add('memory');
     else if (event.type === 'astralis:arcade-boss-defeated') add('boss');
   };
+  const onContractPlay=event=>{const button=event.target.closest?.('[data-contract-play]');if(!button||!panel.contains(button))return;const tab=root.querySelector(`[data-arcade-mode="${button.dataset.contractPlay}"]`);if(!tab)return;tab.click();tab.focus({preventScroll:true});};
+  panel.addEventListener('click',onContractPlay);
   const events = ['astralis:arcade-lines-cleared', 'astralis:arcade-memory-solved', 'astralis:arcade-boss-defeated'];
   events.forEach(name => window.addEventListener(name, onEvent));
   paint();
-  return () => events.forEach(name => window.removeEventListener(name, onEvent));
+  return () => {events.forEach(name => window.removeEventListener(name, onEvent));panel.removeEventListener('click',onContractPlay);};
 }

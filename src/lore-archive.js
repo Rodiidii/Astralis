@@ -1,5 +1,23 @@
 export const loreKey = value => String(value ?? '').normalize('NFD').replace(/\p{M}/gu, '').toLowerCase().replace(/[^\p{L}\p{N}]+/gu, ' ').trim();
 
+export function loreArchiveCategories(rows = []) {
+  const counts = new Map();
+  for (const row of Array.isArray(rows) ? rows : []) for (const value of Array.isArray(row?.categories) ? row.categories : []) {
+    const label = String(value || '').trim();
+    if (label) counts.set(label, (counts.get(label) || 0) + 1);
+  }
+  return [...counts].map(([label, count]) => ({ label, count })).sort((a, b) => a.label.localeCompare(b.label, 'fr', { sensitivity: 'base' }));
+}
+
+export function filterLoreArchive(rows = [], { category = 'all', query = '' } = {}) {
+  const needle = loreKey(query), selected = loreKey(category);
+  return (Array.isArray(rows) ? rows : []).filter(row => {
+    const categories = Array.isArray(row?.categories) ? row.categories : [];
+    return (selected === 'all' || categories.some(value => loreKey(value) === selected)) &&
+      (!needle || loreKey(`${row?.title || ''} ${row?.extract || ''} ${categories.join(' ')}`).includes(needle));
+  });
+}
+
 const officialChannels = new Set([
   'https://www.youtube.com/@genshinimpact',
   'https://www.youtube.com/channel/ucis882ypwzt1nfam0gr0d9q',

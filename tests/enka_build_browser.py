@@ -31,6 +31,10 @@ def main():
    expected=[19180,1812.4,800,100,150,40,120,61.6]
    values=[parse(s) for s in page.locator('.build-stat-grid b').all_text_contents()]
    assert len(values)==8 and all(abs(a-b)<1.1 for a,b in zip(values,expected)),(values,expected)
+   breakdown=page.locator('.build-stat-breakdown');expect(breakdown).to_have_count(1);breakdown.locator('summary').click();expect(breakdown.locator('[role=table]')).to_be_visible()
+   split=breakdown.locator('[role=table]').evaluate("el=>{const cells=[...el.children],rows=[];for(let i=4;i<cells.length;i+=4)rows.push(cells.slice(i,i+4).map(cell=>cell.textContent.trim()));return rows}")
+   assert len(split)==8 and all(abs(parse(row[1])+parse(row[2])-parse(row[3]))<=1.1 for row in split),split
+   assert any(row[0]=='ATQ' and parse(row[1])>0 and row[2].startswith('+') for row in split),split
    def models():
     return page.evaluate("""()=>{const b=JSON.parse(localStorage.getItem('astralis:gi:builds'))[0],c=enkaTest.state.catalogs['gi:character'].find(c=>c._id==='skirk'),t=JSON.parse(localStorage.getItem('astralis:teams:gi'))[0];return{valid:enkaTest.hasEnkaReference(b),build:enkaTest.buildSheetModel(b,c).stats,team:enkaTest.teamSheetModel(t).members[0].stats};}""")
    expect(page.locator('.build-derived-stats header')).to_contain_text('Enka · configuration importée')

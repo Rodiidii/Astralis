@@ -1,6 +1,7 @@
 import {normalizeWishTarget} from './wish-targets.js';
 // Reproducible estimates. Soft pity and intermediate Radiance rates are community models.
 export function simulateWishOrder(targets,state={},trials=6000){
+ trials=Math.max(1,Math.floor(Number(trials)||0));
  const rows=targets.map(normalizeWishTarget);
  let seed=721943;const random=()=>{seed^=seed<<13;seed^=seed>>>17;seed^=seed<<5;return (seed>>>0)/4294967296;};
  const samples=rows.map(()=>[]),losses=new Map();
@@ -26,5 +27,7 @@ export function simulateWishOrder(targets,state={},trials=6000){
  const budget=Math.max(0,Math.floor(+state.wishes||0))+Math.floor(Math.max(0,+(state.currentPrimos??state.primos)||0)/160);
  const theory=Math.max(0,Math.floor(+state.wishes||0))+Math.max(0,Math.floor(+state.theoreticalWishes||0))+Math.floor((Math.max(0,+(state.currentPrimos??state.primos)||0)+Math.max(0,+state.theoreticalPrimos||0))/160);
  const chance=(values,n)=>values.filter(x=>x<=n).length/trials*100;
- return {budget,theory,trials,rows:rows.map((row,index)=>{const values=samples[index].sort((a,b)=>a-b);return {...row,chance:chance(values,budget),theoryChance:chance(values,theory),median:values[Math.floor(trials/2)],points:Array.from({length:31},(_,i)=>{const n=Math.round(Math.max(1,theory,values[Math.floor(trials*.95)]||0)*i/30);return [n,chance(values,n)];})};}),losses:[...losses].sort((a,b)=>a[0]-b[0]).map(([count,values])=>({count,frequency:values.length/trials*100,success:values.length?values.filter(x=>x<=budget).length/values.length*100:null,theorySuccess:values.length?values.filter(x=>x<=theory).length/values.length*100:null}))};
+ const lossScenarios=[...losses].sort((a,b)=>a[0]-b[0]).map(([count,values])=>({count,frequency:values.length/trials*100,success:values.length?values.filter(x=>x<=budget).length/values.length*100:null,theorySuccess:values.length?values.filter(x=>x<=theory).length/values.length*100:null}));
+ const mostLikelyLosses=lossScenarios.reduce((best,row)=>row.frequency>best.frequency?row:best,lossScenarios[0]||{count:0}).count;
+ return {budget,theory,trials,mostLikelyLosses,rows:rows.map((row,index)=>{const values=samples[index].sort((a,b)=>a-b),quantile=q=>values[Math.floor((trials-1)*q)]??0;return {...row,chance:chance(values,budget),theoryChance:chance(values,theory),p10:quantile(.1),median:quantile(.5),p90:quantile(.9),points:Array.from({length:31},(_,i)=>{const n=Math.round(Math.max(1,theory,quantile(.95))*i/30);return [n,chance(values,n)];})};}),losses:lossScenarios};
 }

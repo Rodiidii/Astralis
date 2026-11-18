@@ -1,7 +1,7 @@
 {
   "name": "On-field Dark Vape",
   "description": "Celestia",
-  "lastEdit": 1794348948656,
+  "lastEdit": 1794890165413,
   "conditional": {
     "resonance": {},
     "reaction": {}
@@ -404,7 +404,7 @@
               "description": ""
             },
             {
-              "weight": 0.8475,
+              "weight": 0.9407,
               "path": [
                 "normal",
                 "0"
@@ -564,7 +564,7 @@
               "description": ""
             },
             {
-              "weight": 0.2379,
+              "weight": 0.3378,
               "path": [
                 "burst",
                 "decayDmg"
@@ -576,23 +576,6 @@
                 "critRate_": 20,
                 "vaporize_dmg_": 94,
                 "all_dmg_": 9.28
-              },
-              "description": ""
-            },
-            {
-              "weight": 0.0999,
-              "path": [
-                "burst",
-                "decayDmg"
-              ],
-              "hitMode": "avgHit",
-              "reaction": "vaporize",
-              "bonusStats": {
-                "atk_": 80,
-                "all_dmg_": 70.51,
-                "critRate_": 35,
-                "critDMG_": 15,
-                "vaporize_dmg_": 86
               },
               "description": ""
             },
@@ -647,26 +630,6 @@
                 "atk_": 108.8,
                 "atk": 1050.758,
                 "all_dmg_": 147.61,
-                "critRate_": 35,
-                "critDMG_": 15
-              },
-              "description": ""
-            },
-            {
-              "weight": 0.0932,
-              "path": [
-                "normal",
-                "0"
-              ],
-              "hitMode": "avgHit",
-              "reaction": "vaporize",
-              "infusionAura": "pyro",
-              "bonusStats": {
-                "eleMas": 80,
-                "atk_": 80.8,
-                "atk": 1050.758,
-                "all_dmg_": 153.91,
-                "vaporize_dmg_": 85,
                 "critRate_": 35,
                 "critDMG_": 15
               },
@@ -733,7 +696,7 @@
               "description": ""
             },
             {
-              "weight": 0.7766,
+              "weight": 0.8107,
               "path": [
                 "burst",
                 "decayDmg"
@@ -758,21 +721,6 @@
                 "all_dmg_": 70.44,
                 "critRate_": 35,
                 "critDMG_": 15
-              },
-              "description": ""
-            },
-            {
-              "weight": 0.0342,
-              "path": [
-                "burst",
-                "decayDmg"
-              ],
-              "hitMode": "avgHit",
-              "bonusStats": {
-                "atk_": 80,
-                "critRate_": 27.5,
-                "all_dmg_": 40.87,
-                "critDMG_": 7.5
               },
               "description": ""
             }

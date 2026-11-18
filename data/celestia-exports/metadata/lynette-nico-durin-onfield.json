@@ -25,8 +25,8 @@
   },
   "goConditions": {
     "Lynette": {
-      "burstAbsorb": "pyro",
-      "c6AfterThrust": "on"
+      "c6AfterThrust": "on",
+      "burstAbsorb": "pyro"
     }
   },
   "characterBonusStats": null,
@@ -39,24 +39,11 @@
       "code": "skippedLines",
       "reason": "teammate",
       "lines": 2,
-      "share": 0.055870392155453565
+      "share": 0.05587039215545357
     },
     {
       "code": "goSwitch",
       "switches": [
-        {
-          "condition": [
-            "Lynette",
-            "burstAbsorb",
-            "pyro"
-          ],
-          "source": {
-            "type": "character"
-          },
-          "buffs": [
-            "Props Positively Prepped"
-          ]
-        },
         {
           "condition": [
             "Lynette",
@@ -68,6 +55,19 @@
           },
           "buffs": [
             "Watchful Eye"
+          ]
+        },
+        {
+          "condition": [
+            "Lynette",
+            "burstAbsorb",
+            "pyro"
+          ],
+          "source": {
+            "type": "character"
+          },
+          "buffs": [
+            "Props Positively Prepped"
           ]
         }
       ]
@@ -85,24 +85,11 @@
       "code": "skippedLines",
       "reason": "teammate",
       "lines": 2,
-      "share": 0.055870392155453565
+      "share": 0.05587039215545357
     },
     {
       "code": "goSwitch",
       "switches": [
-        {
-          "condition": [
-            "Lynette",
-            "burstAbsorb",
-            "pyro"
-          ],
-          "source": {
-            "type": "character"
-          },
-          "buffs": [
-            "Props Positively Prepped"
-          ]
-        },
         {
           "condition": [
             "Lynette",
@@ -114,6 +101,19 @@
           },
           "buffs": [
             "Watchful Eye"
+          ]
+        },
+        {
+          "condition": [
+            "Lynette",
+            "burstAbsorb",
+            "pyro"
+          ],
+          "source": {
+            "type": "character"
+          },
+          "buffs": [
+            "Props Positively Prepped"
           ]
         }
       ]

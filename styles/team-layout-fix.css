@@ -275,3 +275,51 @@
   #app .teams-stack .team-compact-roster { grid-template-columns: repeat(4, minmax(0, 1fr)) !important; }
   #app .teams-stack .team-roster { grid-template-columns: minmax(0, 1fr) !important; }
 }
+
+/* Team roster completeness, readable in the compact team card. */
+.team-roster-meter{display:grid;grid-template-columns:minmax(70px,150px) auto;align-items:center;gap:7px;margin-top:7px;max-width:245px}
+.team-roster-meter::before{content:"";grid-area:1/1;height:5px;border-radius:99px;background:color-mix(in srgb,var(--line) 78%,transparent)}
+.team-roster-meter>span{grid-area:1/1;width:var(--team-roster-fill);height:5px;border-radius:99px;background:linear-gradient(90deg,#b89b69,#f0d48f);transition:width .35s cubic-bezier(.2,.75,.25,1)}
+.team-roster-meter small{grid-area:1/2;color:var(--muted);font-size:8px;white-space:nowrap}
+.team-roster-meter.is-full>span{background:linear-gradient(90deg,#75b98d,#b6e2a4)}
+@media(prefers-reduced-motion:reduce){.team-roster-meter>span{transition:none}}
+
+.team-resonance-row{display:flex;flex-wrap:wrap;align-items:center;gap:7px;margin:0 18px 13px;padding:0 2px}.team-resonance-chip{display:inline-flex;align-items:center;gap:6px;min-height:29px;padding:4px 9px;border:1px solid color-mix(in srgb,var(--planner-a,#d8bd80) 30%,var(--line,#ffffff20));border-radius:999px;background:color-mix(in srgb,var(--planner-a,#d8bd80) 7%,var(--surface-2,#29272f));color:var(--ink,#f6f1e8);animation:team-resonance-in .25s ease both}.team-resonance-icon{width:17px;height:17px;object-fit:contain}.team-resonance-chip b{font-size:9px}.team-resonance-chip small{color:var(--muted,#b8b2bf);font-size:8px}.team-resonance-chip.is-canopy{border-color:#8b9ede66;background:linear-gradient(120deg,#697abe20,#d5dfff0c)}.team-resonance-chip.is-canopy>i{display:grid;place-items:center;width:17px;height:17px;border-radius:50%;background:#9aa8e321;color:#bcc9ff;font-size:13px;font-style:normal}.team-resonance-empty{color:var(--muted,#b8b2bf);font-size:9px}@keyframes team-resonance-in{from{opacity:0;transform:translateY(3px)}to{opacity:1;transform:translateY(0)}}@media(max-width:650px){.team-resonance-row{gap:5px;margin:0 10px 10px}.team-resonance-chip{min-height:26px;padding:3px 7px}}@media(prefers-reduced-motion:reduce){.team-resonance-chip{animation:none}}
+.team-resonance-chip[tabindex="0"]{cursor:help}.team-resonance-chip[tabindex="0"]:focus-visible{outline:2px solid var(--planner-a,#d8bd80);outline-offset:3px}
+
+/* Compact team portraits are direct, keyboard-accessible links to their character sheets. */
+.teams-stack .team-compact-roster > .team-compact-member{appearance:none;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:5px;min-width:0;min-height:74px;padding:6px 4px;border:1px solid transparent;border-radius:12px;background:transparent;color:inherit;font:inherit;cursor:pointer;transition:background .16s ease,border-color .16s ease,transform .16s ease}
+.teams-stack .team-compact-roster > .team-compact-member:hover,.teams-stack .team-compact-roster > .team-compact-member:focus-visible{background:color-mix(in srgb,var(--accent,#d8b875) 12%,transparent);border-color:var(--accent,#d8b875);transform:translateY(-2px);outline:none}
+.teams-stack .team-compact-roster > .team-compact-member:focus-visible{box-shadow:0 0 0 2px color-mix(in srgb,var(--accent,#d8b875) 35%,transparent)}
+@media(prefers-reduced-motion:reduce){.teams-stack .team-compact-roster > .team-compact-member{transition:none}}
+.team-search-record.is-duplicate-composition{position:relative}
+.team-duplicate-hint{display:inline-flex;align-items:center;gap:6px;margin:5px 12px 0;padding:4px 8px;border:1px solid color-mix(in srgb,var(--accent,#d8b875) 42%,transparent);border-radius:999px;background:color-mix(in srgb,var(--accent,#d8b875) 10%,transparent);color:var(--accent,#d8b875);font-size:10px;font-weight:700;letter-spacing:.02em}
+.team-duplicate-hint::before{content:'↔';font-size:12px}
+
+.team-library-expand{white-space:nowrap;min-height:38px}
+@media(max-width:700px){.team-library-expand{align-self:flex-start}}
+
+
+/* Compact density keeps the saved-team library scannable without shrinking the detailed builder. */
+html[data-density="compact"] .teams-stack{gap:10px}
+html[data-density="compact"] .teams-stack .team-sheet-head{gap:8px 12px;padding:10px 14px 8px}
+html[data-density="compact"] .teams-stack .team-sheet-head h3{margin:3px 0 2px;font-size:18px}
+html[data-density="compact"] .teams-stack .team-sheet-head p{font-size:10px}
+html[data-density="compact"] .teams-stack .team-roster-meter{margin-top:5px}
+html[data-density="compact"] .teams-stack .team-sheet-actions{gap:4px}
+html[data-density="compact"] .teams-stack .team-sheet-actions .quiet-btn{min-height:30px;padding:5px 9px;font-size:9px}
+html[data-density="compact"] .teams-stack .team-compact-roster{gap:5px;padding:5px 12px 0}
+html[data-density="compact"] .teams-stack .team-compact-roster>.team-compact-member{min-height:57px;gap:3px;padding:3px}
+html[data-density="compact"] .teams-stack .team-compact-roster .team-compact-avatar{width:40px!important;height:40px!important;flex-basis:40px}
+html[data-density="compact"] .teams-stack .team-compact-roster b{font-size:10px}
+html[data-density="compact"] .teams-stack .team-details-toggle{min-height:30px;margin:5px 12px 8px;padding:4px 10px}
+@media(max-width:650px){html[data-density="compact"] .teams-stack .team-sheet-head{padding:9px 10px 7px}html[data-density="compact"] .teams-stack .team-sheet-actions .quiet-btn{min-height:28px;padding:4px 7px;font-size:8px}html[data-density="compact"] .teams-stack .team-compact-roster{padding-inline:8px}}
+/* Composition roles are explicit, compact, and legible in team cards and the builder. */
+.team-role-summary{display:grid;gap:3px;margin-top:7px;max-width:300px;padding-left:9px;border-left:2px solid color-mix(in srgb,var(--accent) 60%,transparent)}
+.team-role-summary>b{font-size:9px;letter-spacing:.04em;color:var(--ink)}
+.team-role-summary>span{font-size:9px;line-height:1.35;color:var(--muted)}
+.team-role-select{display:grid;grid-template-columns:minmax(100px,.6fr) minmax(0,1fr);align-items:center;gap:10px;padding:10px 12px;border:1px solid var(--line);border-radius:10px;background:color-mix(in srgb,var(--surface) 80%,transparent);font-size:11px;font-weight:650}
+.team-role-select select{width:100%;min-width:0;padding:8px 10px}
+@media(max-width:600px){.team-role-select{grid-template-columns:1fr;gap:5px}.team-role-summary{max-width:100%}}
+
+.team-role-advice{display:flex;align-items:flex-start;gap:6px;max-width:360px;margin:7px 0 0;font-size:9px;line-height:1.4;color:var(--muted)}.team-role-advice.is-ready{color:#82d9b3}.team-role-advice.is-review{color:#e6c175}.team-role-advice.is-neutral{color:var(--muted)}@media(max-width:600px){.team-role-advice{max-width:100%;font-size:10px}}

@@ -2,6 +2,34 @@
   "schemaVersion": 1,
   "releases": [
     {
+      "id": "2026-11-18-lab-release-1",
+      "date": "2026-11-18",
+      "title": "Un laboratoire de dégâts repensé",
+      "summary": "Les buffs des personnages, les sets et les conditions de combat sont regroupés dans un laboratoire plus clair.",
+      "changes": [
+        {
+          "area": "Laboratoire",
+          "text": "Nouvel onglet Buffs, textes des talents repliables, conditions explicites, cumuls et choix des armes avec icônes."
+        },
+        {
+          "area": "Calculs",
+          "text": "Étend les fiches des personnages et les effets d’équipe ; les mêmes formules sont utilisées pour le résultat et les builds optimisés."
+        },
+        {
+          "area": "Artéfacts",
+          "text": "Un set imposé exige 4 pièces. Les statistiques principales sélectionnées filtrent les pièces avant le calcul."
+        },
+        {
+          "area": "Stabilité",
+          "text": "Corrige le blocage au démarrage et les boucles de lecture des conditions."
+        }
+      ],
+      "limits": [
+        "La recherche utilisant les formules complètes des fiches reste exhaustive et peut prendre davantage de temps selon l’inventaire.",
+        "Les textes ou conditions absents des données locales sont signalés au lieu de produire un bonus inventé."
+      ]
+    },
+    {
       "id": "2026-11-12-update-staging-1",
       "date": "2026-11-12",
       "title": "Mise à jour Windows plus fiable",

@@ -11,7 +11,7 @@ def main():
  out=ROOT/'docs/captures/farm-workshop';out.mkdir(parents=True,exist_ok=True)
  sources={path:subprocess.check_output(['git','show','b643cde:'+path],cwd=ROOT) for path in ['src/app.js','src/data.js','src/planning-controls.js','src/farm-simulator.js','src/page-state.js','assets/recovery-workshop.css']} if before else {}
  goals={id:{'levelFrom':80,'levelTo':90,'from':[6,6,6],'to':[8,8,8]} for id in ['bennett','diluc']}
- seed={'astralis:active-game':'gi','astralis:gi:assistant-profile':json.dumps({'enabled':False}),'astralis:gi:farm-roster':json.dumps([{'id':'bennett','active':True},{'id':'diluc','active':True}]),'astralis:gi:talent-targets':json.dumps(goals),'astralis:gi:farm-simulation':json.dumps({'start':day,'artifactDays':0})}
+ seed={'astralis:active-game':'gi','astralis:gi:assistant-profile':json.dumps({'enabled':False}),'astralis:gi:farm-roster':json.dumps([{'id':'bennett','active':True},{'id':'diluc','active':True}]),'astralis:gi:talent-targets':json.dumps(goals),'astralis:gi:farm-simulation':json.dumps({'start':day,'artifactDays':0}),'astralis:gi:farm-character-filter':'todo'}
  errors=[]
  try:
   with sync_playwright() as p:
@@ -24,8 +24,11 @@ def main():
     elif 'lunaris' in url:r.fulfill(json={})
     else:r.abort()
    page.route('**/*',route);page.add_init_script("if(!localStorage.getItem('farm-workshop-seeded')){localStorage.setItem('farm-workshop-seeded','1');for(const[k,v]of Object.entries("+json.dumps(seed)+"))localStorage.setItem(k,v);}")
-   page.goto(base,wait_until='domcontentloaded');page.wait_for_selector('#astralis-launch-screen',state='detached');page.locator('[data-nav=farming]').first.evaluate('(el)=>el.click()');page.wait_for_selector('.farm-projection-options button')
-   page.wait_for_function("()=>JSON.parse(document.querySelector('farm-forecasts').dataset.plan).characters.every(c=>c.requirements.some(r=>String(r.id).startsWith('113'))&&c.requirements.some(r=>String(r.id).startsWith('104')))" )
+   page.goto(base,wait_until='domcontentloaded');page.wait_for_selector('#astralis-launch-screen',state='detached');page.wait_for_function("typeof document.querySelector('#app')?.onclick==='function'");page.wait_for_timeout(300);page.evaluate("document.querySelector('.rail-nav [data-nav=farming]')?.click()")
+   try:page.wait_for_selector('.farm-projection-options button')
+   except Exception:
+    print('DEBUG farm errors:',errors,'\nPAGE:',(page.locator('#page-content').inner_text() if page.locator('#page-content').count() else page.locator('#app').inner_text())[:2500].encode('ascii','backslashreplace').decode('ascii'),flush=True);raise
+   page.wait_for_function("()=>JSON.parse(document.querySelector('farm-forecasts').dataset.plan).characters.every(c=>c.requirements.some(r=>String(r.id).startsWith('113'))&&c.requirements.some(r=>String(r.id).startsWith('104')))" );expect(page.locator('[data-farm-character-filter=todo]')).to_have_attribute('aria-pressed','true');expect(page.locator('.farm-person-card[data-farm-character-active=true]')).to_have_count(2);assert page.locator('.farm-person-card[data-farm-character-active=true]').evaluate_all('(nodes)=>nodes.every(node=>node.hidden)');expect(page.locator('.farm-person-card[data-farm-character-active=false]').first).to_be_visible()
    if before:
     page.locator('farm-talent-targets').scroll_into_view_if_needed();page.screenshot(path=str(out/'before-goals.png'),animations='disabled');context.close();browser.close();print('Capture avant farm enregistrée.',flush=True);return
    expect(page.locator('farm-talent-targets details')).not_to_have_attribute('open','');page.locator('farm-talent-targets summary').click();expect(page.locator('.farm-goal-row')).to_have_count(2)
@@ -34,6 +37,11 @@ def main():
    field=row.locator('[data-level=to][data-skill="0"]');field.fill('6');field.press('Tab');expect(field).to_have_value('9');expect(page.locator('farm-talent-targets details')).to_have_attribute('open','')
    page.locator('farm-talent-targets').scroll_into_view_if_needed();page.screenshot(path=str(out/'after-goals.png'),animations='disabled')
    print('Step: goals',flush=True)
+   shared=page.evaluate("()=>{const rows=JSON.parse(document.querySelector('farm-forecasts').dataset.plan).characters.map(c=>new Set(c.requirements.map(r=>String(r.id))));return [...rows[0]].find(id=>rows.slice(1).every(set=>set.has(id)))||''}")
+   assert shared,'Bennett et Diluc doivent partager au moins un matériau pour vérifier la répartition.'
+   stock_input=page.locator('[data-farm-inventory="'+shared+'"]');stock_input.fill('1');stock_input.press('Tab');page.wait_for_function('(id)=>JSON.parse(localStorage.getItem("astralis:gi:farm-inventory"))[id]===1',arg=shared)
+   page.locator('[data-farm-character-filter=planned]').click();active_cards=page.locator('.farm-person-card[data-farm-character-active=true]:visible');expect(active_cards).to_have_count(2);expect(active_cards.first).to_contain_text('matériaux couverts')
+   shared_row=page.locator('.farm-stock-row').filter(has=page.locator('[data-farm-inventory="'+shared+'"]'));shared_row.locator('.farm-stock-breakdown summary').click();expect(shared_row.locator('.farm-stock-breakdown>div>span')).to_have_count(2);expect(shared_row.locator('.farm-stock-breakdown')).to_contain_text('Bennett');expect(shared_row.locator('.farm-stock-breakdown')).to_contain_text('Diluc')
    # A draft calendar action survives inventory-driven rerenders.
    page.locator('#farm-calendar-task').fill('Session réservée au test');page.locator('#farm-calendar-character').select_option('bennett');page.locator('#farm-calendar-category').select_option(label='Livres d’aptitudes')
    page.locator('.farm-resource-card.mora [data-farm-inventory]').fill('100');page.locator('.farm-resource-card.mora [data-farm-inventory]').press('Tab');expect(page.locator('#farm-calendar-task')).to_have_value('Session réservée au test');expect(page.locator('#farm-calendar-character')).to_have_value('bennett')
@@ -48,7 +56,26 @@ def main():
    page.locator('.farm-calendar').scroll_into_view_if_needed();page.locator('.farm-month-grid img').evaluate_all('nodes=>nodes.forEach(n=>n.loading="eager")');page.wait_for_function("[...document.querySelectorAll('.farm-month-grid img')].every(i=>i.complete&&i.naturalWidth>0)")
    page.screenshot(path=str(out/'after-calendar.png'),animations='disabled')
    assert not page.locator('.farm-calendar-lines').evaluate('(el)=>el.open')
-   page.locator('.farm-calendar-day[data-date="'+first_date+'"] .farm-day-open').click();dialog=page.locator('.farm-day-dialog');expect(dialog).to_be_visible();expect(dialog.locator('article')).not_to_have_count(0);dialog.get_by_role('button',name='Fermer la journée').click();expect(dialog).to_have_count(0)
+   page.locator('.farm-calendar-lines summary').click();expect(page.locator('.farm-calendar-lines')).to_have_attribute('open','')
+   all_count=page.locator('.farm-session-row').count();raw_rows=page.evaluate("JSON.parse(localStorage.getItem('astralis:gi:farm-calendar')||'[]')")
+   assert all_count==len(raw_rows) and all_count>0
+   person_filter=page.locator('[data-farm-calendar-filter=character]');person_filter.select_option('bennett')
+   expected_person=sum('bennett' in [str(x) for x in (row.get('characterIds') or [])] or str(row.get('characterId') or '')=='bennett' or str(row.get('character') or '').lower()=='bennett' for row in raw_rows)
+   expect(page.locator('.farm-session-row')).to_have_count(expected_person)
+   material_filter=page.locator('[data-farm-calendar-filter=material]');material_id=material_filter.locator('option').nth(1).get_attribute('value');assert material_id
+   material_filter.select_option(material_id)
+   expected_both=sum(('bennett' in [str(x) for x in (row.get('characterIds') or [])] or str(row.get('characterId') or '')=='bennett' or str(row.get('character') or '').lower()=='bennett') and material_id in [str(x) for x in (row.get('materialIds') or [])] for row in raw_rows)
+   expect(page.locator('.farm-session-row')).to_have_count(expected_both)
+   person_filter.select_option('');material_filter.select_option('');expect(page.locator('.farm-session-row')).to_have_count(all_count)
+   page.locator('.farm-calendar-day[data-date="'+first_date+'"] .farm-day-open').click();dialog=page.locator('.farm-day-dialog');expect(dialog).to_be_visible();expect(dialog.locator('article')).not_to_have_count(0)
+   session_id=dialog.locator('.farm-day-session-toggle').first.get_attribute('data-farm-session-id')
+   dialog.locator('.farm-day-session-toggle').first.click();page.wait_for_function("id=>JSON.parse(localStorage.getItem('astralis:gi:farm-calendar')).some(r=>String(r.id)===id&&r.done)",arg=session_id)
+   expect(dialog).to_be_visible();expect(dialog.locator('.farm-day-progress')).to_contain_text('1 /')
+   dialog.get_by_role('button',name='Fermer la journée').click();expect(dialog).to_have_count(0)
+   day_state=page.evaluate("d=>{const rows=JSON.parse(localStorage.getItem('astralis:gi:farm-calendar')||'[]').filter(r=>r.date===d);return {done:rows.filter(r=>r.done).length,pending:rows.filter(r=>!r.done).length}}",first_date)
+   assert day_state['done']==1 and day_state['pending']>=0
+   page.locator('.farm-calendar-day[data-date="'+first_date+'"] .farm-day-open').click();dialog=page.locator('.farm-day-dialog');expect(dialog).to_be_visible();dialog.locator('.farm-day-session-toggle').filter(has_text='Rétablir').first.click()
+   page.wait_for_function("id=>JSON.parse(localStorage.getItem('astralis:gi:farm-calendar')).some(r=>String(r.id)===id&&!r.done)",arg=session_id);expect(dialog).to_be_visible();dialog.get_by_role('button',name='Fermer la journée').click();expect(dialog).to_have_count(0)
    expect(page.locator('.farm-harvest-card')).not_to_have_count(0);expect(page.locator('.farm-harvest-card').first).to_contain_text('Repousse 48 h')
 
    print('Step: calendar rendered',flush=True)
@@ -56,6 +83,7 @@ def main():
    planned_date=sessions[0]['date'];page.locator('#farm-calendar-date').fill(planned_date);page.locator('[data-action=farm-schedule]').click()
    page.wait_for_function("d=>JSON.parse(localStorage.getItem('astralis:gi:farm-calendar')).some(r=>r.date===d&&!r.auto&&!r.simulated)",arg=planned_date);expect(page.locator('#farm-calendar-task')).to_have_value('')
    field=page.locator('.farm-resource-card.mora [data-farm-inventory]');field.fill('100000000');field.press('Tab');page.wait_for_function("d=>JSON.parse(localStorage.getItem('astralis:gi:farm-calendar')).every(r=>!r.simulated||r.date!==d&&r.kind!=='mora')",arg=planned_date)
+   assert page.locator('.farm-stock-date-impact').count()>0
    print('Step: manual reserved',flush=True)
    # Set a controlled shared recipe: 6 green + 2 blue, across two characters.
    recipe={id:{'levelFrom':90,'levelTo':90,'from':[1,1,1],'to':[1,1,1]} for id in ['bennett','diluc']};recipe['bennett']['to'][0]=2;recipe['diluc']['to'][0]=3
@@ -63,13 +91,18 @@ def main():
    talent=json.loads((ROOT/'data/gi-talent-costs.json').read_text(encoding='utf-8'))['10000032']['costs'];green=str(next(x['id'] for x in talent['lvl2'] if str(x['id']).startswith('104')));blue=str(next(x['id'] for x in talent['lvl3'] if str(x['id']).startswith('104')))
    field=page.locator('[data-farm-inventory="'+green+'"]').first;field.fill('9');field.press('Tab')
    stock=page.locator('.farm-stock-row').filter(has=page.locator('[data-farm-inventory="'+blue+'"]'));expect(stock).to_contain_text('reste 1');expect(stock).to_contain_text('1 synthétisable')
-   field=page.locator('[data-farm-inventory="'+green+'"]').first;field.fill('12');field.press('Tab');expect(stock).to_contain_text('reste 0')
+   field=page.locator('[data-farm-inventory="'+green+'"]').first;field.fill('12');field.press('Tab');expect(stock).to_contain_text('reste 0');page.locator('.farm-stock-row').filter(has=page.locator('[data-farm-inventory="'+green+'"]')).locator('[data-farm-inventory-step="-1"]').click();expect(page.locator('.farm-stock-row').filter(has=page.locator('[data-farm-inventory="'+green+'"]')).locator('[data-farm-inventory="'+green+'"]')).to_have_value('11');assert page.evaluate('(id)=>JSON.parse(localStorage.getItem("astralis:gi:farm-inventory"))[id]===11',green)
    if not page.locator('.farm-manual-needs').evaluate('(el)=>el.open'):page.locator('.farm-manual-needs summary').click()
    expect(page.locator('.farm-manual-needs')).to_have_attribute('open','');expect(page.locator('.farm-manual-needs button')).not_to_have_count(0)
    page.locator('.farm-manual-needs button').first.click();assert page.locator('.farm-inventory').evaluate('(el)=>el.open')
    expected_first=page.locator('[data-farm-rank="1"]').get_attribute('data-farm-person');page.locator('[data-farm-rank="0"]').drag_to(page.locator('[data-farm-rank="1"]'));page.wait_for_function("id=>JSON.parse(localStorage.getItem('astralis:gi:farm-priority'))[0]===id",arg=expected_first)
-   page.set_viewport_size({'width':390,'height':844});assert page.evaluate('document.documentElement.scrollWidth<=innerWidth+1');page.locator('farm-talent-targets').scroll_into_view_if_needed();page.screenshot(path=str(out/'mobile-goals.png'),animations='disabled');page.set_viewport_size({'width':1440,'height':1000})
-   page.locator('[data-farm-character-search]').fill('Bennett');expect(page.locator('.farm-person-card:visible')).to_have_count(1)
+   page.set_viewport_size({'width':390,'height':844});assert page.evaluate('document.documentElement.scrollWidth<=innerWidth+1');page.locator('farm-talent-targets').scroll_into_view_if_needed();page.screenshot(path=str(out/'mobile-goals.png'),animations='disabled');page.set_viewport_size({'width':1440,'height':1000});page.locator('[data-farm-character-filter=all]').click()
+   search=page.locator('[data-farm-character-search]');search.fill('Bennett');expect(page.locator('.farm-person-card:visible')).to_have_count(1)
+   page.locator('[data-farm-character-filter="planned"]').click();expect(page.locator('.farm-person-card:visible')).to_have_count(1);expect(page.locator('[data-farm-character-filter="planned"]')).to_have_attribute('aria-pressed','true')
+   search.fill('');expect(page.locator('.farm-person-card:visible')).to_have_count(2)
+   page.locator('[data-farm-character-filter="todo"]').click();assert page.locator('.farm-person-card:visible').count()>0;assert page.locator('.farm-person-card[data-farm-character-active="true"]:visible').count()==0
+   page.locator('[data-farm-character-filter="all"]').click();search.fill('Bennett');expect(page.locator('.farm-person-card:visible')).to_have_count(1)
+   if page.locator('[data-backup-later]').count():page.locator('[data-backup-later]').click()
    page.locator('[data-farm-export-character=bennett]').click();dialog=page.locator('.astralis-png-preview');expect(dialog).to_be_visible();expect(dialog.locator('[data-save]')).to_be_enabled(timeout=120000)
    canvas=dialog.locator('canvas');assert canvas.evaluate('(c)=>c.width')>=2000;expect(dialog.locator('[data-copy-png]')).to_be_checked()
    digest=canvas.evaluate("async c=>{const b=await(await fetch(c.toDataURL())).arrayBuffer();return [...new Uint8Array(await crypto.subtle.digest('SHA-256',b))].map(x=>x.toString(16).padStart(2,'0')).join('')}")

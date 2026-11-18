@@ -1,7 +1,7 @@
 {
   "name": "Overload",
   "description": "Celestia",
-  "lastEdit": 1794351057161,
+  "lastEdit": 1794890243200,
   "conditional": {
     "resonance": {},
     "reaction": {}
@@ -827,7 +827,7 @@
               "infusionAura": "pyro",
               "bonusStats": {
                 "atk_": 79.83,
-                "all_dmg_": 210,
+                "all_dmg_": 260,
                 "pyro_enemyRes_": -75
               },
               "description": ""
@@ -861,7 +861,7 @@
               "description": ""
             },
             {
-              "weight": 0.6433,
+              "weight": 0.69,
               "path": [
                 "reaction",
                 "overloaded"
@@ -875,58 +875,6 @@
             },
             {
               "weight": 0.6433,
-              "path": [
-                "reaction",
-                "overloaded"
-              ],
-              "hitMode": "avgHit",
-              "bonusStats": {
-                "atk_": 99.83,
-                "pyro_enemyRes_": -75
-              },
-              "description": ""
-            },
-            {
-              "weight": 0.0033,
-              "path": [
-                "reaction",
-                "overloaded"
-              ],
-              "hitMode": "avgHit",
-              "bonusStats": {
-                "atk_": 99.83,
-                "pyro_enemyRes_": -75
-              },
-              "description": ""
-            },
-            {
-              "weight": 0.0033,
-              "path": [
-                "reaction",
-                "overloaded"
-              ],
-              "hitMode": "avgHit",
-              "bonusStats": {
-                "atk_": 99.83,
-                "pyro_enemyRes_": -75
-              },
-              "description": ""
-            },
-            {
-              "weight": 0.02,
-              "path": [
-                "reaction",
-                "overloaded"
-              ],
-              "hitMode": "avgHit",
-              "bonusStats": {
-                "atk_": 99.83,
-                "pyro_enemyRes_": -75
-              },
-              "description": ""
-            },
-            {
-              "weight": 0.02,
               "path": [
                 "reaction",
                 "overloaded"

@@ -32,7 +32,7 @@ function cleanCatalogRows(rows) {
     return !retiredPreviewIds.has(id) && !(row?.preRelease && ['mitya', 'lily', 'starsealed-edict'].some(key => id === key || name === key));
   });
 }
-const DATA_REFRESH_INTERVAL = 6 * 60 * 60 * 1000;
+const DATA_REFRESH_INTERVAL = 60 * 60 * 1000;
 function cacheTtl(){return DATA_REFRESH_INTERVAL;}
 const syncLogKey='astralis:data-sync-log';
 function recordSync(entry){const row={at:Date.now(),...entry};try{const rows=JSON.parse(localStorage.getItem(syncLogKey)||'[]');localStorage.setItem(syncLogKey,JSON.stringify([row,...(Array.isArray(rows)?rows:[])].slice(0,100)));}catch{}if(typeof window!=='undefined')window.dispatchEvent(new CustomEvent('astralis:data-sync',{detail:row}));return row;}

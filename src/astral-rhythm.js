@@ -1,5 +1,5 @@
 import { unlockArcadeAchievement } from './arcade-achievements.js?v=20261114-arcade-10';
-import { exportArcadeScoreCard } from './arcade-score-card.js?v=20261114-score-card-1';
+import { exportArcadeScoreCard } from './arcade-score-card.js?v=20261114-score-card-3';
 
 const KEY='astralis:arcade:rhythm:v1',WINDOW=190,BEATS=18;
 const CONFIG={gi:{name:'Genshin',bpm:108,tones:[392,494,587,784]},hsr:{name:'Star Rail',bpm:120,tones:[440,554,659,880]},ww:{name:'Wuthering Waves',bpm:112,tones:[349,440,523,698]}};

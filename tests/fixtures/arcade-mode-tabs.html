@@ -1,0 +1,8 @@
+<!doctype html><html lang="fr"><meta charset="utf-8"><title>Test clavier arcade</title>
+<main data-astral-arcade><nav role="tablist" aria-label="Choisir un jeu"><button role="tab" data-arcade-mode="one" aria-selected="true">Premier</button><button role="tab" data-arcade-mode="two" aria-selected="false">Deuxième</button><button role="tab" data-arcade-mode="three" aria-selected="false">Troisième</button></nav></main>
+<script type="module">
+ import {mountArcadeModeTabs} from '../../src/arcade-mode-tabs.js';
+ const root=document.querySelector('[data-astral-arcade]'),tabs=[...root.querySelectorAll('[role=tab]')];
+ root.cleanup=mountArcadeModeTabs(root);
+ root.querySelector('[role=tablist]').addEventListener('click',event=>{const tab=event.target.closest('[role=tab]');if(tab)tabs.forEach(item=>item.setAttribute('aria-selected',String(item===tab)));});
+</script>

@@ -1,7 +1,7 @@
 {
   "name": "Aggravate",
   "description": "Celestia",
-  "lastEdit": 1794351147786,
+  "lastEdit": 1794890329124,
   "conditional": {
     "resonance": {},
     "reaction": {}
@@ -998,7 +998,7 @@
               "description": ""
             },
             {
-              "weight": 3.4718,
+              "weight": 3.5659,
               "path": [
                 "reaction",
                 "overloaded"
@@ -1027,48 +1027,6 @@
             },
             {
               "weight": 0.4516,
-              "path": [
-                "reaction",
-                "overloaded"
-              ],
-              "hitMode": "avgHit",
-              "bonusStats": {
-                "atk_": 45,
-                "eleMas": 98.475,
-                "pyro_enemyRes_": -35
-              },
-              "description": ""
-            },
-            {
-              "weight": 0.0753,
-              "path": [
-                "reaction",
-                "overloaded"
-              ],
-              "hitMode": "avgHit",
-              "bonusStats": {
-                "atk_": 45,
-                "eleMas": 98.475,
-                "pyro_enemyRes_": -35
-              },
-              "description": ""
-            },
-            {
-              "weight": 0.0094,
-              "path": [
-                "reaction",
-                "overloaded"
-              ],
-              "hitMode": "avgHit",
-              "bonusStats": {
-                "atk_": 45,
-                "eleMas": 98.475,
-                "pyro_enemyRes_": -35
-              },
-              "description": ""
-            },
-            {
-              "weight": 0.0094,
               "path": [
                 "reaction",
                 "overloaded"

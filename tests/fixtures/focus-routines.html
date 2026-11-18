@@ -1,0 +1,17 @@
+<!doctype html>
+<html lang="fr">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<link rel="stylesheet" href="../../styles/focus-station.css">
+<main id="focus-root"></main>
+<script type="module">
+  import { renderFocusStation, mountFocusStation } from '../../src/focus-station.js';
+  const root = document.querySelector('#focus-root');
+  root.innerHTML = renderFocusStation('gi');
+  mountFocusStation(root.querySelector('[data-focus-station]'), message => {
+    const status = document.querySelector('#status');
+    if (status) status.textContent = message;
+  });
+</script>
+<output id="status" aria-live="polite"></output>
+</html>

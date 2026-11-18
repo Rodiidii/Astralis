@@ -1,0 +1,4 @@
+<!doctype html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Test énergie</title><link rel="stylesheet" href="../../styles/energy-tracker.css"></head><body><div id="test-energy"></div><script type="module">
+import {renderEnergyTracker,mountEnergyTracker} from '../../src/energy-tracker.js';
+const host=document.querySelector('#test-energy');host.outerHTML=renderEnergyTracker('gi');mountEnergyTracker(document.querySelector('[data-energy-tracker]'),'gi',()=>{});
+</script></body></html>

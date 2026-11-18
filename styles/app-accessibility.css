@@ -1,0 +1,6 @@
+/* Keyboard access shared by every application page. */
+.skip-to-content{position:fixed;z-index:200000;top:max(env(safe-area-inset-top),8px);left:12px;padding:12px 18px;border:1px solid #f0cf8a;border-radius:12px;background:#17151c;color:#fff;box-shadow:0 10px 32px #0008;font-weight:700;transform:translateY(-160%);transition:transform .18s ease}
+.skip-to-content:focus{transform:translateY(0)}
+:where(a,button,input,select,textarea,[tabindex]):focus-visible{outline:3px solid var(--theme-accent,#e8c788);outline-offset:3px}
+#page-content[tabindex="-1"]:focus{outline:none}
+@media(prefers-reduced-motion:reduce){.skip-to-content{transition:none}}

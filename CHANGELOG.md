@@ -1,3 +1,12 @@
+# 1.0.53 — 18 novembre 2026
+
+- Refonte du Laboratoire de dégâts : onglet Buffs, conditions des talents, commandes de cumuls et sélection des armes avec leurs icônes.
+- Étend les fiches de calcul des personnages et la transmission des buffs d’équipe ; corrige la lecture des conditions et le bonus C6 de Sigewinne.
+- Corrige les contraintes de sets imposés à 4 pièces et filtre les statistiques principales avant la recherche ; les bonus permanents de sets sont automatiques.
+- Conserve le total des combinaisons pendant l’optimisation et utilise les mêmes formules complètes pour le calcul et la recherche des builds.
+- Corrige le blocage au démarrage et renouvelle le cache de l’application.
+- Intègre les améliorations locales du tableau de bord, de la planification, des collections et des fiches de consultation.
+
 # 1.0.52 — 12 novembre 2026
 
 - Évite les refus d’accès Windows pendant le téléchargement des mises à jour en utilisant un nom d’archive temporaire et final unique à chaque tentative.

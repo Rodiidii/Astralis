@@ -7,9 +7,10 @@ export const LAB_REACTIONS=[
   ['electroCharged','Electro-Charged','transformative'],['shatter','Shatter','transformative'],
   ['swirl','Swirl','transformative'],['bloom','Bloom','transformative'],['hyperbloom','Hyperbloom','transformative'],
   ['burgeon','Burgeon','transformative'],['burning','Burning','transformative'],
-  ['lunarCharged','Lunar-Charged','special'],['lunarBloom','Lunar-Bloom','special'],
-  ['lunarCrystallize','Lunar-Crystallize','special'],['stellarConduct','Stellar-Conduct','special'],
-  ['stellarSwirl','Stellar Swirl','special'],['transformative','Other transformative reaction','transformative'],
+  ['directLunarCharged','Dégâts lunaires directs : électrocution','lunarDirect'],['directLunarBloom','Dégâts lunaires directs : fleurissement','lunarDirect'],['directLunarCrystallize','Dégâts lunaires directs : cristallisation','lunarDirect'],
+  ['lunarCharged','Sélénocution : nuage collectif','multiReaction'],['lunarBloom','Lunar-Bloom','special'],
+  ['lunarCrystallize','Sélénocristallisation : réaction collective','multiReaction'],['stellarConduct','Astroconduction : dégâts directs','stellarDirect'],['directStellarSwirl','Astrodispersion : dégâts directs','stellarDirect'],
+  ['stellarSwirl','Astrodispersion : réaction collective','multiReaction'],['transformative','Other transformative reaction','transformative'],
 ];
 
 export function talentValueRows(skill,level=10,fallback=[]) {
@@ -27,25 +28,38 @@ export function talentValueRows(skill,level=10,fallback=[]) {
       return Number(number.toFixed(3))+(percentage?'%':'');
     });
     return name+' · Niv. '+level+' : '+value;
+  }).flatMap(row=>{
+    if(!/(?:chute|plung)/i.test(row)||!row.includes('/'))return [row];
+    const colon=row.lastIndexOf(':'),values=row.slice(colon+1).trim().split('/');
+    if(values.length!==2||values.some(value=>!/^\s*\d+(?:\.\d+)?%\s*$/.test(value)))return [row];
+    return values.map((value,index)=>row.slice(0,colon).replace(/basse\/élevée|basse\/haute|low\/high/gi,index?'haute':'basse')+' : '+value.trim());
   });
 }
 
 export function parseActionValue(value) {
+  const label=String(value).split(/[:|]/)[0].normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase();
+  // A numeric healing/shield/buff row is not an attack coefficient.
+  if(/soins?|heal|absorption|bouclier|shield|bonus|reduction|baisse|cout|cost|endurance|stamina|duree|duration|recharge|cooldown|energie|energy|interval|limite|limit|vitesse|speed|restaur|regener/.test(label))return null;
   const colon=String(value).lastIndexOf(':');
-  const text=(colon>=0?String(value).slice(colon+1):String(value)).trim().replace(/,/g,'.');
+  const text=(colon>=0?String(value).slice(colon+1):String(value)).trim().replace(/,/g,'.').replace(/\b(?:PV|HP)\s+max(?:imum)?\b/gi,'HP');
   if(!text||/TODO_DATA|\/|per|par point|stack|cumul/i.test(text))return null;
   const pieces=text.split(/\s*\+\s*/);
   const components=[];
   let baseStat;
+  let mixed=false;
   for(const piece of pieces){
-    const match=piece.trim().match(/^(\d+(?:\.\d+)?)\s*%(?:\s*(ATK|ATQ|HP|PV|DEF|DÉF))?\s*(?:[×x*]\s*(\d+))?$/i);
+    const match=piece.trim().match(/^(\d+(?:\.\d+)?)\s*%(?:\s*(ATK|ATQ|HP|PV|DEF|DÉF|EM|ME|maîtrise élémentaire))?\s*(?:[×x*]\s*(\d+))?$/i);
     if(!match)return null;
-    const type=match[2]?(/HP|PV/i.test(match[2])?'hp':/DEF|DÉF/i.test(match[2])?'def':'atk'):null;
-    if(type&&baseStat&&type!==baseStat)return null;
+    const type=match[2]?(/HP|PV/i.test(match[2])?'hp':/DEF|DÉF/i.test(match[2])?'def':/EM|ME|maîtrise/i.test(match[2])?'em':'atk'):null;
+    if(type&&baseStat&&type!==baseStat)mixed=true;
     baseStat=type||baseStat;
-    components.push({talentMultiplier:Number(match[1])/100,count:Number(match[3]||1)});
+    components.push({talentMultiplier:Number(match[1])/100,count:Number(match[3]||1),...(type?{baseStat:type}:{})});
   }
   if(components.some(part=>part.count<1||part.count>100))return null;
+  if(mixed){
+    if(components.some(part=>!part.baseStat||part.count!==1))return null;
+    return {components:[{talentMultiplier:1,count:1,scalingTerms:components.map(({baseStat,talentMultiplier})=>({baseStat,talentMultiplier}))}],baseStat,hitCount:1};
+  }
   return {components,baseStat,hitCount:components.reduce((sum,part)=>sum+part.count,0)};
 }
 
@@ -84,6 +98,10 @@ export const LAB_BUFF_TYPES=[
 export function activeBuffBonuses(p,elapsed=0) {
   const out={};
   for(const buff of p.buffs||[]){
+    if(buff.sourceCharacter&&String(buff.sourceCharacter)!==String(p.character)&&!(p.allies||[]).some(ally=>String(ally.character)===String(buff.sourceCharacter)))continue;
+    if(buff.recipient==='self'&&String(buff.sourceCharacter)!==String(p.character))continue;
+    if(buff.recipient==='others'&&String(buff.sourceCharacter)===String(p.character))continue;
+    if(buff.constellationRequired&&Number(String(buff.sourceCharacter)===String(p.character)?p.constellation:(p.allies||[]).find(ally=>String(ally.character)===String(buff.sourceCharacter))?.constellation||0)<Number(buff.constellationRequired))continue;
     if(buff.active===false||(Number(buff.duration)>0&&elapsed>=Number(buff.duration)))continue;
     if(buff.position&&buff.position!=='any'&&buff.position!==(p.fightPosition||'on'))continue;
     const sourcePosition=buff.sourceCharacter?String(buff.sourceCharacter)===String(p.character)?(p.fightPosition||'on'):(p.allies||[]).find(ally=>String(ally.character)===String(buff.sourceCharacter))?.position||buff.sourcePosition||'off':buff.sourcePosition||'off';

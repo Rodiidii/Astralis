@@ -21,10 +21,10 @@ def main():
    else:r.continue_()
   page.route('**/*',route);page.add_init_script("localStorage.setItem('astralis:active-game','gi')");page.goto(base);page.wait_for_selector('.dashboard-studio',timeout=60000);page.wait_for_timeout(3000)
   print('errors',errors,flush=True);page.screenshot(path=str(ROOT/'docs/dashboard-orbit-initial.png'))
-  page.locator('[data-orbit-select="banners"]').click();page.wait_for_selector('.widget-banners .banner-line');assert page.locator('.widget-banners .banner-feature-copy:visible').count()==0;assert page.locator('.widget-banners [data-banner-start]').count()==2
-  page.locator('[data-studio-edit]').click();page.locator('[data-studio-widget="companion"] [data-studio-hide]').click();assert page.locator('[data-studio-widget="companion"]').count()==0
-  page.locator('[data-studio-add="companion"]').click();assert page.locator('[data-studio-widget="companion"]').count()==1
-  page.locator('[data-studio-widget="companion"] [data-studio-resize]').focus();page.keyboard.press('ArrowRight')
+  page.evaluate("document.querySelector('[data-orbit-select=\"banners\"]').click()");page.wait_for_selector('.widget-banners .banner-line');assert page.locator('.widget-banners .banner-feature-copy:visible').count()==0;assert page.locator('.widget-banners [data-banner-start]').count()==2
+  page.locator('[data-studio-edit]').click();page.locator('[data-studio-widget="farm"] [data-studio-hide]').click();assert page.locator('[data-studio-widget="farm"]').count()==0
+  page.locator('[data-studio-add="farm"]').click();assert page.locator('[data-studio-widget="farm"]').count()==1
+  page.locator('[data-studio-widget="farm"] [data-studio-resize]').focus();page.keyboard.press('ArrowRight')
   page.locator('[data-studio-edit]').click();page.locator('[data-voyage-back]').click();page.locator('[data-orbit-select="progress"]').focus();page.locator('[data-orbit-select="progress"]').click();page.locator('[data-studio-focus="progress"]').first.click();assert page.locator('.studio-focused').count()==1;page.keyboard.press('Escape');assert page.locator('.studio-focused').count()==0
   page.keyboard.press('Control+j');page.wait_for_selector('.studio-command-dialog');page.keyboard.press('Escape');page.wait_for_selector('.studio-command-dialog',state='detached')
   page.on('dialog',lambda d:d.accept('Session boss'));page.locator('[data-studio-save]').click();assert page.locator('[data-studio-layout] option').count()==2

@@ -3,20 +3,6 @@
   "description": "Celestia",
   "targets": [
     {
-      "weight": 0.128,
-      "path": [
-        "burst",
-        "shotDmg"
-      ],
-      "hitMode": "avgHit",
-      "bonusStats": {
-        "atk_": 25,
-        "pyro_enemyRes_": -75,
-        "all_dmg_": 40
-      },
-      "description": ""
-    },
-    {
       "weight": 1,
       "path": [
         "skill",
@@ -1025,6 +1011,20 @@
         "atk": 848.791,
         "atk_": 25,
         "pyro_enemyRes_": -75
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.128,
+      "path": [
+        "burst",
+        "shotDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 25,
+        "pyro_enemyRes_": -75,
+        "all_dmg_": 40
       },
       "description": ""
     }

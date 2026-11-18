@@ -1,7 +1,7 @@
 {
   "name": "Overload",
   "description": "Celestia",
-  "lastEdit": 1794349031103,
+  "lastEdit": 1794890243165,
   "conditional": {
     "resonance": {},
     "reaction": {}
@@ -85,7 +85,7 @@
               "description": ""
             },
             {
-              "weight": 0.4461,
+              "weight": 0.4903,
               "path": [
                 "burst",
                 "exp"
@@ -111,20 +111,6 @@
                 "all_dmgInc": 1222.907,
                 "pyro_enemyRes_": -75,
                 "all_dmg_": 105.8
-              },
-              "description": ""
-            },
-            {
-              "weight": 0.0442,
-              "path": [
-                "burst",
-                "exp"
-              ],
-              "hitMode": "avgHit",
-              "bonusStats": {
-                "atk_": 99.83,
-                "pyro_enemyRes_": -75,
-                "all_dmg_": 68
               },
               "description": ""
             },
@@ -863,20 +849,7 @@
               "description": ""
             },
             {
-              "weight": 0.4586,
-              "path": [
-                "burst",
-                "exp"
-              ],
-              "hitMode": "avgHit",
-              "bonusStats": {
-                "atk_": 54.83,
-                "pyro_enemyRes_": -75
-              },
-              "description": ""
-            },
-            {
-              "weight": 0.0442,
+              "weight": 0.5471,
               "path": [
                 "burst",
                 "exp"
@@ -890,19 +863,6 @@
             },
             {
               "weight": 0.4586,
-              "path": [
-                "burst",
-                "exp"
-              ],
-              "hitMode": "avgHit",
-              "bonusStats": {
-                "atk_": 54.83,
-                "pyro_enemyRes_": -75
-              },
-              "description": ""
-            },
-            {
-              "weight": 0.0442,
               "path": [
                 "burst",
                 "exp"

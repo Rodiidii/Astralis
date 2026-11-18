@@ -1,12 +1,23 @@
+import {loadCharacterConditions,renderSourceBuffs} from './lab-source-buffs.js?v=20261118-all-buffs-1';
+import {EXTENDED_BUFFS,extendedBuffOptions,extendedBuffBonuses,extendedBuffWarnings,extendedBuffPools} from './lab-extended-buffs.js';
+import {effectiveTalentLevel,mergeKitSnapshot} from './lab-talent-levels.js';
+import {hasUsefulBuff,supportWeaponEffects,supportWeaponSourceStats,partyWeaponBonuses,partyWeaponWarnings,azurelightSummary} from './lab-support-effects.js';
+import {artifactAdvice} from './lab-advice.js';
+import {PARTY_SET_EFFECTS,partySetEffects,additionalPartySetBonuses} from './lab-party-sets.js';
+import {recommendedLabSets} from './lab-set-recommendations.js';
+import {scopes as nativeBuffScopes} from './complex-controls.js?v=20261117-clear-buffs-2';
+import {CHARACTER_BUFF_IDS} from './lab-character-buffs.js';
+import {nativeBuffGroups,renderCharacterBuffFields,complexConfigForSimulation,buffGroupInfo,furinaBuffInputs} from './lab-buff-controls.js?v=20261117-clear-buffs-2';
+import {syncCharacterBuffTeam} from './lab-character-buffs.js';
 import {compareLabScores} from './lab-comparison.js';
-import {complexEffects} from './complex-effects.js';
+import {complexEffects} from './complex-effects.js?v=20261117-clear-buffs-2';
 import {effectCatalog} from './lab-effect-catalog.js';
 import {drawPoster, posterBitmap, previewPng} from './poster-export.js?v=84';
-import {attackOptions,attackKind,configuredSetEffects,configuredWeaponBonuses,typedAttackBonus,kitEffectDescriptions} from './lab-config.js?v=84';
-import { LAB_REACTIONS, talentValueRows, parseActionValue, activeBuffBonuses } from './lab-actions.js?v=84';
+import {attackCritStats,typedFlatDamage,attackOptions,attackKind,configuredSetEffects,configuredWeaponBonuses,typedAttackBonus,kitEffectDescriptions,weaponEffectOptions,setEffectOptions} from './lab-config.js?v=20261117-clear-buffs-2';
+import { LAB_REACTIONS, talentValueRows, parseActionValue, activeBuffBonuses } from './lab-actions.js?v=20261117-buffs-1';
 import { pieceSubstats } from './build-model.js?v=20261110-builds-3';
 import { prepareArtifactPools } from './optimizer.js';
-import { renderLabWorkspace, renderLabResults, LAB_STAT_LABELS, labStatValue } from './lab-view.js?v=84';
+import { renderLabWorkspace, renderLabResults, setEffectsEditor, effectControls, renderAzurelightControls, LAB_STAT_LABELS, labStatValue } from './lab-view.js?v=20261117-clear-buffs-2';
 import { renderGameText, skillValuesAtLevel } from './character-content.js?v=20261109-rich-text-1';
 import { ARTIFACT_SLOTS, ARTIFACT_SLOT_LABELS, normalizeGoodArtifact, validateArtifact, usableArtifact, parseArtifactInventory, artifactSignature, artifactImportDelta, ARTIFACT_SUBSTAT_ROLLS, statVector } from './artifact-model.js?v=20261110-builds-3';
 import { getCharacterPriority, setCharacterPriority, movePriority, positionPriority, priorityArtifactPool, getPriorityConfig, setPriorityConfig } from './priority-list.js?v=20261113-priority-1';
@@ -41,8 +52,12 @@ export function renderDamageLab(context={}) {
   attackCharacters=labContext.characters;
   const p=read();
   p.character=canonicalLabCharacter(p.character);
+  p.allies=(p.allies||[]).map(ally=>({...ally,character:canonicalLabCharacter(ally.character),weapon:labContext.weapons.find(w=>[w._id,w.id].map(String).includes(String(ally.weapon)))?._id||ally.weapon}));
+  if(p.setRequirementsVersion!==2){if(p.configuration==='2+2'&&p.requiredSets?.length)p.allowedSets=[...p.requiredSets];if(p.configuration!=='4pc')p.requiredSets=[];p.setRequirementsVersion=2;}
+  p.elapsed=0;
   if(p.inventoryDefaultsVersion!==1){p.inventoryDefaultsVersion=1;p.artifactLevelPreset='0';p.respectPriority=false;p.configuration='any';p.referenceCharacter='';}
   write(p);
+  loadWrAttackChoices(p);
   if (!p.character && labContext.builds.length) {
     p.build=labContext.builds[0].id;
     p.character=String(labContext.builds[0].character);
@@ -50,9 +65,17 @@ export function renderDamageLab(context={}) {
   }
   return renderLabWorkspace(viewContext(p),p);
 }
+let wrAttackLoad=null,wrAttackCharacter='';
+async function loadWrAttackChoices(p){
+ const id=String(p.character),characterRow=labContext.characters.find(c=>String(c._id)===id),alias=labContext.sourceAliases?.characters?.find(a=>String(a.id)===String(characterRow?.id||id)),key=labContext.sourceSnapshot?.characters?.[String(characterRow?.id||id)]?.name||alias?.en?.[0]?.replace(/\s/g,'');if(!key||wrAttackCharacter===id||wrAttackLoad)return;
+ wrAttackLoad=(async()=>{try{const wr=await import('./lab-wr-adapter.js?v=20261118-all-buffs-1'),engine=await wr.loadWrEngine(),resolvedKey=wr.resolveWrCharacterKey(engine,{...characterRow,elementKey:p.elementKey},labContext.sourceAliases)||key,source=engine.characters[resolvedKey];if(!source){wrAttackCharacter=id;return;}
+  const current=read(),buildData=wr.buildWrCharacterData(engine,{character:resolvedKey,level:Number(current.level)||90,ascension:current.ascension??6,constellation:Number(current.constellation)||0,talent:{auto:Number(current.talentAuto)||10,skill:Number(current.talentSkill)||10,burst:Number(current.talentBurst)||10}}),evaluated=wr.evaluateWrDisplay(engine,buildData),rows=wr.wrAttackOptions(engine,resolvedKey,evaluated.display,Number(current.constellation)||0);
+  labContext.wrCharacterKey=resolvedKey;if(!rows.length){wrAttackCharacter=id;return;}labContext.wrAttacks=rows;labContext.wrEngine=engine;labContext.wrAdapter=wr;wrAttackCharacter=id;const root=document.querySelector('[data-damage-lab]');if(root&&String(read().character)===id){const latest=read();root.outerHTML=renderLabWorkspace(viewContext(latest),latest);initDamageLab();updateAttackTable(document.querySelector('[data-damage-lab]'),latest);}
+ }catch(error){console.warn('Chargement des talents WR:',error);}finally{wrAttackLoad=null;}})();
+}
 let labWorker=null,labJob=0,labDragId='',labLastResults=[],pendingInventory=[],filterSnapshot=null;
 const jsonRead=(key,fallback)=>{try{return JSON.parse(localStorage.getItem(key)||JSON.stringify(fallback));}catch{return fallback;}};
-function getForm(){const root=document.querySelector('[data-damage-lab]');if(!root)return read();const out={...read()},mainStats={sands:[],goblet:[],circlet:[]},minimums={};for(const el of root.querySelectorAll('[data-lab]')){const key=el.dataset.lab;out[key]=el.type==='checkbox'?el.checked:el.type==='number'?(el.value.trim()===''?'':Number(el.value)):el.value;if(key.startsWith('minimum-')&&el.value!=='')minimums[key.slice(8)]=Number(el.value);}for(const el of root.querySelectorAll('[data-lab-main]:checked')){const [slot,key]=el.dataset.labMain.split(':');if(mainStats[slot])mainStats[slot].push(key);}out.mainStats=mainStats;out.minimums=minimums;return out;}
+function getForm(){const root=document.querySelector('[data-damage-lab]');if(!root)return read();const out={...read()},mainStats={sands:[],goblet:[],circlet:[]},minimums={};for(const el of root.querySelectorAll('[data-lab]')){const key=el.dataset.lab;out[key]=el.type==='checkbox'?el.checked:el.type==='number'?(el.value.trim()===''?'':Number(el.value)):el.value;if(key.startsWith('minimum-')&&el.value!=='')minimums[key.slice(8)]=Number(el.value);}for(const el of root.querySelectorAll('[data-lab-main]:checked')){const [slot,key]=el.dataset.labMain.split(':');if(mainStats[slot])mainStats[slot].push(key);}out.mainStats=mainStats;out.minimums=minimums;if(out.characterBuffTeam)syncCharacterBuffTeam(out,labContext.characters);return out;}
 function persist(){const p=getForm();write(p);return p;}
 function statFromForm(p){return {hp:Number(p.hp)||0,atk:Number(p.atk)||0,def:Number(p.def)||0,em:Number(p.em)||0,critRate:Number(p.critRate)||0,critDmg:Number(p.critDmg)||0,er:Number(p.er)||0,dmgBonus:Number(p.bonus)||0};}
 function reactionFromForm(p) {
@@ -60,36 +83,57 @@ function reactionFromForm(p) {
   const definition=LAB_REACTIONS.find(row=>row[0]===id);
   if(!definition||id==='none')return null;
   const bonus=(Number(p.reactionBonus)||0)/100;
+  if(definition[2]==='lunarDirect')return {kind:'lunarDirect',id:({directLunarCharged:'lunarCharged',directLunarBloom:'lunarBloom',directLunarCrystallize:'lunarCrystallize'})[id],name:definition[1],bonus,baseBonus:(Number(p.lunarBaseBonus)||0)/100,elevation:(Number(p.lunarElevation)||0)/100,flatDamage:Number(p.lunarFlat)||0};
+  if(['stellarDirect','multiReaction'].includes(definition[2]))return {
+    kind:definition[2],id:id==='directStellarSwirl'?'stellarSwirl':id,name:definition[1],bonus,
+    baseBonus:(Number(p.lunarBaseBonus)||0)/100,elevation:(Number(p.lunarElevation)||0)/100,flatDamage:Number(p.lunarFlat)||0,
+    fieldHits:Number(p.stellarFieldHits)||0,phase:p.stellarPhase||'initial',vortexLevel:Number(p.stellarVortexLevel)||1,
+    levelMultiplier:p.reactionLevel===''?undefined:Number(p.reactionLevel),
+    contributors:Array.from({length:Math.max(0,Math.min(3,Number(p.reactionContributorCount)||0))},(_,index)=>{
+      const prefix='reactionMember'+index;
+      return {id:'ally'+index,levelMultiplier:p[prefix+'Level'],em:p[prefix+'EM'],critRate:p[prefix+'CR'],critDmg:p[prefix+'CD'],bonus:(Number(p[prefix+'Bonus'])||0)/100,baseBonus:(Number(p.lunarBaseBonus)||0)/100,elevation:(Number(p.lunarElevation)||0)/100};
+    })};
   if(definition[2]==='special')return {kind:'unavailable',name:definition[1]};
-  if(definition[2]==='amplifying')return {kind:'amplifying',name:definition[1],baseMultiplier:p.ampBase===''?undefined:Number(p.ampBase),bonus};
+  if(definition[2]==='amplifying')return {kind:'amplifying',id,name:definition[1],baseMultiplier:p.ampBase===''?undefined:Number(p.ampBase),bonus};
   return {kind:definition[2],id,name:definition[1],coefficient:p.reactionCoeff===''?undefined:Number(p.reactionCoeff),
     levelMultiplier:p.reactionLevel===''?undefined:Number(p.reactionLevel),bonus,
     enemyResistance:Number(p.resistance)/100,resistanceReduction:Number(p.resReduction)/100};
 }
 
+function sourceBuildContext(p){return {...labContext,aliases:labContext.sourceAliases,equipped:equippedPieces(p),builds:labContext.builds.map(build=>({...build,pieces:build.pieces?.map(piece=>({...piece,substats:pieceSubstats(piece)}))}))};}
+
 async function calculate(p,overrides={}) {
+  if(p.character&&String(p.attackSelection).startsWith('wr:')){
+   try{const adapter=await import('./lab-wr-adapter.js?v=20261118-all-buffs-1'),engine=await adapter.loadWrEngine(),scenario=adapter.sourceScenario(engine,p,sourceBuildContext(p));
+    if(!scenario)return {ok:false,error:'Fiche de calcul indisponible pour ce personnage.',warnings:[]};
+    return adapter.createSourceEvaluator(engine,scenario)(null,overrides.critMode);
+   }catch(error){return {ok:false,error:'Calcul de la fiche interrompu : '+error.message,warnings:[]};}
+  }
   const {calculateAction}=await import('./damage-engine.js');
+  const kitWarnings=[...extendedBuffWarnings(extendedBuffConfig(p)),...partyWeaponWarnings(p,labContext.weapons)];if(kitWarnings.length)return {ok:false,error:kitWarnings.join(' '),warnings:kitWarnings};
   const stats=overrides.stats||statsForCalculation(p);
-  const buffs=activeBuffBonuses(p,p.elapsed||0);
+  const buffs=activeBuffBonuses(p,0);
   const allEffects={...(p.loadout==='equipped'&&p.build?equippedBonuses(p):p.referenceBonuses)};
-  for(const source of [buffs,configuredWeaponBonuses(activeWeapon(p),p),p.importBonuses||{}])for(const [key,value]of Object.entries(source||{}))allEffects[key]=(allEffects[key]||0)+value;
+  for(const source of [partyBonuses(p),buffs,ownWeaponBonuses(p),p.importBonuses||{}])for(const [key,value]of Object.entries(source||{}))allEffects[key]=(allEffects[key]||0)+value;
   const complex=resolveComplex(p,stats);
   if(complex.warnings.some(w=>/ATQ finale|DÉF finale|composition à renseigner/.test(w)))return {ok:false,error:complex.warnings.join(" · "),warnings:complex.warnings,stats};
   for(const [key,value]of Object.entries(complex.bonuses))allEffects[key]=(allEffects[key]||0)+value;
+  for(const [key,value]of Object.entries(extendedBuffBonuses({...extendedBuffConfig(p),statsIncludeBuffs:true},stats)))allEffects[key]=(allEffects[key]||0)+value;
   const attackBonus=typedAttackBonus(allEffects,p.actionKind,stats);
+  const reaction=Object.hasOwn(overrides,'reaction')?overrides.reaction:reactionFromForm(p);if(reaction)reaction.bonus=(Number(reaction.bonus)||0)+(allEffects[reaction.id+'Bonus']||0)/100;
   const result=calculateAction({
-    stats,baseStat:p.baseStat,talentMultiplier:p.talent===''?NaN:Number(p.talent),
-    talentScale:complex.talentScale,additivePools:complex.pools,poolState:overrides.poolState,targetCount:Number(p.targetCount)||1,elapsed:p.elapsed||0,actionKind:p.actionKind,
-    flatDamage:(Number(p.flat)||0)+(allEffects.flatDamage||0)+complex.flatDamage,damageBonus:(Number(p.elementBonus)||0)+attackBonus,
+    stats:attackCritStats(stats,allEffects,p.actionKind,reaction),baseStat:p.baseStat,talentMultiplier:p.talent===''?NaN:Number(p.talent),
+    talentScale:complex.talentScale*(allEffects.talentScale||1),additivePools:[...complex.pools,...extendedBuffPools(extendedBuffConfig(p),stats)],poolState:overrides.poolState,targetCount:Number(p.targetCount)||1,elapsed:0,actionKind:p.actionKind,
+    flatDamage:(Number(p.flat)||0)+(allEffects.flatDamage||0)+typedFlatDamage(allEffects,p.actionKind,stats)+complex.flatDamage,damageBonus:(Number(p.elementBonus)||0)+attackBonus,
     hitCount:Number(p.hitCount)||1,components:p.components?.length?p.components:undefined,reactingHits:Number(p.reactingHits)||0,
     attackerLevel:Number(p.level),enemyLevel:Number(p.enemyLevel),enemyResistance:Number(p.resistance)/100,
     resistanceReduction:((Number(p.resReduction)||0)+(allEffects.resReduction||0))/100,enemyDefenseReduction:((Number(p.defReduction)||0)+(allEffects.defReduction||0))/100,
     defenseIgnore:((Number(p.defIgnore)||0)+(allEffects.defIgnore||0))/100,critMode:overrides.critMode||p.critMode,
-    reaction:Object.hasOwn(overrides,'reaction')?overrides.reaction:reactionFromForm(p),elementKey:p.elementKey||'',
+    reaction,elementKey:p.elementKey||'',
   });
   return {...result,stats,warnings:[...(result.warnings||[]),...complex.warnings],complexDetails:complex.details};
 }
-function showResult(result){const root=document.querySelector('[data-damage-lab]');if(!root)return;root.querySelector('[data-lab-result-title]').textContent='Dégâts de l’attaque · '+(result.totalHits||1)+' coup(s)';const damage=root.querySelector('[data-lab-damage]'),warn=root.querySelector('[data-lab-warning]'),breakdown=root.querySelector('[data-lab-breakdown]');if(!result.ok){damage.textContent='TODO_DATA';warn.textContent=result.error;breakdown.innerHTML='<p>Calcul interrompu : complète les valeurs signalées TODO_DATA.</p>';return;}damage.textContent=fmt(result.total);warn.textContent=result.warnings.join(' · ')||`Niveau personnage ${getForm().level} · ennemi ${getForm().enemyLevel} · hypothèses éditables`;const rows=[['Base talent',result.base],['Terme additif',result.additive],['Bonus dégâts',`× ${fmt(result.bonusMultiplier)}`],['CRIT',`× ${fmt(result.critMultiplier)}`],['Défense',`× ${fmt(result.defenseMultiplier)}`],['Résistance',`× ${fmt(result.resistanceMultiplier)}`],['Multiplicateur amplifiant',`× ${fmt(result.reactionMultiplier)}`],['Réaction transformative',result.transformative],['Total',result.total]];if(result.complexDetails?.length)rows.push(...result.complexDetails.map(row=>[row.name,row.flatDamage!=null?row.flatDamage:JSON.stringify(row.bonuses||{hpPct:row.hpPct})]));if(result.triggered&&Object.keys(result.triggered).length)rows.push(['Plumes consommées',JSON.stringify(result.triggered)]);breakdown.innerHTML=`<div class="lab-breakdown-table">${rows.map(([k,v])=>`<div><span>${k}</span><b>${typeof v==='number'?fmt(v):esc(v)}</b></div>`).join('')}</div>`;}
+function showResult(result){const root=document.querySelector('[data-damage-lab]');if(!root)return;if(result.wrSource&&result.ok)root.querySelectorAll('[data-lab-live-stat]').forEach(cell=>cell.textContent=labStatValue(cell.dataset.labLiveStat,result.stats[cell.dataset.labLiveStat]));const buffResult=root.querySelector('[data-lab-buff-result]');if(buffResult)buffResult.textContent=result.ok?'Dégâts avec les buffs actifs : '+fmt(result.total)+' · '+(result.totalHits||1)+' coup(s)':result.error||'Complète les conditions du calcul.';root.querySelector('[data-lab-result-title]').textContent='Dégâts de l’attaque · '+(result.totalHits||1)+' coup(s)';const damage=root.querySelector('[data-lab-damage]'),warn=root.querySelector('[data-lab-warning]'),breakdown=root.querySelector('[data-lab-breakdown]');if(!result.ok){damage.textContent='TODO_DATA';warn.textContent=result.error;breakdown.innerHTML='<p>Calcul interrompu : complète les valeurs signalées TODO_DATA.</p>';return;}damage.textContent=fmt(result.total);warn.textContent=result.warnings.join(' · ')||`Niveau personnage ${getForm().level} · ennemi ${getForm().enemyLevel} · hypothèses éditables`;const rows=[['Base talent',result.base],['Terme additif',result.additive],['Bonus dégâts',`× ${fmt(result.bonusMultiplier)}`],['CRIT',`× ${fmt(result.critMultiplier)}`],['Défense',`× ${fmt(result.defenseMultiplier)}`],['Résistance',`× ${fmt(result.resistanceMultiplier)}`],['Multiplicateur amplifiant',`× ${fmt(result.reactionMultiplier)}`],['Réaction transformative',result.transformative],['Total',result.total]];if(result.complexDetails?.length)rows.push(...result.complexDetails.map(row=>[row.name,row.flatDamage!=null?row.flatDamage:JSON.stringify(row.bonuses||{hpPct:row.hpPct})]));if(result.triggered&&Object.keys(result.triggered).length)rows.push(['Plumes consommées',JSON.stringify(result.triggered)]);breakdown.innerHTML=`<div class="lab-breakdown-table">${rows.map(([k,v])=>`<div><span>${k}</span><b>${typeof v==='number'?fmt(v):esc(v)}</b></div>`).join('')}</div>`;}
 function updateRotationSummary(root,p) {
   const summary=summarizeRotation(p.rotations||[],p.repeatRotation,p.rotationSeconds);
   const damage=summary.total==null?fmt(summary.knownTotal)+' connus · données manquantes':fmt(summary.total);
@@ -143,7 +187,7 @@ function filterSummary(root,p) {
   for(const state of ['excludedSets','requiredSets']) {
     for(const key of p[state]||[]) {
       const set=labContext.sets.find(s=>String(s._labKey||s._key||s._id)===String(key));
-      chips.push([(state==='requiredSets'?'Imposé':'Exclu')+' · '+(set?._name||key),'set:'+key]);
+      chips.push([(state==='requiredSets'?'4 pièces imposées':'Exclu')+' · '+(set?._name||key),'set:'+key]);
     }
   }
   for(const [slot,values] of Object.entries(p.mainStats||{})) {
@@ -174,6 +218,7 @@ function inventoryAnalysis(p) {
 function updateEstimate(root,p) {
   const analysis=inventoryAnalysis(p);
   const missing=ARTIFACT_SLOTS.filter(slot=>!analysis.counts[slot]);
+  root.querySelectorAll('[data-lab-main-count]').forEach(node=>node.textContent=analysis.counts[node.dataset.labMainCount]+' pièces retenues');
   const label=root.querySelector('[data-lab-metrics]');
   if(!label.dataset.running) {
     label.textContent=analysis.source.length+' pièces retenues sur '+analysis.valid.length+' utilisables · '+
@@ -182,7 +227,7 @@ function updateEstimate(root,p) {
   }
   filterSummary(root,p);
 }
-function bind(){if(document.documentElement.dataset.labBound)return;document.documentElement.dataset.labBound='1';let searchTimer=0;document.addEventListener('input',e=>{const root=e.target.closest?.('[data-damage-lab]');if(root&&e.target.matches('[data-lab]')){const p=persist();if(['talent','hitCount'].includes(e.target.dataset.lab)){p.components=[];write(p);}updateEstimate(root,p);displayRotation();}if(e.target.matches('[data-attack-search]')){clearTimeout(searchTimer);searchTimer=setTimeout(()=>renderAttackResults(e.target),50);}});document.addEventListener('change',e=>{const root=e.target.closest?.('[data-damage-lab]');if(root&&e.target.matches('[data-lab], [data-lab-main]')){const p=persist();updateEstimate(root,p);displayRotation();if(e.target.dataset.lab==='character')saveCharacterMemo(p);}});document.addEventListener('click',async e=>{const root=e.target.closest?.('[data-damage-lab]');if(!root)return;const hit=e.target.closest('[data-attack-hit]');if(hit){const row=attackIndex?.find(x=>x.id===hit.dataset.attackHit);if(row)addAttackToRotation(row);return;}const b=e.target.closest('[data-lab-action]');if(b){const action=b.dataset.labAction,p=syncSetFilterArrays(getForm());write(p);if(action==='save'){root.querySelector('[data-lab-status]').textContent='Paramètres enregistrés localement.';saveCharacterMemo(p);}if(action==='calculate'){if(p.simulationMode==='rotation')await showRotationResult(root,p);else showResult(await calculate(p));}if(action==='compare')await compareCurrent(root,p);if(action==='sensitivity')await showSensitivity(root,p);if(action==='add-hit'){const result=await calculate(p);if(result.ok){p.rotations=[...(p.rotations||[]),{label:p.targetName||'Attaque · '+p.baseStat.toUpperCase(),damage:result.total,damageKnown:true,params:captureTarget(p),characterId:p.character,count:1,icon:p.targetIcon||'',duration:0}];write(p);displayRotation();}}if(action==='clear-rotation'){p.rotations=[];write(p);displayRotation();}if(action==='remove-hit'){p.rotations.splice(Number(b.dataset.index),1);write(p);displayRotation();}if(action==='priority-up')move(b.dataset.id,-1);if(action==='priority-down')move(b.dataset.id,1);if(action==='optimize')runOptimizer(root,p);if(action==='apply-result')applyResult(root,p,Number(b.dataset.index));if(action==='cancel'&&labWorker){labWorker.terminate();labWorker=null;delete root.querySelector('[data-lab-metrics]').dataset.running;root.querySelector('[data-lab-metrics]').textContent='Recherche annulée.';b.disabled=true;}if(action==='commit-import')commitInventory(root);if(action==='reset-filters')resetFilters(root);if(action==='undo-filters')undoFilters(root);if(action==='apply-preset')applyPreset(root);return;}const level=e.target.closest('[data-lab-preset]');if(level){const p=persist();filterSnapshot={...p};p.artifactLevelPreset=level.dataset.labPreset;write(p);root.querySelectorAll('[data-lab-preset]').forEach(x=>x.classList.toggle('active',x===level));updateEstimate(root,p);return;}const config=e.target.closest('[data-lab-config]');if(config){const p=persist();p.configuration=config.dataset.labConfig;write(p);root.querySelectorAll('[data-lab-config]').forEach(x=>{const yes=x===config;x.classList.toggle('active',yes);x.setAttribute('aria-pressed',String(yes));});return;}const set=e.target.closest('[data-lab-set]');if(set){setCycle(set);updateEstimate(root,read());return;}const remove=e.target.closest('[data-remove-filter]');if(remove){removeFilter(root,remove.dataset.removeFilter);return;}} ,true);document.addEventListener('dragstart',e=>{const priority=e.target.closest?.('[data-priority-id]'),rotation=e.target.closest?.('[data-rotation-index]');if(priority){labDragId=`priority:${priority.dataset.priorityId}`;e.dataTransfer?.setData('text/plain',labDragId);}else if(rotation){labDragId=`rotation:${rotation.dataset.rotationIndex}`;e.dataTransfer?.setData('text/plain',labDragId);}});document.addEventListener('dragover',e=>{if(e.target.closest?.('[data-priority-id],[data-rotation-index]'))e.preventDefault();});document.addEventListener('drop',e=>{const row=e.target.closest?.('[data-priority-id],[data-rotation-index]');if(!row||!labDragId)return;e.preventDefault();const [kind,index]=labDragId.split(':');if(kind==='priority'&&row.dataset.priorityId){const ids=getCharacterPriority(),from=ids.indexOf(index),to=ids.indexOf(row.dataset.priorityId);if(from>=0&&to>=0){ids.splice(to,0,ids.splice(from,1)[0]);setCharacterPriority(ids);refreshLab();}}else if(kind==='rotation'&&row.dataset.rotationIndex!==undefined){const p=read(),from=Number(index),to=Number(row.dataset.rotationIndex);p.rotations.splice(to,0,p.rotations.splice(from,1)[0]);write(p);displayRotation();}labDragId='';});document.addEventListener('keydown',e=>{const row=e.target.closest?.('[data-priority-id]');if(!row||!['ArrowUp','ArrowDown'].includes(e.key))return;e.preventDefault();move(row.dataset.priorityId,e.key==='ArrowUp'?-1:1);});document.addEventListener('change',e=>{if(!e.target.matches('[data-lab-import]'))return;previewInventory(e.target);});}
+function bind(){if(document.documentElement.dataset.labBound)return;document.documentElement.dataset.labBound='1';let searchTimer=0;document.addEventListener('input',e=>{const root=e.target.closest?.('[data-damage-lab]');if(root&&e.target.matches('[data-lab]')){const p=persist();if(['talent','hitCount'].includes(e.target.dataset.lab)){p.components=[];write(p);}updateEstimate(root,p);displayRotation();}if(e.target.matches('[data-attack-search]')){clearTimeout(searchTimer);searchTimer=setTimeout(()=>renderAttackResults(e.target),50);}});document.addEventListener('change',e=>{const root=e.target.closest?.('[data-damage-lab]');if(root&&e.target.matches('[data-lab], [data-lab-main]')){const p=persist();updateEstimate(root,p);displayRotation();if(e.target.dataset.lab==='character')saveCharacterMemo(p);}});document.addEventListener('click',async e=>{const root=e.target.closest?.('[data-damage-lab]');if(!root)return;const hit=e.target.closest('[data-attack-hit]');if(hit){const row=attackIndex?.find(x=>x.id===hit.dataset.attackHit);if(row)addAttackToRotation(row);return;}const b=e.target.closest('[data-lab-action]');if(b){const action=b.dataset.labAction,p=syncSetFilterArrays(getForm());write(p);if(action==='save'){root.querySelector('[data-lab-status]').textContent='Paramètres enregistrés localement.';saveCharacterMemo(p);}if(action==='calculate'){if(p.simulationMode==='rotation')await showRotationResult(root,p);else showResult(await calculate(p));}if(action==='compare')await compareCurrent(root,p);if(action==='sensitivity')await showSensitivity(root,p);if(action==='add-hit'){const result=await calculate(p);if(result.ok){p.rotations=[...(p.rotations||[]),{label:p.targetName||'Attaque · '+p.baseStat.toUpperCase(),damage:result.total,damageKnown:true,params:captureTarget(p),characterId:p.character,count:1,icon:p.targetIcon||'',duration:0}];write(p);displayRotation();}}if(action==='clear-rotation'){p.rotations=[];write(p);displayRotation();}if(action==='remove-hit'){p.rotations.splice(Number(b.dataset.index),1);write(p);displayRotation();}if(action==='priority-up')move(b.dataset.id,-1);if(action==='priority-down')move(b.dataset.id,1);if(action==='optimize')runOptimizer(root,p);if(action==='apply-result')applyResult(root,p,Number(b.dataset.index));if(action==='cancel'&&labWorker){labWorker.terminate();labWorker=null;delete root.querySelector('[data-lab-metrics]').dataset.running;root.querySelector('[data-lab-metrics]').textContent='Recherche annulée.';b.disabled=true;}if(action==='commit-import')commitInventory(root);if(action==='reset-filters')resetFilters(root);if(action==='undo-filters')undoFilters(root);if(action==='apply-preset')applyPreset(root);return;}const level=e.target.closest('[data-lab-preset]');if(level){const p=persist();filterSnapshot={...p};p.artifactLevelPreset=level.dataset.labPreset;write(p);root.querySelectorAll('[data-lab-preset]').forEach(x=>x.classList.toggle('active',x===level));updateEstimate(root,p);return;}const config=e.target.closest('[data-lab-config]');if(config){const p=persist();p.configuration=config.dataset.labConfig;if(['2+2','rainbow'].includes(p.configuration)){p.requiredSets=[];root.querySelectorAll('[data-lab-require-set]').forEach(box=>box.checked=false);}write(p);root.querySelectorAll('[data-lab-config]').forEach(x=>{const yes=x===config;x.classList.toggle('active',yes);x.setAttribute('aria-pressed',String(yes));});return;}const set=e.target.closest('[data-lab-set]');if(set){setCycle(set);updateEstimate(root,read());return;}const remove=e.target.closest('[data-remove-filter]');if(remove){removeFilter(root,remove.dataset.removeFilter);return;}} ,true);document.addEventListener('dragstart',e=>{const priority=e.target.closest?.('[data-priority-id]'),rotation=e.target.closest?.('[data-rotation-index]');if(priority){labDragId=`priority:${priority.dataset.priorityId}`;e.dataTransfer?.setData('text/plain',labDragId);}else if(rotation){labDragId=`rotation:${rotation.dataset.rotationIndex}`;e.dataTransfer?.setData('text/plain',labDragId);}});document.addEventListener('dragover',e=>{if(e.target.closest?.('[data-priority-id],[data-rotation-index]'))e.preventDefault();});document.addEventListener('drop',e=>{const row=e.target.closest?.('[data-priority-id],[data-rotation-index]');if(!row||!labDragId)return;e.preventDefault();const [kind,index]=labDragId.split(':');if(kind==='priority'&&row.dataset.priorityId){const ids=getCharacterPriority(),from=ids.indexOf(index),to=ids.indexOf(row.dataset.priorityId);if(from>=0&&to>=0){ids.splice(to,0,ids.splice(from,1)[0]);setCharacterPriority(ids);refreshLab();}}else if(kind==='rotation'&&row.dataset.rotationIndex!==undefined){const p=read(),from=Number(index),to=Number(row.dataset.rotationIndex);p.rotations.splice(to,0,p.rotations.splice(from,1)[0]);write(p);displayRotation();}labDragId='';});document.addEventListener('keydown',e=>{const row=e.target.closest?.('[data-priority-id]');if(!row||!['ArrowUp','ArrowDown'].includes(e.key))return;e.preventDefault();move(row.dataset.priorityId,e.key==='ArrowUp'?-1:1);});document.addEventListener('change',e=>{if(!e.target.matches('[data-lab-import]'))return;previewInventory(e.target);});}
 function saveCharacterMemo(p){if(!p.character)return;const all=jsonRead('astralis:gi:lab-character-settings:v1',{});all[p.character]={...p,rotations:undefined};localStorage.setItem('astralis:gi:lab-character-settings:v1',JSON.stringify(all));}
 function previewInventory(input){const root=input.closest('[data-damage-lab]'),box=root.querySelector('[data-lab-import-preview]'),status=root.querySelector('[data-lab-import-status]'),commit=root.querySelector('[data-lab-action="commit-import"]'),file=input.files?.[0];pendingInventory=[];commit.disabled=true;if(!file){box.hidden=true;return;}if(file.size>25*1024*1024){status.textContent='Fichier supérieur à 25 Mo : aperçu refusé.';return;}const reader=new FileReader();reader.onload=()=>{try{const result=parseArtifactInventory(String(reader.result||''));pendingInventory=result.rows.filter(x=>usableArtifact(x));const validCopies=pendingInventory.length,invalid=result.invalid,existing=jsonRead('astralis:gi:owned-artifacts',[]).map((x,i)=>normalizeGoodArtifact(x,i)),delta=artifactImportDelta(existing,pendingInventory);status.textContent=`${validCopies} exemplaires utilisables · ${delta.length} nouveaux à ajouter · ${invalid} avec avertissement(s) de paliers · doublons conservés comme exemplaires`;box.hidden=false;box.innerHTML=`<b>Aperçu local · ${esc(file.name)}</b><div class="lab-import-counts">${ARTIFACT_SLOTS.map(s=>`<span>${ARTIFACT_SLOT_LABELS[s]} · ${pendingInventory.filter(x=>x.slot===s).length}</span>`).join('')}</div><ul>${result.rows.slice(0,8).map(x=>`<li class="${validateArtifact(x).valid?'':'is-invalid'}">${esc(x.setKey)} · ${ARTIFACT_SLOT_LABELS[x.slot]||'Emplacement inconnu'} · niv. ${x.level} · ${x.mainType} ${fmt(x.mainValue)}${x.duplicate?' · exemplaire répété conservé':''}${!validateArtifact(x).valid?` · ${esc(validateArtifact(x).issues[0])}`:''}</li>`).join('')}</ul>${result.rows.length>8?`<small>${result.rows.length-8} ligne(s) supplémentaires omises de l’aperçu.</small>`:''}`;commit.disabled=!delta.length;}catch(error){box.hidden=true;status.textContent=String(error.message||error);}};reader.onerror=()=>status.textContent='Lecture impossible. Le fichier local est peut-être endommagé.';reader.readAsText(file);}
 function commitInventory(root){const stored=jsonRead('astralis:gi:owned-artifacts',[]),existing=stored.map((x,i)=>normalizeGoodArtifact(x,i)),fresh=artifactImportDelta(existing,pendingInventory),saved=[...stored,...fresh];localStorage.setItem('astralis:gi:owned-artifacts',JSON.stringify(saved));pendingInventory=[];root.querySelector('[data-lab-action="commit-import"]').disabled=true;root.querySelector('[data-lab-import-status]').textContent=`${fresh.length} nouvelle(s) relique(s) ajoutée(s) · ${saved.length} exemplaires au total`;root.querySelector('[data-lab-import-preview]').hidden=true;updateEstimate(root,read());}
@@ -193,7 +238,8 @@ function applyPreset(root){const mode=root.querySelector('[data-lab-preset-selec
 function renderAttackResults(input){const box=input.closest('[data-damage-lab]')?.querySelector('[data-attack-results]'),q=input.value.trim();if(!box)return;if(!q){box.hidden=true;return;}box.hidden=false;if(!attackIndex){box.innerHTML='<div class="lab-search-loading">Index des talents en cours de préparation…</div>';getAttackIndex(attackCharacters).then(()=>{if(input.isConnected&&input.value.trim())renderAttackResults(input);});return;}const rows=attackMatches(attackIndex,q);box.innerHTML=rows.length?rows.map(x=>`<article class="lab-attack-result"><div class="lab-attack-icon">${x.icon?`<img src="${esc(x.icon)}" alt="" onerror="this.remove();this.parentElement.textContent='✦'">`:'✦'}</div><div><b>${esc(x.name)}</b><small>${esc(x.character._name)} · ${esc(x.kind)}</small></div><button class="quiet-btn" data-attack-hit="${esc(x.id)}">Ajouter à la rotation</button></article>`).join(''):'<p class="lab-search-empty">Aucun talent correspondant dans les données chargées.</p>';}
 function estimateText(pool,p){const counts=ARTIFACT_SLOTS.map(s=>pool.filter(x=>x.slot===s).length);const n=counts.reduce((a,b)=>a*b,1);const measured=Number(localStorage.getItem('astralis:gi:lab-speed:v1'))||0;return {n,seconds:measured?Math.ceil(n/measured):null,counts};}
 function optimizerHit(p){
- return {targetCount:Number(p.targetCount)||1,complexEffects:p.complexEffects,complexContext:{character:labContext.characters.find(c=>String(c._id)===String(p.character))?.id||p.character,weaponId:activeWeapon(p)?.id,refinement:p.weaponRefinement,constellation:p.constellation,teamElements:p.complexTeamElements||[],elapsed:p.elapsed||0,fightPosition:p.fightPosition},actionKind:p.actionKind,hitCount:Number(p.hitCount)||1,components:p.components?.length?p.components:undefined,
+ if(p.characterBuffTeam)syncCharacterBuffTeam(p,labContext.characters);
+ return {extendedKit:extendedBuffConfig(p),targetCount:Number(p.targetCount)||1,complexEffects:simulationComplexConfig(p),complexContext:{character:labContext.characters.find(c=>String(c._id)===String(p.character))?.id||p.character,weaponId:activeWeapon(p)?.id,refinement:p.weaponRefinement,constellation:p.constellation,teamElements:p.complexTeamElements||[],elapsed:0,fightPosition:p.fightPosition},actionKind:p.actionKind,hitCount:Number(p.hitCount)||1,components:p.components?.length?p.components:undefined,
   reactingHits:Number(p.reactingHits)||0,talentMultiplier:p.talent===''?NaN:Number(p.talent),baseStat:p.baseStat,flatDamage:Number(p.flat)||0,
   attackerLevel:Number(p.level),enemyLevel:Number(p.enemyLevel),enemyResistance:Number(p.resistance)/100,
   resistanceReduction:(Number(p.resReduction)||0)/100,enemyDefenseReduction:(Number(p.defReduction)||0)/100,
@@ -226,7 +272,7 @@ async function runOptimizer(root,p,weighted=[]) {
   const currentIds=equippedPieces(p).filter(Boolean).map(piece=>piece.id);
   const valid=analysis.valid;
   labWorker?.terminate();
-  labWorker=new Worker(new URL('./optimizer.worker.js?v=83',import.meta.url),{type:'module'});
+  labWorker=new Worker(new URL('./optimizer.worker.js?v=20261118-all-buffs-1',import.meta.url),{type:'module'});
   const id=++labJob;
   cancel.disabled=false;
   metrics.dataset.running='1';
@@ -244,14 +290,14 @@ async function runOptimizer(root,p,weighted=[]) {
     if(message.id!==id||!root.isConnected)return;
     if(message.type==='progress') {
       const progress=message.progress;
-      root.querySelector('[data-lab-progress]').value=progress.combinations?Math.min(99,progress.visited/progress.combinations*100):0;
-      metrics.textContent=progress.visited.toLocaleString('fr-FR')+' configurations évaluées · '+progress.pruned.toLocaleString('fr-FR')+' branches élaguées';
+      root.querySelector('[data-lab-progress]').value=progress.combinations?Math.min(99,(progress.visited+(progress.skippedCombinations||0))/progress.combinations*100):0;
+      metrics.textContent=progress.combinations.toLocaleString('fr-FR')+' combinaisons possibles · '+progress.visited.toLocaleString('fr-FR')+' évaluées · '+progress.pruned.toLocaleString('fr-FR')+' branches élaguées ('+(progress.skippedCombinations||0).toLocaleString('fr-FR')+' combinaisons évitées)';
     }
     if(message.type==='result') {
       const out=message.result;
       labLastResults=out.results||[];
       root.querySelector('[data-lab-progress]').value=out.exact?100:99;
-      metrics.textContent=(out.exact?'Recherche exacte terminée':'Recherche interrompue')+' · '+out.visited.toLocaleString('fr-FR')+
+      metrics.textContent=(out.exact?'Recherche exacte terminée':'Recherche interrompue')+' · '+out.combinations.toLocaleString('fr-FR')+' combinaisons possibles · '+out.visited.toLocaleString('fr-FR')+
         ' évaluées · '+out.pruned.toLocaleString('fr-FR')+' élaguées · '+fmt(out.elapsedMs)+' ms'+(out.diagnostic?.search==='exhaustive'?' · parcours exhaustif, sans borne d’élagage':'');
       if(out.elapsedMs>0)localStorage.setItem('astralis:gi:lab-speed:v1',String(Math.max(1,out.visited/(out.elapsedMs/1000))));
       const baseline=weighted.length?{ok:true,total:(await Promise.all(weighted.map(async row=>(await calculate(row.params)).total*row.weight))).reduce((a,b)=>a+b,0)}:await calculate(p);
@@ -261,10 +307,12 @@ async function runOptimizer(root,p,weighted=[]) {
     if(message.type==='error') {metrics.textContent='Erreur de recherche · '+message.error;finish();}
   };
   labWorker.onerror=event=>{metrics.textContent='Le calcul a rencontré une erreur · '+event.message;finish();};
+  let sourceDamage;
+  if(String(p.attackSelection).startsWith('wr:')){const adapter=await import('./lab-wr-adapter.js?v=20261118-all-buffs-1'),engine=await adapter.loadWrEngine();sourceDamage=adapter.sourceScenario(engine,p,sourceBuildContext(p));}
   labWorker.postMessage({type:'optimize',id,options:{
-    inventory:p.respectPriority?priorityArtifactPool(valid,String(p.character),{enabled:true,characters:labContext.characters}):valid,
+    inventory:analysis.source,
     currentIds,input:{
-      level:Number(p.level),baseStats:statFromForm(p),bonuses:optimizerBonuses(p),setEffects:effects,
+      sourceDamage,level:Number(p.level),baseStats:statFromForm(p),bonuses:optimizerBonuses(p),setEffects:effects,partySetEffects:partySetEffects(p,labContext.sets,labContext.characters),
       hit:optimizerHit(p),weightedHits:weighted.map(row=>({hit:optimizerHit(row.params),weight:row.weight,bonuses:row.params.importBonuses})),
       rotationDuration:Number(p.rotationSeconds)||0,
     },
@@ -303,22 +351,26 @@ function renderComparison(root,before,after) {
     '<small>Même attaque, même réaction et même ennemi. Les différences viennent des statistiques des deux configurations.</small>';
 }
 async function showSensitivity(root,p) {
-  const base=await calculate(p);
-  if(!base.ok){showResult(base);return;}
-  const stats=statsForCalculation(p);
-  const trials=[['+1 % Taux CRIT','critRate',1],['+1 % DGT CRIT','critDmg',1],['+10 maîtrise','em',10],
-    ['1 roll Taux CRIT','critRate',3.89],['1 roll DGT CRIT','critDmg',7.77],['1 roll maîtrise','em',23.31]];
-  const rows=[];
-  for(const [label,key,value] of trials) {
-    const next=await calculate(p,{stats:{...stats,[key]:stats[key]+value}});
-    if(next.ok)rows.push({label,delta:next.total-base.total});
-  }
-  rows.sort((a,b)=>b.delta-a.delta);
-  root.querySelector('[data-lab-sensitivity]').innerHTML='<h4>Ce qui rapporte le plus</h4>'+rows.map(row=>
-    '<div><span>'+row.label+'</span><b>'+(row.delta>=0?'+':'')+fmt(row.delta)+'</b></div>').join('')+
-    '<small>Gain marginal pour cette attaque. Un roll utilise le palier maximal 5★.</small>';
-  showResult(base);
+ const advice=await artifactAdvice(statsForCalculation(p),stats=>calculate(p,{stats}),statFromForm(p));
+ if(!advice.ok){showResult(await calculate(p));return;}
+ root.querySelector('[data-lab-sensitivity]').innerHTML='<h4>Améliorer les artéfacts de cette attaque</h4><p>Même ennemi, réaction et conditions. Les remplacements comparent un jet maximal contre un autre.</p>'+advice.rows.map(row=>'<div><span>'+esc(row.label)+'</span><b>'+(row.percent>=0?'+':'')+fmt(row.percent)+' % de dégâts <small>('+(row.delta>=0?'+':'')+fmt(row.delta)+')</small></b></div>').join('')+'<small>Simulations locales : vérifie la disponibilité des sous-stats sur la pièce. La recharge nécessaire à la rotation reste à conserver.</small>';
+ showResult(await calculate(p));
 }
+let attackTableRevision=0;
+async function updateAttackTable(root,p) {
+ const host=root.querySelector('[data-lab-attack-table]');if(!host)return;
+ const revision=++attackTableRevision,rows=attackOptions(viewContext(p),p),groups=new Map();
+ for(const row of rows){
+  const parts=row.parsed.components,kind=row.kind;
+  const params={...p,attackSelection:row.id,targetName:row.label,reaction:LAB_REACTIONS.find(item=>item[0]===p.reaction)?.[2]==='multiReaction'?'none':p.reaction,actionKind:kind,baseStat:row.parsed.baseStat||'atk',components:parts,hitCount:row.parsed.hitCount,talent:parts[0]?.talentMultiplier,reactingHits:p.reaction==='none'?0:Math.min(row.parsed.hitCount,Number(p.reactingHits)||0)};
+  const values=(p.reaction?.startsWith('directLunar')||['stellarConduct','directStellarSwirl'].includes(p.reaction))&&row.id!==p.attackSelection?Array.from({length:3},()=>({ok:false,error:'Nature lunaire à vérifier pour ce coup : sélectionne-le uniquement si le kit le confirme.'})):await Promise.all(['nonCrit','crit','average'].map(critMode=>calculate(params,{critMode})));
+  if(revision!==attackTableRevision||!host.isConnected)return;
+  if(!groups.has(kind))groups.set(kind,[]);
+  groups.get(kind).push('<tr class="'+(row.id===p.attackSelection?'is-target':'')+'"><th scope="row"><button type="button" data-lab-talent-value="'+esc(row.id)+'" aria-pressed="'+(row.id===p.attackSelection)+'">'+esc(row.label)+'</button></th>'+values.map(value=>'<td title="'+esc(value.ok?'':value.error)+'">'+(value.ok?fmt(value.total):'À renseigner')+'</td>').join('')+'</tr>');
+ }
+ host.innerHTML=(LAB_REACTIONS.find(item=>item[0]===p.reaction)?.[2]==='multiReaction'?'<p class="lab-data-note">La réaction collective est calculée comme un événement séparé dans le résultat. Ce tableau présente les dégâts des talents sans cette réaction collective.</p>':'')+[...groups].map(([kind,lines])=>'<details class="lab-damage-group" open><summary>'+esc(({normal:'Attaques normales',charged:'Attaques chargées',plunge:'Attaques plongeantes',skill:'Compétence élémentaire',burst:'Déchaînement élémentaire'})[kind])+'</summary><table><thead><tr><th>Attaque</th><th>Sans CRIT</th><th>CRIT</th><th>Moyenne</th></tr></thead><tbody>'+lines.join('')+'</tbody></table></details>').join('')||'<p>Les coefficients du kit apparaîtront après son chargement.</p>';
+}
+
 function applyResult(root,p,index,createNew=false) {
   const result=labLastResults[index];
   if(!result)return;
@@ -352,7 +404,9 @@ export function initDamageLab() {
   if (!root) return;
   displayRotation();updateEstimate(root,read());
   loadActiveKit();
+  updateLiveStats(root,read());
   const p=read();
+  if(p.tab==='buffs')loadBuffDescriptions(root,p);
   if(p.character&&(p.referenceCharacter!==p.character||p.statSchema!==3||p.atk===''))loadActiveBuild(root,p);
 }
 
@@ -396,6 +450,23 @@ function equippedPieces(p) {
   });
 }
 
+function extendedBuffConfig(p){
+ const character=id=>labContext.characters.find(c=>[c._id,c.id].map(String).includes(String(id)));
+ const make=(member,own)=>{
+  const c=character(member.character),id=String(c?.id||member.character),details=kitCache.get(String(member.character)),factors={};
+  for(const rule of EXTENDED_BUFFS[id]||[]){if(!rule.talent)continue;const level=effectiveTalentLevel(details,rule.talent.skill,member.talentLevel||10,member.constellation),skill=details?.talentValues?.['combat'+(rule.talent.skill+1)];const value=skill?.attributes?.parameters?.[rule.talent.param]?.[level-1];if(Number.isFinite(value))factors[rule.id]=value;}
+  return {id,own,constellation:member.constellation,effects:member.kitEffects,factors};
+ };
+ const team=[p,...(p.allies||[]).filter(a=>a.character)];
+ return {elementKey:p.elementKey,characterElement:String(character(p.character)?.elementType||'').replace('ELEMENT_','').toLowerCase(),targetName:p.targetName,actionKind:p.actionKind,fightPosition:p.fightPosition||'on',targetWeaponType:character(p.character)?.weaponType,teamElements:team.map(member=>String(character(member.character)?.elementType||'').replace('ELEMENT_','').toLowerCase()).filter(Boolean),members:team.map((member,index)=>make(member,index===0))};
+}
+
+function partyBonuses(p){
+ const counts=new Map();for(const piece of equippedPieces(p).filter(Boolean))counts.set(piece.setKey,(counts.get(piece.setKey)||0)+1);
+ const out=additionalPartySetBonuses(partySetEffects(p,labContext.sets,labContext.characters),p.loadout==='equipped'&&p.build?counts:new Map(),configuredSetEffects(labContext.sets,p));
+ for(const [key,value]of Object.entries(partyWeaponBonuses(p,labContext.weapons,activeWeapon(p))))out[key]=(out[key]||0)+value;
+ return out;
+}
 function equippedBonuses(p) {
   const bonuses = {...p.referenceBonuses};
   const counts = new Map();
@@ -416,14 +487,26 @@ function equippedBonuses(p) {
   return bonuses;
 }
 
+function simulationComplexConfig(p){
+ const config=complexConfigForSimulation(p);
+ if(config.azurelight&&String(activeWeapon(p)?.id)!=='11517')config.azurelight.enabled=false;
+ return config;
+}
 function resolveComplex(p,stats={}) {
- return complexEffects(p.complexEffects||{},{character:labContext.characters.find(c=>String(c._id)===String(p.character))?.id||p.character,weaponId:activeWeapon(p)?.id,refinement:p.weaponRefinement,constellation:p.constellation,elementKey:p.elementKey,actionKind:p.actionKind,elapsed:p.elapsed||0,fightPosition:p.fightPosition,teamElements:p.complexTeamElements||[],stats});
+ if(p.characterBuffTeam)syncCharacterBuffTeam(p,labContext.characters);
+ return complexEffects(simulationComplexConfig(p),{character:labContext.characters.find(c=>String(c._id)===String(p.character))?.id||p.character,weaponId:activeWeapon(p)?.id,refinement:p.weaponRefinement,constellation:p.constellation,elementKey:p.elementKey,actionKind:p.actionKind,elapsed:0,fightPosition:p.fightPosition,teamElements:p.complexTeamElements||[],stats});
+}
+function ownWeaponBonuses(p){
+ const character=labContext.characters.find(c=>[c._id,c.id].map(String).includes(String(p.character)));
+ return configuredWeaponBonuses(activeWeapon(p),{...p,characterId:String(character?.id||p.character),nativeElementKey:String(character?.elementType||'').replace('ELEMENT_','').toLowerCase()});
 }
 function statsForCalculation(p) {
   const base=statFromForm(p);
   const bonuses=p.loadout==='equipped'&&p.build?equippedBonuses(p):{...p.referenceBonuses};
-  for(const source of [activeBuffBonuses(p,p.elapsed||0),configuredWeaponBonuses(activeWeapon(p),p),p.importBonuses||{}])for(const [key,value]of Object.entries(source))bonuses[key]=(bonuses[key]||0)+value;
+  for(const source of [partyBonuses(p),activeBuffBonuses(p,0),ownWeaponBonuses(p),p.importBonuses||{}])for(const [key,value]of Object.entries(source))bonuses[key]=(bonuses[key]||0)+value;
   for(const [key,value]of Object.entries(resolveComplex(p).bonuses))bonuses[key]=(bonuses[key]||0)+value;
+  const extra=extendedBuffBonuses(extendedBuffConfig(p),finalStats(base,bonuses));
+  for(const [key,value]of Object.entries(extra))bonuses[key]=(bonuses[key]||0)+value;
   return finalStats(base,bonuses);
 }
 
@@ -435,9 +518,14 @@ function viewContext(p) {
   const priority = [...saved,...labContext.characters.map(c=>String(c._id)).filter(id=>!saved.includes(id))];
   const currentStats = p.referenceCharacter!==p.character && !p.referenceStats ? {} : statsForCalculation(p);
   if (currentStats.dmgBonus != null) currentStats.dmgBonus += (Number(p.elementBonus)||0)+(currentStats[(p.elementKey||'')+'Dmg']||0);
-  return {...labContext,character,inventory:normalizeLabInventory(labContext.inventory||[]),priority,activeBuild:effectiveBuild(p),activeWeapon:activeWeapon(p),equipped:equippedPieces(p),currentStats,details,
+  return {...labContext,character,wrLoading:!labContext.wrAttacks&&!!p.character,wrConditions:wrConditionControlsForView(p),inventory:normalizeLabInventory(labContext.inventory||[]),priority,activeBuild:effectiveBuild(p),activeWeapon:activeWeapon(p),equipped:equippedPieces(p),currentStats,details,
     skills:details ? skillList('gi',character,details) : [],
     detailError:details?.error,invalidCount:labContext.invalidCount??0};
+}
+function wrConditionControlsForView(p){
+  if(!labContext.wrEngine||!labContext.wrAdapter)return [];
+ const character=labContext.characters.find(c=>String(c._id)===String(p.character)),charAlias=labContext.sourceAliases?.characters?.find(a=>String(a.id)===String(character?.id||p.character)),charKey=labContext.sourceSnapshot?.characters?.[String(character?.id||p.character)]?.name||charAlias?.en?.[0]?.replace(/\s/g,''),weapon=activeWeapon(p),weaponAlias=labContext.sourceAliases?.weapons?.find(a=>String(a.id)===String(weapon?.id??weapon?._id)),weaponName=weaponAlias?.en?.[0]||weapon?.enName||weapon?.name,weaponKey=Object.keys(labContext.wrEngine?.weapons||{}).find(key=>key.toLowerCase()===String(weaponName).replace(/[^a-z]/gi,'').toLowerCase()),sets=equippedPieces(p).filter(Boolean).map(piece=>labContext.sourceAliases?.artifacts?.find(alias=>String(alias.id)===String(piece.setKey)||[...(alias.en||[]),...(alias.fr||[])].includes(String(piece.setKey)))?.en?.[0]?.replace(/[^a-z]/gi,'')).filter(Boolean);
+ return labContext.wrEngine?labContext.wrAdapter.wrConditionControls(labContext.wrEngine,charKey,weaponKey,[...new Set(sets)],p):[];
 }
 
 function refreshLab(focus) {
@@ -446,10 +534,12 @@ function refreshLab(focus) {
   const saved = jsonRead('astralis:gi:builds',null);
   if (Array.isArray(saved)) labContext.builds=saved.map(build=>({...labContext.builds.find(b=>b.id===build.id),...build,_labWeapon:labContext.builds.find(b=>b.weapon===build.weapon)?._labWeapon,character:canonicalLabCharacter(build.character)}));
   labContext.inventory=normalizeLabInventory(jsonRead('astralis:gi:owned-artifacts',labContext.inventory));
+  loadWrAttackChoices(read());
   if(labWorker){labWorker.terminate();labWorker=null;labJob++;}
-  const disclosureState=new Map([...root.querySelectorAll('details')].map(el=>[el.querySelector(':scope > summary')?.textContent.trim(),el.open]));
+  const disclosureKey=el=>(el.closest('.lab-character-buffs')?.dataset.buffOwner||'')+'|'+el.querySelector(':scope > summary')?.textContent.trim();
+  const disclosureState=new Map([...root.querySelectorAll('details')].map(el=>[disclosureKey(el),el.open]));
   root.outerHTML=renderLabWorkspace(viewContext(read()),read());
-  for(const el of document.querySelectorAll('[data-damage-lab] details')){const key=el.querySelector(':scope > summary')?.textContent.trim();if(disclosureState.has(key))el.open=disclosureState.get(key);}
+  for(const el of document.querySelectorAll('[data-damage-lab] details')){const key=disclosureKey(el);if(disclosureState.has(key))el.open=disclosureState.get(key);}
   initDamageLab();
   if (focus) document.querySelector(focus)?.focus({preventScroll:true});
 }
@@ -466,16 +556,23 @@ function setLabTab(tab,focus=false) {
     button.setAttribute('aria-selected',String(selected));
     button.tabIndex=selected?0:-1;
   });
+  if(tab==='buffs')loadBuffDescriptions(root,p);
   if (focus) root.querySelector('#lab-tab-'+tab)?.focus({preventScroll:true});
 }
 
+let localKitRequest;
+async function localKitEntry(character,element){
+ localKitRequest ||= fetch('./data/lab-kit-snapshot.json').then(r=>r.ok?r.json():{}).catch(()=>({}));
+ const snapshot=await localKitRequest,id=String(character?.id||character?._id);
+ return ['10000005','10000007'].includes(id)?snapshot.travelerVariants?.[element]:snapshot.characters?.[id];
+}
 async function loadActiveKit() {
   const p=read();
   const id=String(p.character);
   const character=labContext.characters.find(c=>String(c._id)===id);
   if (!character || kitCache.has(id)) return;
   if (kitRequests.has(id)) return kitRequests.get(id);
-  const request=characterDetails('gi',character).then(details=>kitCache.set(id,details||{error:true}))
+  const request=Promise.all([characterDetails('gi',character).catch(()=>({})),localKitEntry(character,p.elementKey)]).then(([details,entry])=>kitCache.set(id,mergeKitSnapshot(details||{},entry)))
     .catch(()=>kitCache.set(id,{error:true}))
     .finally(()=>{
       kitRequests.delete(id);
@@ -489,7 +586,7 @@ async function loadActiveBuild(root,p) {
   const saved=selectedBuild(p);
   if(p.weaponSettingsBuild!==p.build){
     p.weaponSettingsBuild=p.build;p.weaponLevel=Number(saved?.weaponLevelValue)||90;p.weaponRefinement=Number(saved?.weaponRefinement)||1;
-    if(saved){p.level=Number(saved.level)||90;p.constellation=Number(String(saved.constellation||0).replace(/^C/i,''))||0;}
+    if(saved){p.level=Number(saved.level)||90;}
     write(p);
   }
   const build=effectiveBuild(p);
@@ -504,7 +601,7 @@ async function loadActiveBuild(root,p) {
     const tc=p.tcSettingsLoadedBuild!==p.build?(build.tcSettings||{}):{};
     const updated={...read(),...tc,referenceBonuses:{},...data,tcSettingsLoadedBuild:p.build,weaponOverride:p.weaponOverride,weaponLevel:build.weaponLevelValue,weaponRefinement:build.weaponRefinement,character:p.character,build:p.build,statSchema:3,referenceCharacter:p.character,referenceBuild:p.build,loadout:p.build?'equipped':'manual'};
     if(build.rotation?.length)updated.rotations=build.rotation;
-    updated.constellation=Number(String(build.constellation||tc.constellation||p.constellation||0).replace(/^C/i,''))||0;
+    updated.constellation=Math.max(0,Math.min(6,Number(p.constellation)||0));
     updated.referenceStats=statsForCalculation(updated);
     write(updated);
     refreshLab();
@@ -520,12 +617,38 @@ async function loadActiveBuild(root,p) {
 function updateLiveStats(root,p) {
   const stats=p.referenceCharacter===p.character?statsForCalculation(p):{};
   stats.dmgBonus=(stats.dmgBonus||0)+(Number(p.elementBonus)||0)+(stats[(p.elementKey||'')+'Dmg']||0);
+  const selected=resolveComplex(p,stats).bonuses;
+  const source=p.loadout==='equipped'&&p.build?equippedBonuses(p):p.referenceBonuses||{};
+  const reduction=(Number(p.resReduction)||0)+(source.resReduction||0)+(selected.resReduction||0)+(partyBonuses(p).resReduction||0)+(activeBuffBonuses(p).resReduction||0)+(ownWeaponBonuses(p).resReduction||0);
+  root.querySelectorAll('[data-lab-res-reduction]').forEach(cell=>cell.textContent=fmt(reduction)+' % ('+(p.elementKey||'physique')+')');
+  root.querySelectorAll('[data-effect-gain]').forEach(output=>{
+   const saved=p.effectStates?.[output.dataset.effectGain]||{},stacks=Number(saved.stacks)||1;
+   output.textContent=Object.entries(JSON.parse(output.dataset.effectBonuses||'{}')).map(([key,value])=>(value>=0?'+':'')+fmt(Array.isArray(value)?value[Math.min(value.length-1,stacks-1)]:value*stacks)+' '+(LAB_STAT_LABELS[key]||key)).join(' · ');
+   output.classList.toggle('is-inactive',saved.enabled===false);
+  });
   root.querySelectorAll('[data-lab-live-stat]').forEach(cell=>cell.textContent=labStatValue(cell.dataset.labLiveStat,stats[cell.dataset.labLiveStat]));
   root.querySelector('[data-lab-enemy-level]').textContent=p.enemyLevel;
+  updateAttackTable(root,p);
+}
+
+function updateBuffCounts(root){
+ for(const card of root.querySelectorAll('.lab-character-buffs')){
+  const count=card.querySelectorAll('[data-lab-support-weapon]:checked,[data-lab-party-set]:checked,[data-lab-azurelight="enabled"]:checked,[data-buff-key="enabled"]:checked,[data-buff-key^="enable_"]:checked,[data-lab-buff][data-field="active"]:checked,[data-lab-effect][data-effect-field="enabled"]:checked').length;
+  const label=card.querySelector('.lab-buff-count');if(label)label.textContent=count+' actif'+(count>1?'s':'');
+ }
+}
+let buffCalculationRevision=0;
+async function refreshBuffCalculation(root,p) {
+ const revision=++buffCalculationRevision;
+ updateLiveStats(root,p);recomputeRotation(root,p);updateBuffCounts(root);
+ if(p.talent===''||!Number.isFinite(Number(p.talent)))return;
+ const result=await calculate(p);
+ if(revision===buffCalculationRevision&&root.isConnected)showResult(result);
 }
 
 function chooseLabCharacter(id) {
   const current=persist();
+  labContext.wrAttacks=null;labContext.wrCharacterKey=null;wrAttackCharacter='';
   saveCharacterMemo(current);
   const memo=jsonRead('astralis:gi:lab-character-settings:v1',{})[id]||{};
   const build=labContext.builds.find(row=>String(row.character)===String(id));
@@ -538,10 +661,12 @@ function chooseLabCharacter(id) {
 function useTalentValue(index,rowIndex) {
   const p=persist();
   const context=viewContext(p);
+  if(index===100){const row=(context.wrAttacks||[]).find(item=>item.id==='wr:'+rowIndex);if(!row)return;write({...p,attackSelection:row.id,targetName:row.label,targetSource:row.text,actionKind:row.kind,components:row.parsed.components,hitCount:1,talent:'1',baseStat:'atk'});refreshLab();setLabTab('overview');return;}
   if(index===99){const definition=actionDefinition(index,rowIndex,p);if(!definition)return;write({...p,...definition});refreshLab();setLabTab('overview');return;}
   const skill=context.skills[index];
+  if(!skill){refreshLab();return;}
   const source=context.details?.talentValues?.['combat'+(index+1)]||context.details?.skillTalents?.[index]||skill;
-  const value=String(talentValueRows(source,Number(p.talentLevel)||10,skill?.values)[rowIndex]||'');
+  const value=String(talentValueRows(source,effectiveTalentLevel(context.details,index,p.talentLevel,p.constellation),skill?.values)[rowIndex]||'');
   const label=value.split(/·\s*Niv\.|[:：]/)[0].trim();
   const parsed=parseActionValue(value);
   p.targetName=skill.name+' · '+label;
@@ -718,38 +843,194 @@ async function showSetGuide(root,p){
   host.innerHTML=renderSetRecommendations(rows.map(row=>({...row,url:row.url||data.sourceUrl})));
  }catch{host.textContent='Guides temporairement indisponibles.';}
 }
+let recommendationData;
+async function renderOwnerSets(root,p,index,character){
+ recommendationData ||= Promise.all(['./public/gi-build-reverse-fallback.json','./public/gi-name-aliases.json'].map(url=>fetch(url).then(response=>response.ok?response.json():{}).catch(()=>({}))));
+ const [guides,aliases]=await recommendationData;
+ const card=root.querySelector('[data-buff-slot="'+index+'"]');if(!card?.isConnected)return;
+ const {recommended,alternatives}=recommendedLabSets(character,labContext.sets,guides,aliases,index===-1?p.baseStat:'atk');
+ const rows=[...recommended,...alternatives],key=set=>String(set._labKey||set._id);
+ const options='<option value="">Choisir un set</option>'+rows.map(set=>'<option value="'+esc(key(set))+'">'+esc(set._name)+(recommended.includes(set)?' · guide':' · alternative 2 pièces')+'</option>').join('');
+ const choice=p.buffSetChoice||{};
+ const html='<section class="lab-owner-sets"><span class="eyebrow">SETS DE '+esc(character._name).toUpperCase()+'</span><h3>Sets conseillés & combinaisons 2 + 2</h3><p>Les sets du guide sont distingués des alternatives 2 pièces compatibles avec la statistique utilisée. Les effets restent conditionnés au nombre de pièces réellement équipées.</p><div class="lab-set-recommendation-tags">'+recommended.map(set=>'<span>'+esc(set._name)+' · guide</span>').join('')+'</div>'+
+ (index===-1?'<div class="lab-set-search-choice"><label>Configuration<select data-lab-set-choice="mode"><option value="4pc" '+(choice.mode!=='2+2'?'selected':'')+'>4 pièces</option><option value="2+2" '+(choice.mode==='2+2'?'selected':'')+'>2 pièces + 2 pièces</option></select></label>'+['first','second'].map(field=>'<label>'+(field==='first'?'Premier set':'Second set · pour 2 + 2')+'<select data-lab-set-choice="'+field+'">'+options.replace('value="'+esc(choice[field])+'"','value="'+esc(choice[field])+'" selected')+'</select></label>').join('')+'<button type="button" class="button-primary" data-lab-search-sets>Utiliser ces sets dans l’optimiseur</button></div>'+setEffectsEditor({...viewContext(p),sets:labContext.sets},p,rows.map(set=>String(set.id))):'<label>Configuration des sets<select data-lab-ally="'+index+'" data-ally-field="setMode"><option value="4pc" '+(p.allies?.[index]?.setMode!=='2+2'?'selected':'')+'>4 pièces</option><option value="2+2" '+(p.allies?.[index]?.setMode==='2+2'?'selected':'')+'>2 pièces + 2 pièces</option></select></label>'+['set',...(p.allies?.[index]?.setMode==='2+2'?['setSecond']:[])].map(field=>'<label>'+(field==='set'?'Premier set':'Second set')+'<select data-lab-ally="'+index+'" data-ally-field="'+field+'">'+options.replace('value="'+esc(p.allies?.[index]?.[field])+'"','value="'+esc(p.allies?.[index]?.[field])+'" selected')+'</select></label>').join('')+'<p>Les bonus 2 pièces du soutien lui appartiennent. Ses bonus d’équipe sont affichés sous les effets de son set équipé.</p>')+'</section>';
+ card.querySelector('.lab-owner-sets')?.remove();card.insertAdjacentHTML('beforeend',html);
+}
 async function showAllyEffects(root,p,index){
  const own = index === -1;
  const host = root.querySelector('[data-lab-ally-effects="'+index+'"]');
  const ally = own ? p : p.allies?.[index] || {};
  const character = labContext.characters.find(c => c._id === ally.character);
  const weapon = own ? activeWeapon(p) : labContext.weapons.find(w => w._id === ally.weapon);
- const set = own ? (equippedPieces(p).map(piece=>labContext.sets.find(row=>String(row._labKey||row._id)===String(piece.setKey)||String(row._id)===String(piece.set))).find(Boolean)) : labContext.sets.find(row => row._id === ally.set);
+ const set = own ? null : labContext.sets.find(row => [row._id,row._labKey,String(row.id)].includes(ally.set));
  host.textContent = 'Chargement des effets…';
  let details;
  if (character) {
-  try { details = await characterDetails('gi',character); } catch { details = character; }
+  try { const [remote,entry]=await Promise.all([characterDetails('gi',character).catch(()=>character),localKitEntry(character,own?p.elementKey:ally.elementKey)]);details=mergeKitSnapshot(remote,entry);kitCache.set(String(ally.character),details); } catch { details = character; }
  }
  if (!host.isConnected) return;
- const rows = kitEffectDescriptions(details, ally.constellation, weapon, own ? p.weaponRefinement : ally.refinement, own?null:set);
+ const rows = kitEffectDescriptions(details, ally.constellation, weapon, own ? p.weaponRefinement : ally.refinement, own?null:set,ally.setMode==='2+2'?2:4);
+ if(!own&&ally.setMode==='2+2'&&ally.setSecond&&ally.setSecond!==ally.set){const second=labContext.sets.find(row=>row._id===ally.setSecond||String(row._labKey)===ally.setSecond);if(second)rows.push(...kitEffectDescriptions(null,0,null,1,second,2));}
  if(own){const counts=new Map();for(const piece of equippedPieces(p).filter(Boolean)){const selected=labContext.sets.find(s=>[s._labKey,s._id,s.id,...(s._labAliases||[])].map(String).includes(String(piece.setKey)));if(selected)counts.set(selected,(counts.get(selected)||0)+1);}for(const [selected,count]of counts)if(count>=2)rows.push(...kitEffectDescriptions(null,0,null,1,selected,count));}
- host.innerHTML = rows.map(row =>
-  '<details><summary>'+esc(row.name)+(row.locked?' · verrouillé':'')+'</summary><div class="lab-effect-description">'+renderGameText(row.description)+'</div>'+
-  (row.locked?'':'<button type="button" data-lab-add-source-buff="'+esc(row.name)+'" data-buff-description="'+esc(row.description)+'" data-buff-owner="'+esc(own?p.character:ally.character)+'" data-source-position="'+esc(own?(p.fightPosition||'on'):(ally.position||'off'))+'">Configurer ce buff</button>')+
-  '</details>').join('') || '<p>Aucun effet publié pour ces choix.</p>';
+ const owner=own?p.character:ally.character;
+ const nativeScope=nativeBuffScopes.find(([scope])=>CHARACTER_BUFF_IDS[scope]===String(character?.id||character?._id)&&(scope!=='skirk'||own));
+ const nativeConfig=nativeScope?{...p.complexEffects?.[nativeScope[0]],constellation:Number(ally.constellation)||0}:{};
+ if(nativeScope?.[0]==='furina')Object.assign(nativeConfig,furinaBuffInputs(nativeConfig));
+ const groups=nativeScope?nativeBuffGroups(nativeScope[0]):[];
+ const matched=new Set();
+ const nativeControls=(group)=>{
+  const scope=nativeScope[0],fields=nativeScope[2].filter(([key])=>group.keys.includes(key));
+  const flag=group.primary?'primaryEnabled':'enable_'+group.kind+'_'+group.index;
+  const active=nativeConfig[flag]??nativeConfig.enabled??false;
+  const info=buffGroupInfo(scope,group);
+  return '<div class="lab-native-buff lab-inline-native"><p class="lab-buff-condition-text"><b>Condition</b> '+esc(info.condition)+'</p><label class="lab-buff-toggle"><span><b>'+esc(info.name)+'</b><small>Activer le bonus si la condition est remplie</small></span><input type="checkbox" aria-label="Activer '+esc(info.name)+'" data-lab-character-buff="'+scope+'" data-buff-key="'+(group.primary?'enabled':flag)+'" '+(active?'checked':'')+'></label><div class="lab-buff-settings">'+renderCharacterBuffFields(scope,fields,nativeConfig,{rotation:p.simulationMode==='rotation'})+'</div></div>';
+ };
+ const labels={passive:'PASSIF',talent:'TALENT',constellation:'CONSTELLATION',weapon:'ARME',set:'SET D’ARTÉFACTS'};
+ host.innerHTML = rows.map(row => {
+  const buffIndex=(p.buffs||[]).findIndex(buff=>buff.source===row.name&&buff.sourceCharacter===owner),buff=p.buffs?.[buffIndex];
+  const attrs=' data-lab-add-source-buff="'+esc(row.name)+'" data-buff-description="'+esc(row.description)+'" data-buff-owner="'+esc(owner)+'" data-source-position="'+esc(own?(p.fightPosition||'on'):(ally.position||'off'))+'"';
+  const partyEffect=!own&&row.kind==='set'&&row.pieces===4?PARTY_SET_EFFECTS[row.sourceId]:null;
+  const group=groups.find(group=>group.kind===row.kind&&group.index===row.sourceIndex);
+  const weaponOptions=own&&row.kind==='weapon'?weaponEffectOptions(weapon,p.weaponRefinement):[];
+  const setOptions=own&&row.kind==='set'?setEffectOptions(labContext.sets.find(item=>String(item.id)===String(row.sourceId))||{})[row.pieces===4?'four':'two']:[];
+  const sourceWeaponOptions=!own&&row.kind==='weapon'?supportWeaponEffects(weapon,ally.refinement,supportWeaponSourceStats(ally)):[];
+  const configured=!!buff&&(Number(buff.value)||Number(buff.sourcePercent));
+  if(row.locked)return '';
+  if(row.kind==='weapon'){
+   if(own){
+    if(String(weapon?.id)!=='11517'&&!weaponOptions.length)return '';
+    return '<article class="lab-passive-text lab-useful-weapon"><div class="lab-passive-meta"><span>ARME · BONUS DU PORTEUR</span></div><h4>'+esc(weapon._name)+'</h4>'+(String(weapon.id)==='11517'?renderAzurelightControls(p):effectControls(p,'weapon:'+String(weapon._id||weapon.id),weaponOptions))+'</article>';
+   }
+   if(!sourceWeaponOptions.length)return '';
+   return '<article class="lab-passive-text lab-useful-weapon"><div class="lab-passive-meta"><span>ARME · BONUS TRANSMIS</span><b>'+esc(weapon._name)+' · R'+(Number(ally.refinement)||1)+'</b></div>'+sourceWeaponOptions.map(effect=>{
+    if(effect.position&&effect.position!==(p.fightPosition||'on'))return '';
+    const sourceField={em:'weaponSourceEM',hp:'weaponSourceHP',atk:'weaponSourceATK',def:'weaponSourceDEF'}[effect.sourceStat],sourceLabel={em:'Maîtrise finale du porteur',hp:'PV max du porteur',atk:'ATQ finale du porteur',def:'DÉF finale du porteur'}[effect.sourceStat];
+    const key=String(weapon.id)+':'+effect.id,saved=ally.activeWeaponEffects?.[key],enabled=!!saved?.enabled&&(effect.recipient!=='next'||String(saved.target)===String(p.character));
+    const gain=Object.entries(effect.bonuses).map(([type,value])=>'+'+fmt(value)+(['em','atkFlat'].includes(type)?'':' %')+' '+(LAB_STAT_LABELS[type]||type).replace(/\s*%$/,'')).join(' · ');
+    return '<div class="lab-support-buff"><label class="lab-buff-toggle"><span><b>'+esc(effect.label)+'</b><small>'+esc(effect.condition)+'</small></span><input type="checkbox" data-lab-support-weapon="'+index+'" data-weapon-effect="'+key+'" '+(enabled?'checked':'')+'><output>'+esc(gain)+'</output></label>'+(effect.sourceStat?'<label class="lab-field"><span>'+esc(sourceLabel)+'</span><input type="number" min="0" step="any" data-lab-ally="'+index+'" data-ally-field="'+sourceField+'" value="'+esc(ally[sourceField]??'')+'"></label>':'')+'</div>';
+   }).join('')+'</article>';
+  }
+  if(row.kind==='set'){
+   if(!own&&(!partyEffect||(partyEffect.elements&&!partyEffect.elements.includes(p.elementKey))))return '';
+   if(own&&!setOptions?.length&&!configured)return '';
+  }else if(!group&&!configured&&(nativeScope||!hasUsefulBuff(row,{own})))return '';
+  if(group)matched.add(group);
+  return '<article data-equipment-kind="'+(row.kind==='set'?'set':'kit')+'" class="lab-passive-text '+(row.locked?'is-locked':'')+'"><div class="lab-passive-meta"><span>'+esc(labels[row.kind]||'EFFET')+'</span><b>'+(row.locked?'Verrouillé à cette constellation':buff?'Bonus configuré':'Texte du jeu')+'</b></div><details '+''+'><summary>'+esc(row.name)+'</summary><div class="lab-effect-description">'+renderGameText(row.description)+'</div></details>'+
+   (group?nativeControls(group):own&&row.kind==='set'&&setOptions?.length?effectControls(p,'set:'+String(labContext.sets.find(item=>String(item.id)===String(row.sourceId))?._labKey||labContext.sets.find(item=>String(item.id)===String(row.sourceId))?._id)+':'+(row.pieces===4?'four':'two'),setOptions):partyEffect&&!row.locked?'<label class="lab-published-check"><input type="checkbox" data-lab-party-set="'+index+'" data-set-id="'+row.sourceId+'" '+(ally.activeSetEffects?.[row.sourceId]?'checked':'')+'>'+esc(partyEffect.label)+'</label>'+(partyEffect.tiers?'<label class="lab-field"><span>Condition du set</span><select data-lab-ally="'+index+'" data-ally-field="partySetTier">'+partyEffect.tiers.map((tier,i)=>'<option value="'+i+'" '+(Number(ally.partySetTier||0)===i?'selected':'')+'>'+esc(tier.label)+'</option>').join('')+'</select></label>':''):row.locked?'<p class="lab-passive-locked">Augmente la constellation de ce personnage pour débloquer cet effet.</p>':buff?'<label class="lab-published-check"><input type="checkbox" data-lab-buff="'+buffIndex+'" data-field="active" '+(buff.active!==false?'checked':'')+'> Appliquer le bonus configuré</label>':'<button type="button"'+attrs+'>Ajouter un bonus complémentaire</button>')+'</article>';
+ }).join('');
+ const extended=extendedBuffOptions(String(character?.id||character?._id),{...extendedBuffConfig(p),own,constellation:ally.constellation});
+ if(extended.length)host.insertAdjacentHTML('beforeend',extended.map(option=>{
+  const state=ally.kitEffects?.[option.id]||{},stacks=Math.max(1,Math.min(option.max||1,Number(state.stacks)||1)),gain=option.source?'':Object.entries(option.bonuses).map(([key,value])=>'+'+fmt(Array.isArray(value)?value[stacks-1]:value*stacks)+' '+(LAB_STAT_LABELS[key]||key)).join(' · ');
+  return '<article class="lab-passive-text"><label class="lab-buff-toggle"><span><b>'+esc(option.label)+'</b></span><input type="checkbox" data-lab-extended-buff="'+index+'" data-kit-effect="'+option.id+'" data-kit-field="enabled" '+(state.enabled?'checked':'')+'><output>'+esc(gain)+'</output></label>'+(option.max>1&&!option.stacksFrom?'<label class="lab-field"><span>Cumuls / nombre</span><select data-lab-extended-buff="'+index+'" data-kit-effect="'+option.id+'" data-kit-field="stacks">'+Array.from({length:option.max},(_,i)=>'<option value="'+(i+1)+'" '+(stacks===i+1?'selected':'')+'>'+(i+1)+'</option>').join('')+'</select></label>':'')+(option.source&&(!own||option.manual||['highestEM','baseAtk'].includes(option.source))?'<label class="lab-field"><span>'+esc(option.sourceLabel)+'</span><input type="number" min="0" step="any" data-lab-extended-buff="'+index+'" data-kit-effect="'+option.id+'" data-kit-field="sourceValue" value="'+esc(state.sourceValue??'')+'"></label>':'')+'</article>';
+ }).join(''));
+ if(nativeScope){for(const group of groups)if(!matched.has(group))host.insertAdjacentHTML('beforeend','<article class="lab-passive-text">'+nativeControls(group)+'</article>');}
+ if(!host.textContent.trim())host.innerHTML='<p class="lab-no-transferred-buff">Aucun bonus transmis à ton personnage avec cette configuration.</p>';
+ updateBuffCounts(root);
+ if(character){
+  Promise.all([loadCharacterConditions(),import('./lab-wr-adapter.js?v=20261118-all-buffs-1')]).then(async([manifest,adapter])=>{
+   const engine=await adapter.loadWrEngine(),key=adapter.resolveWrCharacterKey(engine,{...character,elementKey:own?p.elementKey:ally.elementKey},labContext.sourceAliases);
+   if(!host.isConnected||!key)return;
+   const record=manifest.characters[key];if(!record)return;
+   host.querySelector('.lab-source-buffs')?.remove();
+   // One authoritative set of character conditions; keep weapon/set controls separate.
+   host.querySelectorAll(':scope > .lab-passive-text:not([data-equipment-kind="set"]):not(.lab-useful-weapon)').forEach(article=>article.remove());
+   host.insertAdjacentHTML('afterbegin',renderSourceBuffs({...record,key,name:character._name||record.name},own?read():read().allies?.[index]||{},index));
+   if(!own){const savedBuilds=labContext.builds.filter(build=>String(build.character)===String(character._id));if(savedBuilds.length){const owner=read().allies?.[index]||{};host.querySelector('.lab-source-buffs header').insertAdjacentHTML('beforeend','<label class="lab-field"><span>Build de l’équipier · statistiques source des buffs</span><select data-lab-ally="'+index+'" data-ally-field="build"><option value="">Base du personnage et arme sélectionnée</option>'+savedBuilds.map(build=>'<option value="'+esc(build.id)+'" '+(owner.build===build.id?'selected':'')+'>'+esc(build.name||'Build enregistré')+'</option>').join('')+'</select></label>');}}
+  }).catch(()=>{if(host.isConnected)host.insertAdjacentHTML('beforeend','<p class="lab-data-note">Les conditions complètes du personnage sont temporairement indisponibles.</p>');});
+ }
+ host.dataset.loaded='true';
+ if(!own){
+  const card=host.closest('[data-buff-slot]');
+  for(const kind of ['weapon','set']){
+   const target=card.querySelector('[data-support-gear="'+kind+'"]');
+   if(target){
+    target.querySelectorAll('.lab-equipment-buffs').forEach(node=>node.remove());
+    const controls=document.createElement('div');controls.className='lab-equipment-buffs';
+    const selector=kind==='weapon'?'.lab-useful-weapon':'[data-equipment-kind="set"]';
+    host.querySelectorAll(selector).forEach(node=>controls.append(node));
+    if(controls.childElementCount)target.append(controls);
+   }
+  }
+  if(!host.children.length)host.innerHTML='';
+ }
+}
+function loadBuffDescriptions(root,p){
+ for(const index of [-1,0,1,2]){
+  const host=root.querySelector('[data-lab-ally-effects="'+index+'"]');
+  if(!host||host.dataset.loaded||host.dataset.loading)continue;
+  host.dataset.loading='true';
+  showAllyEffects(root,p,index).catch(()=>{if(host.isConnected)host.innerHTML='<p>Textes indisponibles. <button type="button" data-lab-read-ally="'+index+'">Réessayer</button></p>';}).finally(()=>delete host.dataset.loading);
+ }
+
 }
 function bindWorkspace() {
   if (document.documentElement.dataset.labWorkspaceBound) return;
   document.documentElement.dataset.labWorkspaceBound='1';
   document.addEventListener('astralis:lab-config-map',event=>openConfigMapping(event.detail));
   document.addEventListener('change',event=>{
+    const input=event.target,root=input.closest?.('[data-damage-lab]');if(!root)return;
+    if(input.matches('[data-lab-azurelight]')){
+      const p=persist();if(String(activeWeapon(p)?.id)!=='11517')return;
+      p.complexEffects||={};p.complexEffects.azurelight={...p.complexEffects.azurelight,[input.dataset.labAzurelight]:input.checked,startedAt:0,refinement:Number(p.weaponRefinement)||1};write(p);
+      root.querySelectorAll('[data-lab-azurelight="'+input.dataset.labAzurelight+'"]').forEach(control=>control.checked=input.checked);
+      const gain=azurelightSummary(p.complexEffects.azurelight,p.weaponRefinement);root.querySelectorAll('[data-lab-azurelight-gain]').forEach(output=>output.textContent='Gain actif : +'+gain.atkPct+' % ATQ · +'+gain.critDmg+' % DGT CRIT');refreshBuffCalculation(root,p);return;
+    }
+    if(input.matches('[data-lab-support-weapon]')){
+      const p=persist(),ally=p.allies?.[Number(input.dataset.labSupportWeapon)];if(!ally)return;
+      ally.activeWeaponEffects={...ally.activeWeaponEffects,[input.dataset.weaponEffect]:{enabled:input.checked,target:p.character}};write(p);refreshBuffCalculation(root,p);
+    }
+  });
+  document.addEventListener('change',async event=>{
+   const input=event.target;if(!input.matches('[data-lab-source-buff]'))return;
+   const p=persist(),index=Number(input.dataset.labSourceBuff),owner=index===-1?p:p.allies?.[index];if(!owner)return;
+   owner.wrConditions||={};owner.wrConditions[input.dataset.sourceCharacter]||={};
+   owner.wrConditions[input.dataset.sourceCharacter][input.dataset.sourcePath]=input.type==='checkbox'?(input.checked?input.dataset.sourceActive:'off'):input.value;
+   p.sourceBuffMode=true;write(p);
+   const root=input.closest('[data-damage-lab]');
+   if(!String(p.attackSelection).startsWith('wr:')){const row=labContext.wrAttacks?.find(row=>row.kind===p.actionKind)||labContext.wrAttacks?.[0];if(row){Object.assign(p,{attackSelection:row.id,targetName:row.label,actionKind:row.kind,talent:1,hitCount:1});write(p);const select=root.querySelector('[data-lab-target-attack]');if(select)select.value=row.id;root.querySelectorAll('[data-lab-target-name],.lab-target-readout strong').forEach(node=>node.textContent=row.label);showResult(await calculate(p));}else root.querySelector('[data-lab-status]').textContent='Conditions sauvegardées. Les attaques de la fiche se chargent.';}else showResult(await calculate(p));
+   updateAttackTable(root,p);
+  });
+  document.addEventListener('change',event=>{
+    const input=event.target;if(!input.matches('[data-lab-party-set]'))return;
+    const p=persist(),index=Number(input.dataset.labPartySet),ally=p.allies?.[index];if(!ally)return;
+    ally.activeSetEffects={...ally.activeSetEffects,[input.dataset.setId]:input.checked};write(p);refreshBuffCalculation(input.closest('[data-damage-lab]'),p);
+  });
+  document.addEventListener('change',event=>{
+    if(!event.target.matches('[data-lab-set-choice]'))return;
+    const p=persist();p.buffSetChoice={...p.buffSetChoice,[event.target.dataset.labSetChoice]:event.target.value};write(p);
+  });
+  document.addEventListener('change',event=>{
+    const input=event.target;
+    if(!input.matches('[data-lab-character-buff]'))return;
+    const root=input.closest('[data-damage-lab]');if(!root)return;
+    const p=persist(),scope=input.dataset.labCharacterBuff;
+    p.characterBuffTeam=true;p.complexEffects||={};const config=p.complexEffects[scope]||={};
+    // Seed the visible settings so activating a card uses exactly its displayed values.
+    for(const field of root.querySelectorAll('[data-lab-character-buff="'+scope+'"]')){
+      config[field.dataset.buffKey]=field.type==='checkbox'?field.checked:Math.max(0,Number(field.value)||0);
+    }
+    const primary=root.querySelector('[data-lab-character-buff="'+scope+'"][data-buff-key=enabled]');
+    config.primaryEnabled=!!primary?.checked;
+    config.enabled=config.primaryEnabled||Object.entries(config).some(([key,value])=>key.startsWith('enable_')&&value===true);
+    if(scope==='furina'){config.mode='manual';const cap=Number(config.constellation)>=1?400:300;config.fanfare=Math.min(cap,Math.max(0,Number(config.fanfare)||0));if(Number(config.constellation)<2||config.fanfare<cap)config.excess=0;root.querySelectorAll('[data-lab-character-buff="furina"][data-buff-key="excess"]').forEach(input=>{input.disabled=config.fanfare<cap;input.value=config.excess||0;});root.querySelectorAll('[data-lab-character-buff="furina"][data-buff-key="fanfare"]').forEach(input=>input.value=config.fanfare);}
+    if(scope==='shenhe')config.cast=config.hold?'hold':'press';
+    syncCharacterBuffTeam(p,labContext.characters);write(p);
+    if(scope==='skirk'&&p.attackSelection?.startsWith('99:'))useTalentValue(...p.attackSelection.split(':').map(Number));
+    else refreshBuffCalculation(root,p);
+    const values=input.closest('.lab-inline-native')?.querySelector('.lab-buff-values');if(values&&['enabled','enable_passive_1','enable_talent_2'].includes(input.dataset.buffKey))values.open=input.checked;
+    const card=input.closest('.lab-character-buffs');
+    updateBuffCounts(root);
+  });
+  document.addEventListener('change',event=>{
     if(!event.target.matches('[data-lab-ally]'))return;
     const p=persist(),index=Number(event.target.dataset.labAlly);
     p.allies ||= [];
     p.allies[index]={...p.allies[index],[event.target.dataset.allyField]:event.target.value};
-    write(p);
+    if(['weapon','character'].includes(event.target.dataset.allyField))p.allies[index].activeWeaponEffects={};
+    p.characterBuffTeam=true;syncCharacterBuffTeam(p,labContext.characters);write(p);refreshLab();
   });
   document.addEventListener('change',event=>{
+    if(event.target.matches('[data-lab-reaction-choice]')){const source=event.target.closest('[data-damage-lab]').querySelector('[data-lab="reaction"]');source.value=event.target.value;source.dispatchEvent(new Event('change',{bubbles:true}));return;}
     if(!event.target.matches('[data-lab-inspect-set]'))return;
     write({...persist(),inspectSet:event.target.value});
     refreshLab('[data-lab-inspect-set]');
@@ -757,6 +1038,23 @@ function bindWorkspace() {
   document.addEventListener('click',async event=>{
     const root=event.target.closest?.('[data-damage-lab]');
     if (!root) return;
+    if(event.target.closest('[data-lab-buff-calculate]')){const p=persist();if(p.simulationMode==='rotation')await showRotationResult(root,p);else showResult(await calculate(p));return;}
+    if(event.target.closest('[data-lab-search-sets]')){
+      const p=persist(),choice=p.buffSetChoice||{},keys=[choice.first,...(choice.mode==='2+2'?[choice.second]:[])].filter(Boolean);
+      if(!keys.length||(choice.mode==='2+2'&&(keys.length!==2||keys[0]===keys[1]))){root.querySelector('[data-lab-status]').textContent='Choisis deux sets différents pour 2 + 2, ou un set pour 4 pièces.';return;}
+      p.configuration=choice.mode==='2+2'?'2+2':'4pc';p.requiredSets=choice.mode==='2+2'?[]:keys;p.allowedSets=choice.mode==='2+2'?keys:[];p.excludedSets=[];p.tab='optimizer';write(p);refreshLab();return;
+    }
+    const allyChoice=event.target.closest('[data-lab-ally-choice]');
+    if(allyChoice){const select=allyChoice.closest('.lab-ally-image-picker').querySelector('select');select.value=allyChoice.dataset.choiceValue;select.dispatchEvent(new Event('change',{bubbles:true}));return;}
+    const weaponChoice=event.target.closest('[data-lab-weapon-choice]');
+    if(weaponChoice){const select=root.querySelector('[data-lab-weapon]');select.value=weaponChoice.dataset.labWeaponChoice;select.dispatchEvent(new Event('change',{bubbles:true}));return;}
+    const buffOwner=event.target.closest('[data-lab-buff-owner]');
+    if(buffOwner){
+      const p=persist();p.buffSlot=Number(buffOwner.dataset.labBuffOwner);write(p);
+      root.querySelectorAll('[data-buff-slot]').forEach(card=>card.hidden=Number(card.dataset.buffSlot)!==p.buffSlot);
+      root.querySelectorAll('[data-lab-buff-owner]').forEach(button=>button.setAttribute('aria-pressed',String(Number(button.dataset.labBuffOwner)===p.buffSlot)));
+      loadBuffDescriptions(root,p);return;
+    }
     const guide=event.target.closest('[data-lab-guide-sets]');
     if(guide){await showSetGuide(root,read());return;}
     const ally=event.target.closest('[data-lab-read-ally]');
@@ -771,7 +1069,7 @@ function bindWorkspace() {
       const current=read();
       if(current.character!==p.character||current.actionKind!==p.actionKind||!document.querySelector('[data-damage-lab]'))return;
       const first=attackOptions(viewContext(current),current).find(row=>row.kind===current.actionKind);
-      if(first)useTalentValue(...first.id.split(':').map(Number));else refreshLab();
+      if(first){if(first.id.startsWith('wr:'))useTalentValue(100,first.id.slice(3));else useTalentValue(...first.id.split(':').map(Number));}else refreshLab();
       return;
     }
     if(event.target.closest('[data-lab-export]')){exportLaboratory(read());return;}
@@ -795,8 +1093,8 @@ function bindWorkspace() {
     }
     const sourceBuff=event.target.closest('[data-lab-add-source-buff]');
     if(sourceBuff||event.target.closest('[data-lab-add-buff]')){
-      const p=persist();p.buffs=[...(p.buffs||[]),{type:'atkPct',value:sourceBuff?0:20,stacks:1,duration:0,active:!sourceBuff,source:sourceBuff?.dataset.labAddSourceBuff,description:sourceBuff?.dataset.buffDescription||'',sourceCharacter:sourceBuff?.dataset.buffOwner||'',sourcePosition:sourceBuff?.dataset.sourcePosition||'off'}];
-      write(p);refreshLab();return;
+      const p=persist();if(sourceBuff&&(p.buffs||[]).some(buff=>buff.source===sourceBuff.dataset.labAddSourceBuff&&buff.sourceCharacter===sourceBuff.dataset.buffOwner)){root.querySelector('[data-lab-status]').textContent='Ce buff est déjà dans tes bonus configurés.';return;}p.buffs=[...(p.buffs||[]),{type:'atkPct',value:sourceBuff?0:20,stacks:1,duration:0,active:!sourceBuff,source:sourceBuff?.dataset.labAddSourceBuff,description:sourceBuff?.dataset.buffDescription||'',sourceCharacter:sourceBuff?.dataset.buffOwner||'',sourcePosition:sourceBuff?.dataset.sourcePosition||'off'}];
+      write(p);refreshLab();const editor=document.querySelector('.lab-buff-panel');editor?.scrollIntoView({block:'center',behavior:'smooth'});return;
     }
     const removeBuff=event.target.closest('[data-lab-remove-buff]');
     if(removeBuff){const p=persist();p.buffs.splice(Number(removeBuff.dataset.labRemoveBuff),1);write(p);refreshLab();return;}
@@ -821,7 +1119,7 @@ function bindWorkspace() {
       return;
     }
     const target=event.target.closest('[data-lab-talent-value]');
-    if (target) { useTalentValue(...target.dataset.labTalentValue.split(':').map(Number));return; }
+    if (target) { const value=target.dataset.labTalentValue;if(value.startsWith('wr:'))useTalentValue(100,value.slice(3));else if(value.startsWith('100:'))useTalentValue(100,value.slice(4));else useTalentValue(...value.split(':').map(Number));return; }
     const mode=event.target.closest('[data-lab-mode]');
     if (mode) {
       const p=persist();p[mode.dataset.labMode]=mode.dataset.value;write(p);
@@ -864,12 +1162,12 @@ function bindWorkspace() {
       refreshLab();return;
     }
     if(event.target.matches('[data-lab-target-attack]')){
-      if(event.target.value)useTalentValue(...event.target.value.split(':').map(Number));
+      if(event.target.value?.startsWith('wr:'))useTalentValue(100,event.target.value.slice(3));else if(event.target.value)useTalentValue(...event.target.value.split(':').map(Number));
       return;
     }
     if(event.target.matches('[data-lab-target-level]')){
       const p=persist();p.talentLevel=Number(event.target.value);write(p);
-      if(p.attackSelection)useTalentValue(...p.attackSelection.split(':').map(Number));else refreshLab();
+      if(String(p.attackSelection).startsWith('wr:'))refreshLab();else if(p.attackSelection)useTalentValue(...p.attackSelection.split(':').map(Number));else refreshLab();
       return;
     }
     if(event.target.matches('[data-lab-allow-set],[data-lab-require-set]')){
@@ -882,7 +1180,10 @@ function bindWorkspace() {
         const require=[...root.querySelectorAll('[data-lab-require-set]')].find(box=>box.dataset.labRequireSet===cb.dataset.labAllowSet);
         if(require)require.checked=false;
       }
-      const p=syncSetFilterArrays(persist());write(p);updateEstimate(root,p);return;
+      if(cb.dataset.labRequireSet&&cb.checked)root.querySelectorAll('[data-lab-require-set]').forEach(box=>{if(box!==cb)box.checked=false;});
+      const p=syncSetFilterArrays(persist());
+      if(cb.dataset.labRequireSet&&cb.checked){p.configuration='4pc';root.querySelectorAll('[data-lab-config]').forEach(button=>{const selected=button.dataset.labConfig==='4pc';button.classList.toggle('active',selected);button.setAttribute('aria-pressed',String(selected));});}
+      write(p);updateEstimate(root,p);return;
     }
     if(event.target.matches('[data-lab-effect],[data-lab-custom-effect]')){
       const p=persist(),custom=event.target.dataset.labCustomEffect,key=custom||event.target.dataset.labEffect;
@@ -896,13 +1197,20 @@ function bindWorkspace() {
         setting.additional[index-1]={...setting.additional[index-1],[field]:value};
       }else setting[field]=value;
       p[prop]={...p[prop],[key]:setting};
-      write(p);updateLiveStats(root,p);recomputeRotation(root,p);return;
+      write(p);root.querySelectorAll('[data-lab-effect],[data-lab-custom-effect]').forEach(control=>{if((control.dataset.labEffect||control.dataset.labCustomEffect)===key&&control.dataset.effectField===field&&Number(control.dataset.effectIndex||0)===index){if(control.type==='checkbox')control.checked=!!value;else control.value=value;}});refreshBuffCalculation(root,p);return;
+    }
+    if(event.target.matches('[data-lab-extended-buff]')){
+      const p=read(),index=Number(event.target.dataset.labExtendedBuff),member=index===-1?p:p.allies?.[index];if(!member)return;
+      const id=event.target.dataset.kitEffect,key=event.target.dataset.kitField;
+      member.kitEffects={...member.kitEffects,[id]:{...member.kitEffects?.[id],[key]:key==='enabled'?event.target.checked:event.target.value===''?'':Number(event.target.value)}};
+      write(p);refreshLab();refreshBuffCalculation(document.querySelector('[data-damage-lab]'),p);return;
     }
     if(event.target.matches('[data-lab-buff]')){
       const p=read(),index=Number(event.target.dataset.labBuff),key=event.target.dataset.field;
       if(!p.buffs[index])return;
       p.buffs[index][key]=key==='maximum'&&event.target.value===''?'':event.target.type==='checkbox'?event.target.checked:['type','position','sourcePosition','sourceCondition','condition'].includes(key)?event.target.value:Number(event.target.value);
-      write(p);updateLiveStats(root,p);recomputeRotation(root,p);
+      write(p);refreshBuffCalculation(root,p);
+      if(key==='active'){root.querySelectorAll('[data-lab-buff="'+index+'"][data-field="active"]').forEach(input=>input.checked=p.buffs[index].active);for(const card of root.querySelectorAll('.lab-character-buffs')){const count=(p.buffs||[]).filter(buff=>buff.sourceCharacter===card.dataset.buffOwner&&buff.active!==false).length+(card.querySelector('[data-buff-key=enabled]')?.checked?1:0);card.querySelector('.lab-buff-count').textContent=count+' actif'+(count>1?'s':'');}}
       return;
     }
     if(event.target.matches('[data-lab-character-level]')){
@@ -918,17 +1226,22 @@ function bindWorkspace() {
     if(event.target.matches('[data-lab-action-count]')){
       const p=read();p.rotations[Number(event.target.dataset.labActionCount)].count=Math.max(1,Math.min(100,Number(event.target.value)||1));write(p);recomputeRotation(root,p);return;
     }
+    if(event.target.matches('[data-lab-wr-condition]')){const [key,path]=event.target.dataset.labWrCondition.split('|'),p=read();p.wrConditions||={};p.wrConditions[key]||={};p.wrConditions[key][path]=event.target.value;write(p);refreshLab();return;}
     const key=event.target.dataset.lab;
     if (key==='build') { const p=persist();p.weaponOverride=null;const build=selectedBuild(p);p.weaponLevel=Number(build?.weaponLevelValue)||90;p.weaponRefinement=Number(build?.weaponRefinement)||1;p.referenceCharacter='';write(p);loadActiveBuild(root,p); }
-    if (key==='talentLevel') { persist();refreshLab(); }
-    if(key==='constellation'){const p=persist();if(p.attackSelection?.startsWith('99:'))useTalentValue(...p.attackSelection.split(':').map(Number));else refreshLab();}
-    if(key==='reaction'){const p=read();p.reactingHits=p.reaction==='none'?0:Math.max(1,Number(p.reactingHits)||1);if(['vaporize','melt'].includes(p.reaction))p.ampBase=p.reaction==='melt'?(p.elementKey==='pyro'?2:1.5):(p.elementKey==='hydro'?2:1.5);write(p);refreshLab();}
-    if (key) updateLiveStats(root,read());
+    if (key==='talentLevel') { const p=persist();if(String(p.attackSelection).startsWith('wr:'))refreshLab();else if(p.attackSelection)useTalentValue(...p.attackSelection.split(':').map(Number));else refreshLab(); }
+    if(key==='constellation'){const p=persist();labContext.wrAttacks=null;wrAttackCharacter='';if(String(p.attackSelection).startsWith('wr:'))p.attackSelection='';write(p);loadWrAttackChoices(p);refreshLab();}
+    if(key==='elementKey'&&['10000005','10000007'].includes(String(labContext.characters.find(c=>String(c._id)===String(read().character))?.id))){kitCache.delete(String(read().character));loadActiveKit();}
+    if(key==='reaction'){const p=read();if(p.reaction.startsWith('directLunar'))p.elementKey=({directLunarCharged:'electro',directLunarBloom:'dendro',directLunarCrystallize:'geo'})[p.reaction];p.reactingHits=p.reaction==='none'?0:Math.max(1,Number(p.reactingHits)||1);if(['vaporize','melt'].includes(p.reaction))p.ampBase=p.reaction==='melt'?(p.elementKey==='pyro'?2:1.5):(p.elementKey==='hydro'?2:1.5);write(p);refreshLab();}
+    if(['reactionContributorCount','stellarPhase','stellarVortexLevel'].includes(key))refreshLab();
+    if (key){const activeRoot=document.querySelector('[data-damage-lab]');if(activeRoot)updateLiveStats(activeRoot,read());}
     if (event.target.matches('[data-lab-duration]')) {
       const p=read();p.rotations[Number(event.target.dataset.labDuration)].duration=Math.max(0,Number(event.target.value)||0);write(p);updateRotationSummary(root,p);recomputeRotation(root,p);
     }
   });
   document.addEventListener('input',event=>{
+    if(event.target.matches('[data-lab-ally-query]')){const q=foldAttackQuery(event.target.value);event.target.closest('.lab-ally-image-picker').querySelectorAll('[data-lab-ally-choice]').forEach(button=>button.hidden=!foldAttackQuery(button.textContent).includes(q));return;}
+    if(event.target.matches('[data-lab-weapon-query]')){const q=foldAttackQuery(event.target.value);event.target.closest('.lab-weapon-picker').querySelectorAll('[data-lab-weapon-choice]').forEach(button=>button.hidden=!foldAttackQuery(button.textContent).includes(q));return;}
     if (!event.target.matches('[data-lab-character-query]')) return;
     const query=foldAttackQuery(event.target.value);
     const root=event.target.closest('[data-damage-lab]');
@@ -967,7 +1280,7 @@ function actionDefinition(skillIndex,valueIndex,p=read()) {
   const skill=context.skills[skillIndex];
   if(!skill)return null;
   const source=context.details?.talentValues?.['combat'+(skillIndex+1)]||context.details?.skillTalents?.[skillIndex]||skill;
-  const text=talentValueRows(source,Number(p.talentLevel)||10,skill.values)[valueIndex];
+  const text=talentValueRows(source,effectiveTalentLevel(context.details,skillIndex,p.talentLevel,p.constellation),skill.values)[valueIndex];
   const parsed=parseActionValue(text);
   if(!parsed)return null;
   return {attackSelection:skillIndex+':'+valueIndex,targetName:skill.name+' · '+String(text).split(/·\s*Niv\./)[0].trim(),targetIcon:skill.image||'',
@@ -1053,7 +1366,7 @@ function saveTcBuild(root) {
 
 function optimizerBonuses(p) {
  const out={...p.referenceBonuses};
- for(const source of [activeBuffBonuses(p),configuredWeaponBonuses(activeWeapon(p),p)])for(const [key,value]of Object.entries(source))out[key]=(out[key]||0)+value;
+ for(const source of [activeBuffBonuses(p),ownWeaponBonuses(p),partyWeaponBonuses(p,labContext.weapons,activeWeapon(p))])for(const [key,value]of Object.entries(source))out[key]=(out[key]||0)+value;
  return out;
 }
 
@@ -1128,4 +1441,4 @@ async function checkLabSync(force=false){
 }
 globalThis.document?.addEventListener('click',event=>{if(event.target.closest?.('[data-lab-sync-refresh]'))checkLabSync(true);});
 
-globalThis.document?.addEventListener('click',async event=>{if(!event.target.closest?.('[data-complex-effects]'))return;const p=persist(),{editComplexEffects}=await import('./complex-controls.js'),result=await editComplexEffects(p.complexEffects,p.complexTeamElements);if(result){p.complexEffects=result.config;p.complexTeamElements=result.elements;if(p.complexEffects.skirk)p.complexEffects.skirk.constellation=Number(p.constellation)||0;write(p);if(p.attackSelection?.startsWith('99:'))useTalentValue(...p.attackSelection.split(':').map(Number));else refreshLab();}});
+globalThis.document?.addEventListener('click',async event=>{if(!event.target.closest?.('[data-complex-effects]'))return;const p=persist(),{editComplexEffects}=await import('./complex-controls.js?v=20261117-clear-buffs-2'),result=await editComplexEffects(p.complexEffects,p.complexTeamElements);if(result){p.characterBuffTeam=false;p.complexEffects=result.config;p.complexTeamElements=result.elements;if(p.complexEffects.skirk)p.complexEffects.skirk.constellation=Number(p.constellation)||0;write(p);if(p.attackSelection?.startsWith('wr:'))refreshLab();else if(p.attackSelection)useTalentValue(...p.attackSelection.split(':').map(Number));else refreshLab();}});

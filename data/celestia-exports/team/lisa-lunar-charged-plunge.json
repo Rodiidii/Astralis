@@ -1,7 +1,7 @@
 {
   "name": "Lunar-Charged Plunge",
   "description": "Celestia",
-  "lastEdit": 1794349102603,
+  "lastEdit": 1794890320846,
   "conditional": {
     "resonance": {},
     "reaction": {}
@@ -33,43 +33,6 @@
           "name": "Lunar-Charged Plunge",
           "description": "Celestia",
           "targets": [
-            {
-              "weight": 1,
-              "path": [
-                "plunging",
-                "dmg"
-              ],
-              "hitMode": "avgHit",
-              "bonusStats": {
-                "atk_": 20,
-                "eleMas": 160.062,
-                "all_dmg_": 85,
-                "enemyDefRed_": 15,
-                "critRate_": 4,
-                "electro_enemyRes_": -40,
-                "critDMG_": 68
-              },
-              "description": ""
-            },
-            {
-              "weight": 1,
-              "path": [
-                "plunging",
-                "high"
-              ],
-              "hitMode": "avgHit",
-              "bonusStats": {
-                "atk_": 20,
-                "eleMas": 160.062,
-                "all_dmgInc": 6020.975,
-                "all_dmg_": 85,
-                "enemyDefRed_": 15,
-                "critRate_": 4,
-                "electro_enemyRes_": -40,
-                "critDMG_": 68
-              },
-              "description": ""
-            },
             {
               "weight": 1,
               "path": [
@@ -522,6 +485,43 @@
                 "eleMas": 160.062,
                 "all_dmgInc": 6020.975,
                 "all_dmg_": 131,
+                "enemyDefRed_": 15,
+                "critRate_": 4,
+                "electro_enemyRes_": -40,
+                "critDMG_": 68
+              },
+              "description": ""
+            },
+            {
+              "weight": 1,
+              "path": [
+                "plunging",
+                "dmg"
+              ],
+              "hitMode": "avgHit",
+              "bonusStats": {
+                "atk_": 20,
+                "eleMas": 160.062,
+                "all_dmg_": 85,
+                "enemyDefRed_": 15,
+                "critRate_": 4,
+                "electro_enemyRes_": -40,
+                "critDMG_": 68
+              },
+              "description": ""
+            },
+            {
+              "weight": 1,
+              "path": [
+                "plunging",
+                "high"
+              ],
+              "hitMode": "avgHit",
+              "bonusStats": {
+                "atk_": 20,
+                "eleMas": 160.062,
+                "all_dmgInc": 6020.975,
+                "all_dmg_": 85,
                 "enemyDefRed_": 15,
                 "critRate_": 4,
                 "electro_enemyRes_": -40,

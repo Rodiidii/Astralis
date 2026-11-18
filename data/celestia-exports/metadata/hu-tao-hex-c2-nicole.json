@@ -34,7 +34,7 @@
   },
   "characterBonusStats": {
     "atk": 900,
-    "atk_": 45,
+    "atk_": 25,
     "hp_": 25
   },
   "enemy": {
@@ -46,7 +46,7 @@
       "code": "skippedLines",
       "reason": "manual",
       "lines": 1,
-      "share": 0.0706285243918535
+      "share": 0.07070771383544928
     },
     {
       "code": "characterBonusStats",
@@ -65,11 +65,6 @@
           "buff": "Hydro Resonance",
           "key": "hp_",
           "value": 25
-        },
-        {
-          "buff": "The Parting Refrain",
-          "key": "atk_",
-          "value": 20
         },
         {
           "buff": "Grace of Kenosis (% of Nicole's ATK)",
@@ -141,7 +136,7 @@
       "code": "skippedLines",
       "reason": "manual",
       "lines": 1,
-      "share": 0.0706285243918535
+      "share": 0.07070771383544928
     },
     {
       "code": "reactionInWeight",

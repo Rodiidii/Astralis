@@ -1,4 +1,5 @@
 /* Preserve local interaction state while asynchronous data refreshes the same view. */
+const routeScrollSnapshots=new Map();
 function pathFor(node,root){
  const parts=[];
  while(node&&node!==root){
@@ -13,10 +14,14 @@ function pathFor(node,root){
 }
 function find(root,path){try{return path?root.querySelector(path):null;}catch{return null;}}
 export function capturePageState(root,view){
- if(!root||root.dataset.viewKey!==view||!/(?:^|:)(teams|builds|farming)$/.test(view))return null;
+ if(!root)return null;
+ const currentView=root.dataset.viewKey;
+ if(currentView&&currentView!==view){routeScrollSnapshots.set(currentView,captureRouteScroll());return {view,routeScroll:routeScrollSnapshots.get(view)||null};}
+ const routeScroll=captureRouteScroll();routeScrollSnapshots.set(view,routeScroll);
+ if(currentView!==view||!/(?:^|:)(teams|builds|farming)$/.test(view))return {view,routeScroll};
  const focused=root.contains(document.activeElement)?document.activeElement:null,ancestorScrolls=[];
  for(let el=root.parentElement;el;el=el.parentElement)if(el.scrollTop||el.scrollLeft)ancestorScrolls.push({path:pathFor(el,document.documentElement),top:el.scrollTop,left:el.scrollLeft});
- return {view,windowX:window.scrollX,windowY:window.scrollY,ancestorScrolls,
+ return {view,routeScroll,windowX:window.scrollX,windowY:window.scrollY,ancestorScrolls,
   forms:[...root.querySelectorAll('#farm-calendar-task,#farm-calendar-character,#farm-calendar-category,#farm-calendar-custom,#farm-calendar-date')].map(el=>({path:pathFor(el,root),value:el.value})),
   details:[...root.querySelectorAll('details')].map(el=>({path:pathFor(el,root),open:el.open})),
   teams:[...root.querySelectorAll('[data-team-details]')].map(el=>({id:el.dataset.teamDetails,hidden:el.hidden})),
@@ -24,9 +29,16 @@ export function capturePageState(root,view){
   scrolls:[...root.querySelectorAll('.image-picker-pop,.image-picker-options,.build-relic-piece-list,.build-relic-set-grid,.team-sheet-details')].filter(el=>el.scrollTop||el.scrollLeft).map(el=>({path:pathFor(el,root),top:el.scrollTop,left:el.scrollLeft})),
   focus:focused?{path:pathFor(focused,root),value:'value'in focused?focused.value:null,start:focused.selectionStart,end:focused.selectionEnd}:null};
 }
+function captureRouteScroll(){
+ const ancestorScrolls=[];
+ for(let el=document.querySelector('#page-content')?.parentElement;el;el=el.parentElement)if(el.scrollTop||el.scrollLeft)ancestorScrolls.push({path:pathFor(el,document.documentElement),top:el.scrollTop,left:el.scrollLeft});
+ return {windowX:window.scrollX,windowY:window.scrollY,ancestorScrolls};
+}
 export function restorePageState(root,snapshot,view){
  if(!root)return;root.dataset.viewKey=view;
  if(!snapshot||snapshot.view!==view)return;
+ if(snapshot.routeScroll){window.scrollTo({left:snapshot.routeScroll.windowX||0,top:snapshot.routeScroll.windowY||0,behavior:'instant'});for(const row of snapshot.routeScroll.ancestorScrolls||[]){const el=find(document,row.path);if(el)el.scrollTo({top:row.top,left:row.left,behavior:'instant'});}}
+ if(!/(?:^|:)(teams|builds|farming)$/.test(view)||!snapshot.forms)return;
  for(const row of snapshot.details){const el=find(root,row.path);if(el)el.open=row.open;}
  for(const row of snapshot.teams){const section=[...root.querySelectorAll('[data-team-details]')].find(el=>el.dataset.teamDetails===row.id);if(section)section.hidden=row.hidden;const button=[...root.querySelectorAll('[data-team-details-toggle]')].find(el=>el.dataset.teamDetailsToggle===row.id);if(button)button.setAttribute('aria-expanded',String(!row.hidden));}
  for(const row of snapshot.forms||[]){const el=find(root,row.path);if(el)el.value=row.value;}

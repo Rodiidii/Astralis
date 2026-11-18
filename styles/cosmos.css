@@ -119,3 +119,15 @@ astralis-planet canvas{display:block;width:100%;height:100%}.planet-fallback{bac
 @keyframes teyvatMoonOrbitReverse{from{transform:translate(-50%,-50%) rotateX(62deg) rotateZ(var(--orbit-tilt,0deg)) rotate(0deg)}to{transform:translate(-50%,-50%) rotateX(62deg) rotateZ(var(--orbit-tilt,0deg)) rotate(-360deg)}}
 @keyframes teyvatOrbitLoop{from{transform:translate(-50%,-50%) rotateX(62deg) rotateZ(var(--orbit-tilt,0deg)) rotate(0deg)}to{transform:translate(-50%,-50%) rotateX(62deg) rotateZ(var(--orbit-tilt,0deg)) rotate(360deg)}}
 @media(prefers-reduced-motion:reduce){.teyvat-orbit{animation:none}}
+/* A region map can take a moment to decode. Keep its planet silhouette visible,
+   but do not flash the unrelated generic texture underneath it. */
+.celestial-body astralis-world[data-map-pending],astralis-planet[data-map-pending]{background:radial-gradient(circle at 30% 26%,#e1f3f133 0 3%,transparent 20%),radial-gradient(circle at 35% 30%,color-mix(in srgb,var(--body-color,#60c5df) 70%,#b8d9ef),color-mix(in srgb,var(--body-color,#60c5df) 45%,#17243b) 48%,#090d18 78%);box-shadow:inset -10px -8px 18px #0008,0 0 24px color-mix(in srgb,var(--body-color,#60c5df) 45%,transparent)}
+.celestial-body astralis-world[data-map-pending]::after,astralis-planet[data-map-pending]::after{content:"";position:absolute;inset:-6%;border:1px solid color-mix(in srgb,var(--orbit-color,#bca5ff) 52%,transparent);border-radius:50%;box-shadow:0 0 16px color-mix(in srgb,var(--orbit-color,#bca5ff) 38%,transparent);animation:regionMapWait 2.4s ease-in-out infinite alternate;pointer-events:none}
+@keyframes regionMapWait{to{transform:scale(1.08);opacity:.35}}
+@media(prefers-reduced-motion:reduce){.celestial-body astralis-world[data-map-pending]::after,astralis-planet[data-map-pending]::after{animation:none}}
+
+/* Mode confort : surfaces plus homogènes et décor moins éclatant. */
+.dashboard-studio[data-soft-contrast="true"] .studio-widget{background:color-mix(in srgb,var(--surface,#201e26) 91%,#858393 9%)!important;border-color:#ffffff2a!important;box-shadow:0 4px 15px #0002!important}
+.dashboard-studio[data-soft-contrast="true"] .studio-scene{background:linear-gradient(120deg,#282733,#20212a)!important;border-bottom-color:#ffffff28}
+.dashboard-studio[data-soft-contrast="true"] .cosmos-cloud,.dashboard-studio[data-soft-contrast="true"] .orbit-nebula{opacity:.28!important}
+.dashboard-studio[data-soft-contrast="true"] .studio-widget-heading .celestial-body{box-shadow:inset -5px -4px 8px #0005,0 0 9px color-mix(in srgb,var(--body-color) 12%,transparent)}

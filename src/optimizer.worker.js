@@ -1,4 +1,4 @@
-import { optimizeArtifacts } from './optimizer.js?v=83';
+import { optimizeArtifacts } from './optimizer.js?v=20261118-all-buffs-1';
 let activeJob = null;
 self.onmessage = async event => {
   const message = event.data || {};

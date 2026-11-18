@@ -1,7 +1,7 @@
 {
   "name": "Durin Nicole Xilonen",
   "description": "Celestia",
-  "lastEdit": 1794349068318,
+  "lastEdit": 1794890282939,
   "conditional": {
     "resonance": {},
     "reaction": {}
@@ -45,7 +45,7 @@
               "hitMode": "avgHit",
               "bonusStats": {
                 "def_": 24,
-                "atk": 3234.211,
+                "atk": 3100.642,
                 "all_dmg_": 119,
                 "geo_enemyRes_": -91
               },
@@ -60,7 +60,7 @@
               "hitMode": "avgHit",
               "bonusStats": {
                 "def_": 24,
-                "atk": 3234.211,
+                "atk": 3100.642,
                 "all_dmg_": 119,
                 "geo_enemyRes_": -91
               },
@@ -75,7 +75,7 @@
               "hitMode": "avgHit",
               "bonusStats": {
                 "def_": 24,
-                "atk": 3234.211,
+                "atk": 3100.642,
                 "all_dmg_": 119,
                 "geo_enemyRes_": -91
               },
@@ -91,7 +91,7 @@
               "infusionAura": "geo",
               "bonusStats": {
                 "def_": 24,
-                "atk": 3266.086,
+                "atk": 3132.517,
                 "all_dmg_": 119,
                 "geo_enemyRes_": -91
               },
@@ -107,7 +107,7 @@
               "infusionAura": "geo",
               "bonusStats": {
                 "def_": 24,
-                "atk": 3534.211,
+                "atk": 3400.642,
                 "all_dmg_": 119,
                 "geo_enemyRes_": -91
               },
@@ -123,7 +123,7 @@
               "infusionAura": "geo",
               "bonusStats": {
                 "def_": 24,
-                "atk": 3534.211,
+                "atk": 3400.642,
                 "all_dmg_": 119,
                 "geo_enemyRes_": -91
               },
@@ -139,7 +139,7 @@
               "infusionAura": "geo",
               "bonusStats": {
                 "def_": 24,
-                "atk": 3534.211,
+                "atk": 3400.642,
                 "all_dmg_": 119,
                 "geo_enemyRes_": -91
               },
@@ -155,7 +155,7 @@
               "infusionAura": "geo",
               "bonusStats": {
                 "def_": 24,
-                "atk": 3534.211,
+                "atk": 3400.642,
                 "all_dmg_": 119,
                 "geo_enemyRes_": -91
               },
@@ -171,7 +171,7 @@
               "infusionAura": "geo",
               "bonusStats": {
                 "def_": 24,
-                "atk": 3534.211,
+                "atk": 3400.642,
                 "all_dmg_": 119,
                 "geo_enemyRes_": -91
               },
@@ -187,7 +187,7 @@
               "infusionAura": "geo",
               "bonusStats": {
                 "def_": 24,
-                "atk": 3534.211,
+                "atk": 3400.642,
                 "all_dmg_": 119,
                 "geo_enemyRes_": -91
               },
@@ -203,7 +203,7 @@
               "infusionAura": "geo",
               "bonusStats": {
                 "def_": 24,
-                "atk": 3534.211,
+                "atk": 3400.642,
                 "all_dmg_": 119,
                 "geo_enemyRes_": -91
               },
@@ -219,7 +219,7 @@
               "infusionAura": "geo",
               "bonusStats": {
                 "def_": 24,
-                "atk": 3234.211,
+                "atk": 3100.642,
                 "all_dmg_": 119,
                 "geo_enemyRes_": -91
               },
@@ -235,14 +235,14 @@
               "infusionAura": "geo",
               "bonusStats": {
                 "def_": 24,
-                "atk": 3234.211,
+                "atk": 3100.642,
                 "all_dmg_": 119,
                 "geo_enemyRes_": -91
               },
               "description": ""
             },
             {
-              "weight": 0.0755,
+              "weight": 1,
               "path": [
                 "constellation4",
                 "dmg"
@@ -250,22 +250,7 @@
               "hitMode": "avgHit",
               "bonusStats": {
                 "def_": 24,
-                "atk": 3234.211,
-                "all_dmg_": 119,
-                "geo_enemyRes_": -91
-              },
-              "description": ""
-            },
-            {
-              "weight": 0.9245,
-              "path": [
-                "constellation4",
-                "dmg"
-              ],
-              "hitMode": "avgHit",
-              "bonusStats": {
-                "def_": 24,
-                "atk": 3234.211,
+                "atk": 3100.642,
                 "all_dmg_": 119,
                 "geo_enemyRes_": -91
               },
@@ -281,7 +266,7 @@
               "infusionAura": "geo",
               "bonusStats": {
                 "def_": 24,
-                "atk": 3234.211,
+                "atk": 3100.642,
                 "all_dmg_": 119,
                 "geo_enemyRes_": -91
               },
@@ -297,7 +282,7 @@
               "infusionAura": "geo",
               "bonusStats": {
                 "def_": 24,
-                "atk": 3534.211,
+                "atk": 3400.642,
                 "all_dmg_": 119,
                 "geo_enemyRes_": -91
               },
@@ -313,7 +298,7 @@
               "infusionAura": "geo",
               "bonusStats": {
                 "def_": 24,
-                "atk": 3454.672,
+                "atk": 3321.103,
                 "all_dmg_": 113.84,
                 "geo_enemyRes_": -91
               },
@@ -385,12 +370,12 @@
               "rarity": 5,
               "stats": {
                 "def": 39.35,
-                "def_": 24.78,
+                "enerRech_": 33.03,
                 "critRate_": 33.05,
-                "critDMG_": 79.26,
+                "critDMG_": 66.05,
                 "hp": 507.88,
                 "hp_": 9.91,
-                "enerRech_": 11.01,
+                "def_": 12.39,
                 "eleMas": 39.63,
                 "atk": 33.07,
                 "atk_": 9.91

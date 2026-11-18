@@ -100,3 +100,24 @@
   .app-frame[data-active-game="gi"] .topbar-actions{gap:3px}
 }
 @media(prefers-reduced-motion:reduce){.mobile-quick-nav button,.app-frame[data-active-game="gi"] .game-tab[data-game="gi"] .game-tab-mark,.app-frame[data-active-game="gi"] .game-choice[data-game="gi"] .game-choice-mark{transition:none;animation:none}}
+/* Small screens: the universe switch is icon-first; the accessible name stays in the button title. */
+@media(max-width:760px){
+  .app-frame .topbar .game-tabs{width:auto;flex:0 0 auto;gap:7px;overflow:visible}
+  .app-frame .topbar .game-tabs .game-tab{display:inline-flex!important}
+  .app-frame .topbar .game-tab{width:48px;min-width:48px;height:46px;min-height:46px;justify-content:center;padding:4px;border-radius:15px}
+  .app-frame .topbar .game-tab b{display:none!important}
+  .app-frame .topbar .game-tab .game-tab-mark{width:36px;height:36px}
+  .app-frame .topbar .topbar-actions .inbox-open{width:42px;min-width:42px;height:42px;justify-content:center;padding:0;gap:0!important}
+  .app-frame .topbar .topbar-actions .inbox-open>span:not(.inbox-bell){display:none!important}
+  .app-frame .topbar .topbar-actions .inbox-open .inbox-bell{width:23px;height:23px;font-size:0}
+  .app-frame .topbar .topbar-actions .inbox-open .inbox-badge{position:absolute;top:-4px;right:-4px;min-width:16px;height:16px;padding-inline:3px;font-size:8px}
+  .app-frame[data-active-game="gi"] .topbar .topbar-actions>button.quiet-btn.topbar-ambience:not(.command-open-btn):not(.inbox-open),
+  .app-frame .topbar .topbar-actions>button.quiet-btn.topbar-ambience:not(.command-open-btn):not(.inbox-open){display:grid!important;place-items:center;width:38px;min-width:38px;height:38px;padding:0}
+  .app-frame .topbar .topbar-actions>button.topbar-ambience .ic{width:19px;height:19px}
+}
+@media(max-width:420px){
+  .app-frame .topbar .game-tabs{gap:4px}
+  .app-frame .topbar .game-tab{width:43px;min-width:43px;height:42px;min-height:42px}
+  .app-frame .topbar .game-tab .game-tab-mark{width:33px;height:33px}
+  .app-frame .topbar .topbar-actions .inbox-open{width:38px;min-width:38px;height:38px}
+}

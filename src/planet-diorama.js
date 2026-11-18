@@ -1,7 +1,7 @@
 import * as T from '../assets/vendor/three/three.module.js';
 import {loadPlanetGeography,regionalGeography,geographicalSample} from './planet-geography.js';
 import {buildGeographicLandmarks} from './planet-landmarks.js';
-import {addRegionalWeather} from './planet-weather.js?v=20261111-snow-cloud-2';
+import {addRegionalWeather} from './planet-weather.js?v=20261116-dashboard-perf-5';
 import {addRulerSatellites,addCentralMoons} from './planet-rulers.js?v=20261111-satellite-motion-2';
 
 // One GPU context shared by every DOM planet. Models contain geometry, never AI images.
@@ -43,8 +43,8 @@ function landField(x,y,z,region){
  return {height:isLand?.995+Math.pow(clamp(value),1.4)*.16+ridge*.025:.96,land:isLand,sand:region==='sumeru'&&x>.02,ridge};
 }
 
-function terrain(model,tint){
- const region=model.region,p=model.palette,g=new T.SphereGeometry(1,160,96),positions=g.attributes.position,colors=[];
+function terrain(model,tint,detail=false){
+ const region=model.region,p=model.palette,segments=detail?160:region==='teyvat'?88:56,g=new T.SphereGeometry(1,segments,Math.round(segments*.6)),positions=g.attributes.position,colors=[];
  const sea=new T.Color(p.sea),land=new T.Color(p.land),high=new T.Color(p.high),sand=new T.Color('#dbb675'),rock=new T.Color(p.rock),shift=/^#[a-f0-9]{6}$/i.test(tint||'')?new T.Color(tint):null;
  for(let i=0;i<positions.count;i++){
   V.fromBufferAttribute(positions,i).normalize();const sample=model.geography?geographicalSample(model.geography,V.x,V.y,V.z):landField(V.x,V.y,V.z,region),height=sample.height;
@@ -182,13 +182,13 @@ function batchLandmarks(model){
  }
  const combined=new T.BufferGeometry();combined.setAttribute('position',new T.Float32BufferAttribute(positions,3));combined.setAttribute('normal',new T.Float32BufferAttribute(normals,3));combined.setAttribute('color',new T.Float32BufferAttribute(colors,3));const mesh= new T.Mesh(combined,material('#ffffff',{vertexColors:true}));mesh.name='batched-landmarks';mesh.castShadow=mesh.receiveShadow=true;model.surface.add(mesh);model.batchedObjects=nodes.length;
 }
-export function createRegionalModel(region,tint,geography=regionalGeography(region)){
+export function createRegionalModel(region,tint,geography=regionalGeography(region),options={}){
  if(region==='teyvat'&&!REGIONAL_WORLDS.teyvat)REGIONAL_WORLDS.teyvat={...REGIONAL_WORLDS.mondstadt,sea:'#20638c'};
  if(!REGIONAL_WORLDS[region])throw new Error('Unknown regional planet: '+region);
  const model={region,geography,palette:REGIONAL_WORLDS[region],random:rand([...region].reduce((n,c)=>n*31+c.charCodeAt(0)|0,17)),scene:new T.Scene(),surface:new T.Group(),orbits:new T.Group(),animated:[]};
  model.scene.add(model.surface,model.orbits);model.surface.rotation.z=-.13;
  model.scene.add(new T.HemisphereLight('#dceeff','#29364c',1.35));const key=new T.DirectionalLight('#fff0d6',2.5);key.position.set(-3,4,5);key.shadow.mapSize.set(512,512);Object.assign(key.shadow.camera,{left:-2,right:2,top:2,bottom:-2,near:1,far:12});key.shadow.bias=-.0004;key.shadow.normalBias=.018;model.key=key;model.scene.add(key);const rim=new T.DirectionalLight(model.palette.light,1.5);rim.position.set(3,1,-3);model.scene.add(rim);
- terrain(model,tint);if(geography){buildGeographicLandmarks(model);addRegionalWeather(model);if(region==='liyue')asteroidBelt(model);if(region==='snezhnaya')asteroidBelt(model,true);}else if(region==='primordial'){addRegionalWeather(model);}else buildLandmarks(model);batchLandmarks(model);if(region==='teyvat'){addCentralMoons(model);if(typeof window!=='undefined')addRulerSatellites(model);}
+ const detailed=options.detail!==false;terrain(model,tint,detailed);if(geography){buildGeographicLandmarks(model);addRegionalWeather(model,{overview:options.overview===true});if(region==='liyue')asteroidBelt(model);if(region==='snezhnaya')asteroidBelt(model,true);}else if(region==='primordial'){addRegionalWeather(model,{overview:options.overview===true});}else buildLandmarks(model);batchLandmarks(model);if(region==='teyvat'){addCentralMoons(model);if(typeof window!=='undefined')addRulerSatellites(model);}
  const view=region==='teyvat'?2.7:2.35;model.camera=new T.OrthographicCamera(-view,view,view,-view,.1,20);model.camera.position.set(0,0,6);model.camera.lookAt(0,0,0);
  model.update=(time,angle)=>{model.surface.rotation.y=angle*Math.PI*2;for(const animate of model.animated)animate(time);};
  model.dispose=()=>{model.disposed=true;const geometries=new Set(),materials=new Set();model.scene.traverse(o=>{if(o.geometry)geometries.add(o.geometry);if(o.material)(Array.isArray(o.material)?o.material:[o.material]).forEach(m=>materials.add(m));});geometries.forEach(g=>g.dispose());materials.forEach(m=>{m.map?.dispose();m.dispose();});};
@@ -204,7 +204,7 @@ export function drawRegionalModel(world,now){
   if(!renderer){renderer=new T.WebGLRenderer({alpha:true,antialias:true,premultipliedAlpha:true,powerPreference:'low-power'});const gl=renderer.getContext(),extension=gl.getExtension("WEBGL_debug_renderer_info");software=!!extension&&/swiftshader|llvmpipe|software/i.test(gl.getParameter(extension.UNMASKED_RENDERER_WEBGL));renderer.setClearColor(0,0);renderer.shadowMap.type=T.PCFSoftShadowMap;renderer.outputColorSpace=T.SRGBColorSpace;renderer.toneMapping=T.ACESFilmicToneMapping;renderer.toneMappingExposure=1.12;}
   if(!world.geographyRequested){world.geographyRequested=true;loadPlanetGeography().then(data=>{const firstFailure=!data&&!world.geographyFailed;if(!data)world.geographyFailed=true;const available=data&&!world.diorama?.geography&&regionalGeography(world.getAttribute('region'));if(world.isConnected&&(firstFailure||available)){world.painted=false;world.draw(performance.now());}});}
   const map=regionalGeography(world.getAttribute('region'));if(!map&&world.getAttribute('region')!=='primordial'&&!world.geographyFailed)return true;if(world.diorama&&!world.diorama.geography&&map){world.diorama.dispose();world.diorama=null;}
-  if(!world.diorama){world.diorama=createRegionalModel(world.getAttribute('region'),world.getAttribute('color-shift'));world.diorama.rulerColors=Object.fromEntries(['death','time','life'].map(name=>[name,world.getAttribute(name+'-color')]));world.canvas.classList.add('regional-diorama');world.relief?.remove();world.dataset.engine='webgl-diorama';world.dataset.geography=world.diorama.geography?.coverage||'procedural';world.canvas.width=world.canvas.height=world.hasAttribute('detail')?(software?640:1024):world.getAttribute('region')==='teyvat'?(software?256:384):(software?192:320);world.ctx=world.canvas.getContext('2d');world.diorama.onReady=()=>{if(world.isConnected){world.painted=false;world.draw(performance.now());}};}
+  if(!world.diorama){const detail=world.hasAttribute('detail'),cssSize=world.getBoundingClientRect().width||(world.getAttribute('region')==='teyvat'?140:54),targetSize=Math.ceil(cssSize*Math.min(globalThis.devicePixelRatio||1,1.5));world.diorama=createRegionalModel(world.getAttribute('region'),world.getAttribute('color-shift'),map,{detail});world.diorama.rulerColors=Object.fromEntries(['death','time','life'].map(name=>[name,world.getAttribute(name+'-color')]));world.canvas.classList.add('regional-diorama');world.relief?.remove();world.dataset.engine='webgl-diorama';world.dataset.geography=world.diorama.geography?.coverage||'procedural';world.canvas.width=world.canvas.height=detail?(software?384:512):Math.max(112,Math.min(world.getAttribute('region')==='teyvat'?288:160,targetSize));world.ctx=world.canvas.getContext('2d');world.diorama.onReady=()=>{if(world.isConnected){world.painted=false;world.draw(performance.now());}};}
   const paused=world.closest('.dashboard-studio')?.dataset.cosmosMotion==='off',reducedMotion=typeof matchMedia==='function'&&matchMedia('(prefers-reduced-motion: reduce)').matches,motionScale=reducedMotion ? 0.24 : 1;
   const bucket=Math.floor(now/16);if(bucket!==frameBucket){frameBucket=bucket;frameDraws=0;}
   const maxDraws=world.hasAttribute('detail')?(software?2:4):(software?4:8);
@@ -217,7 +217,7 @@ export function drawRegionalModel(world,now){
   frameDraws++;
   world.gpuLast=now;world.effectTime=(world.effectTime||0)+(paused?0:(world.effectLast?Math.min(100,now-world.effectLast)/1000*motionScale:0));world.effectLast=now;
   world.diorama.update(world.effectTime,world.angle);world.diorama.orbits.visible=world.getAttribute('satellites')!=='off';if(world.getAttribute('region')==='teyvat')for(const child of world.diorama.orbits.children){if(child.userData.satellite==='moon'){const tint=world.getAttribute(['life-color','time-color','death-color'][child.userData.moonIndex]);if(/^#[a-f0-9]{6}$/i.test(tint||'')&&child.userData.appliedTint!==tint){child.children[0].material.color.set(tint);child.userData.appliedTint=tint;}child.visible=world.getAttribute('moons')!=='off';}if(child.userData.satellite==='ruler')child.visible=world.getAttribute('rulers')==='on';}if(world.diorama.textureReady)world.dataset.mapReady='true';
-  const size=world.canvas.width;if(renderer.domElement.width!==size)renderer.setSize(size,size,false);
+  const size=world.canvas.width,renderSize=world.hasAttribute('detail')?(software?384:512):192;if(renderer.domElement.width!==renderSize||renderer.domElement.height!==renderSize)renderer.setSize(renderSize,renderSize,false);
   renderer.shadowMap.enabled=world.hasAttribute('detail');world.diorama.key.castShadow=world.hasAttribute('detail');renderer.render(world.diorama.scene,world.diorama.camera);world.ctx.clearRect(0,0,size,size);world.ctx.drawImage(renderer.domElement,0,0,size,size);return true;
  }catch(error){failed=true;console.warn('Regional 3D planets unavailable; using the local fallback.',error);return fallback(world);}
 }

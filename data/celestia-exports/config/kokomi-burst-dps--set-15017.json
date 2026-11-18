@@ -31,7 +31,7 @@
       "description": ""
     },
     {
-      "weight": 1.0056,
+      "weight": 1.0689,
       "path": [
         "skill",
         "dmg"
@@ -530,20 +530,6 @@
       "bonusStats": {
         "all_dmg_": 100.87,
         "critRate_": -100
-      },
-      "description": ""
-    },
-    {
-      "weight": 0.0634,
-      "path": [
-        "skill",
-        "dmg"
-      ],
-      "hitMode": "avgHit",
-      "bonusStats": {
-        "all_dmg_": 25.87,
-        "critRate_": -100,
-        "hydro_enemyRes_": -40
       },
       "description": ""
     }

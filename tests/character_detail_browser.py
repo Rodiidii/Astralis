@@ -21,8 +21,18 @@ def main():
    page.route('**/*',route)
    page.add_init_script("localStorage.setItem('astralis:active-game','gi');localStorage.setItem('astralis:gi:assistant-profile','{\"enabled\":false}');")
    page.goto(base,wait_until='domcontentloaded');page.wait_for_selector('#astralis-launch-screen',state='detached');page.locator('[data-nav=characters]').first.click()
+   roster=page.locator('.character-catalog-card');
+   for index in range(3):roster.nth(index).locator('[data-character-compare]').click()
+   comparison=page.locator('.character-compare-panel');expect(comparison).to_be_visible();expect(comparison.locator('.character-compare-card')).to_have_count(3);expect(comparison.locator('.character-compare-count')).to_have_text('3 / 3')
+   roster.nth(3).locator('[data-character-compare]').click();expect(comparison.locator('.character-compare-card')).to_have_count(3)
+   comparison.locator('[data-character-compare-clear]').click();expect(page.locator('.character-compare-panel')).to_contain_text('Comparer des personnages');expect(page.locator('.character-compare-card')).to_have_count(0)
+   weapons=page.locator('.gi-weapon-shortcuts');expect(weapons).to_be_visible();initial_count=int(page.locator('.collection-copy>b').inner_text());sword=weapons.locator('[data-weapon-shortcut=sword]');sword.click();expect(sword).to_have_attribute('aria-pressed','true');assert int(page.locator('.collection-copy>b').inner_text())<initial_count;weapons.locator('[data-weapon-shortcut=all]').click();expect(page.locator('.collection-copy>b')).to_have_text(str(initial_count));shortcuts=page.locator('.gi-element-shortcuts');expect(shortcuts).to_be_visible()
+   # Select an actual element button and verify it stays in sync with the regular filter control.
+   shortcut=shortcuts.locator('button[data-element-shortcut]:not([data-element-shortcut="all"])').first;shortcut.click()
+   expect(shortcut).to_have_attribute('aria-pressed','true');expect(page.locator('#element-filter')).to_have_value(shortcut.get_attribute('data-element-shortcut'))
+   shortcuts.locator('[data-element-shortcut="all"]').click();expect(page.locator('#element-filter')).to_have_value('all')
    page.locator('#catalog-search').fill('Skirk');trigger=page.locator('.character-catalog-card').filter(has_text='Skirk').first;trigger.click()
-   dialog=page.get_by_role('dialog',name='Skirk');expect(dialog).to_be_visible();expect(dialog.get_by_role('button',name='Fermer la fiche',exact=True)).to_be_focused()
+   dialog=page.get_by_role('dialog',name='Skirk');expect(dialog).to_be_visible();expect(dialog.get_by_role('button',name='Fermer la fiche',exact=True)).to_be_focused();roster_nav=dialog.get_by_role('navigation',name='Navigation alphabétique des personnages');expect(roster_nav).to_be_visible();assert '/' in roster_nav.inner_text();before_name=dialog.locator('.detail-title h2').inner_text();roster_nav.get_by_role('button',name='Personnage suivant').click();page.wait_for_function('(name)=>document.querySelector(".detail-title h2")?.textContent!==name',arg=before_name);next_name=page.locator('.detail-title h2').inner_text();assert next_name!=before_name;page.locator('[data-detail-roster-step="-1"]').click();page.wait_for_function('(name)=>document.querySelector(".detail-title h2")?.textContent===name',arg=before_name);
    expect(dialog.locator('.detail-art-main')).to_have_attribute('src',__import__('re').compile(r'10000114.webp'))
    expect(dialog.locator('.detail-art')).to_have_css('height','310px')
    page.wait_for_function("[...document.querySelectorAll('.gi-character-detail,.gi-character-detail *')].every(el=>el.getAnimations().every(a=>a.playState!=='running'||a.effect.getTiming().iterations===Infinity))")

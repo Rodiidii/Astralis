@@ -30,7 +30,7 @@
   },
   "characterBonusStats": {
     "atk": 1788,
-    "eleMas": 520.29,
+    "eleMas": 798.904,
     "atk_": 45
   },
   "enemy": {
@@ -38,11 +38,6 @@
     "res": -1.4
   },
   "issues": [
-    {
-      "code": "bestTeam",
-      "teamIndex": 0,
-      "teams": 2
-    },
     {
       "code": "characterBonusStats",
       "stats": [
@@ -67,7 +62,12 @@
           "value": 372
         },
         {
-          "buff": "Noblesse Oblige 4pc",
+          "buff": "Instructor 4pc EM",
+          "key": "eleMas",
+          "value": 120
+        },
+        {
+          "buff": "Tenacity of the Millelith 4pc ATK",
           "key": "atk_",
           "value": 20
         },
@@ -79,7 +79,7 @@
         {
           "buff": "Sunken Song of the Sands",
           "key": "eleMas",
-          "value": 270.2895277884603
+          "value": 428.9041120428032
         },
         {
           "buff": "Grace of Kenosis (% of Nicole's ATK)",
@@ -121,11 +121,6 @@
     }
   ],
   "teamIssues": [
-    {
-      "code": "bestTeam",
-      "teamIndex": 0,
-      "teams": 2
-    },
     {
       "code": "characterBonusStats",
       "stats": [

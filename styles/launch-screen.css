@@ -11,3 +11,59 @@
 .brand-symbol{overflow:hidden}.brand-symbol img{display:block;width:100%;height:100%;border-radius:inherit;object-fit:cover}.launch-brand-mark{overflow:hidden}.launch-brand-mark img{display:block;width:100%;height:100%;object-fit:cover}
 @media(min-width:761px){.side-rail{height:100dvh;min-height:0;overflow-x:hidden;overflow-y:auto;overscroll-behavior-y:contain;touch-action:pan-y;-webkit-overflow-scrolling:touch;scrollbar-gutter:stable;scrollbar-width:thin;scrollbar-color:color-mix(in srgb,var(--accent) 48%,transparent) transparent}.side-rail::-webkit-scrollbar{width:7px}.side-rail::-webkit-scrollbar-thumb{border-radius:8px;background:color-mix(in srgb,var(--accent) 48%,transparent)}.side-rail>.rail-nav{flex:none;height:auto;max-height:none;overflow:visible;overscroll-behavior:initial;touch-action:auto;padding-bottom:4px}.side-rail>.rail-label,.side-rail>.brand,.side-rail>.game-list,.side-rail>.rail-bottom{flex:none}.side-rail>.rail-bottom{margin-top:12px}}
 @media(max-height:620px) and (min-width:761px){.launch-panel{padding:16px 24px 14px}.launch-orbit{width:96px;height:96px;margin:12px auto 14px}.launch-player-avatar{width:64px;height:64px}.launch-message{min-height:18px;margin-bottom:9px}.launch-quick-grid article{min-height:66px}.launch-progress{margin-top:13px}}
+
+/* Cosmic launch sequence: layered sky, drifting nebulae, and a restrained cockpit. */
+.launch-screen{background:#080a14;color:#f7f1e8;isolation:isolate}
+.launch-backdrop{inset:-8%;overflow:hidden;background:radial-gradient(ellipse at 50% 45%,#34284f 0%,#19192d 32%,#0b1020 63%,#070910 100%);transform:scale(1.06)}
+.launch-backdrop:before,.launch-backdrop:after{width:min(94vw,1080px);top:48%;border-color:#d2bdff1b;box-shadow:0 0 150px #8c71d624,inset 0 0 125px #7860b31a}
+.launch-backdrop:after{width:min(70vw,820px);border-color:#82dddf20;animation:launchOrbit 78s linear infinite}
+.launch-nebula{position:absolute;inset:-20%;background:radial-gradient(ellipse at 28% 40%,#663f9a55 0,transparent 31%),radial-gradient(ellipse at 76% 34%,#226c8060 0,transparent 27%),radial-gradient(ellipse at 60% 77%,#a2674938 0,transparent 29%),radial-gradient(ellipse at 22% 82%,#344e9b42 0,transparent 24%);filter:blur(34px);opacity:.8;animation:launchNebulaDrift 24s ease-in-out infinite alternate}
+.launch-starfield{position:absolute;inset:0;opacity:.75;background-image:radial-gradient(1px 1px at 8% 17%,#fff 98%,transparent),radial-gradient(1px 1px at 23% 72%,#d9d3ff 98%,transparent),radial-gradient(1.5px 1.5px at 38% 23%,#fff 98%,transparent),radial-gradient(1px 1px at 51% 88%,#b7eafa 98%,transparent),radial-gradient(1px 1px at 68% 14%,#fff 98%,transparent),radial-gradient(1.5px 1.5px at 82% 61%,#fff0cd 98%,transparent),radial-gradient(1px 1px at 93% 32%,#fff 98%,transparent),radial-gradient(1px 1px at 73% 90%,#d7c7ff 98%,transparent);background-size:390px 310px,470px 390px,540px 430px,620px 510px,430px 360px,570px 470px,680px 540px,490px 410px;animation:launchStarDrift 75s linear infinite}
+.launch-meteors{position:absolute;inset:0;overflow:hidden;pointer-events:none}
+.launch-meteors i{position:absolute;top:15%;left:-15%;width:110px;height:1px;opacity:0;transform:rotate(28deg);background:linear-gradient(90deg,transparent,#bceaff,#fff);filter:drop-shadow(0 0 5px #a7dfff);animation:launchMeteor 8s linear infinite}
+.launch-meteors i:nth-child(2){top:43%;animation-delay:2.7s;animation-duration:10s;width:76px;background:linear-gradient(90deg,transparent,#e2c3ff,#fff)}
+.launch-meteors i:nth-child(3){top:68%;animation-delay:5.3s;animation-duration:11s;width:94px}
+.launch-meteors i:nth-child(4){top:27%;animation-delay:6.6s;animation-duration:13s;width:56px}
+.launch-panel{width:min(560px,calc(100vw - 34px));padding:24px 30px 18px;overflow:hidden;border-color:#d7c5ff36;border-radius:27px;background:linear-gradient(145deg,#191c2bea,#111522f0 55%,#1b1728ed);box-shadow:0 35px 120px #000a,0 0 90px #9b7bd126,inset 0 1px #ffffff12;backdrop-filter:blur(26px);animation:launchPanelIn .85s cubic-bezier(.16,1,.3,1) both}
+.launch-panel:before{content:"";position:absolute;inset:0 0 auto;height:1px;background:linear-gradient(90deg,transparent,#a4eeefb0,#d2b3ffcc,transparent);animation:launchBorderGlow 4.5s ease-in-out infinite}
+.launch-panel:after{content:"";position:absolute;top:-125px;right:-95px;width:245px;height:245px;border-radius:50%;background:#a080de12;filter:blur(28px);pointer-events:none}
+.launch-brand{position:relative;z-index:1;letter-spacing:.23em}.launch-brand-mark{border:1px solid #ffffff5c;border-radius:13px;background:linear-gradient(145deg,#f1d99e,#a78ade 70%,#78d9dc);box-shadow:0 5px 22px #9f83df55;animation:launchMarkFloat 4s ease-in-out infinite}
+.launch-clock{color:#d6caee}
+.launch-orbit{width:146px;height:146px;margin:24px auto 17px;border-color:#dbc9ff70;background:radial-gradient(circle,#9272d51a,transparent 65%);box-shadow:0 0 62px #a98be944,inset 0 0 42px #aa8dff22;animation:launchGlow 3.2s ease-in-out infinite,launchFloat 5s ease-in-out infinite}
+.launch-orbit:before{inset:4px;border-color:#eee5ff73;transform:rotateX(67deg) rotateZ(-12deg);animation:launchOrbitRing 9s linear infinite}
+.launch-orbit:after{inset:13px;border-color:#8ce5e999;transform:rotateY(66deg) rotateZ(20deg);animation:launchOrbitRing 13s linear infinite reverse}
+.launch-orbit i{width:7px;height:7px;animation:launchSpark 2.2s ease-in-out infinite}
+.launch-orbit i:nth-child(2){animation-delay:.7s}.launch-orbit i:nth-child(3){animation-delay:1.3s}
+.launch-player-avatar{width:88px;height:88px;border-color:#f0d69e;background:linear-gradient(145deg,#453b59,#192832);box-shadow:0 0 0 7px #dbc5ff12,0 0 36px #a891ed77,0 0 65px #73dce52a}
+.launch-eyebrow{color:#d3bcff;letter-spacing:.25em;animation:launchFadeUp .7s .16s both}
+.launch-panel h1{margin:8px 0 6px;background:linear-gradient(100deg,#fff8e9 15%,#ddcbff 52%,#bcf4ee 85%);-webkit-background-clip:text;background-clip:text;color:transparent;text-shadow:0 8px 32px #c6a7ff1d;animation:launchFadeUp .75s .25s both}
+.launch-message{min-height:38px;max-width:420px;margin-bottom:15px;color:#c8c2d1;font-size:12px;line-height:1.55}
+.launch-message.is-typing:after,.launch-tip>small.is-typing:after{content:"";display:inline-block;width:1px;height:1em;margin-left:3px;vertical-align:-.14em;background:#b8a0f7;animation:launchCaret .75s steps(2,end) infinite}
+.launch-quick-grid{gap:9px}.launch-quick-grid article{position:relative;min-height:74px;overflow:hidden;border-color:#d5c6ff1a;border-radius:14px;background:linear-gradient(145deg,#ffffff09,#ffffff03);box-shadow:inset 0 1px #ffffff08;animation:launchFadeUp .6s both}.launch-quick-grid article:nth-child(2){animation-delay:.09s}.launch-quick-grid article:nth-child(3){animation-delay:.18s}
+.launch-quick-grid article:before{content:"";position:absolute;inset:auto 18% 0;height:1px;background:linear-gradient(90deg,transparent,#b99aff77,transparent)}
+.launch-quick-icon,.launch-weather>span:first-child{color:#cdb5ff;text-shadow:0 0 12px #b99aff88}
+.launch-weather>span:first-child{animation:launchWeatherPulse 3s ease-in-out infinite}
+.launch-tip{margin-top:10px;border-color:#b9a0ed2e;background:linear-gradient(100deg,#a784ed12,#82dbe50a);box-shadow:inset 0 1px #ffffff08}
+.launch-progress{position:relative;height:4px;margin:17px 2px 9px;background:#ffffff12;box-shadow:0 0 14px #0005}
+.launch-progress span{position:relative;width:38%;background:linear-gradient(90deg,transparent,#a98af2 22%,#8de5e2 72%,transparent);box-shadow:0 0 18px #b091ff;animation:launchProgress 1.75s cubic-bezier(.45,0,.55,1) infinite alternate}
+.launch-stages{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin:8px 4px 4px;color:#777988;font-size:8px;font-weight:750;letter-spacing:.1em;text-transform:uppercase}
+.launch-stages>span{display:flex;align-items:center;justify-content:center;gap:6px;min-width:0;transition:color .3s,transform .3s}
+.launch-stages i{width:5px;height:5px;border:1px solid #777988;border-radius:50%;background:#252839;transition:all .3s}
+.launch-stages .is-active{color:#eadcff;transform:translateY(-1px)}.launch-stages .is-active i{border-color:#a9f0e9;background:#a9f0e9;box-shadow:0 0 10px #8ce5e2}
+.launch-phase{min-height:14px;margin:4px 0 8px;color:#bdaddc;font-size:9px;letter-spacing:.13em;text-align:center;text-transform:uppercase;animation:launchPhaseGlow 2.8s ease-in-out infinite}
+.launch-footer{color:#777889;letter-spacing:.12em}
+@keyframes launchNebulaDrift{0%{transform:translate3d(-2%,1%,0) rotate(-4deg) scale(1)}100%{transform:translate3d(3%,-2%,0) rotate(5deg) scale(1.12)}}
+@keyframes launchStarDrift{to{background-position:390px 310px,-470px 390px,540px -430px,-620px 510px,430px -360px,-570px 470px,680px -540px,-490px 410px}}
+@keyframes launchMeteor{0%,69%{opacity:0;transform:translate3d(0,0,0) rotate(28deg)}72%{opacity:.9}86%{opacity:.65}100%{opacity:0;transform:translate3d(125vw,42vh,0) rotate(28deg)}}
+@keyframes launchOrbitRing{to{transform:rotate(426deg) rotateX(66deg)}}
+@keyframes launchSpark{50%{transform:scale(1.7);filter:brightness(1.5);box-shadow:0 0 19px currentColor}}
+@keyframes launchFloat{50%{transform:translateY(-4px)}}
+@keyframes launchMarkFloat{50%{transform:translateY(-2px) rotate(3deg)}}
+@keyframes launchFadeUp{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
+@keyframes launchCaret{50%{opacity:0}}
+@keyframes launchBorderGlow{50%{opacity:.4;filter:brightness(1.6)}}
+@keyframes launchPhaseGlow{50%{color:#e6d9ff;text-shadow:0 0 14px #b99aff70}}
+@keyframes launchWeatherPulse{50%{transform:scale(1.12);filter:drop-shadow(0 0 8px #b99aff)}}
+@media(max-width:420px){.launch-panel{padding:19px 16px 15px}.launch-orbit{width:116px;height:116px;margin:18px auto 14px}.launch-player-avatar{width:70px;height:70px}.launch-message{min-height:34px;font-size:11px}.launch-stages{font-size:7px;letter-spacing:.07em}}
+@media(max-height:680px) and (min-width:761px){.launch-panel{padding:17px 26px 13px}.launch-orbit{width:104px;height:104px;margin:10px auto}.launch-player-avatar{width:65px;height:65px}.launch-message{min-height:26px;margin-bottom:9px}.launch-quick-grid article{min-height:58px}.launch-tip{margin-top:6px;padding:7px 10px}.launch-progress{margin-top:10px}.launch-stages{margin:4px}.launch-phase{margin:2px 0 4px}}
+@media(prefers-reduced-motion:reduce){.launch-nebula,.launch-starfield,.launch-meteors i,.launch-brand-mark,.launch-orbit,.launch-orbit:before,.launch-orbit:after,.launch-orbit i,.launch-quick-grid article,.launch-panel h1,.launch-eyebrow,.launch-phase,.launch-weather>span:first-child{animation-duration:.01ms!important;animation-iteration-count:1!important}.launch-progress span{animation-duration:2s!important}}

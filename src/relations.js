@@ -1,5 +1,8 @@
-import {enhanceRelations,showReport} from './relations-reading.js?v=20261110-relations-12';
+import {enhanceRelations,showReport} from './relations-reading.js?v=20261115-shortest-routes-3';
 import {relationRank,concentricRelations,proofsForMode} from './relation-ranks.js?v=20261110-relations-12';
+import {referenceStoryUrl} from './relation-reference-audit.js?v=20261115-reference-audit-2';
+import {formatRelationCitation} from './relation-source-audit.js?v=20261115-citation-copy-1';
+import {relationId,isTravelerVariant} from './relation-identity.js';
 import publicLoreEvidence from '../data/relations-official.json' with { type: 'json' };
 import relationOverrides from '../assets/data/gi-relation-overrides.json' with { type: 'json' };
 import loreFigures from '../assets/data/gi-relation-lore.json' with { type: 'json' };
@@ -15,8 +18,10 @@ const colors = { pyro:'#f47e74', hydro:'#61bfff', cryo:'#94e5ec', electro:'#c6a4
 const groups = {force:'Réseau à forces',region:'Région',element:'Élément',weapon:'Arme',rarity:'Rareté',version:'Version',faction:'Faction'};
 const normalize = value => String(value || '').normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase();
 const escape = value => String(value ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const csvCell = value => `"${String(value ?? '').replaceAll('"','""')}"`;
 const pair = (a,b) => [a,b].sort().join(':');
 const regionOrder = ['Mondstadt','Liyue','Inazuma','Sumeru','Fontaine','Natlan','Snezhnaya','Nod-Krai','Khaenri’ah','Autres'];
+export function relationShortcutAction(key){return ({'/':'focusSearch','+':'zoomIn','=':'zoomIn','-':'zoomOut','0':'resetView','Escape':'clear'})[key]||null;}
 const regionIcon = region => {
   const slug = normalize(region);
   return ['mondstadt','liyue','inazuma','sumeru','fontaine','natlan','nod-krai','snezhnaya'].includes(slug)
@@ -24,29 +29,53 @@ const regionIcon = region => {
 };
 
 export function shortestRelationPath(edges, from, to) {
+  return shortestRelationPaths(edges, from, to, 1)[0] || [];
+}
+
+export function shortestRelationPaths(edges, from, to, limit = 8) {
   if (!from || !to || from === to) return [];
   const neighbors = new Map();
-  for (const edge of [...edges].sort((a,b)=>(b.weight||0)-(a.weight||0))) {
+  for (const edge of Array.isArray(edges) ? edges : []) {
     for (const [a,b] of [[edge.a,edge.b],[edge.b,edge.a]]) {
       if (!neighbors.has(a)) neighbors.set(a,[]);
-      neighbors.get(a).push(b);
+      neighbors.get(a).push({id:b,weight:Number(edge.weight)||0});
     }
   }
-  const previous = new Map([[from,null]]);
-  const queue = [from];
-  for (let i=0;i<queue.length;i++) {
-    for (const next of neighbors.get(queue[i]) || []) {
-      if (previous.has(next)) continue;
-      previous.set(next,queue[i]);
-      if (next === to) {
-        const path = [to];
-        for (let step=previous.get(to); step; step=previous.get(step)) path.push(step);
-        return path.reverse();
-      }
-      queue.push(next);
+  const distances = start => {
+    const result = new Map([[start,0]]), queue = [start];
+    for (let i=0;i<queue.length;i++) for (const next of neighbors.get(queue[i]) || []) {
+      if (result.has(next.id)) continue;
+      result.set(next.id,result.get(queue[i])+1);
+      queue.push(next.id);
+    }
+    return result;
+  };
+  const fromStart=distances(from), fromEnd=distances(to), shortest=fromStart.get(to);
+  if (shortest === undefined) return [];
+  const maxPaths=Math.max(1,Math.min(32,Math.trunc(Number(limit)||8))), paths=[];
+  const walk=(current,path)=>{
+    if(paths.length>=maxPaths)return;
+    if(current===to){paths.push(path);return;}
+    const distance=fromStart.get(current);
+    const candidates=(neighbors.get(current)||[]).filter(next=>
+      fromStart.get(next.id)===distance+1 &&
+      fromStart.get(next.id)+fromEnd.get(next.id)===shortest)
+      .sort((a,b)=>b.weight-a.weight||a.id.localeCompare(b.id));
+    for(const next of candidates){walk(next.id,[...path,next.id]);if(paths.length>=maxPaths)return;}
+  };
+  walk(from,[from]);
+  return paths;
+}
+
+export function relationEvidenceCsv(edges = [], names = {}) {
+  const nameOf = id => names instanceof Map ? names.get(id) || id : names?.[id] || id;
+  const rows = [['Personnage A','Personnage B','Type de lien','Preuve','Référence','Langue','Quête','Source']];
+  for (const edge of Array.isArray(edges) ? edges : []) {
+    for (const proof of Array.isArray(edge?.proofs) ? edge.proofs : []) {
+      rows.push([nameOf(edge.a),nameOf(edge.b),proof.kind==='story'?'Histoire':'Voix',proof.title,proof.id,proof.lang?.toUpperCase(),proof.quest,proof.source]);
     }
   }
-  return [];
+  return rows.map(row=>row.map(csvCell).join(',')).join('\r\n');
 }
 
 let context;
@@ -54,16 +83,7 @@ let snapshot;
 let pending;
 let lastView;
 
-export function relationId(value) {
-  const id = String(value);
-  return /^(?:1000000[57](?:[-_].*)?|(?:aether|lumine|traveler|voyageur|voyageuse)(?:[-_].*)?)$/i.test(id) ? '10000005' : id;
-}
-
-export function isTravelerVariant(character) {
-  return relationId(character.id ?? character._id) === '10000005' ||
-    /^(?:traveler|voyageur|voyageuse|aether|lumine)(?:$|[ ·_-])/i.test(character._name || character.name || '') ||
-    /^UI_AvatarIcon_Player(?:Boy|Girl)(?:$|_)/i.test(character.images?.filename_icon || '');
-}
+export { relationId, isTravelerVariant };
 const images = new Map();
 
 export function groupEvidence(evidence, ids) {
@@ -77,6 +97,86 @@ export function groupEvidence(evidence, ids) {
     edges.get(id).proofs.push(row);
   }
   return [...edges.values()];
+}
+
+export function relationRegionCoverage(people = [], edges = []) {
+  const regions = new Map();
+  const byId = new Map();
+  for (const person of Array.isArray(people) ? people : []) {
+    const region = person?.region || 'Autres';
+    byId.set(String(person?.id ?? person?._id), region);
+    if (!regions.has(region)) regions.set(region, { region, total: 0, linkedIds: new Set(), voiceIds: new Set(), storyIds: new Set() });
+    regions.get(region).total++;
+  }
+  for (const edge of Array.isArray(edges) ? edges : []) {
+    for (const id of [edge?.a, edge?.b]) {
+      const region = byId.get(String(id));
+      if (region) {
+        const bucket=regions.get(region);
+        bucket?.linkedIds.add(String(id));
+        if(edge.proofs?.some(proof=>proof.kind==='voice'))bucket?.voiceIds.add(String(id));
+        if(edge.proofs?.some(proof=>proof.kind==='story'))bucket?.storyIds.add(String(id));
+      }
+    }
+  }
+  return [...regions.values()].map(({ region, total, linkedIds, voiceIds, storyIds }) => ({
+    region, total, linked: linkedIds.size, isolated: Math.max(0, total - linkedIds.size),
+    voiceLinked: voiceIds.size, storyLinked: storyIds.size,
+    bothSources: [...voiceIds].filter(id=>storyIds.has(id)).length,
+    percent: total ? Math.round(linkedIds.size / total * 100) : 0
+  })).sort((a, b) => {
+    const ai = regionOrder.indexOf(a.region), bi = regionOrder.indexOf(b.region);
+    return (ai < 0 ? regionOrder.length : ai) - (bi < 0 ? regionOrder.length : bi) || a.region.localeCompare(b.region, 'fr');
+  });
+}
+
+export function nearestRelationNeighbor(points, currentId, direction) {
+  const delta = ({ ArrowRight: [1, 0], ArrowLeft: [-1, 0], ArrowDown: [0, 1], ArrowUp: [0, -1] })[direction];
+  if (!delta) return '';
+  const rows = points instanceof Map ? [...points.values()] : Array.isArray(points) ? points : [];
+  const current = rows.find(point => String(point?.c?.id ?? point?.id) === String(currentId));
+  if (!current) return '';
+  const [dx, dy] = delta;
+  let best = null;
+  for (const candidate of rows) {
+    if (candidate === current) continue;
+    const x = Number(candidate.x) - Number(current.x), y = Number(candidate.y) - Number(current.y);
+    const forward = x * dx + y * dy, lateral = Math.abs(x * -dy + y * dx);
+    if (!(forward > 0)) continue;
+    const score = forward + lateral * 1.45;
+    if (!best || score < best.score) best = { id: String(candidate?.c?.id ?? candidate?.id ?? ''), score };
+  }
+  return best?.id || '';
+}
+
+export function closestRelationLeads(edges = [], selected = []) {
+  return (Array.isArray(selected) ? selected : []).map(from => {
+    const candidates = (Array.isArray(edges) ? edges : []).filter(edge => edge?.a === from || edge?.b === from)
+      .map(edge => ({ from, to: edge.a === from ? edge.b : edge.a, edge }))
+      .filter(row => row.to && !selected.includes(row.to))
+      .sort((a, b) => relationRank(b.edge.proofs || []).rank - relationRank(a.edge.proofs || []).rank ||
+        (Number(b.edge.weight) || b.edge.proofs?.length || 0) - (Number(a.edge.weight) || a.edge.proofs?.length || 0) || String(a.to).localeCompare(String(b.to)));
+    return candidates[0] || null;
+  }).filter(Boolean);
+}
+
+export function widenRelationCompareSettings(settings = {}) {
+  return { ...settings, region: '', regions: [], element: '', version: '', owned: false,
+    npc: true, source: 'all', direction: 'all', min: 1 };
+}
+
+export function relationProofBalance(proofs = [], a = '', b = '') {
+  const voiceFrom = id => new Set((Array.isArray(proofs) ? proofs : [])
+    .filter(proof => proof?.kind === 'voice' && proof.scope !== 'collective' && proof.from === id && proof.id)
+    .map(proof => String(proof.id)));
+  const left = voiceFrom(a), right = voiceFrom(b);
+  return {
+    voiceAB: left.size,
+    voiceBA: right.size,
+    voiceMutual: [...left].filter(id => right.has(id)).length,
+    storyScenes: new Set((Array.isArray(proofs) ? proofs : [])
+      .filter(proof => proof?.kind === 'story' && proof.id).map(proof => String(proof.id))).size
+  };
 }
 
 export async function documentedRelationPairs(ids) {
@@ -96,6 +196,16 @@ function getSnapshot() {
 export function renderRelations(data) {
   context = data;
   return '<astralis-relations></astralis-relations>';
+}
+
+export function filterRelationList(edges,characters,query='',selected=[]){
+  const needle=normalize(String(query||'').trim()),ids=new Set(selected);
+  return (Array.isArray(edges)?edges:[]).filter(edge=>!ids.size||ids.has(edge.a)||ids.has(edge.b)).filter(edge=>{
+    if(!needle)return true;
+    const names=[characters.get(edge.a)?.name,characters.get(edge.b)?.name];
+    const proofText=(edge.proofs||[]).flatMap(proof=>[proof.title,proof.quote,proof.reply,proof.quest,proof.source,proof.id,proof.kind,proof.lang]);
+    return normalize([...names,...proofText].filter(Boolean).join(' ')).includes(needle);
+  });
 }
 
 function options(values, selected) {
@@ -183,6 +293,7 @@ class Relations extends (globalThis.HTMLElement || class {}) {
     this.zoom=Math.max(.75,Math.min(3,Number(camera.get('cameraZoom'))||1));
     this.pan=[Number(camera.get('panX'))||0,Number(camera.get('panY'))||0];
     this.query = '';
+    this.listQuery = '';
     if (lastView?.hash === location.hash) {
       this.selected = lastView.selected;
       this.query = lastView.query;
@@ -233,11 +344,11 @@ class Relations extends (globalThis.HTMLElement || class {}) {
         <div class="relations-tools">
           <button type="button" class="relations-clear-selection" data-rel-action="clear" disabled>Effacer la sélection</button>
           <button type="button" data-rel-action="toggleConnection">Répliques / Connexions</button><button type="button" data-rel-action="list">Anneau / Liste</button>
-          <button type="button" data-rel-action="share">Copier le lien</button>
+          <button type="button" data-rel-action="share">Copier le lien</button><button type="button" data-rel-action="csv">Exporter les liens CSV</button>
           <button type="button" data-rel-action="png">PNG</button>
           <button type="button" data-rel-action="zoomOut" aria-label="Dézoomer">−</button><button type="button" data-rel-action="zoomIn" aria-label="Zoomer">+</button><button type="button" data-rel-action="resetView">Recentrer</button>
           <details class="relations-settings"><summary>Réglages</summary><div data-rel-settings></div></details>
-          <details><summary>Aide</summary><p>Survole un portrait pour éclairer ses liens. Molette ou pincement pour zoomer. Glisse le fond pour déplacer la carte.</p></details>
+          <details><summary>Aide</summary><p>Survole un portrait pour éclairer ses liens. Sur un portrait, les flèches déplacent le focus vers le voisin visible dans cette direction; Entrée ou Espace ouvre sa fiche. Molette ou pincement pour zoomer. Glisse le fond pour déplacer la carte. Raccourcis : / rechercher · + et − zoomer · 0 recentrer · Échap effacer la sélection.</p></details>
           <button type="button" data-rel-action="report">Signaler une preuve</button>
         </div>
         <div class="relations-board"><canvas width="1000" height="1000" aria-label="Carte du réseau"></canvas><div class="relations-orbits" aria-hidden="true">
@@ -264,10 +375,21 @@ class Relations extends (globalThis.HTMLElement || class {}) {
       this.clearSelection();
     });
     this.addEventListener('keydown', event => {
-      if (event.key !== 'Escape' || this.duoDialog.open || !this.selected.length) return;
+      const node=event.target.closest('.relations-board [data-rel-select]');
+      if(node&&['ArrowRight','ArrowLeft','ArrowUp','ArrowDown'].includes(event.key)){
+        const next=nearestRelationNeighbor(this.points,node.dataset.relSelect,event.key);
+        if(next){event.preventDefault();this.querySelector(`.relations-board [data-rel-select="${CSS.escape(next)}"]`)?.focus({preventScroll:true});}
+        return;
+      }
+      const action=relationShortcutAction(event.key),editing=event.target.matches('input,textarea,select,[contenteditable="true"]');
+      if(action==='clear'){
+        if(this.duoDialog.open||!this.selected.length)return;
+        event.preventDefault();event.stopPropagation();this.clearSelection();return;
+      }
+      if(editing||!action)return;
       event.preventDefault();
-      event.stopPropagation();
-      this.clearSelection();
+      if(action==='focusSearch')this.querySelector('[data-rel-query]').focus({preventScroll:true});
+      else this.action(action);
     });
     const team = this.querySelector('[data-rel-setting=team]');
     team.innerHTML = options({'':'Aucune', custom:'Composition libre',...Object.fromEntries(this.context.teams.map(t=>[t.id,t.name]))},this.settings.team);
@@ -275,6 +397,15 @@ class Relations extends (globalThis.HTMLElement || class {}) {
       `<label><input type="checkbox" data-rel-member="${escape(c.id)}" ${this.composed.has(c.id)?'checked':''}> ${escape(c.name)}</label>`).join('');
     this.renderSettings();
     this.addEventListener('input', event => {
+      if (event.target.matches('[data-rel-list-query]')) {
+        this.listQuery=event.target.value;
+        const caret=event.target.selectionStart;
+        this.renderList();
+        const field=this.querySelector('[data-rel-list-query]');
+        field?.focus({preventScroll:true});
+        if(caret!=null)field?.setSelectionRange(caret,caret);
+        return;
+      }
       if (!event.target.matches('[data-rel-query]')) return;
       this.query = normalize(event.target.value.trim());
       this.rememberView();
@@ -312,6 +443,10 @@ class Relations extends (globalThis.HTMLElement || class {}) {
       } else if (button.dataset.relQuest) {
         this.settings.played = [...new Set([...this.settings.played, button.dataset.relQuest])];
         this.update();
+      } else if (button.hasAttribute('data-rel-copy')) {
+        const label=button.textContent;
+        if(!navigator.clipboard?.writeText){button.textContent='Presse-papiers indisponible';return;}
+        navigator.clipboard.writeText(button.dataset.relCopy||'').then(()=>{button.textContent='Référence copiée ✓';setTimeout(()=>{if(button.isConnected)button.textContent=label;},1600);}).catch(()=>{button.textContent='Copie indisponible';setTimeout(()=>{if(button.isConnected)button.textContent=label;},1600);});
       }
     });
     this.bindPointer();
@@ -374,7 +509,9 @@ class Relations extends (globalThis.HTMLElement || class {}) {
     }));
     const pathEdges = this.visibleEdges.filter(edge =>
       this.selected.includes('10000005') || (edge.a !== '10000005' && edge.b !== '10000005'));
-    this.path = shortestRelationPath(pathEdges,...this.selected);
+    this.paths = shortestRelationPaths(pathEdges,...this.selected,8);
+    this.pathIndex = Math.min(this.pathIndex||0,Math.max(0,this.paths.length-1));
+    this.path = this.paths[this.pathIndex] || [];
     this.pathEdges = new Set(this.path.slice(1).map((id,i)=>pair(this.path[i],id)));
     this.teamIds = s.team === 'custom' ? this.composed : new Set(this.context.teams.find(t=>t.id===s.team)?.members || []);
     this.dataset.theme = s.theme;
@@ -686,7 +823,8 @@ class Relations extends (globalThis.HTMLElement || class {}) {
     const from=row.originalFrom==='paimon'?'Paimon':this.characters.get(row.from)?.name || row.from;
     const voice = row.audioByLanguage?.[this.settings.voiceLang] || (this.settings.voiceLang === 'en' ? row.audio : '');
     const audio = /^https:\/\/static\.wikia\.nocookie\.net\//.test(voice || '') ? voice : '';
-    return `<figure><figcaption>${row.scope==='collective'?'Mention collective des Sept · ':row.summary?'Résumé sourcé · ':row.kind==='story'?'Scène · ':'Voix · '}${escape(from)} · ${escape(row.title)} · ${escape(row.lang.toUpperCase())}</figcaption><blockquote>${escape(row.quote)}</blockquote>${row.reply?`<blockquote><b>${escape(this.characters.get(row.to)?.name)}.</b> ${escape(row.reply)}</blockquote>`:''}${row.quest&&!this.settings.played.includes(row.quest)?`<button type="button" data-rel-quest="${escape(row.quest)}">Marquer la quête jouée</button>`:''}${audio?`<audio controls preload="none" src="${escape(audio)}" aria-label="Écouter la réplique originale"></audio>`:''}${source?`<a href="${escape(source)}" target="_blank" rel="noopener noreferrer">Source · ${escape(row.id)}</a>`:''}</figure>`;
+    const citation=formatRelationCitation(row,from,this.characters.get(row.to)?.name||row.to||'');
+    return `<figure><figcaption>${row.scope==='collective'?'Mention collective des Sept · ':row.summary?'Résumé sourcé · ':row.kind==='story'?'Scène · ':'Voix · '}${escape(from)} · ${escape(row.title)} · ${escape(row.lang.toUpperCase())}</figcaption><blockquote>${escape(row.quote)}</blockquote>${row.reply?`<blockquote><b>${escape(this.characters.get(row.to)?.name)}.</b> ${escape(row.reply)}</blockquote>`:''}${row.quest&&!this.settings.played.includes(row.quest)?`<button type="button" data-rel-quest="${escape(row.quest)}">Marquer la quête jouée</button>`:''}${audio?`<audio controls preload="none" src="${escape(audio)}" aria-label="Écouter la réplique originale"></audio>`:''}${source?`<a href="${escape(source)}" target="_blank" rel="noopener noreferrer">Source · ${escape(row.id)}</a>`:''}<button type="button" data-rel-copy="${escape(citation)}" aria-label="Copier la référence de ${escape(row.title)}">Copier la référence</button></figure>`;
   }
 
   avatar(character, className='') {
@@ -696,17 +834,13 @@ class Relations extends (globalThis.HTMLElement || class {}) {
   }
 
   renderRegions() {
-    const regions = new Map();
-    for (const character of this.characters.values()) {
-      if (character.npc&&!this.settings.npc) continue;
-      const region = character.region || 'Autres';
-      regions.set(region,(regions.get(region)||0)+1);
-    }
+    const people = [...this.characters.values()].filter(character => !character.npc || this.settings.npc);
+    const regions = relationRegionCoverage(people, this.visibleEdges);
     const host=this.querySelector('[data-rel-regions]');
     host.innerHTML = '<button type="button" data-rel-region="">✧ Toutes les régions</button>' +
-      [...regions].sort(([a],[b]) => regionOrder.indexOf(a)-regionOrder.indexOf(b)).map(([name,count])=>{
-        const icon=regionIcon(name);
-        return `<button type="button" data-rel-region="${escape(name)}" aria-pressed="${(this.settings.regions||[this.settings.region]).includes(name)}">${icon?`<img src="${icon}" alt="">`:'<span aria-hidden="true">✧</span>'}<span>${escape(name)}</span><small>${count}</small></button>`;
+      regions.map(({region,total,linked,isolated,voiceLinked,storyLinked,bothSources,percent})=>{
+        const icon=regionIcon(region);
+        return `<button type="button" data-rel-region="${escape(region)}" aria-label="${escape(region)} · ${linked} profils reliés sur ${total}, ${isolated} sans preuve locale · ${voiceLinked} avec voix · ${storyLinked} avec histoire" aria-pressed="${(this.settings.regions||[this.settings.region]).includes(region)}" title="${linked}/${total} profils avec au moins une preuve locale · ${isolated} sans preuve locale · ${voiceLinked} avec voix · ${storyLinked} avec histoire · ${bothSources} avec les deux sources · ${percent}% de couverture">${icon?`<img src="${icon}" alt="">`:'<span aria-hidden="true">✧</span>'}<span>${escape(region)}</span><small class="relations-region-coverage"><b>${linked}/${total}</b><i>${voiceLinked} voix · ${storyLinked} lore</i></small></button>`;
       }).join('');
   }
 
@@ -718,10 +852,28 @@ class Relations extends (globalThis.HTMLElement || class {}) {
       const proofs=proofsForMode(edge.proofs,this.settings.connectionMode);
       return {...edge,proofs,weight:new Set(proofs.map(row=>row.id)).size};
     }).filter(edge=>edge.weight).sort((x,y)=>relationRank(y.proofs).rank-relationRank(x.proofs).rank||y.weight-x.weight);
+    const networkStats=id=>{
+      const incoming=new Set(),outgoing=new Set(),directions=new Map();
+      for(const edge of this.visibleEdges){
+        if(![edge.a,edge.b].includes(id))continue;
+        for(const proof of edge.proofs){
+          if(proof.from!==id&&proof.to!==id)continue;
+          const peer=proof.from===id?proof.to:proof.from;
+          if(!peer||peer===id)continue;
+          const direction=proof.from===id?'out':'in';
+          (direction==='out'?outgoing:incoming).add(proof.id);
+          if(!directions.has(peer))directions.set(peer,new Set());
+          directions.get(peer).add(direction);
+        }
+      }
+      return {incoming:incoming.size,outgoing:outgoing.size,mutual:[...directions.values()].filter(value=>value.size===2).length};
+    };
     const dossier=id=>{
       const c=this.characters.get(id);
+      const stats=networkStats(id);
+      const referenceStories=!c.npc?['en','zh','ja','ko'].map(lang=>({lang,url:referenceStoryUrl(c.name,lang)})).filter(row=>row.url):[];
       const wiki=c.page?'https://genshin-impact.fandom.com/wiki/'+encodeURIComponent(c.page.replaceAll(' ','_')):'';
-      return `<div class="relations-dossier">${this.avatar(c.dossierPortrait?{...c,portrait:c.dossierPortrait}:c)}<div><span class="relations-kicker">${c.npc?'FIGURE DU LORE':'PERSONNAGE'}</span><h3>${escape(c.name)}</h3><p>${escape([c.element,c.region||'Autres',c.faction].filter(Boolean).join(' · '))}</p>${c.page?`<a href="${escape(wiki)}" target="_blank" rel="noopener noreferrer">Dossier du lore ↗</a>`:`<button type="button" data-rel-detail="${escape(id)}">Fiche</button> <button type="button" data-rel-lore="${escape(id)}">Lore</button>`}</div></div>`;
+      return `<div class="relations-dossier">${this.avatar(c.dossierPortrait?{...c,portrait:c.dossierPortrait}:c)}<div><span class="relations-kicker">${c.npc?'FIGURE DU LORE':'PERSONNAGE'}</span><h3>${escape(c.name)}</h3><p>${escape([c.element,c.region||'Autres',c.faction].filter(Boolean).join(' · '))}</p>${c.page?`<a href="${escape(wiki)}" target="_blank" rel="noopener noreferrer">Dossier du lore ↗</a>`:`<button type="button" data-rel-detail="${escape(id)}">Fiche</button> <button type="button" data-rel-lore="${escape(id)}">Lore</button>`}${referenceStories.length?`<details class="relations-reference-stories"><summary>Récits publics · Ties</summary><p>Index narratif chargé à la source, séparément par personnage et langue.</p><nav aria-label="Récit public ${escape(c.name)}">${referenceStories.map(({lang,url})=>`<a data-rel-reference-story="${lang}" href="${escape(url)}" target="_blank" rel="noopener noreferrer">${({en:'English',zh:'中文',ja:'日本語',ko:'한국어'})[lang]} ↗</a>`).join('')}</nav></details>`:''}</div></div><div class="relations-character-metrics" aria-label="Activité relationnelle visible"><span><b>${stats.incoming}</b><small>preuves reçues</small></span><span><b>${stats.outgoing}</b><small>preuves émises</small></span><span><b>${stats.mutual}</b><small>liens réciproques</small></span></div>`;
     };
     const portraitButton=(id,label,extra='',hint='')=>{
       const c=this.characters.get(id);
@@ -735,16 +887,21 @@ class Relations extends (globalThis.HTMLElement || class {}) {
       duo+='<div class="relations-duo">'+dossier(a)+dossier(b)+'</div>';
       if(edge){
         const proofs=this.localProofs(edge);
+        const balance=relationProofBalance(proofs,a,b);
         const columns = [
           [this.characters.get(a).name + ' → ' + this.characters.get(b).name, proofs.filter(row=>row.kind==='voice'&&row.from===a)],
           [this.characters.get(b).name + ' → ' + this.characters.get(a).name, proofs.filter(row=>row.kind==='voice'&&row.from===b)],
           ['Scènes et sources publiques',proofs.filter(row=>row.kind==='story')]
         ].filter(([,rows])=>rows.length);
-        duo+=`<h3 class="relations-section-title">Relation directe <small>${edge.weight} preuves</small></h3>
+        duo+=`<h3 class="relations-section-title">Relation directe <small>${edge.weight} preuves</small></h3><p class="relations-proof-balance"><span><b>${balance.voiceAB}</b> voix · ${escape(this.characters.get(a).name)} → ${escape(this.characters.get(b).name)}</span><span><b>${balance.voiceBA}</b> voix · ${escape(this.characters.get(b).name)} → ${escape(this.characters.get(a).name)}</span><span><b>${balance.voiceMutual}</b> échanges réciproques</span><span><b>${balance.storyScenes}</b> scènes d’histoire</span></p>
           <div class="relations-duo-proofs">${columns.map(([title,rows])=>`<section><h4>${escape(title)}</h4>${rows.map(row=>this.proof(row)).join('')}</section>`).join('')}</div>`;
       }else if(this.path.length>2){
-        duo+=`<h3 class="relations-section-title">Chemin le plus court <small>${this.path.length-1} liens</small></h3><p>Chaque étape correspond à une relation attestée.</p><ol class="relations-path">${this.path.map(id=>`<li>${portraitButton(id)}</li>`).join('')}</ol>`;
-      }else duo+='<p>Aucun chemin attesté avec les filtres actuels.</p>';
+        duo+=`<h3 class="relations-section-title">Chemin le plus court <small>${this.path.length-1} liens</small></h3><p>Itinéraire ${this.pathIndex+1} sur ${this.paths.length}. Chaque étape correspond à une relation attestée; les chemins de même longueur restent consultables.</p>${this.paths.length>1?`<button type="button" class="relations-next-path" data-rel-action="nextPath" aria-label="Afficher l’itinéraire suivant">Autre itinéraire <span>${this.pathIndex+1}/${this.paths.length}</span> ↗</button>`:''}<ol class="relations-path">${this.path.map(id=>`<li>${portraitButton(id)}</li>`).join('')}</ol>`;
+      }else{
+        const leads=closestRelationLeads(this.visibleEdges,[a,b]);
+        duo+=leads.length?`<h3 class="relations-section-title">Pistes documentées proches</h3><p class="relations-nearby-note">Aucun chemin n’est visible entre ces deux personnages avec les filtres actuels. Voici, pour chacun, son lien documenté le plus fort à explorer; ces pistes ne créent pas de relation entre eux.</p><div class="relations-nearby-leads">${leads.map(lead=>{const edge=lead.edge,proof=this.localProofs(edge)[0];return `<article><small>Depuis ${escape(this.characters.get(lead.from)?.name||lead.from)}</small>${portraitButton(lead.to,'',`${relationRank(edge.proofs).diamonds} · ${edge.weight} preuves`,proof?.quote||'')} ${proof?this.proof(proof):''}</article>`}).join('')}</div>`:'<p>Aucun chemin ni lien adjacent visible avec les filtres actuels.</p>';
+        duo+=`<button type="button" class="relations-widen-compare" data-rel-action="widenCompare">Vérifier avec les filtres élargis</button><small class="relations-widen-note">Élargit région, élément, version, possession, source et direction. Les spoilers restent masqués selon tes réglages.</small>`;
+      }
       result+=dossier(a)+'<button type="button" data-rel-action="showDuo">Rouvrir l’association</button>';
     }else if(a){
       result+=dossier(a)+`<h3 class="relations-section-title">Relations visibles <small>${links.length}</small></h3>`+
@@ -773,8 +930,8 @@ class Relations extends (globalThis.HTMLElement || class {}) {
   }
 
   renderList() {
-    const rows=this.visibleEdges.filter(e=>!this.selected.length||this.selected.includes(e.a)||this.selected.includes(e.b)).sort((a,b)=>this.listOrder==='name'?this.characters.get(a.a).name.localeCompare(this.characters.get(b.a).name,'fr'):b.weight-a.weight);
-    this.querySelector('[data-rel-list]').innerHTML=rows.length?`<table><thead><tr><th><button type="button" data-rel-action="sortName">Personnage ↕</button></th><th>Relation</th><th><button type="button" data-rel-action="sortWeight">Preuves ↕</button></th></tr></thead><tbody>${rows.map(e=>`<tr><td><button type="button" data-rel-select="${escape(e.a)}">${escape(this.characters.get(e.a).name)}</button></td><td><button type="button" data-rel-select="${escape(e.b)}">${escape(this.characters.get(e.b).name)}</button></td><td>${e.weight}</td></tr>`).join('')}</tbody></table>`:'<p>Aucun lien pour ces filtres.</p>';
+    const rows=filterRelationList(this.visibleEdges,this.characters,this.listQuery,this.selected).sort((a,b)=>this.listOrder==='name'?this.characters.get(a.a).name.localeCompare(this.characters.get(b.a).name,'fr'):b.weight-a.weight);
+    this.querySelector('[data-rel-list]').innerHTML=`<label class="relations-list-search">Filtrer les liens et leurs preuves<input type="search" data-rel-list-query value="${escape(this.listQuery)}" placeholder="Personnage, réplique, quête ou source"><small>${rows.length} relation(s) affichée(s)</small></label>${rows.length?`<table><thead><tr><th><button type="button" data-rel-action="sortName">Personnage ↕</button></th><th>Relation</th><th><button type="button" data-rel-action="sortWeight">Preuves ↕</button></th></tr></thead><tbody>${rows.map(e=>`<tr><td><button type="button" data-rel-select="${escape(e.a)}">${escape(this.characters.get(e.a).name)}</button></td><td><button type="button" data-rel-select="${escape(e.b)}">${escape(this.characters.get(e.b).name)}</button></td><td>${e.weight}</td></tr>`).join('')}</tbody></table>`:`<p>${this.listQuery?'Aucune preuve locale ne correspond à cette recherche.':'Aucun lien pour ces filtres.'}</p>`}`;
   }
 
   clearSelection() {
@@ -797,6 +954,14 @@ class Relations extends (globalThis.HTMLElement || class {}) {
 
   async action(name) {
     const message=this.querySelector('[data-rel-message]');
+    if(name==='nextPath'&&this.paths?.length>1){this.pathIndex=(this.pathIndex+1)%this.paths.length;this.path=this.paths[this.pathIndex];this.pathEdges=new Set(this.path.slice(1).map((id,i)=>pair(this.path[i],id)));this.renderInfo();this.schedule();}
+    if(name==='widenCompare'){
+      this.settings=widenRelationCompareSettings(this.settings);
+      this.renderSettings();
+      this.querySelector('[data-rel-setting=team]').value=this.settings.team;
+      this.rememberView();
+      this.update();
+    }
     if(name==='sortName'||name==='sortWeight'){this.listOrder=name==='sortName'?'name':'weight';this.renderList();}
     if(['connectionMode','voiceMode','loreMode','toggleConnection'].includes(name)){
       const mode=name==='toggleConnection'?(this.settings.connectionMode==='voice'?'connection':'voice'):name==='voiceMode'?'voice':name==='loreMode'?'lore':'connection';
@@ -829,6 +994,13 @@ class Relations extends (globalThis.HTMLElement || class {}) {
       this.rememberView();
       try{await navigator.clipboard.writeText(url.href);message.textContent='Lien copié.';}
       catch{message.textContent='Lien disponible dans la barre d’adresse.';}
+    }
+    if(name==='csv'){
+      if(!this.visibleEdges.length){message.textContent='Aucun lien visible à exporter. Élargis les filtres puis réessaie.';return;}
+      const names=new Map([...this.characters].map(([id,person])=>[id,person.name]));
+      const csv='\ufeff'+relationEvidenceCsv(this.visibleEdges,names),url=URL.createObjectURL(new Blob([csv],{type:'text/csv;charset=utf-8'})),link=document.createElement('a');
+      link.href=url;link.download=`astralis-relations-${new Date().toLocaleDateString('sv-SE')}.csv`;link.click();setTimeout(()=>URL.revokeObjectURL(url),1000);
+      message.textContent=`${this.visibleEdges.reduce((sum,edge)=>sum+edge.proofs.length,0)} références exportées · filtres actuels appliqués.`;
     }
     if(name==='png'){
       const render=()=>{const canvas=document.createElement('canvas');canvas.width=canvas.height=2000;this.draw(canvas,true);return canvas;};

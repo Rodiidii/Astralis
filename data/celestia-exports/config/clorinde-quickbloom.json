@@ -68,7 +68,7 @@
       "description": ""
     },
     {
-      "weight": 0.4973,
+      "weight": 0.5281,
       "path": [
         "skill",
         "piercingDmg"
@@ -175,7 +175,7 @@
       "description": ""
     },
     {
-      "weight": 0.4973,
+      "weight": 0.5222,
       "path": [
         "skill",
         "piercingDmg"
@@ -790,22 +790,6 @@
       "description": ""
     },
     {
-      "weight": 0.0308,
-      "path": [
-        "skill",
-        "piercingDmg"
-      ],
-      "hitMode": "avgHit",
-      "bonusStats": {
-        "atk_": 20,
-        "eleMas": 239.751,
-        "all_dmgInc": 1622.031,
-        "critRate_": 20,
-        "all_dmg_": 64.24
-      },
-      "description": ""
-    },
-    {
       "weight": 0.4973,
       "path": [
         "skill",
@@ -837,7 +821,7 @@
       "description": ""
     },
     {
-      "weight": 0.5066,
+      "weight": 0.535,
       "path": [
         "skill",
         "thrust3Dmg"
@@ -886,7 +870,7 @@
       "description": ""
     },
     {
-      "weight": 0.4973,
+      "weight": 0.5346,
       "path": [
         "skill",
         "piercingDmg"
@@ -1279,22 +1263,6 @@
       "description": ""
     },
     {
-      "weight": 0.0373,
-      "path": [
-        "skill",
-        "piercingDmg"
-      ],
-      "hitMode": "avgHit",
-      "bonusStats": {
-        "atk_": 20,
-        "eleMas": 239.751,
-        "all_dmgInc": 1622.031,
-        "critRate_": 20,
-        "all_dmg_": 102
-      },
-      "description": ""
-    },
-    {
       "weight": 0.4973,
       "path": [
         "skill",
@@ -1564,21 +1532,6 @@
       "description": ""
     },
     {
-      "weight": 0.0249,
-      "path": [
-        "skill",
-        "piercingDmg"
-      ],
-      "hitMode": "avgHit",
-      "bonusStats": {
-        "atk_": 20,
-        "all_dmgInc": 1622.031,
-        "critRate_": 20,
-        "all_dmg_": 131.13
-      },
-      "description": ""
-    },
-    {
       "weight": 0.1762,
       "path": [
         "burst",
@@ -1624,22 +1577,6 @@
         "all_dmgInc": 1622.031,
         "critRate_": 20,
         "all_dmg_": 64.24
-      },
-      "description": ""
-    },
-    {
-      "weight": 0.0284,
-      "path": [
-        "skill",
-        "thrust3Dmg"
-      ],
-      "hitMode": "avgHit",
-      "bonusStats": {
-        "atk_": 20,
-        "eleMas": 239.751,
-        "all_dmgInc": 1622.031,
-        "critRate_": 20,
-        "all_dmg_": 102
       },
       "description": ""
     },
@@ -1774,7 +1711,7 @@
       "description": ""
     },
     {
-      "weight": 0.744,
+      "weight": 0.7536,
       "path": [
         "reaction",
         "hyperbloom"
@@ -1811,19 +1748,6 @@
         "atk_": 20,
         "eleMas": 239.751,
         "critRate_": 20,
-        "dendro_enemyRes_": -30
-      },
-      "description": ""
-    },
-    {
-      "weight": 0.0097,
-      "path": [
-        "reaction",
-        "hyperbloom"
-      ],
-      "hitMode": "avgHit",
-      "bonusStats": {
-        "atk_": 20,
         "dendro_enemyRes_": -30
       },
       "description": ""

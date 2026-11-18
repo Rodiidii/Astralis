@@ -1,7 +1,7 @@
 {
   "name": "SSC",
   "description": "Celestia",
-  "lastEdit": 1794349048537,
+  "lastEdit": 1794890263071,
   "conditional": {
     "resonance": {},
     "reaction": {}
@@ -46,21 +46,6 @@
           "description": "Celestia",
           "targets": [
             {
-              "weight": 1,
-              "path": [
-                "skill",
-                "riteDmg"
-              ],
-              "hitMode": "avgHit",
-              "bonusStats": {
-                "eleMas": 300,
-                "atk_": 70.032,
-                "atk": 749.188,
-                "all_dmg_": 35
-              },
-              "description": ""
-            },
-            {
               "weight": 2,
               "path": [
                 "burst",
@@ -385,6 +370,21 @@
                 "atk_": 70.032,
                 "atk": 749.188,
                 "stellarconduct_dmg_": 40
+              },
+              "description": ""
+            },
+            {
+              "weight": 1,
+              "path": [
+                "skill",
+                "riteDmg"
+              ],
+              "hitMode": "avgHit",
+              "bonusStats": {
+                "eleMas": 300,
+                "atk_": 70.032,
+                "atk": 749.188,
+                "all_dmg_": 35
               },
               "description": ""
             }

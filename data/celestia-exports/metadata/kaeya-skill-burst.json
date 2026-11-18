@@ -24,30 +24,12 @@
     "source": "ceilingStandard"
   },
   "goConditions": null,
-  "characterBonusStats": {
-    "atk_": 25,
-    "atk": 548.791
-  },
+  "characterBonusStats": null,
   "enemy": {
     "level": 100,
     "res": 0.1
   },
   "issues": [
-    {
-      "code": "characterBonusStats",
-      "stats": [
-        {
-          "buff": "Pyro Resonance",
-          "key": "atk_",
-          "value": 25
-        },
-        {
-          "buff": "Grace of Kenosis (% of Nicole's ATK)",
-          "key": "atk",
-          "value": 548.7914632081548
-        }
-      ]
-    },
     {
       "code": "setEffects",
       "setIds": [

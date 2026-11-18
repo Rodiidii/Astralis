@@ -230,7 +230,7 @@
       "description": ""
     },
     {
-      "weight": 0.9785,
+      "weight": 1.0861,
       "path": [
         "skill",
         "chargedCyclicDmg"
@@ -289,39 +289,6 @@
         "atk_": 20,
         "pyro_enemyRes_": -36,
         "all_dmg_": 12.58,
-        "critRate_": -40
-      },
-      "description": ""
-    },
-    {
-      "weight": 0.0489,
-      "path": [
-        "skill",
-        "chargedCyclicDmg"
-      ],
-      "hitMode": "avgHit",
-      "bonusStats": {
-        "atk_": 12.5,
-        "atk": 1050.758,
-        "all_dmgInc": 8489.351,
-        "pyro_enemyRes_": -36,
-        "all_dmg_": 137.41
-      },
-      "description": ""
-    },
-    {
-      "weight": 0.0587,
-      "path": [
-        "skill",
-        "chargedCyclicDmg"
-      ],
-      "hitMode": "avgHit",
-      "bonusStats": {
-        "atk_": 12.5,
-        "atk": 1050.758,
-        "all_dmgInc": 8489.351,
-        "pyro_enemyRes_": -36,
-        "all_dmg_": 144.03,
         "critRate_": -40
       },
       "description": ""

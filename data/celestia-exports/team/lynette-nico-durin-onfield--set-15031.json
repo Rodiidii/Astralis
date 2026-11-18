@@ -1,7 +1,7 @@
 {
   "name": "Hex Combo",
   "description": "Celestia",
-  "lastEdit": 1794351133195,
+  "lastEdit": 1794890309549,
   "conditional": {
     "resonance": {},
     "reaction": {}
@@ -29,8 +29,8 @@
       "bonusStats": {},
       "conditional": {
         "Lynette": {
-          "burstAbsorb": "pyro",
-          "c6AfterThrust": "on"
+          "c6AfterThrust": "on",
+          "burstAbsorb": "pyro"
         }
       },
       "customMultiTargets": [
@@ -38,20 +38,6 @@
           "name": "Hex Combo",
           "description": "Celestia",
           "targets": [
-            {
-              "weight": 0.128,
-              "path": [
-                "burst",
-                "shotDmg"
-              ],
-              "hitMode": "avgHit",
-              "bonusStats": {
-                "pyro_enemyRes_": -75,
-                "all_dmg_": 40,
-                "critRate_": 36
-              },
-              "description": ""
-            },
             {
               "weight": 1,
               "path": [
@@ -1099,6 +1085,20 @@
               "bonusStats": {
                 "atk": 848.791,
                 "pyro_enemyRes_": -75,
+                "critRate_": 36
+              },
+              "description": ""
+            },
+            {
+              "weight": 0.128,
+              "path": [
+                "burst",
+                "shotDmg"
+              ],
+              "hitMode": "avgHit",
+              "bonusStats": {
+                "pyro_enemyRes_": -75,
+                "all_dmg_": 40,
                 "critRate_": 36
               },
               "description": ""

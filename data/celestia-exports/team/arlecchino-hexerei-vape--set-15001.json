@@ -1,7 +1,7 @@
 {
   "name": "Hexerei Vape",
   "description": "Celestia",
-  "lastEdit": 1794350945654,
+  "lastEdit": 1794890124859,
   "conditional": {
     "resonance": {},
     "reaction": {}
@@ -457,7 +457,7 @@
               "description": ""
             },
             {
-              "weight": 2.3909,
+              "weight": 2.439,
               "path": [
                 "reaction",
                 "overloaded"
@@ -512,80 +512,6 @@
                 "eleMas": 260,
                 "atk_": 81.884,
                 "atk": 751.893,
-                "critRate_": 15
-              },
-              "description": ""
-            },
-            {
-              "weight": 0.0096,
-              "path": [
-                "reaction",
-                "overloaded"
-              ],
-              "hitMode": "avgHit",
-              "bonusStats": {
-                "eleMas": 80,
-                "atk_": 81.884,
-                "atk": 751.893,
-                "critRate_": 15
-              },
-              "description": ""
-            },
-            {
-              "weight": 0.0096,
-              "path": [
-                "reaction",
-                "overloaded"
-              ],
-              "hitMode": "avgHit",
-              "bonusStats": {
-                "eleMas": 80,
-                "atk_": 81.884,
-                "atk": 751.893,
-                "critRate_": 15
-              },
-              "description": ""
-            },
-            {
-              "weight": 0.0096,
-              "path": [
-                "reaction",
-                "overloaded"
-              ],
-              "hitMode": "avgHit",
-              "bonusStats": {
-                "eleMas": 260,
-                "atk_": 81.884,
-                "atk": 175.897,
-                "critRate_": 15
-              },
-              "description": ""
-            },
-            {
-              "weight": 0.0096,
-              "path": [
-                "reaction",
-                "overloaded"
-              ],
-              "hitMode": "avgHit",
-              "bonusStats": {
-                "atk_": 81.884,
-                "atk": 751.893,
-                "critRate_": 15
-              },
-              "description": ""
-            },
-            {
-              "weight": 0.0096,
-              "path": [
-                "reaction",
-                "overloaded"
-              ],
-              "hitMode": "avgHit",
-              "bonusStats": {
-                "eleMas": 260,
-                "atk_": 81.884,
-                "atk": 175.897,
                 "critRate_": 15
               },
               "description": ""

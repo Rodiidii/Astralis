@@ -313,20 +313,6 @@
       "description": ""
     },
     {
-      "weight": 0.0328,
-      "path": [
-        "reaction",
-        "shattered"
-      ],
-      "hitMode": "avgHit",
-      "bonusStats": {
-        "atk_": 60,
-        "critRate_": 51,
-        "physical_enemyRes_": -90
-      },
-      "description": ""
-    },
-    {
       "weight": 0.3169,
       "path": [
         "reaction",
@@ -341,7 +327,7 @@
       "description": ""
     },
     {
-      "weight": 0.7104,
+      "weight": 0.7432,
       "path": [
         "reaction",
         "shattered"
@@ -355,7 +341,7 @@
       "description": ""
     },
     {
-      "weight": 0.9844,
+      "weight": 1,
       "path": [
         "reaction",
         "superconduct"
@@ -363,19 +349,6 @@
       "hitMode": "avgHit",
       "bonusStats": {
         "atk_": 60,
-        "critRate_": 51
-      },
-      "description": ""
-    },
-    {
-      "weight": 0.0156,
-      "path": [
-        "reaction",
-        "superconduct"
-      ],
-      "hitMode": "avgHit",
-      "bonusStats": {
-        "atk_": 40,
         "critRate_": 51
       },
       "description": ""

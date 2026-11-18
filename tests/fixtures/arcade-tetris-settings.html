@@ -1,0 +1,4 @@
+<!doctype html><html lang="fr"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><link rel="stylesheet" href="../../styles/astral-arcade.css"><link rel="stylesheet" href="../../styles/arcade-contracts.css"><title>Réglages Tetris astral</title><main id="app"></main><script type="module">
+ import {renderAstralArcade,initAstralArcade,destroyAstralArcade} from '../../src/astral-arcade.js?v=20261116-lander-pause-1';
+ const app=document.querySelector('#app');app.innerHTML=renderAstralArcade('gi',[{name:'Venti',element:'Anemo',icon:'/assets/app-icon.svg'},{name:'Zhongli',element:'Geo',icon:'/assets/app-icon.svg'}]);initAstralArcade('gi');window.cleanup=destroyAstralArcade;
+</script></html>

@@ -1,5 +1,5 @@
 import {createSpaceEffects} from './space-effects.js';
-let currentHost,lastGame,exploring=false,flying=false,clock=0,panelSide='right',cachedConfig={},configAt=0,resize,stageObserver,layoutMetrics={};
+let currentHost,lastGame,exploring=false,flying=false,orbitTick=0,panelSide='right',cachedConfig={},configAt=0,resize,stageObserver,layoutMetrics={};
 const phases=new Map();let interactionUntil=0,heldId='';
 const reduced=()=>matchMedia('(prefers-reduced-motion: reduce)').matches;
 function settings(host){try{return JSON.parse(localStorage.getItem(`astralis:cosmos:${host.dataset.studioGame}`)||'{}')}catch{return {}}}
@@ -48,21 +48,21 @@ export function leaveVoyage(){
  const host=document.querySelector('.dashboard-studio');exploring=false;flying=false;if(!host)return;host.dataset.exploring='false';host.dataset.flight='false';host.removeAttribute('aria-busy');host.querySelector(`[data-orbit-select="${host.dataset.orbitActive}"]`)?.focus({preventScroll:true});host.querySelector('.studio-toolbar')?.scrollIntoView({block:'start',behavior:reduced()?'instant':'smooth'});
 }
 function boot(){
- const host=document.querySelector('.dashboard-studio');if(host===currentHost)return;currentHost=host;configAt=0;layoutMetrics={};resize?.disconnect();stageObserver?.disconnect();if(!host)return;host.dataset.voyageWide=String(host.clientWidth-40>=760);resize=new ResizeObserver(([entry])=>host.dataset.voyageWide=String(entry.contentRect.width>=760));resize.observe(host);host._orbitVisible=true;const stage=host.querySelector('.orbit-stage');if(stage){stageObserver=new IntersectionObserver(entries=>host._orbitVisible=entries[0].isIntersecting);stageObserver.observe(stage);}
+ const host=document.querySelector('.dashboard-studio');if(host===currentHost)return;currentHost=host;configAt=0;layoutMetrics={};orbitTick=0;resize?.disconnect();stageObserver?.disconnect();if(!host)return;host.dataset.voyageWide=String(host.clientWidth-40>=760);resize=new ResizeObserver(([entry])=>host.dataset.voyageWide=String(entry.contentRect.width>=760));resize.observe(host);host._orbitVisible=true;const stage=host.querySelector('.orbit-stage');if(stage){for(const node of stage.querySelectorAll('.orbit-node')){const x=parseFloat(node.style.getPropertyValue('--node-x'))||50,y=parseFloat(node.style.getPropertyValue('--node-y'))||50;node.style.setProperty('--node-x',`${x*stage.clientWidth/100}px`);node.style.setProperty('--node-y',`${y*stage.clientHeight/100}px`);}stageObserver=new IntersectionObserver(entries=>host._orbitVisible=entries[0].isIntersecting);stageObserver.observe(stage);}
  if(lastGame!==host.dataset.studioGame){lastGame=host.dataset.studioGame;exploring=false;}else if(flying){exploring=true;flying=false;}host.dataset.exploring=String(exploring);host.dataset.flight='false';
  const header=document.createElement('header');header.className='voyage-destination';header.innerHTML='<button type="button" data-voyage-back>← Retour au système</button><div class="voyage-world-preview"></div><div class="voyage-world-caption"><small>ESCALE PERSONNELLE</small><h2></h2><p>Ton monde, tes outils.</p></div>';host.querySelector('.studio-canvas')?.before(header);
  const debris=document.createElement('div');debris.className='voyage-debris';debris.setAttribute('aria-hidden','true');debris.innerHTML=Array.from({length:66},(_,i)=>`<i style="--rock-x:${(i*47.31)%112-6}%;--rock-y:${i<44?22+(i*7.37)%42:(i*29)%100}%;--rock-size:${i%8===0?20:i%3===0?11:4+i%6}px;--rock-delay:-${i*2.3}s;--rock-duration:${42+i%9*7}s;--rock-opacity:${.4+i%5*.12}"></i>`).join('');host.prepend(debris);host.prepend(createSpaceEffects());if(heldId&&performance.now()<interactionUntil&&document.activeElement===document.body)host.querySelector('[data-orbit-select="'+heldId+'"]')?.focus({preventScroll:true});if(exploring)hero(host,host.dataset.orbitActive);
 }
 function orbit(now){
- boot();const host=currentHost,delta=clock?Math.min(34,now-clock):0;clock=now;
+ boot();const host=currentHost;if(!host?.isConnected)return;if(orbitTick&&now-orbitTick<1000/30){requestAnimationFrame(orbit);return;}const delta=orbitTick?Math.min(66,now-orbitTick):0;orbitTick=now;
  if(host?.isConnected&&!document.hidden){
   if(!configAt||now-configAt>250){cachedConfig=settings(host);configAt=now;host.dataset.asteroids=String(cachedConfig.asteroids!==false);}
   if(host._orbitVisible!==false&&host.dataset.editing!=='true'&&host.dataset.view==='orbit'&&host.dataset.exploring!=='true'&&host.dataset.flight!=='true'){
    const config=cachedConfig,free=config.freeOrbits===true,nodes=[...host.querySelectorAll('.orbit-node')],paused=config.motion===false||reduced(),speed=Math.max(.2,Math.min(3,Number(config.speed)||1));
    const blocked=new Set(nodes.map((node,i)=>(node.matches(':hover')||node===document.activeElement||node.dataset.orbitSelect===heldId&&now<interactionUntil)?i%3:-1));
-   const tracks=[0,1,2].map(track=>{const key=host.dataset.studioGame+':track:'+track;let phase=phases.get(key)||0;if(!paused&&!blocked.has(track))phase+=delta/1000*Math.PI*2/([180,135,210][track])*speed;phases.set(key,phase);return phase;});
-   const proposed=[];nodes.forEach((node,index)=>{const entry=config.icons?.[node.dataset.orbitSelect]||{},key=host.dataset.studioGame+':'+node.dataset.orbitSelect;let phase=tracks[index%3];if(free){phase=phases.get(key)||0;if(!paused&&!node.matches(':hover')&&node!==document.activeElement)phase+=delta/1000*Math.PI*2/Math.max(35,Math.min(200,Number(entry.period)||90+index%3*45))*speed;phases.set(key,phase);}
-    const position=orbitTrackPosition(index,nodes.length,phase,entry,free);proposed.push({node,position,index});node.style.setProperty('--node-x',position.x+'%');node.style.setProperty('--node-y',position.y+'%');if(!node._reported||now-node._reported>180){node.dataset.orbitAngle=position.angle.toFixed(5);node._reported=now;}
+   const tracks=[0,1,2].map(track=>{const key=host.dataset.studioGame+':track:'+track;let phase=phases.get(key)||0;if(!paused&&!blocked.has(track))phase+=delta/1000*Math.PI*2/([90,70,110][track])*speed;phases.set(key,phase);return phase;});
+   const proposed=[];nodes.forEach((node,index)=>{const entry=config.icons?.[node.dataset.orbitSelect]||{},key=host.dataset.studioGame+':'+node.dataset.orbitSelect;let phase=tracks[index%3];if(free){phase=phases.get(key)||0;if(!paused&&!node.matches(':hover')&&node!==document.activeElement)phase+=delta/1000*Math.PI*2/Math.max(35,Math.min(200,Number(entry.period)||62+index%3*16))*speed;phases.set(key,phase);}
+    const position=orbitTrackPosition(index,nodes.length,phase,entry,free);proposed.push({node,position,index});if(!node._reported||now-node._reported>180){node.dataset.orbitAngle=position.angle.toFixed(5);node._reported=now;}
    });
    const stage=host.querySelector('.orbit-stage'),width=stage?.clientWidth||800,height=stage?.clientHeight||600;
    const points=proposed.map(({node,position,index})=>{const bodyRadius=((width<500?18:27)+[0,5,-2,2,-3,3,-1,4,1][index%9])*Math.max(.8,Math.min(1.8,Number(config.worldScale)||1.3));const locked=node.matches(':hover')||node===document.activeElement||node.dataset.orbitSelect===heldId&&now<interactionUntil;const previous=locked?node._orbitPoint:null;return {node,x:previous?.x??position.x*width/100,y:previous?.y??position.y*height/100-12,offsetY:12,bodyRadius,r:bodyRadius*1.5+3,locked};});
@@ -78,19 +78,19 @@ function orbit(now){
    const keepClear=p=>{const dx=p.x-centerX,dy=p.y-centerY,d=Math.hypot(dx,dy)||1,min=centralRadius+p.r+18;if(d<min){p.x=centerX+dx/d*min;p.y=centerY+dy/d*min;}};
    for(const p of points)keepClear(p);
 
-   for(let pass=0;pass<12;pass++){for(const p of points){const margin=p.bodyRadius+12;p.x=Math.max(margin,Math.min(width-margin,p.x));p.y=Math.max(margin,Math.min(height-margin-20,p.y));keepClear(p);}for(let i=0;i<points.length;i++)for(let j=i+1;j<points.length;j++){
+   for(let pass=0;pass<8;pass++){for(const p of points){const margin=p.bodyRadius+12;p.x=Math.max(margin,Math.min(width-margin,p.x));p.y=Math.max(margin,Math.min(height-margin-20,p.y));keepClear(p);}for(let i=0;i<points.length;i++)for(let j=i+1;j<points.length;j++){
     const a=points[i],b=points[j],dx=b.x-a.x,dy=b.y-a.y,d=Math.hypot(dx,dy)||1,min=a.r+b.r+16;
     if(d<min){const push=min-d;if(!a.locked){const ratio=b.locked?1:.5;a.x-=dx/d*push*ratio;a.y-=dy/d*push*ratio;}if(!b.locked){const ratio=a.locked?1:.5;b.x+=dx/d*push*ratio;b.y+=dy/d*push*ratio;}}
    }
    }
-   for(const p of points){keepClear(p);p.node._orbitPoint={x:p.x,y:p.y};p.node.style.setProperty('--node-x',p.x/width*100+'%');p.node.style.setProperty('--node-y',(p.y+p.offsetY)/height*100+'%');p.node.style.setProperty('--regional-size',p.bodyRadius*2+'px');}
+   for(const p of points){keepClear(p);p.node._orbitPoint={x:p.x,y:p.y};p.node.style.setProperty('--node-x',`${p.x}px`);p.node.style.setProperty('--node-y',`${p.y+p.offsetY}px`);p.node.style.setProperty('--regional-size',p.bodyRadius*2+'px');}
   }
  }
  requestAnimationFrame(orbit);
 }
 if(typeof document!=='undefined'){
  const hold=event=>{const node=event.target.closest?.('.orbit-node');if(node){heldId=node.dataset.orbitSelect;interactionUntil=performance.now()+1800;}else if(event.type==='focusin')heldId='';};document.addEventListener('pointermove',event=>{if(!event.target.closest?.('.orbit-node'))heldId='';},{passive:true});document.addEventListener('focusin',hold);document.addEventListener('pointerover',hold,{passive:true});
- new MutationObserver(boot).observe(document.documentElement,{childList:true,subtree:true});requestAnimationFrame(orbit);
+ new MutationObserver(()=>{const hadHost=!!currentHost;boot();if(!hadHost&&currentHost)requestAnimationFrame(orbit)}).observe(document.documentElement,{childList:true,subtree:true});requestAnimationFrame(orbit);
  document.addEventListener('click',event=>{if(event.target.closest('[data-voyage-back]'))leaveVoyage();});
  document.addEventListener('keydown',event=>{if(event.key==='Escape'&&document.querySelector('.dashboard-studio[data-exploring="true"]')&&!document.querySelector('dialog[open],.studio-focused')){event.preventDefault();event.stopImmediatePropagation();leaveVoyage();}},true);
 }

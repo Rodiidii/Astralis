@@ -3,36 +3,6 @@
   "description": "Celestia",
   "targets": [
     {
-      "weight": 0.25,
-      "path": [
-        "passive2",
-        "electro"
-      ],
-      "hitMode": "avgHit",
-      "bonusStats": {
-        "atk_": 24,
-        "electro_enemyRes_": -35,
-        "all_dmg_": 163,
-        "critRate_": -40
-      },
-      "description": ""
-    },
-    {
-      "weight": 0.25,
-      "path": [
-        "passive2",
-        "pyro"
-      ],
-      "hitMode": "avgHit",
-      "bonusStats": {
-        "atk_": 24,
-        "pyro_enemyRes_": -60,
-        "all_dmg_": 203,
-        "critRate_": -40
-      },
-      "description": ""
-    },
-    {
       "weight": 1,
       "path": [
         "skill",
@@ -500,6 +470,36 @@
         "atk_": 24,
         "electro_enemyRes_": -35,
         "all_dmg_": 163
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.25,
+      "path": [
+        "passive2",
+        "electro"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 24,
+        "electro_enemyRes_": -35,
+        "all_dmg_": 163,
+        "critRate_": -40
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.25,
+      "path": [
+        "passive2",
+        "pyro"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 24,
+        "pyro_enemyRes_": -60,
+        "all_dmg_": 203,
+        "critRate_": -40
       },
       "description": ""
     }

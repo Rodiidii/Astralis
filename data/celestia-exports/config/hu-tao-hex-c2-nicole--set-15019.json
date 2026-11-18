@@ -663,7 +663,7 @@
       "description": ""
     },
     {
-      "weight": 1.2476,
+      "weight": 1.2968,
       "path": [
         "skill",
         "dmg"
@@ -672,22 +672,6 @@
       "bonusStats": {
         "eleMas": 50.649,
         "atk_": -9.87,
-        "pyro_enemyRes_": -25,
-        "all_dmg_": 40,
-        "atk": -1890.298
-      },
-      "description": ""
-    },
-    {
-      "weight": 0.0486,
-      "path": [
-        "skill",
-        "dmg"
-      ],
-      "hitMode": "avgHit",
-      "bonusStats": {
-        "eleMas": 33.333,
-        "atk_": -13.333,
         "pyro_enemyRes_": -25,
         "all_dmg_": 40,
         "atk": -1890.298

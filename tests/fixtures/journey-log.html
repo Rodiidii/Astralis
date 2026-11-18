@@ -1,0 +1,9 @@
+<!doctype html>
+<html lang="fr"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<link rel="stylesheet" href="../../styles/journey-log.css"><main id="root"></main>
+<script type="module">
+ import {renderJourneyLog,mountJourneyLog} from '../../src/journey-log.js';
+ const root=document.querySelector('#root');let cleanup=()=>{};
+ function render(){cleanup();root.innerHTML=renderJourneyLog('gi');cleanup=mountJourneyLog(root.querySelector('[data-journey-log]'));}
+ root.addEventListener('journey:changed',render);render();
+</script></html>

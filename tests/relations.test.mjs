@@ -1,7 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
-import { groupEvidence, isTravelerVariant, relationId, shortestRelationPath, spreadRing } from '../src/relations.js';
+import { groupEvidence, isTravelerVariant, relationId, relationRegionCoverage, nearestRelationNeighbor, closestRelationLeads, widenRelationCompareSettings, relationProofBalance, shortestRelationPath, shortestRelationPaths, spreadRing } from '../src/relations.js';
 
 const data = JSON.parse(readFileSync(new URL('../data/relations.json', import.meta.url)));
 const ids = new Set(data.evidence.flatMap(row => [row.from,row.to]));
@@ -19,6 +19,58 @@ test('le graphe contient des preuves sourcées et retrouve Amber → Jean', () =
 test('un lien sans citation ou avec une extrémité inconnue est écarté', () => {
   const row = data.evidence[0];
   assert.deepEqual(groupEvidence([{...row,quote:''},{...row,to:'inconnu'}],ids),[]);
+});
+
+test('la couverture régionale distingue profils reliés et profils sans preuve locale',()=>{
+ const people=[{id:'a',region:'Liyue'},{id:'b',region:'Liyue'},{id:'c',region:'Mondstadt'}];
+ const result=relationRegionCoverage(people,[
+  {a:'a',b:'c',proofs:[{kind:'voice'}]},
+  {a:'a',b:'c',proofs:[{kind:'story'}]},
+ ]);
+ assert.deepEqual(result,[
+  {region:'Mondstadt',total:1,linked:1,isolated:0,voiceLinked:1,storyLinked:1,bothSources:1,percent:100},
+  {region:'Liyue',total:2,linked:1,isolated:1,voiceLinked:1,storyLinked:1,bothSources:1,percent:50},
+ ]);
+});
+
+test('le réseau trouve le portrait visible le plus proche dans une direction clavier',()=>{
+ const points=new Map([
+  ['a',{c:{id:'a'},x:50,y:50}],['b',{c:{id:'b'},x:80,y:53}],['c',{c:{id:'c'},x:54,y:83}],
+  ['d',{c:{id:'d'},x:20,y:50}],['e',{c:{id:'e'},x:48,y:22}],
+ ]);
+ assert.equal(nearestRelationNeighbor(points,'a','ArrowRight'),'b');
+ assert.equal(nearestRelationNeighbor(points,'a','ArrowDown'),'c');
+ assert.equal(nearestRelationNeighbor(points,'a','ArrowLeft'),'d');
+ assert.equal(nearestRelationNeighbor(points,'a','ArrowUp'),'e');
+ assert.equal(nearestRelationNeighbor(points,'missing','ArrowRight'),'');
+ assert.equal(nearestRelationNeighbor(points,'a','Enter'),'');
+});
+
+test('les pistes proches proposent le meilleur lien adjacent sans relier artificiellement le duo',()=>{
+ const weak={a:'a',b:'c',weight:1,proofs:[{kind:'voice',relationType:'colleague'}]};
+ const strong={a:'a',b:'d',weight:4,proofs:[{kind:'story',explicitRelation:true,relationType:'family'}]};
+ const other={a:'b',b:'e',weight:3,proofs:[{kind:'story',explicitRelation:true,relationType:'family'}]};
+ const leads=closestRelationLeads([weak,strong,other],[ 'a','b' ]);
+ assert.deepEqual(leads.map(row=>[row.from,row.to]),[['a','d'],['b','e']]);
+ assert.equal(closestRelationLeads([weak],[ 'a','b' ]).length,1);
+ assert.deepEqual(closestRelationLeads([],['a','b']),[]);
+});
+
+test('élargir le comparatif enlève les filtres de réseau sans modifier thème, langue ni spoilers',()=>{
+ const widened=widenRelationCompareSettings({region:'Liyue',regions:['Liyue'],element:'Pyro',version:'5.0',owned:true,npc:false,source:'voice',direction:'out',min:3,theme:'light',lang:'fr',spoilers:true});
+ assert.equal(widened.region,'');assert.deepEqual(widened.regions,[]);assert.equal(widened.element,'');assert.equal(widened.version,'');
+ assert.equal(widened.owned,false);assert.equal(widened.npc,true);assert.equal(widened.source,'all');assert.equal(widened.direction,'all');assert.equal(widened.min,1);
+ assert.equal(widened.theme,'light');assert.equal(widened.lang,'fr');assert.equal(widened.spoilers,true);
+});
+
+test('le résumé d’un duo sépare les voix par sens, les échanges communs et les scènes uniques',()=>{
+ const proofs=[
+  {id:'v1',kind:'voice',from:'a',to:'b'}, {id:'v1',kind:'voice',from:'a',to:'b',lang:'fr'},
+  {id:'v2',kind:'voice',from:'b',to:'a'}, {id:'v3',kind:'voice',from:'paimon',to:'a',scope:'collective'},
+  {id:'s1',kind:'story'}, {id:'s1',kind:'story',lang:'en'}, {id:'s2',kind:'story'}
+ ];
+ assert.deepEqual(relationProofBalance(proofs,'a','b'),{voiceAB:1,voiceBA:1,voiceMutual:0,storyScenes:2});
+ assert.deepEqual(relationProofBalance([], 'a','b'),{voiceAB:0,voiceBA:0,voiceMutual:0,storyScenes:0});
 });
 
 test('le catalogue complet est réparti sur cinq pistes, avec un espace entre portraits', () => {
@@ -61,6 +113,13 @@ test('le chemin privilégie la relation directe, puis le plus petit nombre de sa
   assert.deepEqual(shortestRelationPath(links,'a','d'),['a','e','d']);
   assert.deepEqual(shortestRelationPath([...links,edge('a','d')],'a','d'),['a','d']);
   assert.deepEqual(shortestRelationPath(links,'a','absent'),[]);
+});
+test('les autres itinéraires exposent les chemins de même longueur, classés par preuves et plafonnés',()=>{
+ const edge=(a,b,weight=1)=>({a,b,weight});
+ const links=[edge('a','x',1),edge('x','z',1),edge('a','y',8),edge('y','z',7),edge('a','b'),edge('b','c'),edge('c','z')];
+ assert.deepEqual(shortestRelationPaths(links,'a','z'),[['a','y','z'],['a','x','z']]);
+ assert.deepEqual(shortestRelationPaths(links,'a','z',1),[['a','y','z']]);
+ assert.deepEqual(shortestRelationPaths(links,'missing','z'),[]);
 });
 test('les cinq figures demandées ont des preuves et une icône locale', () => {
   const figures = JSON.parse(readFileSync(new URL('../assets/data/gi-relation-lore.json',import.meta.url)));

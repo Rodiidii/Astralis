@@ -3,20 +3,6 @@
   "description": "Celestia",
   "targets": [
     {
-      "weight": 1,
-      "path": [
-        "skill",
-        "riteDmg"
-      ],
-      "hitMode": "avgHit",
-      "bonusStats": {
-        "eleMas": 200,
-        "atk": 749.188,
-        "all_dmg_": 85
-      },
-      "description": ""
-    },
-    {
       "weight": 2,
       "path": [
         "burst",
@@ -338,6 +324,20 @@
         "stellarconduct_baseDmg_": 14,
         "atk": 749.188,
         "stellarconduct_dmg_": 200
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "skill",
+        "riteDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "eleMas": 200,
+        "atk": 749.188,
+        "all_dmg_": 85
       },
       "description": ""
     }

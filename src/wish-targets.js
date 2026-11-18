@@ -6,6 +6,13 @@ export function normalizeWishTarget(target={}){
  return {...target,...(hasC?{currentC,targetC}:{}),...(hasR?{currentR,targetR}:{}),copies:hasC?Math.max(0,targetC-currentC):bounded(target.copies,0,7),refinements:hasR?Math.max(0,targetR-currentR):bounded(target.refinements,0,5)};
 }
 
+export function wishTargetOwnership(target={}){
+ const row=normalizeWishTarget(target),characterKnown=target.currentC!=null||target.targetC!=null,weaponKnown=target.currentR!=null||target.targetR!=null;
+ const character=characterKnown?{from:row.currentC<0?'Non possédé':`C${row.currentC}`,to:`C${row.targetC}`,ownedCopies:row.currentC<0?0:row.currentC+1,targetCopies:row.targetC+1,progress:Math.min(100,Math.round((row.currentC<0?0:row.currentC+1)/(row.targetC+1)*100))}:null;
+ const weapon=weaponKnown&&row.targetR>0?{from:row.currentR===0?'Non possédée':`R${row.currentR}`,to:`R${row.targetR}`,ownedCopies:row.currentR,targetCopies:row.targetR,progress:Math.min(100,Math.round(row.currentR/row.targetR*100))}:null;
+ return {character,weapon};
+}
+
 export function theoreticalBudgetStatus(data={},estimate={}){
  const applied=Number.isFinite(Number(data.theoreticalPrimos))&&data.theoreticalPrimos!=null||Number.isFinite(Number(data.theoreticalWishes))&&data.theoreticalWishes!=null;
  const snapshot=data.theoreticalPeriod,changed=applied&&(!snapshot||snapshot.start!==data.income?.start||snapshot.end!==data.income?.end||Number(data.theoreticalPrimos)!==Number(estimate.primos)||Number(data.theoreticalWishes)!==Number(estimate.wishes));

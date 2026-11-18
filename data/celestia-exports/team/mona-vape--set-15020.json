@@ -1,7 +1,7 @@
 {
   "name": "Vape",
   "description": "Celestia",
-  "lastEdit": 1794351066767,
+  "lastEdit": 1794890254199,
   "conditional": {
     "resonance": {},
     "reaction": {}
@@ -34,36 +34,6 @@
           "description": "Celestia",
           "targets": [
             {
-              "weight": 0.3757,
-              "path": [
-                "normal",
-                "0"
-              ],
-              "hitMode": "avgHit",
-              "reaction": "vaporize",
-              "bonusStats": {
-                "atk": 711.494,
-                "eleMas": 80,
-                "vaporize_dmg_": 15,
-                "all_dmg_": 87.664
-              },
-              "description": ""
-            },
-            {
-              "weight": 0.5,
-              "path": [
-                "normal",
-                "1"
-              ],
-              "hitMode": "avgHit",
-              "bonusStats": {
-                "atk": 711.494,
-                "eleMas": 80,
-                "all_dmg_": 88.364
-              },
-              "description": ""
-            },
-            {
               "weight": 0.5,
               "path": [
                 "skill",
@@ -92,7 +62,7 @@
               "description": ""
             },
             {
-              "weight": 0.0992,
+              "weight": 0.1262,
               "path": [
                 "charged",
                 "dmg"
@@ -260,22 +230,6 @@
                 "hydro_enemyRes_": -40,
                 "critRate_": 14.156,
                 "critDMG_": 14.156
-              },
-              "description": ""
-            },
-            {
-              "weight": 0.027,
-              "path": [
-                "charged",
-                "dmg"
-              ],
-              "hitMode": "avgHit",
-              "bonusStats": {
-                "atk": 711.494,
-                "eleMas": 231.684,
-                "atk_": 48,
-                "all_dmg_": 100.857,
-                "hydro_enemyRes_": -40
               },
               "description": ""
             },
@@ -637,7 +591,7 @@
               "description": ""
             },
             {
-              "weight": 0.696,
+              "weight": 0.7562,
               "path": [
                 "charged",
                 "dmg"
@@ -758,10 +712,10 @@
               "description": ""
             },
             {
-              "weight": 0.0602,
+              "weight": 0.3757,
               "path": [
-                "charged",
-                "dmg"
+                "normal",
+                "0"
               ],
               "hitMode": "avgHit",
               "reaction": "vaporize",
@@ -769,10 +723,21 @@
                 "atk": 711.494,
                 "eleMas": 80,
                 "vaporize_dmg_": 15,
-                "critRate_": 15,
-                "all_dmg_": 268.414,
-                "critDMG_": 15,
-                "hydro_enemyRes_": -40
+                "all_dmg_": 87.664
+              },
+              "description": ""
+            },
+            {
+              "weight": 0.5,
+              "path": [
+                "normal",
+                "1"
+              ],
+              "hitMode": "avgHit",
+              "bonusStats": {
+                "atk": 711.494,
+                "eleMas": 80,
+                "all_dmg_": 88.364
               },
               "description": ""
             }

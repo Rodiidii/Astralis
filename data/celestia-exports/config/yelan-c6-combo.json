@@ -491,7 +491,7 @@
       "description": ""
     },
     {
-      "weight": 0.038,
+      "weight": 1.0896,
       "path": [
         "burst",
         "throwDmg"
@@ -499,7 +499,6 @@
       "hitMode": "avgHit",
       "bonusStats": {
         "hp_": 122,
-        "eleMas": 66.667,
         "all_dmg_": 206.36,
         "critRate_": 36,
         "hydro_enemyRes_": -76
@@ -515,53 +514,6 @@
       "hitMode": "avgHit",
       "bonusStats": {
         "hp_": 122,
-        "all_dmg_": 206.36,
-        "critRate_": 36,
-        "hydro_enemyRes_": -76
-      },
-      "description": ""
-    },
-    {
-      "weight": 0.038,
-      "path": [
-        "burst",
-        "throwDmg"
-      ],
-      "hitMode": "avgHit",
-      "bonusStats": {
-        "hp_": 122,
-        "eleMas": 66.667,
-        "all_dmg_": 206.36,
-        "critRate_": 36,
-        "hydro_enemyRes_": -76
-      },
-      "description": ""
-    },
-    {
-      "weight": 0.9755,
-      "path": [
-        "burst",
-        "throwDmg"
-      ],
-      "hitMode": "avgHit",
-      "bonusStats": {
-        "hp_": 122,
-        "all_dmg_": 206.36,
-        "critRate_": 36,
-        "hydro_enemyRes_": -76
-      },
-      "description": ""
-    },
-    {
-      "weight": 0.038,
-      "path": [
-        "burst",
-        "throwDmg"
-      ],
-      "hitMode": "avgHit",
-      "bonusStats": {
-        "hp_": 122,
-        "eleMas": 66.667,
         "all_dmg_": 206.36,
         "critRate_": 36,
         "hydro_enemyRes_": -76

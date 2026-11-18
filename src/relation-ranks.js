@@ -12,6 +12,18 @@ export function relationRank(proofs=[]) {
  }
  return {rank,label:RELATION_RANKS[rank],diamonds:'◆'.repeat(rank)+'◇'.repeat(5-rank)};
 }
+/** Evidence-based closeness; it describes documented overlap, not a character's feelings. */
+export function relationEvidenceProfile(proofs=[]) {
+ const rows=(Array.isArray(proofs)?proofs:[]).filter(p=>p?.source&&p?.id&&p?.quote);
+ const rank=relationRank(rows);
+ const voices=rows.filter(p=>p.kind==='voice'&&p.scope!=='collective');
+ const stories=rows.filter(p=>p.kind==='story');
+ const collectives=rows.filter(p=>p.scope==='collective'||p.explicitGroup===true);
+ const quests=new Set(stories.map(p=>p.quest).filter(Boolean));
+ const label=rank.rank===5?'Relation explicitement définie':rank.rank===4?'Mentions vocales attestées':rank.rank===3?'Dialogue direct attesté':rank.rank===2?'Scènes de lore partagées':rank.rank===1?'Contexte collectif partagé':'Aucun lien direct documenté';
+ const details=[voices.length?`${voices.length} mention(s) vocale(s)`:null,stories.length?`${stories.length} extrait(s) de lore`:null,quests.size?`${quests.size} quête(s)`:null,collectives.length?`${collectives.length} mention(s) collective(s)`:null].filter(Boolean);
+ return {rank:rank.rank,label,diamonds:rank.diamonds,proofCount:rows.length,voiceCount:voices.length,storyCount:stories.length,questCount:quests.size,collectiveCount:collectives.length,details:details.join(' · ')||'Aucune preuve directe visible avec les filtres actuels.'};
+}
 export function concentricRelations(people,edges,selected,radius=420) {
  const direct=new Map(edges.filter(e=>e.a===selected||e.b===selected).map(e=>[e.a===selected?e.b:e.a,relationRank(e.proofs).rank]));
  const points=[],rings=new Map();

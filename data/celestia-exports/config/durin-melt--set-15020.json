@@ -3,99 +3,6 @@
   "description": "Celestia",
   "targets": [
     {
-      "weight": 0.875,
-      "path": [
-        "burst",
-        "decayDmg"
-      ],
-      "hitMode": "avgHit",
-      "bonusStats": {
-        "atk_": 15,
-        "pyro_enemyRes_": -20,
-        "critRate_": 15,
-        "all_dmg_": 28
-      },
-      "description": ""
-    },
-    {
-      "weight": 0.5,
-      "path": [
-        "burst",
-        "decayDmg"
-      ],
-      "hitMode": "avgHit",
-      "bonusStats": {
-        "atk_": 15,
-        "atk": 548.791,
-        "pyro_enemyRes_": -20,
-        "all_dmg_": 68
-      },
-      "description": ""
-    },
-    {
-      "weight": 0.5,
-      "path": [
-        "burst",
-        "decayDmg"
-      ],
-      "hitMode": "avgHit",
-      "bonusStats": {
-        "atk_": 15,
-        "atk": 548.791,
-        "pyro_enemyRes_": -20,
-        "all_dmg_": 68
-      },
-      "description": ""
-    },
-    {
-      "weight": 0.5,
-      "path": [
-        "burst",
-        "decayDmg"
-      ],
-      "hitMode": "avgHit",
-      "bonusStats": {
-        "atk_": 15,
-        "atk": 548.791,
-        "pyro_enemyRes_": -20,
-        "all_dmg_": 80
-      },
-      "description": ""
-    },
-    {
-      "weight": 0.5,
-      "path": [
-        "burst",
-        "decayDmg"
-      ],
-      "hitMode": "avgHit",
-      "bonusStats": {
-        "atk_": 15,
-        "atk": 548.791,
-        "pyro_enemyRes_": -20,
-        "all_dmg_": 80
-      },
-      "description": ""
-    },
-    {
-      "weight": 0.5,
-      "path": [
-        "burst",
-        "decayDmg"
-      ],
-      "hitMode": "avgHit",
-      "reaction": "melt",
-      "bonusStats": {
-        "atk": 848.791,
-        "atk_": 15,
-        "pyro_enemyRes_": -20,
-        "all_dmg_": 80,
-        "critRate_": 15,
-        "melt_dmg_": 70
-      },
-      "description": ""
-    },
-    {
       "weight": 0.5,
       "path": [
         "skill",
@@ -680,6 +587,99 @@
       "bonusStats": {
         "atk_": 15,
         "atk": 548.791,
+        "pyro_enemyRes_": -20,
+        "all_dmg_": 80,
+        "critRate_": 15,
+        "melt_dmg_": 70
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.875,
+      "path": [
+        "burst",
+        "decayDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 15,
+        "pyro_enemyRes_": -20,
+        "critRate_": 15,
+        "all_dmg_": 28
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.5,
+      "path": [
+        "burst",
+        "decayDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 15,
+        "atk": 548.791,
+        "pyro_enemyRes_": -20,
+        "all_dmg_": 68
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.5,
+      "path": [
+        "burst",
+        "decayDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 15,
+        "atk": 548.791,
+        "pyro_enemyRes_": -20,
+        "all_dmg_": 68
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.5,
+      "path": [
+        "burst",
+        "decayDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 15,
+        "atk": 548.791,
+        "pyro_enemyRes_": -20,
+        "all_dmg_": 80
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.5,
+      "path": [
+        "burst",
+        "decayDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 15,
+        "atk": 548.791,
+        "pyro_enemyRes_": -20,
+        "all_dmg_": 80
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.5,
+      "path": [
+        "burst",
+        "decayDmg"
+      ],
+      "hitMode": "avgHit",
+      "reaction": "melt",
+      "bonusStats": {
+        "atk": 848.791,
+        "atk_": 15,
         "pyro_enemyRes_": -20,
         "all_dmg_": 80,
         "critRate_": 15,

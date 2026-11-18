@@ -26,8 +26,17 @@ test('un boss hebdomadaire n’est réclamé qu’une fois par semaine',()=>{
 test('garanties, budget nul et ordre successif des objectifs de vœux',()=>{
  const rows=[{name:'A',copies:1},{name:'B',copies:1,refinements:1}];
  const none=simulateWishOrder(rows,{wishes:0},500);assert.equal(none.rows[0].chance,0);
+ const likely=simulateWishOrder([{name:'A',copies:1},{name:'B',copies:1}],{wishes:160},1000);assert.equal(likely.mostLikelyLosses,1);assert.equal(likely.losses.find(row=>row.count===1).frequency,48.6);
  const full=simulateWishOrder(rows,{characterPity:89,characterGuarantee:true,wishes:400},500);assert.equal(full.rows[0].median,1);assert.equal(full.rows[1].chance,100);assert.ok(full.rows[1].median>full.rows[0].median);
+ assert.ok(full.rows.every(row=>row.p10<=row.median&&row.median<=row.p90));
  assert.deepEqual(full,simulateWishOrder(rows,{characterPity:89,characterGuarantee:true,wishes:400},500));
+});
+
+test('les intervalles de dépenses sont ordonnés et la simulation accepte une valeur de tirages invalide',()=>{
+ const result=simulateWishOrder([{name:'Test',copies:1}],{wishes:160},0);
+ assert.equal(result.trials,1);
+ assert.ok(result.rows[0].p10<=result.rows[0].median);
+ assert.ok(result.rows[0].median<=result.rows[0].p90);
 });
 
 test('le budget théorique additionne les restes de primogemmes avant conversion',()=>{const result=simulateWishOrder([],{currentPrimos:159,theoreticalPrimos:1},10);assert.equal(result.budget,0);assert.equal(result.theory,1);});

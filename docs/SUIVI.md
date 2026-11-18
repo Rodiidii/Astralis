@@ -665,3 +665,39 @@ Suivi complet autonome et demandes originales : [MISSION-AUTONOME-COMPLETE.md](M
 - [ ] Refonte et fonctionnement complet de la page Équipes (P0-TEAM-03).
 
 Critères détaillés conservés dans [MISSION-AUTONOME-COMPLETE.md](MISSION-AUTONOME-COMPLETE.md). Aucun de ces points n’est déclaré corrigé par cette mise à jour documentaire.
+
+
+## Fiabilité transversale de l’application · 14 novembre 2026
+- Un univers mémorisé inconnu est normalisé vers un jeu disponible au démarrage; le rendu réapplique cette validation pour empêcher les libellés ou pages « undefined ».
+- Un catalogue qui échoue ne se transforme plus silencieusement en bibliothèque vide : son erreur est conservée par jeu/catégorie et les vues concernées (tableau de bord, défi quotidien, pages Star Rail, laboratoire Genshin) proposent une relance explicite.
+- La page « État des bases » expose les catalogues en échec; la synchronisation manuelle met à jour ce statut tout en gardant les données déjà présentes.
+- Les rendus complets ou partiels qui lèvent une erreur affichent maintenant un écran de récupération avec réessai et retour au tableau de bord, sans recharger les données locales.
+- Les pages de catalogue, le farm, les builds, le lore et la personnalisation distinguent une requête en cours, un échec et une réponse vide. Cela supprime des boucles de rendu récursives après une panne réseau; le classeur reste jouable si le roster compagnon échoue.
+- L’atelier d’équipes affiche aussi les erreurs de ses catalogues même lorsqu’ils ont déjà été marqués comme chargés; les compositions locales restent accessibles pendant la relance.
+- Les favoris conservent leurs sections locales disponibles et signalent les bibliothèques momentanément absentes. Une réponse vide propose une actualisation explicite, sans boucle automatique.
+- Ajout du style de récupération au shell hors ligne et versionnement de l’entrée de l’application pour éviter de servir l’ancien module.
+- Vérification effectuée : `node --check src/app.js` et `git diff --check` réussis. Les parcours visuels et les chantiers fonctionnels de `docs/A-FAIRE.md` restent à vérifier/traiter.
+
+- Accessibilité globale : raccourci « Aller au contenu » au clavier, focus visible sur les commandes, cible de contenu focalisable et indication `aria-current` sur la page active; feuille dédiée ajoutée au cache hors ligne.
+
+- Arcade mobile : commandes tactiles agrandies et ancrées au-dessus de la navigation, plateau recentré en colonne, modes accessibles par défilement horizontal et marges sûres pour les zones iPhone. Cache hors ligne et version des ressources actualisés.
+
+- Arcade : retrait du code mort du défi quotidien/insigne. La récompense journalière de 5 boosters à partir de 1 500 points reste gérée par le portefeuille, avec une seule attribution par date locale.
+
+- Tetris : ajout d’une réserve de pièce utilisable une fois par pièce (touche C ou commande tactile), avec aperçu visuel et conservation des tuiles spéciales.
+
+- Réserve Tetris peaufinée : rappel de la touche C, commande désactivée jusqu’à la pièce suivante après usage, animation de confirmation avec repli `prefers-reduced-motion`.
+
+- Options de plateau Tetris ajoutées : masquer l’ombre de chute et le quadrillage indépendamment, sauvegarder les choix et mettre à jour l’affichage immédiatement.
+
+- Tetris : ajout d’une fiche PNG partageable après la partie avec score, lignes et niveau, réutilisant le rendu commun de l’arcade; le bouton se réinitialise au lancement suivant.
+
+- Carte de score partagée : le centre de la fiche accepte maintenant une métrique libre; le Tetris affiche « FINI · PARTIE TERMINÉE » au lieu d’un faux taux de précision. Les jeux de mémoire et de rythme gardent leur pourcentage.
+
+- Tetris astral : réglage de vitesse sauvegardé (posée, classique, rapide), appliqué immédiatement à la gravité des pièces et conservé avec les autres préférences du plateau.
+
+- Chargement à la demande de l’arcade : ses jeux et feuilles de style ne sont plus importés pendant l’ouverture du tableau de bord. Un écran de préparation animé s’affiche uniquement lors de l’ouverture de l’arcade, avec une action de reprise en cas d’échec.
+
+- Arcade : correction de l’identifiant du défi quotidien utilisé dans les titres de Mémoire et de Tracé stellaire; les styles différés finissent maintenant de charger avant le rendu des jeux pour éviter le flash sans mise en forme.
+
+- Compagnon d’arcade : réactions animées et encouragements courts personnalisés au choix du personnage, aux combos et tous les cinq alignements; annonce accessible et compatible avec la réduction des animations.

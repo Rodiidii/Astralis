@@ -3,66 +3,6 @@
   "description": "Celestia",
   "targets": [
     {
-      "weight": 0.25,
-      "path": [
-        "passive2",
-        "electro"
-      ],
-      "hitMode": "avgHit",
-      "bonusStats": {
-        "atk_": 24,
-        "electro_enemyRes_": -35,
-        "all_dmg_": 113,
-        "critRate_": -40
-      },
-      "description": ""
-    },
-    {
-      "weight": 0.25,
-      "path": [
-        "passive2",
-        "pyro"
-      ],
-      "hitMode": "avgHit",
-      "bonusStats": {
-        "atk_": 24,
-        "pyro_enemyRes_": -35,
-        "all_dmg_": 153,
-        "critRate_": -40
-      },
-      "description": ""
-    },
-    {
-      "weight": 0.25,
-      "path": [
-        "passive2",
-        "electro"
-      ],
-      "hitMode": "avgHit",
-      "bonusStats": {
-        "atk": 300,
-        "atk_": 24,
-        "electro_enemyRes_": -35,
-        "all_dmg_": 113
-      },
-      "description": ""
-    },
-    {
-      "weight": 0.75,
-      "path": [
-        "passive2",
-        "pyro"
-      ],
-      "hitMode": "avgHit",
-      "bonusStats": {
-        "atk": 300,
-        "atk_": 24,
-        "pyro_enemyRes_": -35,
-        "all_dmg_": 153
-      },
-      "description": ""
-    },
-    {
       "weight": 1,
       "path": [
         "skill",
@@ -233,6 +173,66 @@
         "atk_": 24,
         "electro_enemyRes_": -35,
         "all_dmg_": 89
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.25,
+      "path": [
+        "passive2",
+        "electro"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 24,
+        "electro_enemyRes_": -35,
+        "all_dmg_": 113,
+        "critRate_": -40
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.25,
+      "path": [
+        "passive2",
+        "pyro"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 24,
+        "pyro_enemyRes_": -35,
+        "all_dmg_": 153,
+        "critRate_": -40
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.25,
+      "path": [
+        "passive2",
+        "electro"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk": 300,
+        "atk_": 24,
+        "electro_enemyRes_": -35,
+        "all_dmg_": 113
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.75,
+      "path": [
+        "passive2",
+        "pyro"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk": 300,
+        "atk_": 24,
+        "pyro_enemyRes_": -35,
+        "all_dmg_": 153
       },
       "description": ""
     }

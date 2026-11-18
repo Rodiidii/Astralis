@@ -1,6 +1,6 @@
 
 import test from 'node:test';import assert from 'node:assert/strict';
-import {relationRank,concentricRelations,proofsForMode} from '../src/relation-ranks.js';
+import {relationRank,relationEvidenceProfile,concentricRelations,proofsForMode} from '../src/relation-ranks.js';
 import {sharedVoiceTargets} from '../src/relation-ranks.js';
 test('les mentions communes respectent le sens et excluent le Voyageur',()=>{
  const edges=[{proofs:[
@@ -20,6 +20,22 @@ assert.equal(relationRank([{...p,kind:'voice',scope:'collective'}]).rank,1);
 assert.equal(relationRank([{...p,kind:'voice'}]).rank,4);
 assert.equal(relationRank([{...p,relationType:'family',explicitRelation:true}]).rank,5);
 assert.equal(relationRank([{...p,source:''}]).rank,0);
+});
+test('le résumé de proximité reste attaché aux preuves et ne prétend pas mesurer les émotions',()=>{
+ const profile=relationEvidenceProfile([
+  {...p,kind:'voice',from:'a',to:'b'},
+  {...p,id:'s1',kind:'story',quest:'quest-1'},
+  {...p,id:'s2',kind:'story',quest:'quest-1'},
+  {...p,id:'collective',kind:'voice',scope:'collective'}
+ ]);
+ assert.equal(profile.rank,4);
+ assert.equal(profile.voiceCount,1);
+ assert.equal(profile.storyCount,2);
+ assert.equal(profile.questCount,1);
+ assert.equal(profile.collectiveCount,1);
+ assert.match(profile.details,/1 mention/);
+ assert.equal(relationEvidenceProfile([]).label,'Aucun lien direct documenté');
+ assert.equal(relationEvidenceProfile([{...p,source:'',kind:'voice'}]).proofCount,0);
 });
 test('centrement et positions finies pour cent personnages',()=>{
 const people=Array.from({length:140},(_,i)=>({id:String(i)}));const points=concentricRelations(people,[],'0');

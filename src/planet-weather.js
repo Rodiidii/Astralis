@@ -27,6 +27,7 @@ function cloud(parent,dark=false,scale=1){
 }
 
 export function windGusts(model,color='#d1ffed',count=110,speed=.48,name='wind-gusts'){
+ if(model.overview)count=Math.max(16,Math.ceil(count*.28));
  const segments=7,positions=new Float32Array(count*segments*18),colors=new Float32Array(positions.length);
  const geometry=new T.BufferGeometry();
  const seeds=Array.from({length:count},()=>[model.random()*6.28,(model.random()-.5)*1.85,1.04+model.random()*.68,.4+model.random()]);
@@ -60,7 +61,7 @@ export function windGusts(model,color='#d1ffed',count=110,speed=.48,name='wind-g
 function precipitation(model,type){
  const thunder=type==='thunder',snow=type==='snow';
  if(snow){
-  const count=1100,positions=new Float32Array(count*3),seeds=Array.from({length:count},()=>[model.random(),model.random(),model.random()]);
+  const count=model.overview?220:1100,positions=new Float32Array(count*3),seeds=Array.from({length:count},()=>[model.random(),model.random(),model.random()]);
   const g=new T.BufferGeometry();g.setAttribute('position',new T.BufferAttribute(positions,3));
   const shader=new T.ShaderMaterial({transparent:true,depthWrite:false,uniforms:{tint:{value:new T.Color('#ebf9ff')}},
    vertexShader:'varying float fade;void main(){vec4 p=modelViewMatrix*vec4(position,1.);fade=.9;gl_PointSize=5.+3.*sin(position.x*13.);gl_Position=projectionMatrix*p;}',
@@ -74,16 +75,16 @@ function precipitation(model,type){
    }
    g.attributes.position.needsUpdate=true;
   });
-  windGusts(model,'#c7e7ff',38,.65,'blizzard-gusts');
+  windGusts(model,'#c7e7ff',model.overview?14:38,.65,'blizzard-gusts');
   // Keep the snowstorm as the region's main atmosphere: one compact cloud
   // cluster avoids hiding the ice terrain under a belt of dark cloud puffs.
   cloud(localRoot(model,.45,.65,1.24),true,.72);
   return;
  }
- for(let j=0;j<(thunder?12:8);j++){
+ for(let j=0;j<(thunder?(model.overview?6:12):(model.overview?4:8));j++){
   const root=localRoot(model,thunder?-.6+j*2.399:j*2.399,thunder?Math.sin(j*2.4)*.68:.65-(j%3)*.55,thunder?1.18:1.13);
   const clouds=cloud(root,thunder,thunder?1.55:2.05);clouds.position.y=thunder?.15:.32;
-  const drops=thunder?64:82,segments=new Float32Array(drops*6),g=new T.BufferGeometry();
+  const drops=model.overview?(thunder?28:30):(thunder?64:82),segments=new Float32Array(drops*6),g=new T.BufferGeometry();
   g.setAttribute('position',new T.BufferAttribute(segments,3));
   const rain=new T.LineSegments(g,new T.LineBasicMaterial({color:thunder?'#c3c8ff':'#acdcff',transparent:true,opacity:.60,depthWrite:false}));
   rain.name='rain-shower';root.add(rain);
@@ -119,14 +120,14 @@ function sandstorm(model){
   fragmentShader:'varying vec2 v;uniform float time;void main(){float bands=.5+.5*sin(v.y*70.+v.x*18.-time*4.);float a=(.12+bands*.35)*sin(v.y*3.14159);gl_FragColor=vec4(.84,.65,.36,a);}'});
  const funnel=new T.Mesh(new T.CylinderGeometry(.25,.035,.74,36,16,true),material);
  funnel.position.y=.36;root.add(funnel);
- const positions=new Float32Array(180*3),g=new T.BufferGeometry();g.setAttribute('position',new T.BufferAttribute(positions,3));
+ const count=model.overview?60:180,positions=new Float32Array(count*3),g=new T.BufferGeometry();g.setAttribute('position',new T.BufferAttribute(positions,3));
  const grains=new T.Points(g,new T.PointsMaterial({color:'#f1d09a',size:.013,transparent:true,opacity:.95,depthWrite:false}));root.add(grains);
  model.animated.push(t=>{
   if(site){const u=Math.max(.03,Math.min(.97,site.u+Math.sin(t*.12)*.075)),v=Math.max(.03,Math.min(.97,site.v+Math.sin(t*.085+1)*.035)),moved=mapPoint(model.geography,u,v),n=axis(moved.lon,moved.lat);root.position.copy(n).multiplyScalar(Math.max(1.005,mapHeight(model.geography,u,v)));root.quaternion.setFromUnitVectors(UP,n);}
   else{const lon=point.lon+Math.sin(t*.16)*.42,lat=point.lat+Math.sin(t*.11+1.1)*.14,n=axis(lon,lat);root.position.copy(n).multiplyScalar(1.05);root.quaternion.setFromUnitVectors(UP,n);}
   material.uniforms.time.value=t;funnel.rotation.y=t*.8;
-  for(let i=0;i<180;i++){
-   const h=(i/180+t*.19)%1,a=h*16+i*2.3+t*2,r=.035+h*.26;
+  for(let i=0;i<count;i++){
+   const h=(i/count+t*.19)%1,a=h*16+i*2.3+t*2,r=.035+h*.26;
    positions.set([Math.cos(a)*r,.02+h*.75,Math.sin(a)*r],i*3);
   }
   g.attributes.position.needsUpdate=true;
@@ -134,23 +135,24 @@ function sandstorm(model){
 }
 function tidalWaves(model){
  windGusts(model,'#84f3f0',65,.45,'ocean-currents');
- for(let wave=0;wave<4;wave++){
-  const geometry=new T.PlaneGeometry(1,1,72,12),p=geometry.attributes.position,colors=new Float32Array(p.count*3);
+ const cols=model.overview?30:72,rows=model.overview?6:12;
+ for(let wave=0;wave<(model.overview?2:4);wave++){
+  const geometry=new T.PlaneGeometry(1,1,cols,rows),p=geometry.attributes.position,colors=new Float32Array(p.count*3);
   const material=new T.MeshStandardMaterial({color:'#ffffff',vertexColors:true,side:T.DoubleSide,roughness:.22,metalness:.12,transparent:true,opacity:.92});
   const object=new T.Mesh(geometry,material);object.name='tidal-wave';model.orbits.add(object);
   const sea=new T.Color('#279baf'),foam=new T.Color('#e5fffa');
   for(let i=0;i<p.count;i++){
-   const v=Math.floor(i/73)/12,color=sea.clone().lerp(foam,Math.pow(Math.sin(v*Math.PI),8));
+   const v=Math.floor(i/(cols+1))/rows,color=sea.clone().lerp(foam,Math.pow(Math.sin(v*Math.PI),8));
    colors.set([color.r,color.g,color.b],i*3);
   }
   geometry.setAttribute('color',new T.BufferAttribute(colors,3));
   model.animated.push(t=>{
-   for(let row=0;row<=12;row++)for(let col=0;col<=72;col++){
-    const u=col/72,v=row/12,lon=(u-.5)*2.0+wave*2.1+t*(.22+wave*.035);
+   for(let row=0;row<=rows;row++)for(let col=0;col<=cols;col++){
+    const u=col/cols,v=row/rows,lon=(u-.5)*2.0+wave*2.1+t*(.22+wave*.035);
     const lat=(wave-1)*.32+(v-.5)*.33+Math.sin(u*6+t*.3)*.075;
     const rise=Math.pow(Math.sin(v*Math.PI),3)*(.32+Math.sin(u*Math.PI)*.20);
     const n=axis(lon+rise*.32,lat).multiplyScalar(1.015+rise);
-    p.setXYZ(row*73+col,n.x,n.y,n.z);
+    p.setXYZ(row*(cols+1)+col,n.x,n.y,n.z);
    }
    p.needsUpdate=true;geometry.computeVertexNormals();
   });
@@ -158,7 +160,8 @@ function tidalWaves(model){
  precipitation(model,'rain');
 }
 
-export function addRegionalWeather(model){
+export function addRegionalWeather(model,{overview=false}={}){
+ model.overview=overview;
  const region=model.region;
  if(region==='mondstadt')windGusts(model);
  if(region==='inazuma')precipitation(model,'thunder');
@@ -172,31 +175,32 @@ export function addRegionalWeather(model){
  if(region==='natlan'){
   const volcano=model.surface.getObjectByName('volcano');
   if(volcano){
-   const g=new T.BufferGeometry(),p=new Float32Array(320*3);g.setAttribute('position',new T.BufferAttribute(p,3));
+   const sparkCount=model.overview?90:320,g=new T.BufferGeometry(),p=new Float32Array(sparkCount*3);g.setAttribute('position',new T.BufferAttribute(p,3));
    const sparks=new T.Points(g,new T.PointsMaterial({color:'#ffbe5a',size:.026,transparent:true,opacity:.98,depthWrite:false}));sparks.name='volcanic-ejecta';volcano.add(sparks);
    const glow=new T.PointLight('#ff641e',2.5,2.1);glow.position.y=.5;volcano.add(glow);
-   for(let i=0;i<12;i++){
+   const smokeCount=model.overview?5:12;
+   for(let i=0;i<smokeCount;i++){
     const smoke=cloud(volcano,true,1);smoke.name='volcanic-smoke';
     const mat=smoke.children[0].material;mat.transparent=true;mat.depthWrite=false;mat.roughness=1;
     model.animated.push(t=>{
-     const age=(t*.125+i/12)%1;
+     const age=(t*.125+i/smokeCount)%1;
      smoke.position.set(Math.sin(age*3.5)*.12+age*.27,.45+age*1.25,Math.cos(age*5+i)*.045);
      smoke.scale.setScalar(.38+age*1.28);smoke.rotation.y=age*2+i;
      mat.color.set(age<.22?'#794e42':'#555462');mat.opacity=Math.min(.94,(1-age)*1.5);
     });
    }
    const lava=tube(volcano,[[0,.45,0],[.025,.68,.005],[-.01,.92,.02],[.01,1.12,.01]],'#ff9b31',.045,.9);lava.name='eruption-column';
-   const ashGeometry=new T.BufferGeometry(),ashPositions=new Float32Array(600*3);ashGeometry.setAttribute('position',new T.BufferAttribute(ashPositions,3));
+   const ashCount=model.overview?150:600,ashGeometry=new T.BufferGeometry(),ashPositions=new Float32Array(ashCount*3);ashGeometry.setAttribute('position',new T.BufferAttribute(ashPositions,3));
    const ash=new T.Points(ashGeometry,new T.PointsMaterial({color:'#a59a91',size:.012,transparent:true,opacity:.7,depthWrite:false}));ash.name='volcanic-ash';volcano.add(ash);
    model.animated.push(t=>{
     const burst=.65+.35*Math.pow(Math.max(0,Math.sin(t*1.4)),4);
     glow.intensity=2+burst*3;lava.scale.y=.65+burst*.5;lava.material.opacity=.65+burst*.3;
-    for(let i=0;i<320;i++){
-     const age=(t*(.23+(i%7)*.018)+i/320)%1,a=i*2.399;
+    for(let i=0;i<sparkCount;i++){
+     const age=(t*(.23+(i%7)*.018)+i/sparkCount)%1,a=i*2.399;
      p.set([Math.cos(a)*age*(.32+i%5*.045),.47+Math.sin(age*Math.PI)*( .65+burst*.55),Math.sin(a)*age*(.32+i%5*.045)],i*3);
     }
-    for(let i=0;i<600;i++){
-     const age=(t*.13+i/600)%1,a=i*2.399,r=age*.6;
+    for(let i=0;i<ashCount;i++){
+     const age=(t*.13+i/ashCount)%1,a=i*2.399,r=age*.6;
      ashPositions.set([Math.cos(a)*r+age*.3,.5+age*1.4,Math.sin(a)*r],i*3);
     }
     g.attributes.position.needsUpdate=true;ashGeometry.attributes.position.needsUpdate=true;

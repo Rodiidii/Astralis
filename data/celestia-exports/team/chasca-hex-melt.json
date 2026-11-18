@@ -1,7 +1,7 @@
 {
   "name": "Citlali Melt",
   "description": "Celestia",
-  "lastEdit": 1794349019556,
+  "lastEdit": 1794890231613,
   "conditional": {
     "resonance": {},
     "reaction": {}
@@ -38,68 +38,6 @@
           "name": "Citlali Melt",
           "description": "Celestia",
           "targets": [
-            {
-              "weight": 0.25,
-              "path": [
-                "passive2",
-                "pyro"
-              ],
-              "hitMode": "avgHit",
-              "bonusStats": {
-                "atk_": 72,
-                "atk": 548.791,
-                "pyro_enemyRes_": -35,
-                "all_dmg_": 80,
-                "critRate_": -40
-              },
-              "description": ""
-            },
-            {
-              "weight": 0.25,
-              "path": [
-                "passive2",
-                "cryo"
-              ],
-              "hitMode": "avgHit",
-              "reaction": "melt",
-              "bonusStats": {
-                "atk_": 72,
-                "atk": 548.791,
-                "all_dmg_": 40,
-                "critRate_": -40
-              },
-              "description": ""
-            },
-            {
-              "weight": 0.5,
-              "path": [
-                "passive2",
-                "pyro"
-              ],
-              "hitMode": "avgHit",
-              "bonusStats": {
-                "atk": 848.791,
-                "atk_": 72,
-                "pyro_enemyRes_": -35,
-                "all_dmg_": 80
-              },
-              "description": ""
-            },
-            {
-              "weight": 0.5,
-              "path": [
-                "passive2",
-                "cryo"
-              ],
-              "hitMode": "avgHit",
-              "reaction": "melt",
-              "bonusStats": {
-                "atk": 848.791,
-                "atk_": 72,
-                "all_dmg_": 40
-              },
-              "description": ""
-            },
             {
               "weight": 1,
               "path": [
@@ -335,6 +273,68 @@
                 "atk": 848.791,
                 "atk_": 72,
                 "pyro_enemyRes_": -35
+              },
+              "description": ""
+            },
+            {
+              "weight": 0.25,
+              "path": [
+                "passive2",
+                "pyro"
+              ],
+              "hitMode": "avgHit",
+              "bonusStats": {
+                "atk_": 72,
+                "atk": 548.791,
+                "pyro_enemyRes_": -35,
+                "all_dmg_": 80,
+                "critRate_": -40
+              },
+              "description": ""
+            },
+            {
+              "weight": 0.25,
+              "path": [
+                "passive2",
+                "cryo"
+              ],
+              "hitMode": "avgHit",
+              "reaction": "melt",
+              "bonusStats": {
+                "atk_": 72,
+                "atk": 548.791,
+                "all_dmg_": 40,
+                "critRate_": -40
+              },
+              "description": ""
+            },
+            {
+              "weight": 0.5,
+              "path": [
+                "passive2",
+                "pyro"
+              ],
+              "hitMode": "avgHit",
+              "bonusStats": {
+                "atk": 848.791,
+                "atk_": 72,
+                "pyro_enemyRes_": -35,
+                "all_dmg_": 80
+              },
+              "description": ""
+            },
+            {
+              "weight": 0.5,
+              "path": [
+                "passive2",
+                "cryo"
+              ],
+              "hitMode": "avgHit",
+              "reaction": "melt",
+              "bonusStats": {
+                "atk": 848.791,
+                "atk_": 72,
+                "all_dmg_": 40
               },
               "description": ""
             }

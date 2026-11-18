@@ -1,7 +1,7 @@
 {
   "name": "FFXX",
   "description": "Celestia",
-  "lastEdit": 1794351031029,
+  "lastEdit": 1794890215754,
   "conditional": {
     "resonance": {},
     "reaction": {}
@@ -958,7 +958,7 @@
               "description": ""
             },
             {
-              "weight": 3.0757,
+              "weight": 3.1104,
               "path": [
                 "reaction",
                 "hydroSwirl"
@@ -994,7 +994,7 @@
               "description": ""
             },
             {
-              "weight": 0.9922,
+              "weight": 1.0071,
               "path": [
                 "reaction",
                 "hydroSwirl"
@@ -1050,102 +1050,6 @@
               "hitMode": "avgHit",
               "bonusStats": {
                 "atk_": 58
-              },
-              "description": ""
-            },
-            {
-              "weight": 0.0149,
-              "path": [
-                "reaction",
-                "hydroSwirl"
-              ],
-              "hitMode": "avgHit",
-              "bonusStats": {
-                "atk_": 80.016
-              },
-              "description": ""
-            },
-            {
-              "weight": 0.005,
-              "path": [
-                "reaction",
-                "hydroSwirl"
-              ],
-              "hitMode": "avgHit",
-              "bonusStats": {
-                "atk_": 58
-              },
-              "description": ""
-            },
-            {
-              "weight": 0.005,
-              "path": [
-                "reaction",
-                "hydroSwirl"
-              ],
-              "hitMode": "avgHit",
-              "bonusStats": {
-                "atk_": 68.016
-              },
-              "description": ""
-            },
-            {
-              "weight": 0.005,
-              "path": [
-                "reaction",
-                "hydroSwirl"
-              ],
-              "hitMode": "avgHit",
-              "bonusStats": {
-                "atk_": 80.016
-              },
-              "description": ""
-            },
-            {
-              "weight": 0.005,
-              "path": [
-                "reaction",
-                "hydroSwirl"
-              ],
-              "hitMode": "avgHit",
-              "bonusStats": {
-                "atk_": 80.016
-              },
-              "description": ""
-            },
-            {
-              "weight": 0.005,
-              "path": [
-                "reaction",
-                "hydroSwirl"
-              ],
-              "hitMode": "avgHit",
-              "bonusStats": {
-                "atk_": 80.016
-              },
-              "description": ""
-            },
-            {
-              "weight": 0.005,
-              "path": [
-                "reaction",
-                "hydroSwirl"
-              ],
-              "hitMode": "avgHit",
-              "bonusStats": {
-                "atk_": 80.016
-              },
-              "description": ""
-            },
-            {
-              "weight": 0.005,
-              "path": [
-                "reaction",
-                "hydroSwirl"
-              ],
-              "hitMode": "avgHit",
-              "bonusStats": {
-                "atk_": 80.016
               },
               "description": ""
             }

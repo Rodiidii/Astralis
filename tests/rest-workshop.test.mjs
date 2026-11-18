@@ -1,7 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import {claimReward,guaranteeDate,incomeGroups,observedStats} from '../src/wish-wallet.js';
-import {officialNews,agendaEntries,versionCalendar} from '../src/agenda-model.js';
+import {officialNews,agendaEntries,versionCalendar,shiftAgendaMonth} from '../src/agenda-model.js';
 import {simulateFarm} from '../src/farm-simulator.js';
 import {periodIncome} from '../src/planning-rules.js';
 
@@ -32,6 +32,12 @@ test('le fil officiel est indépendant du calendrier et normalise les dates RSS'
  assert.equal(rows.length,1);assert.equal(rows[0].date,'2026-11-10T18:00:00.000Z');
  const events=agendaEntries([{kind:'abyss',title:'Reset',start:'2026-11-16',end:'2026-11-16'},{kind:'farm',start:'2026-11-16',end:'2026-11-16'}]);assert.equal(events.length,1);assert.equal(events[0].category,'endgame');
  assert.ok(versionCalendar('2026-12').some(v=>v.start.startsWith('2026-12-16')&&v.estimated));
+});
+test('la navigation du calendrier traverse correctement les années',()=>{
+ assert.equal(shiftAgendaMonth('2026-12',1),'2027-01');
+ assert.equal(shiftAgendaMonth('2027-01',-1),'2026-12');
+ assert.equal(shiftAgendaMonth('2027-06',0),'2027-06');
+ assert.equal(shiftAgendaMonth('invalide',1),'');
 });
 test('trois boss différents accompagnent le planning et les jours manuels sont réservés',()=>{
  const materials=[1,2,3].map(i=>({id:113050+i,sources:['Boss '+i+' (Niv.70+)']}));

@@ -50,7 +50,7 @@
       "description": ""
     },
     {
-      "weight": 0.4461,
+      "weight": 0.4903,
       "path": [
         "burst",
         "exp"
@@ -76,20 +76,6 @@
         "all_dmgInc": 1222.907,
         "pyro_enemyRes_": -75,
         "all_dmg_": 105.8
-      },
-      "description": ""
-    },
-    {
-      "weight": 0.0442,
-      "path": [
-        "burst",
-        "exp"
-      ],
-      "hitMode": "avgHit",
-      "bonusStats": {
-        "atk_": 124.83,
-        "pyro_enemyRes_": -75,
-        "all_dmg_": 68
       },
       "description": ""
     },
@@ -828,20 +814,7 @@
       "description": ""
     },
     {
-      "weight": 0.4586,
-      "path": [
-        "burst",
-        "exp"
-      ],
-      "hitMode": "avgHit",
-      "bonusStats": {
-        "atk_": 79.83,
-        "pyro_enemyRes_": -75
-      },
-      "description": ""
-    },
-    {
-      "weight": 0.0442,
+      "weight": 0.5471,
       "path": [
         "burst",
         "exp"
@@ -855,19 +828,6 @@
     },
     {
       "weight": 0.4586,
-      "path": [
-        "burst",
-        "exp"
-      ],
-      "hitMode": "avgHit",
-      "bonusStats": {
-        "atk_": 79.83,
-        "pyro_enemyRes_": -75
-      },
-      "description": ""
-    },
-    {
-      "weight": 0.0442,
       "path": [
         "burst",
         "exp"

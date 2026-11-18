@@ -1,7 +1,7 @@
 {
   "name": "Quickbloom",
   "description": "Celestia",
-  "lastEdit": 1794349047251,
+  "lastEdit": 1794890261759,
   "conditional": {
     "resonance": {},
     "reaction": {}
@@ -44,86 +44,6 @@
           "name": "Quickbloom",
           "description": "Celestia",
           "targets": [
-            {
-              "weight": 3,
-              "path": [
-                "burst",
-                "normal_0"
-              ],
-              "hitMode": "avgHit",
-              "reaction": "aggravate",
-              "bonusStats": {
-                "eleMas": 260,
-                "atk_": 20,
-                "aggravate_dmg_": 33.393,
-                "all_dmg_": 62.5
-              },
-              "description": ""
-            },
-            {
-              "weight": 1,
-              "path": [
-                "burst",
-                "normal_1"
-              ],
-              "hitMode": "avgHit",
-              "reaction": "aggravate",
-              "bonusStats": {
-                "eleMas": 260,
-                "atk_": 20,
-                "aggravate_dmg_": 33.393,
-                "all_dmg_": 62.5
-              },
-              "description": ""
-            },
-            {
-              "weight": 2,
-              "path": [
-                "burst",
-                "normal_2"
-              ],
-              "hitMode": "avgHit",
-              "reaction": "aggravate",
-              "bonusStats": {
-                "eleMas": 260,
-                "atk_": 20,
-                "aggravate_dmg_": 33.393,
-                "all_dmg_": 62.5
-              },
-              "description": ""
-            },
-            {
-              "weight": 1.5,
-              "path": [
-                "burst",
-                "normal_3"
-              ],
-              "hitMode": "avgHit",
-              "reaction": "aggravate",
-              "bonusStats": {
-                "eleMas": 260,
-                "atk_": 20,
-                "aggravate_dmg_": 33.393,
-                "all_dmg_": 62.5
-              },
-              "description": ""
-            },
-            {
-              "weight": 1.5,
-              "path": [
-                "burst",
-                "normal_3"
-              ],
-              "hitMode": "avgHit",
-              "reaction": "aggravate",
-              "bonusStats": {
-                "eleMas": 260,
-                "atk_": 20,
-                "aggravate_dmg_": 33.393,
-                "all_dmg_": 62.5
-              },
-              "description": ""
-            },
             {
               "weight": 4,
               "path": [
@@ -269,6 +189,86 @@
                 "hyperbloom_dmg_": 83.481,
                 "hyperbloom_dmgInc": 7067.648,
                 "dendro_enemyRes_": -55
+              },
+              "description": ""
+            },
+            {
+              "weight": 3,
+              "path": [
+                "burst",
+                "normal_0"
+              ],
+              "hitMode": "avgHit",
+              "reaction": "aggravate",
+              "bonusStats": {
+                "eleMas": 260,
+                "atk_": 20,
+                "aggravate_dmg_": 33.393,
+                "all_dmg_": 62.5
+              },
+              "description": ""
+            },
+            {
+              "weight": 1,
+              "path": [
+                "burst",
+                "normal_1"
+              ],
+              "hitMode": "avgHit",
+              "reaction": "aggravate",
+              "bonusStats": {
+                "eleMas": 260,
+                "atk_": 20,
+                "aggravate_dmg_": 33.393,
+                "all_dmg_": 62.5
+              },
+              "description": ""
+            },
+            {
+              "weight": 2,
+              "path": [
+                "burst",
+                "normal_2"
+              ],
+              "hitMode": "avgHit",
+              "reaction": "aggravate",
+              "bonusStats": {
+                "eleMas": 260,
+                "atk_": 20,
+                "aggravate_dmg_": 33.393,
+                "all_dmg_": 62.5
+              },
+              "description": ""
+            },
+            {
+              "weight": 1.5,
+              "path": [
+                "burst",
+                "normal_3"
+              ],
+              "hitMode": "avgHit",
+              "reaction": "aggravate",
+              "bonusStats": {
+                "eleMas": 260,
+                "atk_": 20,
+                "aggravate_dmg_": 33.393,
+                "all_dmg_": 62.5
+              },
+              "description": ""
+            },
+            {
+              "weight": 1.5,
+              "path": [
+                "burst",
+                "normal_3"
+              ],
+              "hitMode": "avgHit",
+              "reaction": "aggravate",
+              "bonusStats": {
+                "eleMas": 260,
+                "atk_": 20,
+                "aggravate_dmg_": 33.393,
+                "all_dmg_": 62.5
               },
               "description": ""
             }

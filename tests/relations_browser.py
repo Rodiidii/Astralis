@@ -1,4 +1,5 @@
 """Exercise relations using the actual local evidence snapshot."""
+import json
 import threading
 from functools import partial
 from urllib.parse import urlsplit, unquote
@@ -53,9 +54,33 @@ def main():
             page.add_init_script("localStorage.setItem('astralis:cosmos:gi',JSON.stringify({revision:3,view:'blocks',background:'none',motion:false}))")
             page.goto(base, wait_until='domcontentloaded')
             page.wait_for_selector('#astralis-launch-screen', state='detached')
+            page.add_style_tag(content='#assistant-toast-stack{display:none!important}')
             page.locator('[data-nav=relations]').first.click()
             page.wait_for_selector('.relations-board canvas')
             assert page.locator('.relations-board button').count() > 80
+            graph = page.locator('astralis-relations')
+            graph.evaluate("g=>{g.settings.regions=[];g.settings.region='';g.settings.source='all';g.settings.direction='all';g.settings.min=1;g.settings.spoilers=false;g.selected=['10000029','10000031'];g.pathIndex=0;g.update()}")
+            itinerary = page.locator('.relations-next-path')
+            assert itinerary.count() == 1, graph.evaluate('g=>JSON.stringify({selected:g.selected,path:g.path,paths:g.paths,visible:g.visibleEdges.length,direct:g.visibleEdges.filter(e=>g.selected.includes(e.a)&&g.selected.includes(e.b)),dialog:g.duoDialog.open,content:g.duoDialog.querySelector("[data-rel-duo-content]")?.innerHTML})')
+            routes = graph.evaluate('''g=>{const before=g.path.join(',');g.duoDialog.querySelector('.relations-next-path').click();return {before,after:g.path.join(','),index:g.pathIndex,counter:g.duoDialog.querySelector('.relations-next-path span')?.textContent}}''')
+            first_route, second_route = routes['before'], routes['after']
+            assert first_route != second_route
+            assert routes['index'] == 1 and routes['counter'] == '2/8'
+            graph.evaluate('g=>g.clearSelection()')
+            assert page.locator('.relations-insight-card').count() >= 3
+            region_coverage = page.locator('[data-reading-roster] [data-rel-region="Mondstadt"]').first
+            assert region_coverage.get_attribute('aria-label').find('profils reliés') >= 0
+            assert '/' in region_coverage.locator('small').inner_text()
+            assert 'sans preuve locale' in region_coverage.get_attribute('title')
+            page.locator('.relations-insight-card[data-rel-select]').first.click()
+            assert page.locator('astralis-relations').evaluate('g=>g.selected.length===1')
+            page.locator('.relations-clear-selection').click()
+            assert page.locator('astralis-relations').evaluate('g=>g.selected.length===0')
+            pair=page.locator('.relations-insight-card[data-rel-insight-pair]').first
+            if pair.count():
+                pair.click()
+                assert page.locator('dialog.relations-association').evaluate('d=>d.open')
+                page.get_by_role('button',name='Retour sans sélection').click()
             page.locator('[data-rel-region="Mondstadt"]').first.click()
             page.locator('[data-rel-region="Liyue"]').first.click()
             assert page.locator('astralis-relations').evaluate("g=>g.settings.regions.includes('Mondstadt')&&g.settings.regions.includes('Liyue')")
@@ -116,8 +141,21 @@ def main():
             page.get_by_role('searchbox',name='Rechercher un personnage').fill('Amber')
             page.locator('[data-rel-search]').get_by_role('button',name='Amber',exact=True).click()
             page.locator('[data-rel-info]').get_by_role('button',name='Jean',exact=False).click()
+            assert page.locator('[data-rel-info] .relations-character-metrics').count() == 1
+            assert page.locator('[data-rel-info] .relations-character-metrics span').count() == 3
+            assert page.locator('[data-rel-info] [data-rel-reference-story="en"]').get_attribute('href') == 'https://ties.catforest.dev/genshin/story/en/Amber.json'
+            story_links = page.locator('[data-rel-info] .relations-reference-stories a[data-rel-reference-story]')
+            assert story_links.count() == 4
+            assert story_links.evaluate_all('links=>Object.fromEntries(links.map(a=>[a.dataset.relReferenceStory,a.href]))') == {
+                'en':'https://ties.catforest.dev/genshin/story/en/Amber.json',
+                'zh':'https://ties.catforest.dev/genshin/story/zh/Amber.json',
+                'ja':'https://ties.catforest.dev/genshin/story/ja/Amber.json',
+                'ko':'https://ties.catforest.dev/genshin/story/ko/Amber.json'}
             page.locator('dialog.relations-association blockquote').first.wait_for()
             assert 'À propos de Jean' in page.locator('dialog.relations-association').inner_text()
+            assert page.locator('dialog.relations-association .relations-strength-meter[role="progressbar"]').count() == 1
+            assert int(page.locator('dialog.relations-association .relations-strength-meter').get_attribute('aria-valuenow')) > 0
+            assert 'pas mesure canonique de l’affection' in page.locator('dialog.relations-association .relations-strength').inner_text()
             assert page.locator('[data-rel-info] blockquote').count() == 0
             page.get_by_role('button',name='Voir la carte').click()
             page.get_by_role('button',name='Copier le lien').click()
@@ -136,6 +174,15 @@ def main():
             page.get_by_role('heading',name='Entente d’équipe').wait_for()
             page.get_by_role('button',name='Anneau / Liste').click()
             assert page.locator('[data-rel-list] tbody tr').count() > 0
+            relation_search=page.locator('[data-rel-list-query]')
+            relation_search.fill('Amber')
+            assert page.locator('[data-rel-list] tbody tr').count() > 0
+            relation_search.fill('zzzz-no-matching-proof-zzzz')
+            assert 'Aucune preuve locale ne correspond' in page.locator('[data-rel-list]').inner_text()
+            relation_search.fill('')
+            with page.expect_download() as csv_download:
+                page.get_by_role('button',name='Exporter les liens CSV').click()
+            assert csv_download.value.suggested_filename.startswith('astralis-relations-')
             page.get_by_role('button',name='PNG',exact=True).click()
             page.locator('.astralis-png-preview canvas').wait_for()
             assert page.locator('.astralis-png-preview canvas').evaluate('c=>c.width') == 2000
@@ -160,7 +207,26 @@ def main():
             graph.evaluate('g=>{g.selected=["10000021"];g.settings.connectionMode="connection";g.update()}')
             page.screenshot(path=str(captures/'concentric.png'))
             page.get_by_role('button',name='Sources',exact=True).click()
-            page.locator('.relations-source-list a').first.wait_for()
+            page.locator('.relations-source-card').first.wait_for()
+            assert page.locator('.relations-source-card').count()>0
+            assert '68' in page.locator('.relations-reference-counts [data-reference-stat=originalReferences]').inner_text()
+            page.evaluate('''()=>{window.__auditBlob=null;window.__auditFilename='';URL.createObjectURL=blob=>(window.__auditBlob=blob,'blob:relation-audit');HTMLAnchorElement.prototype.click=function(){window.__auditFilename=this.download}}''')
+            page.locator('[data-source-export]').click()
+            page.wait_for_function("window.__auditBlob && window.__auditFilename==='astralis-audit-sources-relations.json'")
+            export=json.loads(page.evaluate('async()=>await window.__auditBlob.text()'))
+            assert export['evidenceCount']>0 and export['groups']
+            page.keyboard.press('Escape')
+            page.get_by_role('button',name='Rechercher dans les preuves').click()
+            page.locator('[data-evidence-query]').fill('Amber')
+            page.locator('.relations-evidence-result').first.wait_for()
+            assert page.locator('.relations-evidence-result').count()<=30
+            page.locator('[data-reading="evidence-kind"][data-kind="voice"]').click()
+            assert page.locator('[data-reading="evidence-kind"][data-kind="voice"]').get_attribute('aria-pressed')=='true'
+            assert page.locator('.relations-evidence-result-meta').first.inner_text().startswith('Réplique vocale')
+            page.locator('[data-reading="evidence-kind"][data-kind="all"]').click()
+            assert page.locator('.relations-evidence-result').count()>0
+            page.locator('.relations-evidence-result').first.click()
+            assert page.locator('dialog.relations-association').evaluate('d=>d.open')
             page.keyboard.press('Escape')
             page.get_by_role('button',name='Signaler une preuve',exact=True).click()
             page.locator('textarea[name=description]').fill('Test de signalement local sourcé')

@@ -1,7 +1,7 @@
 {
   "name": "C6 Iansan Overload",
   "description": "Celestia",
-  "lastEdit": 1794349122958,
+  "lastEdit": 1794890339940,
   "conditional": {
     "resonance": {},
     "reaction": {}
@@ -38,38 +38,6 @@
           "name": "C6 Iansan Overload",
           "description": "Celestia",
           "targets": [
-            {
-              "weight": 0.25,
-              "path": [
-                "passive2",
-                "electro"
-              ],
-              "hitMode": "avgHit",
-              "bonusStats": {
-                "atk": 1590,
-                "atk_": 54,
-                "electro_enemyRes_": -35,
-                "all_dmg_": 115,
-                "critRate_": -40
-              },
-              "description": ""
-            },
-            {
-              "weight": 0.25,
-              "path": [
-                "passive2",
-                "pyro"
-              ],
-              "hitMode": "avgHit",
-              "bonusStats": {
-                "atk": 1590,
-                "atk_": 54,
-                "pyro_enemyRes_": -60,
-                "all_dmg_": 155,
-                "critRate_": -40
-              },
-              "description": ""
-            },
             {
               "weight": 1,
               "path": [
@@ -548,6 +516,38 @@
                 "atk_": 54,
                 "electro_enemyRes_": -35,
                 "all_dmg_": 115
+              },
+              "description": ""
+            },
+            {
+              "weight": 0.25,
+              "path": [
+                "passive2",
+                "electro"
+              ],
+              "hitMode": "avgHit",
+              "bonusStats": {
+                "atk": 1590,
+                "atk_": 54,
+                "electro_enemyRes_": -35,
+                "all_dmg_": 115,
+                "critRate_": -40
+              },
+              "description": ""
+            },
+            {
+              "weight": 0.25,
+              "path": [
+                "passive2",
+                "pyro"
+              ],
+              "hitMode": "avgHit",
+              "bonusStats": {
+                "atk": 1590,
+                "atk_": 54,
+                "pyro_enemyRes_": -60,
+                "all_dmg_": 155,
+                "critRate_": -40
               },
               "description": ""
             }

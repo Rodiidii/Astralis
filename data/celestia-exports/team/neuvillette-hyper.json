@@ -1,7 +1,7 @@
 {
   "name": "Hyper",
   "description": "Celestia",
-  "lastEdit": 1794348924441,
+  "lastEdit": 1794890141286,
   "conditional": {
     "resonance": {},
     "reaction": {}
@@ -650,7 +650,7 @@
               "goblet": {
                 "level": 20,
                 "rarity": 5,
-                "statKey": "hydro_dmg_"
+                "statKey": "hp_"
               },
               "circlet": {
                 "level": 20,
@@ -662,12 +662,12 @@
               "type": "max",
               "rarity": 5,
               "stats": {
-                "hp_": 25.07,
+                "hp_": 15.16,
                 "def": 39.35,
                 "def_": 12.39,
                 "enerRech_": 44.04,
                 "critRate_": 26.44,
-                "critDMG_": 46.62,
+                "critDMG_": 59.83,
                 "hp": 507.88,
                 "eleMas": 39.63,
                 "atk": 33.07,

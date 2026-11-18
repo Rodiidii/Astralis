@@ -1,7 +1,7 @@
 {
   "name": "Hex Hyper",
   "description": "Celestia",
-  "lastEdit": 1794419964229,
+  "lastEdit": 1794931306576,
   "conditional": {
     "resonance": {},
     "reaction": {}
@@ -37,21 +37,6 @@
           "name": "Hex Hyper",
           "description": "Celestia",
           "targets": [
-            {
-              "weight": 0.7785,
-              "path": [
-                "burst",
-                "supportDmg"
-              ],
-              "hitMode": "avgHit",
-              "bonusStats": {
-                "atk_": 65,
-                "atk": 548.791,
-                "geo_enemyRes_": -91,
-                "all_dmg_": 90
-              },
-              "description": ""
-            },
             {
               "weight": 0.4091,
               "path": [
@@ -631,6 +616,21 @@
                 "atk_": 65,
                 "geo_enemyRes_": -91,
                 "all_dmg_": 145
+              },
+              "description": ""
+            },
+            {
+              "weight": 0.7785,
+              "path": [
+                "burst",
+                "supportDmg"
+              ],
+              "hitMode": "avgHit",
+              "bonusStats": {
+                "atk_": 65,
+                "atk": 548.791,
+                "geo_enemyRes_": -91,
+                "all_dmg_": 90
               },
               "description": ""
             }

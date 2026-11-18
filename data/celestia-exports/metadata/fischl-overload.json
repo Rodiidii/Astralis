@@ -28,12 +28,35 @@
       "set4": "on"
     }
   },
-  "characterBonusStats": null,
+  "characterBonusStats": {
+    "atk_": 60.424,
+    "atk": 600
+  },
   "enemy": {
     "level": 100,
     "res": 0.1
   },
   "issues": [
+    {
+      "code": "characterBonusStats",
+      "stats": [
+        {
+          "buff": "Pyro Resonance",
+          "key": "atk_",
+          "value": 25
+        },
+        {
+          "buff": "Chevreuse A4 ATK (Pyro/Electro)",
+          "key": "atk_",
+          "value": 35.42357436637607
+        },
+        {
+          "buff": "Grace of Kenosis (% of Nicole's ATK)",
+          "key": "atk",
+          "value": 600
+        }
+      ]
+    },
     {
       "code": "goSwitch",
       "switches": [
@@ -56,7 +79,9 @@
     {
       "code": "setEffects",
       "setIds": [
-        15032
+        15032,
+        15007,
+        15045
       ]
     }
   ],
@@ -83,7 +108,9 @@
     {
       "code": "setEffects",
       "setIds": [
-        15032
+        15032,
+        15007,
+        15045
       ]
     }
   ]

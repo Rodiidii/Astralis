@@ -1,0 +1,8 @@
+<!doctype html>
+<html lang="fr"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<link rel="stylesheet" href="../../styles/focus-station.css"><main id="root"></main>
+<script type="module">
+ import {renderFocusStation,mountFocusStation} from '../../src/focus-station.js';
+ const people=[{id:'furina',_id:'furina',_name:'Furina',_focusGame:'gi',_focusImage:'data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs='}];
+ const root=document.querySelector('#root'),render=()=>{root.innerHTML=renderFocusStation('gi',people);mountFocusStation(root.querySelector('[data-focus-station]'),()=>{},people)};render();document.addEventListener('focus:changed',render);
+</script></html>

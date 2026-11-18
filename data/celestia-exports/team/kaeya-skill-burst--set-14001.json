@@ -1,7 +1,7 @@
 {
   "name": "Skill & Burst",
   "description": "Celestia",
-  "lastEdit": 1794351111286,
+  "lastEdit": 1794890291935,
   "conditional": {
     "resonance": {},
     "reaction": {}
@@ -34,30 +34,15 @@
           "description": "Celestia",
           "targets": [
             {
-              "weight": 0.0315,
-              "path": [
-                "burst",
-                "dmg"
-              ],
-              "hitMode": "avgHit",
-              "bonusStats": {
-                "eleMas": 80,
-                "atk": 548.791,
-                "all_dmg_": 132,
-                "critRate_": 35
-              },
-              "description": ""
-            },
-            {
-              "weight": 1.139,
+              "weight": 1.123,
               "path": [
                 "skill",
                 "dmg"
               ],
               "hitMode": "avgHit",
               "bonusStats": {
-                "atk_": 19.12,
-                "eleMas": 47.5,
+                "atk_": 18.5,
+                "eleMas": 45.5,
                 "atk": 548.791,
                 "all_dmg_": 100,
                 "critRate_": 15
@@ -65,7 +50,7 @@
               "description": ""
             },
             {
-              "weight": 1.0146,
+              "weight": 1.2181,
               "path": [
                 "burst",
                 "dmg"
@@ -75,12 +60,12 @@
                 "eleMas": 80,
                 "atk": 548.791,
                 "all_dmg_": 132,
-                "critRate_": 15.76
+                "critRate_": 15
               },
               "description": ""
             },
             {
-              "weight": 1.0146,
+              "weight": 1.0194,
               "path": [
                 "burst",
                 "dmg"
@@ -110,7 +95,7 @@
               "description": ""
             },
             {
-              "weight": 1.0146,
+              "weight": 1.0194,
               "path": [
                 "burst",
                 "dmg"
@@ -155,7 +140,7 @@
               "description": ""
             },
             {
-              "weight": 0.9506,
+              "weight": 0.949,
               "path": [
                 "burst",
                 "dmg"
@@ -170,7 +155,7 @@
               "description": ""
             },
             {
-              "weight": 1.0146,
+              "weight": 1.0194,
               "path": [
                 "burst",
                 "dmg"
@@ -180,7 +165,7 @@
                 "eleMas": 80,
                 "atk": 548.791,
                 "all_dmg_": 132,
-                "critRate_": 15.76
+                "critRate_": 15
               },
               "description": ""
             },
@@ -195,12 +180,12 @@
                 "atk": 848.791,
                 "eleMas": 80,
                 "all_dmg_": 60,
-                "critRate_": 15.76
+                "critRate_": 15
               },
               "description": ""
             },
             {
-              "weight": 0.9506,
+              "weight": 0.949,
               "path": [
                 "burst",
                 "dmg"
@@ -210,7 +195,7 @@
                 "eleMas": 80,
                 "atk": 548.791,
                 "all_dmg_": 132,
-                "critRate_": 15.76
+                "critRate_": 15
               },
               "description": ""
             },
@@ -225,7 +210,7 @@
                 "atk": 848.791,
                 "eleMas": 80,
                 "all_dmg_": 60,
-                "critRate_": 47.161
+                "critRate_": 47.125
               },
               "description": ""
             },
@@ -240,12 +225,12 @@
                 "atk": 848.791,
                 "eleMas": 80,
                 "all_dmg_": 60,
-                "critRate_": 47.161
+                "critRate_": 47.125
               },
               "description": ""
             },
             {
-              "weight": 1.0146,
+              "weight": 1.0194,
               "path": [
                 "burst",
                 "dmg"
@@ -255,27 +240,12 @@
                 "eleMas": 80,
                 "atk": 548.791,
                 "all_dmg_": 132,
-                "critRate_": 33.38
+                "critRate_": 34
               },
               "description": ""
             },
             {
-              "weight": 1.0146,
-              "path": [
-                "burst",
-                "dmg"
-              ],
-              "hitMode": "avgHit",
-              "bonusStats": {
-                "eleMas": 80,
-                "atk": 548.791,
-                "all_dmg_": 132,
-                "critRate_": 15
-              },
-              "description": ""
-            },
-            {
-              "weight": 1.0146,
+              "weight": 1.0194,
               "path": [
                 "burst",
                 "dmg"
@@ -290,7 +260,7 @@
               "description": ""
             },
             {
-              "weight": 1.0146,
+              "weight": 1.0194,
               "path": [
                 "burst",
                 "dmg"
@@ -300,12 +270,12 @@
                 "eleMas": 80,
                 "atk": 548.791,
                 "all_dmg_": 132,
-                "critRate_": 15.24
+                "critRate_": 15
               },
               "description": ""
             },
             {
-              "weight": 0.7731,
+              "weight": 1.0194,
               "path": [
                 "burst",
                 "dmg"
@@ -315,12 +285,27 @@
                 "eleMas": 80,
                 "atk": 548.791,
                 "all_dmg_": 132,
-                "critRate_": 15.12
+                "critRate_": 15
               },
               "description": ""
             },
             {
-              "weight": 0.861,
+              "weight": 0.8216,
+              "path": [
+                "burst",
+                "dmg"
+              ],
+              "hitMode": "avgHit",
+              "bonusStats": {
+                "eleMas": 80,
+                "atk": 548.791,
+                "all_dmg_": 132,
+                "critRate_": 15
+              },
+              "description": ""
+            },
+            {
+              "weight": 0.877,
               "path": [
                 "skill",
                 "dmg"
@@ -330,12 +315,12 @@
                 "eleMas": 80,
                 "atk": 548.791,
                 "all_dmg_": 100,
-                "critRate_": 27.74
+                "critRate_": 28.12
               },
               "description": ""
             },
             {
-              "weight": 0.9831,
+              "weight": 0.9562,
               "path": [
                 "burst",
                 "dmg"
@@ -345,7 +330,7 @@
                 "eleMas": 80,
                 "atk": 548.791,
                 "all_dmg_": 132,
-                "critRate_": 30.36
+                "critRate_": 31.34
               },
               "description": ""
             },
@@ -360,12 +345,12 @@
                 "eleMas": 80,
                 "atk": 548.791,
                 "all_dmg_": 60,
-                "critRate_": 41.63
+                "critRate_": 42.724
               },
               "description": ""
             },
             {
-              "weight": 1.0146,
+              "weight": 1.0194,
               "path": [
                 "burst",
                 "dmg"
@@ -375,22 +360,7 @@
                 "eleMas": 80,
                 "atk": 548.791,
                 "all_dmg_": 132,
-                "critRate_": 30.38
-              },
-              "description": ""
-            },
-            {
-              "weight": 0.0315,
-              "path": [
-                "burst",
-                "dmg"
-              ],
-              "hitMode": "avgHit",
-              "bonusStats": {
-                "eleMas": 80,
-                "atk": 548.791,
-                "all_dmg_": 132,
-                "critRate_": 31
+                "critRate_": 31.38
               },
               "description": ""
             },
@@ -405,7 +375,7 @@
                 "eleMas": 80,
                 "atk": 548.791,
                 "all_dmg_": 60,
-                "critRate_": 40.428
+                "critRate_": 41.375
               },
               "description": ""
             },
@@ -420,12 +390,12 @@
                 "eleMas": 80,
                 "atk": 548.791,
                 "all_dmg_": 60,
-                "critRate_": 40.428
+                "critRate_": 41.375
               },
               "description": ""
             },
             {
-              "weight": 1.0146,
+              "weight": 1.0194,
               "path": [
                 "burst",
                 "dmg"
@@ -435,12 +405,12 @@
                 "eleMas": 80,
                 "atk": 548.791,
                 "all_dmg_": 132,
-                "critRate_": 29.74
+                "critRate_": 30.5
               },
               "description": ""
             },
             {
-              "weight": 0.9831,
+              "weight": 0.9562,
               "path": [
                 "burst",
                 "dmg"
@@ -450,7 +420,7 @@
                 "eleMas": 80,
                 "atk": 548.791,
                 "all_dmg_": 132,
-                "critRate_": 16.04
+                "critRate_": 15.14
               },
               "description": ""
             },
@@ -465,12 +435,12 @@
                 "eleMas": 80,
                 "atk": 548.791,
                 "all_dmg_": 60,
-                "critRate_": 16.62
+                "critRate_": 17.969
               },
               "description": ""
             },
             {
-              "weight": 1.0146,
+              "weight": 1.0194,
               "path": [
                 "burst",
                 "dmg"
@@ -480,22 +450,7 @@
                 "eleMas": 80,
                 "atk": 548.791,
                 "all_dmg_": 132,
-                "critRate_": 15.76
-              },
-              "description": ""
-            },
-            {
-              "weight": 0.0315,
-              "path": [
-                "burst",
-                "dmg"
-              ],
-              "hitMode": "avgHit",
-              "bonusStats": {
-                "eleMas": 80,
-                "atk": 548.791,
-                "all_dmg_": 132,
-                "critRate_": 35
+                "critRate_": 16
               },
               "description": ""
             },
@@ -530,22 +485,7 @@
               "description": ""
             },
             {
-              "weight": 0.9831,
-              "path": [
-                "burst",
-                "dmg"
-              ],
-              "hitMode": "avgHit",
-              "bonusStats": {
-                "eleMas": 80,
-                "atk": 548.791,
-                "all_dmg_": 132,
-                "critRate_": 35
-              },
-              "description": ""
-            },
-            {
-              "weight": 0.1217,
+              "weight": 0.9562,
               "path": [
                 "burst",
                 "dmg"
