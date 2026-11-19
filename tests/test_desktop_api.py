@@ -20,6 +20,11 @@ class DesktopApiTests(unittest.TestCase):
    with urllib.request.urlopen(request) as response:return response.status,json.load(response)
   except urllib.error.HTTPError as exc:
    with exc:return exc.code,json.load(exc)
+ def test_health_reports_loaded_version_even_if_files_were_replaced(self):
+  loaded=server._SERVER_VERSION
+  with patch.object(server,'PORT',self.port),patch.object(server,'HOSTED',False),patch.object(Path,'read_text',return_value='99.0.0'):
+   status,data=self.request('/health')
+   self.assertEqual(status,200);self.assertEqual(data['version'],loaded);self.assertEqual(data['instance'],server._SERVER_INSTANCE)
  def test_settings_and_shortcuts_use_only_the_running_installation(self):
   with patch.object(server,'PORT',self.port),patch.object(server,'HOSTED',False),patch.object(server.desktop_integration,'save_settings',return_value={'autoOpenGenshin':True,'supported':True}) as save,patch.object(server.desktop_integration,'create_shortcut',return_value='Astralis.lnk') as shortcut:
    status,data=self.request('/api/desktop/settings',{'autoOpenGenshin':True,'root':'C:/not-the-installation'});self.assertEqual(status,200);self.assertTrue(data['autoOpenGenshin']);self.assertEqual(save.call_args.args,(Path(server.__file__).resolve().parent,True))

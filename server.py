@@ -28,6 +28,11 @@ from urllib.error import URLError
 from urllib.request import Request, urlopen
 from urllib.parse import parse_qs, urlsplit, unquote, urlparse, quote, urlencode, urljoin
 
+_SERVER_ROOT = Path(__file__).resolve().parent
+_SERVER_VERSION_FILE = _SERVER_ROOT / "VERSION"
+_SERVER_VERSION = _SERVER_VERSION_FILE.read_text(encoding="utf-8-sig").strip() if _SERVER_VERSION_FILE.exists() else "0.0.0"
+_SERVER_INSTANCE = hashlib.sha256(str(_SERVER_ROOT).casefold().encode("utf-8")).hexdigest()[:12]
+
 HOST = os.environ.get("HOST", "0.0.0.0")
 PORT = int(os.environ.get("PORT", "8766"))
 HOSTED = os.environ.get("ASTRALIS_HOSTED", "").strip().lower() in {"1", "true", "yes"} or bool(os.environ.get("RENDER"))
@@ -1623,10 +1628,8 @@ class Handler(SimpleHTTPRequestHandler):
             names = sorted(f.name for f in folder.iterdir() if f.is_file() and f.suffix.lower() in {".webp", ".jpg", ".jpeg", ".png", ".avif"}) if folder.is_dir() else []
             self.send_json(200, names); return
         if path == "/health":
-            root = Path(__file__).resolve().parent
-            version_file = root / "VERSION"
-            version = version_file.read_text(encoding="utf-8").strip() if version_file.exists() else "0.0.0"
-            instance = hashlib.sha256(str(root).casefold().encode("utf-8")).hexdigest()[:12]
+            version = _SERVER_VERSION
+            instance = _SERVER_INSTANCE
             self.send_json(200, {"ok": True, "message": "Astralis local app active", "version": version, "instance": instance, "pid":os.getpid(), "appWindows":len(_APP_SESSIONS)})
             return
         if path == "/api/gi/aiynao":

@@ -10,6 +10,10 @@
         {
           "area": "Windows",
           "text": "Les raccourcis des dossiers corrigés redirigent vers une installation plus récente déjà validée. Le lancement avec Genshin suit ce dossier et contrôle la version et l’instance avant de réutiliser une fenêtre."
+        },
+        {
+          "area": "Fiabilité",
+          "text": "Le contrôle de version indique la version chargée par le serveur à son démarrage : un remplacement manuel des fichiers ne peut plus faire passer un ancien processus pour la nouvelle version."
         }
       ]
     },

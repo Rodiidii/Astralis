@@ -1,6 +1,6 @@
 # Astralis — application Windows
 
-## Windows : lancement, raccourcis et mises à jour (v1.0.55)
+## Windows : lancement, raccourcis et mises à jour (v1.0.56)
 
 - Dans **Personnaliser / Réglages**, active « Ouvrir Astralis au lancement de Genshin Impact ». Un petit programme local détecte `GenshinImpact.exe` et `YuanShen.exe` et reste disponible quand Astralis est fermé. L’option peut être désactivée au même endroit ; aucune tâche administrateur n’est nécessaire.
 - Le lanceur mémorise l’installation démarrée avec succès. Un lanceur corrigé évite de remplacer une version plus récente déjà validée par une ancienne ; le lancement avec Genshin vérifie la version et le dossier avant de réutiliser une fenêtre. Après changement de dossier, recrée les anciens raccourcis depuis les réglages.
