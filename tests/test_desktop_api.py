@@ -25,10 +25,15 @@ class DesktopApiTests(unittest.TestCase):
   with patch.object(server,'PORT',self.port),patch.object(server,'HOSTED',False),patch.object(Path,'read_text',return_value='99.0.0'):
    status,data=self.request('/health')
    self.assertEqual(status,200);self.assertEqual(data['version'],loaded);self.assertEqual(data['instance'],server._SERVER_INSTANCE)
+ def test_large_custom_icon_request_is_accepted_and_icon_paths_cannot_be_injected(self):
+  data='data:image/png;base64,'+'A'*12000
+  with patch.object(server,'PORT',self.port),patch.object(server,'HOSTED',False),patch.object(server.desktop_integration,'set_app_icon') as save,patch.object(server.desktop_integration,'refresh_shortcut_icons') as refresh:
+   status,_=self.request('/api/desktop/icon',{'iconData':data,'root':'C:/other'})
+   self.assertEqual(status,200);save.assert_called_once_with(data);refresh.assert_called_once_with(Path(server.__file__).resolve().parent)
  def test_settings_and_shortcuts_use_only_the_running_installation(self):
   with patch.object(server,'PORT',self.port),patch.object(server,'HOSTED',False),patch.object(server.desktop_integration,'save_settings',return_value={'autoOpenGenshin':True,'supported':True}) as save,patch.object(server.desktop_integration,'create_shortcut',return_value='Astralis.lnk') as shortcut:
    status,data=self.request('/api/desktop/settings',{'autoOpenGenshin':True,'root':'C:/not-the-installation'});self.assertEqual(status,200);self.assertTrue(data['autoOpenGenshin']);self.assertEqual(save.call_args.args,(Path(server.__file__).resolve().parent,True))
-   status,data=self.request('/api/desktop/shortcut',{'location':'startmenu','icon':'genshin'});self.assertEqual(status,200);self.assertEqual(shortcut.call_args.args,(Path(server.__file__).resolve().parent,'startmenu','genshin'))
+   status,data=self.request('/api/desktop/shortcut',{'location':'startmenu','icon':'genshin'});self.assertEqual(status,200);self.assertEqual(shortcut.call_args.args,(Path(server.__file__).resolve().parent,'startmenu','app'))
  def test_remote_origin_cannot_enable_a_startup_watcher(self):
   with patch.object(server,'PORT',self.port),patch.object(server.desktop_integration,'save_settings') as save:
    status,_=self.request('/api/desktop/settings',{'autoOpenGenshin':True},'https://unrelated.example');self.assertEqual(status,403);save.assert_not_called()

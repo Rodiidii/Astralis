@@ -1,5 +1,8 @@
 """Local Windows preferences, startup watcher and application shortcuts."""
 from __future__ import annotations
+import base64
+import hashlib
+import struct
 import argparse
 import json
 import os
@@ -51,14 +54,56 @@ def save_settings(root: Path, enabled: bool) -> dict:
                 pass
     return {**data, "supported": True}
 
-def create_shortcut(root: Path, location: str = "desktop", icon: str = "astralis", *, _destination: Path | None = None) -> str:
+def set_app_icon(data: str | None) -> Path | None:
+    folder = local_root() / "icons"
+    folder.mkdir(parents=True, exist_ok=True)
+    record = folder / "current.json"
+    if not data:
+        record.unlink(missing_ok=True)
+        return None
+    if not isinstance(data, str) or not data.startswith("data:image/png;base64,") or len(data) > 1_500_000:
+        raise ValueError("L’icône doit être une image PNG redimensionnée.")
+    try:
+        png = base64.b64decode(data.split(",", 1)[1], validate=True)
+    except ValueError:
+        raise ValueError("Image d’icône invalide.")
+    if len(png) < 33 or png[:8] != b"\x89PNG\r\n\x1a\n" or png[12:16] != b"IHDR":
+        raise ValueError("Image PNG invalide.")
+    width, height = struct.unpack(">II", png[16:24])
+    if not (1 <= width <= 256 and 1 <= height <= 256):
+        raise ValueError("L’icône doit mesurer au maximum 256 pixels.")
+    image = folder / ("app-" + hashlib.sha256(png).hexdigest()[:20] + ".ico")
+    image.write_bytes(struct.pack("<HHH",0,1,1) + struct.pack("<BBBBHHII",width % 256,height % 256,0,0,1,32,len(png),22) + png)
+    record.write_text(json.dumps({"name":image.name}), encoding="utf-8")
+    return image
+
+
+def app_icon(root: Path) -> Path:
+    folder = local_root() / "icons"
+    try:
+        name = json.loads((folder / "current.json").read_text(encoding="utf-8"))["name"]
+        if isinstance(name,str) and name.startswith("app-") and Path(name).name == name and (folder/name).is_file():
+            return folder/name
+    except (OSError, ValueError, KeyError):
+        pass
+    return root / "assets" / "pwa" / "astralis.ico"
+
+
+def refresh_shortcut_icons(root: Path) -> None:
+    if os.name != "nt": return
+    image = app_icon(root)
+    script = r"$s=New-Object -ComObject WScript.Shell;foreach($folder in @([Environment]::GetFolderPath('Desktop'),(Join-Path ([Environment]::GetFolderPath('StartMenu')) 'Programs'))){Get-ChildItem -LiteralPath $folder -Filter 'Astralis*.lnk' -File -ErrorAction SilentlyContinue|ForEach-Object {$l=$s.CreateShortcut($_.FullName);if($l.WorkingDirectory -eq $env:ASTRALIS_LINK_ROOT){$l.IconLocation=$env:ASTRALIS_LINK_ICON+',0';$l.Save()}}}"
+    subprocess.run(["powershell.exe","-NoProfile","-NonInteractive","-Command",script],env={**os.environ,"ASTRALIS_LINK_ROOT":str(root.resolve()),"ASTRALIS_LINK_ICON":str(image)},check=True,timeout=25,creationflags=getattr(subprocess,"CREATE_NO_WINDOW",0),capture_output=True)
+
+
+def create_shortcut(root: Path, location: str = "desktop", icon: str = "app", *, _destination: Path | None = None) -> str:
     if os.name != "nt":
         raise ValueError("Les raccourcis sont disponibles sous Windows.")
-    if location not in {"desktop", "startmenu"} or icon not in {"astralis", "genshin"}:
+    if location not in {"desktop", "startmenu"} or icon not in {"app", "astralis", "genshin"}:
         raise ValueError("Emplacement ou icône non valide.")
     root = root.resolve()
     launcher = root / "Installer et lancer Astralis.ps1"
-    image = root / "assets" / "pwa" / ("astralis.ico" if icon == "astralis" else "genshin.ico")
+    image = app_icon(root)
     if not launcher.is_file() or not image.is_file():
         raise ValueError("Lanceur ou icône Astralis absent.")
     # Values are transported in the environment, never inserted into shell code.

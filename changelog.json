@@ -2,6 +2,30 @@
   "schemaVersion": 1,
   "releases": [
     {
+      "id": "2026-11-19-settings-identity-1",
+      "date": "2026-11-19",
+      "title": "Des réglages plus clairs, une icône partout",
+      "summary": "Réglages réorganisés, raccourcis fidèles à ton icône et pastille de mise à jour.",
+      "changes": [
+        {
+          "area": "Réglages",
+          "text": "Nouvelle page avec quatre onglets : Application, Apparence, Audio et Avancé. Présentation adaptée aux petits écrans."
+        },
+        {
+          "area": "Icône",
+          "text": "Les raccourcis utilisent automatiquement l’icône importée dans l’application, ou l’icône Astralis par défaut. Les raccourcis existants du même dossier sont synchronisés."
+        },
+        {
+          "area": "Mises à jour",
+          "text": "La vérification au lancement ajoute une pastille MaJ sur Réglages dans le menu latéral. Elle reste visible lors des changements de page et disparaît une fois à jour."
+        },
+        {
+          "area": "Installation",
+          "text": "Le paquet distribué ne contient plus les tests, captures de développement ni les sources de compilation inutilisées à l’exécution. Les fichiers nécessaires à la synchronisation sont conservés."
+        }
+      ]
+    },
+    {
       "id": "2026-11-19-installation-selection-1",
       "date": "2026-11-19",
       "title": "Toujours ouvrir la bonne installation",

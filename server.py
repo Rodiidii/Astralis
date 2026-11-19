@@ -1468,7 +1468,7 @@ class Handler(SimpleHTTPRequestHandler):
         global _HOYOLAB_RESIN_CACHE
         path = urlsplit(self.path).path
         if not self._require_access(): return
-        if path not in {"/api/hoyolab/credentials", "/api/hoyolab/disconnect", "/api/update/install", "/api/lab/team-export", "/api/app-session/open", "/api/app-session/close", "/api/desktop/settings", "/api/desktop/shortcut"}:
+        if path not in {"/api/hoyolab/credentials", "/api/hoyolab/disconnect", "/api/update/install", "/api/lab/team-export", "/api/app-session/open", "/api/app-session/close", "/api/desktop/settings", "/api/desktop/shortcut", "/api/desktop/icon"}:
             self.send_json(404, {"error":"Route inconnue."}); return
         if HOSTED and path in {"/api/hoyolab/credentials", "/api/hoyolab/disconnect"}:
             self.send_json(410, {"error":"La connexion HoYoLAB avec cookies est réservée à l’application locale sécurisée."}); return
@@ -1487,14 +1487,20 @@ class Handler(SimpleHTTPRequestHandler):
             self.send_json(403, {"error":"Arrêt réservé à Astralis sur cet appareil."}); return
         try:
             length = int(self.headers.get("Content-Length", "0"))
-            if length < 1 or length > (2_000_000 if path == "/api/lab/team-export" else 8192): raise ValueError("Taille de requête invalide.")
+            if length < 1 or length > (2_000_000 if path in {"/api/lab/team-export", "/api/desktop/icon", "/api/desktop/shortcut"} else 8192): raise ValueError("Taille de requête invalide.")
             body = json.loads(self.rfile.read(length))
             if path == "/api/desktop/settings":
                 if not isinstance(body.get("autoOpenGenshin"), bool): raise ValueError("Option de lancement invalide.")
                 settings = desktop_integration.save_settings(Path(__file__).resolve().parent, body["autoOpenGenshin"])
                 self.send_json(200, {"ok":True, **settings}); return
+            if path == "/api/desktop/icon":
+                root = Path(__file__).resolve().parent
+                desktop_integration.set_app_icon(body.get("iconData"))
+                desktop_integration.refresh_shortcut_icons(root)
+                self.send_json(200, {"ok":True}); return
             if path == "/api/desktop/shortcut":
-                filename = desktop_integration.create_shortcut(Path(__file__).resolve().parent, str(body.get("location", "desktop")), str(body.get("icon", "astralis")))
+                if "iconData" in body: desktop_integration.set_app_icon(body["iconData"])
+                filename = desktop_integration.create_shortcut(Path(__file__).resolve().parent, str(body.get("location", "desktop")), "app")
                 self.send_json(200, {"ok":True,"path":filename}); return
             if path in {"/api/app-session/open", "/api/app-session/close"}:
                 session = str(body.get("id", ""))

@@ -29,7 +29,7 @@ try:
   page.evaluate('''async()=>{window.close=()=>window.closeCalls=(window.closeCalls||0)+1;window.desktop=await import('/src/desktop-settings.js');window.updater=await import('/src/update-progress.js');document.querySelector('main').innerHTML=desktop.renderDesktopSettings()+'<section class="update-panel">'+updater.renderUpdateSteps()+'</section>';const css=document.createElement('link');css.rel='stylesheet';css.href='/styles/updater.css';document.head.append(css);desktop.initDesktopSettings();updater.initUpdateProgress();}''')
   expect(page.locator('[data-desktop-auto]')).to_be_enabled();page.locator('[data-desktop-auto]').check();expect(page.locator('[data-desktop-status]')).to_contain_text('Activé')
   assert requests[-1]=={'autoOpenGenshin':True}
-  page.locator('[data-shortcut-location]').select_option('startmenu');page.locator('[data-shortcut-icon]').select_option('genshin');page.locator('[data-desktop-shortcut]').click();expect(page.locator('[data-desktop-status]')).to_contain_text('Raccourci créé');assert requests[-1]=={'location':'startmenu','icon':'genshin'}
+  page.locator('[data-shortcut-location]').select_option('startmenu');page.locator('[data-desktop-shortcut]').click();expect(page.locator('[data-desktop-status]')).to_contain_text('Raccourci créé');assert requests[-1]=={'location':'startmenu','iconData':None}
   progress={'state':'downloading','jobId':'test','elapsedSeconds':12,'remainingSeconds':60,'overallPercent':15,'updatedAt':time.time()}
   page.evaluate('(s)=>updater.showUpdateProgress(s)',progress);expect(page.locator('[data-update-steps]')).to_be_visible();assert page.locator('[data-update-step]').count()==9
   page.wait_for_timeout(2200);page.evaluate('(s)=>updater.showUpdateProgress(s)',progress);assert '14 s' in page.locator('[data-update-elapsed]').inner_text()
@@ -38,8 +38,8 @@ try:
   page.set_viewport_size({'width':390,'height':844});assert page.evaluate('document.documentElement.scrollWidth<=innerWidth+1')
   progress={**progress,'state':'closing'};page.evaluate('(s)=>{updater.showUpdateProgress(s);updater.showUpdateProgress(s)}',progress);assert page.evaluate('closeCalls')==1
   progress={'state':'idle'}
-  page.goto(base,wait_until='domcontentloaded');page.wait_for_selector('#astralis-launch-screen',state='detached',timeout=60000)
-  page.locator('[data-nav=customize]').first.evaluate('(el)=>el.click()');expect(page.locator('[data-desktop-settings]')).to_be_visible();expect(page.locator('[data-desktop-auto]')).to_be_enabled();assert page.locator('[data-update-step]').count()==9
+  page.set_viewport_size({'width':1200,'height':900});page.goto(base,wait_until='domcontentloaded');page.wait_for_selector('#astralis-launch-screen',state='detached',timeout=60000)
+  page.locator('.side-rail [data-nav=customize]').click();expect(page.locator('[data-desktop-settings]')).to_be_visible(timeout=15000);expect(page.locator('[data-desktop-auto]')).to_be_enabled();assert page.locator('[data-update-step]').count()==9
   assert not errors,errors
   browser.close();print('PASS: Windows settings, toggle, shortcut choices, nine stages, live timer, mobile and full app',flush=True)
 finally:server.shutdown();server.server_close()

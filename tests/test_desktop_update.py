@@ -72,6 +72,25 @@ class DesktopTests(unittest.TestCase):
  def test_only_actual_game_process_names_match(self):
   for name,expected in [('GenshinImpact.exe',True),('YuanShen.exe',True),('HoYoPlay.exe',False),('notepad.exe',False)]:
    with patch.object(genshin_watcher,'process_names',return_value=[name]):self.assertEqual(genshin_watcher.game_running(),expected)
+ def test_custom_app_icon_is_used_and_reset_restores_default(self):
+  import base64
+  with tempfile.TemporaryDirectory() as temp,patch.dict(os.environ,{'LOCALAPPDATA':temp}):
+   png=(ROOT/'assets/pwa/icon-192.png').read_bytes()
+   icon=desktop.set_app_icon('data:image/png;base64,'+base64.b64encode(png).decode())
+   self.assertEqual(desktop.app_icon(ROOT),icon)
+   self.assertEqual(icon.read_bytes()[22:],png)
+   self.assertEqual(struct.unpack('<HHH',icon.read_bytes()[:6]),(0,1,1))
+   desktop.set_app_icon(None);self.assertEqual(desktop.app_icon(ROOT),ROOT/'assets/pwa/astralis.ico')
+   for bad in ['data:image/svg+xml;base64,AAAA','data:image/png;base64,AAAA','data:image/png;base64,%%%']:
+    with self.assertRaises(ValueError):desktop.set_app_icon(bad)
+ @unittest.skipUnless(os.name=='nt','Windows COM integration')
+ def test_real_shortcut_follows_custom_icon_even_with_legacy_icon_choice(self):
+  import base64
+  with tempfile.TemporaryDirectory() as temp,patch.dict(os.environ,{'LOCALAPPDATA':temp}):
+   icon=desktop.set_app_icon('data:image/png;base64,'+base64.b64encode((ROOT/'assets/pwa/icon-192.png').read_bytes()).decode())
+   link=Path(temp)/'Custom.lnk';desktop.create_shortcut(ROOT,'desktop','genshin',_destination=link)
+   result=subprocess.run(['powershell.exe','-NoProfile','-Command',"(New-Object -ComObject WScript.Shell).CreateShortcut($env:TEST_LINK).IconLocation"],env={**os.environ,'TEST_LINK':str(link)},capture_output=True,text=True,check=True,creationflags=subprocess.CREATE_NO_WINDOW)
+   self.assertEqual(result.stdout.strip(),str(icon)+',0')
  def test_icons_are_valid_windows_ico_containers(self):
   for name in ['astralis','genshin']:
    raw=(ROOT/'assets/pwa'/f'{name}.ico').read_bytes();self.assertEqual(struct.unpack('<HHH',raw[:6]),(0,1,1));self.assertEqual(raw[22:30],b'\x89PNG\r\n\x1a\n')

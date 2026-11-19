@@ -10,7 +10,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 OUT = Path(sys.argv[1]).resolve() if len(sys.argv) > 1 else ROOT / "releases"
-SKIP_DIRS = {".git", ".idea", ".cache", "__pycache__", "releases", "user-data", "userdata", "local-data", "localdata", "--help"}
+SKIP_DIRS = {".git", ".idea", ".cache", "__pycache__", "releases", "user-data", "userdata", "local-data", "localdata", "--help", "_backup_avant_modif"}
 SKIP_FILES = {".env", "hoyolab.dpapi"}
 SKIP_PATHS = {("assets", "user"), ("assets", "card-art", "downloads")}
 
@@ -38,10 +38,17 @@ def git_changed_files(base_tag: str) -> tuple[list[str], list[str]]:
     return changed, deleted
 
 
+def development_only(relative: Path) -> bool:
+    parts = tuple(part.lower() for part in relative.parts)
+    return bool(parts and (parts[0] in {"tests", ".github"} or (parts[0] == "docs" and len(parts)>1 and parts[1] != "sources") or parts[:2] == ("vendor", "genshin-optimizer-source")))
+
+
 def should_skip(relative: Path) -> bool:
     parts = tuple(part.lower() for part in relative.parts)
+    if development_only(relative):
+        return True
     skipped_path = any(parts[:len(prefix)] == prefix for prefix in SKIP_PATHS)
-    return any(part in SKIP_DIRS for part in parts) or skipped_path or relative.name.lower() in SKIP_FILES or relative.name.lower().endswith(".tmp.txt") or relative.suffix.lower() in {".pyc", ".pyo"}
+    return any(part in SKIP_DIRS for part in parts) or skipped_path or relative.name.lower() in SKIP_FILES or relative.name.lower().endswith(".tmp.txt") or relative.name.lower().startswith("tmp-source-") or relative.suffix.lower() in {".pyc", ".pyo"}
 
 
 def write_checksum(archive: Path) -> None:
@@ -77,7 +84,10 @@ def main() -> None:
                 base_version = base_tag.removeprefix("v")
                 changed, deleted = git_changed_files(base_tag)
                 patch_archive = OUT / f"Astralis-Patch-from-{base_version}.zip"
-                manifest = {"kind": "astralis-delta", "baseVersion": base_version, "version": target_version, "deleted": [name for name in deleted if not should_skip(Path(name))]}
+                previous = subprocess.check_output(["git","ls-tree","-r","--name-only","-z",base_tag],cwd=ROOT).decode("utf-8").split("\0")
+                removed = {name for name in deleted if not should_skip(Path(name))}
+                removed.update(name for name in previous if development_only(Path(name)))
+                manifest = {"kind": "astralis-delta", "baseVersion": base_version, "version": target_version, "deleted": sorted(removed)}
                 with zipfile.ZipFile(patch_archive, "w", compression=zipfile.ZIP_DEFLATED, compresslevel=6, allowZip64=True) as output:
                     output.writestr("ASTRALIS-PATCH.json", json.dumps(manifest, ensure_ascii=False))
                     copy_files(output, changed)
