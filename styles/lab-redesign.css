@@ -42,6 +42,11 @@
 .lab-workbench .lab-portrait-caption h2 {font-size:34px}
 .lab-workbench .lab-stat-table {font-size:11px}
 .lab-workbench .lab-stat-table td {color:var(--ink);font-variant-numeric:tabular-nums}
+.lab-workbench .lab-stat-table .lab-res-row th {vertical-align:top;padding-top:10px}
+.lab-workbench .lab-stat-table .lab-res-row>td {white-space:normal;text-align:left;padding:7px 0;vertical-align:top}
+.lab-res-reduction-list {display:grid;gap:2px;min-width:76px}
+.lab-res-entry {display:flex;justify-content:space-between;gap:9px;align-items:center;color:var(--muted);font-size:10px;line-height:1.5}
+.lab-res-entry b {color:var(--ink);font-variant-numeric:tabular-nums;white-space:nowrap}
 .lab-workbench .lab-tabs {display:flex;gap:4px;background:#0f161e;padding:6px;border-color:var(--lab-line);border-radius:13px;overflow-x:auto}
 .lab-workbench .lab-tabs button {flex:1;white-space:nowrap;color:var(--muted);padding:12px 10px}
 .lab-workbench .lab-tabs button[aria-selected=true] {background:color-mix(in srgb,var(--lab-accent) 13%,transparent);color:var(--lab-accent);box-shadow:inset 0 0 0 1px color-mix(in srgb,var(--lab-accent) 22%,transparent)}
@@ -233,4 +238,21 @@
 .lab-source-condition{padding:12px 0;border-top:1px solid var(--lab-line)}
 .lab-character-buffs .lab-source-condition>label{display:flex;align-items:center;justify-content:space-between;gap:16px;margin:0;color:var(--ink);line-height:1.7}
 .lab-source-condition select{width:auto;min-width:110px;max-width:50%}.lab-source-condition input[type=checkbox]{width:18px;height:18px;accent-color:var(--lab-accent);flex:0 0 18px}
+.lab-source-condition .lab-source-buff-value{margin:0 0 0 auto;color:var(--lab-accent);font-size:11px;font-weight:700;line-height:1.45;text-align:right;flex:0 1 48%}.lab-source-other-conditions{margin-top:12px;border-top:1px solid var(--lab-line);padding-top:10px}.lab-source-other-conditions>summary{cursor:pointer;color:var(--muted);font-size:12px;font-weight:700}.lab-source-other-conditions .lab-source-talent{margin-top:8px}
 .lab-source-condition small{display:block;font-size:10px;color:var(--muted);margin-top:6px}.lab-source-passive{margin-top:12px}
+.lab-source-condition .lab-condition-help{max-width:680px;font-size:11px;line-height:1.65;color:var(--lab-soft-ink,var(--muted))}
+
+.lab-source-talent{margin-top:10px}.lab-source-talent>details{padding:0}.lab-source-talent>details>summary{display:flex;align-items:center;gap:8px;flex-wrap:wrap}.lab-source-talent .lab-source-control-count{margin-left:auto;color:var(--lab-accent);font-size:10px;font-weight:700}.lab-source-talent .lab-source-controls{padding:8px 14px 14px;border-top:1px solid var(--lab-line)}.lab-source-talent .lab-effect-description{padding:10px 14px 14px;font-size:12px;line-height:1.8;color:var(--muted)}.lab-source-talent .lab-data-note{padding:8px 14px 12px}.lab-source-condition .lab-buff-condition-text{font-size:11px;line-height:1.65;color:var(--lab-soft-ink,var(--muted))}.lab-source-condition .lab-buff-condition-text b{color:var(--lab-accent);text-transform:uppercase;letter-spacing:.06em;margin-right:5px}
+
+.lab-damage-bonus-details{width:100%;text-align:left}.lab-damage-bonus-details>summary{display:flex;align-items:center;gap:8px;cursor:pointer;color:var(--lab-accent);padding:5px 0}.lab-damage-bonus-details>summary:before{content:"▸"}.lab-damage-bonus-details[open]>summary:before{content:"▾"}.lab-damage-bonus-details>summary>b{margin-left:auto;font-variant-numeric:tabular-nums}.lab-damage-bonus-details p{font-size:10px;line-height:1.5;color:var(--muted);margin:9px 0}.lab-damage-bonus-details dl{margin:0}.lab-damage-bonus-details dl>div{display:flex;gap:10px;justify-content:space-between;padding:7px 0;border-top:1px solid var(--lab-line);font-size:11px}.lab-damage-bonus-details dt{color:var(--muted);font-weight:400}.lab-damage-bonus-details dd{margin:0;font-weight:700;white-space:nowrap;font-variant-numeric:tabular-nums}
+.lab-identity .lab-stat-table{width:calc(100% - 26px);max-width:calc(100% - 26px);table-layout:fixed;box-sizing:border-box}
+.lab-identity .lab-stat-table th,.lab-identity .lab-stat-table td{min-width:0;white-space:normal;overflow-wrap:anywhere}
+.lab-identity .lab-stat-table .lab-element-stat>td{padding-left:0;padding-right:0;width:auto;white-space:normal}
+.lab-identity .lab-damage-bonus-details{box-sizing:border-box;min-width:0;max-width:100%;width:100%;overflow-wrap:anywhere}
+.lab-identity .lab-damage-bonus-details>summary{display:grid;grid-template-columns:10px minmax(0,1fr) auto;min-width:0;white-space:normal}
+.lab-identity .lab-damage-bonus-details>summary>span{min-width:0;white-space:normal}
+.lab-identity .lab-damage-bonus-details>summary>b{margin-left:0;white-space:nowrap}
+.lab-identity .lab-damage-bonus-details p{width:auto;max-width:100%;white-space:normal;overflow-wrap:anywhere;font-weight:400}
+.lab-identity .lab-damage-bonus-details dl>div{display:grid;grid-template-columns:minmax(0,1fr) minmax(42px,auto);align-items:start;min-width:0;gap:8px}
+.lab-identity .lab-damage-bonus-details dt{min-width:0;white-space:normal;overflow-wrap:anywhere}
+.lab-identity .lab-damage-bonus-details dd{min-width:0;text-align:right;white-space:nowrap}

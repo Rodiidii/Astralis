@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import hashlib
 import json
+import shutil
 import subprocess
 import sys
 import zipfile
@@ -54,32 +55,36 @@ def write_checksum(archive: Path) -> None:
 def main() -> None:
     OUT.mkdir(parents=True, exist_ok=True)
     archive = OUT / "Astralis-Update.zip"
-    with zipfile.ZipFile(archive, "w", compression=zipfile.ZIP_DEFLATED, compresslevel=6, allowZip64=True) as output:
-        for path in sorted(ROOT.rglob("*")):
-            if not path.is_file():
-                continue
-            relative = path.relative_to(ROOT)
-            if should_skip(relative):
-                continue
-            output.write(path, relative.as_posix())
-    write_checksum(archive)
-    base_tags = [sys.argv[i + 1] for i, arg in enumerate(sys.argv[:-1]) if arg == "--base-tag"]
-    if base_tags:
-        target_version = (ROOT / "VERSION").read_text(encoding="utf-8").strip()
-        for base_tag in base_tags:
-            base_version = base_tag.removeprefix("v")
-            changed, deleted = git_changed_files(base_tag)
-            patch_archive = OUT / f"Astralis-Patch-from-{base_version}.zip"
-            manifest = {"kind": "astralis-delta", "baseVersion": base_version, "version": target_version, "deleted": [name for name in deleted if not should_skip(Path(name))]}
-            with zipfile.ZipFile(patch_archive, "w", compression=zipfile.ZIP_DEFLATED, compresslevel=6, allowZip64=True) as output:
-                output.writestr("ASTRALIS-PATCH.json", json.dumps(manifest, ensure_ascii=False))
-                for name in changed:
-                    relative = Path(name)
-                    path = ROOT / relative
-                    if path.is_file() and not should_skip(relative):
-                        output.write(path, relative.as_posix())
-            write_checksum(patch_archive)
-            print(f"Patch : {patch_archive} ({len(changed)} fichiers modifiés, {len(manifest['deleted'])} supprimés)")
+    # Build the exact committed tree. Local profiles, diagnostics and unrelated
+    # uncommitted edits must never end up in a public release.
+    snapshot = OUT / ".astralis-release-source.zip"
+    subprocess.run(["git", "archive", "--format=zip", "HEAD", "--output", str(snapshot)], cwd=ROOT, check=True)
+    try:
+        with zipfile.ZipFile(snapshot) as source:
+            names = sorted(info.filename for info in source.infolist() if not info.is_dir() and not should_skip(Path(info.filename)))
+            def copy_files(output, selected):
+                for name in selected:
+                    if name not in names:
+                        continue
+                    with source.open(name) as src, output.open(name, "w") as dst:
+                        shutil.copyfileobj(src, dst)
+            with zipfile.ZipFile(archive, "w", compression=zipfile.ZIP_DEFLATED, compresslevel=6, allowZip64=True) as output:
+                copy_files(output, names)
+            write_checksum(archive)
+            base_tags = [sys.argv[i + 1] for i, arg in enumerate(sys.argv[:-1]) if arg == "--base-tag"]
+            target_version = source.read("VERSION").decode("utf-8").strip()
+            for base_tag in base_tags:
+                base_version = base_tag.removeprefix("v")
+                changed, deleted = git_changed_files(base_tag)
+                patch_archive = OUT / f"Astralis-Patch-from-{base_version}.zip"
+                manifest = {"kind": "astralis-delta", "baseVersion": base_version, "version": target_version, "deleted": [name for name in deleted if not should_skip(Path(name))]}
+                with zipfile.ZipFile(patch_archive, "w", compression=zipfile.ZIP_DEFLATED, compresslevel=6, allowZip64=True) as output:
+                    output.writestr("ASTRALIS-PATCH.json", json.dumps(manifest, ensure_ascii=False))
+                    copy_files(output, changed)
+                write_checksum(patch_archive)
+                print(f"Patch : {patch_archive} ({len(changed)} fichiers modifiés, {len(manifest['deleted'])} supprimés)")
+    finally:
+        snapshot.unlink(missing_ok=True)
     print(f"Archive : {archive}")
     print("Publie les fichiers ZIP et SHA-256 comme assets de la même release GitHub.")
 

@@ -67,11 +67,9 @@ const sheetDatas={};
 sheetFiles.forEach((file,index)=>{const kind={Characters:'characters',Weapons:'weapons',Artifacts:'artifacts'}[file.split('/')[4]],key=sheetKeys[file];sheetDatas[kind]??={};sheetDatas[kind][key]=`data${index}`;});
 for(const [type,items]of Object.entries(registries))entry+=`export const ${type.toLowerCase()}={${items.join(',')}};\n`;
 for(const [kind,items]of Object.entries(sheetDatas))for(const [key,data]of Object.entries(items))entry+=`Object.assign(${kind}[${JSON.stringify(key)}],{sheetData:${data}});\n`;
-const conditionals={};
-for(const file of sheetFiles){const kind=file.split('/')[4],key=sheetKeys[file],text=fs.readFileSync(path.join(sourceRoot,file),'utf8'),paths=[...text.matchAll(/cond\(key,\s*['"]([^'"]+)['"]\)/g)].map(match=>match[1]);if(paths.length)(conditionals[kind==='Characters'?'characters':kind==='Weapons'?'weapons':'artifacts']??={})[key]=[...new Set(paths)];}
-entry+=`export const conditionalPaths=${JSON.stringify(conditionals)};\n`;
+entry+="export const conditionalPaths={characters:{},weapons:{},artifacts:{}};for(const [groupName,group]of Object.entries({characters,weapons,artifacts})){for(const [key,item]of Object.entries(group)){const paths=new Set(),seen=new WeakSet(),visit=node=>{if(!node||typeof node!=='object'||seen.has(node))return;seen.add(node);if(node.operation==='read'&&node.path?.[0]==='conditional'&&node.path?.[1]===key)paths.add(node.path[2]);for(const child of Object.values(node))if(child&&typeof child==='object')visit(child);};visit(item.sheetData);if(paths.size)conditionalPaths[groupName][key]=[...paths];}}\n";
 entry+="export function sourceDisplayMeta(data){const result={};const visit=(value,path)=>{if(!value||typeof value!=='object')return;if(value.operation==='data'&&value.data?.hit?.move?.value){result[path.join('.')]= {move:value.data.hit.move.value};}for(const [key,child]of Object.entries(value))if(key!=='operands'&&key!=='data')visit(child,[...path,key]);};visit(data?.display||{},[]);return result;}\n";
-entry+="export function conditionOptions(key,path){const values=new Set();const visit=node=>{if(!node||typeof node!=='object')return;if(node.operation==='lookup'&&node.operands?.[0]?.operation==='read'&&node.operands[0].path?.[0]==='conditional'&&node.operands[0].path?.[1]===key&&node.operands[0].path?.[2]===path)Object.keys(node.table||{}).forEach(value=>values.add(value));for(const child of Object.values(node))if(child&&typeof child==='object')visit(child);};for(const group of [characters,weapons,artifacts]){const sheet=group[key]?.sheetData;if(sheet)visit(sheet);}return [...new Set(['off','on',...values])];}\n";
+entry+="export function conditionOptions(key,path){const values=new Set(),seen=new WeakSet();const visit=node=>{if(!node||typeof node!=='object'||seen.has(node))return;seen.add(node);if(node.operation==='lookup'&&node.operands?.[0]?.operation==='read'&&node.operands[0].path?.[0]==='conditional'&&node.operands[0].path?.[1]===key&&node.operands[0].path?.[2]===path)Object.keys(node.table||{}).forEach(value=>values.add(value));for(const child of Object.values(node))if(child&&typeof child==='object')visit(child);};for(const group of [characters,weapons,artifacts]){const sheet=group[key]?.sheetData;if(sheet)visit(sheet);}return [...new Set(['off','on',...values])];}\n";
 entry+="export {data as reactionData} from './genshin-optimizer-source/libs/gi/sheets/src/Reaction.tsx';\nexport {data as resonanceData} from './genshin-optimizer-source/libs/gi/sheets/src/Resonance.tsx';\n";
 const missing=new Set();
 const resolve=(name,importer)=>{
@@ -101,9 +99,9 @@ try{
   api.onLoad({filter:/.*/,namespace:'math'},args=>{const contents=transformed.get(args.path)||fs.readFileSync(path.join(vendor,args.path),'utf8');return {contents:args.path.endsWith('.tsx')?"import {jsx,Fragment} from 'astralis-jsx';\n"+contents:contents,loader:args.path.endsWith('.json')?'json':args.path.endsWith('.tsx')?'tsx':'ts'};});
  }}]});
  const text=result.outputFiles[0].text;
- fs.writeFileSync(path.join(root,'vendor/legacy-engine-build.json'),JSON.stringify(result.metafile,null,2)+'\n');
  if(/\bfrom\s*["'](?:node:|zod|fflate|@nx)/.test(text))throw new Error('Retained build-only external dependency');
  fs.writeFileSync(path.join(root,'public/lab-wr-engine.js'),text);
+ fs.writeFileSync(path.join(root,'vendor/legacy-engine-build.json'),JSON.stringify(result.metafile,null,2)+'\n');
  console.log(`${sheetFiles.length} original sheets, ${Object.keys(result.metafile.inputs).length} modules, ${text.length} bytes`);
 }catch(error){
  fs.writeFileSync(path.join(root,'vendor/legacy-missing.json'),JSON.stringify([...missing],null,2)+'\n');

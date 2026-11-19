@@ -1,0 +1,81 @@
+{
+  "source": "https://api.lunaris.moe/data/7.2.52/",
+  "character": {
+    "_id": "anastasya",
+    "id": 10000149,
+    "name": "Anastasya",
+    "_name": "Anastasya",
+    "element": "Cryo",
+    "weaponType": "WEAPON_BOW",
+    "ascensionStats": {
+      "hp": 12736,
+      "atk": 356,
+      "def": 779,
+      "CRIT DMG%": 38.4
+    },
+    "levelStats": [
+      {
+        "level": 1,
+        "ascension": 0,
+        "hp": 991,
+        "atk": 28,
+        "def": 61,
+        "CRIT DMG%": "0"
+      },
+      {
+        "level": 20,
+        "ascension": 0,
+        "hp": 2572,
+        "atk": 72,
+        "def": 157,
+        "CRIT DMG%": "0"
+      },
+      {
+        "level": 80,
+        "ascension": 5,
+        "hp": 11236,
+        "atk": 314,
+        "def": 687,
+        "CRIT DMG%": "28.8"
+      },
+      {
+        "level": 90,
+        "ascension": 6,
+        "hp": 12736,
+        "atk": 356,
+        "def": 779,
+        "CRIT DMG%": "38.4"
+      }
+    ]
+  },
+  "weapon": {
+    "_id": "15516",
+    "id": 15516,
+    "name": "Serment de gel doré",
+    "_name": "Serment de gel doré",
+    "rarity": 5,
+    "weaponType": "WEAPON_BOW",
+    "ascensionStats": {
+      "atk": 542,
+      "CRIT DMG%": 88.2
+    },
+    "levelStats": {
+      "1": {
+        "CRIT DMG%": 19.2,
+        "atk": 44
+      },
+      "20": {
+        "CRIT DMG%": 33.9,
+        "atk": 110
+      },
+      "80": {
+        "CRIT DMG%": 80.4,
+        "atk": 475
+      },
+      "90": {
+        "CRIT DMG%": 88.2,
+        "atk": 542
+      }
+    }
+  }
+}

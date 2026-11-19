@@ -1,5 +1,6 @@
-import {loadCharacterConditions,renderSourceBuffs} from './lab-source-buffs.js?v=20261118-all-buffs-1';
-import {EXTENDED_BUFFS,extendedBuffOptions,extendedBuffBonuses,extendedBuffWarnings,extendedBuffPools} from './lab-extended-buffs.js';
+import {sourceAttackEffects,sourceReactionEffects} from './lab-source-action-stats.js?v=20261119-recent-character-stats-1';
+import {loadCharacterConditions,renderSourceBuffs} from './lab-source-buffs.js?v=20261119-recent-character-stats-1';
+import {EXTENDED_BUFFS,extendedBuffOptions,extendedBuffBonuses,extendedBuffWarnings,extendedBuffPools,extendedBuffOutput} from './lab-extended-buffs.js?v=20261118-verified-buff-conditions-3';
 import {effectiveTalentLevel,mergeKitSnapshot} from './lab-talent-levels.js';
 import {hasUsefulBuff,supportWeaponEffects,supportWeaponSourceStats,partyWeaponBonuses,partyWeaponWarnings,azurelightSummary} from './lab-support-effects.js';
 import {artifactAdvice} from './lab-advice.js';
@@ -13,11 +14,11 @@ import {compareLabScores} from './lab-comparison.js';
 import {complexEffects} from './complex-effects.js?v=20261117-clear-buffs-2';
 import {effectCatalog} from './lab-effect-catalog.js';
 import {drawPoster, posterBitmap, previewPng} from './poster-export.js?v=84';
-import {attackCritStats,typedFlatDamage,attackOptions,attackKind,configuredSetEffects,configuredWeaponBonuses,typedAttackBonus,kitEffectDescriptions,weaponEffectOptions,setEffectOptions} from './lab-config.js?v=20261117-clear-buffs-2';
+import {attackCritStats,typedFlatDamage,attackOptions,attackKind,configuredSetEffects,configuredWeaponBonuses,typedAttackBonus,kitEffectDescriptions,weaponEffectOptions,setEffectOptions} from './lab-config.js?v=20261119-recent-character-stats-1';
 import { LAB_REACTIONS, talentValueRows, parseActionValue, activeBuffBonuses } from './lab-actions.js?v=20261117-buffs-1';
 import { pieceSubstats } from './build-model.js?v=20261110-builds-3';
 import { prepareArtifactPools } from './optimizer.js';
-import { renderLabWorkspace, renderLabResults, setEffectsEditor, effectControls, renderAzurelightControls, LAB_STAT_LABELS, labStatValue } from './lab-view.js?v=20261117-clear-buffs-2';
+import { renderLabWorkspace, renderLabResults, setEffectsEditor, effectControls, renderAzurelightControls, LAB_STAT_LABELS, labStatValue } from './lab-view.js?v=20261119-recent-character-stats-1';
 import { renderGameText, skillValuesAtLevel } from './character-content.js?v=20261109-rich-text-1';
 import { ARTIFACT_SLOTS, ARTIFACT_SLOT_LABELS, normalizeGoodArtifact, validateArtifact, usableArtifact, parseArtifactInventory, artifactSignature, artifactImportDelta, ARTIFACT_SUBSTAT_ROLLS, statVector } from './artifact-model.js?v=20261110-builds-3';
 import { getCharacterPriority, setCharacterPriority, movePriority, positionPriority, priorityArtifactPool, getPriorityConfig, setPriorityConfig } from './priority-list.js?v=20261113-priority-1';
@@ -26,6 +27,7 @@ import { finalStats } from './damage-engine.js';
 
 const esc = value => String(value ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const fmt = value => Number.isFinite(Number(value)) ? Number(value).toLocaleString('fr-FR',{maximumFractionDigits:2}) : '—';
+const RES_ELEMENTS=[['physical','Physique'],['anemo','Anémo'],['cryo','Cryo'],['dendro','Dendro'],['electro','Électro'],['geo','Géo'],['hydro','Hydro'],['pyro','Pyro']];
 const KEY='astralis:gi:damage-lab:v1';
 const defaults={tab:'overview',controlsVersion:1,effectStates:{},customEffects:{},weaponOverride:null,weaponRefinement:1,weaponLevel:90,attackSelection:'',characterLevel:90,constellation:0,buffs:[],referenceBonuses:{},statSchema:3,hitCount:1,reactingHits:1,simulationMode:'single',components:[],actionKind:'skill',loadout:'equipped',searchPreset:'balanced',talentLevel:10,targetName:'',referenceBuild:'',character:'',build:'',level:'',enemyLevel:100,atk:'',hp:'',def:'',em:'',critRate:'',critDmg:'',er:'',bonus:'',elementBonus:0,resistance:10,resReduction:0,defReduction:0,defIgnore:0,talent:'',baseStat:'atk',flat:0,critMode:'average',reaction:'none',reactionCoeff:'',reactionLevel:'',reactionBonus:0,ampBase:'',rotations:[],savedOptimizations:[],setEffects:'{}',topN:5,respectPriority:false,includeLocked:true,artifactLevelPreset:'0',configuration:'any',objective:'damage',mainStats:{sands:[],goblet:[],circlet:[]},minimums:{},allowedSets:[],requiredSets:[],excludedSets:[],excludedIds:[],rotationSeconds:'',repeatRotation:1};
 const read=()=>{try{return {...defaults,...JSON.parse(localStorage.getItem(KEY)||'{}')}}catch{return {...defaults}}};
@@ -45,7 +47,9 @@ export function summarizeRotation(rows=[],repeatCount=1,durationOverride=0){
 }
 
 export function renderDamageLab(context={}) {
-  labContext={characters:[],builds:[],inventory:[],sets:[],weapons:[],...context};
+  const runtime={wrEngine:labContext.wrEngine,wrAdapter:labContext.wrAdapter,...(wrAttackCharacter===String(read().character)?{wrAttacks:labContext.wrAttacks,wrCharacterKey:labContext.wrCharacterKey}:{})};
+  labContext={characters:[],builds:[],inventory:[],sets:[],weapons:[],...runtime,...context};
+  sourceTeamStatsCache.key='';
   labContext.inventory=normalizeLabInventory(labContext.inventory);
   labContext.invalidCount=labContext.inventory.filter(row=>!validateArtifact(row).valid).length;
   labContext.builds=labContext.builds.map(build=>({...build,character:canonicalLabCharacter(build.character)}));
@@ -67,11 +71,11 @@ export function renderDamageLab(context={}) {
 }
 let wrAttackLoad=null,wrAttackCharacter='';
 async function loadWrAttackChoices(p){
- const id=String(p.character),characterRow=labContext.characters.find(c=>String(c._id)===id),alias=labContext.sourceAliases?.characters?.find(a=>String(a.id)===String(characterRow?.id||id)),key=labContext.sourceSnapshot?.characters?.[String(characterRow?.id||id)]?.name||alias?.en?.[0]?.replace(/\s/g,'');if(!key||wrAttackCharacter===id||wrAttackLoad)return;
- wrAttackLoad=(async()=>{try{const wr=await import('./lab-wr-adapter.js?v=20261118-all-buffs-1'),engine=await wr.loadWrEngine(),resolvedKey=wr.resolveWrCharacterKey(engine,{...characterRow,elementKey:p.elementKey},labContext.sourceAliases)||key,source=engine.characters[resolvedKey];if(!source){wrAttackCharacter=id;return;}
-  const current=read(),buildData=wr.buildWrCharacterData(engine,{character:resolvedKey,level:Number(current.level)||90,ascension:current.ascension??6,constellation:Number(current.constellation)||0,talent:{auto:Number(current.talentAuto)||10,skill:Number(current.talentSkill)||10,burst:Number(current.talentBurst)||10}}),evaluated=wr.evaluateWrDisplay(engine,buildData),rows=wr.wrAttackOptions(engine,resolvedKey,evaluated.display,Number(current.constellation)||0);
+ const id=String(p.character),characterRow=labContext.characters.find(c=>String(c._id)===id),alias=labContext.sourceAliases?.characters?.find(a=>String(a.id)===String(characterRow?.id||id)),key=labContext.sourceSnapshot?.characters?.[String(characterRow?.id||id)]?.name||alias?.en?.[0]?.replace(/\s/g,'');if(wrAttackCharacter===id||wrAttackLoad)return;
+ wrAttackLoad=(async()=>{try{const wr=await import('./lab-wr-adapter.js?v=20261119-recent-character-stats-1'),engine=await wr.loadWrEngine(),resolvedKey=wr.resolveWrCharacterKey(engine,{...characterRow,elementKey:p.elementKey},labContext.sourceAliases)||key,source=engine.characters[resolvedKey];if(!source){wrAttackCharacter=id;return;}
+  const current=read(),buildData=wr.buildWrCharacterData(engine,{character:resolvedKey,level:Number(current.level)||90,ascension:current.ascension??wr.levelAscension(Number(current.level)||90),constellation:Number(current.constellation)||0,talent:{auto:Number(current.talentAuto||current.talentLevel)||10,skill:Number(current.talentSkill||current.talentLevel)||10,burst:Number(current.talentBurst||current.talentLevel)||10}}),evaluated=wr.evaluateWrDisplay(engine,buildData),manifest=await loadCharacterConditions(),rows=wr.wrAttackOptions(engine,resolvedKey,evaluated.display,Number(current.constellation)||0,manifest.characters?.[resolvedKey]||{});
   labContext.wrCharacterKey=resolvedKey;if(!rows.length){wrAttackCharacter=id;return;}labContext.wrAttacks=rows;labContext.wrEngine=engine;labContext.wrAdapter=wr;wrAttackCharacter=id;const root=document.querySelector('[data-damage-lab]');if(root&&String(read().character)===id){const latest=read();root.outerHTML=renderLabWorkspace(viewContext(latest),latest);initDamageLab();updateAttackTable(document.querySelector('[data-damage-lab]'),latest);}
- }catch(error){console.warn('Chargement des talents WR:',error);}finally{wrAttackLoad=null;}})();
+ }catch(error){console.warn('Chargement des talents WR:',error);}finally{wrAttackLoad=null;if(String(read().character)!==id)loadWrAttackChoices(read());}})();
 }
 let labWorker=null,labJob=0,labDragId='',labLastResults=[],pendingInventory=[],filterSnapshot=null;
 const jsonRead=(key,fallback)=>{try{return JSON.parse(localStorage.getItem(key)||JSON.stringify(fallback));}catch{return fallback;}};
@@ -100,40 +104,77 @@ function reactionFromForm(p) {
     enemyResistance:Number(p.resistance)/100,resistanceReduction:Number(p.resReduction)/100};
 }
 
-function sourceBuildContext(p){return {...labContext,aliases:labContext.sourceAliases,equipped:equippedPieces(p),builds:labContext.builds.map(build=>({...build,pieces:build.pieces?.map(piece=>({...piece,substats:pieceSubstats(piece)}))}))};}
+function sourceBuildContext(p){return {...labContext,characters:labContext.characters.map(character=>({...character,levelStats:kitCache.get(String(character._id))?.levelStats||character.levelStats})),combatBonuses:activeBuffBonuses(p,0),aliases:labContext.sourceAliases,equipped:equippedPieces(p),builds:labContext.builds.map(build=>({...build,pieces:build.pieces?.map(piece=>({...piece,substats:pieceSubstats(piece)}))}))};}
 
 async function calculate(p,overrides={}) {
   if(p.character&&String(p.attackSelection).startsWith('wr:')){
-   try{const adapter=await import('./lab-wr-adapter.js?v=20261118-all-buffs-1'),engine=await adapter.loadWrEngine(),scenario=adapter.sourceScenario(engine,p,sourceBuildContext(p));
+   try{const adapter=await import('./lab-wr-adapter.js?v=20261119-recent-character-stats-1'),engine=await adapter.loadWrEngine(),scenario=adapter.sourceScenario(engine,p,sourceBuildContext(p));
     if(!scenario)return {ok:false,error:'Fiche de calcul indisponible pour ce personnage.',warnings:[]};
     return adapter.createSourceEvaluator(engine,scenario)(null,overrides.critMode);
    }catch(error){return {ok:false,error:'Calcul de la fiche interrompu : '+error.message,warnings:[]};}
   }
   const {calculateAction}=await import('./damage-engine.js');
-  const kitWarnings=[...extendedBuffWarnings(extendedBuffConfig(p)),...partyWeaponWarnings(p,labContext.weapons)];if(kitWarnings.length)return {ok:false,error:kitWarnings.join(' '),warnings:kitWarnings};
-  const stats=overrides.stats||statsForCalculation(p);
-  const buffs=activeBuffBonuses(p,0);
+  const kitWarnings=[...extendedBuffWarnings(extendedBuffConfig(p)),...partyWeaponWarnings(p,labContext.weapons,ally=>supportStatsForAlly(p,ally))];if(kitWarnings.length)return {ok:false,error:kitWarnings.join(' '),warnings:kitWarnings};
+  const teamStats=sourceTeamStats(p)[String(p.character)]?.stats;
+  const localTarget=sourceTeamStatsCache.localTarget&&teamStats;
+  const stats=overrides.stats||(localTarget?teamStats:statsForCalculation(p));
+  const buffs=localTarget?{}:activeBuffBonuses(p,0);
   const allEffects={...(p.loadout==='equipped'&&p.build?equippedBonuses(p):p.referenceBonuses)};
   for(const source of [partyBonuses(p),buffs,ownWeaponBonuses(p),p.importBonuses||{}])for(const [key,value]of Object.entries(source||{}))allEffects[key]=(allEffects[key]||0)+value;
   const complex=resolveComplex(p,stats);
   if(complex.warnings.some(w=>/ATQ finale|DÉF finale|composition à renseigner/.test(w)))return {ok:false,error:complex.warnings.join(" · "),warnings:complex.warnings,stats};
   for(const [key,value]of Object.entries(complex.bonuses))allEffects[key]=(allEffects[key]||0)+value;
   for(const [key,value]of Object.entries(extendedBuffBonuses({...extendedBuffConfig(p),statsIncludeBuffs:true},stats)))allEffects[key]=(allEffects[key]||0)+value;
-  const attackBonus=typedAttackBonus(allEffects,p.actionKind,stats);
-  const reaction=Object.hasOwn(overrides,'reaction')?overrides.reaction:reactionFromForm(p);if(reaction)reaction.bonus=(Number(reaction.bonus)||0)+(allEffects[reaction.id+'Bonus']||0)/100;
+  const sourceEffects=localTarget?sourceAttackEffects(stats,p.actionKind,p.elementKey):null;
+  const attackBonus=typedAttackBonus(allEffects,p.actionKind,stats)+(sourceEffects?.bonus||0);
+  const sourceFlat=sourceEffects?.flat||0;
+  const sourceAttackStats=sourceEffects?.stats||stats;
+  const chosenReaction=Object.hasOwn(overrides,'reaction')?overrides.reaction:reactionFromForm(p);
+  const reaction=localTarget?sourceReactionEffects(chosenReaction,stats,sourceTeamStatsCache.enemyResistances,Number(p.resistance)||0):chosenReaction;if(reaction)reaction.bonus=(Number(reaction.bonus)||0)+(allEffects[reaction.id+'Bonus']||0)/100;
   const result=calculateAction({
-    stats:attackCritStats(stats,allEffects,p.actionKind,reaction),baseStat:p.baseStat,talentMultiplier:p.talent===''?NaN:Number(p.talent),
+    stats:attackCritStats(sourceAttackStats,allEffects,p.actionKind,reaction),baseStat:p.baseStat,talentMultiplier:p.talent===''?NaN:Number(p.talent),
     talentScale:complex.talentScale*(allEffects.talentScale||1),additivePools:[...complex.pools,...extendedBuffPools(extendedBuffConfig(p),stats)],poolState:overrides.poolState,targetCount:Number(p.targetCount)||1,elapsed:0,actionKind:p.actionKind,
-    flatDamage:(Number(p.flat)||0)+(allEffects.flatDamage||0)+typedFlatDamage(allEffects,p.actionKind,stats)+complex.flatDamage,damageBonus:(Number(p.elementBonus)||0)+attackBonus,
+    flatDamage:sourceFlat+(Number(p.flat)||0)+(allEffects.flatDamage||0)+typedFlatDamage(allEffects,p.actionKind,stats)+complex.flatDamage,damageBonus:(Number(p.elementBonus)||0)+attackBonus,
     hitCount:Number(p.hitCount)||1,components:p.components?.length?p.components:undefined,reactingHits:Number(p.reactingHits)||0,
     attackerLevel:Number(p.level),enemyLevel:Number(p.enemyLevel),enemyResistance:Number(p.resistance)/100,
-    resistanceReduction:((Number(p.resReduction)||0)+(allEffects.resReduction||0))/100,enemyDefenseReduction:((Number(p.defReduction)||0)+(allEffects.defReduction||0))/100,
-    defenseIgnore:((Number(p.defIgnore)||0)+(allEffects.defIgnore||0))/100,critMode:overrides.critMode||p.critMode,
+    resistanceReduction:localTarget&&sourceTeamStatsCache.enemyResistances?.[p.elementKey]!=null?Number(p.resistance)/100-sourceTeamStatsCache.enemyResistances[p.elementKey]:((Number(p.resReduction)||0)+(allEffects.resReduction||0))/100,enemyDefenseReduction:((localTarget?Number(stats.defReduction)||0:Number(p.defReduction)||0)+(allEffects.defReduction||0))/100,
+    defenseIgnore:((localTarget?Number(stats.defIgnore)||0:Number(p.defIgnore)||0)+(allEffects.defIgnore||0))/100,critMode:overrides.critMode||p.critMode,
     reaction,elementKey:p.elementKey||'',
   });
   return {...result,stats,warnings:[...(result.warnings||[]),...complex.warnings],complexDetails:complex.details};
 }
-function showResult(result){const root=document.querySelector('[data-damage-lab]');if(!root)return;if(result.wrSource&&result.ok)root.querySelectorAll('[data-lab-live-stat]').forEach(cell=>cell.textContent=labStatValue(cell.dataset.labLiveStat,result.stats[cell.dataset.labLiveStat]));const buffResult=root.querySelector('[data-lab-buff-result]');if(buffResult)buffResult.textContent=result.ok?'Dégâts avec les buffs actifs : '+fmt(result.total)+' · '+(result.totalHits||1)+' coup(s)':result.error||'Complète les conditions du calcul.';root.querySelector('[data-lab-result-title]').textContent='Dégâts de l’attaque · '+(result.totalHits||1)+' coup(s)';const damage=root.querySelector('[data-lab-damage]'),warn=root.querySelector('[data-lab-warning]'),breakdown=root.querySelector('[data-lab-breakdown]');if(!result.ok){damage.textContent='TODO_DATA';warn.textContent=result.error;breakdown.innerHTML='<p>Calcul interrompu : complète les valeurs signalées TODO_DATA.</p>';return;}damage.textContent=fmt(result.total);warn.textContent=result.warnings.join(' · ')||`Niveau personnage ${getForm().level} · ennemi ${getForm().enemyLevel} · hypothèses éditables`;const rows=[['Base talent',result.base],['Terme additif',result.additive],['Bonus dégâts',`× ${fmt(result.bonusMultiplier)}`],['CRIT',`× ${fmt(result.critMultiplier)}`],['Défense',`× ${fmt(result.defenseMultiplier)}`],['Résistance',`× ${fmt(result.resistanceMultiplier)}`],['Multiplicateur amplifiant',`× ${fmt(result.reactionMultiplier)}`],['Réaction transformative',result.transformative],['Total',result.total]];if(result.complexDetails?.length)rows.push(...result.complexDetails.map(row=>[row.name,row.flatDamage!=null?row.flatDamage:JSON.stringify(row.bonuses||{hpPct:row.hpPct})]));if(result.triggered&&Object.keys(result.triggered).length)rows.push(['Plumes consommées',JSON.stringify(result.triggered)]);breakdown.innerHTML=`<div class="lab-breakdown-table">${rows.map(([k,v])=>`<div><span>${k}</span><b>${typeof v==='number'?fmt(v):esc(v)}</b></div>`).join('')}</div>`;}
+let sourceBuffDeltaRevision=0;
+const sourceBuffDeltaCache=new Map();
+function cloneLabState(value){return JSON.parse(JSON.stringify(value));}
+function sourceConditionDeltaText(current,baseline){
+ const parts=[],statOrder=['atk','hp','def','em','critRate','critDmg','er','dmgBonus','pyroDmg','hydroDmg','cryoDmg','electroDmg','anemoDmg','geoDmg','dendroDmg','physicalDmg','normalDmg','chargedDmg','plungeDmg','skillDmg','burstDmg','normalFlatDamage','chargedFlatDamage','plungeFlatDamage','skillFlatDamage','burstFlatDamage','cryoFlatDamage','physicalCritDmg','anemoCritDmg','anemoFlatDamage','normalElementalDmg','cryoSwirlDmg','enemyAttackReduction','bloomDmg','burningDmg','burgeonDmg','hyperbloomDmg','aggravateDmg','spreadDmg','lunarbloomDmg','superconductDmg','stellarconductDmg','swirlDmg','stellarswirlDmg','movementSpeed','chargedStamina','normalTalentBonus','geoCritDmg','chargedCritRate','skillCritRate','skillCritDmg','staminaReduction','electroCritDmg','cryoCritDmg','healing','incomingHealing','damageReduction','attackSpeed','defReduction','defIgnore','shieldStrength'];
+ for(const key of statOrder){const delta=Number(current.stats?.[key])-Number(baseline.stats?.[key]);if(Number.isFinite(delta)&&Math.abs(delta)>.005)parts.push(`${LAB_STAT_LABELS[key]||key} ${delta>0?'+':''}${labStatValue(key,delta)}`);}
+ for(const [element,label] of RES_ELEMENTS){const delta=(Number(current.enemyResistances?.[element])-Number(baseline.enemyResistances?.[element]))*100;if(Number.isFinite(delta)&&Math.abs(delta)>.005)parts.push(`RÉS ${label} ${delta>0?'+':''}${fmt(delta)} %`);}
+ if(!parts.length){const delta=Number(current.total)-Number(baseline.total);if(Number.isFinite(delta)&&Math.abs(delta)>.005){const relative=Number(baseline.total)?` (${delta>0?'+':''}${fmt(delta/Math.abs(Number(baseline.total))*100)} %)`:'',sign=delta>0?'+':'−';parts.push(`DGT ${sign}${fmt(Math.abs(delta))}${relative}`);}}
+ return parts.length?parts.join(' · '):'Aucun effet mesurable sur ce coup';
+}
+function sourceBuffStatsResult(p){try{const adapter=labContext.wrAdapter,engine=labContext.wrEngine;if(!adapter||!engine)return {ok:false,error:'Chargement du calcul de l’équipe'};const scenario=adapter.sourceScenario(engine,p,sourceBuildContext(p));if(!scenario)return {ok:false,error:'Choisis un personnage actif'};const r=adapter.evaluateWrTeam(engine,adapter.buildWrCharacterData(engine,scenario.active),scenario.team.map(member=>adapter.buildWrCharacterData(engine,member)));return {ok:true,stats:r.members[String(p.character)]?.stats||{},enemyResistances:r.enemyResistances};}catch(error){return {ok:false,error:error.message};}}
+async function updateSourceConditionValues(root,p,current){
+ const statsOnly=!String(p.attackSelection||'').startsWith('wr:');if(statsOnly)current=sourceBuffStatsResult(p);
+ const revision=++sourceBuffDeltaRevision,rows=[...root.querySelectorAll('[data-source-buff-value]')];
+ for(const output of rows){
+  const control=output.closest('.lab-source-condition')?.querySelector('[data-lab-source-buff]');if(!control)continue;if(control.disabled){output.textContent='Effet verrouillé';continue;}
+  const active=control.type==='checkbox'?control.checked:control.value!=='off';if(!active){output.textContent='';continue;}
+
+  if(!current?.ok){output.textContent=current?.error||'Calcul indisponible pour ce coup';continue;}
+  output.textContent='Calcul de l’effet…';
+  try{
+   const variant=cloneLabState(p),slot=Number(control.dataset.labSourceBuff),owner=slot<0?variant:variant.allies?.[slot];if(!owner)continue;
+   const key=control.dataset.sourceCharacter,path=control.dataset.sourcePath;owner.wrConditions||={};owner.wrConditions[key]||={};owner.wrConditions[key][path]='off';
+   const cacheKey=JSON.stringify(variant);let baseline=sourceBuffDeltaCache.get(cacheKey);
+   if(!baseline){baseline=statsOnly?sourceBuffStatsResult(variant):await calculate(variant);sourceBuffDeltaCache.set(cacheKey,baseline);if(sourceBuffDeltaCache.size>96)sourceBuffDeltaCache.delete(sourceBuffDeltaCache.keys().next().value);}
+   if(revision!==sourceBuffDeltaRevision||!root.isConnected)return;
+   const deltaText=baseline?.ok?sourceConditionDeltaText(current,baseline):'Effet non mesurable avec les conditions actuelles';
+   output.textContent=statsOnly&&deltaText==='Aucun effet mesurable sur ce coup'?'Aucune statistique globale modifiée · sélectionne le coup concerné pour mesurer ses dégâts.':deltaText;
+  }catch{if(revision===sourceBuffDeltaRevision)output.textContent='Valeur indisponible pour ce calcul';}
+ }
+}
+function showResult(result){const root=document.querySelector('[data-damage-lab]');if(!root)return;updateSourceConditionValues(root,read(),result);if(result.wrSource&&result.ok){root.querySelectorAll('[data-lab-live-stat]').forEach(cell=>{const key=cell.dataset.labLiveStat,value=key==='dmgBonus'?(Number(result.stats.dmgBonus)||0)+(Number(result.stats[(read().elementKey||'')+'Dmg'])||0):result.stats[key];cell.textContent=cell.hasAttribute('data-lab-damage-bonus')?fmt(value||0)+' %':labStatValue(key,value);});const baseResistance=Number(getForm().resistance)||0;if(result.enemyResistances&&Object.values(result.enemyResistances).every(Number.isFinite)){root.querySelectorAll('[data-lab-res-reduction]').forEach(cell=>cell.innerHTML=RES_ELEMENTS.map(([element,label])=>{const reduction=baseResistance-Number(result.enemyResistances[element])*100;return `<div class="lab-res-entry" title="Résistance finale de la cible : ${fmt(Number(result.enemyResistances[element])*100)} %"><span>${label}</span><b>${fmt(reduction)} %</b></div>`;}).join(''));}}const buffResult=root.querySelector('[data-lab-buff-result]');if(buffResult)buffResult.textContent=result.ok?'Dégâts avec les buffs actifs : '+fmt(result.total)+' · '+(result.totalHits||1)+' coup(s)':result.error||'Complète les conditions du calcul.';root.querySelector('[data-lab-result-title]').textContent='Dégâts de l’attaque · '+(result.totalHits||1)+' coup(s)';const damage=root.querySelector('[data-lab-damage]'),warn=root.querySelector('[data-lab-warning]'),breakdown=root.querySelector('[data-lab-breakdown]');if(!result.ok){damage.textContent='TODO_DATA';warn.textContent=result.error;breakdown.innerHTML='<p>Calcul interrompu : complète les valeurs signalées TODO_DATA.</p>';return;}damage.textContent=fmt(result.total);warn.textContent=result.warnings.join(' · ')||`Niveau personnage ${getForm().level} · ennemi ${getForm().enemyLevel} · hypothèses éditables`;const rows=[['Base talent',result.base],['Terme additif',result.additive],['Bonus dégâts',`× ${fmt(result.bonusMultiplier)}`],['CRIT',`× ${fmt(result.critMultiplier)}`],['Défense',`× ${fmt(result.defenseMultiplier)}`],['Résistance',`× ${fmt(result.resistanceMultiplier)}`],['Multiplicateur amplifiant',`× ${fmt(result.reactionMultiplier)}`],['Réaction transformative',result.transformative],['Total',result.total]];if(result.complexDetails?.length)rows.push(...result.complexDetails.map(row=>[row.name,row.flatDamage!=null?row.flatDamage:JSON.stringify(row.bonuses||{hpPct:row.hpPct})]));if(result.triggered&&Object.keys(result.triggered).length)rows.push(['Plumes consommées',JSON.stringify(result.triggered)]);breakdown.innerHTML=`<div class="lab-breakdown-table">${rows.map(([k,v])=>`<div><span>${k}</span><b>${typeof v==='number'?fmt(v):esc(v)}</b></div>`).join('')}</div>`;}
 function updateRotationSummary(root,p) {
   const summary=summarizeRotation(p.rotations||[],p.repeatRotation,p.rotationSeconds);
   const damage=summary.total==null?fmt(summary.knownTotal)+' connus · données manquantes':fmt(summary.total);
@@ -227,7 +268,7 @@ function updateEstimate(root,p) {
   }
   filterSummary(root,p);
 }
-function bind(){if(document.documentElement.dataset.labBound)return;document.documentElement.dataset.labBound='1';let searchTimer=0;document.addEventListener('input',e=>{const root=e.target.closest?.('[data-damage-lab]');if(root&&e.target.matches('[data-lab]')){const p=persist();if(['talent','hitCount'].includes(e.target.dataset.lab)){p.components=[];write(p);}updateEstimate(root,p);displayRotation();}if(e.target.matches('[data-attack-search]')){clearTimeout(searchTimer);searchTimer=setTimeout(()=>renderAttackResults(e.target),50);}});document.addEventListener('change',e=>{const root=e.target.closest?.('[data-damage-lab]');if(root&&e.target.matches('[data-lab], [data-lab-main]')){const p=persist();updateEstimate(root,p);displayRotation();if(e.target.dataset.lab==='character')saveCharacterMemo(p);}});document.addEventListener('click',async e=>{const root=e.target.closest?.('[data-damage-lab]');if(!root)return;const hit=e.target.closest('[data-attack-hit]');if(hit){const row=attackIndex?.find(x=>x.id===hit.dataset.attackHit);if(row)addAttackToRotation(row);return;}const b=e.target.closest('[data-lab-action]');if(b){const action=b.dataset.labAction,p=syncSetFilterArrays(getForm());write(p);if(action==='save'){root.querySelector('[data-lab-status]').textContent='Paramètres enregistrés localement.';saveCharacterMemo(p);}if(action==='calculate'){if(p.simulationMode==='rotation')await showRotationResult(root,p);else showResult(await calculate(p));}if(action==='compare')await compareCurrent(root,p);if(action==='sensitivity')await showSensitivity(root,p);if(action==='add-hit'){const result=await calculate(p);if(result.ok){p.rotations=[...(p.rotations||[]),{label:p.targetName||'Attaque · '+p.baseStat.toUpperCase(),damage:result.total,damageKnown:true,params:captureTarget(p),characterId:p.character,count:1,icon:p.targetIcon||'',duration:0}];write(p);displayRotation();}}if(action==='clear-rotation'){p.rotations=[];write(p);displayRotation();}if(action==='remove-hit'){p.rotations.splice(Number(b.dataset.index),1);write(p);displayRotation();}if(action==='priority-up')move(b.dataset.id,-1);if(action==='priority-down')move(b.dataset.id,1);if(action==='optimize')runOptimizer(root,p);if(action==='apply-result')applyResult(root,p,Number(b.dataset.index));if(action==='cancel'&&labWorker){labWorker.terminate();labWorker=null;delete root.querySelector('[data-lab-metrics]').dataset.running;root.querySelector('[data-lab-metrics]').textContent='Recherche annulée.';b.disabled=true;}if(action==='commit-import')commitInventory(root);if(action==='reset-filters')resetFilters(root);if(action==='undo-filters')undoFilters(root);if(action==='apply-preset')applyPreset(root);return;}const level=e.target.closest('[data-lab-preset]');if(level){const p=persist();filterSnapshot={...p};p.artifactLevelPreset=level.dataset.labPreset;write(p);root.querySelectorAll('[data-lab-preset]').forEach(x=>x.classList.toggle('active',x===level));updateEstimate(root,p);return;}const config=e.target.closest('[data-lab-config]');if(config){const p=persist();p.configuration=config.dataset.labConfig;if(['2+2','rainbow'].includes(p.configuration)){p.requiredSets=[];root.querySelectorAll('[data-lab-require-set]').forEach(box=>box.checked=false);}write(p);root.querySelectorAll('[data-lab-config]').forEach(x=>{const yes=x===config;x.classList.toggle('active',yes);x.setAttribute('aria-pressed',String(yes));});return;}const set=e.target.closest('[data-lab-set]');if(set){setCycle(set);updateEstimate(root,read());return;}const remove=e.target.closest('[data-remove-filter]');if(remove){removeFilter(root,remove.dataset.removeFilter);return;}} ,true);document.addEventListener('dragstart',e=>{const priority=e.target.closest?.('[data-priority-id]'),rotation=e.target.closest?.('[data-rotation-index]');if(priority){labDragId=`priority:${priority.dataset.priorityId}`;e.dataTransfer?.setData('text/plain',labDragId);}else if(rotation){labDragId=`rotation:${rotation.dataset.rotationIndex}`;e.dataTransfer?.setData('text/plain',labDragId);}});document.addEventListener('dragover',e=>{if(e.target.closest?.('[data-priority-id],[data-rotation-index]'))e.preventDefault();});document.addEventListener('drop',e=>{const row=e.target.closest?.('[data-priority-id],[data-rotation-index]');if(!row||!labDragId)return;e.preventDefault();const [kind,index]=labDragId.split(':');if(kind==='priority'&&row.dataset.priorityId){const ids=getCharacterPriority(),from=ids.indexOf(index),to=ids.indexOf(row.dataset.priorityId);if(from>=0&&to>=0){ids.splice(to,0,ids.splice(from,1)[0]);setCharacterPriority(ids);refreshLab();}}else if(kind==='rotation'&&row.dataset.rotationIndex!==undefined){const p=read(),from=Number(index),to=Number(row.dataset.rotationIndex);p.rotations.splice(to,0,p.rotations.splice(from,1)[0]);write(p);displayRotation();}labDragId='';});document.addEventListener('keydown',e=>{const row=e.target.closest?.('[data-priority-id]');if(!row||!['ArrowUp','ArrowDown'].includes(e.key))return;e.preventDefault();move(row.dataset.priorityId,e.key==='ArrowUp'?-1:1);});document.addEventListener('change',e=>{if(!e.target.matches('[data-lab-import]'))return;previewInventory(e.target);});}
+function bind(){if(document.documentElement.dataset.labBound)return;document.documentElement.dataset.labBound='1';let searchTimer=0;document.addEventListener('input',e=>{const root=e.target.closest?.('[data-damage-lab]');if(root&&e.target.matches('[data-lab]')){const p=persist();if(Object.hasOwn(statNames,e.target.dataset.lab)){p.manualStatOverrides||={};p.manualStatOverrides[e.target.dataset.lab]=e.target.value===''?null:Number(e.target.value);write(p);}scheduleLiveStats();if(['talent','hitCount'].includes(e.target.dataset.lab)){p.components=[];write(p);}updateEstimate(root,p);displayRotation();}if(e.target.matches('[data-attack-search]')){clearTimeout(searchTimer);searchTimer=setTimeout(()=>renderAttackResults(e.target),50);}});document.addEventListener('change',e=>{const root=e.target.closest?.('[data-damage-lab]');if(root&&e.target.matches('[data-lab], [data-lab-main]')){const p=persist();updateEstimate(root,p);displayRotation();if(e.target.dataset.lab==='character')saveCharacterMemo(p);}});document.addEventListener('click',async e=>{const root=e.target.closest?.('[data-damage-lab]');if(!root)return;const hit=e.target.closest('[data-attack-hit]');if(hit){const row=attackIndex?.find(x=>x.id===hit.dataset.attackHit);if(row)addAttackToRotation(row);return;}const b=e.target.closest('[data-lab-action]');if(b){const action=b.dataset.labAction,p=syncSetFilterArrays(getForm());write(p);if(action==='save'){root.querySelector('[data-lab-status]').textContent='Paramètres enregistrés localement.';saveCharacterMemo(p);}if(action==='calculate'){if(p.simulationMode==='rotation')await showRotationResult(root,p);else showResult(await calculate(p));}if(action==='compare')await compareCurrent(root,p);if(action==='sensitivity')await showSensitivity(root,p);if(action==='add-hit'){const result=await calculate(p);if(result.ok){p.rotations=[...(p.rotations||[]),{label:p.targetName||'Attaque · '+p.baseStat.toUpperCase(),damage:result.total,damageKnown:true,params:captureTarget(p),characterId:p.character,count:1,icon:p.targetIcon||'',duration:0}];write(p);displayRotation();}}if(action==='clear-rotation'){p.rotations=[];write(p);displayRotation();}if(action==='remove-hit'){p.rotations.splice(Number(b.dataset.index),1);write(p);displayRotation();}if(action==='priority-up')move(b.dataset.id,-1);if(action==='priority-down')move(b.dataset.id,1);if(action==='optimize')runOptimizer(root,p);if(action==='apply-result')applyResult(root,p,Number(b.dataset.index));if(action==='cancel'&&labWorker){labWorker.terminate();labWorker=null;delete root.querySelector('[data-lab-metrics]').dataset.running;root.querySelector('[data-lab-metrics]').textContent='Recherche annulée.';b.disabled=true;}if(action==='commit-import')commitInventory(root);if(action==='reset-filters')resetFilters(root);if(action==='undo-filters')undoFilters(root);if(action==='apply-preset')applyPreset(root);return;}const level=e.target.closest('[data-lab-preset]');if(level){const p=persist();filterSnapshot={...p};p.artifactLevelPreset=level.dataset.labPreset;write(p);root.querySelectorAll('[data-lab-preset]').forEach(x=>x.classList.toggle('active',x===level));updateEstimate(root,p);return;}const config=e.target.closest('[data-lab-config]');if(config){const p=persist();p.configuration=config.dataset.labConfig;if(['2+2','rainbow'].includes(p.configuration)){p.requiredSets=[];root.querySelectorAll('[data-lab-require-set]').forEach(box=>box.checked=false);}write(p);root.querySelectorAll('[data-lab-config]').forEach(x=>{const yes=x===config;x.classList.toggle('active',yes);x.setAttribute('aria-pressed',String(yes));});return;}const set=e.target.closest('[data-lab-set]');if(set){setCycle(set);updateEstimate(root,read());return;}const remove=e.target.closest('[data-remove-filter]');if(remove){removeFilter(root,remove.dataset.removeFilter);return;}} ,true);document.addEventListener('dragstart',e=>{const priority=e.target.closest?.('[data-priority-id]'),rotation=e.target.closest?.('[data-rotation-index]');if(priority){labDragId=`priority:${priority.dataset.priorityId}`;e.dataTransfer?.setData('text/plain',labDragId);}else if(rotation){labDragId=`rotation:${rotation.dataset.rotationIndex}`;e.dataTransfer?.setData('text/plain',labDragId);}});document.addEventListener('dragover',e=>{if(e.target.closest?.('[data-priority-id],[data-rotation-index]'))e.preventDefault();});document.addEventListener('drop',e=>{const row=e.target.closest?.('[data-priority-id],[data-rotation-index]');if(!row||!labDragId)return;e.preventDefault();const [kind,index]=labDragId.split(':');if(kind==='priority'&&row.dataset.priorityId){const ids=getCharacterPriority(),from=ids.indexOf(index),to=ids.indexOf(row.dataset.priorityId);if(from>=0&&to>=0){ids.splice(to,0,ids.splice(from,1)[0]);setCharacterPriority(ids);refreshLab();}}else if(kind==='rotation'&&row.dataset.rotationIndex!==undefined){const p=read(),from=Number(index),to=Number(row.dataset.rotationIndex);p.rotations.splice(to,0,p.rotations.splice(from,1)[0]);write(p);displayRotation();}labDragId='';});document.addEventListener('keydown',e=>{const row=e.target.closest?.('[data-priority-id]');if(!row||!['ArrowUp','ArrowDown'].includes(e.key))return;e.preventDefault();move(row.dataset.priorityId,e.key==='ArrowUp'?-1:1);});document.addEventListener('change',e=>{if(!e.target.matches('[data-lab-import]'))return;previewInventory(e.target);});}
 function saveCharacterMemo(p){if(!p.character)return;const all=jsonRead('astralis:gi:lab-character-settings:v1',{});all[p.character]={...p,rotations:undefined};localStorage.setItem('astralis:gi:lab-character-settings:v1',JSON.stringify(all));}
 function previewInventory(input){const root=input.closest('[data-damage-lab]'),box=root.querySelector('[data-lab-import-preview]'),status=root.querySelector('[data-lab-import-status]'),commit=root.querySelector('[data-lab-action="commit-import"]'),file=input.files?.[0];pendingInventory=[];commit.disabled=true;if(!file){box.hidden=true;return;}if(file.size>25*1024*1024){status.textContent='Fichier supérieur à 25 Mo : aperçu refusé.';return;}const reader=new FileReader();reader.onload=()=>{try{const result=parseArtifactInventory(String(reader.result||''));pendingInventory=result.rows.filter(x=>usableArtifact(x));const validCopies=pendingInventory.length,invalid=result.invalid,existing=jsonRead('astralis:gi:owned-artifacts',[]).map((x,i)=>normalizeGoodArtifact(x,i)),delta=artifactImportDelta(existing,pendingInventory);status.textContent=`${validCopies} exemplaires utilisables · ${delta.length} nouveaux à ajouter · ${invalid} avec avertissement(s) de paliers · doublons conservés comme exemplaires`;box.hidden=false;box.innerHTML=`<b>Aperçu local · ${esc(file.name)}</b><div class="lab-import-counts">${ARTIFACT_SLOTS.map(s=>`<span>${ARTIFACT_SLOT_LABELS[s]} · ${pendingInventory.filter(x=>x.slot===s).length}</span>`).join('')}</div><ul>${result.rows.slice(0,8).map(x=>`<li class="${validateArtifact(x).valid?'':'is-invalid'}">${esc(x.setKey)} · ${ARTIFACT_SLOT_LABELS[x.slot]||'Emplacement inconnu'} · niv. ${x.level} · ${x.mainType} ${fmt(x.mainValue)}${x.duplicate?' · exemplaire répété conservé':''}${!validateArtifact(x).valid?` · ${esc(validateArtifact(x).issues[0])}`:''}</li>`).join('')}</ul>${result.rows.length>8?`<small>${result.rows.length-8} ligne(s) supplémentaires omises de l’aperçu.</small>`:''}`;commit.disabled=!delta.length;}catch(error){box.hidden=true;status.textContent=String(error.message||error);}};reader.onerror=()=>status.textContent='Lecture impossible. Le fichier local est peut-être endommagé.';reader.readAsText(file);}
 function commitInventory(root){const stored=jsonRead('astralis:gi:owned-artifacts',[]),existing=stored.map((x,i)=>normalizeGoodArtifact(x,i)),fresh=artifactImportDelta(existing,pendingInventory),saved=[...stored,...fresh];localStorage.setItem('astralis:gi:owned-artifacts',JSON.stringify(saved));pendingInventory=[];root.querySelector('[data-lab-action="commit-import"]').disabled=true;root.querySelector('[data-lab-import-status]').textContent=`${fresh.length} nouvelle(s) relique(s) ajoutée(s) · ${saved.length} exemplaires au total`;root.querySelector('[data-lab-import-preview]').hidden=true;updateEstimate(root,read());}
@@ -272,7 +313,7 @@ async function runOptimizer(root,p,weighted=[]) {
   const currentIds=equippedPieces(p).filter(Boolean).map(piece=>piece.id);
   const valid=analysis.valid;
   labWorker?.terminate();
-  labWorker=new Worker(new URL('./optimizer.worker.js?v=20261118-all-buffs-1',import.meta.url),{type:'module'});
+  labWorker=new Worker(new URL('./optimizer.worker.js?v=20261118-character-talent-buffs-6',import.meta.url),{type:'module'});
   const id=++labJob;
   cancel.disabled=false;
   metrics.dataset.running='1';
@@ -308,7 +349,7 @@ async function runOptimizer(root,p,weighted=[]) {
   };
   labWorker.onerror=event=>{metrics.textContent='Le calcul a rencontré une erreur · '+event.message;finish();};
   let sourceDamage;
-  if(String(p.attackSelection).startsWith('wr:')){const adapter=await import('./lab-wr-adapter.js?v=20261118-all-buffs-1'),engine=await adapter.loadWrEngine();sourceDamage=adapter.sourceScenario(engine,p,sourceBuildContext(p));}
+  if(String(p.attackSelection).startsWith('wr:')){const adapter=await import('./lab-wr-adapter.js?v=20261119-recent-character-stats-1'),engine=await adapter.loadWrEngine();sourceDamage=adapter.sourceScenario(engine,p,sourceBuildContext(p));}
   labWorker.postMessage({type:'optimize',id,options:{
     inventory:analysis.source,
     currentIds,input:{
@@ -405,6 +446,8 @@ export function initDamageLab() {
   displayRotation();updateEstimate(root,read());
   loadActiveKit();
   updateLiveStats(root,read());
+  if(!labContext.wrEngine||!labContext.wrAdapter)ensureLabStatsEngine().then(()=>{const current=document.querySelector('[data-damage-lab]');if(current)refreshBuffCalculation(current,read());}).catch(error=>{const current=document.querySelector('[data-damage-lab]');if(current)current.querySelector('[data-lab-status]').textContent='Mise à jour des statistiques impossible : '+error.message;});
+  else scheduleLiveStats();
   const p=read();
   if(p.tab==='buffs')loadBuffDescriptions(root,p);
   if(p.character&&(p.referenceCharacter!==p.character||p.statSchema!==3||p.atk===''))loadActiveBuild(root,p);
@@ -413,6 +456,10 @@ export function initDamageLab() {
 let buildRequestKey='';
 let labContext = {characters:[], builds:[], inventory:[], sets:[], weapons:[]};
 const kitCache = new Map();
+let sourceTeamStatsCache={key:'',stats:{}};
+let labStatsEnginePromise=null,liveStatsFrame=0;
+function ensureLabStatsEngine(){return labStatsEnginePromise??=import('./lab-wr-adapter.js?v=20261119-recent-character-stats-1').then(async adapter=>{const engine=await adapter.loadWrEngine();labContext.wrAdapter=adapter;labContext.wrEngine=engine;sourceTeamStatsCache.key='';return engine;}).catch(error=>{labStatsEnginePromise=null;throw error;});}
+function scheduleLiveStats(){if(liveStatsFrame)cancelAnimationFrame(liveStatsFrame);liveStatsFrame=requestAnimationFrame(()=>{liveStatsFrame=0;const root=document.querySelector('[data-damage-lab]');if(root)refreshBuffCalculation(root,read());});}
 const kitRequests = new Map();
 
 function canonicalLabCharacter(id) {
@@ -450,21 +497,39 @@ function equippedPieces(p) {
   });
 }
 
+function sourceTeamStats(p){
+ const engine=labContext.wrEngine,adapter=labContext.wrAdapter;if(!engine||!adapter||!p.character)return {};
+ let signature;try{signature=JSON.stringify({character:p.character,elementKey:p.elementKey,level:p.level,ascension:p.ascension,constellation:p.constellation,talents:[p.talentAuto,p.talentSkill,p.talentBurst,p.talentLevel],weapon:[p.weaponOverride,p.weaponLevel,p.weaponRefinement],loadout:p.loadout,build:p.build,allies:p.allies,conditions:p.wrConditions,localStats:statFromForm(p),baseProfile:p.referenceBaseProfile,weaponProfile:p.referenceWeaponProfile,manualStats:p.manualStatOverrides,buffs:activeBuffBonuses(p,0),equipment:equippedPieces(p),elementBonus:p.elementBonus,passiveSourceStats:p.passiveSourceStats,builds:labContext.builds});}catch{return {};}
+ if(sourceTeamStatsCache.key===signature)return sourceTeamStatsCache.stats;
+ try{
+  const scenario=adapter.sourceScenario(engine,p,sourceBuildContext(p));if(!scenario)return {};
+  const active=adapter.buildWrCharacterData(engine,scenario.active),teammates=scenario.team.map(member=>adapter.buildWrCharacterData(engine,member));
+  const evaluated=adapter.evaluateWrTeam(engine,active,teammates);sourceTeamStatsCache={key:signature,stats:evaluated.members||{},localTarget:!!scenario.active.localTarget,enemyResistances:evaluated.enemyResistances};
+ }catch(error){sourceTeamStatsCache={key:'',stats:{},error:error.message};}
+ return sourceTeamStatsCache.stats;
+}
+function supportStatsForAlly(p,ally){
+ const automatic=sourceTeamStats(p)[String(ally.character)]?.stats||{},manual=supportWeaponSourceStats(ally),out={};
+ for(const key of ['em','hp','atk','def'])out[key]=manual[key]!==''&&manual[key]!=null&&Number.isFinite(Number(manual[key]))?Number(manual[key]):automatic[key];
+ return out;
+}
+
 function extendedBuffConfig(p){
  const character=id=>labContext.characters.find(c=>[c._id,c.id].map(String).includes(String(id)));
+ const sourceStatsByMember=sourceTeamStats(p);
  const make=(member,own)=>{
   const c=character(member.character),id=String(c?.id||member.character),details=kitCache.get(String(member.character)),factors={};
   for(const rule of EXTENDED_BUFFS[id]||[]){if(!rule.talent)continue;const level=effectiveTalentLevel(details,rule.talent.skill,member.talentLevel||10,member.constellation),skill=details?.talentValues?.['combat'+(rule.talent.skill+1)];const value=skill?.attributes?.parameters?.[rule.talent.param]?.[level-1];if(Number.isFinite(value))factors[rule.id]=value;}
-  return {id,own,constellation:member.constellation,effects:member.kitEffects,factors};
+  return {id,own,constellation:member.constellation,effects:member.kitEffects,factors,sourceStats:sourceStatsByMember[String(member.character)]};
  };
  const team=[p,...(p.allies||[]).filter(a=>a.character)];
- return {elementKey:p.elementKey,characterElement:String(character(p.character)?.elementType||'').replace('ELEMENT_','').toLowerCase(),targetName:p.targetName,actionKind:p.actionKind,fightPosition:p.fightPosition||'on',targetWeaponType:character(p.character)?.weaponType,teamElements:team.map(member=>String(character(member.character)?.elementType||'').replace('ELEMENT_','').toLowerCase()).filter(Boolean),members:team.map((member,index)=>make(member,index===0))};
+ return {elementKey:p.elementKey,characterElement:String(character(p.character)?.elementType||'').replace('ELEMENT_','').toLowerCase(),targetName:p.targetName,actionKind:p.actionKind,fightPosition:p.fightPosition||'on',targetWeaponType:character(p.character)?.weaponType,teamElements:team.map(member=>String(character(member.character)?.elementType||'').replace('ELEMENT_','').toLowerCase()).filter(Boolean),sourceStatsByMember,members:team.map((member,index)=>make(member,index===0))};
 }
 
 function partyBonuses(p){
  const counts=new Map();for(const piece of equippedPieces(p).filter(Boolean))counts.set(piece.setKey,(counts.get(piece.setKey)||0)+1);
  const out=additionalPartySetBonuses(partySetEffects(p,labContext.sets,labContext.characters),p.loadout==='equipped'&&p.build?counts:new Map(),configuredSetEffects(labContext.sets,p));
- for(const [key,value]of Object.entries(partyWeaponBonuses(p,labContext.weapons,activeWeapon(p))))out[key]=(out[key]||0)+value;
+ for(const [key,value]of Object.entries(partyWeaponBonuses(p,labContext.weapons,activeWeapon(p),ally=>supportStatsForAlly(p,ally))))out[key]=(out[key]||0)+value;
  return out;
 }
 function equippedBonuses(p) {
@@ -599,7 +664,7 @@ async function loadActiveBuild(root,p) {
     if (!document.querySelector('[data-damage-lab]') || String(read().build)!==String(p.build) || String(read().character)!==String(p.character)||effectiveBuild(read()).weapon!==build.weapon||Number(effectiveBuild(read()).weaponLevelValue)!==Number(build.weaponLevelValue)) return;
     if (!data) throw new Error('Les statistiques de niveau sont indisponibles. Tu peux compléter les valeurs de référence.');
     const tc=p.tcSettingsLoadedBuild!==p.build?(build.tcSettings||{}):{};
-    const updated={...read(),...tc,referenceBonuses:{},...data,tcSettingsLoadedBuild:p.build,weaponOverride:p.weaponOverride,weaponLevel:build.weaponLevelValue,weaponRefinement:build.weaponRefinement,character:p.character,build:p.build,statSchema:3,referenceCharacter:p.character,referenceBuild:p.build,loadout:p.build?'equipped':'manual'};
+    const updated={...read(),...tc,referenceBonuses:{},...data,tcSettingsLoadedBuild:p.build,weaponOverride:p.weaponOverride,weaponLevel:build.weaponLevelValue,weaponRefinement:build.weaponRefinement,character:p.character,build:p.build,statSchema:3,referenceCharacter:p.character,referenceBuild:p.build,manualStatOverrides:{},loadout:p.build?'equipped':'manual'};
     if(build.rotation?.length)updated.rotations=build.rotation;
     updated.constellation=Math.max(0,Math.min(6,Number(p.constellation)||0));
     updated.referenceStats=statsForCalculation(updated);
@@ -615,18 +680,24 @@ async function loadActiveBuild(root,p) {
 }
 
 function updateLiveStats(root,p) {
-  const stats=p.referenceCharacter===p.character?statsForCalculation(p):{};
+  const stats={...(sourceTeamStats(p)[String(p.character)]?.stats||(p.referenceCharacter===p.character?statsForCalculation(p):{}))};
   stats.dmgBonus=(stats.dmgBonus||0)+(Number(p.elementBonus)||0)+(stats[(p.elementKey||'')+'Dmg']||0);
-  const selected=resolveComplex(p,stats).bonuses;
-  const source=p.loadout==='equipped'&&p.build?equippedBonuses(p):p.referenceBonuses||{};
-  const reduction=(Number(p.resReduction)||0)+(source.resReduction||0)+(selected.resReduction||0)+(partyBonuses(p).resReduction||0)+(activeBuffBonuses(p).resReduction||0)+(ownWeaponBonuses(p).resReduction||0);
-  root.querySelectorAll('[data-lab-res-reduction]').forEach(cell=>cell.textContent=fmt(reduction)+' % ('+(p.elementKey||'physique')+')');
+  const reductions=RES_ELEMENTS.map(([element,label])=>{
+   const context={...p,elementKey:element},elementStats=stats,
+    source=context.loadout==='equipped'&&context.build?equippedBonuses(context):context.referenceBonuses||{},
+    selected=resolveComplex(context,elementStats).bonuses,party=partyBonuses(context),manual=activeBuffBonuses(context),weapon=ownWeaponBonuses(context),
+    imported=context.importBonuses||{},kit=extendedBuffBonuses({...extendedBuffConfig(context),statsIncludeBuffs:true},elementStats);
+   const parts=[['Réglage manuel',Number(context.resReduction)||0],['Build et sets équipés',source.resReduction||0],['Passifs configurés',selected.resReduction||0],['Buffs d’équipe et sets alliés',party.resReduction||0],['Buffs manuels',manual.resReduction||0],['Arme',weapon.resReduction||0],['Bonus importés',imported.resReduction||0],['Talents et passifs du personnage',kit.resReduction||0]].filter(([,value])=>Number(value));
+   return {element,label,total:parts.reduce((sum,[,value])=>sum+Number(value),0),parts};
+  });
+  root.querySelectorAll('[data-lab-res-reduction]').forEach(cell=>cell.innerHTML=reductions.map(({element,label,total,parts})=>`<div class="lab-res-entry" title="${esc(parts.map(([name,value])=>name+': '+fmt(value)+' %').join(' · ')||'Aucune baisse active')}"><span>${label}</span><b>${fmt(total)} %</b></div>`).join(''));
   root.querySelectorAll('[data-effect-gain]').forEach(output=>{
    const saved=p.effectStates?.[output.dataset.effectGain]||{},stacks=Number(saved.stacks)||1;
    output.textContent=Object.entries(JSON.parse(output.dataset.effectBonuses||'{}')).map(([key,value])=>(value>=0?'+':'')+fmt(Array.isArray(value)?value[Math.min(value.length-1,stacks-1)]:value*stacks)+' '+(LAB_STAT_LABELS[key]||key)).join(' · ');
    output.classList.toggle('is-inactive',saved.enabled===false);
   });
-  root.querySelectorAll('[data-lab-live-stat]').forEach(cell=>cell.textContent=labStatValue(cell.dataset.labLiveStat,stats[cell.dataset.labLiveStat]));
+  if(sourceTeamStatsCache.enemyResistances)root.querySelectorAll('[data-lab-res-reduction]').forEach(cell=>cell.innerHTML=RES_ELEMENTS.map(([element,label])=>`<div class="lab-res-entry"><span>${label}</span><b>${fmt((Number(p.resistance)||0)-Number(sourceTeamStatsCache.enemyResistances[element])*100)} %</b></div>`).join(''));
+  root.querySelectorAll('[data-lab-live-stat]').forEach(cell=>cell.textContent=cell.hasAttribute('data-lab-damage-bonus')?fmt(stats[cell.dataset.labLiveStat]||0)+' %':labStatValue(cell.dataset.labLiveStat,stats[cell.dataset.labLiveStat]));
   root.querySelector('[data-lab-enemy-level]').textContent=p.enemyLevel;
   updateAttackTable(root,p);
 }
@@ -641,7 +712,7 @@ let buffCalculationRevision=0;
 async function refreshBuffCalculation(root,p) {
  const revision=++buffCalculationRevision;
  updateLiveStats(root,p);recomputeRotation(root,p);updateBuffCounts(root);
- if(p.talent===''||!Number.isFinite(Number(p.talent)))return;
+ if(p.talent===''||!Number.isFinite(Number(p.talent))){updateSourceConditionValues(root,p,sourceBuffStatsResult(p));return;}
  const result=await calculate(p);
  if(revision===buffCalculationRevision&&root.isConnected)showResult(result);
 }
@@ -866,7 +937,7 @@ async function showAllyEffects(root,p,index){
  host.textContent = 'Chargement des effets…';
  let details;
  if (character) {
-  try { const [remote,entry]=await Promise.all([characterDetails('gi',character).catch(()=>character),localKitEntry(character,own?p.elementKey:ally.elementKey)]);details=mergeKitSnapshot(remote,entry);kitCache.set(String(ally.character),details); } catch { details = character; }
+  try { const [remote,entry,adapter]=await Promise.all([characterDetails('gi',character).catch(()=>character),localKitEntry(character,own?p.elementKey:ally.elementKey),import('./lab-wr-adapter.js?v=20261119-recent-character-stats-1')]);details=mergeKitSnapshot(remote,entry);kitCache.set(String(ally.character),details);labContext.wrAdapter=adapter;labContext.wrEngine=await adapter.loadWrEngine();sourceTeamStatsCache.key=''; } catch { details = character; }
  }
  if (!host.isConnected) return;
  const rows = kitEffectDescriptions(details, ally.constellation, weapon, own ? p.weaponRefinement : ally.refinement, own?null:set,ally.setMode==='2+2'?2:4);
@@ -893,7 +964,7 @@ async function showAllyEffects(root,p,index){
   const group=groups.find(group=>group.kind===row.kind&&group.index===row.sourceIndex);
   const weaponOptions=own&&row.kind==='weapon'?weaponEffectOptions(weapon,p.weaponRefinement):[];
   const setOptions=own&&row.kind==='set'?setEffectOptions(labContext.sets.find(item=>String(item.id)===String(row.sourceId))||{})[row.pieces===4?'four':'two']:[];
-  const sourceWeaponOptions=!own&&row.kind==='weapon'?supportWeaponEffects(weapon,ally.refinement,supportWeaponSourceStats(ally)):[];
+  const sourceWeaponOptions=!own&&row.kind==='weapon'?supportWeaponEffects(weapon,ally.refinement,supportStatsForAlly(p,ally)):[];
   const configured=!!buff&&(Number(buff.value)||Number(buff.sourcePercent));
   if(row.locked)return '';
   if(row.kind==='weapon'){
@@ -904,10 +975,10 @@ async function showAllyEffects(root,p,index){
    if(!sourceWeaponOptions.length)return '';
    return '<article class="lab-passive-text lab-useful-weapon"><div class="lab-passive-meta"><span>ARME · BONUS TRANSMIS</span><b>'+esc(weapon._name)+' · R'+(Number(ally.refinement)||1)+'</b></div>'+sourceWeaponOptions.map(effect=>{
     if(effect.position&&effect.position!==(p.fightPosition||'on'))return '';
-    const sourceField={em:'weaponSourceEM',hp:'weaponSourceHP',atk:'weaponSourceATK',def:'weaponSourceDEF'}[effect.sourceStat],sourceLabel={em:'Maîtrise finale du porteur',hp:'PV max du porteur',atk:'ATQ finale du porteur',def:'DÉF finale du porteur'}[effect.sourceStat];
+    const sourceField={em:'weaponSourceEM',hp:'weaponSourceHP',atk:'weaponSourceATK',def:'weaponSourceDEF'}[effect.sourceStat],sourceLabel={em:'Maîtrise finale du porteur',hp:'PV max du porteur',atk:'ATQ finale du porteur',def:'DÉF finale du porteur'}[effect.sourceStat],autoSource=sourceField&&Number.isFinite(Number(supportStatsForAlly(p,ally)[effect.sourceStat]));
     const key=String(weapon.id)+':'+effect.id,saved=ally.activeWeaponEffects?.[key],enabled=!!saved?.enabled&&(effect.recipient!=='next'||String(saved.target)===String(p.character));
     const gain=Object.entries(effect.bonuses).map(([type,value])=>'+'+fmt(value)+(['em','atkFlat'].includes(type)?'':' %')+' '+(LAB_STAT_LABELS[type]||type).replace(/\s*%$/,'')).join(' · ');
-    return '<div class="lab-support-buff"><label class="lab-buff-toggle"><span><b>'+esc(effect.label)+'</b><small>'+esc(effect.condition)+'</small></span><input type="checkbox" data-lab-support-weapon="'+index+'" data-weapon-effect="'+key+'" '+(enabled?'checked':'')+'><output>'+esc(gain)+'</output></label>'+(effect.sourceStat?'<label class="lab-field"><span>'+esc(sourceLabel)+'</span><input type="number" min="0" step="any" data-lab-ally="'+index+'" data-ally-field="'+sourceField+'" value="'+esc(ally[sourceField]??'')+'"></label>':'')+'</div>';
+    return '<div class="lab-support-buff"><label class="lab-buff-toggle"><span><b>'+esc(effect.label)+'</b><small>'+esc(effect.condition)+'</small></span><input type="checkbox" data-lab-support-weapon="'+index+'" data-weapon-effect="'+key+'" '+(enabled?'checked':'')+'><output>'+esc(gain)+'</output></label>'+(effect.sourceStat&&!autoSource?'<label class="lab-field"><span>'+esc(sourceLabel)+'</span><input type="number" min="0" step="any" data-lab-ally="'+index+'" data-ally-field="'+sourceField+'" value="'+esc(ally[sourceField]??'')+'"></label>':'')+'</div>';
    }).join('')+'</article>';
   }
   if(row.kind==='set'){
@@ -918,16 +989,17 @@ async function showAllyEffects(root,p,index){
   return '<article data-equipment-kind="'+(row.kind==='set'?'set':'kit')+'" class="lab-passive-text '+(row.locked?'is-locked':'')+'"><div class="lab-passive-meta"><span>'+esc(labels[row.kind]||'EFFET')+'</span><b>'+(row.locked?'Verrouillé à cette constellation':buff?'Bonus configuré':'Texte du jeu')+'</b></div><details '+''+'><summary>'+esc(row.name)+'</summary><div class="lab-effect-description">'+renderGameText(row.description)+'</div></details>'+
    (group?nativeControls(group):own&&row.kind==='set'&&setOptions?.length?effectControls(p,'set:'+String(labContext.sets.find(item=>String(item.id)===String(row.sourceId))?._labKey||labContext.sets.find(item=>String(item.id)===String(row.sourceId))?._id)+':'+(row.pieces===4?'four':'two'),setOptions):partyEffect&&!row.locked?'<label class="lab-published-check"><input type="checkbox" data-lab-party-set="'+index+'" data-set-id="'+row.sourceId+'" '+(ally.activeSetEffects?.[row.sourceId]?'checked':'')+'>'+esc(partyEffect.label)+'</label>'+(partyEffect.tiers?'<label class="lab-field"><span>Condition du set</span><select data-lab-ally="'+index+'" data-ally-field="partySetTier">'+partyEffect.tiers.map((tier,i)=>'<option value="'+i+'" '+(Number(ally.partySetTier||0)===i?'selected':'')+'>'+esc(tier.label)+'</option>').join('')+'</select></label>':''):row.locked?'<p class="lab-passive-locked">Augmente la constellation de ce personnage pour débloquer cet effet.</p>':buff?'<label class="lab-published-check"><input type="checkbox" data-lab-buff="'+buffIndex+'" data-field="active" '+(buff.active!==false?'checked':'')+'> Appliquer le bonus configuré</label>':'<button type="button"'+attrs+'>Ajouter un bonus complémentaire</button>')+'</article>';
  }).join('');
- const extended=extendedBuffOptions(String(character?.id||character?._id),{...extendedBuffConfig(p),own,constellation:ally.constellation});
+ const kitConfig=extendedBuffConfig(p),kitStats=statsForCalculation(p),memberId=String(character?.id||character?._id),memberSourceStats=kitConfig.members.find(member=>member.id===memberId&&member.own===own)?.sourceStats;
+ const extended=extendedBuffOptions(memberId,{...kitConfig,own,constellation:ally.constellation});
  if(extended.length)host.insertAdjacentHTML('beforeend',extended.map(option=>{
-  const state=ally.kitEffects?.[option.id]||{},stacks=Math.max(1,Math.min(option.max||1,Number(state.stacks)||1)),gain=option.source?'':Object.entries(option.bonuses).map(([key,value])=>'+'+fmt(Array.isArray(value)?value[stacks-1]:value*stacks)+' '+(LAB_STAT_LABELS[key]||key)).join(' · ');
-  return '<article class="lab-passive-text"><label class="lab-buff-toggle"><span><b>'+esc(option.label)+'</b></span><input type="checkbox" data-lab-extended-buff="'+index+'" data-kit-effect="'+option.id+'" data-kit-field="enabled" '+(state.enabled?'checked':'')+'><output>'+esc(gain)+'</output></label>'+(option.max>1&&!option.stacksFrom?'<label class="lab-field"><span>Cumuls / nombre</span><select data-lab-extended-buff="'+index+'" data-kit-effect="'+option.id+'" data-kit-field="stacks">'+Array.from({length:option.max},(_,i)=>'<option value="'+(i+1)+'" '+(stacks===i+1?'selected':'')+'>'+(i+1)+'</option>').join('')+'</select></label>':'')+(option.source&&(!own||option.manual||['highestEM','baseAtk'].includes(option.source))?'<label class="lab-field"><span>'+esc(option.sourceLabel)+'</span><input type="number" min="0" step="any" data-lab-extended-buff="'+index+'" data-kit-effect="'+option.id+'" data-kit-field="sourceValue" value="'+esc(state.sourceValue??'')+'"></label>':'')+'</article>';
+  const state=ally.kitEffects?.[option.id]||{},stacks=Math.max(1,Math.min(option.max||1,Number(state.stacks)||1)),gain=option.source?extendedBuffOutput(kitConfig,option.id,kitStats,memberId,own):Object.entries(option.bonuses).map(([key,value])=>'+'+fmt(Array.isArray(value)?value[stacks-1]:value*stacks)+' '+(LAB_STAT_LABELS[key]||key)).join(' · '),sourceAvailable=option.source==='highestEM'?Object.keys(kitConfig.sourceStatsByMember||{}).length>0:Number.isFinite(Number(memberSourceStats?.[option.source])),manualSource=option.source&&(option.manual||!sourceAvailable);
+  return '<article class="lab-passive-text"><label class="lab-buff-toggle"><span><b>'+esc(option.label)+'</b></span><input type="checkbox" data-lab-extended-buff="'+index+'" data-kit-effect="'+option.id+'" data-kit-field="enabled" '+(state.enabled?'checked':'')+'><output>'+esc(gain)+'</output></label>'+(option.max>1&&!option.stacksFrom?'<label class="lab-field"><span>Cumuls / nombre</span><select data-lab-extended-buff="'+index+'" data-kit-effect="'+option.id+'" data-kit-field="stacks">'+Array.from({length:option.max},(_,i)=>'<option value="'+(i+1)+'" '+(stacks===i+1?'selected':'')+'>'+(i+1)+'</option>').join('')+'</select></label>':'')+(manualSource?'<label class="lab-field"><span>'+esc(option.sourceLabel)+'</span><input type="number" min="0" step="any" data-lab-extended-buff="'+index+'" data-kit-effect="'+option.id+'" data-kit-field="sourceValue" value="'+esc(state.sourceValue??'')+'"></label>':'')+'</article>';
  }).join(''));
  if(nativeScope){for(const group of groups)if(!matched.has(group))host.insertAdjacentHTML('beforeend','<article class="lab-passive-text">'+nativeControls(group)+'</article>');}
  if(!host.textContent.trim())host.innerHTML='<p class="lab-no-transferred-buff">Aucun bonus transmis à ton personnage avec cette configuration.</p>';
  updateBuffCounts(root);
  if(character){
-  Promise.all([loadCharacterConditions(),import('./lab-wr-adapter.js?v=20261118-all-buffs-1')]).then(async([manifest,adapter])=>{
+  Promise.all([loadCharacterConditions(),import('./lab-wr-adapter.js?v=20261119-recent-character-stats-1')]).then(async([manifest,adapter])=>{
    const engine=await adapter.loadWrEngine(),key=adapter.resolveWrCharacterKey(engine,{...character,elementKey:own?p.elementKey:ally.elementKey},labContext.sourceAliases);
    if(!host.isConnected||!key)return;
    const record=manifest.characters[key];if(!record)return;
@@ -935,7 +1007,11 @@ async function showAllyEffects(root,p,index){
    // One authoritative set of character conditions; keep weapon/set controls separate.
    host.querySelectorAll(':scope > .lab-passive-text:not([data-equipment-kind="set"]):not(.lab-useful-weapon)').forEach(article=>article.remove());
    host.insertAdjacentHTML('afterbegin',renderSourceBuffs({...record,key,name:character._name||record.name},own?read():read().allies?.[index]||{},index));
-   if(!own){const savedBuilds=labContext.builds.filter(build=>String(build.character)===String(character._id));if(savedBuilds.length){const owner=read().allies?.[index]||{};host.querySelector('.lab-source-buffs header').insertAdjacentHTML('beforeend','<label class="lab-field"><span>Build de l’équipier · statistiques source des buffs</span><select data-lab-ally="'+index+'" data-ally-field="build"><option value="">Base du personnage et arme sélectionnée</option>'+savedBuilds.map(build=>'<option value="'+esc(build.id)+'" '+(owner.build===build.id?'selected':'')+'>'+esc(build.name||'Build enregistré')+'</option>').join('')+'</select></label>');}}
+   if(!own){
+    const savedBuilds=labContext.builds.filter(build=>String(build.character)===String(character._id));
+    if(savedBuilds.length){const owner=read().allies?.[index]||{};host.querySelector('.lab-source-buffs header').insertAdjacentHTML('beforeend','<label class="lab-field"><span>Build de l’équipier · statistiques source des buffs</span><select data-lab-ally="'+index+'" data-ally-field="build"><option value="">Base du personnage et arme sélectionnée</option>'+savedBuilds.map(build=>'<option value="'+esc(build.id)+'" '+(owner.build===build.id?'selected':'')+'>'+esc(build.name||'Build enregistré')+'</option>').join('')+'</select></label>');}
+   }
+   refreshBuffCalculation(root,read());
   }).catch(()=>{if(host.isConnected)host.insertAdjacentHTML('beforeend','<p class="lab-data-note">Les conditions complètes du personnage sont temporairement indisponibles.</p>');});
  }
  host.dataset.loaded='true';
@@ -981,13 +1057,18 @@ function bindWorkspace() {
     }
   });
   document.addEventListener('change',async event=>{
+   if(event.target.matches('[data-lab-passive-source]')){
+    const input=event.target,p=persist(),index=Number(input.dataset.labPassiveSource),owner=index===-1?p:p.allies?.[index];if(!owner)return;
+    owner.passiveSourceStats||={};if(input.value==='')delete owner.passiveSourceStats[input.dataset.sourceStat];else owner.passiveSourceStats[input.dataset.sourceStat]=Number(input.value);
+    write(p);sourceTeamStatsCache.key='';await refreshBuffCalculation(input.closest('[data-damage-lab]'),p);return;
+   }
    const input=event.target;if(!input.matches('[data-lab-source-buff]'))return;
    const p=persist(),index=Number(input.dataset.labSourceBuff),owner=index===-1?p:p.allies?.[index];if(!owner)return;
    owner.wrConditions||={};owner.wrConditions[input.dataset.sourceCharacter]||={};
    owner.wrConditions[input.dataset.sourceCharacter][input.dataset.sourcePath]=input.type==='checkbox'?(input.checked?input.dataset.sourceActive:'off'):input.value;
-   p.sourceBuffMode=true;write(p);
+   p.sourceBuffMode=true;write(p);sourceTeamStatsCache.key='';updateLiveStats(input.closest('[data-damage-lab]'),p);
    const root=input.closest('[data-damage-lab]');
-   if(!String(p.attackSelection).startsWith('wr:')){const row=labContext.wrAttacks?.find(row=>row.kind===p.actionKind)||labContext.wrAttacks?.[0];if(row){Object.assign(p,{attackSelection:row.id,targetName:row.label,actionKind:row.kind,talent:1,hitCount:1});write(p);const select=root.querySelector('[data-lab-target-attack]');if(select)select.value=row.id;root.querySelectorAll('[data-lab-target-name],.lab-target-readout strong').forEach(node=>node.textContent=row.label);showResult(await calculate(p));}else root.querySelector('[data-lab-status]').textContent='Conditions sauvegardées. Les attaques de la fiche se chargent.';}else showResult(await calculate(p));
+   if(!String(p.attackSelection).startsWith('wr:')){const row=labContext.wrAttacks?.find(row=>row.kind===p.actionKind)||labContext.wrAttacks?.[0];if(row){Object.assign(p,{attackSelection:row.id,targetName:row.label,actionKind:row.kind,talent:1,hitCount:1});write(p);const select=root.querySelector('[data-lab-target-attack]');if(select)select.value=row.id;root.querySelectorAll('[data-lab-target-name],.lab-target-readout strong').forEach(node=>node.textContent=row.label);await refreshBuffCalculation(root,p);}else{await refreshBuffCalculation(root,p);root.querySelector('[data-lab-status]').textContent='Buffs appliqués aux statistiques locales. Choisis un coup pour calculer ses dégâts.';}}else await refreshBuffCalculation(root,p);
    updateAttackTable(root,p);
   });
   document.addEventListener('change',event=>{
@@ -1158,7 +1239,7 @@ function bindWorkspace() {
       }
       if(event.target.matches('[data-lab-weapon-level]'))p.weaponLevel=Number(event.target.value);
       if(event.target.matches('[data-lab-weapon-refinement]'))p.weaponRefinement=Number(event.target.value);
-      p.referenceCharacter='';p.atk='';p.hp='';p.def='';p.referenceBonuses={};write(p);
+      p.manualStatOverrides={};p.referenceCharacter='';p.atk='';p.hp='';p.def='';p.referenceBonuses={};write(p);
       refreshLab();return;
     }
     if(event.target.matches('[data-lab-target-attack]')){
@@ -1214,7 +1295,7 @@ function bindWorkspace() {
       return;
     }
     if(event.target.matches('[data-lab-character-level]')){
-      const p=persist();p.level=Number(event.target.value);p.referenceCharacter='';write(p);refreshLab();loadActiveBuild(document.querySelector('[data-damage-lab]'),read());return;
+      const p=persist();p.level=Number(event.target.value);p.manualStatOverrides={};p.referenceCharacter='';write(p);refreshLab();loadActiveBuild(document.querySelector('[data-damage-lab]'),read());return;
     }
     if(event.target.matches('[data-lab-rotation-attack]')){
       const p=persist(),index=Number(event.target.dataset.labRotationAttack);
@@ -1228,7 +1309,7 @@ function bindWorkspace() {
     }
     if(event.target.matches('[data-lab-wr-condition]')){const [key,path]=event.target.dataset.labWrCondition.split('|'),p=read();p.wrConditions||={};p.wrConditions[key]||={};p.wrConditions[key][path]=event.target.value;write(p);refreshLab();return;}
     const key=event.target.dataset.lab;
-    if (key==='build') { const p=persist();p.weaponOverride=null;const build=selectedBuild(p);p.weaponLevel=Number(build?.weaponLevelValue)||90;p.weaponRefinement=Number(build?.weaponRefinement)||1;p.referenceCharacter='';write(p);loadActiveBuild(root,p); }
+    if (key==='build') { const p=persist();p.manualStatOverrides={};p.weaponOverride=null;const build=selectedBuild(p);p.weaponLevel=Number(build?.weaponLevelValue)||90;p.weaponRefinement=Number(build?.weaponRefinement)||1;p.referenceCharacter='';write(p);loadActiveBuild(root,p); }
     if (key==='talentLevel') { const p=persist();if(String(p.attackSelection).startsWith('wr:'))refreshLab();else if(p.attackSelection)useTalentValue(...p.attackSelection.split(':').map(Number));else refreshLab(); }
     if(key==='constellation'){const p=persist();labContext.wrAttacks=null;wrAttackCharacter='';if(String(p.attackSelection).startsWith('wr:'))p.attackSelection='';write(p);loadWrAttackChoices(p);refreshLab();}
     if(key==='elementKey'&&['10000005','10000007'].includes(String(labContext.characters.find(c=>String(c._id)===String(read().character))?.id))){kitCache.delete(String(read().character));loadActiveKit();}
@@ -1240,6 +1321,7 @@ function bindWorkspace() {
     }
   });
   document.addEventListener('input',event=>{
+    if(event.target.matches('[data-lab-passive-source]')){const input=event.target,p=persist(),slot=Number(input.dataset.labPassiveSource),owner=slot===-1?p:p.allies?.[slot];if(!owner)return;owner.passiveSourceStats||={};if(input.value==='')delete owner.passiveSourceStats[input.dataset.sourceStat];else owner.passiveSourceStats[input.dataset.sourceStat]=Number(input.value);write(p);sourceTeamStatsCache.key='';scheduleLiveStats();return;}
     if(event.target.matches('[data-lab-ally-query]')){const q=foldAttackQuery(event.target.value);event.target.closest('.lab-ally-image-picker').querySelectorAll('[data-lab-ally-choice]').forEach(button=>button.hidden=!foldAttackQuery(button.textContent).includes(q));return;}
     if(event.target.matches('[data-lab-weapon-query]')){const q=foldAttackQuery(event.target.value);event.target.closest('.lab-weapon-picker').querySelectorAll('[data-lab-weapon-choice]').forEach(button=>button.hidden=!foldAttackQuery(button.textContent).includes(q));return;}
     if (!event.target.matches('[data-lab-character-query]')) return;
@@ -1366,7 +1448,7 @@ function saveTcBuild(root) {
 
 function optimizerBonuses(p) {
  const out={...p.referenceBonuses};
- for(const source of [activeBuffBonuses(p),ownWeaponBonuses(p),partyWeaponBonuses(p,labContext.weapons,activeWeapon(p))])for(const [key,value]of Object.entries(source))out[key]=(out[key]||0)+value;
+ for(const source of [activeBuffBonuses(p),ownWeaponBonuses(p),partyWeaponBonuses(p,labContext.weapons,activeWeapon(p),ally=>supportStatsForAlly(p,ally))])for(const [key,value]of Object.entries(source))out[key]=(out[key]||0)+value;
  return out;
 }
 

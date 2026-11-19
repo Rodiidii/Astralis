@@ -9,6 +9,9 @@ import time
 import urllib.request
 import zipfile
 from pathlib import Path, PurePosixPath, PureWindowsPath
+sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
+from update_progress import write_status as progress_status, read_status
+from desktop_integration import close_app_windows
 
 
 def local_root() -> Path:
@@ -21,21 +24,18 @@ def safe_relative(name: str) -> Path:
     win = PureWindowsPath(name)
     if part.is_absolute() or win.is_absolute() or win.drive or not part.parts or any(p in {"", ".", ".."} for p in part.parts):
         raise ValueError(f"Chemin interdit dans l’archive : {name}")
-    if "\x00" in name or ":" in part.parts[0]:
+    if "\x00" in name or any(":" in p or p.endswith((" ", ".")) for p in part.parts):
         raise ValueError(f"Chemin interdit dans l’archive : {name}")
     return Path(*part.parts)
 
 
 def preserved(rel: Path) -> bool:
     parts = {part.lower() for part in rel.parts}
-    return bool(parts & {".git", ".cache", "cache", "user-data", "userdata", "local-data", "localdata"}) or (len(rel.parts) >= 2 and rel.parts[0].lower() == "assets" and rel.parts[1].lower() == "user") or rel.name.lower() in {".env", "hoyolab.dpapi"}
+    return bool(parts & {".git", ".cache", "cache", "user-data", "userdata", "local-data", "localdata"}) or (len(rel.parts) >= 2 and ((rel.parts[0].lower() == "assets" and rel.parts[1].lower() == "user") or (rel.parts[0].lower() == "data" and rel.parts[1].lower() == "lab-user-exports"))) or rel.name.lower() in {".env", "hoyolab.dpapi"}
 
 
-def write_status(state: str, message: str, error: str = "", version: str = "") -> None:
-    local = local_root()
-    local.mkdir(parents=True, exist_ok=True)
-    data = {"state": state, "message": message, "error": error, "version": version, "updatedAt": time.time()}
-    (local / "update-status.json").write_text(json.dumps(data, ensure_ascii=False), encoding="utf-8")
+def write_status(state: str, message: str, error: str = "", version: str = "", **values) -> None:
+    progress_status(state=state, message=message, error=error, **({"version":version} if version else {}), **values)
 
 
 def copy_application_tree(source: Path, target: Path) -> None:
@@ -69,32 +69,43 @@ def replace_with_retry(source: Path, destination: Path, attempts: int = 24) -> N
             time.sleep(min(0.25 * (attempt + 1), 1.0))
 
 
-def start_app(root: Path, *, server_only: bool = False) -> None:
+def start_app(root: Path, *, server_only: bool = False, window_only: bool = False) -> None:
     launcher = root / "Lancer Astralis.bat"
     if not launcher.is_file():
         raise FileNotFoundError("Le lanceur Windows est absent de la nouvelle version.")
-    if server_only:
-        command = ["powershell.exe", "-NoProfile", "-ExecutionPolicy", "Bypass", "-File", str(root / "Installer et lancer Astralis.ps1"), "-ServerOnly"]
-        flags = getattr(subprocess, "CREATE_NEW_PROCESS_GROUP", 0) | getattr(subprocess, "DETACHED_PROCESS", 0) | getattr(subprocess, "CREATE_NO_WINDOW", 0)
-        subprocess.Popen(command, cwd=str(root), stdin=subprocess.DEVNULL, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL, creationflags=flags, close_fds=True)
-        return
-    subprocess.Popen(["cmd.exe", "/c", "start", "", str(launcher)], cwd=str(root), stdin=subprocess.DEVNULL, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL, creationflags=getattr(subprocess, "CREATE_NEW_PROCESS_GROUP", 0) | getattr(subprocess, "DETACHED_PROCESS", 0), close_fds=True)
+    switch = "-ServerOnly" if server_only else "-WindowOnly" if window_only else "-ReuseServer"
+    command = ["powershell.exe", "-NoProfile", "-WindowStyle", "Hidden", "-ExecutionPolicy", "Bypass", "-File", str(root / "Installer et lancer Astralis.ps1"), switch]
+    flags = getattr(subprocess, "CREATE_NEW_PROCESS_GROUP", 0) | getattr(subprocess, "CREATE_NO_WINDOW", 0)
+    subprocess.Popen(command, cwd=str(local_root()), stdin=subprocess.DEVNULL, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL, creationflags=flags, close_fds=True)
 
 
-def wait_for_new_app(version: str, root: Path, timeout: float = 45.0) -> bool:
-    url = "http://127.0.0.1:8766/health"
+def wait_for_new_app(version: str, root: Path, timeout: float = 45.0, previous_pid: int = 0) -> bool:
+    url = os.environ.get("ASTRALIS_UPDATE_HEALTH_URL", "http://127.0.0.1:8766/health")
     deadline = time.monotonic() + timeout
     while time.monotonic() < deadline:
         try:
             request = urllib.request.Request(url, headers={"Cache-Control": "no-cache"})
             with urllib.request.urlopen(request, timeout=2) as response:
                 health = json.loads(response.read(32_000).decode("utf-8"))
-            if health.get("ok") and str(health.get("version")) == version and str(health.get("instance")) == expected_instance(root):
+            if health.get("ok") and str(health.get("version")) == version and str(health.get("instance")) == expected_instance(root) and int(health.get("pid", 0)) != previous_pid:
                 return True
         except Exception:
             pass
         time.sleep(0.5)
     return False
+
+
+def stop_replacement_server(root: Path, old_pid: int) -> None:
+    try:
+        url = os.environ.get("ASTRALIS_UPDATE_HEALTH_URL", "http://127.0.0.1:8766/health")
+        with urllib.request.urlopen(url, timeout=2) as response:
+            health = json.load(response)
+        pid = int(health.get("pid", 0))
+        if health.get("instance") == expected_instance(root) and pid > 0 and pid != old_pid:
+            subprocess.run(["taskkill", "/PID", str(pid), "/F"], stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL, check=False)
+            time.sleep(.5)
+    except Exception:
+        pass
 
 
 def move_preserved_data(old_root: Path, new_root: Path) -> None:
@@ -110,7 +121,7 @@ def move_preserved_data(old_root: Path, new_root: Path) -> None:
                     target.unlink()
             shutil.move(str(source), str(target))
     # Nested preserved paths are moved separately after the containing tree is present.
-    for rel in (Path("assets/user"), Path(".env"), Path("hoyolab.dpapi")):
+    for rel in (Path("assets/user"), Path(".env"), Path("hoyolab.dpapi"), Path("data/lab-user-exports")):
         source = old_root / rel
         if not source.exists():
             continue
@@ -135,8 +146,9 @@ def main() -> int:
     staging = parent / f".{root.name}.astralis-next-{suffix}"
     backup = parent / f".{root.name}.astralis-previous-{suffix}"
     failed = parent / f".{root.name}.astralis-failed-{suffix}"
+    confirmed = False
     try:
-        write_status("installing", "Préparation des fichiers modifiés…")
+        write_status("extracting", "Décompression des fichiers…", percent=0)
         with zipfile.ZipFile(archive) as zf:
             patch_info = next((item for item in zf.infolist() if item.filename == "ASTRALIS-PATCH.json"), None)
             patch = json.loads(zf.read(patch_info)) if patch_info else None
@@ -176,17 +188,23 @@ def main() -> int:
                 entries.append((info, rel))
             if not entries:
                 raise ValueError("L’archive ne contient aucun fichier d’application.")
-            for info, rel in entries:
+            for index, (info, rel) in enumerate(entries):
                 target = staging / rel
                 target.parent.mkdir(parents=True, exist_ok=True)
                 with zf.open(info) as src, target.open("wb") as dst:
                     shutil.copyfileobj(src, dst)
+                if index % 50 == 0 or index == len(entries)-1:
+                    write_status("extracting", "Décompression des fichiers…", percent=round((index+1)*100/len(entries)), extractedFiles=index+1, totalFiles=len(entries))
         version_file = staging / "VERSION"
         version = version_file.read_text(encoding="utf-8").strip() if version_file.exists() else ""
         if not version:
             raise ValueError("La version publiée ne contient pas de fichier VERSION.")
 
-        write_status("restarting", "Fichiers installés. Redémarrage d’Astralis…", version=version)
+        if not (staging / "server.py").is_file() or not (staging / "Installer et lancer Astralis.ps1").is_file() or not (staging / "index.html").is_file():
+            raise ValueError("L’archive ne contient pas une installation Astralis complète.")
+        write_status("closing", "Fermeture de la fenêtre et du serveur actuels…", version=version)
+        time.sleep(1.5)
+        close_app_windows(root, read_status().get("windowTitles", []))
         subprocess.run(["taskkill", "/PID", str(server_pid), "/F"], stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL, check=False)
         for _ in range(40):
             try:
@@ -195,25 +213,39 @@ def main() -> int:
                 break
             time.sleep(0.25)
 
+        write_status("replacing", "Remplacement du dossier au même emplacement…", installationPath=str(root))
         replace_with_retry(root, backup)
         move_preserved_data(backup, staging)
         replace_with_retry(staging, root)
-        # Keep the existing app window. Its updater poll reloads it once the new server is ready.
+        write_status("starting", "Démarrage du nouveau serveur…", version=version)
         start_app(root, server_only=True)
-        if not wait_for_new_app(version, root):
+        if not wait_for_new_app(version, root, timeout=float(os.environ.get("ASTRALIS_UPDATE_START_TIMEOUT", "45")), previous_pid=server_pid):
             # Retain both folders for recovery and restore the previous working copy.
+            stop_replacement_server(root, server_pid)
             replace_with_retry(root, failed)
             replace_with_retry(backup, root)
             move_preserved_data(failed, root)
             start_app(root)
             raise RuntimeError("La nouvelle instance n’a pas confirmé son démarrage. L’ancienne version a été restaurée.")
 
-        # Permanent deletion, only after /health confirms the new version is serving.
+        confirmed = True
+        write_status("cleaning", "Suppression de l’archive et de l’ancienne installation…", version=version)
         shutil.rmtree(backup)
         archive.unlink(missing_ok=True)
-        write_status("done", "Mise à jour installée et application relancée.", version=version)
+        write_status("opening", "Ouverture de la nouvelle fenêtre Astralis…", version=version)
+        start_app(root, window_only=True)
+        write_status("done", "Mise à jour installée. Nouvelle fenêtre ouverte.", version=version)
+        worker = Path(__file__).resolve().parent
+        if worker.parent == local_root() / "updates" and worker.name.startswith("worker-"):
+            shutil.rmtree(worker, ignore_errors=True)
         return 0
     except Exception as exc:
+        if confirmed:
+            try: start_app(root, window_only=True)
+            except Exception: pass
+            write_status("error", "La nouvelle version est installée, mais le nettoyage n’a pas abouti.", str(exc))
+            return 4
+        stop_replacement_server(root, server_pid)
         if backup.exists():
             try:
                 recovery_source = root if root.exists() and (root / "VERSION").is_file() else staging
@@ -227,6 +259,9 @@ def main() -> int:
                     start_app(root)
             except Exception:
                 pass
+        if not backup.exists() and root.is_dir() and (root / "VERSION").is_file():
+            try: start_app(root)
+            except Exception: pass
         shutil.rmtree(staging, ignore_errors=True)
         write_status("error", "Échec de la mise à jour.", str(exc))
         return 4

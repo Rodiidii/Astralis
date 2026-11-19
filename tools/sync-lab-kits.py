@@ -11,6 +11,12 @@ from urllib.request import Request, urlopen
 ROOT = Path(__file__).resolve().parents[1]
 DB_REV = '8e5badd60b5d894284ccc927a56c9683529d2592'
 DB = f'https://raw.githubusercontent.com/theBowja/genshin-db/{DB_REV}/src/data/French'
+# Characters supported by the damage engine whose profile catalog has not yet
+# been refreshed. Their talent text is still imported from the same pinned data.
+TEXT_ONLY_CHARACTERS = [
+    {'id': '10000136', 'name': 'Mitya', 'slug': 'mitya'},
+    {'id': '10000137', 'name': 'Valeriy', 'slug': 'valeriy'},
+]
 
 
 def get(url):
@@ -31,27 +37,30 @@ def main():
     def load(row):
         character_id = str(row['id'])
         source = baseline['characters'].get(character_id, {}).get('source')
-        if not source:
+        slug = row.get('slug') or (source.rsplit('/', 2)[-2].lower() if source else None)
+        if not slug:
             raise ValueError('No numeric source for ' + row['name'])
-        folder = source.rsplit('/', 2)[-2]
-        slug = folder.lower()
         talents = get(f'{DB}/talents/{slug}.json')
         constellations = get(f'{DB}/constellations/{slug}.json')
         params_url = parameter_url
-        params = parameters[slug]
+        params = parameters.get(slug, {})
         for index in [1, 2, 3]:
             key = 'combat' + str(index)
             skill = talents.get(key)
             if skill and params.get(key):
                 skill.setdefault('attributes', {})['parameters'] = params[key]
+        sources = [f'{DB}/talents/{slug}.json', f'{DB}/constellations/{slug}.json']
+        if params:
+            sources.append(params_url)
         return character_id, {
             'name': row['name'], 'talents': talents, 'constellations': constellations,
-            'sources': [f'{DB}/talents/{slug}.json', f'{DB}/constellations/{slug}.json', params_url],
+            'sources': sources,
             'status': 'source-data-only',
         }
 
     with ThreadPoolExecutor(max_workers=10) as pool:
-        jobs = {pool.submit(load, row): row for row in catalog if str(row['id']) not in kits}
+        rows = catalog + TEXT_ONLY_CHARACTERS
+        jobs = {pool.submit(load, row): row for row in rows if str(row['id']) not in kits}
         for future in as_completed(jobs):
             row = jobs[future]
             try:
@@ -88,7 +97,7 @@ def main():
         'revisions': {'genshinDB': DB_REV, 'optimizer': baseline['revision']},
         'characters': kits, 'travelerVariants': variants, 'unresolved': failures,
     }, ensure_ascii=False, separators=(',', ':')) + '\n', encoding='utf8')
-    print(f'{len(kits)}/{len(catalog)} kits imported; {len(failures)} unresolved', flush=True)
+    print(f'{len(kits)}/{len(catalog) + len(TEXT_ONLY_CHARACTERS)} kits imported; {len(failures)} unresolved', flush=True)
 
 
 if __name__ == '__main__':

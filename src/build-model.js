@@ -1,3 +1,4 @@
+import {normalizeGiLevelRow} from './gi-level-stats.js';
 import { artifactStatKey, ARTIFACT_SLOTS, statVector } from './artifact-model.js?v=20261110-builds-3';
 
 export function normalizeEnkaArtifact(item,index=0) {
@@ -38,7 +39,7 @@ export function levelStatRow(data,level=90,ascended=true) {
   if(!candidates.length)return null;
   const ordered=candidates.slice().sort((a,b)=>Number(a.ascension??a.promoteLevel??0)-Number(b.ascension??b.promoteLevel??0));
   const row=ascended?ordered.at(-1):ordered[0];
-  return {...row,hp:row.hp??row.baseHP,attack:row.attack??row.atk??row.baseATK,defense:row.defense??row.def??row.baseDEF};
+  return normalizeGiLevelRow(row);
 }
 
 export function pieceSubstats(piece={}) {

@@ -1,3 +1,4 @@
+import {normalizeGiLevelRow} from './gi-level-stats.js';
 import {farmArtwork} from './farm-art.js';
 import {equipmentArtwork} from './equipment-art.js';
 import {CHARACTER_SPLASHES} from './character-splashes.js';
@@ -149,8 +150,8 @@ async function fetchLunarisGi(category, source) {
   const raw=await json(source.dataTemplate.replace('{version}',encodeURIComponent(version)).replace('{file}',encodeURIComponent(file)),AbortSignal.timeout(30000));
   const rows=Object.entries(raw||{}).map(([id,row])=>{
     const rarity=String(row.qualityType||'').includes('ORANGE')?5:String(row.qualityType||'').includes('PURPLE')?4:Number(row.rarity)||0;
-    if(category==='character')return {id,name:row.frName||row.enName||row.chsName, enName:row.enName,rarity,element:row.element,weaponType:row.weaponType,version,sourceVersion:version,images:{filename_icon:row.CardImg||`UI_Gacha_AvatarIcon_${row.enName}`,filename_gachaSplash:row.GachaImg||`UI_Gacha_AvatarImg_${row.enName}`,lunarisIcon:row.CardImg,lunarisSplash:row.GachaImg},introduction:row.description||'',description:row.description||'',ascensionStats:row.ascensionStats||{}};
-    if(category==='weapon')return {id,name:row.frName||row.enName||row.chsName,enName:row.enName,rarity,weaponType:row.weaponType,ascensionStats:row.ascensionStats||{},images:{filename_icon:row.weaponIcon,lunarisIcon:row.weaponIcon},description:row.description||''};
+    if(category==='character')return {id,substatType:normalizeGiLevelRow(row.ascensionStats).specializedType,name:row.frName||row.enName||row.chsName, enName:row.enName,rarity,element:row.element,weaponType:row.weaponType,version,sourceVersion:version,images:{filename_icon:row.CardImg||`UI_Gacha_AvatarIcon_${row.enName}`,filename_gachaSplash:row.GachaImg||`UI_Gacha_AvatarImg_${row.enName}`,lunarisIcon:row.CardImg,lunarisSplash:row.GachaImg},introduction:row.description||'',description:row.description||'',ascensionStats:row.ascensionStats||{}};
+    if(category==='weapon')return {id,mainStatType:normalizeGiLevelRow(row.ascensionStats).specializedType,name:row.frName||row.enName||row.chsName,enName:row.enName,rarity,weaponType:row.weaponType,ascensionStats:row.ascensionStats||{},images:{filename_icon:row.weaponIcon,lunarisIcon:row.weaponIcon},description:row.description||''};
     return {id,name:row.frName||row.enName||row.chsName,enName:row.enName,rarity,setId:row.setId,images:{filename_icon:row.setIcon,lunarisIcon:row.setIcon},twoPieceBonus:row.twoPieceBonus||'',fourPieceBonus:row.fourPieceBonus||'',description:row.description||''};
   });
   return {version,items:rows};
@@ -218,12 +219,15 @@ export async function levelStatsFor(folder,item) {
   const key=`${folder}:${item?.name||item?._name||item?._id||''}`;
   if(levelStatsCache.has(key))return levelStatsCache.get(key);
   const pending=(async()=>{
-    try{const cached=await getLocal('cache',`gi-level-stats:${key}`);if(cached?.items&&Date.now()-(Number(cached.savedAt)||0)<30*86400000)return cached.items;}catch{}
+    try{const cached=await getLocal('cache',`gi-level-stats:v2:${key}`);if(cached?.items&&Date.now()-(Number(cached.savedAt)||0)<30*86400000)return cached.items;}catch{}
+    if(/^\d+$/.test(String(item?.id||''))){
+      try{const meta=await json('https://api.lunaris.moe/data/version.json',AbortSignal.timeout(15000));const raw=await json(`https://api.lunaris.moe/data/${encodeURIComponent(meta.version)}/fr/${folder==='weapons'?'weapon':'char'}/${encodeURIComponent(item.id)}.json`,AbortSignal.timeout(25000));const rows=folder==='weapons'?raw.stats:raw.info?.attributes;if(rows&&typeof rows==='object'&&Object.keys(rows).length){await putLocal('cache',`gi-level-stats:v2:${key}`,{items:rows,savedAt:Date.now()}).catch(()=>{});return rows;}}catch{/* Continue with the rescue provider. */}
+    }
     const query=encodeURIComponent(item?.name||item?._name||item?._id||'');
     const result=await json(`https://genshin-db-api.vercel.app/api/v5/stats?folder=${encodeURIComponent(folder)}&query=${query}&queryLanguages=English&resultLanguage=English`,AbortSignal.timeout(25000));
     const rows=result?.stats||result?.result?.stats||result;
     if(!rows||typeof rows!=='object')throw new Error('Courbe de statistiques indisponible.');
-    await putLocal('cache',`gi-level-stats:${key}`,{items:rows,savedAt:Date.now()}).catch(()=>{});return rows;
+    await putLocal('cache',`gi-level-stats:v2:${key}`,{items:rows,savedAt:Date.now()}).catch(()=>{});return rows;
   })();
   levelStatsCache.set(key,pending);
   try{return await pending;}catch(error){levelStatsCache.delete(key);throw error;}

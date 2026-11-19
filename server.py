@@ -2,6 +2,8 @@ from __future__ import annotations
 from endgame_archive import refresh_background as endgame_archive
 from lab_data_sync import refresh as refresh_lab_data
 from app_maintenance import start_maintenance,celestia_status
+import desktop_integration
+from update_progress import write_status as persist_update_status, read_status as saved_update_status
 
 import json
 import os
@@ -36,7 +38,9 @@ cache_lock = threading.Lock()
 _HOYOLAB_RESIN_CACHE: tuple[float, dict] | None = None
 _UPDATE_STATUS: dict[str, object] = {"state": "idle"}
 _UPDATE_LOCK = threading.Lock()
+_UPDATE_ACTIVE = {"checking","downloading","verifying","staged","extracting","closing","replacing","starting","cleaning","opening"}
 _APP_SESSIONS: dict[str, float] = {}
+_APP_WINDOW_TITLES: dict[str, str] = {}
 _APP_SESSION_LOCK = threading.Lock()
 _APP_SESSIONS_SEEN = False
 _APP_SHUTDOWN_TIMER: threading.Timer | None = None
@@ -47,6 +51,8 @@ def _shutdown_app_if_idle() -> None:
     with _APP_SESSION_LOCK:
         _APP_SHUTDOWN_TIMER = None
         if not _APP_SESSIONS_SEEN or _APP_SESSIONS or not _APP_HTTP_SERVER:
+            return
+        if saved_update_status().get("state") in _UPDATE_ACTIVE:
             return
         server = _APP_HTTP_SERVER
     print("[Astralis] Toutes les fenêtres sont fermées; arrêt du serveur local.")
@@ -128,7 +134,8 @@ def _is_local_origin(origin: str) -> bool:
 def _set_update_status(**values: object) -> None:
     global _UPDATE_STATUS
     with _UPDATE_LOCK:
-        _UPDATE_STATUS = {**_UPDATE_STATUS, **values, "updatedAt":time.time()}
+        _UPDATE_STATUS = persist_update_status(**values)
+
 
 def _update_archive_paths(updates: Path, download_name: str) -> tuple[Path, Path]:
     """Give each download private paths so Windows never has to overwrite a locked prior ZIP."""
@@ -138,6 +145,7 @@ def _update_archive_paths(updates: Path, download_name: str) -> tuple[Path, Path
 
 def _download_update(repo: str, tag: str, from_version: str) -> None:
     global _UPDATE_STATUS
+    archive = final_archive = None
     try:
         release = _github_release(repo)
         if release["tag"] != tag:
@@ -165,6 +173,7 @@ def _download_update(repo: str, tag: str, from_version: str) -> None:
                 output.write(chunk); digest.update(chunk); received += len(chunk)
                 percent = min(100, round(received * 100 / total_bytes)) if total_bytes else 0
                 _set_update_status(state="downloading", message="Téléchargement des fichiers modifiés…" if patch else "Téléchargement de l’archive complète…", receivedBytes=received, totalBytes=total_bytes, percent=percent)
+        _set_update_status(state="verifying", message="Vérification SHA-256 de l’archive…")
         actual = digest.hexdigest()
         expected = str(selected.get("digest") or "").removeprefix("sha256:").lower()
         if not expected and selected.get("checksumUrl"):
@@ -175,12 +184,21 @@ def _download_update(repo: str, tag: str, from_version: str) -> None:
             archive.unlink(missing_ok=True)
             raise ValueError("La vérification SHA-256 a échoué. Aucun fichier n’a été modifié.")
         archive.replace(final_archive)
-        _set_update_status(state="staged", message=("Mise à jour différentielle vérifiée. Préparation…" if patch else "Archive complète vérifiée. Préparation…"), error="", percent=100)
-        helper = root / "scripts" / "apply_update.py"
-        flags = getattr(__import__('subprocess'), "CREATE_NEW_PROCESS_GROUP", 0) | getattr(__import__('subprocess'), "DETACHED_PROCESS", 0)
+        _set_update_status(state="extracting", message=("Mise à jour différentielle vérifiée. Préparation…" if patch else "Archive complète vérifiée. Préparation…"), error="", percent=100)
+        import shutil
+        worker = updates / ("worker-" + secrets.token_hex(6))
+        worker.mkdir()
+        for source, name in [(root / "scripts" / "apply_update.py", "apply_update.py"), (root / "update_progress.py", "update_progress.py"), (root / "desktop_integration.py", "desktop_integration.py")]:
+            shutil.copy2(source, worker / name)
+        helper = worker / "apply_update.py"
+        flags = getattr(__import__('subprocess'), "CREATE_NEW_PROCESS_GROUP", 0) | getattr(__import__("subprocess"), "CREATE_NO_WINDOW", 0)
         import subprocess
         subprocess.Popen([os.sys.executable, str(helper), str(root), str(final_archive), str(os.getpid())], cwd=str(updates), creationflags=flags, stdin=subprocess.DEVNULL, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL, close_fds=True)
     except Exception as exc:
+        for incomplete in (archive, final_archive):
+            if incomplete:
+                try: incomplete.unlink(missing_ok=True)
+                except OSError: pass
         _set_update_status(state="error", message="Mise à jour interrompue.", error=str(exc))
 
 def _hoyolab_secret_path() -> Path:
@@ -1422,7 +1440,7 @@ class Handler(SimpleHTTPRequestHandler):
         if not HOSTED:
             return True
         if not ACCESS_PASSWORD:
-            self.send_error(503, "Astralis n’est pas encore configuré.")
+            self.send_json(503, {"error":"Astralis n’est pas encore configuré."})
             return False
         header = self.headers.get("Authorization", "")
         scheme = ""
@@ -1445,10 +1463,12 @@ class Handler(SimpleHTTPRequestHandler):
         global _HOYOLAB_RESIN_CACHE
         path = urlsplit(self.path).path
         if not self._require_access(): return
-        if path not in {"/api/hoyolab/credentials", "/api/hoyolab/disconnect", "/api/update/install", "/api/lab/team-export", "/api/app-session/open", "/api/app-session/close"}:
+        if path not in {"/api/hoyolab/credentials", "/api/hoyolab/disconnect", "/api/update/install", "/api/lab/team-export", "/api/app-session/open", "/api/app-session/close", "/api/desktop/settings", "/api/desktop/shortcut"}:
             self.send_json(404, {"error":"Route inconnue."}); return
         if HOSTED and path in {"/api/hoyolab/credentials", "/api/hoyolab/disconnect"}:
             self.send_json(410, {"error":"La connexion HoYoLAB avec cookies est réservée à l’application locale sécurisée."}); return
+        if HOSTED and path.startswith("/api/desktop/"):
+            self.send_json(410, {"error":"Ces réglages nécessitent l’application Windows locale."}); return
         if HOSTED and path == "/api/update/install":
             self.send_json(410, {"error":"Le service de mise à jour automatique fonctionne uniquement dans l’application Windows."}); return
         if HOSTED and path == "/api/lab/team-export":
@@ -1464,6 +1484,13 @@ class Handler(SimpleHTTPRequestHandler):
             length = int(self.headers.get("Content-Length", "0"))
             if length < 1 or length > (2_000_000 if path == "/api/lab/team-export" else 8192): raise ValueError("Taille de requête invalide.")
             body = json.loads(self.rfile.read(length))
+            if path == "/api/desktop/settings":
+                if not isinstance(body.get("autoOpenGenshin"), bool): raise ValueError("Option de lancement invalide.")
+                settings = desktop_integration.save_settings(Path(__file__).resolve().parent, body["autoOpenGenshin"])
+                self.send_json(200, {"ok":True, **settings}); return
+            if path == "/api/desktop/shortcut":
+                filename = desktop_integration.create_shortcut(Path(__file__).resolve().parent, str(body.get("location", "desktop")), str(body.get("icon", "astralis")))
+                self.send_json(200, {"ok":True,"path":filename}); return
             if path in {"/api/app-session/open", "/api/app-session/close"}:
                 session = str(body.get("id", ""))
                 if not re.fullmatch(r"[A-Za-z0-9_-]{16,80}", session): raise ValueError("Session locale invalide.")
@@ -1472,6 +1499,7 @@ class Handler(SimpleHTTPRequestHandler):
                     if path.endswith("/open"):
                         _APP_SESSIONS_SEEN = True
                         _APP_SESSIONS[session] = time.time()
+                        _APP_WINDOW_TITLES[session] = str(body.get("title", ""))[:200]
                         if _APP_SHUTDOWN_TIMER:
                             _APP_SHUTDOWN_TIMER.cancel(); _APP_SHUTDOWN_TIMER = None
                     else:
@@ -1500,8 +1528,10 @@ class Handler(SimpleHTTPRequestHandler):
                 if not re.fullmatch(r"[A-Za-z0-9_.-]{1,100}/[A-Za-z0-9_.-]{1,100}", repo) or not tag or len(tag) > 120: raise ValueError("Dépôt ou version invalide.")
                 from_version = _installed_update_version(Path(__file__).resolve().parent, client_version)
                 with _UPDATE_LOCK:
-                    if _UPDATE_STATUS.get("state") in {"checking", "downloading", "staged"}: raise ValueError("Une mise à jour est déjà en cours.")
-                    _UPDATE_STATUS.update({"state":"downloading", "message":"Vérification de la version…", "error":"", "tag":tag, "percent":0, "receivedBytes":0, "totalBytes":0, "updatedAt":time.time()})
+                    saved = saved_update_status()
+                    status = saved if saved.get("updatedAt", 0) > _UPDATE_STATUS.get("updatedAt", 0) else _UPDATE_STATUS
+                    if status.get("state") in _UPDATE_ACTIVE: raise ValueError("Une mise à jour est déjà en cours.")
+                    _UPDATE_STATUS.update(persist_update_status(jobId=secrets.token_hex(12), state="checking", message="Vérification de la version…", error="", tag=tag, percent=0, receivedBytes=0, totalBytes=0, windowTitles=list({str(body.get("windowTitle", "Astralis"))[:200], *[title for key,title in _APP_WINDOW_TITLES.items() if key in _APP_SESSIONS and title]}), installationPath=str(Path(__file__).resolve().parent)))
                 threading.Thread(target=_download_update, args=(repo, tag, from_version), daemon=True).start()
                 self.send_json(202, {"ok":True,"state":"downloading"}); return
             if path.endswith("/disconnect"):
@@ -1537,6 +1567,10 @@ class Handler(SimpleHTTPRequestHandler):
             self.send_json(200,celestia_status()); return
         if path == "/api/lab/data-status":
             self.send_json(200,refresh_lab_data(force=refresh)); return
+        if path == "/api/desktop/settings":
+            if HOSTED or not ipaddress.ip_address(self.client_address[0]).is_loopback:
+                self.send_json(200, {"supported":False,"autoOpenGenshin":False}); return
+            self.send_json(200, {**desktop_integration.read_settings(), "supported":os.name == "nt", "installationPath":str(Path(__file__).resolve().parent)}); return
         if path == "/api/update/check":
             try:
                 repo = parse_qs(request_url.query).get("repo", [""])[0].strip()
@@ -1551,10 +1585,8 @@ class Handler(SimpleHTTPRequestHandler):
             return
         if path == "/api/update/status":
             with _UPDATE_LOCK: status = dict(_UPDATE_STATUS)
-            saved_status = Path(os.environ.get("LOCALAPPDATA") or Path.home() / "AppData" / "Local") / "Astralis" / "update-status.json"
-            if status.get("state") in {"idle", "staged"} and saved_status.is_file():
-                try: status = json.loads(saved_status.read_text(encoding="utf-8"))
-                except (OSError, ValueError): pass
+            saved = saved_update_status()
+            if saved.get("updatedAt", 0) > status.get("updatedAt", 0): status = saved
             self.send_json(200, status); return
         if path == "/api/hoyolab/status":
             if HOSTED:
@@ -1595,7 +1627,7 @@ class Handler(SimpleHTTPRequestHandler):
             version_file = root / "VERSION"
             version = version_file.read_text(encoding="utf-8").strip() if version_file.exists() else "0.0.0"
             instance = hashlib.sha256(str(root).casefold().encode("utf-8")).hexdigest()[:12]
-            self.send_json(200, {"ok": True, "message": "Astralis local app active", "version": version, "instance": instance})
+            self.send_json(200, {"ok": True, "message": "Astralis local app active", "version": version, "instance": instance, "pid":os.getpid(), "appWindows":len(_APP_SESSIONS)})
             return
         if path == "/api/gi/aiynao":
             key = "gi/aiynao"
@@ -2058,7 +2090,7 @@ class Handler(SimpleHTTPRequestHandler):
         self.send_header("Content-Type", mime)
         self.send_header("Content-Length", str(len(payload)))
         self.send_header("Access-Control-Allow-Origin", "*")
-        self.send_header("Cache-Control", f"public, max-age={TTL}" if mime.startswith("application/json") else "no-cache, must-revalidate")
+        self.send_header("Cache-Control", "no-store" if urlsplit(self.path).path.startswith(("/api/update/", "/api/desktop/", "/health")) else f"public, max-age={TTL}" if mime.startswith("application/json") else "no-cache, must-revalidate")
         self.end_headers()
         self.wfile.write(payload)
 

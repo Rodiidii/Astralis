@@ -1,4 +1,4 @@
-param([switch]$ServerOnly)
+﻿param([switch]$ServerOnly, [switch]$WindowOnly, [switch]$ReuseServer)
 
 $ErrorActionPreference = 'Stop'
 
@@ -82,7 +82,7 @@ function Open-AstralisApp {
     if (-not $browser) { $browser = Install-AstralisBrowser }
     $launchDirectory = $env:TEMP
     if (-not $launchDirectory -or -not (Test-Path -LiteralPath $launchDirectory -PathType Container)) { $launchDirectory = $env:LOCALAPPDATA }
-    Start-Process -FilePath $browser -ArgumentList @('--app=' + $appUrl, '--new-window') -WorkingDirectory $launchDirectory
+    Start-Process -FilePath $browser -ArgumentList @('--app=' + $(if ($WindowOnly) { $appUrl + '?updated=1' } else { $appUrl }), '--new-window') -WorkingDirectory $launchDirectory
 }
 
 function Get-AstralisHealth {
@@ -143,30 +143,15 @@ function Stop-OldAstralisServer([switch]$ConfirmedAstralis) {
 
 }
 
-function Add-AstralisShortcut {
-
-    try {
-
-        $desktop = [Environment]::GetFolderPath('Desktop')
-
-        $shortcut = (New-Object -ComObject WScript.Shell).CreateShortcut((Join-Path $desktop 'Astralis.lnk'))
-
-        $shortcut.TargetPath = Join-Path $root 'Installer et lancer Astralis.bat'
-
-        $shortcut.WorkingDirectory = $root
-
-        $shortcut.Description = 'Lancer Astralis'
-
-        $shortcut.Save()
-
-    } catch {}
-
-}
-
-
-
 $expectedVersion = (Get-Content (Join-Path $root 'VERSION') -Raw).Trim()
 $expectedInstance = Get-ExpectedInstance
+if ($WindowOnly) { Open-AstralisApp; exit 0 }
+if ($ReuseServer) {
+    try {
+        $existingHealth = Get-AstralisHealth
+        if ($existingHealth.ok -and $existingHealth.version -eq $expectedVersion -and $existingHealth.instance -eq $expectedInstance) { Open-AstralisApp; exit 0 }
+    } catch {}
+}
 
 # Astralis ne dépend que de la bibliothèque standard de Python.
 
@@ -290,8 +275,6 @@ if (-not $ready) {
     if ($actualHealth) { throw "Mauvaise instance sur le port 8766. Attendu: Astralis $expectedVersion ($expectedInstance); trouve: $($actualHealth.version) ($($actualHealth.instance)). Ferme les autres instances." }
     throw 'Astralis ne répond pas sur le port 8766. Vérifie le pare-feu ou le fichier server.py.'
 }
-
-Add-AstralisShortcut
 
 if (-not $ServerOnly) { Open-AstralisApp }
 

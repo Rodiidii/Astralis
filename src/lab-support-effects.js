@@ -42,12 +42,12 @@ export function supportWeaponEffects(weapon,refinement=1,sourceEM=0) {
  };
  return (rows[Number(weapon?.id)]?.()||[]).filter(row=>Object.values(row.bonuses).every(Number.isFinite));
 }
-export function partyWeaponBonuses(p,weapons=[],ownWeapon=null) {
+export function partyWeaponBonuses(p,weapons=[],ownWeapon=null,sourceStatsForAlly=ally=>supportWeaponSourceStats(ally)) {
  const out={},groups=new Map();
  for(const ally of p.allies||[]){
   if(!ally.character||String(ally.character)===String(p.character))continue;
   const weapon=weapons.find(w=>[w._id,w.id].map(String).includes(String(ally.weapon)));
-  for(const effect of supportWeaponEffects(weapon,ally.refinement,supportWeaponSourceStats(ally))){
+  for(const effect of supportWeaponEffects(weapon,ally.refinement,sourceStatsForAlly(ally))){
    const saved=ally.activeWeaponEffects?.[String(weapon.id)+':'+effect.id];
    if(!saved?.enabled||(effect.recipient==='next'&&String(saved.target)!==String(p.character))||(effect.position&&effect.position!==(p.fightPosition||'on')))continue;
    if(effect.stackGroup){
@@ -67,11 +67,11 @@ export function partyWeaponBonuses(p,weapons=[],ownWeapon=null) {
 export function supportWeaponSourceStats(ally={}){
  return {em:ally.weaponSourceEM,hp:ally.weaponSourceHP,atk:ally.weaponSourceATK,def:ally.weaponSourceDEF};
 }
-export function partyWeaponWarnings(p,weapons=[]){
+export function partyWeaponWarnings(p,weapons=[],sourceStatsForAlly=ally=>supportWeaponSourceStats(ally)){
  const warnings=[];
  for(const ally of p.allies||[]){
   if(!ally.character||String(ally.character)===String(p.character))continue;
-  const weapon=weapons.find(w=>[w._id,w.id].map(String).includes(String(ally.weapon))),stats=supportWeaponSourceStats(ally);
+  const weapon=weapons.find(w=>[w._id,w.id].map(String).includes(String(ally.weapon))),stats=sourceStatsForAlly(ally);
   for(const effect of supportWeaponEffects(weapon,ally.refinement,stats)){
    const saved=ally.activeWeaponEffects?.[String(weapon.id)+':'+effect.id];
    if(!saved?.enabled||!effect.sourceStat||effect.position&&effect.position!==(p.fightPosition||'on'))continue;

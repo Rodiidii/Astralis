@@ -1,10 +1,19 @@
 # Astralis — application Windows
 
+## Windows : lancement, raccourcis et mises à jour (v1.0.54)
+
+- Dans **Personnaliser / Réglages**, active « Ouvrir Astralis au lancement de Genshin Impact ». Un petit programme local détecte `GenshinImpact.exe` et `YuanShen.exe` et reste disponible quand Astralis est fermé. L’option peut être désactivée au même endroit ; aucune tâche administrateur n’est nécessaire.
+- Le bouton **Créer le raccourci** propose le Bureau ou le menu Démarrer et les icônes Astralis ou Genshin.
+- Les mises à jour affichent neuf étapes, le temps écoulé et une estimation restante. Après vérification SHA-256 et décompression, l’ancienne fenêtre et son serveur sont fermés. Le nouveau dossier remplace l’ancien **au même emplacement et sous le même nom** ; le nouveau serveur est vérifié, l’archive est supprimée et une nouvelle fenêtre s’ouvre.
+- Si le nouveau serveur ne démarre pas, l’installation précédente et les données locales sont restaurées. Les données du navigateur et les fichiers personnels sont conservés.
+- Après un remplacement manuel des fichiers d’une ancienne version, relance une fois **Lancer Astralis.bat** pour charger le nouveau service local.
+
+
 ## Installer sur un PC distant
 
 1. Télécharge `Astralis-Update.zip` depuis la [dernière release GitHub](https://github.com/Rodiidii/Astralis/releases/latest) et extrais **tout** le contenu dans un dossier.
 2. Lance `Installer et lancer Astralis.bat` une première fois. Il installe Python si nécessaire, démarre le serveur local et ouvre Astralis dans une fenêtre d’application sans onglets ni barre d’adresse.
-3. Les lancements suivants se font avec le raccourci **Astralis** du Bureau ou le même fichier `.bat`.
+3. Les lancements suivants se font avec le même fichier `.bat`, ou avec un raccourci créé depuis **Personnaliser / Réglages**.
 
 Ne lance pas `index.html` et ne navigue pas sur l’adresse GitHub pour utiliser l’application : cela ouvre une page web sans serveur local. Le lanceur détecte une ancienne instance Astralis sur le port local, la remplace par celle du dossier choisi et vérifie sa version.
 

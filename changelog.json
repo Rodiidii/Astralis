@@ -2,6 +2,34 @@
   "schemaVersion": 1,
   "releases": [
     {
+      "id": "2026-11-19-windows-updater-1",
+      "date": "2026-11-19",
+      "title": "Astralis accompagne le lancement de Genshin",
+      "summary": "Lancement automatique, raccourcis Windows et mises à jour avec suivi complet.",
+      "changes": [
+        {
+          "area": "Windows",
+          "text": "Option pour ouvrir Astralis au lancement de Genshin Impact ou YuanShen, même quand Astralis est fermé."
+        },
+        {
+          "area": "Raccourcis",
+          "text": "Création depuis les réglages sur le Bureau ou dans le menu Démarrer, avec l’icône Astralis ou Genshin."
+        },
+        {
+          "area": "Mises à jour",
+          "text": "Téléchargement vérifié, décompression, fermeture de la fenêtre et du serveur, remplacement au même emplacement, nettoyage puis ouverture de la nouvelle fenêtre. Neuf étapes, temps écoulé et durée restante estimée."
+        },
+        {
+          "area": "Fiabilité",
+          "text": "La version précédente est restaurée si le nouveau serveur ne démarre pas. Les données personnelles sont conservées."
+        },
+        {
+          "area": "Laboratoire",
+          "text": "Statistiques actualisées en direct, prise en compte des bases et armes des personnages récents comme Anastasya, et nouvelles fiches de buffs vérifiées."
+        }
+      ]
+    },
+    {
       "id": "2026-11-18-lab-release-1",
       "date": "2026-11-18",
       "title": "Un laboratoire de dégâts repensé",

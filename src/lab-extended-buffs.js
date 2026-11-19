@@ -11,7 +11,7 @@ export const EXTENDED_BUFFS={
  '10000087':[rule('glory','Jugement équitable : cumuls de gloire draconique présents, C1 inclus',{}, {recipient:'self',kinds:['charged'],targetPattern:'jugement|equitable',max:3,multiplier:[1.1,1.25,1.6]}),rule('a4','PV actuels : bonus Hydro au-dessus de 30 %',{}, {recipient:'self',source:'currentHPPercent',manual:true,threshold:30,factor:.6,cap:30,type:'hydroDmg',sourceLabel:'PV actuels (% des PV max)'}),rule('c2','Jugement équitable : DGT CRIT par cumul de gloire',{chargedCritDmg:14},{c:2,recipient:'self',kinds:['charged'],targetPattern:'jugement|equitable',requires:[['glory',1]],stacksFrom:'glory',max:3})],
  '10000071':[rule('a4normal','Éclaireur sermenté actif : ajout ME aux attaques normales',{normalFlatFromEm:150},{recipient:'self',kinds:['normal']}),rule('c2','Attaques normales ayant touché : cumuls de 4 s',{electroDmg:10},{c:2,recipient:'self',max:5})],
  '10000078':[rule('a4burst','Maîtrise convertie en bonus du déchaînement',{}, {recipient:'self',kinds:['burst'],source:'em',factor:.1,cap:100,type:'burstDmg'}),rule('a4projection','Maîtrise convertie en bonus des rayonnements',{}, {recipient:'self',kinds:['skill'],targetPattern:'rayonnement|projection',source:'em',factor:.1,cap:100,type:'skillDmg'}),rule('c2','Miroirs générés : cumuls de maîtrise, 8 s',{em:50},{c:2,recipient:'self',max:4}),rule('c4others','Miroirs consommés au déchaînement : maîtrise des autres équipiers, 15 s',{em:30},{c:4,recipient:'others',max:3}),rule('c4self','Miroirs générés au déchaînement : bonus Dendro personnel, 15 s',{dendroDmg:10},{c:4,recipient:'self',max:3}),rule('c6','Miroir généré au maximum : bonus CRIT personnel, 6 s',{critRate:10,critDmg:70},{c:6,recipient:'self'})],
- '10000032':[rule('burst','Dans le champ de Merveilleux voyage ; à C0, PV du bénéficiaire >70 %',{}, {onfield:true,source:'baseAtk',type:'atkFlat',talent:{skill:2,param:'param4'},c1Factor:.2,sourceLabel:'ATQ de base de Bennett (personnage + arme uniquement)'}),rule('c6','Champ actif : arme de mêlée, bonus Pyro et enchantement',{pyroDmg:15},{c:6,onfield:true,weaponTypes:['WEAPON_SWORD_ONE_HAND','WEAPON_CLAYMORE','WEAPON_POLE']})],
+ '10000032':[rule('burst','Champ de Merveilleux voyage actif : ATQ du bénéficiaire selon l’ATQ de base de Bennett',{}, {onfield:true,source:'baseAtk',type:'atkFlat',talent:{skill:2,param:'param4'},c1Factor:.2,sourceLabel:'ATQ de base de Bennett (personnage + arme uniquement)'}),rule('c6','Champ actif : arme de mêlée, bonus Pyro et enchantement',{pyroDmg:15},{c:6,onfield:true,weaponTypes:['WEAPON_SWORD_ONE_HAND','WEAPON_CLAYMORE','WEAPON_POLE']})],
  '10000055':[rule('def','Bannière / champ de Gorou : personnage déployé',{}, {onfield:true,type:'defFlat',talent:{skill:1,param:'param2',flat:true}}),rule('geo','Bannière active et au moins 3 personnages Géo',{geoDmg:15},{onfield:true,minGeo:3}),rule('a1','Déchaînement de Gorou utilisé : 12 s',{defPct:25}),rule('c6','Compétence ou déchaînement utilisé : CRIT Géo selon l’équipe',{}, {c:6,elements:['geo'],geoCrit:true})],
  '10000006':[rule('a4','Rose de foudre touche l’ennemi : 10 s',{defReduction:15})],
  '10000023':[rule('pepper','Piment de Gooba ramassé : 10 s',{atkPct:10}),rule('c1','Gooba touche : RÉS Pyro −15 %, 6 s',{resReduction:15},{c:1,elements:['pyro']}),rule('c6','Pyrotation active : bonus Pyro de l’équipe',{pyroDmg:15},{c:6})],
@@ -50,8 +50,14 @@ export function activeExtendedBuffRules(config={}){
  return active;
 }
 function sourceAmount(member,row,saved,stats={},staticBonuses={},config={}){
- const own=member.own&&!row.manual&&!['highestEM','baseAtk'].includes(row.source);
- let value=own?Number(stats[row.source])+(config.statsIncludeBuffs?0:Number(staticBonuses[row.source])||0):saved.sourceValue===''||saved.sourceValue==null?NaN:Number(saved.sourceValue);
+ const own=member.own&&!row.manual&&!['highestEM','baseAtk'].includes(row.source),automatic=member.sourceStats||{};
+ let value;
+ if(row.manual)value=saved.sourceValue===''||saved.sourceValue==null?NaN:Number(saved.sourceValue);
+ else if(row.source==='highestEM')value=Math.max(0,...Object.values(config.sourceStatsByMember||{}).map(source=>Number(source.em)||0));
+ else if(row.source==='baseAtk'&&Number.isFinite(Number(automatic.baseAtk)))value=Number(automatic.baseAtk);
+ else if(own)value=Number(stats[row.source])+(config.statsIncludeBuffs?0:Number(staticBonuses[row.source])||0);
+ else if(Number.isFinite(Number(automatic[row.source])))value=Number(automatic[row.source]);
+ else value=saved.sourceValue===''||saved.sourceValue==null?NaN:Number(saved.sourceValue);
  if(!Number.isFinite(value)||value<0)return null;
  if(row.floor)value=Math.floor(value);
  const factor=row.talent?member.factors?.[row.id]+(member.constellation>=1?row.c1Factor||0:0):member.constellation>=2&&row.c2Factor!=null?row.c2Factor:row.factor;
@@ -84,8 +90,20 @@ export function extendedBuffPools(config={},stats={}){
 export function extendedBuffWarnings(config={}){
  const warnings=[];
  for(const {member,row,saved} of activeExtendedBuffRules(config)){
-  if(row.source&&(!member.own||row.manual||['highestEM','baseAtk'].includes(row.source))&&(saved.sourceValue===''||saved.sourceValue==null||!Number.isFinite(Number(saved.sourceValue))))warnings.push('Renseigne '+(row.sourceLabel||'la statistique source')+'.');
+  const automatic=member.sourceStats||{},available=row.source==='highestEM'?Object.keys(config.sourceStatsByMember||{}).length>0:Number.isFinite(Number(automatic[row.source]));
+  if(row.source&&!available&&(row.manual||!member.own||['highestEM','baseAtk'].includes(row.source))&&(saved.sourceValue===''||saved.sourceValue==null||!Number.isFinite(Number(saved.sourceValue))))warnings.push('Renseigne '+(row.sourceLabel||'la statistique source')+'.');
   if(row.talent&&!Number.isFinite(member.factors?.[row.id]))warnings.push('Table de talent indisponible pour '+row.label+'.');
  }
  return warnings;
+}
+
+export function extendedBuffOutput(config={},id,stats={},characterId,own){
+ for(const member of config.members||[]){
+  if(characterId!=null&&String(member.id)!==String(characterId)||own!=null&&member.own!==own)continue;
+  const row=(EXTENDED_BUFFS[member.id]||[]).find(item=>item.id===id);if(!row)continue;
+  const saved=member.effects?.[id]||{},stacks=Math.max(1,Math.min(row.max||1,Number(saved.stacks)||1));
+  if(row.source){const value=sourceAmount(member,row,{...saved,stacks},stats,{},config),labels={flatDamage:'dégâts par déclenchement',resReduction:'% de réduction de RÉS',atkFlat:'ATQ',critRate:'% de taux CRIT',critDmg:'% de DGT CRIT',em:'maîtrise élémentaire',dmgBonus:'% de bonus de DGT',hydroDmg:'% de bonus Hydro',atkPct:'% d’ATQ',hpPct:'% de PV',defPct:'% de DÉF'};return value==null?'':`+${Number(value.toFixed(2))} ${labels[row.type]||row.type}`;}
+  if(row.talent){const value=member.factors?.[row.id];return Number.isFinite(value)?`+${Number((value*(row.percent?100:1)).toFixed(2))}${row.percent?' %':''} ${row.type}`:'';}
+ }
+ return '';
 }

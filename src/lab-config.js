@@ -1,3 +1,4 @@
+import {catalogLevelRow,namedStatKey} from './gi-level-stats.js';
 import {effectiveTalentLevel} from './lab-talent-levels.js';
 import {publishedWeaponEffects} from './lab-weapon-effects.js';
 import {COMPLEX_PARAMS as CD} from './complex-effect-data.js';
@@ -13,7 +14,7 @@ export function attackKind(skillIndex,label='') {
 }
 export function attackOptions(context,p) {
  if(context.wrAttacks?.length)return context.wrAttacks;
- if(context.wrLoading&&!['10000114','skirk'].includes(String(context.character?.id||context.character?._id||p.character).toLowerCase()))return [];
+
  if(['10000114','skirk'].includes(String(context.character?.id||context.character?._id||p.character).toLowerCase())){
   let serial=0;const team=p.complexTeamElements||[],c=Number(p.constellation)||0,boost=team.length===4&&team.every(e=>['hydro','cryo'].includes(e))&&team.includes('hydro')&&team.includes('cryo')?1:0,n=Math.max(0,Math.min(14,Number(p.talentLevel||10)-1+boost+(c>=5?3:0))),q=Math.max(0,Math.min(14,Number(p.talentLevel||10)-1+(c>=3?3:0))),make=(id,label,kind,components)=>({id:'99:'+serial++,label,kind,text:label,parsed:{components,hitCount:components.reduce((s,x)=>s+x.count,0),baseStat:'atk'},skill:context.skills?.[kind==='burst'?2:1]||{}});
   return [0,1,3,5,6].map((i,j)=>make('skirk:N'+(j+1),'Sept phases · N'+(j+1),'normal',[{talentMultiplier:CD.Skirk.skill[i][n],count:j===2||j===3?2:1}]))
@@ -202,10 +203,11 @@ export function typedAttackBonus(bonuses,kind='skill',stats={}) {
 
 export function snapshotWeaponStats(snapshot,weapon,level=90,ascended=true) {
  const entry=snapshot?.weapons?.[String(weapon?.id)];
- if(!entry||!Number.isInteger(level)||level<1||level>90||(Number(weapon.rarity)<3&&level>70))return null;
+ if(!entry){const row=catalogLevelRow(weapon,level,ascended);return row&&Number.isFinite(Number(row.attack))?{atk:Number(row.attack),specialized:row.specialized,secondaryType:namedStatKey(row.specializedType),source:'Catalogue de niveaux'}:null;}
+ if(!Number.isInteger(level)||level<1||level>90||(Number(weapon.rarity)<3&&level>70))return null;
  const factor=snapshot.weaponCurves?.[entry.mainStat.curve]?.[level];
  if(!Number.isFinite(factor))return null;
- const rank=Math.min(6,[20,40,50,60,70,80].filter(bound=>ascended?level>=bound:level>bound).length);
+ const rank=Math.min(entry.ascensionBonus.atk.length-1,6,[20,40,50,60,70,80].filter(bound=>ascended?level>=bound:level>bound).length);
  const atk=entry.mainStat.base*factor+(entry.ascensionBonus.atk?.[rank]||0);
  const sub=entry.subStat;
  const specialized=sub?sub.base*snapshot.weaponCurves?.[sub.curve]?.[level]:null;
