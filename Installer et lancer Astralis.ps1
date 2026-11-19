@@ -143,13 +143,48 @@ function Stop-OldAstralisServer([switch]$ConfirmedAstralis) {
 
 }
 
+function Save-AstralisInstallation {
+    $folder = Join-Path $env:LOCALAPPDATA 'Astralis'
+    [void][IO.Directory]::CreateDirectory($folder)
+    $file = Join-Path $folder 'active-installation.json'
+    $temporary = $file + '.' + $PID + '.tmp'
+    @{root=$root;version=$expectedVersion} | ConvertTo-Json | Set-Content -LiteralPath $temporary -Encoding UTF8
+    Move-Item -LiteralPath $temporary -Destination $file -Force
+    $settingsFile = Join-Path $folder 'desktop-settings.json'
+    if (Test-Path -LiteralPath $settingsFile -PathType Leaf) {
+        $settings = Get-Content -LiteralPath $settingsFile -Raw | ConvertFrom-Json
+        $settings | Add-Member -NotePropertyName root -NotePropertyValue $root -Force
+        $settingsJson = $settings | ConvertTo-Json
+        [IO.File]::WriteAllText($settingsFile, $settingsJson, (New-Object Text.UTF8Encoding($false)))
+    }
+}
+
+# An older shortcut must not replace a newer installation already launched successfully.
+if (-not $ServerOnly -and -not $WindowOnly) {
+    $currentVersion = [version](Get-Content (Join-Path $root 'VERSION') -Raw).Trim()
+    foreach ($name in @('active-installation.json', 'desktop-settings.json')) {
+        $record = Join-Path (Join-Path $env:LOCALAPPDATA 'Astralis') $name
+        try {
+            $saved = Get-Content -LiteralPath $record -Raw | ConvertFrom-Json
+            $candidate = [string]$saved.root
+            $launcherFile = Join-Path $candidate 'Installer et lancer Astralis.ps1'
+            if (-not (Test-Path -LiteralPath $launcherFile -PathType Leaf) -or -not (Test-Path -LiteralPath (Join-Path $candidate 'server.py') -PathType Leaf)) { continue }
+            $candidateVersion = [version](Get-Content -LiteralPath (Join-Path $candidate 'VERSION') -Raw).Trim()
+            if ($candidateVersion -gt $currentVersion) {
+                & $launcherFile -ReuseServer
+                exit $LASTEXITCODE
+            }
+        } catch { Write-Verbose ('Installation precedente indisponible : ' + $_.Exception.Message) }
+    }
+}
+
 $expectedVersion = (Get-Content (Join-Path $root 'VERSION') -Raw).Trim()
 $expectedInstance = Get-ExpectedInstance
-if ($WindowOnly) { Open-AstralisApp; exit 0 }
+if ($WindowOnly) { Save-AstralisInstallation; Open-AstralisApp; exit 0 }
 if ($ReuseServer) {
     try {
         $existingHealth = Get-AstralisHealth
-        if ($existingHealth.ok -and $existingHealth.version -eq $expectedVersion -and $existingHealth.instance -eq $expectedInstance) { Open-AstralisApp; exit 0 }
+        if ($existingHealth.ok -and $existingHealth.version -eq $expectedVersion -and $existingHealth.instance -eq $expectedInstance) { Save-AstralisInstallation; Open-AstralisApp; exit 0 }
     } catch {}
 }
 
@@ -276,6 +311,7 @@ if (-not $ready) {
     throw 'Astralis ne répond pas sur le port 8766. Vérifie le pare-feu ou le fichier server.py.'
 }
 
+Save-AstralisInstallation
 if (-not $ServerOnly) { Open-AstralisApp }
 
 if ($ServerOnly) { Write-Host "Service Astralis $expectedVersion redémarré pour recharger la fenêtre existante." }

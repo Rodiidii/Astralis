@@ -45,12 +45,34 @@ def game_running() -> bool:
 def should_open(was_running: bool, running: bool) -> bool:
     return running and not was_running
 
+def resolve_installation(root: Path) -> Path:
+    def version(path):
+        try:
+            return tuple(int(part) for part in (path / "VERSION").read_text(encoding="utf-8-sig").strip().split("."))
+        except (OSError, ValueError):
+            return ()
+    folder = Path(os.environ.get("LOCALAPPDATA") or Path.home() / "AppData" / "Local") / "Astralis"
+    chosen = root
+    for name in ("active-installation.json", "desktop-settings.json"):
+        try:
+            candidate = Path(json.loads((folder / name).read_text(encoding="utf-8-sig"))["root"])
+            if (candidate / "server.py").is_file() and (candidate / "Installer et lancer Astralis.ps1").is_file() and version(candidate) > version(chosen):
+                chosen = candidate
+        except (OSError, ValueError, KeyError):
+            pass
+    return chosen.resolve()
+
+
 def open_app(root: Path) -> None:
+    import hashlib
     import urllib.request
+    root = resolve_installation(root)
     try:
         with urllib.request.urlopen(os.environ.get("ASTRALIS_WATCHER_HEALTH_URL", "http://127.0.0.1:8766/health"), timeout=2) as response:
             health = json.load(response)
-        if health.get("ok") and int(health.get("appWindows", 0)) > 0:
+        expected_version = (root / "VERSION").read_text(encoding="utf-8-sig").strip()
+        expected_instance = hashlib.sha256(str(root).casefold().encode("utf-8")).hexdigest()[:12]
+        if health.get("ok") and health.get("version") == expected_version and health.get("instance") == expected_instance and int(health.get("appWindows", 0)) > 0:
             return
     except Exception:
         pass
@@ -72,7 +94,7 @@ def main() -> None:
     try:
         while True:
             try:
-                settings = json.loads(config.read_text(encoding="utf-8"))
+                settings = json.loads(config.read_text(encoding="utf-8-sig"))
                 if not settings.get("autoOpenGenshin"):
                     break
                 running = game_running()

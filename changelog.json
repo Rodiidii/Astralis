@@ -2,6 +2,18 @@
   "schemaVersion": 1,
   "releases": [
     {
+      "id": "2026-11-19-installation-selection-1",
+      "date": "2026-11-19",
+      "title": "Toujours ouvrir la bonne installation",
+      "summary": "Le lanceur mémorise le dossier validé et évite de revenir à une ancienne version.",
+      "changes": [
+        {
+          "area": "Windows",
+          "text": "Les raccourcis des dossiers corrigés redirigent vers une installation plus récente déjà validée. Le lancement avec Genshin suit ce dossier et contrôle la version et l’instance avant de réutiliser une fenêtre."
+        }
+      ]
+    },
+    {
       "id": "2026-11-19-windows-updater-1",
       "date": "2026-11-19",
       "title": "Astralis accompagne le lancement de Genshin",
