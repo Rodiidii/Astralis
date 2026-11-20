@@ -1,0 +1,75 @@
+// Individually read from the pinned French kits; damage nature is supplied by the evaluated formula.
+export const LUNAR_STELLAR_REVIEWED_BUFFS={
+ Aino:{
+  c1AfterSkillOrBurst:['c1','Compétence ou ultime utilisé · partage de ME','Pendant 15 s, Aino et les autres personnages déployés proches gagnent 80 ME. Les applications de ce même bonus ne se cumulent pas. La ME gagnée améliore aussi le bonus personnel de son ultime.'],
+  c6AfterBurst:['c6','Ultime utilisé · bonus de réactions du personnage actif','Pendant 15 s, les personnages déployés proches gagnent 15 % aux réactions Électrocution, Sélénocution, Fleurissement, Sélénofleurissement et Sélénocristallisation. Avec au moins deux niveaux de signelune, le bonus total passe à 35 %. Ne renforce pas les dégâts Hydro ordinaires.'],
+ },
+ Columbina:{
+  a1Stacks:['passive1','Interférences gravitationnelles · Tentation lunaire','Chaque interférence donne 5 % de taux CRIT personnel pendant 10 s, jusqu’à trois cumuls (15 %). Aucun taux CRIT partagé aux alliés.'],
+  burstDomain:['combat3','Personnage dans le domaine lunaire','Les dégâts des trois réactions sélènes sont augmentés selon le niveau de l’ultime. Les effets du passif 2 concernent les événements supplémentaires de ces réactions ; ne pas ajouter ce bonus aux dégâts Hydro ordinaires.',['passive2']],
+  c2Brilliance:['c2','Éclat lunaire obtenu après une interférence','Columbina gagne 40 % de PV max pendant 8 s. Ces PV renforcent ses dégâts et les effets qui utilisent ses PV ; ils ne donnent pas 40 % de PV aux alliés.'],
+  c2Lunarcharged:['c2','Éclat lunaire · branche Sélénocution','Avec Éclat lunaire actif et Lueur ascendante : le personnage actif gagne une ATQ égale à 1 % des PV max actuels de Columbina. Choisir une seule branche correspondant à l’interférence.'],
+  c2Lunarbloom:['c2','Éclat lunaire · branche Sélénofleurissement','Avec Éclat lunaire actif et Lueur ascendante : le personnage actif gagne une ME égale à 0,35 % des PV max actuels de Columbina. Ce bonus ne bénéficie pas aux personnages en réserve.'],
+  c2Lunarcrystallize:['c2','Éclat lunaire · branche Sélénocristallisation','Avec Éclat lunaire actif et Lueur ascendante : le personnage actif gagne une DÉF égale à 1 % des PV max actuels de Columbina. Les trois branches ne sont pas simultanées pour une même interférence.'],
+  c4Buff:['c4','Interférence gravitationnelle renforcée disponible','L’interférence ajoute 12,5 % des PV max pour la Sélénocution ou Sélénocristallisation, et 2,5 % pour le Sélénofleurissement. Ces ajouts sont réservés aux dégâts de réaction de l’interférence, pas aux attaques de l’équipe.'],
+  c6Lunarcharged:['c6','Réaction dans le domaine · DGT CRIT Hydro et Électro','Après Sélénocution dans le domaine : les dégâts Hydro et Électro de l’équipe gagnent 80 % de DGT CRIT pendant 8 s. Le bonus d’un même élément ne se cumule pas.'],
+  c6Lunarbloom:['c6','Réaction dans le domaine · DGT CRIT Dendro','Après Sélénofleurissement dans le domaine : les dégâts Dendro de l’équipe gagnent 80 % de DGT CRIT pendant 8 s. Ce ne sont pas des DGT CRIT universels.'],
+  c6Lunarcrystallize:['c6','Réaction dans le domaine · DGT CRIT Géo','Après Sélénocristallisation dans le domaine : les dégâts Géo de l’équipe gagnent 80 % de DGT CRIT pendant 8 s. Plusieurs éléments peuvent conserver leurs durées indépendantes après des réactions différentes.'],
+ },
+ Flins:{c2AfterElectro:['c2','Ennemi touché par Flins déployé · Lueur ascendante','Si la signelune de l’équipe atteint deux niveaux, les attaques Électro de Flins déployé diminuent la RÉS Électro de la cible de 25 % pendant 7 s. La baisse profite à l’équipe, pas aux autres éléments.']},
+ Ineffa:{
+  a4AfterBurst:['passive2','Ultime utilisé · Refactorisation des paramètres','Pendant 20 s, Ineffa et le personnage actif gagnent une ME égale à 6 % de l’ATQ finale d’Ineffa. Utilise l’ATQ finale, jamais seulement l’ATQ de base. Les autres réservistes ne reçoivent pas ce partage.'],
+  c1AfterShield:['c1','Barrière déployée · Composite de flux porteur','Pendant 20 s, l’équipe gagne 2,5 % de DGT de Sélénocution par tranche de 100 ATQ finale d’Ineffa, plafond 50 % à 2 000 ATQ. Aucun bonus aux dégâts Électro ordinaires.'],
+ },
+ Lauma:{
+  skillVerdantDew:['combat2','Rosées verdoyantes consommées par l’appui long','Choisir de une à trois rosées. L’appui long produit un impact Dendro ordinaire et un impact de Sélénofleurissement distinct ; chaque rosée consommée donne un chant lunaire. Les deux impacts sont séparés dans le tableau.'],
+  skillAfterHit:['combat2','Cible touchée par la compétence ou le sanctuaire','Diminue les RÉS Dendro et Hydro de cette cible pendant 10 s, selon le niveau de compétence. Les autres résistances restent inchangées ; la baisse profite à toute l’équipe.'],
+  burstPaleHymn:['combat3','Hymne pâle disponible · cumul consommé','Chaque impact de Fleurissement, Exubérance, Bourgeonnement ou Sélénofleurissement consomme un cumul et ajoute des dégâts selon la ME finale de Lauma et le niveau d’ultime. À C2, ajoute encore 500 % de ME aux trois premières réactions et 400 % à Sélénofleurissement. Un cumul par ennemi touché.',['c2']],
+  a1AfterSkill:['passive1','Compétence utilisée · bonus selon la signelune','Pendant 20 s : à Lueur naissante, Fleurissement, Exubérance et Bourgeonnement peuvent CRIT avec 15 % de taux et 100 % de DGT CRIT. À Lueur ascendante, Sélénofleurissement gagne 10 % de taux CRIT et 20 % de DGT CRIT. Ces deux branches sont exclusives.'],
+ },
+ Nefer:{
+  a1VeilStacks:['passive1','Voiles mensongers actuellement possédés','Sous Lueur ascendante, les graines absorbées donnent des voiles : maximum 3 à C0, 5 à C2. Au maximum, Nefer gagne 100 ME à C0 ou 200 à C2 pendant 8 s. Les voiles renforcent les performances fantasmatiques ; le gain est personnel.',['c2']],
+  burstVeilsAbsorbed:['combat3','Voiles mensongers consommés par cet ultime','L’ultime consomme les voiles pour renforcer ses propres impacts selon leurs coefficients. Maximum 3 à C0, 5 à C2. Ne pas confondre les voiles présents avec ceux consommés lors de cet ultime.'],
+  c4ShadowDance:['c4','Danse d’ombre active · cible proche','Les ennemis proches perdent 20 % de RÉS Dendro tant que Nefer déployée est en Danse d’ombre, puis jusqu’à 4,5 s après la fin de l’état ou l’éloignement. Aucun bonus Hydro.'],
+ },
+ Zibai:{
+  a1Moonfall:['passive1','Descente sélénique disponible','Après compétence ou harmonie de voile lunaire : le second coup de Foulée ajoute 60 % de la DÉF finale de Zibai pendant 4 s. À C2 sous Lueur ascendante, ajoute encore 550 % de sa DÉF. Ne renforce pas le premier coup.',['c2']],
+  c1FirstStride:['c1','Première Foulée du déphasage lunaire','Le second coup de la première Foulée gagne 220 % de DGT de Sélénocristallisation. N’affecte pas les Foulées suivantes ni les dégâts Géo ordinaires.'],
+  c2ShiftMode:['c2','Déphasage lunaire actif · bonus d’équipe','Pendant le déphasage : +30 % de DGT de Sélénocristallisation à tous les personnages proches. Aucun bonus universel de dégâts.'],
+  c4Splendor:['c4','Splendeur lunaire dispersée disponible','Après une Foulée ayant touché : l’attaque supplémentaire du quatrième coup de normale suivant inflige 250 % de ses dégâts d’origine. Cet impact reste de la Sélénocristallisation.'],
+  c6Point:['c6','Rayonnage consommé au-delà de 70 points','Chaque point excédentaire donne une élévation de 1,6 % à la Foulée et aux dégâts de Sélénocristallisation personnels pendant 3 s. La liste indique les points excédentaires, pas le total consommé ; 30 points donnent 48 %.'],
+ },
+ Mitya:{
+  coreType:['combat2','Type de noyau de détection présent','Stable : permet le partage de 30 ME par balise. Surchargé : permet les détonations, mais ne partage pas cette ME du passif 1. Choisir le noyau présent avant les activations liées.'],
+  a0StellarRadianceSc:['passive3','Radiance Astroconduction active','Mitya est dans une étendue polaris. Les actions explicitement astrales utilisent Astroconduction ; les autres attaques Électro restent ordinaires.'],
+  a1Beacons:['passive1','Balises de gradient · noyau stable actif','Un noyau stable accorde 30 ME par balise à toute l’équipe, maximum 4 balises à C0 ou 5 à C1. Le noyau surchargé ne partage pas ces 30 ME par balise.'],
+  a4Stacks:['passive2','Balises créées · cumuls de taux CRIT','Chaque création donne 5 % de taux CRIT à Mitya pendant 15 s, jusqu’à quatre cumuls (20 %). Aucun partage de taux CRIT.'],
+  skillDetonation:['combat1','Balises consommées par la détonation','La chargée spéciale sous noyau surchargé consomme les balises et inflige les impacts d’Astroconduction correspondants. Les dégâts de noyau et de chargée sont des actions distinctes.'],
+  c1Core:['c1','Noyau de détection présent · DGT CRIT actifs','Pendant un noyau de détection : les personnages déployés de l’équipe gagnent 40 % de DGT CRIT. Ne renforce pas les personnages en réserve.'],
+  c2CoreField:['c2','Cible dans l’étendue polaris · noyau présent','Pendant le noyau, la cible dans l’étendue perd 20 % de RÉS Cryo et Électro. Aucun effet sur les autres résistances.'],
+  c2CoreType:['c2','Type de noyau · partage de ME','Avec un noyau présent : stable donne 123 ME à l’équipe, surchargé donne 234 ME au seul personnage actif. Choisir un seul type de noyau.'],
+ },
+ Valeriy:{
+  a0StellarRadianceSc:['passive3','Radiance Astroconduction active','Valeriy est dans une étendue polaris. L’ordre d’assaut utilise sa branche astrale ; les coups ordinaires ne deviennent pas tous des réactions.'],
+  chargedOffensive:['combat1','Mortier à tir direct · ordre d’assaut disponible','Avec au moins 40 points d’élan, la chargée spéciale consomme l’élan et donne l’ordre d’assaut. Les dégâts ajoutés utilisent l’ATQ finale de Valeriy et la nature du coup bénéficiaire.',['passive2']],
+  a4Momentum:['passive2','Élan d’impact consommé','Chaque point consommé renforce l’ordre d’assaut de 0,3 % de l’ATQ finale de Valeriy, ou 0,9 % en radiance Astroconduction. Maximum 100 points, puis 130 à C4. L’ordre d’assaut doit être actif.',['c4']],
+  c2Skill:['c2','Compétence utilisée · partage de ME','Toute l’équipe proche gagne 100 ME pendant 18 s. Ce partage est distinct de l’absorption du bouclier, qui utilise l’ATQ de Valeriy.'],
+  c6Hit:['c6','Cible touchée · bonus de CRIT Électro','La cible subit +10 % de taux CRIT pour les dégâts Électro pendant 7 s. Si ces dégâts sont de l’Astroconduction, ils gagnent aussi 40 % de DGT CRIT. Aucun bonus aux dégâts Cryo ou physiques.'],
+ },
+ Vesna:{
+  a0StellarRadiance:['passive3','Radiance Astrodispersion active','Après Astrodispersion : les lames éthérées concernées sont considérées comme des dégâts d’Astrodispersion pendant la radiance. Les autres coups Anémo restent ordinaires.'],
+  skillArmed:['combat2','Armée pour l’action active','Infusion Anémo des normales, chargées et plongeantes et actions de compétence renforcées. À C1, Vesna gagne 20 % de DGT d’Astrodispersion dans cet état ; ce bonus n’est pas transmis.',['c1']],
+  a1Stacks:['passive1','Action disciplinaire · cumuls','Chaque compétence spéciale ou ultime donne un cumul pendant 20 s, jusqu’à six. Les lames éthérées infligent 100 % + 10 % par cumul de leurs dégâts d’origine. À C2, six cumuls donnent aussi 40 % d’ATQ personnelle. Nouvelle compétence initiale ou sortie du terrain annule les cumuls.',['c2']],
+ },
+};
+export const LUNAR_STELLAR_AUTOMATIC_BUFFS={
+ Aino:{passive2:'L’ultime ajoute 50 % de la ME finale d’Aino à ses dégâts Hydro. Aucun ajout aux attaques normales ou compétences.',passive3:'Aino augmente la signelune de l’équipe d’un niveau ; ce niveau contribue à la branche Lueur ascendante.'},
+ Columbina:{passive3:'Convertit les trois réactions correspondantes en réactions sélènes. +0,2 % de dégâts de base sélènes par 1 000 PV max, plafond 7 % à 35 000 PV. +1 niveau de signelune.',c1:'Élévation des trois réactions sélènes d’équipe : +1,5 %.',c2:'Élévation des trois réactions sélènes d’équipe : +7 %, en plus des constellations précédentes.',c4:'Élévation des trois réactions sélènes d’équipe : +1,5 % supplémentaire.',c6:'Élévation des trois réactions sélènes d’équipe : +7 % supplémentaire. Les 80 % de DGT CRIT élémentaires restent conditionnés par une réaction dans le domaine.'},
+ Flins:{passive1:'Sous Lueur ascendante : +20 % de DGT de Sélénocution personnels.',passive2:'La ME personnelle augmente de 8 % de l’ATQ finale, plafond 160 ME. À C4, conversion 10 % et plafond 220 ME.',passive3:'Convertit Électrocution en Sélénocution ; +0,7 % de dégâts de base de Sélénocution par 100 ATQ, plafond 14 % à 2 000 ATQ. +1 signelune.',c4:'+20 % d’ATQ personnelle et amélioration de la conversion ATQ vers ME.',c6:'Élévation de Sélénocution personnelle : 35 %. Sous Lueur ascendante, élévation d’équipe supplémentaire de 10 %.'},
+ Ineffa:{passive3:'Convertit Électrocution en Sélénocution. +0,7 % de dégâts de base par 100 ATQ finale d’Ineffa, plafond 14 % à 2 000 ATQ ; +1 signelune.'},
+ Lauma:{passive2:'+0,04 % de DGT de compétence par ME finale, plafond 32 % à 800 ME. Ne transforme pas le bonus en bonus de Sélénofleurissement.',passive3:'Convertit Fleurissement en Sélénofleurissement. +0,0175 % de dégâts de base par ME finale, plafond 14 % à 800 ME ; +1 signelune.',c2:'Sous Lueur ascendante : +40 % de DGT de Sélénofleurissement à l’équipe, indépendamment du cumul d’hymne consommé.',c6:'Sous Lueur ascendante : élévation de 25 % des dégâts de Sélénofleurissement d’équipe. Les coups supplémentaires du sanctuaire et normales spéciales sont des actions distinctes.'},
+ Nefer:{passive3:'Convertit Fleurissement en Sélénofleurissement ; +0,0175 % de dégâts de base par ME finale, plafond 14 % à 800 ME ; +1 signelune.',c1:'Ajoute 60 % de la ME finale aux dégâts de base sélènes des performances fantasmatiques, avec le renforcement des voiles.',c6:'Sous Lueur ascendante : élévation de 15 % de Sélénofleurissement personnelle. Les coups sélènes supplémentaires sont séparés des dégâts Dendro ordinaires.'},
+ Zibai:{passive2:'Par autre personnage Géo : +15 % de DÉF personnelle. Par autre personnage Hydro : +60 ME personnelle. Les éléments de Zibai ne se comptent pas deux fois.',passive3:'Convertit Cristallisation Hydro en Sélénocristallisation ; +0,7 % de dégâts de base par 100 DÉF finale de Zibai, plafond 14 % à 2 000 DÉF ; +1 signelune.'},
+ Mitya:{passive3:'Convertit Supraconduction en Astroconduction ; +0,028 % de dégâts de base par ME finale de Mitya, plafond 14 % à 500 ME.',c6:'Élévation de 20 % d’Astroconduction pour toute l’équipe. Le noyau stable inflige 115 % des dégâts d’origine ; les autres attaques restent inchangées.'},
+ Vesna:{passive2:'Pendant la radiance : +6 % d’ATQ par personnage Cryo ou Anémo, et +25 ME par personnage d’un autre élément. À C4, valeurs triplées : 18 % et 75 ME.',passive3:'Convertit Dispersion Cryo en Astrodispersion ; +0,7 % de dégâts de base par 100 ATQ finale, plafond 14 % à 2 000 ATQ.',c6:'Élévation de 20 % des dégâts personnels d’Astrodispersion. Les lames de Transposition sont des actions séparées.'},
+};

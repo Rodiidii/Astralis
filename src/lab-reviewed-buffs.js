@@ -1,5 +1,8 @@
-import {TWENTY_REVIEWED_BUFFS,TWENTY_AUTOMATIC_BUFFS} from './lab-reviewed-twenty.js?v=20261119-recent-character-stats-1';
-import {NEXT_TWENTY_REVIEWED_BUFFS,NEXT_TWENTY_AUTOMATIC_BUFFS} from './lab-reviewed-next-twenty.js?v=20261119-recent-character-stats-1';
+import {FINAL_ROSTER_BUFFS,FINAL_AUTOMATIC_BUFFS} from './lab-reviewed-final-roster.js?v=20261120-radiance-3';
+import {LUNAR_STELLAR_REVIEWED_BUFFS,LUNAR_STELLAR_AUTOMATIC_BUFFS} from './lab-reviewed-lunar-stellar.js';
+import {THIRD_TWENTY_REVIEWED_BUFFS,THIRD_TWENTY_AUTOMATIC_BUFFS} from './lab-reviewed-third-twenty.js';
+import {TWENTY_REVIEWED_BUFFS,TWENTY_AUTOMATIC_BUFFS} from './lab-reviewed-twenty.js?v=20261120-radiance-1';
+import {NEXT_TWENTY_REVIEWED_BUFFS,NEXT_TWENTY_AUTOMATIC_BUFFS} from './lab-reviewed-next-twenty.js?v=20261120-radiance-1';
 // Reviewed against the pinned French kit text and the calculation sheets.
 // A shared condition may activate several talents; do not ask for duplicate toggles.
 export const PASSIVE_SOURCE_STATS={Bennett:{baseAtk:'ATQ de base de Bennett · personnage + arme'},Furina:{hp:'PV max de Furina'},KaedeharaKazuha:{em:'Maîtrise élémentaire de Kazuha'},Nahida:{em:'Maîtrise élémentaire de Nahida'},Shenhe:{atk:'ATQ finale de Shenhe'},KujouSara:{baseAtk:'ATQ de base de Sara · personnage + arme'},Sucrose:{em:'Maîtrise élémentaire de Sucrose'},Mona:{er:'Recharge de Mona (%)'},YunJin:{def:'DÉF finale de Yun Jin'},Zhongli:{hp:'PV max de Zhongli'}};
@@ -74,3 +77,33 @@ Object.assign(AUTOMATIC_PASSIVE_BUFFS,TWENTY_AUTOMATIC_BUFFS);
 Object.assign(REVIEWED_BUFFS,NEXT_TWENTY_REVIEWED_BUFFS);
 Object.assign(AUTOMATIC_PASSIVE_BUFFS,NEXT_TWENTY_AUTOMATIC_BUFFS);
 Object.assign(PASSIVE_SOURCE_STATS,{Rosaria:{critRate:'Taux CRIT de Rosalia au déclenchement (%)'},Faruzan:{baseAtk:'ATQ de base de Faruzan · personnage + arme'},Layla:{hp:'PV max de Layla'},Thoma:{hp:'PV max de Thomas'},Candace:{hp:'PV max de Candace'},Chevreuse:{hp:'PV max de Chevreuse'},Yaoyao:{hp:'PV max de Yaoyao'},Kirara:{hp:'PV max de Kirara'},Baizhu:{hp:'PV max de Baizhu'},SangonomiyaKokomi:{hp:'PV max de Kokomi',healing:'Bonus de soins de Kokomi (%)'},Nilou:{hp:'PV max de Nilou'},YaeMiko:{em:'Maîtrise élémentaire de Yae Miko'},Noelle:{def:'DÉF finale de Noëlle'}});
+
+Object.assign(REVIEWED_BUFFS,THIRD_TWENTY_REVIEWED_BUFFS);
+Object.assign(AUTOMATIC_PASSIVE_BUFFS,THIRD_TWENTY_AUTOMATIC_BUFFS);
+Object.assign(PASSIVE_SOURCE_STATS,{Iansan:{atk:"ATQ finale d’Iansan · buffs personnels inclus"},Xilonen:{def:"DÉF finale de Xilonen · buffs inclus"},Citlali:{em:"ME finale de Citlali · 125 ME de C2 inclus"},Clorinde:{atk:"ATQ finale de Clorinde"},Arlecchino:{atk:"ATQ finale d’Arlecchino"},Emilie:{atk:"ATQ finale d’Émilie"},Sethos:{em:"ME finale de Sethos"},Tighnari:{em:"ME finale de Tighnari"},Cyno:{em:"ME finale de Cyno"},Chiori:{def:"DÉF finale de Chiori"},Dehya:{hp:"PV max de Dehya"},Sayu:{atk:"ATQ finale de Sayu",em:"ME finale de Sayu"}});
+
+Object.assign(REVIEWED_BUFFS,LUNAR_STELLAR_REVIEWED_BUFFS);
+Object.assign(AUTOMATIC_PASSIVE_BUFFS,LUNAR_STELLAR_AUTOMATIC_BUFFS);
+Object.assign(PASSIVE_SOURCE_STATS,{Columbina:{hp:"PV max de Columbina · Éclat lunaire inclus"},Flins:{atk:"ATQ finale de Flins"},Ineffa:{atk:"ATQ finale d’Ineffa"},Lauma:{em:"ME finale de Lauma"},Nefer:{em:"ME finale de Nefer · bonus des voiles inclus"},Zibai:{def:"DÉF finale de Zibai"},Mitya:{em:"ME finale de Mitya"},Valeriy:{atk:"ATQ finale de Valeriy"},Vesna:{atk:"ATQ finale de Vesna"}});
+
+Object.assign(REVIEWED_BUFFS,FINAL_ROSTER_BUFFS);
+Object.assign(AUTOMATIC_PASSIVE_BUFFS,FINAL_AUTOMATIC_BUFFS);
+for(const key of ['Albedo','Klee','Mona','Sucrose'])REVIEWED_BUFFS[key].lockHomework=['lockedPassive','Devoir de la sorcière accompli','Le devoir propre à ce personnage doit être terminé. Il devient héxère ; au moins deux personnages héxères sont nécessaires au Rituel secret. Les déclenchements du rituel se règlent séparément.'];
+Object.assign(REVIEWED_BUFFS.Beidou,{
+ lockRevelation:['lockedPassive','Révélation de Beidou débloquée','Débloque l’accumulation de puissance par maintien de la compétence, même sans attaque reçue, ainsi que les effets d’énergie et de recharge de compétence. Ne donne pas de bonus global à l’équipe.'],
+ lockStellarRadianceSc:['lockedPassive','Beidou dans une étendue polaris','La Révélation doit être débloquée. Beidou entre en radiance Astroconduction et ses actions concernées utilisent les coefficients de réaction astrale, indiqués dans le tableau.'],
+});
+Object.assign(REVIEWED_BUFFS.Klee,{
+ lockC1:['c1','Étincelles de C1 déclenchées','Après le déclenchement des étincelles, Klee gagne 60 % d’ATQ pendant 12 s. Ce bonus reste personnel ; l’impact supplémentaire se calcule séparément.'],
+ lockBadge:['lockedPassive','Boum-badges disponibles','Sous Hexerei, normale, compétence et ultime donnent chacun un badge indépendant. Avec 1/2/3 badges, Frappe boum-boum inflige 115/130/150 % de ses dégâts d’origine. Pas de bonus à toutes les chargées.'],
+});
+REVIEWED_BUFFS.Mona.lockStacks=['lockedPassive','Lueurs astrales de Mercure consommées','Sous Hexerei, les normales et chargées de Mona donnent jusqu’à trois cumuls. L’Évaporation d’un autre personnage les consomme pour gagner 5 % de dégâts par cumul, maximum 15 %. Ne donne pas 15 % de DGT Hydro universels.'];
+Object.assign(REVIEWED_BUFFS.Sucrose,{
+ lockAfterSkill:['lockedPassive','Esprit du vent de taille réduite créé','Sous Hexerei : les cinq catégories d’attaques de l’équipe gagnent 5,71428 % de DGT pendant 15 s. Aucun gain de maîtrise élémentaire par ce réglage.'],
+ lockAfterBurst:['lockedPassive','Esprit du vent de grande taille créé','Sous Hexerei : les cinq catégories d’attaques des bénéficiaires héxères gagnent 7,14285 % de DGT pendant 20 s. Les personnages non héxères sont exclus.'],
+});
+for(const [element,label]of Object.entries({hydro:'Hydro',pyro:'Pyro',cryo:'Cryo',electro:'Électro'})){
+ REVIEWED_BUFFS.KaedeharaKazuha['swirl'+element]=['passive2','Dispersion '+label+' déclenchée','Après Dispersion ou Astrodispersion de cet élément : l’équipe gagne 0,04 % de DGT '+label+' par point de ME de Kazuha pendant 8 s. Les différents éléments peuvent coexister.'];
+ REVIEWED_BUFFS.Sucrose['swirl'+element]=['passive1','Dispersion '+label+' déclenchée','Après Dispersion ou Astrodispersion de cet élément : les autres personnages '+label+' gagnent 50 ME pendant 8 s. Sucrose ne reçoit pas son propre partage et les autres éléments sont exclus.'];
+}
+Object.assign(PASSIVE_SOURCE_STATS,{AratakiItto:{def:'DÉF finale d’Itto'},Dahlia:{hp:'PV max de Dahlia'},Durin:{atk:'ATQ finale de Durin'},Escoffier:{atk:'ATQ finale d’Escoffier'},Illuga:{em:'ME finale d’Illuga'},Linnea:{def:'DÉF finale de Linnea'},Mualani:{hp:'PV max de Mualani'},Nicole:{atk:'ATQ de Nicole avant son propre partage'},Prune:{atk:'ATQ finale de Prune'},Qiqi:{atk:'ATQ finale de Qiqi'},Sigewinne:{hp:'PV max de Sigewinne'},Somnia:{em:'ME de Somnia avant ses gains multiplicatifs'},Vodyanitsa:{hp:'PV max de Vodyanitsa'},Xianyun:{atk:'ATQ finale de Xianyun'},YumemizukiMizuki:{em:'ME finale de Mizuki'},Alyosha:{er:'Recharge totale d’Alyosha (%)'},Xinyan:{def:'DÉF finale de Xinyan'},Odette:{atk:'ATQ finale d’Odette'},Sandrone:{atk:'ATQ finale de Sandrone'}});

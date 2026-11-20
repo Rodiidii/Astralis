@@ -2,8 +2,8 @@
 export function sourceAttackEffects(stats={},kind='skill',element='physical'){
  return {
   bonus:(Number(stats[kind+'Dmg'])||0)+(Number(stats[element+'Dmg'])||0)+(kind==='normal'&&element&&element!=='physical'?(Number(stats.normalElementalDmg)||0):0),
-  flat:(Number(stats[kind+'FlatDamage'])||0)+(Number(stats[element+'FlatDamage'])||0),
-  stats:{...stats,critRate:(Number(stats.critRate)||0)+(Number(stats[kind+'CritRate'])||0),critDmg:(Number(stats.critDmg)||0)+(Number(stats[element+'CritDmg'])||0)+(Number(stats[kind+'CritDmg'])||0)},
+  flat:(Number(stats[kind+'FlatDamage'])||0)+(kind==='plunge'?(Number(stats.plungeImpactFlatDamage)||0):0)+(Number(stats[element+'FlatDamage'])||0)+(Number(stats[element+kind[0].toUpperCase()+kind.slice(1)+'FlatDamage'])||0),
+  stats:{...stats,critRate:(Number(stats.critRate)||0)+(Number(stats[element+'CritRate'])||0)+(Number(stats[kind+'CritRate'])||0),critDmg:(Number(stats.critDmg)||0)+(Number(stats[element+'CritDmg'])||0)+(Number(stats[kind+'CritDmg'])||0)},
  };
 }
 export function sourceReactionEffects(reaction,stats={},resistances={},baseResistance=10){

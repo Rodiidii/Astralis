@@ -1,6 +1,6 @@
 {
   "source": "https://celestia.cv/leaderboards",
-  "updatedAt": "2026-11-18T04:20:39.641682+00:00",
+  "updatedAt": "2026-11-20T03:52:24.147829+00:00",
   "entries": [
     {
       "slug": "furina-skill",
@@ -17,16 +17,6 @@
       },
       "variants": [
         {
-          "setId": 15017,
-          "exports": {
-            "team": {
-              "status": "downloaded",
-              "file": "team/furina-skill--set-15017.json",
-              "sha256": "4c53e77ae6f6f59c9cd23b6f7b119268732ecc75ee088d60d1bd427d5a4ea15f"
-            }
-          }
-        },
-        {
           "setId": 15032,
           "exports": {
             "team": {
@@ -37,7 +27,7 @@
           }
         }
       ],
-      "checkedAt": "2026-11-18T04:20:39.696787+00:00"
+      "checkedAt": "2026-11-20T03:52:24.185642+00:00"
     },
     {
       "slug": "furina-er-hp-cr",
@@ -51,7 +41,7 @@
         }
       },
       "variants": [],
-      "checkedAt": "2026-11-18T04:20:39.696787+00:00"
+      "checkedAt": "2026-11-20T03:52:24.185642+00:00"
     },
     {
       "slug": "columbina-nilou-bloom",
@@ -73,7 +63,7 @@
             "team": {
               "status": "downloaded",
               "file": "team/columbina-nilou-bloom--set-15041.json",
-              "sha256": "f86aa7ff11de1f19140890f1045d2fbdcca1044762db308aceab52bbcbedd595"
+              "sha256": "c15a77624a50506c87eb13e838f15ec67dd1ed7d0731f5082067e4d7bf1c6a95"
             }
           }
         },
@@ -83,12 +73,12 @@
             "config": {
               "status": "downloaded",
               "file": "config/columbina-nilou-bloom--set-15042.json",
-              "sha256": "a66ddfe07f1676c9d5a550235b8af511e008dfd102834de32495b20d3ea466a7"
+              "sha256": "0d293181d140b6765b9b6573ac64ae52e253fae6a3d41af3d57fb019cb9a49e8"
             },
             "team": {
               "status": "downloaded",
               "file": "team/columbina-nilou-bloom--set-15042.json",
-              "sha256": "1bd2c8c5d3b13ab6f02576a5da53e7d91c5f563d3ddbebad56649a8cf67a95a2"
+              "sha256": "7183a09c69d8c61bf36f499099a3da05b30380a8868c7f6ec3b57c54b377b62d"
             }
           }
         },
@@ -98,17 +88,17 @@
             "config": {
               "status": "downloaded",
               "file": "config/columbina-nilou-bloom--set-15043.json",
-              "sha256": "0f6d232615aaa42638c42157ae6897afcc46cb94cc5bd6a4dbc49789af5c9683"
+              "sha256": "38e20d799c8e8f616c31cbead46942d688ab0fe18d6fef4fe86a170c3561eaa3"
             },
             "team": {
               "status": "downloaded",
               "file": "team/columbina-nilou-bloom--set-15043.json",
-              "sha256": "7059840cdc9afb25de1161eaeba690567a13786850100676c24713e36883229d"
+              "sha256": "1e2327411899d7e58128acdd09d9029232a30ca3df7b1f9bdc6d4145b005fa66"
             }
           }
         }
       ],
-      "checkedAt": "2026-11-18T04:20:39.696787+00:00"
+      "checkedAt": "2026-11-20T03:52:24.185642+00:00"
     },
     {
       "slug": "columbina-sub-lb",
@@ -150,7 +140,7 @@
           }
         }
       ],
-      "checkedAt": "2026-11-18T04:20:39.696787+00:00"
+      "checkedAt": "2026-11-20T03:52:24.185642+00:00"
     },
     {
       "slug": "columbina-sub-lc",
@@ -172,12 +162,12 @@
             "config": {
               "status": "downloaded",
               "file": "config/columbina-sub-lc--set-15042.json",
-              "sha256": "910ca25c739c53e00cba1be1d1144dd33a4503c72fe189075179d8e22587a6d4"
+              "sha256": "a26302ed12a1b9458c0b355c56ba647bbfc35ef0ad4fd79dd3b7fc6a581f7b3e"
             },
             "team": {
               "status": "downloaded",
               "file": "team/columbina-sub-lc--set-15042.json",
-              "sha256": "fe96b4b9db1251e0712bb2dc50ab85b3d7ad8c46f5ca5225e555ea4a13f69f74"
+              "sha256": "e38bc3db9b740e688fd4c225090de9a37f816ab59b179dd3ce1bdeab350cf0be"
             }
           }
         },
@@ -187,12 +177,12 @@
             "team": {
               "status": "downloaded",
               "file": "team/columbina-sub-lc--set-15043.json",
-              "sha256": "16c8f80568c69296b4cb664fc1350b0d9eda4739c761e05895f19d9a76fa3555"
+              "sha256": "b92b9bf2cb951b0e8dea7c6a79cb441f68c62522053a34af0052366dc50a2d8b"
             }
           }
         }
       ],
-      "checkedAt": "2026-11-18T04:20:39.696787+00:00"
+      "checkedAt": "2026-11-20T03:52:24.185642+00:00"
     },
     {
       "slug": "columbina-sub-lcry",
@@ -234,7 +224,7 @@
           }
         }
       ],
-      "checkedAt": "2026-11-18T04:20:39.696787+00:00"
+      "checkedAt": "2026-11-20T03:52:24.185642+00:00"
     },
     {
       "slug": "arlecchino-overload",
@@ -337,6 +327,20 @@
           }
         }
       ]
+    },
+    {
+      "slug": "arlecchino-solo",
+      "url": "https://celestia.cv/leaderboards/arlecchino-solo",
+      "exports": {
+        "config": {
+          "status": "unavailable"
+        },
+        "team": {
+          "status": "unavailable"
+        }
+      },
+      "variants": [],
+      "checkedAt": "2026-11-20T03:52:24.185642+00:00"
     },
     {
       "slug": "mavuika-overload",
@@ -549,6 +553,20 @@
       ]
     },
     {
+      "slug": "skirk-escoffier-furina-vodyanitsa-team",
+      "url": "https://celestia.cv/leaderboards/skirk-escoffier-furina-vodyanitsa-team",
+      "exports": {
+        "config": {
+          "status": "unavailable"
+        },
+        "team": {
+          "status": "unavailable"
+        }
+      },
+      "variants": [],
+      "checkedAt": "2026-11-20T03:52:24.185642+00:00"
+    },
+    {
       "slug": "neuvillette-hyper",
       "url": "https://celestia.cv/leaderboards/neuvillette-hyper",
       "exports": {
@@ -632,7 +650,7 @@
         }
       },
       "variants": [],
-      "checkedAt": "2026-11-18T04:20:39.696787+00:00"
+      "checkedAt": "2026-11-20T03:52:24.185642+00:00"
     },
     {
       "slug": "flins-ineffa-columbina-team-premium",
@@ -646,7 +664,7 @@
         }
       },
       "variants": [],
-      "checkedAt": "2026-11-18T04:20:39.696787+00:00"
+      "checkedAt": "2026-11-20T03:52:24.185642+00:00"
     },
     {
       "slug": "flins-premium",
@@ -668,12 +686,12 @@
             "team": {
               "status": "downloaded",
               "file": "team/flins-premium--set-15041.json",
-              "sha256": "029c48c999feeae921674fe857153eeadd0828f40d63a8da0a6d9e6d8cdc043c"
+              "sha256": "d5b16b44a71368d421e5c0def9fb4a49e7d8f4798f1c7c84139936d4399300cc"
             }
           }
         }
       ],
-      "checkedAt": "2026-11-18T04:20:39.696787+00:00"
+      "checkedAt": "2026-11-20T03:52:24.185642+00:00"
     },
     {
       "slug": "nahida-off-field-spread",
@@ -757,7 +775,7 @@
         }
       },
       "variants": [],
-      "checkedAt": "2026-11-18T04:20:39.696787+00:00"
+      "checkedAt": "2026-11-20T03:52:24.185642+00:00"
     },
     {
       "slug": "odette-off-field-skill-stellar-swirl",
@@ -784,7 +802,7 @@
           }
         }
       ],
-      "checkedAt": "2026-11-18T04:20:39.696787+00:00"
+      "checkedAt": "2026-11-20T03:52:24.185642+00:00"
     },
     {
       "slug": "odette-skills-dmg",
@@ -826,7 +844,7 @@
           }
         }
       ],
-      "checkedAt": "2026-11-18T04:20:39.696787+00:00"
+      "checkedAt": "2026-11-20T03:52:24.185642+00:00"
     },
     {
       "slug": "yelan-double-hydro",
@@ -853,7 +871,7 @@
           }
         }
       ],
-      "checkedAt": "2026-11-18T04:20:39.696787+00:00"
+      "checkedAt": "2026-11-20T03:52:24.185642+00:00"
     },
     {
       "slug": "ineffa-sub-lc",
@@ -875,12 +893,12 @@
             "config": {
               "status": "downloaded",
               "file": "config/ineffa-sub-lc--set-15026.json",
-              "sha256": "7b3ec87dd169176dc4e5985586522fa26adf8a9d10609160a468dc00628bef49"
+              "sha256": "f4a69b4c0bd6c1ab511945aa8cb5fc4f39f2f32feb9882b9fed74517dc07ee39"
             },
             "team": {
               "status": "downloaded",
               "file": "team/ineffa-sub-lc--set-15026.json",
-              "sha256": "1cc30a8c45f7c1f50695ec12a5aac13b22feb5815f2cd2b65c593f665baea8ef"
+              "sha256": "ab425338541f3024d1c8fc9c459b49673a5e4a8ddf583f792a82cf4a0c68d541"
             }
           }
         },
@@ -890,12 +908,12 @@
             "config": {
               "status": "downloaded",
               "file": "config/ineffa-sub-lc--set-15042.json",
-              "sha256": "29ea9e9d3f7486626d888570af5a901e9aa984d30032958cbf567080048122e5"
+              "sha256": "b7d2b75317e8e8d249faea9c8819e3ec5e839ba40fda250eba7c0195d60e2c74"
             },
             "team": {
               "status": "downloaded",
               "file": "team/ineffa-sub-lc--set-15042.json",
-              "sha256": "64b52289148446e4edfde0b4c0da5b39513fd417e28c9972f1456649b68dcfc6"
+              "sha256": "efb66476625c99b2d9e4725c2369c36ab4c08e8b0f20e93eb11f2b73d89c6413"
             }
           }
         },
@@ -905,12 +923,12 @@
             "team": {
               "status": "downloaded",
               "file": "team/ineffa-sub-lc--set-15043.json",
-              "sha256": "9203d618f00f57e78dc0bfda08fac2601451b51a3f6d89c0770185ee08bd932b"
+              "sha256": "99b8bd45aafccdbc717cea80066b02a49b6b225eaa2e7e7dd93e793941e60252"
             }
           }
         }
       ],
-      "checkedAt": "2026-11-18T04:20:39.696787+00:00"
+      "checkedAt": "2026-11-20T03:52:24.185642+00:00"
     },
     {
       "slug": "kazuha-dps-c1",
@@ -924,7 +942,7 @@
         }
       },
       "variants": [],
-      "checkedAt": "2026-11-18T04:20:39.696787+00:00"
+      "checkedAt": "2026-11-20T03:52:24.185642+00:00"
     },
     {
       "slug": "kazuha-em-er-cr",
@@ -938,7 +956,7 @@
         }
       },
       "variants": [],
-      "checkedAt": "2026-11-18T04:20:39.696787+00:00"
+      "checkedAt": "2026-11-20T03:52:24.185642+00:00"
     },
     {
       "slug": "sandrone-premium-combo",
@@ -970,7 +988,7 @@
         }
       },
       "variants": [],
-      "checkedAt": "2026-11-18T04:20:39.696787+00:00"
+      "checkedAt": "2026-11-20T03:52:24.185642+00:00"
     },
     {
       "slug": "xilonen-def",
@@ -984,7 +1002,7 @@
         }
       },
       "variants": [],
-      "checkedAt": "2026-11-18T04:20:39.696787+00:00"
+      "checkedAt": "2026-11-20T03:52:24.185642+00:00"
     },
     {
       "slug": "escoffier-skill-dmg",
@@ -1021,7 +1039,7 @@
           }
         }
       ],
-      "checkedAt": "2026-11-18T04:20:39.696787+00:00"
+      "checkedAt": "2026-11-20T03:52:24.185642+00:00"
     },
     {
       "slug": "escoffier-er-atk-cr",
@@ -1035,7 +1053,7 @@
         }
       },
       "variants": [],
-      "checkedAt": "2026-11-18T04:20:39.696787+00:00"
+      "checkedAt": "2026-11-20T03:52:24.185642+00:00"
     },
     {
       "slug": "durin-dark-mode-vape",
@@ -1092,7 +1110,7 @@
           }
         }
       ],
-      "checkedAt": "2026-11-18T04:20:39.696787+00:00"
+      "checkedAt": "2026-11-20T03:52:24.185642+00:00"
     },
     {
       "slug": "durin-melt",
@@ -1443,7 +1461,7 @@
           }
         }
       ],
-      "checkedAt": "2026-11-18T04:20:39.696787+00:00"
+      "checkedAt": "2026-11-20T03:52:24.185642+00:00"
     },
     {
       "slug": "homa-vape",
@@ -1715,7 +1733,7 @@
           }
         }
       ],
-      "checkedAt": "2026-11-18T04:20:39.696787+00:00"
+      "checkedAt": "2026-11-20T03:52:24.185642+00:00"
     },
     {
       "slug": "nefer-premium-nahida",
@@ -1742,7 +1760,7 @@
           }
         }
       ],
-      "checkedAt": "2026-11-18T04:20:39.696787+00:00"
+      "checkedAt": "2026-11-20T03:52:24.185642+00:00"
     },
     {
       "slug": "navia-hex-hyper",
@@ -1764,12 +1782,12 @@
             "team": {
               "status": "downloaded",
               "file": "team/navia-hex-hyper--set-15034.json",
-              "sha256": "c39554b387e2174f2603ff7ff3033e41e4a72710a86d7e9180fc8ace81a2d785"
+              "sha256": "44793bde2df9f067c80db57c01ca2ef648790c791c396a7041c61a778b0e3059"
             }
           }
         }
       ],
-      "checkedAt": "2026-11-18T04:20:39.696787+00:00"
+      "checkedAt": "2026-11-20T03:52:24.185642+00:00"
     },
     {
       "slug": "navia-hex-hyper-c2",
@@ -1791,12 +1809,12 @@
             "team": {
               "status": "downloaded",
               "file": "team/navia-hex-hyper-c2--set-15034.json",
-              "sha256": "36b6244ad834c2b8cf85eef695472fe57ba8b20d02142814f8712645e6167b5d"
+              "sha256": "3d4f027542bfb374be9c3420309ee96822f6c462b7fe8e96fe4d67fe9fd6454c"
             }
           }
         }
       ],
-      "checkedAt": "2026-11-18T04:20:39.696787+00:00"
+      "checkedAt": "2026-11-20T03:52:24.185642+00:00"
     },
     {
       "slug": "navia-lunar-crystallize",
@@ -1823,7 +1841,7 @@
           }
         }
       ],
-      "checkedAt": "2026-11-18T04:20:39.696787+00:00"
+      "checkedAt": "2026-11-20T03:52:24.185642+00:00"
     },
     {
       "slug": "zhongli-hybrid",
@@ -1860,7 +1878,7 @@
           }
         }
       ],
-      "checkedAt": "2026-11-18T04:20:39.696787+00:00"
+      "checkedAt": "2026-11-20T03:52:24.185642+00:00"
     },
     {
       "slug": "zhongli-lunar-crystallize",
@@ -1903,7 +1921,7 @@
         }
       },
       "variants": [],
-      "checkedAt": "2026-11-18T04:20:39.696787+00:00"
+      "checkedAt": "2026-11-20T03:52:24.185642+00:00"
     },
     {
       "slug": "lauma-sub-dps",
@@ -1917,7 +1935,7 @@
         }
       },
       "variants": [],
-      "checkedAt": "2026-11-18T04:20:39.696787+00:00"
+      "checkedAt": "2026-11-20T03:52:24.185642+00:00"
     },
     {
       "slug": "lauma-er-em-cr",
@@ -1931,7 +1949,7 @@
         }
       },
       "variants": [],
-      "checkedAt": "2026-11-18T04:20:39.696787+00:00"
+      "checkedAt": "2026-11-20T03:52:24.185642+00:00"
     },
     {
       "slug": "kazuha-nuke",
@@ -2026,7 +2044,7 @@
           }
         }
       ],
-      "checkedAt": "2026-11-18T04:20:39.696787+00:00"
+      "checkedAt": "2026-11-20T03:52:24.185642+00:00"
     },
     {
       "slug": "zibai-premium",
@@ -2053,7 +2071,7 @@
           }
         }
       ],
-      "checkedAt": "2026-11-18T04:20:39.696787+00:00"
+      "checkedAt": "2026-11-20T03:52:24.185642+00:00"
     },
     {
       "slug": "clorinde-aggravate-f2p",
@@ -2227,7 +2245,7 @@
           }
         }
       ],
-      "checkedAt": "2026-11-18T04:20:39.696787+00:00"
+      "checkedAt": "2026-11-20T03:52:24.185642+00:00"
     },
     {
       "slug": "nicole-atk",
@@ -2241,7 +2259,7 @@
         }
       },
       "variants": [],
-      "checkedAt": "2026-11-18T04:20:39.696787+00:00"
+      "checkedAt": "2026-11-20T03:52:24.185642+00:00"
     },
     {
       "slug": "bennett-healing",
@@ -2255,7 +2273,7 @@
         }
       },
       "variants": [],
-      "checkedAt": "2026-11-18T04:20:39.696787+00:00"
+      "checkedAt": "2026-11-20T03:52:24.185642+00:00"
     },
     {
       "slug": "wanderer-furina-bennett",
@@ -2321,7 +2339,7 @@
         }
       },
       "variants": [],
-      "checkedAt": "2026-11-18T04:20:39.696787+00:00"
+      "checkedAt": "2026-11-20T03:52:24.185642+00:00"
     },
     {
       "slug": "ayaka-eq3nc-boss",
@@ -2361,12 +2379,12 @@
             "team": {
               "status": "downloaded",
               "file": "team/vesna-f2p--set-15047.json",
-              "sha256": "5c13faa8e0222ad84c7d0e34ddd976edff6fabea23929c0d28ef92fe1008ac6b"
+              "sha256": "4fa3f2d8bc6f99d700c9bd86baca81c1cc591af65861de9acb6dc896c0d20f60"
             }
           }
         }
       ],
-      "checkedAt": "2026-11-18T04:20:39.696787+00:00"
+      "checkedAt": "2026-11-20T03:52:24.185642+00:00"
     },
     {
       "slug": "vesna-premium",
@@ -2819,7 +2837,7 @@
           }
         }
       ],
-      "checkedAt": "2026-11-18T04:20:39.696787+00:00"
+      "checkedAt": "2026-11-20T03:52:24.185642+00:00"
     },
     {
       "slug": "varka-2-anemo-2-pyro",
@@ -2841,12 +2859,12 @@
             "team": {
               "status": "downloaded",
               "file": "team/varka-2-anemo-2-pyro--set-15044.json",
-              "sha256": "97f306fb72ef05c422f3643ee3b99346a889236e6c9d4bf073f631edd1e920fc"
+              "sha256": "60bde1eba0bf66426afdbb8499fcc805589b4fe9dd74e96e55da107ffe48afa1"
             }
           }
         }
       ],
-      "checkedAt": "2026-11-18T04:20:39.696787+00:00"
+      "checkedAt": "2026-11-20T03:52:24.185642+00:00"
     },
     {
       "slug": "varka-stellar-swirl",
@@ -2873,7 +2891,7 @@
           }
         }
       ],
-      "checkedAt": "2026-11-18T04:20:39.696787+00:00"
+      "checkedAt": "2026-11-20T03:52:24.185642+00:00"
     },
     {
       "slug": "mizuki-c2-on-field",
@@ -2964,7 +2982,7 @@
           }
         }
       ],
-      "checkedAt": "2026-11-18T04:20:39.696787+00:00"
+      "checkedAt": "2026-11-20T03:52:24.185642+00:00"
     },
     {
       "slug": "alhaitham-fischl-quickbloom",
@@ -3100,7 +3118,7 @@
         }
       },
       "variants": [],
-      "checkedAt": "2026-11-18T04:20:39.696787+00:00"
+      "checkedAt": "2026-11-20T03:52:24.185642+00:00"
     },
     {
       "slug": "fischl-off-field-quickbloom",
@@ -3197,7 +3215,7 @@
           }
         }
       ],
-      "checkedAt": "2026-11-18T04:20:39.696787+00:00"
+      "checkedAt": "2026-11-20T03:52:24.185642+00:00"
     },
     {
       "slug": "shenhe-atk-er-cr",
@@ -3211,7 +3229,7 @@
         }
       },
       "variants": [],
-      "checkedAt": "2026-11-18T04:20:39.696787+00:00"
+      "checkedAt": "2026-11-20T03:52:24.185642+00:00"
     },
     {
       "slug": "tartaglia-international",
@@ -3272,7 +3290,7 @@
           }
         }
       ],
-      "checkedAt": "2026-11-18T04:20:39.696787+00:00"
+      "checkedAt": "2026-11-20T03:52:24.185642+00:00"
     },
     {
       "slug": "chiori-hexerei",
@@ -3640,7 +3658,35 @@
         }
       },
       "variants": [],
-      "checkedAt": "2026-11-18T04:20:39.696787+00:00"
+      "checkedAt": "2026-11-20T03:52:24.185642+00:00"
+    },
+    {
+      "slug": "mitya-c2-sucrose",
+      "url": "https://celestia.cv/leaderboards/mitya-c2-sucrose",
+      "exports": {
+        "config": {
+          "status": "unavailable"
+        },
+        "team": {
+          "status": "unavailable"
+        }
+      },
+      "variants": [],
+      "checkedAt": "2026-11-20T03:52:24.185642+00:00"
+    },
+    {
+      "slug": "mitya-premium",
+      "url": "https://celestia.cv/leaderboards/mitya-premium",
+      "exports": {
+        "config": {
+          "status": "unavailable"
+        },
+        "team": {
+          "status": "unavailable"
+        }
+      },
+      "variants": [],
+      "checkedAt": "2026-11-20T03:52:24.185642+00:00"
     },
     {
       "slug": "lohen-premium-forward-melt",
@@ -3667,7 +3713,7 @@
           }
         }
       ],
-      "checkedAt": "2026-11-18T04:20:39.696787+00:00"
+      "checkedAt": "2026-11-20T03:52:24.185642+00:00"
     },
     {
       "slug": "lohen-national",
@@ -3681,7 +3727,7 @@
         }
       },
       "variants": [],
-      "checkedAt": "2026-11-18T04:20:39.696787+00:00"
+      "checkedAt": "2026-11-20T03:52:24.185642+00:00"
     },
     {
       "slug": "qiqi-atk",
@@ -3695,7 +3741,7 @@
         }
       },
       "variants": [],
-      "checkedAt": "2026-11-18T04:20:39.696787+00:00"
+      "checkedAt": "2026-11-20T03:52:24.185642+00:00"
     },
     {
       "slug": "nilou-nuke",
@@ -3714,34 +3760,6 @@
       },
       "checkedAt": "2026-11-17T04:34:30.065841+00:00",
       "variants": []
-    },
-    {
-      "slug": "mitya-c2-sucrose",
-      "url": "https://celestia.cv/leaderboards/mitya-c2-sucrose",
-      "exports": {
-        "config": {
-          "status": "unavailable"
-        },
-        "team": {
-          "status": "unavailable"
-        }
-      },
-      "variants": [],
-      "checkedAt": "2026-11-18T04:20:39.696787+00:00"
-    },
-    {
-      "slug": "mitya-premium",
-      "url": "https://celestia.cv/leaderboards/mitya-premium",
-      "exports": {
-        "config": {
-          "status": "unavailable"
-        },
-        "team": {
-          "status": "unavailable"
-        }
-      },
-      "variants": [],
-      "checkedAt": "2026-11-18T04:20:39.696787+00:00"
     },
     {
       "slug": "eula-physical",
@@ -3817,7 +3835,7 @@
           }
         }
       ],
-      "checkedAt": "2026-11-18T04:20:39.696787+00:00"
+      "checkedAt": "2026-11-20T03:52:24.185642+00:00"
     },
     {
       "slug": "sucrose-em",
@@ -3831,7 +3849,7 @@
         }
       },
       "variants": [],
-      "checkedAt": "2026-11-18T04:20:39.696787+00:00"
+      "checkedAt": "2026-11-20T03:52:24.185642+00:00"
     },
     {
       "slug": "cyno-hex",
@@ -3982,7 +4000,7 @@
         }
       },
       "variants": [],
-      "checkedAt": "2026-11-18T04:20:39.696787+00:00"
+      "checkedAt": "2026-11-20T03:52:24.185642+00:00"
     },
     {
       "slug": "diluc-full-combo",
@@ -3996,7 +4014,7 @@
         }
       },
       "variants": [],
-      "checkedAt": "2026-11-18T04:20:39.696787+00:00"
+      "checkedAt": "2026-11-20T03:52:24.185642+00:00"
     },
     {
       "slug": "diluc-plunge",
@@ -4072,7 +4090,7 @@
         }
       },
       "variants": [],
-      "checkedAt": "2026-11-18T04:20:39.696787+00:00"
+      "checkedAt": "2026-11-20T03:52:24.185642+00:00"
     },
     {
       "slug": "itto-hex",
@@ -4104,7 +4122,7 @@
         }
       },
       "variants": [],
-      "checkedAt": "2026-11-18T04:20:39.696787+00:00"
+      "checkedAt": "2026-11-20T03:52:24.185642+00:00"
     },
     {
       "slug": "ayato-vape",
@@ -4278,7 +4296,7 @@
           }
         }
       ],
-      "checkedAt": "2026-11-18T04:20:39.696787+00:00"
+      "checkedAt": "2026-11-20T03:52:24.185642+00:00"
     },
     {
       "slug": "mavuika-nuke",
@@ -4409,7 +4427,7 @@
         }
       },
       "variants": [],
-      "checkedAt": "2026-11-18T04:20:39.696787+00:00"
+      "checkedAt": "2026-11-20T03:52:24.185642+00:00"
     },
     {
       "slug": "dehya-vape",
@@ -4550,7 +4568,7 @@
         }
       },
       "variants": [],
-      "checkedAt": "2026-11-18T04:20:39.696787+00:00"
+      "checkedAt": "2026-11-20T03:52:24.185642+00:00"
     },
     {
       "slug": "arlecchino-cryo-cube-solo-nuke",
@@ -4592,7 +4610,7 @@
           }
         }
       ],
-      "checkedAt": "2026-11-18T04:20:39.696787+00:00"
+      "checkedAt": "2026-11-20T03:52:24.185642+00:00"
     },
     {
       "slug": "arlecchino-nuke",
@@ -4655,7 +4673,7 @@
         }
       },
       "variants": [],
-      "checkedAt": "2026-11-18T04:20:39.696787+00:00"
+      "checkedAt": "2026-11-20T03:52:24.185642+00:00"
     },
     {
       "slug": "noelle-hexerei",
@@ -4810,7 +4828,7 @@
           }
         }
       ],
-      "checkedAt": "2026-11-18T04:20:39.696787+00:00"
+      "checkedAt": "2026-11-20T03:52:24.185642+00:00"
     },
     {
       "slug": "noelle-premium-plunge",
@@ -4873,7 +4891,7 @@
         }
       },
       "variants": [],
-      "checkedAt": "2026-11-18T04:20:39.696787+00:00"
+      "checkedAt": "2026-11-20T03:52:24.185642+00:00"
     },
     {
       "slug": "xiao-nuke",
@@ -5004,7 +5022,7 @@
         }
       },
       "variants": [],
-      "checkedAt": "2026-11-18T04:20:39.696787+00:00"
+      "checkedAt": "2026-11-20T03:52:24.185642+00:00"
     },
     {
       "slug": "diona-hp",
@@ -5018,7 +5036,7 @@
         }
       },
       "variants": [],
-      "checkedAt": "2026-11-18T04:20:39.696787+00:00"
+      "checkedAt": "2026-11-20T03:52:24.185642+00:00"
     },
     {
       "slug": "kuki-shinobu-em",
@@ -5032,7 +5050,7 @@
         }
       },
       "variants": [],
-      "checkedAt": "2026-11-18T04:20:39.696787+00:00"
+      "checkedAt": "2026-11-20T03:52:24.185642+00:00"
     },
     {
       "slug": "yae-miko-burst-highest-hit",
@@ -5206,7 +5224,7 @@
           }
         }
       ],
-      "checkedAt": "2026-11-18T04:20:39.696787+00:00"
+      "checkedAt": "2026-11-20T03:52:24.185642+00:00"
     },
     {
       "slug": "clorinde-nuke",
@@ -5293,7 +5311,7 @@
         }
       },
       "variants": [],
-      "checkedAt": "2026-11-18T04:20:39.696787+00:00"
+      "checkedAt": "2026-11-20T03:52:24.185642+00:00"
     },
     {
       "slug": "varesa-nuke",
@@ -5356,7 +5374,7 @@
         }
       },
       "variants": [],
-      "checkedAt": "2026-11-18T04:20:39.696787+00:00"
+      "checkedAt": "2026-11-20T03:52:24.185642+00:00"
     },
     {
       "slug": "yanfei-double-hydro-vape",
@@ -5468,7 +5486,36 @@
         }
       },
       "variants": [],
-      "checkedAt": "2026-11-18T04:20:39.696787+00:00"
+      "checkedAt": "2026-11-20T03:52:24.185642+00:00"
+    },
+    {
+      "slug": "kinich-nuke",
+      "url": "https://celestia.cv/leaderboards/kinich-nuke",
+      "exports": {
+        "config": {
+          "status": "cached",
+          "file": "config/kinich-nuke.json",
+          "sha256": "494f5adef537727d716b1b3261b92fb63439b5393f9825719f54a531964b1256"
+        },
+        "team": {
+          "status": "cached",
+          "file": "team/kinich-nuke.json",
+          "sha256": "c63f37b395a0d76260c772b1b032c2818dd607ab3fc748596d55e82a903176da"
+        }
+      },
+      "checkedAt": "2026-11-17T04:34:30.065841+00:00",
+      "variants": [
+        {
+          "setId": 15038,
+          "exports": {
+            "team": {
+              "status": "downloaded",
+              "file": "team/kinich-nuke--set-15038.json",
+              "sha256": "ba2e3ef0db2829880ee52169461631a94a716498695efbddc95fb2c1af33ffc8"
+            }
+          }
+        }
+      ]
     },
     {
       "slug": "diluc-cryo-cube-solo-nuke",
@@ -5525,7 +5572,7 @@
           }
         }
       ],
-      "checkedAt": "2026-11-18T04:20:39.696787+00:00"
+      "checkedAt": "2026-11-20T03:52:24.185642+00:00"
     },
     {
       "slug": "diluc-nuke",
@@ -5556,35 +5603,6 @@
               "status": "downloaded",
               "file": "team/diluc-nuke--set-15001.json",
               "sha256": "8eae8992658f1f93e2b3283ba0f45d661909ae3943ae78b92cd976f41213f40a"
-            }
-          }
-        }
-      ]
-    },
-    {
-      "slug": "kinich-nuke",
-      "url": "https://celestia.cv/leaderboards/kinich-nuke",
-      "exports": {
-        "config": {
-          "status": "cached",
-          "file": "config/kinich-nuke.json",
-          "sha256": "494f5adef537727d716b1b3261b92fb63439b5393f9825719f54a531964b1256"
-        },
-        "team": {
-          "status": "cached",
-          "file": "team/kinich-nuke.json",
-          "sha256": "c63f37b395a0d76260c772b1b032c2818dd607ab3fc748596d55e82a903176da"
-        }
-      },
-      "checkedAt": "2026-11-17T04:34:30.065841+00:00",
-      "variants": [
-        {
-          "setId": 15038,
-          "exports": {
-            "team": {
-              "status": "downloaded",
-              "file": "team/kinich-nuke--set-15038.json",
-              "sha256": "ba2e3ef0db2829880ee52169461631a94a716498695efbddc95fb2c1af33ffc8"
             }
           }
         }
@@ -5682,7 +5700,7 @@
           }
         }
       ],
-      "checkedAt": "2026-11-18T04:20:39.696787+00:00"
+      "checkedAt": "2026-11-20T03:52:24.185642+00:00"
     },
     {
       "slug": "hu-tao-hydro-cube-solo-ca-nuke",
@@ -5739,7 +5757,7 @@
           }
         }
       ],
-      "checkedAt": "2026-11-18T04:20:39.696787+00:00"
+      "checkedAt": "2026-11-20T03:52:24.185642+00:00"
     },
     {
       "slug": "hu-tao-nuke",
@@ -5810,7 +5828,7 @@
           }
         }
       ],
-      "checkedAt": "2026-11-18T04:20:39.696787+00:00"
+      "checkedAt": "2026-11-20T03:52:24.185642+00:00"
     },
     {
       "slug": "layla-hp",
@@ -5824,7 +5842,7 @@
         }
       },
       "variants": [],
-      "checkedAt": "2026-11-18T04:20:39.696787+00:00"
+      "checkedAt": "2026-11-20T03:52:24.185642+00:00"
     },
     {
       "slug": "gorou-def",
@@ -5838,7 +5856,35 @@
         }
       },
       "variants": [],
-      "checkedAt": "2026-11-18T04:20:39.696787+00:00"
+      "checkedAt": "2026-11-20T03:52:24.185642+00:00"
+    },
+    {
+      "slug": "traveler-cryo-stellar-conduct-dps",
+      "url": "https://celestia.cv/leaderboards/traveler-cryo-stellar-conduct-dps",
+      "exports": {
+        "config": {
+          "status": "unavailable"
+        },
+        "team": {
+          "status": "unavailable"
+        }
+      },
+      "variants": [],
+      "checkedAt": "2026-11-20T03:52:24.185642+00:00"
+    },
+    {
+      "slug": "traveler-cryo-stellar-swirl-burst-dps",
+      "url": "https://celestia.cv/leaderboards/traveler-cryo-stellar-swirl-burst-dps",
+      "exports": {
+        "config": {
+          "status": "unavailable"
+        },
+        "team": {
+          "status": "unavailable"
+        }
+      },
+      "variants": [],
+      "checkedAt": "2026-11-20T03:52:24.185642+00:00"
     },
     {
       "slug": "keqing-nuke",
@@ -5890,21 +5936,55 @@
       ]
     },
     {
+      "slug": "ningguang-furina-xilonen",
+      "url": "https://celestia.cv/leaderboards/ningguang-furina-xilonen",
+      "exports": {
+        "config": {
+          "status": "downloaded",
+          "file": "config/ningguang-furina-xilonen.json",
+          "sha256": "5839764b2bedb1b9a3b815ae9b5d09ed3223abcaa9480d505007a65df9892ac9"
+        },
+        "team": {
+          "status": "downloaded",
+          "file": "team/ningguang-furina-xilonen.json",
+          "sha256": "ee649a4b858904b4aeb923b7432b59f983b4b30f5a52937fb5e95b6a0f818f51"
+        }
+      },
+      "variants": [
+        {
+          "setId": 15034,
+          "exports": {
+            "config": {
+              "status": "downloaded",
+              "file": "config/ningguang-furina-xilonen--set-15034.json",
+              "sha256": "a8640532e423f6c8400967e94ddfabe1e8835ae4af7fb517cebc943605cf8fbe"
+            },
+            "team": {
+              "status": "downloaded",
+              "file": "team/ningguang-furina-xilonen--set-15034.json",
+              "sha256": "26e6bd6ee739ea6b685301f9e239aa0f78501d981bdb0906abb42a705bd24d84"
+            }
+          }
+        }
+      ],
+      "checkedAt": "2026-11-20T03:52:24.185642+00:00"
+    },
+    {
       "slug": "ningguang-xilonen-durin-nicole",
       "url": "https://celestia.cv/leaderboards/ningguang-xilonen-durin-nicole",
       "exports": {
         "config": {
           "status": "cached",
           "file": "config/ningguang-xilonen-durin-nicole.json",
-          "sha256": "164348ca234f50d29c072f7738f3f83ccf99621a299f724f640d91a36581f04e"
+          "sha256": "18ce232e1d481c8c70bb0befc1a5d3ff3acc9bbce653307d0f6c0e27d331f07e"
         },
         "team": {
           "status": "cached",
           "file": "team/ningguang-xilonen-durin-nicole.json",
-          "sha256": "bdc111dce928bf9330a2b2cbc7068167f1aba4a43050cb8ff783ddc54db86204"
+          "sha256": "4b15eba1a168750b663c8264340bcdc6f546c8b701b8f2773530b9aa5edbf6df"
         }
       },
-      "checkedAt": "2026-11-13T00:23:59.366178+00:00",
+      "checkedAt": "2026-11-19T01:25:09.635485+00:00",
       "variants": []
     },
     {
@@ -5914,15 +5994,15 @@
         "config": {
           "status": "cached",
           "file": "config/ningguang-columbina-illuga-linnea.json",
-          "sha256": "60335a479d4c5432b404ded5f1200e15e8a68ab8f461930b8e400a55fefdd806"
+          "sha256": "15e4fbb3c281c36123be3a9acce0cc3392d50b45f923578144fecc48218e1aa4"
         },
         "team": {
           "status": "cached",
           "file": "team/ningguang-columbina-illuga-linnea.json",
-          "sha256": "89c78ccb56809abf17fe800ab0c3844c6dfcc86fb9e4616a80cf809d79434c5e"
+          "sha256": "128049aa695ae325b58b201236164c47f94898251a10ea33c13af773d965f1f0"
         }
       },
-      "checkedAt": "2026-11-13T12:35:57.597688+00:00",
+      "checkedAt": "2026-11-19T17:56:26.896057+00:00",
       "variants": [
         {
           "setId": 15034,
@@ -5930,16 +6010,65 @@
             "config": {
               "status": "downloaded",
               "file": "config/ningguang-columbina-illuga-linnea--set-15034.json",
-              "sha256": "ece36524ee1a7d33b9ff95c50bec393ae77facc0c40d6012e7fb4ee690d7a68e"
+              "sha256": "a9a425cafd39318235d6376b8a273ab1e0a85a54c370dc25e61e78f0d410dbcf"
             },
             "team": {
               "status": "downloaded",
               "file": "team/ningguang-columbina-illuga-linnea--set-15034.json",
-              "sha256": "58decc27990c935c24ab2e3257bb167981cedcee239ab7802b4ace34b9313ae5"
+              "sha256": "558bc32b39b2a81f0bae96ac444a0d7f6a9e9c48d1cae140dfce0cc382f6363a"
             }
           }
         }
       ]
+    },
+    {
+      "slug": "kaveh-burn",
+      "url": "https://celestia.cv/leaderboards/kaveh-burn",
+      "exports": {
+        "config": {
+          "status": "downloaded",
+          "file": "config/kaveh-burn.json",
+          "sha256": "d8855b4bedbff76862285c2100ed04874a5f685b843442c04e4924c70275a18e"
+        },
+        "team": {
+          "status": "downloaded",
+          "file": "team/kaveh-burn.json",
+          "sha256": "118a796d6a520d2716c13345d0b9ac718cd6d3666b5d2d0a8e802e423ed0a9c2"
+        }
+      },
+      "variants": [
+        {
+          "setId": 15025,
+          "exports": {
+            "config": {
+              "status": "downloaded",
+              "file": "config/kaveh-burn--set-15025.json",
+              "sha256": "e5e1f4921a7454f01b700d2ce67f8eca641862aec536005bb1e897c799347612"
+            },
+            "team": {
+              "status": "downloaded",
+              "file": "team/kaveh-burn--set-15025.json",
+              "sha256": "c28cff5bc2f002ace09907afb5b1a6dc1306ee57bce14552cbcac447585a5dd7"
+            }
+          }
+        },
+        {
+          "setId": 15026,
+          "exports": {
+            "config": {
+              "status": "downloaded",
+              "file": "config/kaveh-burn--set-15026.json",
+              "sha256": "5304f24b7ee66ccf06716215e703425ade814222bbf6a0875f70a7d5be3c3c51"
+            },
+            "team": {
+              "status": "downloaded",
+              "file": "team/kaveh-burn--set-15026.json",
+              "sha256": "0fbca454a4301cbca203382cae7d245bfb6b304bee7dc6d6b1c506aafdaff93c"
+            }
+          }
+        }
+      ],
+      "checkedAt": "2026-11-20T03:52:24.185642+00:00"
     },
     {
       "slug": "kaveh-hyperbloom",
@@ -5994,6 +6123,45 @@
           }
         }
       ]
+    },
+    {
+      "slug": "kaveh-lunar-bloom",
+      "url": "https://celestia.cv/leaderboards/kaveh-lunar-bloom",
+      "exports": {
+        "config": {
+          "status": "downloaded",
+          "file": "config/kaveh-lunar-bloom.json",
+          "sha256": "eba11b519e28a79590e8b74b7df2d162b58399d2f3cb3f8d3742a7707b207113"
+        },
+        "team": {
+          "status": "downloaded",
+          "file": "team/kaveh-lunar-bloom.json",
+          "sha256": "cb83905af4380bd6bc6f4bd0944a2d0046a6121836089a4b049ebea71c09366d"
+        }
+      },
+      "variants": [
+        {
+          "setId": 15025,
+          "exports": {
+            "team": {
+              "status": "downloaded",
+              "file": "team/kaveh-lunar-bloom--set-15025.json",
+              "sha256": "8cef17a81bccc30a8051874126d14d795010986da64323b8a759020a2688c693"
+            }
+          }
+        },
+        {
+          "setId": 15028,
+          "exports": {
+            "team": {
+              "status": "downloaded",
+              "file": "team/kaveh-lunar-bloom--set-15028.json",
+              "sha256": "2e7c40ae817e3b3ef96eceba6d2cbb057a5091b294404af6b3a7e128d190e516"
+            }
+          }
+        }
+      ],
+      "checkedAt": "2026-11-20T03:52:24.185642+00:00"
     },
     {
       "slug": "ganyu-nuke",
@@ -6090,7 +6258,7 @@
         }
       },
       "variants": [],
-      "checkedAt": "2026-11-18T04:20:39.696787+00:00"
+      "checkedAt": "2026-11-20T03:52:24.185642+00:00"
     },
     {
       "slug": "lynette-nico-durin-onfield",
@@ -6136,6 +6304,40 @@
               "status": "downloaded",
               "file": "team/lynette-nico-durin-onfield--set-15031.json",
               "sha256": "917897befcd1c03c06f33528e0334f58692fa612ae43b2c0561c5713dc02516e"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "slug": "lyney-nuke",
+      "url": "https://celestia.cv/leaderboards/lyney-nuke",
+      "exports": {
+        "config": {
+          "status": "cached",
+          "file": "config/lyney-nuke.json",
+          "sha256": "a625e8c88fae16bdfecc97021733f80e34f63f54c214c530b14374d24a8f6e48"
+        },
+        "team": {
+          "status": "cached",
+          "file": "team/lyney-nuke.json",
+          "sha256": "9b3316d2bfe4dc3aa0820fa57c55698af003ead5b7b4a6c732a0403c81b1d5d2"
+        }
+      },
+      "checkedAt": "2026-11-19T17:56:26.896057+00:00",
+      "variants": [
+        {
+          "setId": 15031,
+          "exports": {
+            "config": {
+              "status": "downloaded",
+              "file": "config/lyney-nuke--set-15031.json",
+              "sha256": "ce800dfbe3435f0e3e266b76db97e6213a3e51c53861f4ea1e77167a15f7f0b1"
+            },
+            "team": {
+              "status": "downloaded",
+              "file": "team/lyney-nuke--set-15031.json",
+              "sha256": "6dd0caf378f909cb554dd233c767cf4179bb9b8fe86f99f6e40b9e3b5e21a901"
             }
           }
         }
@@ -6279,49 +6481,21 @@
       ]
     },
     {
-      "slug": "traveler-cryo-stellar-conduct-dps",
-      "url": "https://celestia.cv/leaderboards/traveler-cryo-stellar-conduct-dps",
-      "exports": {
-        "config": {
-          "status": "unavailable"
-        },
-        "team": {
-          "status": "unavailable"
-        }
-      },
-      "variants": [],
-      "checkedAt": "2026-11-18T04:20:39.696787+00:00"
-    },
-    {
-      "slug": "traveler-cryo-stellar-swirl-burst-dps",
-      "url": "https://celestia.cv/leaderboards/traveler-cryo-stellar-swirl-burst-dps",
-      "exports": {
-        "config": {
-          "status": "unavailable"
-        },
-        "team": {
-          "status": "unavailable"
-        }
-      },
-      "variants": [],
-      "checkedAt": "2026-11-18T04:20:39.696787+00:00"
-    },
-    {
       "slug": "rosaria-chongyun-infusion",
       "url": "https://celestia.cv/leaderboards/rosaria-chongyun-infusion",
       "exports": {
         "config": {
           "status": "cached",
           "file": "config/rosaria-chongyun-infusion.json",
-          "sha256": "fad7c506d45f0e1e2277a33383a427f807c544ff1ae3b72af233c5b25f7ef788"
+          "sha256": "1c4b18dd9f4344124fe54691b12427a2ec6df1deba0d066c2eabd6768b71b6b5"
         },
         "team": {
           "status": "cached",
           "file": "team/rosaria-chongyun-infusion.json",
-          "sha256": "ab2b5352224c41f6254b24640f9c487ffabb0bbc613f02d16bd445331e2f6671"
+          "sha256": "e35b95ed76abd477e179084a7a77fd775d39bd6654182d47a5fcc23c5cefffee"
         }
       },
-      "checkedAt": "2026-11-13T00:23:59.366178+00:00",
+      "checkedAt": "2026-11-19T01:25:09.635485+00:00",
       "variants": [
         {
           "setId": 15007,
@@ -6329,12 +6503,12 @@
             "config": {
               "status": "downloaded",
               "file": "config/rosaria-chongyun-infusion--set-15007.json",
-              "sha256": "9810b5e9c2122ccca72d65c3f7acf15ce7ca4a3f9d466fe7fa6087f927e1f345"
+              "sha256": "b513e1f5db9c041a51a8f65039c9ae27d8c4d0bdf23a2b631c6897e3fa4af98c"
             },
             "team": {
               "status": "downloaded",
               "file": "team/rosaria-chongyun-infusion--set-15007.json",
-              "sha256": "32b5d91ec5968261bcc04cf117c60257ce6c7de88bb45c12dbd3c72c5f7baa13"
+              "sha256": "4678cda099a5582405761254712c382549e4adae4c64b6806c76f506bc0db4ca"
             }
           }
         },
@@ -6344,12 +6518,12 @@
             "config": {
               "status": "downloaded",
               "file": "config/rosaria-chongyun-infusion--set-15020.json",
-              "sha256": "9810b5e9c2122ccca72d65c3f7acf15ce7ca4a3f9d466fe7fa6087f927e1f345"
+              "sha256": "0bfa52fd33b0329f58c322f38df379c54f3945b7b434f42f6e3affd1274cd179"
             },
             "team": {
               "status": "downloaded",
               "file": "team/rosaria-chongyun-infusion--set-15020.json",
-              "sha256": "870480c91fe61fd32aa89ff808edf48d00747899494b8bf6cad4ec4b75270136"
+              "sha256": "4196e9599080a3e96cb0d6ac518298f45d34cc4728f093cf305db1bae5fa6932"
             }
           }
         }
@@ -6367,7 +6541,7 @@
         }
       },
       "variants": [],
-      "checkedAt": "2026-11-18T04:20:39.696787+00:00"
+      "checkedAt": "2026-11-20T03:52:24.185642+00:00"
     },
     {
       "slug": "lisa-hex-overload",
@@ -6381,7 +6555,7 @@
         }
       },
       "variants": [],
-      "checkedAt": "2026-11-18T04:20:39.696787+00:00"
+      "checkedAt": "2026-11-20T03:52:24.185642+00:00"
     },
     {
       "slug": "lisa-hyperbloom",
@@ -6438,7 +6612,7 @@
           }
         }
       ],
-      "checkedAt": "2026-11-18T04:20:39.696787+00:00"
+      "checkedAt": "2026-11-20T03:52:24.185642+00:00"
     },
     {
       "slug": "lisa-lunar-charged-plunge",
@@ -6501,7 +6675,7 @@
         }
       },
       "variants": [],
-      "checkedAt": "2026-11-18T04:20:39.696787+00:00"
+      "checkedAt": "2026-11-20T03:52:24.185642+00:00"
     },
     {
       "slug": "lisa-quickburn",
@@ -6515,7 +6689,7 @@
         }
       },
       "variants": [],
-      "checkedAt": "2026-11-18T04:20:39.696787+00:00"
+      "checkedAt": "2026-11-20T03:52:24.185642+00:00"
     },
     {
       "slug": "lisa-er",
@@ -6529,7 +6703,7 @@
         }
       },
       "variants": [],
-      "checkedAt": "2026-11-18T04:20:39.696787+00:00"
+      "checkedAt": "2026-11-20T03:52:24.185642+00:00"
     },
     {
       "slug": "amber-melt",
@@ -6722,7 +6896,7 @@
           }
         }
       ],
-      "checkedAt": "2026-11-18T04:20:39.696787+00:00"
+      "checkedAt": "2026-11-20T03:52:24.185642+00:00"
     },
     {
       "slug": "charlotte-healing",
@@ -6736,56 +6910,7 @@
         }
       },
       "variants": [],
-      "checkedAt": "2026-11-18T04:20:39.696787+00:00"
-    },
-    {
-      "slug": "dori-aggravate",
-      "url": "https://celestia.cv/leaderboards/dori-aggravate",
-      "exports": {
-        "config": {
-          "status": "cached",
-          "file": "config/dori-aggravate.json",
-          "sha256": "2b5b4d071c37bf0874f9841bc0572a4a13b6c4068b3fddbad1eda40369ff6cf5"
-        },
-        "team": {
-          "status": "cached",
-          "file": "team/dori-aggravate.json",
-          "sha256": "77007341439d83078ff11b1efa2109b3cd4b1db7c82a9c045b80932e4b3e6aa3"
-        }
-      },
-      "checkedAt": "2026-11-17T04:34:30.065841+00:00",
-      "variants": [
-        {
-          "setId": 15005,
-          "exports": {
-            "config": {
-              "status": "downloaded",
-              "file": "config/dori-aggravate--set-15005.json",
-              "sha256": "f4741c19c7f2e40fae9da263abd53da82e59ee1aa8e5fb9b32455c345a2fe947"
-            },
-            "team": {
-              "status": "downloaded",
-              "file": "team/dori-aggravate--set-15005.json",
-              "sha256": "2ce85079611c99c7845480098754974b9749cb2a218e1dfb384a389069f73713"
-            }
-          }
-        },
-        {
-          "setId": 15007,
-          "exports": {
-            "config": {
-              "status": "downloaded",
-              "file": "config/dori-aggravate--set-15007.json",
-              "sha256": "f4741c19c7f2e40fae9da263abd53da82e59ee1aa8e5fb9b32455c345a2fe947"
-            },
-            "team": {
-              "status": "downloaded",
-              "file": "team/dori-aggravate--set-15007.json",
-              "sha256": "43e1836f24b20d487ddba9e69dacbd26aa8b25d9dae684346d66100f46059e74"
-            }
-          }
-        }
-      ]
+      "checkedAt": "2026-11-20T03:52:24.185642+00:00"
     },
     {
       "slug": "dehya-nuke",
@@ -6837,6 +6962,55 @@
       ]
     },
     {
+      "slug": "dori-aggravate",
+      "url": "https://celestia.cv/leaderboards/dori-aggravate",
+      "exports": {
+        "config": {
+          "status": "cached",
+          "file": "config/dori-aggravate.json",
+          "sha256": "2b5b4d071c37bf0874f9841bc0572a4a13b6c4068b3fddbad1eda40369ff6cf5"
+        },
+        "team": {
+          "status": "cached",
+          "file": "team/dori-aggravate.json",
+          "sha256": "77007341439d83078ff11b1efa2109b3cd4b1db7c82a9c045b80932e4b3e6aa3"
+        }
+      },
+      "checkedAt": "2026-11-17T04:34:30.065841+00:00",
+      "variants": [
+        {
+          "setId": 15005,
+          "exports": {
+            "config": {
+              "status": "downloaded",
+              "file": "config/dori-aggravate--set-15005.json",
+              "sha256": "f4741c19c7f2e40fae9da263abd53da82e59ee1aa8e5fb9b32455c345a2fe947"
+            },
+            "team": {
+              "status": "downloaded",
+              "file": "team/dori-aggravate--set-15005.json",
+              "sha256": "2ce85079611c99c7845480098754974b9749cb2a218e1dfb384a389069f73713"
+            }
+          }
+        },
+        {
+          "setId": 15007,
+          "exports": {
+            "config": {
+              "status": "downloaded",
+              "file": "config/dori-aggravate--set-15007.json",
+              "sha256": "f4741c19c7f2e40fae9da263abd53da82e59ee1aa8e5fb9b32455c345a2fe947"
+            },
+            "team": {
+              "status": "downloaded",
+              "file": "team/dori-aggravate--set-15007.json",
+              "sha256": "43e1836f24b20d487ddba9e69dacbd26aa8b25d9dae684346d66100f46059e74"
+            }
+          }
+        }
+      ]
+    },
+    {
       "slug": "yun-jin-def",
       "url": "https://celestia.cv/leaderboards/yun-jin-def",
       "exports": {
@@ -6848,7 +7022,7 @@
         }
       },
       "variants": [],
-      "checkedAt": "2026-11-18T04:20:39.696787+00:00"
+      "checkedAt": "2026-11-20T03:52:24.185642+00:00"
     },
     {
       "slug": "dahlia-hp",
@@ -6862,7 +7036,7 @@
         }
       },
       "variants": [],
-      "checkedAt": "2026-11-18T04:20:39.696787+00:00"
+      "checkedAt": "2026-11-20T03:52:24.185642+00:00"
     },
     {
       "slug": "klee-nuke",
@@ -7171,6 +7345,55 @@
       "variants": []
     },
     {
+      "slug": "candace-nilou-bloom",
+      "url": "https://celestia.cv/leaderboards/candace-nilou-bloom",
+      "exports": {
+        "config": {
+          "status": "downloaded",
+          "file": "config/candace-nilou-bloom.json",
+          "sha256": "2bebd98aa4f710f142da103ed9b03778b660452790489984e81bea252371addd"
+        },
+        "team": {
+          "status": "downloaded",
+          "file": "team/candace-nilou-bloom.json",
+          "sha256": "e211566186f5558da5ca2dc9fcf42a8563976c80de4a33a65c8883bf75c0c78a"
+        }
+      },
+      "variants": [
+        {
+          "setId": 15020,
+          "exports": {
+            "config": {
+              "status": "downloaded",
+              "file": "config/candace-nilou-bloom--set-15020.json",
+              "sha256": "13b90a69a63fa0cc97f5ae587c910aad1dc6eb662c440212794f6c8c7bd176c1"
+            },
+            "team": {
+              "status": "downloaded",
+              "file": "team/candace-nilou-bloom--set-15020.json",
+              "sha256": "d278dd9e08fa662320d91e9cf5c04c51217923a68ea3f8e9c15f0fcffc8c8a0c"
+            }
+          }
+        },
+        {
+          "setId": 15029,
+          "exports": {
+            "config": {
+              "status": "downloaded",
+              "file": "config/candace-nilou-bloom--set-15029.json",
+              "sha256": "13b90a69a63fa0cc97f5ae587c910aad1dc6eb662c440212794f6c8c7bd176c1"
+            },
+            "team": {
+              "status": "downloaded",
+              "file": "team/candace-nilou-bloom--set-15029.json",
+              "sha256": "3e0c5c6dac114a508f4aa6cda0323cb25ff3be9c3a053ab677830b114af41b8f"
+            }
+          }
+        }
+      ],
+      "checkedAt": "2026-11-20T03:52:24.185642+00:00"
+    },
+    {
       "slug": "nilou-c6-vape-hyperbuffed",
       "url": "https://celestia.cv/leaderboards/nilou-c6-vape-hyperbuffed",
       "exports": {
@@ -7242,12 +7465,12 @@
             "team": {
               "status": "downloaded",
               "file": "team/zibai-c6-whale--set-15041.json",
-              "sha256": "5f953c2f6a0a8ae0e9dfb611498ec2ff8638843f4af2dfa89673d4310ce8535a"
+              "sha256": "8889be75b8ea3f43c8cac482b3a0415c12893da13501bf6093eb89e08e6e3118"
             }
           }
         }
       ],
-      "checkedAt": "2026-11-18T04:20:39.696787+00:00"
+      "checkedAt": "2026-11-20T03:52:24.185642+00:00"
     },
     {
       "slug": "mika-healing",
@@ -7261,7 +7484,7 @@
         }
       },
       "variants": [],
-      "checkedAt": "2026-11-18T04:20:39.696787+00:00"
+      "checkedAt": "2026-11-20T03:52:24.185642+00:00"
     },
     {
       "slug": "kujou-sara-nuke",
@@ -7381,7 +7604,7 @@
           }
         }
       ],
-      "checkedAt": "2026-11-18T04:20:39.696787+00:00"
+      "checkedAt": "2026-11-20T03:52:24.185642+00:00"
     },
     {
       "slug": "aloy-nuke",

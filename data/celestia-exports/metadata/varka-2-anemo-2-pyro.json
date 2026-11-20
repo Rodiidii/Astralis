@@ -32,8 +32,8 @@
     }
   },
   "characterBonusStats": {
-    "atk": 1156.799,
-    "atk_": 93
+    "atk": 300,
+    "atk_": 25
   },
   "enemy": {
     "level": 100,
@@ -41,37 +41,23 @@
   },
   "issues": [
     {
+      "code": "skippedLines",
+      "reason": "teammate",
+      "lines": 3,
+      "share": 0.09571244054195467
+    },
+    {
       "code": "characterBonusStats",
       "stats": [
-        {
-          "buff": "And That's the Story! Share It With Your Friends!",
-          "key": "atk",
-          "value": 350
-        },
         {
           "buff": "Methexis",
           "key": "atk",
           "value": 300
         },
         {
-          "buff": "Heritage",
-          "key": "atk_",
-          "value": 48
-        },
-        {
-          "buff": "Noblesse Oblige 4pc",
-          "key": "atk_",
-          "value": 20
-        },
-        {
           "buff": "Pyro Resonance",
           "key": "atk_",
           "value": 25
-        },
-        {
-          "buff": "Grace of Kenosis (% of Nicole's ATK)",
-          "key": "atk",
-          "value": 506.79885150508795
         }
       ]
     },

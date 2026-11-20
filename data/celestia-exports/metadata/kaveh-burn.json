@@ -1,0 +1,108 @@
+{
+  "category": {
+    "id": "kaveh-burn",
+    "name": "Hex Burn",
+    "kind": "normal"
+  },
+  "child": {
+    "constellation": 6,
+    "characterLevel": 90,
+    "talents": {
+      "burst": 13,
+      "skill": 13,
+      "normal": 10
+    },
+    "baseTalents": {
+      "burst": 10,
+      "skill": 10,
+      "normal": 10
+    },
+    "weaponId": 12515,
+    "refinement": 1
+  },
+  "reference": {
+    "source": "ceilingStandard"
+  },
+  "goConditions": {
+    "GestOfTheMightyWolf": {
+      "stacks": "4"
+    }
+  },
+  "characterBonusStats": {
+    "atk_": 25,
+    "atk": 548.791
+  },
+  "enemy": {
+    "level": 100,
+    "res": 0.1
+  },
+  "issues": [
+    {
+      "code": "characterBonusStats",
+      "stats": [
+        {
+          "buff": "Pyro Resonance",
+          "key": "atk_",
+          "value": 25
+        },
+        {
+          "buff": "Grace of Kenosis (% of Nicole's ATK)",
+          "key": "atk",
+          "value": 548.7914632081548
+        }
+      ]
+    },
+    {
+      "code": "goSwitch",
+      "switches": [
+        {
+          "condition": [
+            "GestOfTheMightyWolf",
+            "stacks",
+            "4"
+          ],
+          "source": {
+            "type": "weapon",
+            "weaponId": 12515
+          },
+          "buffs": [
+            "Indomitable Chivalry"
+          ]
+        }
+      ]
+    },
+    {
+      "code": "setEffects",
+      "setIds": [
+        15036
+      ]
+    }
+  ],
+  "teamIssues": [
+    {
+      "code": "goSwitch",
+      "switches": [
+        {
+          "condition": [
+            "GestOfTheMightyWolf",
+            "stacks",
+            "4"
+          ],
+          "source": {
+            "type": "weapon",
+            "weaponId": 12515
+          },
+          "buffs": [
+            "Indomitable Chivalry"
+          ]
+        }
+      ]
+    },
+    {
+      "code": "setEffects",
+      "setIds": [
+        15036
+      ]
+    }
+  ]
+}

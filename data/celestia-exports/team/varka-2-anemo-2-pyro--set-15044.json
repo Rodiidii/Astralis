@@ -1,7 +1,7 @@
 {
   "name": "Pyro",
   "description": "Celestia",
-  "lastEdit": 1794351037747,
+  "lastEdit": 1795146871036,
   "conditional": {
     "resonance": {},
     "reaction": {}
@@ -27,8 +27,8 @@
       "hitMode": "avgHit",
       "infusionAura": "",
       "bonusStats": {
-        "atk": 1156.799,
-        "atk_": 93
+        "atk": 300,
+        "atk_": 25
       },
       "conditional": {
         "Varka": {
@@ -51,67 +51,58 @@
               ],
               "hitMode": "avgHit",
               "bonusStats": {
-                "atk_": 25,
-                "all_dmg_": 120,
+                "atk_": 48,
+                "all_dmg_": 102.25,
+                "atk": 460.487,
                 "anemo_enemyRes_": -35,
-                "critRate_": 20
+                "critDMG_": -15
               },
               "description": ""
             },
             {
-              "weight": 6.6,
+              "weight": 2.2,
               "path": [
                 "skill",
                 "na1"
               ],
               "hitMode": "avgHit",
               "bonusStats": {
-                "atk_": 25,
-                "all_dmg_": 175,
+                "atk_": 103,
+                "atk": 810.487,
+                "all_dmg_": 160,
                 "pyro_enemyRes_": -75,
-                "critRate_": 20
+                "critRate_": 20,
+                "critDMG_": -15
               },
               "description": ""
             },
             {
-              "weight": 6.6,
-              "path": [
-                "skill",
-                "na21"
-              ],
-              "hitMode": "avgHit",
-              "bonusStats": {
-                "atk_": 25,
-                "all_dmg_": 175,
-                "pyro_enemyRes_": -75,
-                "critRate_": 20
-              },
-              "description": ""
-            },
-            {
-              "weight": 6.6,
+              "weight": 2.2,
               "path": [
                 "skill",
                 "na22"
               ],
               "hitMode": "avgHit",
               "bonusStats": {
-                "atk_": 25,
-                "all_dmg_": 150,
+                "atk_": 103,
+                "atk": 810.487,
+                "all_dmg_": 141.975,
                 "anemo_enemyRes_": -35,
-                "critRate_": 20
+                "critRate_": 20,
+                "critDMG_": -8.025
               },
               "description": ""
             },
             {
-              "weight": 4.4,
+              "weight": 2.2,
               "path": [
                 "skill",
-                "na31"
+                "na21"
               ],
               "hitMode": "avgHit",
               "bonusStats": {
-                "atk_": 25,
+                "atk_": 103,
+                "atk": 810.487,
                 "all_dmg_": 175,
                 "pyro_enemyRes_": -75,
                 "critRate_": 20
@@ -119,14 +110,15 @@
               "description": ""
             },
             {
-              "weight": 4.4,
+              "weight": 2.2,
               "path": [
                 "skill",
                 "na32"
               ],
               "hitMode": "avgHit",
               "bonusStats": {
-                "atk_": 25,
+                "atk_": 103,
+                "atk": 810.487,
                 "all_dmg_": 150,
                 "anemo_enemyRes_": -35,
                 "critRate_": 20
@@ -134,14 +126,31 @@
               "description": ""
             },
             {
-              "weight": 4.4,
+              "weight": 2.2,
+              "path": [
+                "skill",
+                "na31"
+              ],
+              "hitMode": "avgHit",
+              "bonusStats": {
+                "atk_": 103,
+                "atk": 810.487,
+                "all_dmg_": 175,
+                "pyro_enemyRes_": -75,
+                "critRate_": 20
+              },
+              "description": ""
+            },
+            {
+              "weight": 2.2,
               "path": [
                 "skill",
                 "na41"
               ],
               "hitMode": "avgHit",
               "bonusStats": {
-                "atk_": 25,
+                "atk_": 103,
+                "atk": 810.487,
                 "all_dmg_": 175,
                 "pyro_enemyRes_": -75,
                 "critRate_": 20
@@ -149,44 +158,15 @@
               "description": ""
             },
             {
-              "weight": 4.4,
+              "weight": 2.2,
               "path": [
                 "skill",
                 "na42"
               ],
               "hitMode": "avgHit",
               "bonusStats": {
-                "atk_": 25,
-                "all_dmg_": 150,
-                "anemo_enemyRes_": -35,
-                "critRate_": 20
-              },
-              "description": ""
-            },
-            {
-              "weight": 4.4,
-              "path": [
-                "skill",
-                "na51"
-              ],
-              "hitMode": "avgHit",
-              "bonusStats": {
-                "atk_": 25,
-                "all_dmg_": 175,
-                "pyro_enemyRes_": -75,
-                "critRate_": 20
-              },
-              "description": ""
-            },
-            {
-              "weight": 4.4,
-              "path": [
-                "skill",
-                "na52"
-              ],
-              "hitMode": "avgHit",
-              "bonusStats": {
-                "atk_": 25,
+                "atk_": 103,
+                "atk": 810.487,
                 "all_dmg_": 150,
                 "anemo_enemyRes_": -35,
                 "critRate_": 20
@@ -201,7 +181,8 @@
               ],
               "hitMode": "avgHit",
               "bonusStats": {
-                "atk_": 25,
+                "atk_": 103,
+                "atk": 810.487,
                 "all_dmg_": 175,
                 "pyro_enemyRes_": -75,
                 "critRate_": 20
@@ -216,7 +197,8 @@
               ],
               "hitMode": "avgHit",
               "bonusStats": {
-                "atk_": 25,
+                "atk_": 103,
+                "atk": 810.487,
                 "all_dmg_": 150,
                 "anemo_enemyRes_": -35,
                 "critRate_": 20
@@ -224,14 +206,15 @@
               "description": ""
             },
             {
-              "weight": 8.8,
+              "weight": 2.2,
               "path": [
                 "skill",
-                "azure1"
+                "na1"
               ],
               "hitMode": "avgHit",
               "bonusStats": {
-                "atk_": 25,
+                "atk_": 103,
+                "atk": 810.487,
                 "all_dmg_": 175,
                 "pyro_enemyRes_": -75,
                 "critRate_": 20
@@ -239,14 +222,31 @@
               "description": ""
             },
             {
-              "weight": 8.8,
+              "weight": 2.2,
               "path": [
                 "skill",
-                "azure2"
+                "fourWind1"
               ],
               "hitMode": "avgHit",
               "bonusStats": {
-                "atk_": 25,
+                "atk_": 103,
+                "atk": 810.487,
+                "all_dmg_": 175,
+                "pyro_enemyRes_": -75,
+                "critRate_": 20
+              },
+              "description": ""
+            },
+            {
+              "weight": 2.2,
+              "path": [
+                "skill",
+                "fourWind2"
+              ],
+              "hitMode": "avgHit",
+              "bonusStats": {
+                "atk_": 103,
+                "atk": 810.487,
                 "all_dmg_": 150,
                 "anemo_enemyRes_": -35,
                 "critRate_": 20
@@ -254,30 +254,255 @@
               "description": ""
             },
             {
-              "weight": 0.5,
+              "weight": 2.2,
               "path": [
-                "burst",
-                "dmg1"
+                "skill",
+                "na1"
               ],
               "hitMode": "avgHit",
               "bonusStats": {
-                "atk_": 25,
-                "all_dmg_": 145,
-                "pyro_enemyRes_": -75,
+                "atk_": 103,
+                "atk": 810.487,
+                "all_dmg_": 175,
+                "pyro_enemyRes_": -73.5,
                 "critRate_": 20
               },
               "description": ""
             },
             {
-              "weight": 0.5,
+              "weight": 2.2,
               "path": [
-                "burst",
-                "dmg2"
+                "skill",
+                "ca1"
               ],
               "hitMode": "avgHit",
               "bonusStats": {
-                "atk_": 25,
-                "all_dmg_": 120,
+                "atk_": 103,
+                "atk": 810.487,
+                "all_dmg_": 175,
+                "pyro_enemyRes_": -73.5,
+                "critRate_": 20
+              },
+              "description": ""
+            },
+            {
+              "weight": 2.2,
+              "path": [
+                "skill",
+                "ca2"
+              ],
+              "hitMode": "avgHit",
+              "bonusStats": {
+                "atk_": 103,
+                "atk": 810.487,
+                "all_dmg_": 150,
+                "anemo_enemyRes_": -35,
+                "critRate_": 20
+              },
+              "description": ""
+            },
+            {
+              "weight": 2.2,
+              "path": [
+                "skill",
+                "na1"
+              ],
+              "hitMode": "avgHit",
+              "bonusStats": {
+                "atk_": 103,
+                "atk": 810.487,
+                "all_dmg_": 175,
+                "pyro_enemyRes_": -35,
+                "critRate_": 20
+              },
+              "description": ""
+            },
+            {
+              "weight": 2.2,
+              "path": [
+                "skill",
+                "ca1"
+              ],
+              "hitMode": "avgHit",
+              "bonusStats": {
+                "atk_": 103,
+                "atk": 810.487,
+                "all_dmg_": 175,
+                "pyro_enemyRes_": -35,
+                "critRate_": 20
+              },
+              "description": ""
+            },
+            {
+              "weight": 2.2,
+              "path": [
+                "skill",
+                "ca2"
+              ],
+              "hitMode": "avgHit",
+              "bonusStats": {
+                "atk_": 103,
+                "atk": 810.487,
+                "all_dmg_": 150,
+                "anemo_enemyRes_": -35,
+                "critRate_": 20
+              },
+              "description": ""
+            },
+            {
+              "weight": 2.2,
+              "path": [
+                "skill",
+                "na1"
+              ],
+              "hitMode": "avgHit",
+              "bonusStats": {
+                "atk_": 103,
+                "atk": 810.487,
+                "all_dmg_": 175,
+                "pyro_enemyRes_": -35,
+                "critRate_": 20
+              },
+              "description": ""
+            },
+            {
+              "weight": 2.2,
+              "path": [
+                "skill",
+                "ca1"
+              ],
+              "hitMode": "avgHit",
+              "bonusStats": {
+                "atk_": 103,
+                "atk": 810.487,
+                "all_dmg_": 175,
+                "pyro_enemyRes_": -35,
+                "critRate_": 20
+              },
+              "description": ""
+            },
+            {
+              "weight": 2.2,
+              "path": [
+                "skill",
+                "ca2"
+              ],
+              "hitMode": "avgHit",
+              "bonusStats": {
+                "atk_": 103,
+                "atk": 810.487,
+                "all_dmg_": 150,
+                "anemo_enemyRes_": -35,
+                "critRate_": 20
+              },
+              "description": ""
+            },
+            {
+              "weight": 2.2,
+              "path": [
+                "skill",
+                "na1"
+              ],
+              "hitMode": "avgHit",
+              "bonusStats": {
+                "atk_": 103,
+                "atk": 810.487,
+                "all_dmg_": 175,
+                "pyro_enemyRes_": -35,
+                "critRate_": 20
+              },
+              "description": ""
+            },
+            {
+              "weight": 2.2,
+              "path": [
+                "skill",
+                "fourWind1"
+              ],
+              "hitMode": "avgHit",
+              "bonusStats": {
+                "atk_": 103,
+                "atk": 810.487,
+                "all_dmg_": 175,
+                "pyro_enemyRes_": -35,
+                "critRate_": 20
+              },
+              "description": ""
+            },
+            {
+              "weight": 2.2,
+              "path": [
+                "skill",
+                "fourWind2"
+              ],
+              "hitMode": "avgHit",
+              "bonusStats": {
+                "atk_": 103,
+                "atk": 810.487,
+                "all_dmg_": 150,
+                "anemo_enemyRes_": -35,
+                "critRate_": 20
+              },
+              "description": ""
+            },
+            {
+              "weight": 2.2,
+              "path": [
+                "skill",
+                "na1"
+              ],
+              "hitMode": "avgHit",
+              "bonusStats": {
+                "atk_": 55,
+                "atk": 810.487,
+                "all_dmg_": 175,
+                "pyro_enemyRes_": -35,
+                "critRate_": 20
+              },
+              "description": ""
+            },
+            {
+              "weight": 2.2,
+              "path": [
+                "skill",
+                "ca1"
+              ],
+              "hitMode": "avgHit",
+              "bonusStats": {
+                "atk_": 55,
+                "atk": 810.487,
+                "all_dmg_": 175,
+                "pyro_enemyRes_": -35,
+                "critRate_": 20
+              },
+              "description": ""
+            },
+            {
+              "weight": 2.2,
+              "path": [
+                "skill",
+                "ca2"
+              ],
+              "hitMode": "avgHit",
+              "bonusStats": {
+                "atk_": 55,
+                "atk": 810.487,
+                "all_dmg_": 150,
+                "anemo_enemyRes_": -35,
+                "critRate_": 20
+              },
+              "description": ""
+            },
+            {
+              "weight": 8,
+              "path": [
+                "reaction",
+                "anemoSwirl"
+              ],
+              "hitMode": "avgHit",
+              "bonusStats": {
+                "atk_": 103,
+                "atk": 810.487,
                 "anemo_enemyRes_": -35,
                 "critRate_": 20
               },

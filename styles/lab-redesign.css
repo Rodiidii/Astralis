@@ -256,3 +256,16 @@
 .lab-identity .lab-damage-bonus-details dl>div{display:grid;grid-template-columns:minmax(0,1fr) minmax(42px,auto);align-items:start;min-width:0;gap:8px}
 .lab-identity .lab-damage-bonus-details dt{min-width:0;white-space:normal;overflow-wrap:anywhere}
 .lab-identity .lab-damage-bonus-details dd{min-width:0;text-align:right;white-space:nowrap}
+
+.lab-damage-nature{text-align:left!important;min-width:125px}.lab-damage-type{display:inline-flex;align-items:center;white-space:normal;font-size:.73rem;font-weight:600;line-height:1.4;color:var(--muted);padding:4px 8px;border-radius:7px;background:var(--surface2)}.lab-damage-type.is-reaction{color:var(--accent,#c7b4f4);background:color-mix(in srgb,var(--accent,#c7b4f4) 12%,transparent);border:1px solid color-mix(in srgb,var(--accent,#c7b4f4) 25%,transparent)}
+
+.lab-received-buffs{padding:20px;border:1px solid #34434b;border-radius:16px;background:#111b23;margin:18px 0}
+.lab-received-buffs>summary{font-size:1rem;font-weight:750;cursor:pointer;color:#b5dfe6}
+.lab-received-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,250px),1fr));gap:14px;margin-top:16px}
+.lab-received-member,.lab-received-enemy{min-width:0;border:1px solid #2b3a43;border-radius:12px;padding:16px;background:#151f28}
+.lab-received-member h4,.lab-received-enemy h4{margin:0 0 12px}.lab-received-member h4 small,.lab-received-source h5 small{display:block;color:#a8b7c4;font-weight:400;font-size:.75rem;margin-top:4px}
+.lab-received-source+.lab-received-source{border-top:1px solid #2b3a43;padding-top:10px;margin-top:10px}.lab-received-source h5{margin:0 0 8px;font-size:.85rem}
+.lab-received-source ul{list-style:none;padding:0;margin:0}.lab-received-source li{display:flex;justify-content:space-between;gap:12px;padding:5px 0;font-size:.8rem}.lab-received-source li span{min-width:0;overflow-wrap:anywhere}.lab-received-source li b{white-space:nowrap;align-self:flex-start;color:#a8dce5}
+.lab-received-enemy{margin-top:14px}.lab-received-composition{border-left:3px solid #dfbf7b;padding:10px 14px;background:#202630;font-size:.84rem;line-height:1.6}.lab-received-conditions{margin-top:16px}.lab-received-conditions ul{padding-left:20px}.lab-received-conditions li{margin:12px 0}.lab-received-conditions p{font-size:.8rem;color:#acbac7;line-height:1.6}
+
+.lab-reaction-bonus-details{margin-top:12px;border-top:1px solid #2b3a43;padding-top:12px}.lab-reaction-bonus-details>summary{color:#a8dce5;cursor:pointer;font-size:.75rem;white-space:normal}.lab-reaction-bonus-details h5{margin:14px 0 6px;font-size:.8rem;color:#dfbf7b}

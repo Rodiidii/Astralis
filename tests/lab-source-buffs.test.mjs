@@ -1,26 +1,26 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import {readFileSync} from 'node:fs';
-import {loadWrEngine,buildWrCharacterData,evaluateWrTeam,resolveWrCharacterKey,wrStatKey,wrPlainStats,wrAttackOptions,wrSavedConditions} from '../src/lab-wr-adapter.js';
+import {loadWrEngine,buildWrCharacterData,evaluateWrTeam,resolveWrCharacterKey,wrStatKey,wrPlainStats,wrAttackOptions,wrSavedConditions,wrConditionOptions} from '../src/lab-wr-adapter.js';
 import {renderSourceBuffs} from '../src/lab-source-buffs.js';
 const engine=await loadWrEngine();
 const manifest=JSON.parse(readFileSync(new URL('../data/lab-character-conditions.json',import.meta.url)));
 const build=(character,conditionals={},other={})=>buildWrCharacterData(engine,{character,level:90,talent:{auto:10,skill:10,burst:10},conditionals,...other});
-test('chaque fiche du moteur et ses 398 conditions possèdent des commandes sans récursion',()=>{
+test('chaque fiche du moteur et ses conditions publiées possèdent des commandes sans récursion',()=>{
  let conditions=0;
  assert.equal(Object.keys(manifest.characters).length,Object.keys(engine.characters).length);
  for(const [key,character] of Object.entries(engine.characters)){
   const record=manifest.characters[key];assert.ok(record,key);
   for(const path of engine.conditionalPaths.characters[key]||[]){
-   const options=engine.conditionOptions(key,path);assert.ok(options.includes('off'));assert.ok(options.length>1,key+':'+path);assert.equal(new Set(options).size,options.length);
+   const options=wrConditionOptions(engine,'characters',key,path);assert.ok(options.includes('off'));assert.ok(options.length>1,key+':'+path);assert.equal(new Set(options).size,options.length);
    assert.deepEqual(record.conditions.find(row=>row.path===path)?.options,options);conditions++;
   }
   assert.match(renderSourceBuffs({...record,key},{constellation:6},-1),/lab-source-buffs/);
  }
- assert.equal(conditions,398);
+ assert.equal(conditions,Object.values(manifest.characters).reduce((n,c)=>n+c.conditions.length,0));
 });
 test('Bennett : la valeur activeInArea est utilisée et transmet réellement son ATQ à Diluc',()=>{
- assert.deepEqual(engine.conditionOptions('Bennett','activeInArea'),['off','activeInArea']);
+ assert.deepEqual(wrConditionOptions(engine,'characters','Bennett','activeInArea'),['off','activeInArea']);
  const active=build('Diluc'),off=evaluateWrTeam(engine,active,[build('Bennett')]),on=evaluateWrTeam(engine,active,[build('Bennett',{Bennett:{activeInArea:'activeInArea',underHP:'underHP'}})]);
  assert.ok(on.display.normal[0].value>off.display.normal[0].value);
 });

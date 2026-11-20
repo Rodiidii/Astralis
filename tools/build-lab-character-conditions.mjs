@@ -1,8 +1,10 @@
 import fs from 'node:fs';
+import {wrConditionOptions} from '../src/lab-wr-adapter.js';
 import {REVIEWED_BUFFS} from '../src/lab-reviewed-buffs.js';
 import {formulaProvenance} from './lab-formula-provenance.mjs';
 import * as engine from '../public/lab-wr-engine.js';
 import {normalizeLabEngine} from '../src/lab-engine-normalize.js';
+import {RADIANCE_KITS} from '../src/lab-radiance-kit-data.js';
 normalizeLabEngine(engine);
 const snapshot=JSON.parse(fs.readFileSync('data/lab-kit-snapshot.json','utf8'));
 const aliases=JSON.parse(fs.readFileSync('public/gi-name-aliases.json','utf8'));
@@ -13,11 +15,12 @@ for(const key of Object.keys(engine.characters)){
  const formulaTalents=formulaProvenance(key,paths);
  const alias=aliases.characters.find(a=>(a.en||[]).some(name=>norm(name)===norm(key))),id=alias?.id||({Mitya:'10000136',Valeriy:'10000137'}[key]);
 
- const kit=snapshot.characters[id],talents=kit?.talents||{},constellations=kit?.constellations||{};
+ const kit=snapshot.characters[id],radianceKit=RADIANCE_KITS[key]?.data,talents=kit?.talents||{},constellations=kit?.constellations||{};
  const travelerElement=key.match(/^Traveler(Anemo|Geo|Electro|Dendro|Hydro|Pyro|Cryo)[MF]$/i)?.[1]?.toLowerCase();
  const characterSource=Object.keys(talents).length?talents:(travelerElement?snapshot.travelerVariants?.[travelerElement]?.talents||{}:{});
  const talentIds=['combat1','combat2','combat3','passive1','passive2','passive3','passive4','lockedPassive','c1','c2','c3','c4','c5','c6'];
- const sourceTalents=Object.fromEntries(talentIds.map(talent=>{const entry=characterSource[talent]||constellations[talent];return [talent,entry?{name:entry.name||'',description:entry.description||entry.descriptionRaw||''}:null];}).filter(([,entry])=>entry?.name||entry?.description));
+ const radianceTalentMap={combat1:radianceKit?.skills?.normalattack,combat2:radianceKit?.skills?.elementalskill,combat3:radianceKit?.skills?.elementalburst,passive1:radianceKit?.passives?.p1,passive2:radianceKit?.passives?.p2,passive3:radianceKit?.passives?.p3,passive4:radianceKit?.passives?.p4,...Object.fromEntries(Array.from({length:6},(_,i)=>['c'+(i+1),radianceKit?.constellations?.['const'+(i+1)]]))};
+ const sourceTalents=Object.fromEntries(talentIds.map(talent=>{const entry=characterSource[talent]||constellations[talent]||radianceTalentMap[talent];const rawDescription=entry?.description||entry?.descriptionRaw||'';return [talent,entry?{name:entry.name||'',description:String(rawDescription).replace(/\\n/g,'\n').replace(/\{NON_BREAK_SPACE\}/g,' ').replace(/\{LINK#[^}]*\}|\{\/LINK\}/g,'').replace(/<[^>]+>/g,'').replace(/#/g,'').trim()}:null];}).filter(([,entry])=>entry?.name||entry?.description));
  const flattenText=value=>typeof value==='string'?value:Array.isArray(value)?value.map(flattenText).join('\n'):value&&typeof value==='object'?Object.values(value).map(flattenText).join('\n'):'';
  for(const folder of ['dm-localization','localization']){
   const filename=`vendor/genshin-optimizer-source/libs/gi/${folder}/assets/locales/fr/char_${key}${folder==='dm-localization'?'_gen':''}.json`;
@@ -28,16 +31,8 @@ for(const key of Object.keys(engine.characters)){
    if(text)sourceTalents[talent]={name:entry.name,description:text};
   }
  }
- const conditionOptions=(group,key,path)=>{
-  const values=new Set(),lookupValues=new Set(),seen=new WeakSet(),sheet=engine[group]?.[key]?.sheetData;let elementSelector=false;
-  const visit=node=>{if(!node||typeof node!=='object'||seen.has(node))return;seen.add(node);const element=node.data?.hit?.ele;if(element?.operation==='read'&&element.path?.[0]==='conditional'&&element.path?.[1]===key&&element.path?.[2]===path)elementSelector=true;
-   if(node.operation==='match'&&Array.isArray(node.operands)){const input=node.operands.find(value=>value?.operation==='read'&&value.path?.[0]==='conditional'&&value.path?.[1]===key&&value.path?.[2]===path),option=node.operands.find(value=>value!==input&&value?.operation==='const'&&typeof value.value==='string'&&value.value!=='off');if(input&&option)values.add(option.value);}
-   if(node.operation==='lookup'&&node.operands?.[0]?.operation==='read'&&node.operands[0].path?.[0]==='conditional'&&node.operands[0].path?.[1]===key&&node.operands[0].path?.[2]===path)for(const value of Object.keys(node.table||{}))if(value!=='off')lookupValues.add(value);
-   for(const child of Object.values(node))if(child&&typeof child==='object')visit(child);
-  };visit(sheet);
-  const generated=engine.conditionOptions(key,path),explicit=[...new Set([...lookupValues,...values])];
-  return elementSelector?['off','hydro','pyro','cryo','electro']:explicit.length?['off',...explicit]:generated;
- };
+ if(key==='Chasca'&&sourceTalents.c6)sourceTalents.c6.description=sourceTalents.c6.description.replace('et les DGT des cartouches','et les DGT CRIT des cartouches');
+ const conditionOptions=wrConditionOptions;
  const conditionEffects=(group,key,path)=>{
   const effects=[],scan=(source,root)=>{const seen=new WeakSet(),visit=(node,trail=[])=>{if(!node||typeof node!=='object'||seen.has(node))return;seen.add(node);if(node.operation==='read'&&node.path?.[0]==='conditional'&&node.path?.[1]===key&&node.path?.[2]===path)effects.push({root,trail});for(const [name,child]of Object.entries(node))if(child&&typeof child==='object')visit(child,[...trail,name]);};visit(source);};
   for(const root of ['premod','teamBuff','display','total','infusion','special','flags'])scan(engine[group]?.[key]?.sheetData?.[root],root);
@@ -81,9 +76,9 @@ for(const key of Object.keys(engine.characters)){
   if(reviewed)talent=reviewed[0];
   if(/^TravelerHydro/.test(key)&&path==='suffusion')talent='combat2';
   const source=sourceTalents[talent];
-  const options=conditionOptions('characters',key,path);
+  const options=conditionOptions(engine,'characters',key,path);
   const effect=conditionEffects('characters',key,path);
-  return {path,talent,ascension:talent==='passive1'?1:talent==='passive2'?4:0,formulaTalents:candidates,relatedTalents:[...new Set([...(reviewed?.[3]||[]),...candidates])].filter(id=>id!==talent),label:reviewed?.[1],help:reviewed?.[2],constellation:talent?.match(/^c([1-6])$/)?Number(talent[1]):0,name:source?.name||(path==='moonsignAfterSkillBurst'?'Lueur ascendante · Résonance de Clair de lune':path.replace(/([a-z])([A-Z])/g,'$1 $2').replace(/_/g,' ')),description:source?.description||source?.descriptionRaw||'',options,buff:effect.buff,effectRoots:effect.roots};
+  return {path,talent,ascension:talent==='passive1'?1:talent==='passive2'?4:0,formulaTalents:candidates,relatedTalents:[...new Set([...(reviewed?.[3]||[]),...candidates])].filter(id=>id!==talent),label:reviewed?.[1],help:reviewed?.[2],constellation:talent?.match(/^c([1-6])$/)?Number(talent[1]):0,name:source?.name||(path==='moonsignAfterSkillBurst'?'Lueur ascendante · Résonance de Clair de lune':path.replace(/([a-z])([A-Z])/g,'$1 $2').replace(/_/g,' ')),description:source?.description||source?.descriptionRaw||reviewed?.[2]||'',options,buff:effect.buff,effectRoots:effect.roots};
  })};
  const record=output.characters[key];
  const sourceStats=new Set(),seenSources=new WeakSet();

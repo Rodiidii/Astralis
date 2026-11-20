@@ -12,5 +12,17 @@ services:
         value: 3.12.8
       - key: ASTRALIS_HOSTED
         value: "true"
+      - key: ASTRALIS_CHARACTER_SHEETS_READ_ONLY
+        value: "true"
       - key: ASTRALIS_ACCESS_PASSWORD
         generateValue: true
+      - key: ASTRALIS_CHARACTER_SHEETS_ADMIN_PASSWORD
+        sync: false
+      - key: ASTRALIS_CHARACTER_SHEETS_GITHUB_REPO
+        sync: false
+      - key: ASTRALIS_CHARACTER_SHEETS_GITHUB_TOKEN
+        sync: false
+      - key: ASTRALIS_CHARACTER_SHEETS_GITHUB_BRANCH
+        value: main
+      - key: ASTRALIS_CHARACTER_SHEETS_GITHUB_PATH
+        value: published/character-sheets

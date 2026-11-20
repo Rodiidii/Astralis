@@ -1,0 +1,747 @@
+{
+  "name": "Nilou Bloom",
+  "description": "Celestia",
+  "lastEdit": 1795146937879,
+  "conditional": {
+    "resonance": {},
+    "reaction": {}
+  },
+  "enemyOverride": {
+    "enemyLevel": 100,
+    "enemyDefIgn_": 0,
+    "enemyDefRed_": 0,
+    "pyro_enemyRes_": 10,
+    "hydro_enemyRes_": 10,
+    "electro_enemyRes_": 10,
+    "cryo_enemyRes_": 10,
+    "anemo_enemyRes_": 10,
+    "geo_enemyRes_": 10,
+    "dendro_enemyRes_": 10,
+    "physical_enemyRes_": 10
+  },
+  "loadoutData": [
+    {
+      "key": "Candace",
+      "name": "Candace (Celestia)",
+      "description": "",
+      "hitMode": "avgHit",
+      "infusionAura": "hydro",
+      "bonusStats": {},
+      "conditional": {
+        "Candace": {
+          "afterBurst": "on"
+        },
+        "resonance": {
+          "SprawlingCanopy2ele": "on"
+        }
+      },
+      "customMultiTargets": [
+        {
+          "name": "Nilou Bloom",
+          "description": "Celestia",
+          "targets": [
+            {
+              "weight": 1,
+              "path": [
+                "skill",
+                "basicDmg"
+              ],
+              "hitMode": "avgHit",
+              "bonusStats": {
+                "hp_": 20,
+                "eleMas": 100
+              },
+              "description": ""
+            },
+            {
+              "weight": 1,
+              "path": [
+                "skill",
+                "basicDmg"
+              ],
+              "hitMode": "avgHit",
+              "bonusStats": {
+                "hp_": 20,
+                "eleMas": 100
+              },
+              "description": ""
+            },
+            {
+              "weight": 1,
+              "path": [
+                "burst",
+                "skillDmg"
+              ],
+              "hitMode": "avgHit",
+              "bonusStats": {
+                "hp_": 20,
+                "eleMas": 100
+              },
+              "description": ""
+            },
+            {
+              "weight": 1,
+              "path": [
+                "burst",
+                "skillDmg"
+              ],
+              "hitMode": "avgHit",
+              "bonusStats": {
+                "hp_": 20,
+                "eleMas": 100
+              },
+              "description": ""
+            },
+            {
+              "weight": 1,
+              "path": [
+                "normal",
+                "0"
+              ],
+              "hitMode": "avgHit",
+              "infusionAura": "hydro",
+              "bonusStats": {
+                "hp_": 20,
+                "eleMas": 100
+              },
+              "description": ""
+            },
+            {
+              "weight": 1,
+              "path": [
+                "normal",
+                "0"
+              ],
+              "hitMode": "avgHit",
+              "infusionAura": "hydro",
+              "bonusStats": {
+                "hp_": 20,
+                "eleMas": 100
+              },
+              "description": ""
+            },
+            {
+              "weight": 1,
+              "path": [
+                "normal",
+                "1"
+              ],
+              "hitMode": "avgHit",
+              "infusionAura": "hydro",
+              "bonusStats": {
+                "hp_": 20,
+                "eleMas": 100
+              },
+              "description": ""
+            },
+            {
+              "weight": 1,
+              "path": [
+                "normal",
+                "1"
+              ],
+              "hitMode": "avgHit",
+              "infusionAura": "hydro",
+              "bonusStats": {
+                "hp_": 20,
+                "eleMas": 100
+              },
+              "description": ""
+            },
+            {
+              "weight": 1,
+              "path": [
+                "burst",
+                "waveDmg"
+              ],
+              "hitMode": "avgHit",
+              "bonusStats": {
+                "hp_": 20,
+                "eleMas": 100
+              },
+              "description": ""
+            },
+            {
+              "weight": 1,
+              "path": [
+                "burst",
+                "waveDmg"
+              ],
+              "hitMode": "avgHit",
+              "bonusStats": {
+                "hp_": 20,
+                "eleMas": 100
+              },
+              "description": ""
+            },
+            {
+              "weight": 1,
+              "path": [
+                "burst",
+                "waveDmg"
+              ],
+              "hitMode": "avgHit",
+              "bonusStats": {
+                "hp_": 20,
+                "eleMas": 100
+              },
+              "description": ""
+            },
+            {
+              "weight": 1,
+              "path": [
+                "burst",
+                "waveDmg"
+              ],
+              "hitMode": "avgHit",
+              "bonusStats": {
+                "hp_": 20,
+                "eleMas": 100
+              },
+              "description": ""
+            },
+            {
+              "weight": 1,
+              "path": [
+                "burst",
+                "waveDmg"
+              ],
+              "hitMode": "avgHit",
+              "bonusStats": {
+                "hp_": 20,
+                "eleMas": 100
+              },
+              "description": ""
+            },
+            {
+              "weight": 1,
+              "path": [
+                "burst",
+                "waveDmg"
+              ],
+              "hitMode": "avgHit",
+              "bonusStats": {
+                "hp_": 20,
+                "eleMas": 100
+              },
+              "description": ""
+            },
+            {
+              "weight": 1,
+              "path": [
+                "skill",
+                "basicDmg"
+              ],
+              "hitMode": "avgHit",
+              "bonusStats": {
+                "hp_": 20,
+                "eleMas": 100
+              },
+              "description": ""
+            },
+            {
+              "weight": 1,
+              "path": [
+                "skill",
+                "basicDmg"
+              ],
+              "hitMode": "avgHit",
+              "bonusStats": {
+                "hp_": 20,
+                "eleMas": 100
+              },
+              "description": ""
+            },
+            {
+              "weight": 1,
+              "path": [
+                "normal",
+                "0"
+              ],
+              "hitMode": "avgHit",
+              "infusionAura": "hydro",
+              "bonusStats": {
+                "hp_": 20,
+                "eleMas": 100
+              },
+              "description": ""
+            },
+            {
+              "weight": 1,
+              "path": [
+                "normal",
+                "0"
+              ],
+              "hitMode": "avgHit",
+              "infusionAura": "hydro",
+              "bonusStats": {
+                "hp_": 20,
+                "eleMas": 100
+              },
+              "description": ""
+            },
+            {
+              "weight": 1,
+              "path": [
+                "normal",
+                "1"
+              ],
+              "hitMode": "avgHit",
+              "infusionAura": "hydro",
+              "bonusStats": {
+                "hp_": 20,
+                "eleMas": 100
+              },
+              "description": ""
+            },
+            {
+              "weight": 1,
+              "path": [
+                "normal",
+                "1"
+              ],
+              "hitMode": "avgHit",
+              "infusionAura": "hydro",
+              "bonusStats": {
+                "hp_": 20,
+                "eleMas": 100
+              },
+              "description": ""
+            },
+            {
+              "weight": 1,
+              "path": [
+                "normal",
+                "2"
+              ],
+              "hitMode": "avgHit",
+              "infusionAura": "hydro",
+              "bonusStats": {
+                "hp_": 20,
+                "eleMas": 100
+              },
+              "description": ""
+            },
+            {
+              "weight": 1,
+              "path": [
+                "normal",
+                "2"
+              ],
+              "hitMode": "avgHit",
+              "infusionAura": "hydro",
+              "bonusStats": {
+                "hp_": 20,
+                "eleMas": 100
+              },
+              "description": ""
+            },
+            {
+              "weight": 1,
+              "path": [
+                "normal",
+                "3"
+              ],
+              "hitMode": "avgHit",
+              "infusionAura": "hydro",
+              "bonusStats": {
+                "hp_": 20,
+                "eleMas": 100
+              },
+              "description": ""
+            },
+            {
+              "weight": 1,
+              "path": [
+                "normal",
+                "3"
+              ],
+              "hitMode": "avgHit",
+              "infusionAura": "hydro",
+              "bonusStats": {
+                "hp_": 20,
+                "eleMas": 100
+              },
+              "description": ""
+            },
+            {
+              "weight": 8,
+              "path": [
+                "constellation6",
+                "dmg"
+              ],
+              "hitMode": "avgHit",
+              "bonusStats": {
+                "hp_": 20,
+                "eleMas": 100
+              },
+              "description": ""
+            },
+            {
+              "weight": 19,
+              "path": [
+                "reaction",
+                "bloom"
+              ],
+              "hitMode": "avgHit",
+              "bonusStats": {
+                "bloom_dmg_": 292.458,
+                "dendro_enemyRes_": -30
+              },
+              "description": ""
+            },
+            {
+              "weight": 21,
+              "path": [
+                "reaction",
+                "bloom"
+              ],
+              "hitMode": "avgHit",
+              "bonusStats": {
+                "bloom_dmg_": 292.458,
+                "dendro_enemyRes_": -30
+              },
+              "description": ""
+            }
+          ]
+        }
+      ],
+      "optConfig": {
+        "optimizationTarget": [
+          "custom",
+          "0"
+        ]
+      },
+      "buildTcs": [
+        {
+          "name": "Celestia",
+          "description": "The leaderboard reference build.",
+          "characterKey": "Candace",
+          "character": {
+            "level": 90,
+            "ascension": 6,
+            "constellation": 6,
+            "talent": {
+              "auto": 10,
+              "skill": 10,
+              "burst": 10
+            }
+          },
+          "weapon": {
+            "key": "DragonsBane",
+            "level": 90,
+            "ascension": 6,
+            "refinement": 5
+          },
+          "artifact": {
+            "sets": {
+              "EmblemOfSeveredFate": 5
+            },
+            "slots": {
+              "flower": {
+                "level": 20,
+                "rarity": 5,
+                "statKey": "hp"
+              },
+              "plume": {
+                "level": 20,
+                "rarity": 5,
+                "statKey": "atk"
+              },
+              "sands": {
+                "level": 20,
+                "rarity": 5,
+                "statKey": "eleMas"
+              },
+              "goblet": {
+                "level": 20,
+                "rarity": 5,
+                "statKey": "eleMas"
+              },
+              "circlet": {
+                "level": 20,
+                "rarity": 5,
+                "statKey": "eleMas"
+              }
+            },
+            "substats": {
+              "type": "max",
+              "rarity": 5,
+              "stats": {
+                "def": 39.35,
+                "def_": 12.39,
+                "enerRech_": 66.06,
+                "eleMas": 118.89,
+                "critRate_": 22.94,
+                "critDMG_": 13.21,
+                "hp": 507.88,
+                "hp_": 15.16,
+                "atk": 33.07,
+                "atk_": 9.91
+              }
+            }
+          },
+          "optimization": {
+            "distributedSubstats": 0,
+            "maxSubstats": {}
+          }
+        }
+      ]
+    },
+    {
+      "key": "Nilou",
+      "name": "Nilou (Celestia)",
+      "description": "",
+      "hitMode": "avgHit",
+      "infusionAura": "",
+      "bonusStats": {},
+      "conditional": {},
+      "customMultiTargets": [],
+      "buildTcs": [
+        {
+          "name": "Celestia",
+          "description": "Celestia teammate assumption (KQMS standard).",
+          "characterKey": "Nilou",
+          "character": {
+            "level": 90,
+            "ascension": 6,
+            "constellation": 0,
+            "talent": {
+              "auto": 10,
+              "skill": 10,
+              "burst": 10
+            }
+          },
+          "weapon": {
+            "key": "XiphosMoonlight",
+            "level": 90,
+            "ascension": 6,
+            "refinement": 5
+          },
+          "artifact": {
+            "sets": {
+              "TenacityOfTheMillelith": 4
+            },
+            "slots": {
+              "flower": {
+                "level": 20,
+                "rarity": 5,
+                "statKey": "hp"
+              },
+              "plume": {
+                "level": 20,
+                "rarity": 5,
+                "statKey": "atk"
+              },
+              "sands": {
+                "level": 20,
+                "rarity": 5,
+                "statKey": "hp_"
+              },
+              "goblet": {
+                "level": 20,
+                "rarity": 5,
+                "statKey": "hp_"
+              },
+              "circlet": {
+                "level": 20,
+                "rarity": 5,
+                "statKey": "hp_"
+              }
+            },
+            "substats": {
+              "type": "max",
+              "rarity": 5,
+              "stats": {
+                "hp": 2539.4,
+                "atk": 33.08,
+                "def": 39.36,
+                "hp_": 29.76,
+                "atk_": 9.92,
+                "def_": 12.4,
+                "eleMas": 39.64,
+                "enerRech_": 11.02,
+                "critRate_": 19.86,
+                "critDMG_": 39.72
+              }
+            }
+          },
+          "optimization": {
+            "distributedSubstats": 0,
+            "maxSubstats": {}
+          }
+        }
+      ]
+    },
+    {
+      "key": "Nahida",
+      "name": "Nahida (Celestia)",
+      "description": "",
+      "hitMode": "avgHit",
+      "infusionAura": "",
+      "bonusStats": {},
+      "conditional": {},
+      "customMultiTargets": [],
+      "buildTcs": [
+        {
+          "name": "Celestia",
+          "description": "Celestia teammate assumption (KQMS standard).",
+          "characterKey": "Nahida",
+          "character": {
+            "level": 90,
+            "ascension": 6,
+            "constellation": 0,
+            "talent": {
+              "auto": 10,
+              "skill": 10,
+              "burst": 10
+            }
+          },
+          "weapon": {
+            "key": "FavoniusCodex",
+            "level": 90,
+            "ascension": 6,
+            "refinement": 5
+          },
+          "artifact": {
+            "sets": {
+              "DeepwoodMemories": 4
+            },
+            "slots": {
+              "flower": {
+                "level": 20,
+                "rarity": 5,
+                "statKey": "hp"
+              },
+              "plume": {
+                "level": 20,
+                "rarity": 5,
+                "statKey": "atk"
+              },
+              "sands": {
+                "level": 20,
+                "rarity": 5,
+                "statKey": "eleMas"
+              },
+              "goblet": {
+                "level": 20,
+                "rarity": 5,
+                "statKey": "eleMas"
+              },
+              "circlet": {
+                "level": 20,
+                "rarity": 5,
+                "statKey": "critRate_"
+              }
+            },
+            "substats": {
+              "type": "max",
+              "rarity": 5,
+              "stats": {
+                "hp": 1015.76,
+                "atk": 33.08,
+                "def": 39.36,
+                "hp_": 9.92,
+                "atk_": 9.92,
+                "def_": 12.4,
+                "eleMas": 158.56,
+                "enerRech_": 11.02,
+                "critRate_": 33.1,
+                "critDMG_": 39.72
+              }
+            }
+          },
+          "optimization": {
+            "distributedSubstats": 0,
+            "maxSubstats": {}
+          }
+        }
+      ]
+    },
+    {
+      "key": "Yaoyao",
+      "name": "Yaoyao (Celestia)",
+      "description": "",
+      "hitMode": "avgHit",
+      "infusionAura": "",
+      "bonusStats": {},
+      "conditional": {},
+      "customMultiTargets": [],
+      "buildTcs": [
+        {
+          "name": "Celestia",
+          "description": "Celestia teammate assumption (KQMS standard).",
+          "characterKey": "Yaoyao",
+          "character": {
+            "level": 90,
+            "ascension": 6,
+            "constellation": 6,
+            "talent": {
+              "auto": 10,
+              "skill": 10,
+              "burst": 10
+            }
+          },
+          "weapon": {
+            "key": "KitainCrossSpear",
+            "level": 90,
+            "ascension": 6,
+            "refinement": 5
+          },
+          "artifact": {
+            "sets": {
+              "FlowerOfParadiseLost": 4
+            },
+            "slots": {
+              "flower": {
+                "level": 20,
+                "rarity": 5,
+                "statKey": "hp"
+              },
+              "plume": {
+                "level": 20,
+                "rarity": 5,
+                "statKey": "atk"
+              },
+              "sands": {
+                "level": 20,
+                "rarity": 5,
+                "statKey": "hp_"
+              },
+              "goblet": {
+                "level": 20,
+                "rarity": 5,
+                "statKey": "hp_"
+              },
+              "circlet": {
+                "level": 20,
+                "rarity": 5,
+                "statKey": "heal_"
+              }
+            },
+            "substats": {
+              "type": "max",
+              "rarity": 5,
+              "stats": {
+                "hp": 507.88,
+                "atk": 33.08,
+                "def": 39.36,
+                "hp_": 9.92,
+                "atk_": 9.92,
+                "def_": 12.4,
+                "eleMas": 39.64,
+                "enerRech_": 60.61,
+                "critRate_": 36.41,
+                "critDMG_": 26.48
+              }
+            }
+          },
+          "optimization": {
+            "distributedSubstats": 0,
+            "maxSubstats": {}
+          }
+        }
+      ]
+    }
+  ]
+}

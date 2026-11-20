@@ -1,0 +1,130 @@
+// Third individually reviewed batch. Descriptions and conditions follow the pinned French kits.
+export const THIRD_TWENTY_REVIEWED_BUFFS={
+ Neuvillette:{
+  a1Stacks:['passive1','Gloire draconique passée · nombre total de cumuls','Chaque réaction Hydro différente de l’équipe donne un cumul pendant 30 s. Jugement équitable inflige 110/125/160 % de ses dégâts d’origine avec 1/2/3 cumuls : ce multiplicateur ne renforce ni les normales ordinaires ni la compétence. Inclure le cumul accordé à l’entrée par C1 dans ce total. C2 ajoute 14 % de DGT CRIT à Jugement équitable par cumul, maximum 42 %.',['c1','c2']],
+  a4Hp:['passive2','PV actuels de Neuvillette','La liste affiche les PV actuels. Chaque point de pourcentage au-dessus de 30 % donne 0,6 % de DGT Hydro : 50 % de PV actuels donnent 20 points, soit 12 % ; à partir de 80 % de PV, le bonus maximal est 30 %. Bonus personnel.'],
+ },
+ Wriothesley:{
+  skillActive:['combat2','Châtiment algide actif · PV supérieurs à 50 %','Après la compétence, les normales de Wriothesley utilisent le multiplicateur renforcé du niveau de compétence tant que ses PV dépassent 50 %. L’effet cesse lorsqu’il quitte le terrain. Ne transforme pas ce multiplicateur en bonus global de dégâts.'],
+  a1Rebuke:['passive1','Réprimande miséricordieuse disponible','À C0, obtenue sous 60 % de PV : la prochaine chargée bénéficie de 50 % de DGT supplémentaires et soigne 30 % des PV max. À C1, la cinquième normale sous Châtiment permet aussi de l’obtenir et le bonus atteint 200 %. La chargée spéciale reste sélectionnable séparément.',['c1','c6']],
+  a4EdictStacks:['passive2','Édit d’accusation · cumuls sous Châtiment','Chaque variation de PV sous Châtiment algide donne 6 % d’ATQ personnelle, jusqu’à 5 cumuls (30 %). Châtiment doit être actif. À C2, chaque cumul donne aussi 40 % de DGT à l’ultime, maximum 200 %.',['c2']],
+  c4Overheal:['c4','Wriothesley a reçu des soins excédentaires','Hors radiance : Wriothesley actif gagne 20 % de vitesse d’attaque ; s’il est en réserve, le personnage actif gagne 10 %. Les deux bonus ne se cumulent pas. En radiance Astroconduction : Wriothesley gagne 20 %, les autres personnages 10 %, et ses dégâts subis diminuent de 25 %.'],
+  lockRevelation:['lockedPassive','Révélation de Wriothesley débloquée','Autorise le kit amélioré. La radiance Astroconduction reste un réglage séparé et les impacts de réaction ont leurs propres actions.'],
+  lockStellarRadianceSc:['lockedPassive','Radiance Astroconduction active','Avec la Révélation : transforme les frappes concernées en réactions d’Astroconduction et augmente leurs dégâts de 30 %. Les bonus des constellations ne sont appliqués qu’aux frappes concernées.'],
+  c1Luster:['c1','Poing bondissant de lustre ayant touché','En radiance Astroconduction, après cet impact, la cinquième normale renforcée suivante gagne 50 % de DGT de réaction pendant la fenêtre du talent. Aucun effet sur les autres normales.'],
+  c15Hit:['c1','Cinquième normale renforcée ayant touché','En radiance Astroconduction, après cet impact, le prochain poing bondissant de lustre gagne 50 % de DGT de réaction pendant la fenêtre du talent.'],
+ },
+ Navia:{
+  a1AfterSkill:['passive1','Compétence utilisée · infusion Géo','Pendant 4 s : infusion Géo et +40 % de DGT de normales, chargées et plongeantes de Navia. Aucun bonus aux dégâts de compétence ou d’ultime.'],
+  skillCharges:['combat2','Shrapnels cristallins consommés','0/1/2/3 shrapnels permettent 5/7/9/11 balles. Les shrapnels 4 à 6 donnent chacun 15 % de DGT supplémentaires à la compétence (45 % maximum). C2 : +12 % de taux CRIT par shrapnel, plafond 36 %. C6 : +45 % de DGT CRIT par shrapnel à partir du quatrième, plafond 135 %.',['c2','c6']],
+  shotsHit:['combat2','Balles touchant la même cible','Choisir le nombre de balles qui touchent cet ennemi. Les 11 balles réunies infligent 200 % des dégâts d’origine. Ce réglage ne compte pas les ennemis et reste distinct des shrapnels consommés.'],
+  c4AfterBurstHit:['c4','Cible touchée par l’ultime','Diminue la RÉS Géo de la cible de 20 % pendant 8 s. Toute l’équipe bénéficie de cette baisse ; les sept autres résistances ne changent pas.'],
+ },
+ Clorinde:{
+  a1Reactions:['passive1','Réactions Électro · cumuls de Flamme brisant la nuit','Chaque réaction Électro de l’équipe ajoute 20 % de l’ATQ finale de Clorinde aux normales Électro et à l’ultime, jusqu’à 3 cumuls et 1 800 dégâts ajoutés. C2 : 30 % par cumul, plafond 2 700. Aucun partage de ce bonus aux alliés.',['c2']],
+  a4BondChanges:['passive2','Variations d’engagement vital à au moins 100 %','Chaque variation répondant au seuil donne 10 % de taux CRIT personnel pendant 15 s, jusqu’à deux cumuls (20 %).'],
+  c4BondPercent:['c4','Engagement vital au moment de l’ultime (%)','Chaque point de pourcentage d’engagement vital donne 2 % de DGT à cette instance d’ultime, maximum 200 % à 100 % d’engagement vital. Ne renforce pas les normales.'],
+  c6AfterSkill:['c6','Compétence utilisée · CRIT de Clorinde','Pendant 12 s : +10 % de taux CRIT et +70 % de DGT CRIT personnels. La réduction des dégâts subis pendant Vigile nocturne est une activation distincte.'],
+  c6VigilProtection:['c6','Vigile nocturne · protection C6 encore active','Pendant Vigile nocturne : 80 % de réduction des dégâts subis et résistance à l’interruption accrue. Se termine avec Vigile nocturne ou après les six ombres et le délai du talent. Aucun bonus de dégâts infligés.'],
+ },
+ Arlecchino:{
+  bondPercent:['combat1','Engagement vital actuel (%)','À partir de 30 % des PV max : infusion Pyro des normales, chargées et plongeantes. Les normales ajoutent le coefficient de Masque de la mort rouge × ATQ finale × engagement vital actuel ; C1 améliore ce coefficient de 100 %. C6 ajoute à l’ultime 700 % de l’ATQ × engagement vital. Les chargées ne reçoivent pas l’ajout réservé aux normales.',['c1','c6']],
+  c2AfterAbsorb:['c2','Dette à échéance absorbée · résistances personnelles','Après absorption : +20 % aux résistances élémentaires et physique d’Arlecchino pendant 15 s. Le feu lunatique à 900 % de l’ATQ est une action distincte. Ne diminue aucune résistance ennemie.'],
+  c6AfterSkill:['c6','Compétence utilisée · CRIT des normales et de l’ultime','Pendant 20 s : +10 % de taux CRIT et +70 % de DGT CRIT aux normales et à l’ultime d’Arlecchino seulement. Aucun bonus aux chargées, plongeantes ou compétences, ni aux alliés.'],
+ },
+ Chiori:{
+  a4Construct:['passive2','Construction Géo créée · bonus personnel','Chiori gagne 20 % de DGT Géo pendant 20 s après la création d’une construction Géo. À C1, la présence d’un autre Géo permet aussi de déclencher ce passif après la compétence.',['c1']],
+  a1Infusion:['passive1','Brocatelle · infusion Géo','Après l’attaque ascendante, choisir l’attaque normale déclenche une infusion Géo de 5 s pour Chiori. Tapisserie déclenche à la place les attaques coordonnées, disponibles comme actions séparées.'],
+ },
+ Emilie:{
+  a4Burning:['passive2','Cible actuellement brûlée','Les dégâts personnels d’Émilie contre cette cible gagnent 15 % par tranche de 1 000 ATQ finale, jusqu’à 36 % à 2 400 ATQ. Ce bonus ne renforce pas la réaction Brûlure ni les dégâts des alliés.'],
+  c2Hit:['c2','Cible touchée par le flacon ou la cologne','La compétence, l’ultime ou la cologne du passif 1 réduit la RÉS Dendro de la cible de 30 % pendant 10 s. La baisse bénéficie à tous les dégâts Dendro de l’équipe.'],
+  c6Fragrance:['c6','Persistance fragrante disponible','Après compétence ou ultime : infusion Dendro et ajout de 300 % de l’ATQ finale d’Émilie aux normales et chargées. Maximum 4 senteurs en 5 s ; aucun bonus aux plongeantes.'],
+ },
+ Gaming:{
+  a4HpState:['passive2','PV de Gaming · état du passif','Sous 50 % de PV : +20 % de soins reçus. À partir de 50 % : +20 % de DGT à Augure nébuleux uniquement. Ces deux effets sont exclusifs et ne renforcent pas les plongeantes ordinaires.'],
+  c2Overheal:['c2','Gaming a reçu des soins excédentaires','Après un soin dépassant ses PV manquants, Gaming gagne 20 % d’ATQ pendant 5 s. Bonus personnel, calculé sur son ATQ de base personnage + arme.'],
+ },
+ Sethos:{
+  c2Stacks:['c2','Cumuls de bonus Électro','Consommer de l’énergie en visant, récupérer de l’énergie par la compétence ou utiliser l’ultime donne 15 % de DGT Électro pendant 10 s. Deux cumuls maximum : 30 %.'],
+  a4Sandshade:['passive2','Ombre sableuse disponible','Les flèches de perce-ombre ajoutent 700 % de la ME finale de Sethos. L’effet cesse après 4 flèches touchées ou la durée du talent. Ne renforce pas les carreaux crépusculaires de l’ultime.'],
+  c4Strike:['c4','Une flèche ou un carreau a touché au moins deux ennemis','Tous les personnages proches, Sethos compris, gagnent 80 ME pendant 10 s. Toucher une seule cible ne suffit pas.'],
+ },
+ Tighnari:{
+  p1AfterWreath:['passive1','Flèche florale tirée','Tighnari gagne 50 ME pendant 4 s. Cette ME alimente aussi son passif de bonus aux chargées et à l’ultime ; elle n’est pas partagée.'],
+  c2EnemyField:['c2','Ennemi dans le champ de vijnana-khanda','Tighnari gagne 20 % de DGT Dendro. Le bonus reste actif pendant 6 s après la fin du champ ou la sortie du dernier ennemi.'],
+  c4:['c4','Ultime utilisé · réaction Dendro obtenue','Après l’ultime : +60 ME à toute l’équipe, Tighnari compris. Si cet ultime déclenche une réaction indiquée par le talent : +60 ME supplémentaires, soit 120 ME au total.'],
+ },
+ Cyno:{
+  afterBurst:['combat3','Éclaireur sermenté actif','L’ultime transforme les attaques de Cyno en Électro et lui donne 100 ME. Les normales renforcées utilisent les multiplicateurs de son ultime. Aucun partage de ces 100 ME.'],
+  a1Judication:['passive1','Compétence utilisée pendant Prophète final','Sous Éclaireur sermenté, Ordalie donne 35 % de DGT à cette compétence et déclenche trois éclairs de sable. Les éclairs et leur variante de radiance sont des actions séparées.'],
+  c1Speed:['c1','Bonus de vitesse après l’ultime ou Ordalie','Cyno gagne 20 % de vitesse d’attaque pendant 10 s après l’ultime ; Ordalie renouvelle sa durée. Ce bonus n’est pas transmis aux alliés.'],
+  c2NormHitStacks:['c2','Normales ayant touché · cumuls Électro','Chaque cumul donne 10 % de DGT Électro à Cyno pendant 4 s, jusqu’à 5 cumuls (50 %).'],
+  lockRevelation:['lockedPassive','Révélation de Cyno débloquée','La compétence hors ultime peut accorder Éclaireur sermenté selon le kit amélioré. La radiance Astroconduction nécessite aussi son activation distincte.'],
+  lockStellarRadianceSc:['lockedPassive','Radiance Astroconduction active','Avec la Révélation, les éclairs de sable Étoime sont des réactions et utilisent la ME du passif. Aucun bonus partagé avant les constellations correspondantes.'],
+  c1Together:['c1','S’élever ensemble disponible','En radiance Astroconduction : +200 ME au bénéficiaire actif ; un autre personnage peut hériter de cet effet après le changement de personnage. Exige la Révélation et la radiance.'],
+  c2TeamHit:['c2','S’élever ensemble · cumuls de réaction','Sous S’élever ensemble : chaque normale ou chargée ayant touché donne 16 % de DGT d’Astroconduction, jusqu’à 5 cumuls (80 %). Ne donne pas de bonus aux autres réactions.'],
+ },
+ Dehya:{
+  c2InField:['c2','Personnage attaqué dans le sanctuaire ardent','La prochaine attaque coordonnée du sanctuaire gagne 50 % de DGT. Ne renforce ni le coup initial de compétence ni les poings de l’ultime.'],
+  c6CritStacks:['c6','Poings CRIT pendant Lionne flamboyante','Chaque cumul donne 15 % de DGT CRIT à l’ultime, jusqu’à 4 cumuls (60 %). Le gain de 10 % de taux CRIT de l’ultime est automatique à C6. Aucun bonus aux normales.'],
+ },
+ Dori:{
+  burstLinked:['combat3','Personnage relié au djinn','Le djinn de l’ultime soigne et restaure de l’énergie au personnage relié. Cet état est requis pour les bonus de C4 ; la restauration d’énergie n’est pas un bonus de recharge.',['c4']],
+  c4BelowHp:['c4','PV du personnage relié inférieurs à 50 %','Sous la connexion au djinn : +50 % de soins reçus. La condition porte sur les PV du bénéficiaire, pas ceux de Dori. Peut coexister avec le bonus de recharge.'],
+  c4BelowEner:['c4','Énergie du personnage relié inférieure à 50 %','Sous la connexion au djinn : +30 % de recharge. La condition porte sur la jauge d’énergie du bénéficiaire, indépendamment de ses PV.'],
+  c6AfterSkill:['c6','Compétence utilisée · infusion Électro','Pendant 3 s, Dori reçoit une infusion Électro et ses normales ayant touché peuvent soigner l’équipe à hauteur de 4 % de ses PV max. Ce soin n’ajoute pas d’ATQ au personnage actif.'],
+ },
+ Sayu:{
+  c2SkillStack:['c2','Coup de pied après roulade · paliers atteints','Chaque palier de roulade donne 3,3 % de DGT au coup de pied de fin d’appui long, jusqu’à 20 paliers (66 %). Le coup de pied d’appui court reçoit automatiquement 3,3 %. Aucun nombre de secondes à saisir.'],
+  skillAbsorption:['combat2','Élément absorbé pendant le tourbillon','Choisir l’élément Hydro, Pyro, Cryo ou Électro absorbé. Active les dégâts élémentaires supplémentaires de roulade et de coup de pied ; ne donne pas un bonus de DGT général à l’équipe.'],
+ },
+ Lynette:{
+  a1AfterBurst:['passive1','Ultime utilisé · ATQ de l’équipe','L’équipe reçoit 8/12/16/20 % d’ATQ pendant 10 s selon 1/2/3/4 éléments différents présents. Lynette reçoit aussi ce bonus. La diversité est calculée avec l’équipe réelle.'],
+  burstAbsorb:['passive2','Élément absorbé par la boîte minestyque','Une absorption donne 15 % de DGT d’ultime à Lynette jusqu’à la disparition de la boîte. Les balles absorbées ont leur élément propre ; les alliés ne reçoivent pas ce bonus.'],
+  c6AfterThrust:['c6','Aiguille énigmatique utilisée','Lynette reçoit une infusion Anémo et 20 % de DGT Anémo pendant 6 s. Bonus personnel.'],
+ },
+ Freminet:{
+  stalk:['combat3','Mode traque de l’ultime actif','Pendant 10 s : les frimas infligent 200 % de leurs dégâts d’origine. La réduction de temps de recharge et le niveau de pression supplémentaire ne sont pas des bonus d’ATQ.'],
+  a4AfterShatter:['passive2','Brise-glace déclenchée','Le concassage pressurisé gagne 40 % de DGT pendant 5 s. Ne renforce pas l’attaque ascendante initiale, les normales ou l’ultime.'],
+  c4C6Stacks:['c4','Réactions déclenchées · cumuls C4 et C6','Gel, Brise-glace, Supraconduction ou Astroconduction donne des cumuls personnels. C4 : +9 % d’ATQ par cumul, maximum 2 cumuls (18 %). C6 : +12 % de DGT CRIT par cumul, maximum 3 (36 %). Le troisième cumul n’ajoute plus d’ATQ.',['c6']],
+ },
+ Xilonen:{
+  sourceActive:['combat2','Trois échantillons sources activés','Avec au moins deux échantillons convertis (deux alliés Pyro/Hydro/Cryo/Électro), atteindre le maximum de noctâme permet aux échantillons de diminuer pendant 15 s les résistances des éléments représentés. Le pourcentage dépend du niveau de compétence. Les doublons d’un élément ne se cumulent pas. C2 : Géo +50 % DGT, Pyro +45 % ATQ, Hydro +45 % PV, Cryo +60 % DGT CRIT selon l’élément du bénéficiaire. Électro : restaure 25 points d’énergie et réduit le TdR de l’ultime de 6 s ; aucun bonus de recharge.',['c2']],
+  nsBlessing:['combat2','Bénédiction noctâme de Xilonen active','Active les attaques de patin et les échantillons Géo pendant la bénédiction. Avec moins de deux échantillons convertis, le passif 1 donne 30 % de DGT aux normales et plongeantes personnelles. Les éléments de l’équipe déterminent la branche.',['passive1']],
+  nsBurst:['passive2','Éruption noctâme déclenchée dans l’équipe','Xilonen gagne 20 % de DÉF pendant 15 s. Cette DÉF améliore ses attaques, ses soins et les bonus de DÉF concernés, sans donner 20 % de DÉF aux alliés.'],
+  c4Blooming:['c4','Don fleuri disponible après la compétence','Les normales, chargées et plongeantes ajoutent 65 % de la DÉF finale de Xilonen, avec 6 déclenchements par bénéficiaire pendant 15 s. Chaque ennemi touché consomme un déclenchement. Aucun bonus aux compétences ou ultimes.'],
+  c6Imperishable:['c6','Bénédiction de la nuit impérissable active','Pendant la bénédiction noctâme : normales et plongeantes de Xilonen ajoutent 300 % de sa DÉF. L’effet soigne aussi l’équipe selon sa DÉF. Aucun ajout aux chargées ni aux attaques des alliés.'],
+ },
+ Ororon:{
+  c1AfterSkillHit:['c1','Cible affectée par Nuit noire','La compétence a touché cet ennemi : les dégâts d’Hyper-sens d’Ororon augmentent de 50 % pendant 12 s. Aucun bonus aux dégâts des autres personnages.'],
+  c2Supersense:['c2','Spiri-sens actif après l’ultime','Ororon gagne 8 % de DGT Électro pendant 9 s. Les ennemis supplémentaires touchés renforcent cet état via le réglage suivant.'],
+  c2BurstHitStack:['c2','Spiri-sens · ennemis supplémentaires touchés','Avec Spiri-sens actif, chaque ennemi supplémentaire donne 8 % de DGT Électro ; le supplément est plafonné à 32 % (40 % avec les 8 % initiaux). Le même ennemi n’ajoute pas plusieurs cumuls.'],
+  c6Stacks:['c6','Hyper-sens déclenché · cumuls d’ATQ','Le personnage actif gagne 10 % d’ATQ pendant 9 s par cumul, jusqu’à 3 cumuls (30 %). Ororon ne reçoit ce bonus que s’il est le personnage actif.'],
+ },
+ Citlali:{
+  a1NsFreezeMelt:['passive1','Gel ou Fonte déclenché avec Itzpapa','La cible ayant subi la réaction perd 20 % de RÉS Pyro et Hydro pendant 12 s ; à C2, baisse totale de 40 %. Aucun effet sur la RÉS Cryo. Toute l’équipe bénéficie de ces baisses.',['c2']],
+  c1BladeConsume:['c1','Lame stellaire disponible · bénéficiaire autre que Citlali','Une attaque normale, chargée, plongeante, une compétence ou un ultime du personnage actif autre que Citlali ajoute 200 % de la ME finale de Citlali. Une lame est consommée par déclenchement ; ne donne aucun bonus à Citlali elle-même.'],
+  c2ShieldEleMas:['c2','Bénéficiaire protégé par le bouclier ou suivi par Itzpapa','Les autres personnages éligibles gagnent 250 ME. Les 125 ME personnels de Citlali sont automatiques à C2 et ne remplacent pas ce partage.'],
+  c6NsConsumed:['c6','Points de loi secrète cumulés','Chaque point donne 1,5 % de DGT Pyro et Hydro à l’équipe et 2,5 % de DGT personnels à Citlali. Maximum 40 points : 60 % Pyro/Hydro pour l’équipe et 100 % de DGT pour Citlali. Réinitialisés quand Itzpapa disparaît ou à la nouvelle compétence.'],
+ },
+ Iansan:{
+  burstNs:['combat3','Jauge active · points de noctâme d’Iansan','Choisir le noctâme actuel. Sous 42 points, le gain d’ATQ dépend des points et de l’ATQ d’Iansan ; à 42 ou plus, la conversion renforcée s’applique. Le bonus est plafonné selon le niveau d’ultime et concerne le personnage actif. Utilise l’ATQ finale d’Iansan, pas son ATQ de base.'],
+  a1Precise:['passive1','Mouvement précis actif','Après la volée tonitruante, Iansan gagne 20 % d’ATQ pendant 15 s. À C2, l’ultime l’active aussi et le personnage actif reçoit 30 % d’ATQ si Iansan est en réserve ; Iansan ne reçoit pas ces 30 % elle-même.',['c2']],
+  c6Extreme:['c6','Restauration excédentaire de noctâme · Effort extrême','Le personnage actif gagne 25 % de DGT pendant 3 s après un dépassement de la jauge de noctâme. La prolongation de durée de la jauge de 3 s est automatique à C6.'],
+ },
+};
+export const THIRD_TWENTY_AUTOMATIC_BUFFS={
+ Navia:{passive2:'+20 % d’ATQ personnelle par personnage Pyro, Hydro, Cryo ou Électro dans l’équipe, jusqu’à deux personnages (40 %). Deux personnages du même élément comptent chacun.'},
+ Arlecchino:{passive2:'Résistances personnelles : +1 % par 100 ATQ finale au-delà de 1 000 ATQ, plafond 20 %. Ce ne sont pas des baisses de résistance de la cible.',passive3:'Au combat, Arlecchino ne peut être soignée que par son ultime et gagne 40 % de DGT Pyro. Ce bonus est personnel.'},
+ Chiori:{c6:'Les normales de Chiori ajoutent 235 % de sa DÉF finale. Les chargées et les dégâts des alliés ne reçoivent pas cet ajout.'},
+ Emilie:{c1:'+20 % de DGT à Extraction de fragrance et à la cologne d’aiguail clair. La cologne reste une action de passif et ne devient pas une compétence.'},
+ Gaming:{c6:'Augure nébuleux gagne 20 % de taux CRIT et 40 % de DGT CRIT. Ces valeurs ne sont pas des bonus globaux de CRIT et ne renforcent pas les plongeantes ordinaires.'},
+ Sethos:{c1:'+15 % de taux CRIT aux flèches de perce-ombre uniquement. Les carreaux de l’ultime sont des attaques chargées, mais ne reçoivent pas ce bonus réservé aux flèches de perce-ombre.'},
+ Tighnari:{passive2:'+0,06 % de DGT de chargée et d’ultime par point de ME finale, maximum 60 % à 1 000 ME.',c1:'+15 % de taux CRIT aux attaques chargées uniquement.'},
+ Cyno:{passive2:'Sous Éclaireur sermenté, les normales ajoutent 150 % de la ME finale ; les éclairs de sable ajoutent 250 % de la ME et les variantes Étoime 600 %. Aucun ajout aux normales ordinaires hors transformation.'},
+ Dehya:{c1:'+20 % de PV max personnels. Ajout aux dégâts de compétence : 3,6 % des PV max ; ajout aux dégâts d’ultime : 6 % des PV max.',c6:'+10 % de taux CRIT d’ultime. Les DGT CRIT supplémentaires restent conditionnés par les cumuls sélectionnés.'},
+ Sayu:{passive1:'Une Dispersion déclenchée sur le terrain soigne les personnages proches de 300 + 1,2 × ME de Sayu. Ce soin ne donne aucune ME aux alliés.',c6:'Les attaques du Daruma ajoutent 0,2 % de l’ATQ par point de ME, plafond 400 % à 2 000 ME. Ses soins ajoutent 3 PV par ME, plafond 6 000 PV ; ces valeurs ne renforcent pas les attaques des alliés.'},
+ Freminet:{c1:'+15 % de taux CRIT au concassage pressurisé uniquement, pas à l’attaque ascendante initiale.'},
+ Citlali:{passive2:'La tempête de givre ajoute 90 % de sa ME et la tempête glaciale de l’ultime 1 200 % de sa ME. Son bouclier et les lames stellaires utilisent également sa ME.',c2:'Citlali gagne automatiquement 125 ME. Les autres personnages ne reçoivent les 250 ME qu’avec la protection ou Itzpapa sélectionné.'},
+};

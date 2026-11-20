@@ -1,0 +1,501 @@
+{
+  "schemaVersion": 1,
+  "id": "nahida-guide-complet-template",
+  "characterId": "10000073",
+  "characterName": "Nahida",
+  "title": "Nahida · guide complet",
+  "createdAt": 0,
+  "updatedAt": 0,
+  "publishedVersion": 0,
+  "theme": {
+    "accent": "#8bcf83",
+    "paper": "#111c22",
+    "ink": "#e6f2e5",
+    "background": ""
+  },
+  "tags": [
+    "Nahida",
+    "Dendro",
+    "Guide complet",
+    "Build",
+    "Équipes"
+  ],
+  "cover": "",
+  "pages": [
+    {
+      "id": "nahida-overview",
+      "title": "Vue d’ensemble",
+      "blocks": [
+        {
+          "id": "n-over-title",
+          "type": "heading",
+          "span": 12,
+          "text": "Nahida · la sagesse en mouvement",
+          "level": 1,
+          "background": "",
+          "color": "",
+          "padding": "airy",
+          "radius": "soft",
+          "shadow": false,
+          "content": ""
+        },
+        {
+          "id": "n-over-intro",
+          "type": "callout",
+          "span": 12,
+          "content": "<p><strong>Le plan de jeu.</strong> Pose la marque de <strong>:skill:</strong> sur les ennemis, déploie le <strong>:burst:</strong> si ses bonus servent à l’équipe, puis déclenche des réactions Dendro pendant que les cibles restent liées. Nahida peut soutenir depuis l’arrière-plan ou conduire les attaques sur le terrain.</p>",
+          "background": "",
+          "color": "",
+          "padding": "airy",
+          "radius": "soft",
+          "shadow": false
+        },
+        {
+          "id": "n-role-one",
+          "type": "text",
+          "span": 4,
+          "content": "<h3>Application Dendro</h3><p>La graine de Skandha relie jusqu’à <strong>8 ennemis</strong>. Une réaction sur une cible marquée peut déclencher une purification trikarmique sur le groupe lié.</p>",
+          "background": "",
+          "color": "",
+          "padding": "normal",
+          "radius": "soft",
+          "shadow": false
+        },
+        {
+          "id": "n-role-two",
+          "type": "text",
+          "span": 4,
+          "content": "<h3>Soutien de maîtrise</h3><p>Son passif partage une partie de la maîtrise élémentaire la plus élevée de l’équipe avec le personnage actif dans le sanctuaire de Maya, jusqu’à <strong>250 ME</strong>.</p>",
+          "background": "",
+          "color": "",
+          "padding": "normal",
+          "radius": "soft",
+          "shadow": false
+        },
+        {
+          "id": "n-role-three",
+          "type": "text",
+          "span": 4,
+          "content": "<h3>Conductrice sur le terrain</h3><p>Ses attaques Dendro entretiennent l’aura et déclenchent les réactions. Ce rôle valorise davantage ses attaques normales et chargées, en plus de sa compétence.</p>",
+          "background": "",
+          "color": "",
+          "padding": "normal",
+          "radius": "soft",
+          "shadow": false
+        },
+        {
+          "id": "n-over-art",
+          "type": "image",
+          "span": 5,
+          "src": "/assets/genshin/splashes/10000073.webp",
+          "alt": "Illustration officielle de Nahida",
+          "caption": "Nahida · Archon Dendro de Sumeru",
+          "imageWidth": 100,
+          "align": "center",
+          "background": "",
+          "color": "",
+          "padding": "normal",
+          "radius": "soft",
+          "shadow": false,
+          "content": ""
+        },
+        {
+          "id": "n-over-plan",
+          "type": "text",
+          "span": 7,
+          "content": "<h3>Sa boucle de combat</h3><ol><li>Marquer les ennemis avec <strong>:skill:</strong> (appui simple pour aller vite, appui long pour sélectionner précisément).</li><li>Activer <strong>:burst:</strong> lorsque les bonus Pyro, Électro ou Hydro sont utiles.</li><li>Faire déclencher une réaction sur une cible marquée : la purification suit le lien.</li><li>Rafraîchir les marques et le sanctuaire avant leur expiration.</li></ol><p><strong>À retenir :</strong> l’ultime installe le terrain de jeu ; la compétence assure les marques et l’application Dendro.</p>",
+          "background": "",
+          "color": "",
+          "padding": "airy",
+          "radius": "soft",
+          "shadow": false
+        },
+        {
+          "id": "n-over-key",
+          "type": "callout",
+          "span": 12,
+          "content": "<p><strong>Repère de build :</strong> la maîtrise est précieuse pour le partage A1 et le passif A4, mais <strong>1 000 ME n’est pas une obligation universelle</strong>. La valeur dépend du rôle, de l’équipe et des statistiques disponibles.</p>",
+          "background": "",
+          "color": "",
+          "padding": "normal",
+          "radius": "soft",
+          "shadow": false
+        }
+      ]
+    },
+    {
+      "id": "nahida-talents",
+      "title": "Talents & passifs",
+      "blocks": [
+        {
+          "id": "n-kit-title",
+          "type": "heading",
+          "span": 12,
+          "text": "Le kit · comprendre chaque bouton",
+          "level": 1,
+          "background": "",
+          "color": "",
+          "padding": "airy",
+          "radius": "soft",
+          "shadow": false,
+          "content": ""
+        },
+        {
+          "id": "n-na",
+          "type": "text",
+          "span": 6,
+          "content": "<h3>:na: Akara · attaques normales</h3><p>Jusqu’à quatre coups Dendro. L’attaque chargée inflige des dégâts Dendro de zone après une courte incantation ; l’attaque plongeante frappe la zone d’arrivée.</p><p><strong>Quand investir :</strong> monte ce talent si Nahida reste conductrice sur le terrain, particulièrement avec C6. En pur soutien, ses dégâts viennent surtout de la compétence.</p>",
+          "background": "",
+          "color": "",
+          "padding": "normal",
+          "radius": "soft",
+          "shadow": false
+        },
+        {
+          "id": "n-skill",
+          "type": "text",
+          "span": 6,
+          "content": "<h3>:skill: Omniscience des plans</h3><p>L’appui simple frappe en zone et marque les ennemis. L’appui long ouvre une visée de <strong>5 s maximum</strong>, sélectionne jusqu’à <strong>8 cibles</strong> et augmente sa résistance à l’interruption pendant la visée.</p><p>Les marques relient les ennemis. Une réaction élémentaire sur une cible marquée, ou des dégâts de noyau Dendro, déclenche la purification trikarmique sur la cible et les ennemis liés. Elle combine l’ATQ et la ME de Nahida.</p>",
+          "background": "",
+          "color": "",
+          "padding": "normal",
+          "radius": "soft",
+          "shadow": false
+        },
+        {
+          "id": "n-burst",
+          "type": "text",
+          "span": 6,
+          "content": "<h3>:burst: Cœur illusoire · sanctuaire de Maya</h3><p>Déploie un champ qui adapte ses bonus aux éléments présents :</p><ul><li><strong>Pyro :</strong> augmente les dégâts de purification trikarmique lorsque Nahida est dans le champ.</li><li><strong>Électro :</strong> raccourcit son intervalle de déclenchement.</li><li><strong>Hydro :</strong> prolonge la durée du sanctuaire.</li></ul><p>Ces effets restent disponibles même si Nahida est hors terrain, tant qu’elle est dans l’équipe et que le personnage actif se trouve dans le sanctuaire.</p><p>La présence de plusieurs personnages des éléments concernés renforce les effets. La C1 compte un personnage supplémentaire pour chacun des trois décomptes, sans ajouter de personnage à l’équipe.</p>",
+          "background": "",
+          "color": "",
+          "padding": "normal",
+          "radius": "soft",
+          "shadow": false
+        },
+        {
+          "id": "n-a1",
+          "type": "text",
+          "span": 6,
+          "content": "<h3>:passif1: Compassion illuminée · A1</h3><p>Dans le sanctuaire de Maya, le personnage actif reçoit une ME égale à <strong>25 % de la ME la plus élevée de l’équipe</strong>, jusqu’à <strong>250 points</strong>. Il faut donc un membre de l’équipe à 1 000 ME pour atteindre le plafond de partage.</p><p>Le bonus suit le personnage actif, pas uniquement Nahida.</p>",
+          "background": "",
+          "color": "",
+          "padding": "normal",
+          "radius": "soft",
+          "shadow": false
+        },
+        {
+          "id": "n-a4",
+          "type": "text",
+          "span": 6,
+          "content": "<h3>:passif2: Éveil élucidé · A4</h3><p>Chaque point de ME de Nahida au-dessus de 200 donne à sa purification trikarmique <strong>0,1 % de bonus de dégâts</strong> et <strong>0,03 % de taux CRIT</strong>.</p><p>Plafonds : <strong>80 % de dégâts</strong> et <strong>24 % de taux CRIT</strong>, atteints à 1 000 ME sur Nahida. C’est une récompense de build, pas une raison de sacrifier toute autre statistique.</p>",
+          "background": "",
+          "color": "",
+          "padding": "normal",
+          "radius": "soft",
+          "shadow": false
+        },
+        {
+          "id": "n-explore",
+          "type": "text",
+          "span": 6,
+          "content": "<h3>:passif3: Universalité méditée</h3><p>La compétence peut récolter à distance certains objets et ressources de Sumeru. En exploration, une visée bien placée ramasse plusieurs plantes sans devoir atteindre chacune d’elles.</p>",
+          "background": "",
+          "color": "",
+          "padding": "normal",
+          "radius": "soft",
+          "shadow": false
+        },
+        {
+          "id": "n-c2",
+          "type": "callout",
+          "span": 6,
+          "content": "<h3>C2 · Racine de toute plénitude</h3><p>Sur les ennemis marqués, Brûlure, Fleurissement, Exubérance et Bourgeonnement peuvent effectuer un coup CRIT avec un taux fixé à <strong>20 %</strong> et des dégâts CRIT fixés à <strong>100 %</strong>. Après Stimulation, Suractivation ou Propagation, la DÉF de la cible baisse de <strong>30 % pendant 8 s</strong>. Les dégâts de Sélénofleurissement contre les cibles marquées gagnent aussi 10 % de taux CRIT et 20 % de dégâts CRIT.</p><p>Cette baisse concerne la cible marquée et amplifie les dégâts de l’équipe qui exploitent cette fenêtre.</p>",
+          "background": "",
+          "color": "",
+          "padding": "airy",
+          "radius": "soft",
+          "shadow": false
+        },
+        {
+          "id": "n-c4-c6",
+          "type": "text",
+          "span": 12,
+          "content": "<h3>Constellations à connaître · C1 à C6</h3><p><strong>C1 :</strong> ajoute un personnage Pyro, Électro et Hydro au décompte des effets du sanctuaire. <strong>C3 :</strong> +3 niveaux à la compétence. <strong>C5 :</strong> +3 niveaux au déchaînement.</p><p><strong>C4 :</strong> chaque nombre d’ennemis proches marqués augmente la ME de Nahida : 100 / 120 / 140 / 160 points pour 1 / 2 / 3 / 4 ennemis ou plus.</p><p><strong>C6 :</strong> après le déchaînement, les attaques normales ou chargées de Nahida contre une cible marquée déclenchent une purification renforcée sur les ennemis liés. Elle inflige des dégâts calculés à partir de l’ATQ et de la ME, toutes les 0,2 s au maximum, jusqu’à six fois sur 10 s.</p><p><strong>Priorité des talents :</strong> compétence &gt; déchaînement ; développe les attaques normales si Nahida conduit souvent l’équipe, en particulier à C6.</p>",
+          "background": "",
+          "color": "",
+          "padding": "normal",
+          "radius": "soft",
+          "shadow": false
+        }
+      ]
+    },
+    {
+      "id": "nahida-build",
+      "title": "Build & équipement",
+      "blocks": [
+        {
+          "id": "n-build-title",
+          "type": "heading",
+          "span": 12,
+          "text": "Build · adapter les statistiques au rôle",
+          "level": 1,
+          "background": "",
+          "color": "",
+          "padding": "airy",
+          "radius": "soft",
+          "shadow": false,
+          "content": ""
+        },
+        {
+          "id": "n-build-intro",
+          "type": "callout",
+          "span": 12,
+          "content": "<p><strong>Règle simple :</strong> sécurise une bonne application et une rotation confortable, puis équilibre ME, taux CRIT, dégâts CRIT et bonus Dendro selon le temps de terrain. La meilleure répartition change entre soutien et conductrice.</p>",
+          "background": "",
+          "color": "",
+          "padding": "normal",
+          "radius": "soft",
+          "shadow": false
+        },
+        {
+          "id": "n-build-offfield",
+          "type": "text",
+          "span": 6,
+          "content": "<h3>Soutien hors terrain</h3><p><strong>Sablier :</strong> ME · <strong>Coupe :</strong> ME ou DGT Dendro · <strong>Couronne :</strong> ME ou CRIT.</p><p>Un ensemble <strong>:souvenir-de-foret:</strong> est particulièrement utile si aucun autre membre n’en porte les quatre pièces. Si la réduction de RÉS Dendro est déjà assurée, compare avec <strong>:reve-dore:</strong> et les combinaisons 2 pièces ME.</p>",
+          "background": "",
+          "color": "",
+          "padding": "normal",
+          "radius": "soft",
+          "shadow": false
+        },
+        {
+          "id": "n-build-onfield",
+          "type": "text",
+          "span": 6,
+          "content": "<h3>Conductrice sur le terrain</h3><p><strong>Sablier :</strong> ME · <strong>Coupe :</strong> DGT Dendro ou ME · <strong>Couronne :</strong> CRIT ou ME.</p><p>Le temps de terrain rend les statistiques offensives et les attaques normales plus intéressantes. Choisis les pièces qui donnent le meilleur total cohérent, plutôt que de forcer trois pièces ME.</p>",
+          "background": "",
+          "color": "",
+          "padding": "normal",
+          "radius": "soft",
+          "shadow": false
+        },
+        {
+          "id": "n-build-sets",
+          "type": "table",
+          "span": 12,
+          "content": "<table><thead><tr><th>Option</th><th>Quand la choisir</th><th>À vérifier</th></tr></thead><tbody><tr><td>:souvenir-de-foret: Souvenir de forêt · 4 pièces</td><td>Quand personne d’autre n’applique déjà sa réduction de RÉS Dendro.</td><td>La compétence ou l’ultime doit toucher la cible pour activer l’effet.</td></tr><tr><td>:reve-dore: Rêve doré · 4 pièces</td><td>Quand un autre équipier porte déjà Souvenir de forêt et que Nahida profite de la ME.</td><td>La composition élémentaire détermine une partie du bonus.</td></tr><tr><td>2 pièces ME + 2 pièces ME</td><td>Option de transition ou pièces secondaires nettement meilleures.</td><td>Compare les sous-statistiques et le rôle réel de Nahida.</td></tr></tbody></table>",
+          "striped": true,
+          "background": "",
+          "color": "",
+          "padding": "normal",
+          "radius": "soft",
+          "shadow": false
+        },
+        {
+          "id": "n-build-weapon",
+          "type": "text",
+          "span": 6,
+          "content": "<h3>Armes à comparer</h3><p><strong>:mille-reves-flottants:</strong> est l’option signature. <strong>:atlas-des-terres-et-des-mers:</strong> est une option accessible qui peut renforcer ses dégâts après des réactions. <strong>:mouvement-vagabond:</strong> fournit une fenêtre offensive variable.</p><p>Le choix dépend de la disponibilité, du raffinement, du rôle et de l’équilibre final des statistiques.</p>",
+          "background": "",
+          "color": "",
+          "padding": "normal",
+          "radius": "soft",
+          "shadow": false
+        },
+        {
+          "id": "n-build-stats",
+          "type": "text",
+          "span": 6,
+          "content": "<h3>Priorités de statistiques</h3><ol><li>Atteindre une recharge suffisante pour la rotation voulue.</li><li>Garder assez de ME pour le partage A1 et le passif A4, sans transformer 1 000 en seuil obligatoire.</li><li>Ajouter taux CRIT / dégâts CRIT et DGT Dendro si Nahida inflige une part importante des dégâts.</li><li>Comparer les pièces en équipe : buffs, réactions et porteur de Souvenir de forêt comptent.</li></ol>",
+          "background": "",
+          "color": "",
+          "padding": "normal",
+          "radius": "soft",
+          "shadow": false
+        },
+        {
+          "id": "n-build-calc",
+          "type": "calcTable",
+          "span": 12,
+          "title": "Exemple de composition · dégâts à renseigner",
+          "members": [
+            {
+              "characterName": "Nahida",
+              "dps": "",
+              "share": "",
+              "weaponName": "Mille rêves flottants",
+              "artifactName": "Souvenir de forêt"
+            },
+            {
+              "characterName": "Xingqiu",
+              "dps": "",
+              "share": "",
+              "weaponName": "",
+              "artifactName": ""
+            },
+            {
+              "characterName": "Kuki Shinobu",
+              "dps": "",
+              "share": "",
+              "weaponName": "",
+              "artifactName": ""
+            },
+            {
+              "characterName": "Yelan",
+              "dps": "",
+              "share": "",
+              "weaponName": "",
+              "artifactName": ""
+            }
+          ],
+          "time": "",
+          "rotation": "Nahida :skill: → :burst: · Xingqiu :burst: → Kuki :skill: → Yelan :skill:/:burst: → Nahida sur le terrain",
+          "dpr": "",
+          "dps": "",
+          "notes": "Exemple visuel : renseigne tes valeurs réelles de DPS, de rotation et de build pour obtenir les parts automatiques.",
+          "background": "",
+          "color": "",
+          "padding": "normal",
+          "radius": "soft",
+          "shadow": false,
+          "content": ""
+        }
+      ]
+    },
+    {
+      "id": "nahida-teams",
+      "title": "Équipes & rotations",
+      "blocks": [
+        {
+          "id": "n-team-title",
+          "type": "heading",
+          "span": 12,
+          "text": "Équipes · partir de la réaction voulue",
+          "level": 1,
+          "background": "",
+          "color": "",
+          "padding": "airy",
+          "radius": "soft",
+          "shadow": false,
+          "content": ""
+        },
+        {
+          "id": "n-team-hyper",
+          "type": "team",
+          "span": 12,
+          "caption": "Hyperbloom · application Dendro et déclencheur Électro",
+          "team": [
+            {
+              "characterName": "Nahida",
+              "weaponName": "Mille rêves flottants",
+              "artifactName": "Souvenir de forêt"
+            },
+            {
+              "characterName": "Xingqiu"
+            },
+            {
+              "characterName": "Kuki Shinobu"
+            },
+            {
+              "characterName": "Yelan"
+            }
+          ],
+          "background": "",
+          "color": "",
+          "padding": "normal",
+          "radius": "soft",
+          "shadow": false,
+          "content": ""
+        },
+        {
+          "id": "n-team-hyper-notes",
+          "type": "text",
+          "span": 12,
+          "content": "<p><strong>Rotation indicative :</strong> Nahida :skill: → :burst: · Xingqiu :burst: → Kuki :skill: → Yelan :skill:/:burst: → Nahida en attaques normales. Ajuste l’ordre au temps de recharge, aux particules et à la durée des déchaînements.</p><p>Kuki déclenche les noyaux Dendro au contact de sa compétence ; Nahida maintient les marques et l’aura Dendro.</p>",
+          "background": "",
+          "color": "",
+          "padding": "normal",
+          "radius": "soft",
+          "shadow": false
+        },
+        {
+          "id": "n-team-spread",
+          "type": "team",
+          "span": 12,
+          "caption": "Propagation · double Dendro et dégâts de compétence",
+          "team": [
+            {
+              "characterName": "Nahida",
+              "artifactName": "Souvenir de forêt"
+            },
+            {
+              "characterName": "Alhaitham"
+            },
+            {
+              "characterName": "Fischl"
+            },
+            {
+              "characterName": "Zhongli"
+            }
+          ],
+          "background": "",
+          "color": "",
+          "padding": "normal",
+          "radius": "soft",
+          "shadow": false,
+          "content": ""
+        },
+        {
+          "id": "n-team-bloom",
+          "type": "team",
+          "span": 12,
+          "caption": "Fleurissement de Nilou · noyaux Dendro et zone Hydro",
+          "team": [
+            {
+              "characterName": "Nahida",
+              "artifactName": "Souvenir de forêt"
+            },
+            {
+              "characterName": "Nilou"
+            },
+            {
+              "characterName": "Sangonomiya Kokomi"
+            },
+            {
+              "characterName": "Collei"
+            }
+          ],
+          "background": "",
+          "color": "",
+          "padding": "normal",
+          "radius": "soft",
+          "shadow": false,
+          "content": ""
+        },
+        {
+          "id": "n-team-check",
+          "type": "callout",
+          "span": 12,
+          "content": "<h3>Avant de lancer la rotation</h3><ul><li>Les ennemis prioritaires sont-ils marqués ?</li><li>Le porteur des quatre pièces Souvenir de forêt peut-il toucher la cible ?</li><li>Le sanctuaire de Maya est-il utile pour la composition d’éléments actuelle ?</li><li>Le personnage actif peut-il profiter du partage de ME A1 ?</li><li>Le déclencheur de réaction possède-t-il assez de ME et une rotation stable ?</li></ul>",
+          "background": "",
+          "color": "",
+          "padding": "airy",
+          "radius": "soft",
+          "shadow": false
+        },
+        {
+          "id": "n-team-source",
+          "type": "text",
+          "span": 12,
+          "content": "<p><strong>Référence de kit :</strong> <a href=\"https://wiki.hoyolab.com/pc/genshin/entry/2850\">HoYoWiki · Nahida</a>. Les rotations et les rôles ci-dessus sont des points de départ ; adapte-les aux armes, aux constellations et aux personnages effectivement disponibles.</p>",
+          "background": "",
+          "color": "",
+          "padding": "normal",
+          "radius": "soft",
+          "shadow": false
+        }
+      ]
+    }
+  ]
+}

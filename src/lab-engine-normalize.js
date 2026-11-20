@@ -1,9 +1,14 @@
+import {applyFinalRosterBuffs} from './lab-final-roster-engine.js';
+import {applyLunarStellarBuffs} from './lab-lunar-stellar-engine.js';
+import {applyThirdReviewedBuffs} from './lab-reviewed-third-engine.js';
+import {registerRadianceCharacters} from './lab-radiance-characters.js?v=20261120-radiance-3';
 const normalized=new WeakSet();
 // Traveler sheets use an element owner while the roster keys also include gender.
 // Clone each sheet so changing one variant cannot change the other variants.
 export function normalizeLabEngine(engine){
  if(normalized.has(engine))return engine;
  normalized.add(engine);
+ registerRadianceCharacters(engine);
  const readFlag=(key,path)=>({operation:'read',operands:[],path:['conditional',key,path],type:'string'});
  const when=(key,path,on,off)=>({operation:'match',operands:[readFlag(key,path),engine.constant('on'),on,off],emptyOn:'unmatch'});
  const atConstellation=(rank,on,off)=>({operation:'threshold',operands:[engine.input.constellation,engine.constant(rank),on,off],emptyOn:'l'});
@@ -58,6 +63,8 @@ export function normalizeLabEngine(engine){
   bennett.teamBuff.total.atk={operation:'threshold',operands:[engine.input.constellation,engine.constant(1),original,blocked],emptyOn:'l',info:original.info};
   engine.conditionalPaths.characters.Bennett.push('recipientLowHP');
  }
+ applyThirdReviewedBuffs(engine);
+ applyLunarStellarBuffs(engine);
  for(const [key,character]of Object.entries(engine.characters)){
   if(!/^Traveler.+[MF]$/.test(key))continue;
   const owner=key.slice(0,-1),sheet=structuredClone(character.sheetData),paths=new Set(),seen=new WeakSet();
@@ -69,5 +76,6 @@ export function normalizeLabEngine(engine){
   character.sheetData=sheet;
   engine.conditionalPaths.characters[key]=[...paths];
  }
+ applyFinalRosterBuffs(engine);
  return engine;
 }

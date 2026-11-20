@@ -16,6 +16,7 @@ import hmac
 import binascii
 import ipaddress
 import secrets
+import sqlite3
 import xml.etree.ElementTree as ET
 from pathlib import Path
 from datetime import datetime, timezone, timedelta
@@ -24,7 +25,7 @@ from concurrent.futures import ThreadPoolExecutor
 from html import unescape
 from html.parser import HTMLParser
 from http.server import SimpleHTTPRequestHandler, ThreadingHTTPServer
-from urllib.error import URLError
+from urllib.error import HTTPError, URLError
 from urllib.request import Request, urlopen
 from urllib.parse import parse_qs, urlsplit, unquote, urlparse, quote, urlencode, urljoin
 
@@ -36,6 +37,7 @@ _SERVER_INSTANCE = hashlib.sha256(str(_SERVER_ROOT).casefold().encode("utf-8")).
 HOST = os.environ.get("HOST", "0.0.0.0")
 PORT = int(os.environ.get("PORT", "8766"))
 HOSTED = os.environ.get("ASTRALIS_HOSTED", "").strip().lower() in {"1", "true", "yes"} or bool(os.environ.get("RENDER"))
+_CHARACTER_SHEETS_READ_ONLY = HOSTED or os.environ.get("ASTRALIS_CHARACTER_SHEETS_READ_ONLY", "").strip().lower() in {"1", "true", "yes"}
 ACCESS_PASSWORD = os.environ.get("ASTRALIS_ACCESS_PASSWORD", "")
 TTL = 900
 cache: dict[str, tuple[float, bytes]] = {}
@@ -50,6 +52,15 @@ _APP_SESSION_LOCK = threading.Lock()
 _APP_SESSIONS_SEEN = False
 _APP_SHUTDOWN_TIMER: threading.Timer | None = None
 _APP_HTTP_SERVER: ThreadingHTTPServer | None = None
+_CHARACTER_SHEETS_ADMIN_PASSWORD = os.environ.get("ASTRALIS_CHARACTER_SHEETS_ADMIN_PASSWORD", "")
+_CHARACTER_SHEETS_GITHUB_REPO = os.environ.get("ASTRALIS_CHARACTER_SHEETS_GITHUB_REPO", "").strip()
+_CHARACTER_SHEETS_GITHUB_TOKEN = os.environ.get("ASTRALIS_CHARACTER_SHEETS_GITHUB_TOKEN", "")
+_CHARACTER_SHEETS_GITHUB_PATH = os.environ.get("ASTRALIS_CHARACTER_SHEETS_GITHUB_PATH", "published/character-sheets").strip().strip("/")
+_CHARACTER_SHEETS_DB = Path(os.environ.get("ASTRALIS_CHARACTER_SHEETS_DB", str(_SERVER_ROOT / "data" / "character-sheets.sqlite3"))).expanduser()
+_CHARACTER_SHEETS_ADMIN_SESSIONS: dict[str, float] = {}
+_CHARACTER_SHEETS_LOGIN_FAILURES: dict[str, tuple[int, float]] = {}
+_CHARACTER_SHEETS_LOCK = threading.RLock()
+_CHARACTER_SHEETS_LIMIT = 5_000_000
 
 def _shutdown_app_if_idle() -> None:
     global _APP_SHUTDOWN_TIMER
@@ -135,6 +146,219 @@ def _is_local_origin(origin: str) -> bool:
         return parsed.scheme == "http" and parsed.port == PORT and local_host
     except (ValueError, TypeError):
         return False
+
+def _same_site_origin(origin: str, host_header: str) -> bool:
+    if not origin:
+        return False
+    try:
+        parsed = urlsplit(origin)
+        return parsed.scheme in {"http", "https"} and bool(parsed.netloc) and parsed.netloc.lower() == host_header.lower()
+    except (ValueError, TypeError):
+        return False
+
+def _character_sheets_storage() -> dict[str, object]:
+    github_configured = bool(_CHARACTER_SHEETS_GITHUB_REPO and _CHARACTER_SHEETS_GITHUB_TOKEN)
+    configured_path = bool(os.environ.get("ASTRALIS_CHARACTER_SHEETS_DB"))
+    ready = github_configured or configured_path or not HOSTED
+    return {
+        "ready": ready,
+        "kind": "github" if github_configured else "sqlite",
+        "label": f"GitHub · {_CHARACTER_SHEETS_GITHUB_REPO}" if github_configured else "Base locale" if not HOSTED else "Stockage persistant à configurer",
+        "setupRequired": HOSTED and not ready,
+    }
+
+def _character_sheets_github_request(method: str, body: dict | None = None, path: str | None = None, raw: bool = False) -> tuple[int, object]:
+    if not _CHARACTER_SHEETS_GITHUB_REPO or not _CHARACTER_SHEETS_GITHUB_TOKEN:
+        raise RuntimeError("Stockage GitHub des fiches non configuré.")
+    if not re.fullmatch(r"[A-Za-z0-9_.-]{1,100}/[A-Za-z0-9_.-]{1,100}", _CHARACTER_SHEETS_GITHUB_REPO):
+        raise RuntimeError("Dépôt de fiches invalide.")
+    branch = os.environ.get("ASTRALIS_CHARACTER_SHEETS_GITHUB_BRANCH", "main")
+    url = f"https://api.github.com/repos/{_CHARACTER_SHEETS_GITHUB_REPO}/contents/{quote(path or _CHARACTER_SHEETS_GITHUB_PATH, safe='/')}"
+    if method == "GET":
+        url += "?ref=" + quote(branch, safe="")
+    data = json.dumps(body).encode("utf-8") if body is not None else None
+    request = Request(url, data=data, method=method, headers={
+        "Accept": "application/vnd.github.raw+json" if raw else "application/vnd.github+json",
+        "Authorization": f"Bearer {_CHARACTER_SHEETS_GITHUB_TOKEN}",
+        "User-Agent": "Astralis-Character-Sheets",
+        "X-GitHub-Api-Version": "2022-11-28",
+        **({"Content-Type": "application/json"} if data is not None else {}),
+    })
+    try:
+        with urlopen(request, timeout=14) as response:
+            response_body=response.read(7_000_000)
+            if raw:return response.status,response_body
+            return response.status,json.loads(response_body) if response_body else {}
+    except HTTPError as exc:
+        try: payload = json.loads(exc.read(64_000))
+        except Exception: payload = {}
+        if exc.code == 404: return 404, payload
+        raise RuntimeError(payload.get("message") or f"GitHub a refusé le stockage ({exc.code}).") from exc
+
+def _character_sheets_github_read(path: str) -> dict | None:
+    status,record=_character_sheets_github_request("GET",path=path)
+    if status==404:return None
+    try:
+        encoded=record.get("content","") if isinstance(record,dict) else ""
+        if encoded:raw=binascii.a2b_base64(encoded.replace("\n",""))
+        else:
+            _,raw=_character_sheets_github_request("GET",path=path,raw=True)
+            if isinstance(raw,dict):raw=json.dumps(raw).encode("utf-8")
+        payload=json.loads(raw)
+        if not isinstance(payload,dict):raise ValueError("Format invalide.")
+        return payload
+    except Exception as exc:
+        raise RuntimeError("Un fichier distant de fiches est illisible.") from exc
+
+def _character_sheets_github_write(path: str, payload: dict, message: str) -> None:
+    _,current=_character_sheets_github_request("GET",path=path)
+    content=binascii.b2a_base64(json.dumps(payload,ensure_ascii=False,indent=2).encode("utf-8")).decode("ascii").replace("\n","")
+    body={"message":message,"branch":os.environ.get("ASTRALIS_CHARACTER_SHEETS_GITHUB_BRANCH","main"),"content":content}
+    if current.get("sha"):body["sha"]=current["sha"]
+    _character_sheets_github_request("PUT",body,path)
+
+def _character_sheets_github_remove(path: str, message: str) -> bool:
+    status,current=_character_sheets_github_request("GET",path=path)
+    if status==404:return False
+    _character_sheets_github_request("DELETE",{"message":message,"branch":os.environ.get("ASTRALIS_CHARACTER_SHEETS_GITHUB_BRANCH","main"),"sha":current.get("sha")},path)
+    return True
+
+def _character_sheets_github_index() -> list[dict]:
+    payload=_character_sheets_github_read(f"{_CHARACTER_SHEETS_GITHUB_PATH}/index.json") or {}
+    rows=payload.get("sheets",[])
+    return rows if isinstance(rows,list) else []
+
+def _character_sheets_read() -> list[dict]:
+    with _CHARACTER_SHEETS_LOCK:
+        if _CHARACTER_SHEETS_GITHUB_REPO and _CHARACTER_SHEETS_GITHUB_TOKEN:
+            output=[]
+            for metadata in _character_sheets_github_index():
+                sheet_id=str(metadata.get("id", "")) if isinstance(metadata,dict) else ""
+                if re.fullmatch(r"[A-Za-z0-9_-]{8,80}",sheet_id):
+                    sheet=_character_sheets_github_read(f"{_CHARACTER_SHEETS_GITHUB_PATH}/sheets/{sheet_id}.json")
+                    if sheet:output.append(sheet)
+            return output
+        _CHARACTER_SHEETS_DB.parent.mkdir(parents=True, exist_ok=True)
+        with sqlite3.connect(_CHARACTER_SHEETS_DB, timeout=10) as connection:
+            connection.execute("CREATE TABLE IF NOT EXISTS character_sheets (id TEXT PRIMARY KEY, document TEXT NOT NULL, updated_at INTEGER NOT NULL)")
+            rows = connection.execute("SELECT document FROM character_sheets ORDER BY updated_at DESC").fetchall()
+        output=[]
+        for (document,) in rows:
+            try: output.append(json.loads(document))
+            except (TypeError, ValueError): continue
+        return output
+
+def _character_sheets_get(sheet_id: str) -> dict | None:
+    if _CHARACTER_SHEETS_GITHUB_REPO and _CHARACTER_SHEETS_GITHUB_TOKEN:
+        return _character_sheets_github_read(f"{_CHARACTER_SHEETS_GITHUB_PATH}/sheets/{sheet_id}.json")
+    return next((row for row in _character_sheets_read() if row.get("id")==sheet_id),None)
+
+def _character_sheets_index() -> list[dict]:
+    if _CHARACTER_SHEETS_GITHUB_REPO and _CHARACTER_SHEETS_GITHUB_TOKEN:
+        rows=_character_sheets_github_index()
+    else:
+        rows=_character_sheets_read()
+    return [_character_sheets_metadata(row) for row in rows]
+
+def _character_sheets_write(sheet: dict) -> dict:
+    with _CHARACTER_SHEETS_LOCK:
+        if _CHARACTER_SHEETS_GITHUB_REPO and _CHARACTER_SHEETS_GITHUB_TOKEN:
+            document_path=f"{_CHARACTER_SHEETS_GITHUB_PATH}/sheets/{sheet['id']}.json"
+            previous=_character_sheets_github_read(document_path)
+            sheet["version"]=max(1,int(previous.get("version",1))+1) if previous else 1
+            sheet["updatedAt"]=int(time.time()*1000)
+            if not previous:sheet["createdAt"]=sheet["createdAt"] or sheet["updatedAt"]
+            serialized=json.dumps(sheet,ensure_ascii=False,separators=(",",":"))
+            if len(serialized.encode("utf-8"))>_CHARACTER_SHEETS_LIMIT:raise ValueError("Cette fiche dépasse la limite de 5 Mo.")
+            _character_sheets_github_write(document_path,sheet,f"Publier la fiche personnage {sheet.get('title') or sheet['id']}")
+            rows=[row for row in _character_sheets_github_index() if isinstance(row,dict) and row.get("id")!=sheet["id"]]
+            rows.insert(0,_character_sheets_metadata(sheet))
+            _character_sheets_github_write(f"{_CHARACTER_SHEETS_GITHUB_PATH}/index.json",{"schemaVersion":1,"updatedAt":int(time.time()*1000),"sheets":rows},"Mettre à jour l’index des fiches Astralis")
+            return sheet
+        rows = _character_sheets_read()
+        previous=next((row for row in rows if row.get("id")==sheet["id"]),None)
+        sheet["version"]=max(1,int(previous.get("version",1))+1) if previous else 1
+        sheet["updatedAt"]=int(time.time()*1000)
+        if not previous:sheet["createdAt"]=sheet["createdAt"] or sheet["updatedAt"]
+        serialized=json.dumps(sheet,ensure_ascii=False,separators=(",",":"))
+        if len(serialized.encode("utf-8"))>_CHARACTER_SHEETS_LIMIT:raise ValueError("Cette fiche dépasse la limite de 5 Mo.")
+        _CHARACTER_SHEETS_DB.parent.mkdir(parents=True, exist_ok=True)
+        with sqlite3.connect(_CHARACTER_SHEETS_DB, timeout=10) as connection:
+            connection.execute("CREATE TABLE IF NOT EXISTS character_sheets (id TEXT PRIMARY KEY, document TEXT NOT NULL, updated_at INTEGER NOT NULL)")
+            connection.execute("INSERT INTO character_sheets(id,document,updated_at) VALUES(?,?,?) ON CONFLICT(id) DO UPDATE SET document=excluded.document,updated_at=excluded.updated_at", (sheet["id"],serialized,int(sheet["updatedAt"])))
+        return sheet
+
+def _character_sheets_delete(sheet_id: str) -> bool:
+    with _CHARACTER_SHEETS_LOCK:
+        if _CHARACTER_SHEETS_GITHUB_REPO and _CHARACTER_SHEETS_GITHUB_TOKEN:
+            rows=_character_sheets_github_index()
+            filtered=[row for row in rows if isinstance(row,dict) and row.get("id")!=sheet_id]
+            if len(filtered)==len(rows):return False
+            _character_sheets_github_write(f"{_CHARACTER_SHEETS_GITHUB_PATH}/index.json",{"schemaVersion":1,"updatedAt":int(time.time()*1000),"sheets":filtered},f"Retirer la fiche personnage {sheet_id} de l’index")
+            _character_sheets_github_remove(f"{_CHARACTER_SHEETS_GITHUB_PATH}/sheets/{sheet_id}.json",f"Supprimer la fiche personnage {sheet_id}")
+            return True
+        _CHARACTER_SHEETS_DB.parent.mkdir(parents=True, exist_ok=True)
+        with sqlite3.connect(_CHARACTER_SHEETS_DB, timeout=10) as connection:
+            connection.execute("CREATE TABLE IF NOT EXISTS character_sheets (id TEXT PRIMARY KEY, document TEXT NOT NULL, updated_at INTEGER NOT NULL)")
+            cursor=connection.execute("DELETE FROM character_sheets WHERE id=?", (sheet_id,))
+            return cursor.rowcount > 0
+
+def _character_sheets_metadata(sheet: dict) -> dict:
+    metadata={key:sheet.get(key) for key in ("id","characterId","characterName","title","theme","version","createdAt","updatedAt","publishedAt","tags") if key in sheet}
+    cover=str(sheet.get("cover") or "")
+    if cover.startswith("https://") and len(cover)<2048:metadata["cover"]=cover
+    metadata["pageCount"]=len(sheet.get("pages",[])) if isinstance(sheet.get("pages"),list) else 1
+    return metadata
+
+def _character_sheets_cookie_token(cookie_header: str) -> str:
+    for part in cookie_header.split(";"):
+        name, separator, value = part.strip().partition("=")
+        if separator and name == "astralis_character_sheets_admin": return value
+    return ""
+
+def _character_sheets_is_admin(handler: "Handler") -> bool:
+    if _CHARACTER_SHEETS_READ_ONLY: return False
+    try: local_admin = not HOSTED and ipaddress.ip_address(handler.client_address[0]).is_loopback
+    except (ValueError, TypeError): local_admin = False
+    if local_admin: return True
+    token = _character_sheets_cookie_token(handler.headers.get("Cookie", ""))
+    with _CHARACTER_SHEETS_LOCK:
+        now=time.time()
+        for key,expires in list(_CHARACTER_SHEETS_ADMIN_SESSIONS.items()):
+            if expires <= now: _CHARACTER_SHEETS_ADMIN_SESSIONS.pop(key,None)
+        return bool(token and token in _CHARACTER_SHEETS_ADMIN_SESSIONS)
+
+def _validate_character_sheet(value: object) -> dict:
+    if not isinstance(value, dict): raise ValueError("Format de fiche invalide.")
+    sheet=dict(value)
+    sheet_id=str(sheet.get("id", ""))
+    if not re.fullmatch(r"[A-Za-z0-9_-]{8,80}", sheet_id): raise ValueError("Identifiant de fiche invalide.")
+    for field,label,max_len in (("characterId","personnage",160),("characterName","nom du personnage",160),("title","titre",180)):
+        content=str(sheet.get(field, "")).strip()
+        if not content or len(content)>max_len: raise ValueError(f"Le champ {label} est manquant ou trop long.")
+        sheet[field]=content
+    blocks=sheet.get("blocks")
+    pages=sheet.get("pages")
+    if pages is None: pages=[{"id":"page-1","title":"Présentation","blocks":blocks if isinstance(blocks,list) else []}]
+    if not isinstance(pages,list) or not 1<=len(pages)<=20: raise ValueError("Une fiche doit contenir entre 1 et 20 pages.")
+    clean_pages=[]
+    for index,page in enumerate(pages):
+        if not isinstance(page,dict): raise ValueError("Format de page invalide.")
+        page_id=str(page.get("id") or f"page-{index+1}")
+        if not re.fullmatch(r"[A-Za-z0-9_-]{1,100}",page_id): raise ValueError("Identifiant de page invalide.")
+        page_blocks=page.get("blocks",[])
+        if not isinstance(page_blocks,list) or len(page_blocks)>100: raise ValueError("Une page peut contenir au maximum 100 blocs.")
+        clean_pages.append({"id":page_id,"title":str(page.get("title") or f"Page {index+1}")[:100],"blocks":page_blocks})
+    if not isinstance(blocks,list) or len(blocks)>100: blocks=clean_pages[0]["blocks"]
+    sheet["pages"]=clean_pages
+    sheet["blocks"]=blocks
+    sheet["createdAt"]=max(0,int(sheet.get("createdAt") or time.time()*1000))
+    sheet["updatedAt"]=int(time.time()*1000)
+    sheet["publishedAt"]=sheet["updatedAt"]
+    sheet["tags"]=[str(tag)[:40] for tag in sheet.get("tags",[])[:20] if str(tag).strip()] if isinstance(sheet.get("tags",[]),list) else []
+    serialized=json.dumps(sheet,ensure_ascii=False,separators=(",",":"))
+    if len(serialized.encode("utf-8"))>_CHARACTER_SHEETS_LIMIT: raise ValueError("Cette fiche dépasse la limite de 5 Mo.")
+    return sheet
 
 def _set_update_status(**values: object) -> None:
     global _UPDATE_STATUS
@@ -1464,10 +1688,73 @@ class Handler(SimpleHTTPRequestHandler):
         self.end_headers()
         return False
 
+    def send_character_sheets_json(self, status: int, data: object, cookie: str | None = None) -> None:
+        payload=json.dumps(data,ensure_ascii=False).encode("utf-8")
+        self.send_response(status)
+        self.send_header("Content-Type","application/json; charset=utf-8")
+        self.send_header("Content-Length",str(len(payload)))
+        self.send_header("Cache-Control","no-store")
+        if cookie is not None: self.send_header("Set-Cookie",cookie)
+        self.end_headers()
+        self.wfile.write(payload)
+
     def do_POST(self) -> None:
         global _HOYOLAB_RESIN_CACHE
         path = urlsplit(self.path).path
         if not self._require_access(): return
+        sheet_routes={"/api/character-sheets/login","/api/character-sheets/logout","/api/character-sheets/publish","/api/character-sheets/delete"}
+        allowed_origin=_same_site_origin(self.headers.get("Origin",""),self.headers.get("Host","")) if HOSTED else _is_local_origin(self.headers.get("Origin",""))
+        if path in sheet_routes:
+            if not allowed_origin:
+                self.send_character_sheets_json(403,{"error":"Origine refusée."}); return
+            if _CHARACTER_SHEETS_READ_ONLY and path in {"/api/character-sheets/login","/api/character-sheets/publish","/api/character-sheets/delete"}:
+                self.send_character_sheets_json(403,{"error":"Les fiches de cette version hébergée sont en lecture seule."}); return
+            try:
+                length=int(self.headers.get("Content-Length","0"))
+                if length<1 or length>_CHARACTER_SHEETS_LIMIT: raise ValueError("Taille de requête invalide.")
+                body=json.loads(self.rfile.read(length))
+                if not isinstance(body,dict): raise ValueError("Requête invalide.")
+                if path=="/api/character-sheets/login":
+                    if not _CHARACTER_SHEETS_ADMIN_PASSWORD:
+                        self.send_character_sheets_json(503,{"error":"L’accès auteur n’est pas encore configuré sur le serveur."}); return
+                    address=str(self.client_address[0]); now=time.time()
+                    with _CHARACTER_SHEETS_LOCK:
+                        attempts,until=_CHARACTER_SHEETS_LOGIN_FAILURES.get(address,(0,0))
+                        if until>now and attempts>=6:
+                            self.send_character_sheets_json(429,{"error":"Trop de tentatives. Réessaie dans quelques minutes."}); return
+                    if not hmac.compare_digest(str(body.get("password","")),_CHARACTER_SHEETS_ADMIN_PASSWORD):
+                        with _CHARACTER_SHEETS_LOCK:
+                            attempts,until=_CHARACTER_SHEETS_LOGIN_FAILURES.get(address,(0,0))
+                            attempts=attempts+1 if until>now else 1
+                            _CHARACTER_SHEETS_LOGIN_FAILURES[address]=(attempts,now+600)
+                        self.send_character_sheets_json(401,{"error":"Mot de passe auteur incorrect."}); return
+                    with _CHARACTER_SHEETS_LOCK:
+                        _CHARACTER_SHEETS_LOGIN_FAILURES.pop(address,None)
+                        token=secrets.token_urlsafe(36)
+                        _CHARACTER_SHEETS_ADMIN_SESSIONS[token]=now+43200
+                    secure="; Secure" if HOSTED else ""
+                    self.send_character_sheets_json(200,{"ok":True,"authenticated":True},f"astralis_character_sheets_admin={token}; HttpOnly; Path=/; SameSite=Strict; Max-Age=43200{secure}"); return
+                if path=="/api/character-sheets/logout":
+                    token=_character_sheets_cookie_token(self.headers.get("Cookie",""))
+                    with _CHARACTER_SHEETS_LOCK: _CHARACTER_SHEETS_ADMIN_SESSIONS.pop(token,None)
+                    self.send_character_sheets_json(200,{"ok":True},"astralis_character_sheets_admin=; HttpOnly; Path=/; SameSite=Strict; Max-Age=0"+("; Secure" if HOSTED else "")); return
+                if not _character_sheets_is_admin(self):
+                    self.send_character_sheets_json(403,{"error":"Seul l’auteur authentifié peut publier ou retirer une fiche."}); return
+                storage=_character_sheets_storage()
+                if not storage["ready"]:
+                    self.send_character_sheets_json(503,{"error":"Le stockage durable des fiches n’est pas configuré. Ajoute le dépôt GitHub et son jeton dans les variables secrètes du serveur."}); return
+                if path=="/api/character-sheets/publish":
+                    sheet=_validate_character_sheet(body.get("sheet"))
+                    saved=_character_sheets_write(sheet)
+                    self.send_character_sheets_json(200,{"ok":True,"sheet":_character_sheets_metadata(saved)}); return
+                sheet_id=str(body.get("id",""))
+                if not re.fullmatch(r"[A-Za-z0-9_-]{8,80}",sheet_id): raise ValueError("Identifiant de fiche invalide.")
+                self.send_character_sheets_json(200,{"ok":True,"deleted":_character_sheets_delete(sheet_id)}); return
+            except (ValueError,TypeError,json.JSONDecodeError) as exc:
+                self.send_character_sheets_json(400,{"error":str(exc) or "Requête invalide."}); return
+            except Exception as exc:
+                print("[Astralis] Stockage des fiches indisponible : " + str(exc))
+                self.send_character_sheets_json(502,{"error":"Le serveur n’a pas pu enregistrer la fiche. Vérifie le dépôt de stockage et réessaie."}); return
         if path not in {"/api/hoyolab/credentials", "/api/hoyolab/disconnect", "/api/update/install", "/api/lab/team-export", "/api/app-session/open", "/api/app-session/close", "/api/desktop/settings", "/api/desktop/shortcut", "/api/desktop/icon"}:
             self.send_json(404, {"error":"Route inconnue."}); return
         if HOSTED and path in {"/api/hoyolab/credentials", "/api/hoyolab/disconnect"}:
@@ -1574,6 +1861,35 @@ class Handler(SimpleHTTPRequestHandler):
         request_url = urlsplit(self.path)
         path = request_url.path
         refresh = parse_qs(request_url.query).get("refresh") == ["1"]
+        if path == "/api/character-sheets/status":
+            storage=_character_sheets_storage()
+            local_admin=False
+            try: local_admin=not HOSTED and ipaddress.ip_address(self.client_address[0]).is_loopback
+            except (ValueError,TypeError): pass
+            local_admin=local_admin and not _CHARACTER_SHEETS_READ_ONLY
+            self.send_character_sheets_json(200,{"ok":True,"readOnly":_CHARACTER_SHEETS_READ_ONLY,"adminConfigured":bool(_CHARACTER_SHEETS_ADMIN_PASSWORD) and not _CHARACTER_SHEETS_READ_ONLY,"authenticated":_character_sheets_is_admin(self),"localAdmin":local_admin,"publishReady":bool(storage["ready"]) and not _CHARACTER_SHEETS_READ_ONLY,"storage":storage["label"],"setupRequired":bool(storage["setupRequired"])})
+            return
+        if path == "/api/character-sheets/index":
+            try:
+                rows=_character_sheets_index()
+                rows.sort(key=lambda row:int(row.get("updatedAt") or 0),reverse=True)
+                self.send_character_sheets_json(200,{"sheets":rows,"updatedAt":int(time.time()*1000)})
+            except Exception as exc:
+                print("[Astralis] Lecture des fiches indisponible : " + str(exc))
+                self.send_character_sheets_json(503,{"error":"Les fiches partagées sont momentanément indisponibles."})
+            return
+        if path == "/api/character-sheets/item":
+            sheet_id=parse_qs(request_url.query).get("id",[""])[0]
+            if not re.fullmatch(r"[A-Za-z0-9_-]{8,80}",sheet_id):
+                self.send_character_sheets_json(400,{"error":"Identifiant de fiche invalide."}); return
+            try:
+                sheet=_character_sheets_get(sheet_id)
+                if sheet is None: self.send_character_sheets_json(404,{"error":"Fiche introuvable."})
+                else: self.send_character_sheets_json(200,{"sheet":sheet})
+            except Exception as exc:
+                print("[Astralis] Téléchargement de fiche indisponible : " + str(exc))
+                self.send_character_sheets_json(503,{"error":"La fiche n’a pas pu être téléchargée."})
+            return
         if path == "/api/lab/export-status":
             self.send_json(200,celestia_status()); return
         if path == "/api/lab/data-status":

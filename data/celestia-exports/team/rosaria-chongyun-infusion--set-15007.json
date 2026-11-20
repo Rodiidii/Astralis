@@ -1,7 +1,7 @@
 {
   "name": "Cryo DPS",
   "description": "Celestia",
-  "lastEdit": 1794529620378,
+  "lastEdit": 1795051646671,
   "conditional": {
     "resonance": {},
     "reaction": {}
@@ -44,28 +44,13 @@
               "weight": 1,
               "path": [
                 "skill",
-                "hit2"
-              ],
-              "hitMode": "avgHit",
-              "bonusStats": {
-                "atk_": 20,
-                "critRate_": 12,
-                "cryo_enemyRes_": -65,
-                "all_dmg_": 73.78
-              },
-              "description": ""
-            },
-            {
-              "weight": 1,
-              "path": [
-                "skill",
                 "hit1"
               ],
               "hitMode": "avgHit",
               "bonusStats": {
                 "atk_": 40,
                 "cryo_enemyRes_": -55,
-                "all_dmg_": 41.35
+                "all_dmg_": 41.03
               },
               "description": ""
             },
@@ -80,7 +65,7 @@
                 "atk_": 40,
                 "critRate_": 12,
                 "cryo_enemyRes_": -55,
-                "all_dmg_": 42.59
+                "all_dmg_": 42.13
               },
               "description": ""
             },
@@ -95,7 +80,7 @@
                 "atk_": 40,
                 "critRate_": 12,
                 "cryo_enemyRes_": -55,
-                "all_dmg_": 46.78
+                "all_dmg_": 46.11
               },
               "description": ""
             },
@@ -110,7 +95,7 @@
                 "atk_": 40,
                 "critRate_": 12,
                 "cryo_enemyRes_": -55,
-                "all_dmg_": 49.09
+                "all_dmg_": 49.06
               },
               "description": ""
             },
@@ -126,7 +111,7 @@
                 "atk_": 40,
                 "critRate_": 12,
                 "cryo_enemyRes_": -55,
-                "all_dmg_": 50.97
+                "all_dmg_": 50
               },
               "description": ""
             },
@@ -142,7 +127,7 @@
                 "atk_": 40,
                 "critRate_": 12,
                 "cryo_enemyRes_": -55,
-                "all_dmg_": 50.97
+                "all_dmg_": 50
               },
               "description": ""
             },
@@ -158,7 +143,7 @@
                 "atk_": 40,
                 "critRate_": 12,
                 "cryo_enemyRes_": -55,
-                "all_dmg_": 52.37
+                "all_dmg_": 52.06
               },
               "description": ""
             },
@@ -173,7 +158,7 @@
                 "atk_": 40,
                 "critRate_": 12,
                 "cryo_enemyRes_": -55,
-                "all_dmg_": 54.28
+                "all_dmg_": 53.99
               },
               "description": ""
             },
@@ -189,7 +174,7 @@
                 "atk_": 40,
                 "critRate_": 12,
                 "cryo_enemyRes_": -55,
-                "all_dmg_": 54.28
+                "all_dmg_": 53.99
               },
               "description": ""
             },
@@ -205,7 +190,7 @@
                 "atk_": 40,
                 "critRate_": 12,
                 "cryo_enemyRes_": -55,
-                "all_dmg_": 56.51
+                "all_dmg_": 56.33
               },
               "description": ""
             },
@@ -221,7 +206,7 @@
                 "atk_": 40,
                 "critRate_": 12,
                 "cryo_enemyRes_": -55,
-                "all_dmg_": 60.95
+                "all_dmg_": 60.77
               },
               "description": ""
             },
@@ -237,7 +222,7 @@
                 "atk_": 40,
                 "critRate_": 12,
                 "cryo_enemyRes_": -55,
-                "all_dmg_": 62.11
+                "all_dmg_": 61.98
               },
               "description": ""
             },
@@ -252,7 +237,7 @@
                 "atk_": 40,
                 "critRate_": 12,
                 "cryo_enemyRes_": -55,
-                "all_dmg_": 65.36
+                "all_dmg_": 65.13
               },
               "description": ""
             },
@@ -266,7 +251,7 @@
               "bonusStats": {
                 "atk_": 40,
                 "cryo_enemyRes_": -55,
-                "all_dmg_": 65.44
+                "all_dmg_": 65.89
               },
               "description": ""
             },
@@ -281,7 +266,7 @@
                 "atk_": 40,
                 "critRate_": 12,
                 "cryo_enemyRes_": -55,
-                "all_dmg_": 65.44
+                "all_dmg_": 65.89
               },
               "description": ""
             },
@@ -297,7 +282,7 @@
                 "atk_": 40,
                 "critRate_": 12,
                 "cryo_enemyRes_": -55,
-                "all_dmg_": 65.97
+                "all_dmg_": 66.27
               },
               "description": ""
             },
@@ -313,7 +298,7 @@
                 "atk_": 40,
                 "critRate_": 12,
                 "cryo_enemyRes_": -55,
-                "all_dmg_": 68.65
+                "all_dmg_": 68.69
               },
               "description": ""
             },
@@ -328,7 +313,7 @@
                 "atk_": 40,
                 "critRate_": 12,
                 "cryo_enemyRes_": -55,
-                "all_dmg_": 71.94
+                "all_dmg_": 71.97
               },
               "description": ""
             },
@@ -344,7 +329,7 @@
                 "atk_": 40,
                 "critRate_": 12,
                 "cryo_enemyRes_": -55,
-                "all_dmg_": 71.94
+                "all_dmg_": 71.97
               },
               "description": ""
             },
@@ -360,7 +345,7 @@
                 "atk_": 40,
                 "critRate_": 12,
                 "cryo_enemyRes_": -55,
-                "all_dmg_": 73.56
+                "all_dmg_": 73.49
               },
               "description": ""
             },
@@ -376,7 +361,7 @@
                 "atk_": 40,
                 "critRate_": 12,
                 "cryo_enemyRes_": -55,
-                "all_dmg_": 73.82
+                "all_dmg_": 73.67
               },
               "description": ""
             },
@@ -452,7 +437,7 @@
               "hitMode": "avgHit",
               "infusionAura": "cryo",
               "bonusStats": {
-                "atk_": 20,
+                "atk_": 40,
                 "critRate_": 12,
                 "all_dmg_": 75,
                 "cryo_enemyRes_": -65
@@ -482,7 +467,7 @@
               ],
               "hitMode": "avgHit",
               "bonusStats": {
-                "atk_": 20,
+                "atk_": 40,
                 "all_dmg_": 75,
                 "cryo_enemyRes_": -65
               },
@@ -498,6 +483,21 @@
               "bonusStats": {
                 "atk_": 40,
                 "critRate_": 12,
+                "cryo_enemyRes_": -65
+              },
+              "description": ""
+            },
+            {
+              "weight": 1,
+              "path": [
+                "skill",
+                "hit2"
+              ],
+              "hitMode": "avgHit",
+              "bonusStats": {
+                "atk_": 40,
+                "critRate_": 12,
+                "all_dmg_": 75,
                 "cryo_enemyRes_": -65
               },
               "description": ""
@@ -599,7 +599,7 @@
       "buildTcs": [
         {
           "name": "Celestia",
-          "description": "Celestia teammate assumption (85% of the maximum).",
+          "description": "Celestia teammate assumption (KQMS standard).",
           "characterKey": "Escoffier",
           "character": {
             "level": 90,
@@ -653,13 +653,13 @@
               "rarity": 5,
               "stats": {
                 "hp": 507.88,
-                "atk": 132.32,
+                "atk": 148.86,
                 "def": 39.36,
                 "hp_": 9.92,
                 "atk_": 49.6,
                 "def_": 12.4,
                 "eleMas": 39.64,
-                "enerRech_": 44.08,
+                "enerRech_": 38.57,
                 "critRate_": 6.62,
                 "critDMG_": 13.24
               }
@@ -684,7 +684,7 @@
       "buildTcs": [
         {
           "name": "Celestia",
-          "description": "Celestia teammate assumption (85% of the maximum).",
+          "description": "Celestia teammate assumption (KQMS standard).",
           "characterKey": "Furina",
           "character": {
             "level": 90,
@@ -744,9 +744,9 @@
                 "atk_": 9.92,
                 "def_": 12.4,
                 "eleMas": 39.64,
-                "enerRech_": 49.59,
+                "enerRech_": 44.08,
                 "critRate_": 39.72,
-                "critDMG_": 33.1
+                "critDMG_": 39.72
               }
             }
           },
@@ -769,7 +769,7 @@
       "buildTcs": [
         {
           "name": "Celestia",
-          "description": "Celestia teammate assumption (85% of the maximum).",
+          "description": "Celestia teammate assumption (KQMS standard).",
           "characterKey": "Chongyun",
           "character": {
             "level": 90,
@@ -822,14 +822,14 @@
               "type": "max",
               "rarity": 5,
               "stats": {
-                "hp": 761.82,
+                "hp": 1015.76,
                 "atk": 33.08,
                 "def": 39.36,
                 "hp_": 9.92,
                 "atk_": 9.92,
                 "def_": 12.4,
                 "eleMas": 39.64,
-                "enerRech_": 16.53,
+                "enerRech_": 11.02,
                 "critRate_": 33.1,
                 "critDMG_": 79.44
               }

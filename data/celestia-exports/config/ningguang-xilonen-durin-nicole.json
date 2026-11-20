@@ -1,107 +1,121 @@
 {
-  "name": "Hex Combo",
+  "name": "Hex",
   "description": "Celestia",
   "targets": [
     {
-      "weight": 0.391,
-      "path": [
-        "normal",
-        "0"
-      ],
-      "hitMode": "avgHit",
-      "bonusStats": {
-        "atk": 548.791,
-        "geo_enemyRes_": -91,
-        "all_dmg_": 177
-      },
-      "description": ""
-    },
-    {
-      "weight": 0.328,
-      "path": [
-        "normal",
-        "0"
-      ],
-      "hitMode": "avgHit",
-      "bonusStats": {
-        "atk": 548.791,
-        "geo_enemyRes_": -91,
-        "all_dmg_": 177
-      },
-      "description": ""
-    },
-    {
-      "weight": 0.281,
-      "path": [
-        "normal",
-        "0"
-      ],
-      "hitMode": "avgHit",
-      "bonusStats": {
-        "atk": 548.791,
-        "geo_enemyRes_": -91,
-        "all_dmg_": 177
-      },
-      "description": ""
-    },
-    {
-      "weight": 0.391,
-      "path": [
-        "normal",
-        "0"
-      ],
-      "hitMode": "avgHit",
-      "bonusStats": {
-        "atk": 548.791,
-        "geo_enemyRes_": -91,
-        "all_dmg_": 177
-      },
-      "description": ""
-    },
-    {
-      "weight": 0.328,
-      "path": [
-        "normal",
-        "0"
-      ],
-      "hitMode": "avgHit",
-      "bonusStats": {
-        "atk": 548.791,
-        "geo_enemyRes_": -91,
-        "all_dmg_": 177
-      },
-      "description": ""
-    },
-    {
-      "weight": 0.281,
-      "path": [
-        "normal",
-        "0"
-      ],
-      "hitMode": "avgHit",
-      "bonusStats": {
-        "atk": 548.791,
-        "geo_enemyRes_": -91,
-        "all_dmg_": 177
-      },
-      "description": ""
-    },
-    {
       "weight": 1,
       "path": [
+        "skill",
+        "dmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk": 548.791,
+        "geo_enemyRes_": -91,
+        "all_dmg_": 145
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.2939,
+      "path": [
         "normal",
         "0"
       ],
       "hitMode": "avgHit",
       "bonusStats": {
         "atk": 548.791,
-        "all_dmg_": 189,
+        "geo_enemyRes_": -91,
+        "all_dmg_": 145
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.3128,
+      "path": [
+        "normal",
+        "0"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk": 548.791,
+        "geo_enemyRes_": -91,
+        "all_dmg_": 145
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.3938,
+      "path": [
+        "normal",
+        "0"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk": 548.791,
+        "geo_enemyRes_": -91,
+        "all_dmg_": 145
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.2939,
+      "path": [
+        "normal",
+        "0"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk": 548.791,
+        "geo_enemyRes_": -91,
+        "all_dmg_": 145
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.3128,
+      "path": [
+        "normal",
+        "0"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk": 548.791,
+        "geo_enemyRes_": -91,
+        "all_dmg_": 145
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.3938,
+      "path": [
+        "normal",
+        "0"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk": 548.791,
+        "geo_enemyRes_": -91,
+        "all_dmg_": 145
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.9995,
+      "path": [
+        "normal",
+        "0"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk": 548.791,
+        "all_dmg_": 160.85,
         "geo_enemyRes_": -91
       },
       "description": ""
     },
     {
-      "weight": 1,
+      "weight": 0.9995,
       "path": [
         "normal",
         "0"
@@ -109,7 +123,7 @@
       "hitMode": "avgHit",
       "bonusStats": {
         "atk": 548.791,
-        "all_dmg_": 189,
+        "all_dmg_": 160.85,
         "geo_enemyRes_": -91
       },
       "description": ""
@@ -123,7 +137,7 @@
       "hitMode": "avgHit",
       "bonusStats": {
         "atk": 548.791,
-        "all_dmg_": 189,
+        "all_dmg_": 161,
         "geo_enemyRes_": -91
       },
       "description": ""
@@ -137,7 +151,7 @@
       "hitMode": "avgHit",
       "bonusStats": {
         "atk": 548.791,
-        "all_dmg_": 189,
+        "all_dmg_": 161.05,
         "geo_enemyRes_": -91
       },
       "description": ""
@@ -151,13 +165,13 @@
       "hitMode": "avgHit",
       "bonusStats": {
         "atk": 548.791,
-        "all_dmg_": 189,
+        "all_dmg_": 161.05,
         "geo_enemyRes_": -91
       },
       "description": ""
     },
     {
-      "weight": 0.516,
+      "weight": 0.5747,
       "path": [
         "normal",
         "0"
@@ -165,13 +179,13 @@
       "hitMode": "avgHit",
       "bonusStats": {
         "atk": 548.791,
-        "all_dmg_": 189,
+        "all_dmg_": 161.78,
         "geo_enemyRes_": -91
       },
       "description": ""
     },
     {
-      "weight": 0.484,
+      "weight": 0.4248,
       "path": [
         "normal",
         "0"
@@ -179,13 +193,13 @@
       "hitMode": "avgHit",
       "bonusStats": {
         "atk": 548.791,
-        "all_dmg_": 189,
+        "all_dmg_": 161.71,
         "geo_enemyRes_": -91
       },
       "description": ""
     },
     {
-      "weight": 0.516,
+      "weight": 0.5747,
       "path": [
         "normal",
         "0"
@@ -193,13 +207,13 @@
       "hitMode": "avgHit",
       "bonusStats": {
         "atk": 548.791,
-        "all_dmg_": 189,
+        "all_dmg_": 161.78,
         "geo_enemyRes_": -91
       },
       "description": ""
     },
     {
-      "weight": 0.484,
+      "weight": 0.4248,
       "path": [
         "normal",
         "0"
@@ -207,7 +221,7 @@
       "hitMode": "avgHit",
       "bonusStats": {
         "atk": 548.791,
-        "all_dmg_": 189,
+        "all_dmg_": 161.71,
         "geo_enemyRes_": -91
       },
       "description": ""
@@ -221,7 +235,7 @@
       "hitMode": "avgHit",
       "bonusStats": {
         "atk": 548.791,
-        "all_dmg_": 189,
+        "all_dmg_": 161.1,
         "geo_enemyRes_": -91
       },
       "description": ""
@@ -235,7 +249,7 @@
       "hitMode": "avgHit",
       "bonusStats": {
         "atk": 548.791,
-        "all_dmg_": 189,
+        "all_dmg_": 161.1,
         "geo_enemyRes_": -91
       },
       "description": ""
@@ -249,7 +263,7 @@
       "hitMode": "avgHit",
       "bonusStats": {
         "atk": 548.791,
-        "all_dmg_": 189,
+        "all_dmg_": 161.1,
         "geo_enemyRes_": -91
       },
       "description": ""
@@ -263,7 +277,7 @@
       "hitMode": "avgHit",
       "bonusStats": {
         "atk": 548.791,
-        "all_dmg_": 189,
+        "all_dmg_": 161.1,
         "geo_enemyRes_": -91
       },
       "description": ""
@@ -277,7 +291,7 @@
       "hitMode": "avgHit",
       "bonusStats": {
         "atk": 548.791,
-        "all_dmg_": 189,
+        "all_dmg_": 161.1,
         "geo_enemyRes_": -91
       },
       "description": ""
@@ -291,7 +305,7 @@
       "hitMode": "avgHit",
       "bonusStats": {
         "atk": 548.791,
-        "all_dmg_": 189,
+        "all_dmg_": 161.1,
         "geo_enemyRes_": -91
       },
       "description": ""
@@ -305,7 +319,7 @@
       "hitMode": "avgHit",
       "bonusStats": {
         "atk": 848.791,
-        "all_dmg_": 189,
+        "all_dmg_": 166.2,
         "geo_enemyRes_": -91
       },
       "description": ""
@@ -320,7 +334,7 @@
       "bonusStats": {
         "atk": 548.791,
         "geo_enemyRes_": -91,
-        "all_dmg_": 177
+        "all_dmg_": 145
       },
       "description": ""
     },
@@ -334,7 +348,7 @@
       "bonusStats": {
         "atk": 548.791,
         "geo_enemyRes_": -91,
-        "all_dmg_": 177
+        "all_dmg_": 145
       },
       "description": ""
     },
@@ -348,7 +362,7 @@
       "bonusStats": {
         "atk": 548.791,
         "geo_enemyRes_": -91,
-        "all_dmg_": 177
+        "all_dmg_": 145
       },
       "description": ""
     },
@@ -362,7 +376,7 @@
       "bonusStats": {
         "atk": 548.791,
         "geo_enemyRes_": -91,
-        "all_dmg_": 177
+        "all_dmg_": 145
       },
       "description": ""
     },
@@ -376,7 +390,7 @@
       "bonusStats": {
         "atk": 548.791,
         "geo_enemyRes_": -91,
-        "all_dmg_": 177
+        "all_dmg_": 145
       },
       "description": ""
     },
@@ -390,12 +404,12 @@
       "bonusStats": {
         "atk": 548.791,
         "geo_enemyRes_": -91,
-        "all_dmg_": 177
+        "all_dmg_": 145
       },
       "description": ""
     },
     {
-      "weight": 0.516,
+      "weight": 0.306,
       "path": [
         "charged",
         "baseDmg"
@@ -403,13 +417,13 @@
       "hitMode": "avgHit",
       "bonusStats": {
         "atk": 848.791,
-        "all_dmg_": 189,
+        "all_dmg_": 168.76,
         "geo_enemyRes_": -91
       },
       "description": ""
     },
     {
-      "weight": 0.266,
+      "weight": 0.225,
       "path": [
         "charged",
         "baseDmg"
@@ -417,13 +431,13 @@
       "hitMode": "avgHit",
       "bonusStats": {
         "atk": 848.791,
-        "all_dmg_": 189,
+        "all_dmg_": 169,
         "geo_enemyRes_": -91
       },
       "description": ""
     },
     {
-      "weight": 0.219,
+      "weight": 0.469,
       "path": [
         "charged",
         "baseDmg"
@@ -431,13 +445,13 @@
       "hitMode": "avgHit",
       "bonusStats": {
         "atk": 848.791,
-        "all_dmg_": 189,
+        "all_dmg_": 169.16,
         "geo_enemyRes_": -91
       },
       "description": ""
     },
     {
-      "weight": 0.516,
+      "weight": 0.469,
       "path": [
         "charged",
         "jadeDmg"
@@ -445,13 +459,13 @@
       "hitMode": "avgHit",
       "bonusStats": {
         "atk": 848.791,
-        "all_dmg_": 189,
+        "all_dmg_": 169.16,
         "geo_enemyRes_": -91
       },
       "description": ""
     },
     {
-      "weight": 0.219,
+      "weight": 0.225,
       "path": [
         "charged",
         "jadeDmg"
@@ -459,13 +473,13 @@
       "hitMode": "avgHit",
       "bonusStats": {
         "atk": 848.791,
-        "all_dmg_": 189,
+        "all_dmg_": 169,
         "geo_enemyRes_": -91
       },
       "description": ""
     },
     {
-      "weight": 0.266,
+      "weight": 0.306,
       "path": [
         "charged",
         "jadeDmg"
@@ -473,13 +487,13 @@
       "hitMode": "avgHit",
       "bonusStats": {
         "atk": 848.791,
-        "all_dmg_": 189,
+        "all_dmg_": 168.92,
         "geo_enemyRes_": -91
       },
       "description": ""
     },
     {
-      "weight": 0.219,
+      "weight": 0.469,
       "path": [
         "charged",
         "jadeDmg"
@@ -487,13 +501,13 @@
       "hitMode": "avgHit",
       "bonusStats": {
         "atk": 848.791,
-        "all_dmg_": 189,
+        "all_dmg_": 169.16,
         "geo_enemyRes_": -91
       },
       "description": ""
     },
     {
-      "weight": 0.266,
+      "weight": 0.225,
       "path": [
         "charged",
         "jadeDmg"
@@ -501,13 +515,13 @@
       "hitMode": "avgHit",
       "bonusStats": {
         "atk": 848.791,
-        "all_dmg_": 189,
+        "all_dmg_": 169,
         "geo_enemyRes_": -91
       },
       "description": ""
     },
     {
-      "weight": 0.516,
+      "weight": 0.306,
       "path": [
         "charged",
         "jadeDmg"
@@ -515,13 +529,13 @@
       "hitMode": "avgHit",
       "bonusStats": {
         "atk": 848.791,
-        "all_dmg_": 189,
+        "all_dmg_": 168.92,
         "geo_enemyRes_": -91
       },
       "description": ""
     },
     {
-      "weight": 0.219,
+      "weight": 0.469,
       "path": [
         "charged",
         "jadeDmg"
@@ -529,13 +543,13 @@
       "hitMode": "avgHit",
       "bonusStats": {
         "atk": 848.791,
-        "all_dmg_": 189,
+        "all_dmg_": 169.16,
         "geo_enemyRes_": -91
       },
       "description": ""
     },
     {
-      "weight": 0.266,
+      "weight": 0.225,
       "path": [
         "charged",
         "jadeDmg"
@@ -543,13 +557,13 @@
       "hitMode": "avgHit",
       "bonusStats": {
         "atk": 848.791,
-        "all_dmg_": 189,
+        "all_dmg_": 169,
         "geo_enemyRes_": -91
       },
       "description": ""
     },
     {
-      "weight": 0.516,
+      "weight": 0.306,
       "path": [
         "charged",
         "jadeDmg"
@@ -557,13 +571,13 @@
       "hitMode": "avgHit",
       "bonusStats": {
         "atk": 848.791,
-        "all_dmg_": 189,
+        "all_dmg_": 168.92,
         "geo_enemyRes_": -91
       },
       "description": ""
     },
     {
-      "weight": 0.516,
+      "weight": 0.469,
       "path": [
         "charged",
         "jadeDmg"
@@ -571,13 +585,13 @@
       "hitMode": "avgHit",
       "bonusStats": {
         "atk": 848.791,
-        "all_dmg_": 189,
+        "all_dmg_": 169.16,
         "geo_enemyRes_": -91
       },
       "description": ""
     },
     {
-      "weight": 0.219,
+      "weight": 0.306,
       "path": [
         "charged",
         "jadeDmg"
@@ -585,13 +599,13 @@
       "hitMode": "avgHit",
       "bonusStats": {
         "atk": 848.791,
-        "all_dmg_": 189,
+        "all_dmg_": 168.92,
         "geo_enemyRes_": -91
       },
       "description": ""
     },
     {
-      "weight": 0.266,
+      "weight": 0.225,
       "path": [
         "charged",
         "jadeDmg"
@@ -599,13 +613,13 @@
       "hitMode": "avgHit",
       "bonusStats": {
         "atk": 848.791,
-        "all_dmg_": 189,
+        "all_dmg_": 169,
         "geo_enemyRes_": -91
       },
       "description": ""
     },
     {
-      "weight": 0.516,
+      "weight": 0.225,
       "path": [
         "charged",
         "jadeDmg"
@@ -613,13 +627,13 @@
       "hitMode": "avgHit",
       "bonusStats": {
         "atk": 848.791,
-        "all_dmg_": 189,
+        "all_dmg_": 169,
         "geo_enemyRes_": -91
       },
       "description": ""
     },
     {
-      "weight": 0.219,
+      "weight": 0.469,
       "path": [
         "charged",
         "jadeDmg"
@@ -627,13 +641,13 @@
       "hitMode": "avgHit",
       "bonusStats": {
         "atk": 848.791,
-        "all_dmg_": 189,
+        "all_dmg_": 169.16,
         "geo_enemyRes_": -91
       },
       "description": ""
     },
     {
-      "weight": 0.266,
+      "weight": 0.306,
       "path": [
         "charged",
         "jadeDmg"
@@ -641,13 +655,13 @@
       "hitMode": "avgHit",
       "bonusStats": {
         "atk": 848.791,
-        "all_dmg_": 189,
+        "all_dmg_": 168.92,
         "geo_enemyRes_": -91
       },
       "description": ""
     },
     {
-      "weight": 0.516,
+      "weight": 0.225,
       "path": [
         "charged",
         "jadeDmg"
@@ -655,13 +669,13 @@
       "hitMode": "avgHit",
       "bonusStats": {
         "atk": 848.791,
-        "all_dmg_": 189,
+        "all_dmg_": 169,
         "geo_enemyRes_": -91
       },
       "description": ""
     },
     {
-      "weight": 0.219,
+      "weight": 0.469,
       "path": [
         "charged",
         "jadeDmg"
@@ -669,13 +683,13 @@
       "hitMode": "avgHit",
       "bonusStats": {
         "atk": 848.791,
-        "all_dmg_": 189,
+        "all_dmg_": 169.16,
         "geo_enemyRes_": -91
       },
       "description": ""
     },
     {
-      "weight": 0.266,
+      "weight": 0.306,
       "path": [
         "charged",
         "jadeDmg"
@@ -683,13 +697,13 @@
       "hitMode": "avgHit",
       "bonusStats": {
         "atk": 848.791,
-        "all_dmg_": 189,
+        "all_dmg_": 168.92,
         "geo_enemyRes_": -91
       },
       "description": ""
     },
     {
-      "weight": 0.266,
+      "weight": 0.225,
       "path": [
         "charged",
         "jadeDmg"
@@ -697,13 +711,13 @@
       "hitMode": "avgHit",
       "bonusStats": {
         "atk": 848.791,
-        "all_dmg_": 189,
+        "all_dmg_": 169,
         "geo_enemyRes_": -91
       },
       "description": ""
     },
     {
-      "weight": 0.219,
+      "weight": 0.306,
       "path": [
         "charged",
         "jadeDmg"
@@ -711,13 +725,13 @@
       "hitMode": "avgHit",
       "bonusStats": {
         "atk": 848.791,
-        "all_dmg_": 189,
+        "all_dmg_": 168.92,
         "geo_enemyRes_": -91
       },
       "description": ""
     },
     {
-      "weight": 0.516,
+      "weight": 0.469,
       "path": [
         "charged",
         "jadeDmg"
@@ -725,13 +739,13 @@
       "hitMode": "avgHit",
       "bonusStats": {
         "atk": 848.791,
-        "all_dmg_": 189,
+        "all_dmg_": 169.16,
         "geo_enemyRes_": -91
       },
       "description": ""
     },
     {
-      "weight": 0.578,
+      "weight": 0.1999,
       "path": [
         "normal",
         "0"
@@ -739,13 +753,13 @@
       "hitMode": "avgHit",
       "bonusStats": {
         "atk": 548.791,
-        "all_dmg_": 174,
+        "all_dmg_": 142,
         "geo_enemyRes_": -91
       },
       "description": ""
     },
     {
-      "weight": 0.203,
+      "weight": 0.3128,
       "path": [
         "normal",
         "0"
@@ -753,13 +767,13 @@
       "hitMode": "avgHit",
       "bonusStats": {
         "atk": 548.791,
-        "all_dmg_": 174,
+        "all_dmg_": 142,
         "geo_enemyRes_": -91
       },
       "description": ""
     },
     {
-      "weight": 0.219,
+      "weight": 0.4878,
       "path": [
         "normal",
         "0"
@@ -767,13 +781,13 @@
       "hitMode": "avgHit",
       "bonusStats": {
         "atk": 548.791,
-        "all_dmg_": 174,
+        "all_dmg_": 142,
         "geo_enemyRes_": -91
       },
       "description": ""
     },
     {
-      "weight": 0.578,
+      "weight": 0.1999,
       "path": [
         "normal",
         "0"
@@ -781,13 +795,13 @@
       "hitMode": "avgHit",
       "bonusStats": {
         "atk": 548.791,
-        "all_dmg_": 174,
+        "all_dmg_": 142,
         "geo_enemyRes_": -91
       },
       "description": ""
     },
     {
-      "weight": 0.203,
+      "weight": 0.3128,
       "path": [
         "normal",
         "0"
@@ -795,13 +809,13 @@
       "hitMode": "avgHit",
       "bonusStats": {
         "atk": 548.791,
-        "all_dmg_": 174,
+        "all_dmg_": 142,
         "geo_enemyRes_": -91
       },
       "description": ""
     },
     {
-      "weight": 0.219,
+      "weight": 0.4878,
       "path": [
         "normal",
         "0"
@@ -809,13 +823,13 @@
       "hitMode": "avgHit",
       "bonusStats": {
         "atk": 548.791,
-        "all_dmg_": 174,
+        "all_dmg_": 142,
         "geo_enemyRes_": -91
       },
       "description": ""
     },
     {
-      "weight": 0.422,
+      "weight": 0.3308,
       "path": [
         "normal",
         "0"
@@ -823,13 +837,13 @@
       "hitMode": "avgHit",
       "bonusStats": {
         "atk": 548.791,
-        "all_dmg_": 189,
+        "all_dmg_": 157.6,
         "geo_enemyRes_": -91
       },
       "description": ""
     },
     {
-      "weight": 0.375,
+      "weight": 0.3248,
       "path": [
         "normal",
         "0"
@@ -837,13 +851,13 @@
       "hitMode": "avgHit",
       "bonusStats": {
         "atk": 548.791,
-        "all_dmg_": 189,
+        "all_dmg_": 157,
         "geo_enemyRes_": -91
       },
       "description": ""
     },
     {
-      "weight": 0.203,
+      "weight": 0.3438,
       "path": [
         "normal",
         "0"
@@ -851,13 +865,13 @@
       "hitMode": "avgHit",
       "bonusStats": {
         "atk": 548.791,
-        "all_dmg_": 189,
+        "all_dmg_": 157,
         "geo_enemyRes_": -91
       },
       "description": ""
     },
     {
-      "weight": 0.203,
+      "weight": 0.3438,
       "path": [
         "normal",
         "0"
@@ -865,13 +879,13 @@
       "hitMode": "avgHit",
       "bonusStats": {
         "atk": 548.791,
-        "all_dmg_": 189,
+        "all_dmg_": 157,
         "geo_enemyRes_": -91
       },
       "description": ""
     },
     {
-      "weight": 0.375,
+      "weight": 0.3308,
       "path": [
         "normal",
         "0"
@@ -879,13 +893,13 @@
       "hitMode": "avgHit",
       "bonusStats": {
         "atk": 548.791,
-        "all_dmg_": 189,
+        "all_dmg_": 157.6,
         "geo_enemyRes_": -91
       },
       "description": ""
     },
     {
-      "weight": 0.422,
+      "weight": 0.3248,
       "path": [
         "normal",
         "0"
@@ -893,13 +907,13 @@
       "hitMode": "avgHit",
       "bonusStats": {
         "atk": 548.791,
-        "all_dmg_": 189,
+        "all_dmg_": 157,
         "geo_enemyRes_": -91
       },
       "description": ""
     },
     {
-      "weight": 0.625,
+      "weight": 0.656,
       "path": [
         "charged",
         "baseDmg"
@@ -907,13 +921,13 @@
       "hitMode": "avgHit",
       "bonusStats": {
         "atk": 548.791,
-        "all_dmg_": 189,
+        "all_dmg_": 159.97,
         "geo_enemyRes_": -91
       },
       "description": ""
     },
     {
-      "weight": 0.375,
+      "weight": 0.344,
       "path": [
         "charged",
         "baseDmg"
@@ -921,13 +935,13 @@
       "hitMode": "avgHit",
       "bonusStats": {
         "atk": 548.791,
-        "all_dmg_": 189,
+        "all_dmg_": 161.07,
         "geo_enemyRes_": -91
       },
       "description": ""
     },
     {
-      "weight": 0.625,
+      "weight": 0.656,
       "path": [
         "charged",
         "jadeDmg"
@@ -935,13 +949,13 @@
       "hitMode": "avgHit",
       "bonusStats": {
         "atk": 548.791,
-        "all_dmg_": 189,
+        "all_dmg_": 160.73,
         "geo_enemyRes_": -91
       },
       "description": ""
     },
     {
-      "weight": 0.375,
+      "weight": 0.344,
       "path": [
         "charged",
         "jadeDmg"
@@ -949,100 +963,86 @@
       "hitMode": "avgHit",
       "bonusStats": {
         "atk": 548.791,
-        "all_dmg_": 189,
+        "all_dmg_": 161.07,
         "geo_enemyRes_": -91
       },
       "description": ""
     },
     {
-      "weight": 0.422,
+      "weight": 0.3378,
       "path": [
         "normal",
         "0"
       ],
       "hitMode": "avgHit",
       "bonusStats": {
-        "all_dmg_": 134,
+        "all_dmg_": 102,
         "geo_enemyRes_": -91
       },
       "description": ""
     },
     {
-      "weight": 0.328,
+      "weight": 0.3378,
       "path": [
         "normal",
         "0"
       ],
       "hitMode": "avgHit",
       "bonusStats": {
-        "all_dmg_": 134,
+        "all_dmg_": 102,
         "geo_enemyRes_": -91
       },
       "description": ""
     },
     {
-      "weight": 0.25,
+      "weight": 0.3248,
       "path": [
         "normal",
         "0"
       ],
       "hitMode": "avgHit",
       "bonusStats": {
-        "all_dmg_": 134,
+        "all_dmg_": 102,
         "geo_enemyRes_": -91
       },
       "description": ""
     },
     {
-      "weight": 0.422,
+      "weight": 0.3378,
       "path": [
         "normal",
         "0"
       ],
       "hitMode": "avgHit",
       "bonusStats": {
-        "all_dmg_": 134,
+        "all_dmg_": 102,
         "geo_enemyRes_": -91
       },
       "description": ""
     },
     {
-      "weight": 0.328,
+      "weight": 0.3378,
       "path": [
         "normal",
         "0"
       ],
       "hitMode": "avgHit",
       "bonusStats": {
-        "all_dmg_": 134,
+        "all_dmg_": 102,
         "geo_enemyRes_": -91
       },
       "description": ""
     },
     {
-      "weight": 0.25,
+      "weight": 0.3248,
       "path": [
         "normal",
         "0"
       ],
       "hitMode": "avgHit",
       "bonusStats": {
-        "all_dmg_": 134,
+        "all_dmg_": 102,
         "geo_enemyRes_": -91
-      },
-      "description": ""
-    },
-    {
-      "weight": 1,
-      "path": [
-        "skill",
-        "dmg"
-      ],
-      "hitMode": "avgHit",
-      "bonusStats": {
-        "atk": 548.791,
-        "geo_enemyRes_": -91,
-        "all_dmg_": 177
       },
       "description": ""
     }

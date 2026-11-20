@@ -1,7 +1,7 @@
 {
   "name": "Cryo DPS",
   "description": "Celestia",
-  "lastEdit": 1794529620337,
+  "lastEdit": 1795051646636,
   "conditional": {
     "resonance": {},
     "reaction": {}
@@ -44,14 +44,201 @@
               "weight": 1,
               "path": [
                 "skill",
+                "hit1"
+              ],
+              "hitMode": "avgHit",
+              "bonusStats": {
+                "atk_": 40,
+                "cryo_enemyRes_": -55,
+                "critRate_": 40,
+                "all_dmg_": 41.03
+              },
+              "description": ""
+            },
+            {
+              "weight": 1,
+              "path": [
+                "skill",
                 "hit2"
               ],
               "hitMode": "avgHit",
               "bonusStats": {
-                "atk_": 20,
-                "critRate_": 32,
-                "cryo_enemyRes_": -65,
-                "all_dmg_": 73.78
+                "atk_": 40,
+                "critRate_": 52,
+                "cryo_enemyRes_": -55,
+                "all_dmg_": 42.13
+              },
+              "description": ""
+            },
+            {
+              "weight": 1,
+              "path": [
+                "burst",
+                "hit1"
+              ],
+              "hitMode": "avgHit",
+              "bonusStats": {
+                "atk_": 40,
+                "critRate_": 52,
+                "cryo_enemyRes_": -55,
+                "all_dmg_": 46.11
+              },
+              "description": ""
+            },
+            {
+              "weight": 1,
+              "path": [
+                "burst",
+                "hit2"
+              ],
+              "hitMode": "avgHit",
+              "bonusStats": {
+                "atk_": 40,
+                "critRate_": 51.88,
+                "cryo_enemyRes_": -55,
+                "all_dmg_": 49.06
+              },
+              "description": ""
+            },
+            {
+              "weight": 1,
+              "path": [
+                "normal",
+                "0"
+              ],
+              "hitMode": "avgHit",
+              "infusionAura": "cryo",
+              "bonusStats": {
+                "atk_": 40,
+                "critRate_": 47,
+                "cryo_enemyRes_": -55,
+                "all_dmg_": 50
+              },
+              "description": ""
+            },
+            {
+              "weight": 1,
+              "path": [
+                "normal",
+                "1"
+              ],
+              "hitMode": "avgHit",
+              "infusionAura": "cryo",
+              "bonusStats": {
+                "atk_": 40,
+                "critRate_": 44.74,
+                "cryo_enemyRes_": -55,
+                "all_dmg_": 50
+              },
+              "description": ""
+            },
+            {
+              "weight": 1,
+              "path": [
+                "charged",
+                "dmg"
+              ],
+              "hitMode": "avgHit",
+              "infusionAura": "cryo",
+              "bonusStats": {
+                "atk_": 40,
+                "critRate_": 32.12,
+                "cryo_enemyRes_": -55,
+                "all_dmg_": 52.06
+              },
+              "description": ""
+            },
+            {
+              "weight": 1,
+              "path": [
+                "burst",
+                "dotDmg"
+              ],
+              "hitMode": "avgHit",
+              "bonusStats": {
+                "atk_": 40,
+                "critRate_": 32.12,
+                "cryo_enemyRes_": -55,
+                "all_dmg_": 53.99
+              },
+              "description": ""
+            },
+            {
+              "weight": 1,
+              "path": [
+                "normal",
+                "0"
+              ],
+              "hitMode": "avgHit",
+              "infusionAura": "cryo",
+              "bonusStats": {
+                "atk_": 40,
+                "critRate_": 32.74,
+                "cryo_enemyRes_": -55,
+                "all_dmg_": 53.99
+              },
+              "description": ""
+            },
+            {
+              "weight": 1,
+              "path": [
+                "normal",
+                "1"
+              ],
+              "hitMode": "avgHit",
+              "infusionAura": "cryo",
+              "bonusStats": {
+                "atk_": 40,
+                "critRate_": 52,
+                "cryo_enemyRes_": -55,
+                "all_dmg_": 56.33
+              },
+              "description": ""
+            },
+            {
+              "weight": 1,
+              "path": [
+                "charged",
+                "dmg"
+              ],
+              "hitMode": "avgHit",
+              "infusionAura": "cryo",
+              "bonusStats": {
+                "atk_": 40,
+                "critRate_": 51.88,
+                "cryo_enemyRes_": -55,
+                "all_dmg_": 60.77
+              },
+              "description": ""
+            },
+            {
+              "weight": 1,
+              "path": [
+                "normal",
+                "0"
+              ],
+              "hitMode": "avgHit",
+              "infusionAura": "cryo",
+              "bonusStats": {
+                "atk_": 40,
+                "critRate_": 52,
+                "cryo_enemyRes_": -55,
+                "all_dmg_": 61.98
+              },
+              "description": ""
+            },
+            {
+              "weight": 1,
+              "path": [
+                "burst",
+                "dotDmg"
+              ],
+              "hitMode": "avgHit",
+              "bonusStats": {
+                "atk_": 40,
+                "critRate_": 52,
+                "cryo_enemyRes_": -55,
+                "all_dmg_": 65.13
               },
               "description": ""
             },
@@ -66,7 +253,7 @@
                 "atk_": 40,
                 "cryo_enemyRes_": -55,
                 "critRate_": 40,
-                "all_dmg_": 41.35
+                "all_dmg_": 65.89
               },
               "description": ""
             },
@@ -79,39 +266,9 @@
               "hitMode": "avgHit",
               "bonusStats": {
                 "atk_": 40,
-                "critRate_": 52,
+                "critRate_": 51.88,
                 "cryo_enemyRes_": -55,
-                "all_dmg_": 42.59
-              },
-              "description": ""
-            },
-            {
-              "weight": 1,
-              "path": [
-                "burst",
-                "hit1"
-              ],
-              "hitMode": "avgHit",
-              "bonusStats": {
-                "atk_": 40,
-                "critRate_": 52,
-                "cryo_enemyRes_": -55,
-                "all_dmg_": 46.78
-              },
-              "description": ""
-            },
-            {
-              "weight": 1,
-              "path": [
-                "burst",
-                "hit2"
-              ],
-              "hitMode": "avgHit",
-              "bonusStats": {
-                "atk_": 40,
-                "critRate_": 52,
-                "cryo_enemyRes_": -55,
-                "all_dmg_": 49.09
+                "all_dmg_": 65.89
               },
               "description": ""
             },
@@ -125,9 +282,9 @@
               "infusionAura": "cryo",
               "bonusStats": {
                 "atk_": 40,
-                "critRate_": 52,
+                "critRate_": 32,
                 "cryo_enemyRes_": -55,
-                "all_dmg_": 50.97
+                "all_dmg_": 66.27
               },
               "description": ""
             },
@@ -141,9 +298,24 @@
               "infusionAura": "cryo",
               "bonusStats": {
                 "atk_": 40,
-                "critRate_": 52,
+                "critRate_": 51.88,
                 "cryo_enemyRes_": -55,
-                "all_dmg_": 50.97
+                "all_dmg_": 68.69
+              },
+              "description": ""
+            },
+            {
+              "weight": 1,
+              "path": [
+                "burst",
+                "dotDmg"
+              ],
+              "hitMode": "avgHit",
+              "bonusStats": {
+                "atk_": 40,
+                "critRate_": 51.88,
+                "cryo_enemyRes_": -55,
+                "all_dmg_": 71.97
               },
               "description": ""
             },
@@ -157,24 +329,9 @@
               "infusionAura": "cryo",
               "bonusStats": {
                 "atk_": 40,
-                "critRate_": 32,
+                "critRate_": 51.88,
                 "cryo_enemyRes_": -55,
-                "all_dmg_": 52.37
-              },
-              "description": ""
-            },
-            {
-              "weight": 1,
-              "path": [
-                "burst",
-                "dotDmg"
-              ],
-              "hitMode": "avgHit",
-              "bonusStats": {
-                "atk_": 40,
-                "critRate_": 32,
-                "cryo_enemyRes_": -55,
-                "all_dmg_": 54.28
+                "all_dmg_": 71.97
               },
               "description": ""
             },
@@ -188,9 +345,9 @@
               "infusionAura": "cryo",
               "bonusStats": {
                 "atk_": 40,
-                "critRate_": 32,
+                "critRate_": 41.24,
                 "cryo_enemyRes_": -55,
-                "all_dmg_": 54.28
+                "all_dmg_": 73.49
               },
               "description": ""
             },
@@ -204,41 +361,9 @@
               "infusionAura": "cryo",
               "bonusStats": {
                 "atk_": 40,
-                "critRate_": 52,
+                "critRate_": 39.62,
                 "cryo_enemyRes_": -55,
-                "all_dmg_": 56.51
-              },
-              "description": ""
-            },
-            {
-              "weight": 1,
-              "path": [
-                "charged",
-                "dmg"
-              ],
-              "hitMode": "avgHit",
-              "infusionAura": "cryo",
-              "bonusStats": {
-                "atk_": 40,
-                "critRate_": 52,
-                "cryo_enemyRes_": -55,
-                "all_dmg_": 60.95
-              },
-              "description": ""
-            },
-            {
-              "weight": 1,
-              "path": [
-                "normal",
-                "0"
-              ],
-              "hitMode": "avgHit",
-              "infusionAura": "cryo",
-              "bonusStats": {
-                "atk_": 40,
-                "critRate_": 52,
-                "cryo_enemyRes_": -55,
-                "all_dmg_": 62.11
+                "all_dmg_": 73.67
               },
               "description": ""
             },
@@ -251,147 +376,7 @@
               "hitMode": "avgHit",
               "bonusStats": {
                 "atk_": 40,
-                "critRate_": 52,
-                "cryo_enemyRes_": -55,
-                "all_dmg_": 65.36
-              },
-              "description": ""
-            },
-            {
-              "weight": 1,
-              "path": [
-                "skill",
-                "hit1"
-              ],
-              "hitMode": "avgHit",
-              "bonusStats": {
-                "atk_": 40,
-                "cryo_enemyRes_": -55,
-                "critRate_": 40,
-                "all_dmg_": 65.44
-              },
-              "description": ""
-            },
-            {
-              "weight": 1,
-              "path": [
-                "skill",
-                "hit2"
-              ],
-              "hitMode": "avgHit",
-              "bonusStats": {
-                "atk_": 40,
-                "critRate_": 52,
-                "cryo_enemyRes_": -55,
-                "all_dmg_": 65.44
-              },
-              "description": ""
-            },
-            {
-              "weight": 1,
-              "path": [
-                "normal",
-                "0"
-              ],
-              "hitMode": "avgHit",
-              "infusionAura": "cryo",
-              "bonusStats": {
-                "atk_": 40,
-                "critRate_": 32,
-                "cryo_enemyRes_": -55,
-                "all_dmg_": 65.97
-              },
-              "description": ""
-            },
-            {
-              "weight": 1,
-              "path": [
-                "normal",
-                "1"
-              ],
-              "hitMode": "avgHit",
-              "infusionAura": "cryo",
-              "bonusStats": {
-                "atk_": 40,
-                "critRate_": 52,
-                "cryo_enemyRes_": -55,
-                "all_dmg_": 68.65
-              },
-              "description": ""
-            },
-            {
-              "weight": 1,
-              "path": [
-                "burst",
-                "dotDmg"
-              ],
-              "hitMode": "avgHit",
-              "bonusStats": {
-                "atk_": 40,
-                "critRate_": 52,
-                "cryo_enemyRes_": -55,
-                "all_dmg_": 71.94
-              },
-              "description": ""
-            },
-            {
-              "weight": 1,
-              "path": [
-                "charged",
-                "dmg"
-              ],
-              "hitMode": "avgHit",
-              "infusionAura": "cryo",
-              "bonusStats": {
-                "atk_": 40,
-                "critRate_": 52,
-                "cryo_enemyRes_": -55,
-                "all_dmg_": 71.94
-              },
-              "description": ""
-            },
-            {
-              "weight": 1,
-              "path": [
-                "normal",
-                "0"
-              ],
-              "hitMode": "avgHit",
-              "infusionAura": "cryo",
-              "bonusStats": {
-                "atk_": 40,
-                "critRate_": 32,
-                "cryo_enemyRes_": -55,
-                "all_dmg_": 73.56
-              },
-              "description": ""
-            },
-            {
-              "weight": 1,
-              "path": [
-                "normal",
-                "1"
-              ],
-              "hitMode": "avgHit",
-              "infusionAura": "cryo",
-              "bonusStats": {
-                "atk_": 40,
-                "critRate_": 32,
-                "cryo_enemyRes_": -55,
-                "all_dmg_": 73.82
-              },
-              "description": ""
-            },
-            {
-              "weight": 1,
-              "path": [
-                "burst",
-                "dotDmg"
-              ],
-              "hitMode": "avgHit",
-              "bonusStats": {
-                "atk_": 40,
-                "critRate_": 32,
+                "critRate_": 32.12,
                 "all_dmg_": 75,
                 "cryo_enemyRes_": -65
               },
@@ -407,7 +392,7 @@
               "infusionAura": "cryo",
               "bonusStats": {
                 "atk_": 40,
-                "critRate_": 32,
+                "critRate_": 32.12,
                 "all_dmg_": 75,
                 "cryo_enemyRes_": -65
               },
@@ -487,7 +472,7 @@
                 "atk_": 20,
                 "all_dmg_": 75,
                 "cryo_enemyRes_": -65,
-                "critRate_": 40
+                "critRate_": 32.46
               },
               "description": ""
             },
@@ -501,6 +486,21 @@
               "bonusStats": {
                 "atk_": 40,
                 "critRate_": 52,
+                "cryo_enemyRes_": -65
+              },
+              "description": ""
+            },
+            {
+              "weight": 1,
+              "path": [
+                "skill",
+                "hit2"
+              ],
+              "hitMode": "avgHit",
+              "bonusStats": {
+                "atk_": 20,
+                "critRate_": 44.5,
+                "all_dmg_": 75,
                 "cryo_enemyRes_": -65
               },
               "description": ""
@@ -602,7 +602,7 @@
       "buildTcs": [
         {
           "name": "Celestia",
-          "description": "Celestia teammate assumption (85% of the maximum).",
+          "description": "Celestia teammate assumption (KQMS standard).",
           "characterKey": "Escoffier",
           "character": {
             "level": 90,
@@ -656,13 +656,13 @@
               "rarity": 5,
               "stats": {
                 "hp": 507.88,
-                "atk": 132.32,
+                "atk": 148.86,
                 "def": 39.36,
                 "hp_": 9.92,
                 "atk_": 49.6,
                 "def_": 12.4,
                 "eleMas": 39.64,
-                "enerRech_": 44.08,
+                "enerRech_": 38.57,
                 "critRate_": 6.62,
                 "critDMG_": 13.24
               }
@@ -687,7 +687,7 @@
       "buildTcs": [
         {
           "name": "Celestia",
-          "description": "Celestia teammate assumption (85% of the maximum).",
+          "description": "Celestia teammate assumption (KQMS standard).",
           "characterKey": "Furina",
           "character": {
             "level": 90,
@@ -747,9 +747,9 @@
                 "atk_": 9.92,
                 "def_": 12.4,
                 "eleMas": 39.64,
-                "enerRech_": 49.59,
+                "enerRech_": 44.08,
                 "critRate_": 39.72,
-                "critDMG_": 33.1
+                "critDMG_": 39.72
               }
             }
           },
@@ -772,7 +772,7 @@
       "buildTcs": [
         {
           "name": "Celestia",
-          "description": "Celestia teammate assumption (85% of the maximum).",
+          "description": "Celestia teammate assumption (KQMS standard).",
           "characterKey": "Chongyun",
           "character": {
             "level": 90,
@@ -825,14 +825,14 @@
               "type": "max",
               "rarity": 5,
               "stats": {
-                "hp": 761.82,
+                "hp": 1015.76,
                 "atk": 33.08,
                 "def": 39.36,
                 "hp_": 9.92,
                 "atk_": 9.92,
                 "def_": 12.4,
                 "eleMas": 39.64,
-                "enerRech_": 16.53,
+                "enerRech_": 11.02,
                 "critRate_": 33.1,
                 "critDMG_": 79.44
               }

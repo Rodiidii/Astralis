@@ -1,7 +1,7 @@
 {
   "name": "Whale",
   "description": "Celestia",
-  "lastEdit": 1794351162872,
+  "lastEdit": 1795029670803,
   "conditional": {
     "resonance": {},
     "reaction": {}
@@ -170,25 +170,6 @@
                 "def_": 30,
                 "eleMas": 665.65,
                 "atk": 385.399,
-                "critDMG_": 120,
-                "geo_enemyRes_": -95,
-                "all_dmg_": 105,
-                "critRate_": 30
-              },
-              "description": ""
-            },
-            {
-              "weight": 1,
-              "path": [
-                "skill",
-                "shift3Dmg"
-              ],
-              "hitMode": "avgHit",
-              "bonusStats": {
-                "def_": 30,
-                "eleMas": 665.65,
-                "atk": 385.399,
-                "all_dmgInc": 584.611,
                 "critDMG_": 120,
                 "geo_enemyRes_": -95,
                 "all_dmg_": 105,
