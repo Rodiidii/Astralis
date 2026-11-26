@@ -1,0 +1,1111 @@
+{
+  "name": "C6 Hexplunge",
+  "description": "Celestia",
+  "targets": [
+    {
+      "weight": 1.1967,
+      "path": [
+        "skill",
+        "chevalDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk": 1247.574,
+        "eleMas": 276.79,
+        "all_dmgInc": 3200.955,
+        "all_dmg_": 101.16,
+        "enemyDefRed_": 30,
+        "enemyDefIgn_": 40,
+        "hydro_enemyRes_": -25,
+        "critRate_": 36
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "burst",
+        "skillDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk": 1247.574,
+        "eleMas": 277.78,
+        "all_dmgInc": 3051.932,
+        "all_dmg_": 137,
+        "enemyDefRed_": 30,
+        "enemyDefIgn_": 40,
+        "hydro_enemyRes_": -25,
+        "critRate_": 36
+      },
+      "description": ""
+    },
+    {
+      "weight": 1.2917,
+      "path": [
+        "skill",
+        "crabDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk": 1247.574,
+        "eleMas": 277.78,
+        "all_dmgInc": 2945.487,
+        "all_dmg_": 137,
+        "enemyDefRed_": 30,
+        "enemyDefIgn_": 40,
+        "hydro_enemyRes_": -25,
+        "critRate_": 36
+      },
+      "description": ""
+    },
+    {
+      "weight": 1.2584,
+      "path": [
+        "skill",
+        "usherDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk": 1247.574,
+        "eleMas": 277.78,
+        "all_dmgInc": 3129.63,
+        "all_dmg_": 137,
+        "enemyDefRed_": 30,
+        "enemyDefIgn_": 40,
+        "hydro_enemyRes_": -25,
+        "critRate_": 36
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.6494,
+      "path": [
+        "skill",
+        "chevalDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk": 1247.574,
+        "eleMas": 277.78,
+        "all_dmgInc": 1048.074,
+        "all_dmg_": 110.57,
+        "enemyDefRed_": 30,
+        "enemyDefIgn_": 40,
+        "hydro_enemyRes_": -65,
+        "critRate_": 36
+      },
+      "description": ""
+    },
+    {
+      "weight": 1.2917,
+      "path": [
+        "skill",
+        "chevalDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk": 1247.574,
+        "eleMas": 277.78,
+        "all_dmgInc": 1149.606,
+        "all_dmg_": 120.95,
+        "enemyDefRed_": 30,
+        "enemyDefIgn_": 40,
+        "hydro_enemyRes_": -65,
+        "critRate_": 19.8
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.64,
+      "path": [
+        "skill",
+        "chevalDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk": 1247.574,
+        "eleMas": 277.78,
+        "all_dmgInc": 1326.641,
+        "all_dmg_": 136.69,
+        "enemyDefRed_": 30,
+        "enemyDefIgn_": 40,
+        "hydro_enemyRes_": -65
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.8853,
+      "path": [
+        "skill",
+        "usherDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk": 1247.574,
+        "eleMas": 277.78,
+        "all_dmgInc": 1253.239,
+        "all_dmg_": 151.96,
+        "enemyDefRed_": 30,
+        "enemyDefIgn_": 40,
+        "hydro_enemyRes_": -65
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.4396,
+      "path": [
+        "skill",
+        "usherDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk": 1247.574,
+        "eleMas": 277.78,
+        "all_dmgInc": 1450.806,
+        "all_dmg_": 152.07,
+        "enemyDefRed_": 30,
+        "enemyDefIgn_": 40,
+        "hydro_enemyRes_": -65
+      },
+      "description": ""
+    },
+    {
+      "weight": 1.258,
+      "path": [
+        "skill",
+        "chevalDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk": 1247.574,
+        "eleMas": 277.78,
+        "all_dmgInc": 1703.12,
+        "all_dmg_": 158.5,
+        "enemyDefRed_": 30,
+        "enemyDefIgn_": 40,
+        "hydro_enemyRes_": -65
+      },
+      "description": ""
+    },
+    {
+      "weight": 1.3482,
+      "path": [
+        "skill",
+        "crabDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk": 1247.574,
+        "hp_": 22.27,
+        "eleMas": 277.78,
+        "all_dmgInc": 1277.34,
+        "all_dmg_": 174,
+        "enemyDefRed_": 30,
+        "enemyDefIgn_": 40,
+        "hydro_enemyRes_": -65
+      },
+      "description": ""
+    },
+    {
+      "weight": 1.1647,
+      "path": [
+        "skill",
+        "chevalDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk": 1247.574,
+        "hp_": 32.87,
+        "eleMas": 277.78,
+        "all_dmgInc": 4953,
+        "all_dmg_": 214,
+        "enemyDefRed_": 30,
+        "enemyDefIgn_": 40,
+        "hydro_enemyRes_": -65,
+        "critRate_": 3.96
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.3303,
+      "path": [
+        "skill",
+        "chevalDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk": 1247.574,
+        "hp_": 33,
+        "eleMas": 277.78,
+        "all_dmgInc": 851.56,
+        "all_dmg_": 174,
+        "enemyDefRed_": 30,
+        "enemyDefIgn_": 40,
+        "hydro_enemyRes_": -65
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "charged",
+        "dmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk": 1247.574,
+        "hp_": 57.89,
+        "eleMas": 304.58,
+        "all_dmgInc": 4095.093,
+        "enemyDefRed_": 30,
+        "enemyDefIgn_": 40,
+        "critRate_": 16.8,
+        "all_dmg_": 124
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.3128,
+      "path": [
+        "skill",
+        "usherDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk": 1247.574,
+        "hp_": 57.97,
+        "eleMas": 306.65,
+        "all_dmgInc": 4095.093,
+        "all_dmg_": 214,
+        "enemyDefRed_": 30,
+        "enemyDefIgn_": 40,
+        "hydro_enemyRes_": -65,
+        "critRate_": 12
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "plunging",
+        "dmg"
+      ],
+      "hitMode": "avgHit",
+      "infusionAura": "hydro",
+      "bonusStats": {
+        "atk": 1247.574,
+        "hp_": 61.9,
+        "eleMas": 309.52,
+        "all_dmgInc": 14892.995,
+        "critRate_": 4,
+        "all_dmg_": 294,
+        "enemyDefRed_": 30,
+        "enemyDefIgn_": 40,
+        "hydro_enemyRes_": -25
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "plunging",
+        "high"
+      ],
+      "hitMode": "avgHit",
+      "reaction": "vaporize",
+      "infusionAura": "hydro",
+      "bonusStats": {
+        "atk": 1247.574,
+        "hp_": 61.9,
+        "eleMas": 309.52,
+        "all_dmgInc": 46622.543,
+        "critRate_": 4,
+        "enemyDefRed_": 30,
+        "enemyDefIgn_": 40,
+        "hydro_enemyRes_": -25,
+        "all_dmg_": 244
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "plunging",
+        "dmg"
+      ],
+      "hitMode": "avgHit",
+      "infusionAura": "hydro",
+      "bonusStats": {
+        "atk": 1247.574,
+        "hp_": 66.9,
+        "eleMas": 309.52,
+        "all_dmgInc": 15040.553,
+        "critRate_": 16,
+        "all_dmg_": 294,
+        "enemyDefRed_": 30,
+        "enemyDefIgn_": 40,
+        "hydro_enemyRes_": -25
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "plunging",
+        "high"
+      ],
+      "hitMode": "avgHit",
+      "infusionAura": "hydro",
+      "bonusStats": {
+        "atk": 1247.574,
+        "hp_": 66.9,
+        "eleMas": 309.52,
+        "all_dmgInc": 46975.043,
+        "critRate_": 16,
+        "all_dmg_": 294,
+        "enemyDefRed_": 30,
+        "enemyDefIgn_": 40,
+        "hydro_enemyRes_": -25
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "plunging",
+        "dmg"
+      ],
+      "hitMode": "avgHit",
+      "infusionAura": "hydro",
+      "bonusStats": {
+        "atk": 1247.574,
+        "hp_": 81.18,
+        "eleMas": 309.52,
+        "all_dmgInc": 14604.073,
+        "critRate_": 40,
+        "all_dmg_": 294,
+        "enemyDefRed_": 30,
+        "enemyDefIgn_": 40,
+        "hydro_enemyRes_": -25
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "plunging",
+        "high"
+      ],
+      "hitMode": "avgHit",
+      "infusionAura": "hydro",
+      "bonusStats": {
+        "atk": 1247.574,
+        "hp_": 81.18,
+        "eleMas": 309.52,
+        "all_dmgInc": 46266.566,
+        "critRate_": 40,
+        "all_dmg_": 294,
+        "enemyDefRed_": 30,
+        "enemyDefIgn_": 40,
+        "hydro_enemyRes_": -25
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "plunging",
+        "dmg"
+      ],
+      "hitMode": "avgHit",
+      "infusionAura": "hydro",
+      "bonusStats": {
+        "atk": 1247.574,
+        "hp_": 90.9,
+        "eleMas": 309.52,
+        "all_dmgInc": 14869.637,
+        "critRate_": 40,
+        "all_dmg_": 294,
+        "enemyDefRed_": 30,
+        "enemyDefIgn_": 40,
+        "hydro_enemyRes_": -25
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "plunging",
+        "high"
+      ],
+      "hitMode": "avgHit",
+      "infusionAura": "hydro",
+      "bonusStats": {
+        "atk": 1247.574,
+        "hp_": 90.9,
+        "eleMas": 309.52,
+        "all_dmgInc": 47118.138,
+        "critRate_": 40,
+        "all_dmg_": 294,
+        "enemyDefRed_": 30,
+        "enemyDefIgn_": 40,
+        "hydro_enemyRes_": -25
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "plunging",
+        "dmg"
+      ],
+      "hitMode": "avgHit",
+      "infusionAura": "hydro",
+      "bonusStats": {
+        "atk": 1247.574,
+        "hp_": 100.9,
+        "eleMas": 309.52,
+        "all_dmgInc": 14121.592,
+        "critRate_": 40,
+        "all_dmg_": 294,
+        "enemyDefRed_": 30,
+        "enemyDefIgn_": 40,
+        "hydro_enemyRes_": -25
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "plunging",
+        "high"
+      ],
+      "hitMode": "avgHit",
+      "infusionAura": "hydro",
+      "bonusStats": {
+        "atk": 1247.574,
+        "hp_": 100.9,
+        "eleMas": 309.52,
+        "all_dmgInc": 47104.688,
+        "critRate_": 40,
+        "all_dmg_": 294,
+        "enemyDefRed_": 30,
+        "enemyDefIgn_": 40,
+        "hydro_enemyRes_": -25
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "plunging",
+        "dmg"
+      ],
+      "hitMode": "avgHit",
+      "infusionAura": "hydro",
+      "bonusStats": {
+        "atk": 1247.574,
+        "hp_": 110.9,
+        "eleMas": 309.52,
+        "all_dmgInc": 14821.2,
+        "critRate_": 40,
+        "all_dmg_": 294,
+        "enemyDefRed_": 30,
+        "enemyDefIgn_": 40,
+        "hydro_enemyRes_": -25
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "plunging",
+        "high"
+      ],
+      "hitMode": "avgHit",
+      "infusionAura": "hydro",
+      "bonusStats": {
+        "atk": 1247.574,
+        "hp_": 110.9,
+        "eleMas": 309.52,
+        "all_dmgInc": 47868.181,
+        "critRate_": 40,
+        "all_dmg_": 294,
+        "enemyDefRed_": 30,
+        "enemyDefIgn_": 40,
+        "hydro_enemyRes_": -25
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "charged",
+        "dmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk": 1247.574,
+        "eleMas": 309.52,
+        "all_dmgInc": 3435.134,
+        "enemyDefRed_": 30,
+        "enemyDefIgn_": 40,
+        "critRate_": 36
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "normal",
+        "0"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk": 1247.574,
+        "eleMas": 309.52,
+        "all_dmgInc": 3435.134,
+        "enemyDefRed_": 30,
+        "enemyDefIgn_": 40,
+        "critRate_": 36
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "normal",
+        "thornBladeDmg"
+      ],
+      "hitMode": "avgHit",
+      "infusionAura": "hydro",
+      "bonusStats": {
+        "atk": 1247.574,
+        "eleMas": 309.52,
+        "all_dmgInc": 3307.4,
+        "all_dmg_": 90,
+        "enemyDefRed_": 30,
+        "enemyDefIgn_": 40,
+        "hydro_enemyRes_": -25,
+        "critRate_": 36
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "normal",
+        "1"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk": 1247.574,
+        "eleMas": 309.52,
+        "all_dmgInc": 3286.111,
+        "enemyDefRed_": 30,
+        "enemyDefIgn_": 40,
+        "critRate_": 36
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "normal",
+        "2"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk": 1247.574,
+        "eleMas": 305.39,
+        "all_dmgInc": 3073.221,
+        "enemyDefRed_": 30,
+        "enemyDefIgn_": 40,
+        "critRate_": 36
+      },
+      "description": ""
+    },
+    {
+      "weight": 1.2007,
+      "path": [
+        "skill",
+        "chevalDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk": 1247.574,
+        "eleMas": 306.05,
+        "all_dmgInc": 3073.221,
+        "all_dmg_": 90,
+        "enemyDefRed_": 30,
+        "enemyDefIgn_": 40,
+        "hydro_enemyRes_": -25,
+        "critRate_": 36
+      },
+      "description": ""
+    },
+    {
+      "weight": 1.2889,
+      "path": [
+        "skill",
+        "crabDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk": 1247.574,
+        "eleMas": 275.42,
+        "all_dmgInc": 3051.932,
+        "all_dmg_": 90,
+        "enemyDefRed_": 30,
+        "enemyDefIgn_": 40,
+        "hydro_enemyRes_": -25,
+        "critRate_": 36
+      },
+      "description": ""
+    },
+    {
+      "weight": 1.5758,
+      "path": [
+        "skill",
+        "usherDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk": 1247.574,
+        "eleMas": 275.05,
+        "all_dmgInc": 3051.932,
+        "all_dmg_": 90,
+        "enemyDefRed_": 30,
+        "enemyDefIgn_": 40,
+        "hydro_enemyRes_": -25,
+        "critRate_": 36
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "normal",
+        "3"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk": 1247.574,
+        "eleMas": 275.42,
+        "all_dmgInc": 3051.932,
+        "enemyDefRed_": 30,
+        "enemyDefIgn_": 40,
+        "critRate_": 36
+      },
+      "description": ""
+    },
+    {
+      "weight": 1.6621,
+      "path": [
+        "skill",
+        "chevalDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk": 1247.574,
+        "eleMas": 275.42,
+        "all_dmgInc": 659.959,
+        "all_dmg_": 50,
+        "enemyDefRed_": 30,
+        "enemyDefIgn_": 40,
+        "hydro_enemyRes_": -25,
+        "critRate_": 36
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.6661,
+      "path": [
+        "skill",
+        "chevalDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk": 1247.574,
+        "eleMas": 277.78,
+        "all_dmgInc": 632.086,
+        "all_dmg_": 50,
+        "enemyDefRed_": 30,
+        "enemyDefIgn_": 40,
+        "hydro_enemyRes_": -65,
+        "critRate_": 36
+      },
+      "description": ""
+    },
+    {
+      "weight": 1.0128,
+      "path": [
+        "skill",
+        "usherDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk": 1247.574,
+        "eleMas": 275.42,
+        "all_dmgInc": 808.982,
+        "all_dmg_": 50,
+        "enemyDefRed_": 30,
+        "enemyDefIgn_": 40,
+        "hydro_enemyRes_": -65,
+        "critRate_": 36
+      },
+      "description": ""
+    },
+    {
+      "weight": 1.2738,
+      "path": [
+        "skill",
+        "chevalDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk": 1247.574,
+        "eleMas": 275.42,
+        "all_dmgInc": 1426.363,
+        "all_dmg_": 50,
+        "enemyDefRed_": 30,
+        "enemyDefIgn_": 40,
+        "hydro_enemyRes_": -65,
+        "critRate_": 36
+      },
+      "description": ""
+    },
+    {
+      "weight": 1.3391,
+      "path": [
+        "skill",
+        "crabDmg"
+      ],
+      "hitMode": "avgHit",
+      "reaction": "vaporize",
+      "bonusStats": {
+        "atk": 1247.574,
+        "eleMas": 275.42,
+        "all_dmgInc": 1426.363,
+        "all_dmg_": 50,
+        "enemyDefRed_": 30,
+        "enemyDefIgn_": 40,
+        "hydro_enemyRes_": -65,
+        "critRate_": 36
+      },
+      "description": ""
+    },
+    {
+      "weight": 1.2992,
+      "path": [
+        "skill",
+        "chevalDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk": 1247.574,
+        "eleMas": 275.42,
+        "all_dmgInc": 1043.161,
+        "all_dmg_": 50,
+        "enemyDefRed_": 30,
+        "enemyDefIgn_": 40,
+        "hydro_enemyRes_": -65
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.9318,
+      "path": [
+        "skill",
+        "usherDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk": 1247.574,
+        "eleMas": 275.42,
+        "all_dmgInc": 3711.891,
+        "all_dmg_": 83.5,
+        "enemyDefRed_": 30,
+        "enemyDefIgn_": 40,
+        "hydro_enemyRes_": -65
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "charged",
+        "dmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "eleMas": 276.79,
+        "all_dmgInc": 3711.891,
+        "enemyDefRed_": 30,
+        "enemyDefIgn_": 40,
+        "critRate_": 12
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "plunging",
+        "dmg"
+      ],
+      "hitMode": "avgHit",
+      "infusionAura": "hydro",
+      "bonusStats": {
+        "atk": 1247.574,
+        "eleMas": 276.79,
+        "all_dmgInc": 13066.223,
+        "critRate_": 4,
+        "all_dmg_": 170,
+        "enemyDefRed_": 30,
+        "enemyDefIgn_": 40,
+        "hydro_enemyRes_": -49.25
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "plunging",
+        "high"
+      ],
+      "hitMode": "avgHit",
+      "reaction": "vaporize",
+      "infusionAura": "hydro",
+      "bonusStats": {
+        "atk": 1247.574,
+        "eleMas": 276.79,
+        "all_dmgInc": 42334.589,
+        "critRate_": 4,
+        "all_dmg_": 170,
+        "enemyDefRed_": 30,
+        "enemyDefIgn_": 40,
+        "hydro_enemyRes_": -49.25
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "plunging",
+        "dmg"
+      ],
+      "hitMode": "avgHit",
+      "infusionAura": "hydro",
+      "bonusStats": {
+        "atk": 1247.574,
+        "eleMas": 276.79,
+        "all_dmgInc": 13066.223,
+        "critRate_": 28,
+        "all_dmg_": 170,
+        "enemyDefRed_": 30,
+        "enemyDefIgn_": 40,
+        "hydro_enemyRes_": -25
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "plunging",
+        "high"
+      ],
+      "hitMode": "avgHit",
+      "reaction": "vaporize",
+      "infusionAura": "hydro",
+      "bonusStats": {
+        "atk": 1247.574,
+        "eleMas": 276.79,
+        "all_dmgInc": 41476.682,
+        "critRate_": 28,
+        "all_dmg_": 170,
+        "enemyDefRed_": 30,
+        "enemyDefIgn_": 40,
+        "hydro_enemyRes_": -25
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "plunging",
+        "dmg"
+      ],
+      "hitMode": "avgHit",
+      "infusionAura": "hydro",
+      "bonusStats": {
+        "atk": 1247.574,
+        "eleMas": 276.79,
+        "all_dmgInc": 12208.316,
+        "critRate_": 40,
+        "all_dmg_": 170,
+        "enemyDefRed_": 30,
+        "enemyDefIgn_": 40,
+        "hydro_enemyRes_": -25
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "plunging",
+        "high"
+      ],
+      "hitMode": "avgHit",
+      "infusionAura": "hydro",
+      "bonusStats": {
+        "atk": 1247.574,
+        "eleMas": 276.79,
+        "all_dmgInc": 41476.682,
+        "critRate_": 40,
+        "all_dmg_": 170,
+        "enemyDefRed_": 30,
+        "enemyDefIgn_": 40,
+        "hydro_enemyRes_": -25
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "plunging",
+        "dmg"
+      ],
+      "hitMode": "avgHit",
+      "infusionAura": "hydro",
+      "bonusStats": {
+        "atk": 1247.574,
+        "eleMas": 276.79,
+        "all_dmgInc": 12208.316,
+        "critRate_": 40,
+        "all_dmg_": 170,
+        "enemyDefRed_": 30,
+        "enemyDefIgn_": 40,
+        "hydro_enemyRes_": -25
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "plunging",
+        "high"
+      ],
+      "hitMode": "avgHit",
+      "infusionAura": "hydro",
+      "bonusStats": {
+        "atk": 1247.574,
+        "eleMas": 276.79,
+        "all_dmgInc": 41476.682,
+        "critRate_": 40,
+        "all_dmg_": 170,
+        "enemyDefRed_": 30,
+        "enemyDefIgn_": 40,
+        "hydro_enemyRes_": -25
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "plunging",
+        "dmg"
+      ],
+      "hitMode": "avgHit",
+      "infusionAura": "hydro",
+      "bonusStats": {
+        "atk": 1247.574,
+        "eleMas": 276.79,
+        "all_dmgInc": 11569.646,
+        "critRate_": 40,
+        "all_dmg_": 170,
+        "enemyDefRed_": 30,
+        "enemyDefIgn_": 40,
+        "hydro_enemyRes_": -25
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "plunging",
+        "high"
+      ],
+      "hitMode": "avgHit",
+      "infusionAura": "hydro",
+      "bonusStats": {
+        "atk": 1247.574,
+        "eleMas": 276.79,
+        "all_dmgInc": 40838.012,
+        "critRate_": 40,
+        "all_dmg_": 170,
+        "enemyDefRed_": 30,
+        "enemyDefIgn_": 40,
+        "hydro_enemyRes_": -25
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "plunging",
+        "dmg"
+      ],
+      "hitMode": "avgHit",
+      "infusionAura": "hydro",
+      "bonusStats": {
+        "atk": 1247.574,
+        "eleMas": 276.79,
+        "all_dmgInc": 11165.155,
+        "critRate_": 40,
+        "all_dmg_": 170,
+        "enemyDefRed_": 30,
+        "enemyDefIgn_": 40,
+        "hydro_enemyRes_": -25
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "plunging",
+        "high"
+      ],
+      "hitMode": "avgHit",
+      "infusionAura": "hydro",
+      "bonusStats": {
+        "atk": 1247.574,
+        "eleMas": 276.79,
+        "all_dmgInc": 40433.521,
+        "critRate_": 40,
+        "all_dmg_": 170,
+        "enemyDefRed_": 30,
+        "enemyDefIgn_": 40,
+        "hydro_enemyRes_": -25
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "charged",
+        "dmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk": 1247.574,
+        "eleMas": 276.79,
+        "all_dmgInc": 2775.175,
+        "enemyDefRed_": 30,
+        "enemyDefIgn_": 40,
+        "critRate_": 36
+      },
+      "description": ""
+    }
+  ]
+}

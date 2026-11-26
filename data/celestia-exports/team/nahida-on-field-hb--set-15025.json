@@ -1,7 +1,7 @@
 {
   "name": "On-field Hyperbloom",
   "description": "Celestia",
-  "lastEdit": 1794890151797,
+  "lastEdit": 1795409437894,
   "conditional": {
     "resonance": {},
     "reaction": {}
@@ -39,7 +39,7 @@
           "description": "Celestia",
           "targets": [
             {
-              "weight": 0.9756,
+              "weight": 1,
               "path": [
                 "skill",
                 "pressDmg"
@@ -53,7 +53,7 @@
               "description": ""
             },
             {
-              "weight": 0.8359,
+              "weight": 1,
               "path": [
                 "skill",
                 "karmaDmg"
@@ -67,7 +67,7 @@
               "description": ""
             },
             {
-              "weight": 1.0329,
+              "weight": 1,
               "path": [
                 "skill",
                 "karmaDmg"
@@ -81,7 +81,7 @@
               "description": ""
             },
             {
-              "weight": 0.8951,
+              "weight": 1,
               "path": [
                 "normal",
                 "0"
@@ -94,7 +94,7 @@
               "description": ""
             },
             {
-              "weight": 0.9922,
+              "weight": 1,
               "path": [
                 "skill",
                 "karmaDmg"
@@ -108,7 +108,7 @@
               "description": ""
             },
             {
-              "weight": 0.9921,
+              "weight": 1,
               "path": [
                 "normal",
                 "1"
@@ -121,7 +121,7 @@
               "description": ""
             },
             {
-              "weight": 1.0519,
+              "weight": 1,
               "path": [
                 "normal",
                 "2"
@@ -148,7 +148,7 @@
               "description": ""
             },
             {
-              "weight": 0.9794,
+              "weight": 1,
               "path": [
                 "normal",
                 "0"
@@ -162,7 +162,7 @@
               "description": ""
             },
             {
-              "weight": 0.9921,
+              "weight": 1,
               "path": [
                 "normal",
                 "1"
@@ -175,7 +175,7 @@
               "description": ""
             },
             {
-              "weight": 0.9922,
+              "weight": 1,
               "path": [
                 "skill",
                 "karmaDmg"
@@ -203,7 +203,7 @@
               "description": ""
             },
             {
-              "weight": 1.0091,
+              "weight": 1,
               "path": [
                 "normal",
                 "0"
@@ -216,7 +216,7 @@
               "description": ""
             },
             {
-              "weight": 0.9921,
+              "weight": 1,
               "path": [
                 "normal",
                 "1"
@@ -229,7 +229,7 @@
               "description": ""
             },
             {
-              "weight": 1.0595,
+              "weight": 1,
               "path": [
                 "normal",
                 "0"
@@ -242,7 +242,7 @@
               "description": ""
             },
             {
-              "weight": 1.0866,
+              "weight": 1.25,
               "path": [
                 "skill",
                 "karmaDmg"
@@ -269,7 +269,7 @@
               "description": ""
             },
             {
-              "weight": 1.0254,
+              "weight": 1,
               "path": [
                 "skill",
                 "karmaDmg"
@@ -282,7 +282,7 @@
               "description": ""
             },
             {
-              "weight": 0.9305,
+              "weight": 0.75,
               "path": [
                 "normal",
                 "0"
@@ -296,7 +296,7 @@
               "description": ""
             },
             {
-              "weight": 1.0476,
+              "weight": 1,
               "path": [
                 "normal",
                 "1"
@@ -309,7 +309,7 @@
               "description": ""
             },
             {
-              "weight": 1.0244,
+              "weight": 1,
               "path": [
                 "skill",
                 "pressDmg"
@@ -322,7 +322,7 @@
               "description": ""
             },
             {
-              "weight": 1.0091,
+              "weight": 1,
               "path": [
                 "normal",
                 "0"
@@ -335,7 +335,7 @@
               "description": ""
             },
             {
-              "weight": 0.9921,
+              "weight": 1,
               "path": [
                 "normal",
                 "1"
@@ -348,7 +348,7 @@
               "description": ""
             },
             {
-              "weight": 1.0523,
+              "weight": 1,
               "path": [
                 "skill",
                 "karmaDmg"
@@ -362,7 +362,7 @@
               "description": ""
             },
             {
-              "weight": 1.0091,
+              "weight": 1,
               "path": [
                 "normal",
                 "0"
@@ -389,7 +389,7 @@
               "description": ""
             },
             {
-              "weight": 0.974,
+              "weight": 1,
               "path": [
                 "normal",
                 "2"
@@ -402,7 +402,7 @@
               "description": ""
             },
             {
-              "weight": 1.0091,
+              "weight": 1,
               "path": [
                 "normal",
                 "0"
@@ -415,7 +415,7 @@
               "description": ""
             },
             {
-              "weight": 0.9921,
+              "weight": 1,
               "path": [
                 "normal",
                 "1"
@@ -428,7 +428,7 @@
               "description": ""
             },
             {
-              "weight": 0.8359,
+              "weight": 0.75,
               "path": [
                 "skill",
                 "karmaDmg"
@@ -441,7 +441,7 @@
               "description": ""
             },
             {
-              "weight": 0.974,
+              "weight": 1,
               "path": [
                 "normal",
                 "2"
@@ -454,7 +454,7 @@
               "description": ""
             },
             {
-              "weight": 0.9794,
+              "weight": 1,
               "path": [
                 "normal",
                 "0"
@@ -468,7 +468,7 @@
               "description": ""
             },
             {
-              "weight": 0.9921,
+              "weight": 1,
               "path": [
                 "normal",
                 "1"
@@ -482,7 +482,7 @@
               "description": ""
             },
             {
-              "weight": 0.8184,
+              "weight": 0.75,
               "path": [
                 "skill",
                 "karmaDmg"
@@ -497,7 +497,7 @@
               "description": ""
             },
             {
-              "weight": 1.0091,
+              "weight": 1,
               "path": [
                 "normal",
                 "0"
@@ -511,7 +511,7 @@
               "description": ""
             },
             {
-              "weight": 0.1107,
+              "weight": 0.25,
               "path": [
                 "normal",
                 "0"
@@ -525,7 +525,7 @@
               "description": ""
             },
             {
-              "weight": 0.3283,
+              "weight": 0.25,
               "path": [
                 "skill",
                 "karmaDmg"
@@ -635,7 +635,7 @@
       "buildTcs": [
         {
           "name": "Celestia",
-          "description": "Celestia teammate assumption (85% of the maximum).",
+          "description": "Celestia teammate assumption (KQMS standard).",
           "characterKey": "KukiShinobu",
           "character": {
             "level": 90,
@@ -720,7 +720,7 @@
       "buildTcs": [
         {
           "name": "Celestia",
-          "description": "Celestia teammate assumption (85% of the maximum).",
+          "description": "Celestia teammate assumption (KQMS standard).",
           "characterKey": "Collei",
           "character": {
             "level": 90,
@@ -805,7 +805,7 @@
       "buildTcs": [
         {
           "name": "Celestia",
-          "description": "Celestia teammate assumption (85% of the maximum).",
+          "description": "Celestia teammate assumption (KQMS standard).",
           "characterKey": "Xingqiu",
           "character": {
             "level": 90,

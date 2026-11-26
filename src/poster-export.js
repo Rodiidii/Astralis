@@ -1,4 +1,4 @@
-import {renderSheet} from './sheet-renderer.js';
+import {renderSheet} from './sheet-renderer.js?v=20261126-personal-workshop-6';
 const formats = { square: [1080, 1080], portrait: [960, 1280], landscape: [1440, 960] };
 const models = { atelier: 'Atelier', atlas: 'Atlas', eclipse: 'Éclipse' };
 
@@ -188,125 +188,28 @@ export async function drawPoster(data, options={}, loadImage=posterBitmap) {
   return canvas;
 }
 
-export function previewPng({title, render, notify, defaultFormat = 'landscape', defaultCrop = 'cover', artworks = [], lockedLayout = false, defaultAccent = '#bda0ed', defaultBackground}) {
-  const dialog = document.createElement('dialog');
-  dialog.className = 'astralis-png-preview';
-  dialog.style.cssText = 'width:min(960px,94vw);max-height:92dvh;padding:20px;border:1px solid var(--line);border-radius:18px;background:var(--surface,#211c2a);color:var(--ink,#fff)';
-  dialog.innerHTML = '<form method="dialog"><button aria-label="Fermer" style="float:right">×</button></form><h2></h2><div data-options style="display:flex;flex-wrap:wrap;gap:12px;margin-block:12px"></div><div data-preview style="display:grid;place-items:center"></div><p role="status"></p><label><input type="checkbox" data-copy-png checked> Copier aussi dans le presse-papiers</label> <button type="button" data-save disabled>Enregistrer le PNG</button>';
-  dialog.querySelector('h2').textContent = title;
-  const status = dialog.querySelector('[role=status]');
-  const preview = dialog.querySelector('[data-preview]');
-  const save = dialog.querySelector('[data-save]');
-  const options = {model:'atelier', format:defaultFormat, theme:'dark',font:'serif',crop:defaultCrop,focal:'.2'};
-  let revision = 0;
-  let canvas;
-  if (!render.fixed) {
-    for (const [key, label, values] of [
-      ['model','Modèle',models], ['format','Format',{square:'Carré',portrait:'Portrait',landscape:'Paysage'}],
-      ['theme','Thème',{dark:'Sombre',light:'Clair'}],
-      ['font','Titre',{serif:'Éditorial',modern:'Moderne',mono:'Technique'}],
-      ['crop','Cadrage',{cover:'Plein cadre',contain:'Illustration entière'}],
-      ['focal','Ancrage',{'.2':'Haut','.5':'Centre','.85':'Bas'}]
-    ]) {
-      if (lockedLayout && ['model','format','font','theme'].includes(key)) continue;
-      const field = document.createElement('label');
-      field.textContent = label + ' ';
-      const select = document.createElement('select');
-      select.setAttribute('aria-label',label);
-      for (const [value, name] of Object.entries(values)) select.add(new Option(name, value));
-      select.value = options[key];
-      select.addEventListener('change', () => { options[key] = select.value; refresh(); });
-      field.append(select);
-      dialog.querySelector('[data-options]').append(field);
-    }
-    const controls=dialog.querySelector('[data-options]');
-    if(lockedLayout){
-      const label=document.createElement('label'),select=document.createElement('select');label.textContent='Palette ';select.setAttribute('aria-label','Palette');
-      for(const [value,name]of Object.entries({'':'Élément du personnage',anemo:'Anémo',geo:'Géo',electro:'Électro',dendro:'Dendro',hydro:'Hydro',pyro:'Pyro',cryo:'Cryo'}))select.add(new Option(name,value));
-      select.addEventListener('change',()=>{options.element=select.value;refresh();});label.append(select);controls.append(label);
-    }
-    for(const [key,label,value] of [['background','Fond',defaultBackground||'#171420'],['accent','Accent',defaultAccent]]){
-      if(lockedLayout)continue;
-      const field=document.createElement('label'),input=document.createElement('input');
-      field.textContent=label+' ';input.type='color';input.value=value;input.setAttribute('aria-label',label);
-      input.addEventListener('change',()=>{options[key]=input.value;refresh();});
-      field.append(input);controls.append(field);
-    }
-    if (artworks.length) {
-      const label = document.createElement('label');
-      label.textContent = 'Illustration ';
-      const select = document.createElement('select');
-      select.setAttribute('aria-label', 'Illustration');
-      select.add(new Option('Illustration d’origine', ''));
-      artworks.forEach((art, index) => select.add(new Option(art.label, String(index))));
-      select.addEventListener('change', () => {
-        options.artwork = select.value === '' ? undefined : artworks[Number(select.value)].image;
-        refresh();
-      });
-      label.append(select);
-      controls.append(label);
-    }
-    const label=document.createElement('label'),file=document.createElement('input');
-    label.textContent='Illustration personnelle ';file.type='file';file.accept='image/png,image/webp,image/jpeg';
-    file.addEventListener('change',()=>{
-      const selected=file.files?.[0];
-      if(!selected)return;
-      if(selected.size>10_000_000){status.textContent='Image limitée à 10 Mo.';return;}
-      const reader=new FileReader();
-      reader.onload=()=>{options.artwork=String(reader.result);refresh();};
-      reader.readAsDataURL(selected);
-    });
-    const reset=document.createElement('button');reset.type='button';reset.textContent='Image d’origine';
-    reset.addEventListener('click',()=>{delete options.artwork;file.value='';const select=controls.querySelector('[aria-label=Illustration]');if(select)select.value='';refresh();});
-    label.append(file);controls.append(label,reset);
-  }
-  async function refresh() {
-    const current = ++revision;
-    save.disabled = true;
-    status.textContent = 'Composition de l’affiche…';
-    try {
-      const next = await render({...options});
-      if (current !== revision || !dialog.open) return;
-      canvas = next;
-      canvas.style.cssText = 'max-width:100%;max-height:min(52dvh,calc(100dvh - 290px));width:auto;height:auto;object-fit:contain';
-      canvas.setAttribute('aria-label', 'Aperçu du PNG');
-      preview.replaceChildren(canvas);
-      status.textContent = canvas.width + ' × ' + canvas.height + ' px';
-      save.disabled = false;
-    } catch (error) {
-      if (current === revision) status.textContent = error.message || 'Aperçu indisponible.';
-    }
-  }
-  save.addEventListener('click', async () => {
-    if(!canvas||save.disabled)return;
-    const blob = new Promise((resolve, reject) => canvas.toBlob(value =>
-      value ? resolve(value) : reject(new Error('Encodage PNG impossible.')), 'image/png'));
-    blob.catch(()=>{});
-    let clipboard;
-    const copy = dialog.querySelector('[data-copy-png]').checked;
-    if (copy && navigator.clipboard?.write && globalThis.ClipboardItem) {
-      try {
-        clipboard = navigator.clipboard.write([new ClipboardItem({'image/png': blob})]).catch(() => false);
-      } catch { clipboard = null; }
-    }
-    save.disabled = true;
-    try {
-      const url = URL.createObjectURL(await blob);
-      const link = document.createElement('a');
-      link.href = url;
-      link.download = title.replace(/[^\p{L}\p{N}._-]+/gu, '-') + '.png';
-      document.body.append(link);
-      link.click();
-      link.remove();
-      setTimeout(() => URL.revokeObjectURL(url), 30000);
-      const copied = clipboard && (await clipboard) !== false;
-      status.textContent = copied ? 'PNG enregistré et copié.' : copy ? 'PNG enregistré. Copie indisponible.' : 'PNG enregistré.';
-      notify?.(status.textContent);
-    } catch (error) { status.textContent = error.message; }
-    finally { save.disabled = false; }
-  });
-  dialog.addEventListener('close', () => dialog.remove());
-  document.body.append(dialog);
-  dialog.showModal();
-  refresh();
+export function previewPng({title,render,notify,defaultFormat='landscape',defaultCrop='cover',artworks=[],lockedLayout=false,defaultAccent='#bda0ed',defaultBackground,extraOptions=[],helpText=''}){
+ if(!document.querySelector('link[data-png-styles]')){const link=document.createElement('link');link.rel='stylesheet';link.dataset.pngStyles='1';link.href=new URL('../styles/png-export.css?v=20261126-reading-studio-2',import.meta.url).href;document.head.append(link);}
+ const dialog=document.createElement('dialog');dialog.className='astralis-png-preview';
+ dialog.innerHTML='<header class="png-head"><div><small>ASTRALIS · PARTAGER UNE IMAGE</small><h2></h2></div><button type="button" class="png-close" aria-label="Fermer">×</button></header><div class="png-workspace"><aside class="png-settings"><h3>À ton image</h3><p>Un aperçu fidèle au fichier exporté.</p><div data-options></div></aside><main class="png-stage"><div class="png-frame" data-preview><span class="png-loading">Composition de l’image…</span></div><span class="png-dimensions" data-dimensions></span></main></div><footer class="png-actions"><p role="status" aria-live="polite"></p><button type="button" data-copy-only disabled>Copier l’image</button><button type="button" data-save disabled>Télécharger le PNG</button></footer>';
+ dialog.querySelector('h2').textContent=title||'Mon image';
+ const status=dialog.querySelector('[role=status]'),preview=dialog.querySelector('[data-preview]'),save=dialog.querySelector('[data-save]'),copy=dialog.querySelector('[data-copy-only]'),controls=dialog.querySelector('[data-options]');
+ const options={model:'atelier',format:defaultFormat,theme:'dark',font:'serif',crop:defaultCrop,focal:'.2'};
+ let revision=0,canvas,encoded;
+ const selectControl=(key,label,values)=>{const field=document.createElement('label'),caption=document.createElement('span'),select=document.createElement('select');caption.textContent=label;select.setAttribute('aria-label',label);for(const[value,name]of Object.entries(values))select.add(new Option(name,value));select.value=options[key]??'';select.onchange=()=>{options[key]=select.value;refresh();};field.append(caption,select);controls.append(field);return select;};
+ if(helpText){const help=document.createElement('p');help.className='png-priority-help';help.textContent=helpText;controls.before(help);}
+ if(!render.fixed){
+  for(const extra of extraOptions)selectControl(extra.key,extra.label,extra.values);
+  if(!lockedLayout){selectControl('format','Format',{square:'Carré',portrait:'Portrait',landscape:'Paysage'});selectControl('model','Modèle',models);selectControl('theme','Ambiance',{dark:'Sombre',light:'Claire'});selectControl('font','Typographie',{serif:'Éditoriale',modern:'Moderne',mono:'Technique'});}
+  if(lockedLayout)selectControl('element','Palette',{'':'Couleur du personnage',anemo:'Anémo',geo:'Géo',electro:'Électro',dendro:'Dendro',hydro:'Hydro',pyro:'Pyro',cryo:'Cryo'});
+  selectControl('crop','Cadrage',{cover:'Plein cadre',contain:'Illustration entière'});selectControl('focal','Position de l’illustration',{'.2':'Vers le haut','.5':'Centrée','.85':'Vers le bas'});
+  if(!lockedLayout)for(const[key,label,value]of[['background','Fond',defaultBackground||'#171420'],['accent','Accent',defaultAccent]]){const field=document.createElement('label'),caption=document.createElement('span'),input=document.createElement('input');caption.textContent=label;input.type='color';input.value=value;input.setAttribute('aria-label',label);input.onchange=()=>{options[key]=input.value;refresh();};field.append(caption,input);controls.append(field);}
+  if(artworks.length){const select=selectControl('artworkChoice','Illustration',{'':'Illustration d’origine',...Object.fromEntries(artworks.map((art,i)=>[i,art.label]))});select.onchange=()=>{options.artwork=select.value===''?undefined:artworks[Number(select.value)].image;refresh();};}
+  const field=document.createElement('label'),caption=document.createElement('span'),file=document.createElement('input');field.className='png-upload';caption.textContent='Choisir une image personnelle';file.type='file';file.accept='image/png,image/jpeg,image/webp';file.setAttribute('aria-label','Illustration personnelle');file.onchange=()=>{const f=file.files?.[0];if(!f)return;if(f.size>10000000){status.textContent='Image limitée à 10 Mo.';return;}const reader=new FileReader();reader.onload=()=>{options.artwork=String(reader.result);refresh();};reader.readAsDataURL(f);};field.append(caption,file);controls.append(field);
+  const reset=document.createElement('button');reset.type='button';reset.className='png-reset';reset.textContent='Rétablir l’illustration';reset.onclick=()=>{delete options.artwork;file.value='';const select=controls.querySelector('[aria-label=Illustration]');if(select)select.value='';refresh();};controls.append(reset);
+ }
+ async function refresh(){const current=++revision;save.disabled=copy.disabled=true;preview.setAttribute('aria-busy','true');status.textContent='Composition de l’image…';try{const next=await render({...options});if(current!==revision||!dialog.open)return;canvas=next;canvas.setAttribute('aria-label','Aperçu du PNG');canvas.style.cssText='display:block;width:auto;height:auto;max-width:100%;max-height:100%;object-fit:contain';preview.replaceChildren(canvas);encoded=new Promise((resolve,reject)=>canvas.toBlob(blob=>blob?resolve(blob):reject(Error('Encodage PNG impossible.')),'image/png'));encoded.catch(()=>{});dialog.querySelector('[data-dimensions]').textContent=canvas.width+' × '+canvas.height+' px · PNG';status.textContent='Prête à partager';save.disabled=copy.disabled=false;}catch(error){if(current===revision)status.textContent=error.message||'Aperçu indisponible.';}finally{if(current===revision)preview.removeAttribute('aria-busy');}}
+ copy.onclick=async()=>{if(!encoded||copy.disabled)return;if(!navigator.clipboard?.write||!globalThis.ClipboardItem){status.textContent='La copie d’image est indisponible dans cette fenêtre.';return;}copy.disabled=true;try{await navigator.clipboard.write([new ClipboardItem({'image/png':encoded})]);status.textContent='Image copiée. Tu peux la coller directement.';notify?.('Image copiée dans le presse-papiers.');}catch{status.textContent='Copie refusée par le navigateur. Aucun fichier téléchargé.';}finally{copy.disabled=false;}};
+ save.onclick=async()=>{if(!encoded||save.disabled)return;save.disabled=true;try{const url=URL.createObjectURL(await encoded),link=document.createElement('a');link.href=url;link.download=(title||'Astralis').replace(/[^\p{L}\p{N}._-]+/gu,'-')+'.png';document.body.append(link);link.click();link.remove();setTimeout(()=>URL.revokeObjectURL(url),30000);status.textContent='PNG téléchargé.';notify?.(status.textContent);}catch(error){status.textContent=error.message;}finally{save.disabled=false;}};
+ dialog.querySelector('.png-close').onclick=()=>dialog.close();dialog.addEventListener('close',()=>{revision++;dialog.remove();});document.body.append(dialog);dialog.showModal();refresh();return dialog;
 }

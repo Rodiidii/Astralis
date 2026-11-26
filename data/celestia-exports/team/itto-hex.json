@@ -1,7 +1,7 @@
 {
   "name": "Hex",
   "description": "Celestia",
-  "lastEdit": 1794349052941,
+  "lastEdit": 1795427341177,
   "conditional": {
     "resonance": {},
     "reaction": {}
@@ -88,7 +88,7 @@
               "weight": 1,
               "path": [
                 "normal",
-                "1"
+                "0"
               ],
               "hitMode": "avgHit",
               "infusionAura": "geo",
@@ -104,7 +104,7 @@
               "weight": 1,
               "path": [
                 "normal",
-                "2"
+                "1"
               ],
               "hitMode": "avgHit",
               "infusionAura": "geo",
@@ -457,7 +457,7 @@
       "buildTcs": [
         {
           "name": "Celestia",
-          "description": "Celestia teammate assumption (85% of the maximum).",
+          "description": "Celestia teammate assumption (KQMS standard).",
           "characterKey": "Xilonen",
           "character": {
             "level": 90,

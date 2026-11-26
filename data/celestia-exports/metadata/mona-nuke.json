@@ -26,10 +26,10 @@
   },
   "goConditions": null,
   "characterBonusStats": {
-    "eleMas": 509.384,
-    "atk": 1174.092,
+    "eleMas": 370,
+    "atk": 2590.092,
     "enerRech_": 20,
-    "atk_": 88
+    "atk_": 68
   },
   "enemy": {
     "level": 90,
@@ -55,14 +55,34 @@
           "value": 20
         },
         {
+          "buff": "Methexis",
+          "key": "atk",
+          "value": 300
+        },
+        {
+          "buff": "\"I Will Guide You and Show You the Path You Should Tread\"",
+          "key": "atk",
+          "value": 300
+        },
+        {
           "buff": "Tenacity of the Millelith 4pc ATK",
           "key": "atk_",
           "value": 20
         },
         {
-          "buff": "Noblesse Oblige 4pc",
-          "key": "atk_",
-          "value": 20
+          "buff": "Instructor 4pc EM",
+          "key": "eleMas",
+          "value": 120
+        },
+        {
+          "buff": "Grace of Kenosis (% of Nicole's ATK)",
+          "key": "atk",
+          "value": 708
+        },
+        {
+          "buff": "\"A Lamp by Your Side, A Light to Shine the Way\"",
+          "key": "atk",
+          "value": 108
         },
         {
           "buff": "Waters in Full Splendor",
@@ -73,18 +93,13 @@
           "buff": "Rondo of Slumber",
           "key": "atk_",
           "value": 48
-        },
-        {
-          "buff": "Sunken Song of the Sands",
-          "key": "eleMas",
-          "value": 259.3842747606994
         }
       ]
     },
     {
       "code": "setEffects",
       "setIds": [
-        15026
+        15040
       ]
     }
   ],
@@ -107,7 +122,7 @@
     {
       "code": "setEffects",
       "setIds": [
-        15026
+        15040
       ]
     }
   ]

@@ -1,0 +1,172 @@
+/* Combat Astralis : un atelier ouvert, des outils à la demande. */
+#app .combat-studio{--cs-accent:var(--accent,#dab878);--cs-wash:color-mix(in srgb,var(--cs-accent) 10%,transparent);--cs-border:color-mix(in srgb,var(--cs-accent) 20%,var(--line));display:grid;gap:26px;min-width:0;padding:8px 0 48px;color:var(--ink);font-size:15px;line-height:1.5;container-type:inline-size}
+#app .combat-studio.cs-lab{--cs-accent:#aaa2ef}
+#app .combat-studio[data-game="hsr"]{--cs-accent:#d894b4}
+#app .combat-studio[data-game="ww"]{--cs-accent:#73c8c0}
+.combat-studio *{box-sizing:border-box}
+.combat-studio [hidden]{display:none!important}
+.combat-studio button,.combat-studio input,.combat-studio select,.combat-studio textarea{font:inherit}
+.combat-studio button{cursor:pointer}
+.combat-studio :focus-visible{outline:2px solid var(--cs-accent);outline-offset:4px}
+.combat-studio .cs-hero{position:relative;isolation:isolate;display:flex;align-items:center;justify-content:space-between;gap:24px;overflow:hidden;padding:34px 38px;border:1px solid var(--cs-border);border-radius:24px;background:radial-gradient(ellipse at 90% 10%,color-mix(in srgb,var(--cs-accent) 19%,transparent),transparent 49%),var(--surface);animation:cs-appear .4s ease both}
+.combat-studio .cs-hero:after{position:absolute;z-index:-1;right:-45px;top:-110px;width:320px;height:320px;border:1px solid color-mix(in srgb,var(--cs-accent) 15%,transparent);border-radius:50%;box-shadow:0 0 0 35px #ffffff03,0 0 0 75px #ffffff02;content:"";pointer-events:none}
+.combat-studio .cs-eyebrow{display:block;color:var(--cs-accent);font-size:12px;font-weight:750;letter-spacing:.12em}
+.combat-studio .cs-hero h1{margin:10px 0;color:var(--ink);font-size:clamp(30px,3.4vw,46px);font-weight:750;line-height:1.12;letter-spacing:-.045em}
+.combat-studio .cs-hero p{max-width:620px;margin:0;color:var(--muted);font-size:16px;line-height:1.65}
+.combat-studio .cs-hero-mark{display:grid;place-items:center;flex:0 0 78px;width:78px;height:78px;border:1px solid var(--cs-border);border-radius:24px;background:var(--cs-wash);color:var(--cs-accent);transform:rotate(-7deg);animation:cs-float 7s ease-in-out infinite}
+.combat-studio .cs-hero-mark svg{width:34px;height:34px;transform:rotate(7deg)}
+.combat-studio .cs-hero-side{display:grid;justify-items:center;gap:17px;flex-shrink:0}
+.combat-studio .cs-nav{display:flex;align-items:center;flex-wrap:wrap;gap:6px;padding:7px;border:1px solid var(--line);border-radius:16px;background:var(--surface)}
+.combat-studio .cs-nav button{flex:1 1 auto;min-height:44px;padding:10px 16px;border:1px solid transparent;border-radius:11px;background:transparent;color:var(--muted);font-size:14px;font-weight:650;transition:background .18s,color .18s,border-color .18s}
+.combat-studio .cs-nav button:hover{background:var(--surface-2);color:var(--ink)}
+.combat-studio .cs-nav button[aria-current="page"]{border-color:var(--cs-border);background:var(--cs-wash);color:var(--cs-accent)}
+.combat-studio .cs-native,.combat-studio .cs-tools{min-width:0;animation:cs-appear .25s ease both}
+.combat-studio .cs-tool-context{display:flex;align-items:end;justify-content:space-between;gap:24px;margin:8px 0 25px}
+.combat-studio .cs-tool-context h2{margin:6px 0;font-size:25px;font-weight:700;letter-spacing:-.03em}
+.combat-studio .cs-tool-context p{max-width:600px;margin:0;color:var(--muted);font-size:14px}
+.combat-studio .cs-tool-context>label{display:grid;gap:7px;flex:0 0 min(300px,40%);font-size:13px;color:var(--muted)}
+.combat-studio .cs-tool-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));align-items:start;gap:18px}
+.combat-studio .cs-tool{min-width:0;overflow:hidden;border:1px solid var(--line);border-radius:19px;background:var(--surface);box-shadow:0 7px 26px #0000000b;transition:border-color .2s,box-shadow .2s}
+.combat-studio .cs-tool:hover,.combat-studio .cs-tool[open]{border-color:var(--cs-border);box-shadow:0 10px 30px #00000014}
+.combat-studio .cs-tool>summary{display:flex;align-items:start;gap:14px;min-height:140px;padding:23px;list-style:none;cursor:pointer}
+.combat-studio .cs-tool>summary::-webkit-details-marker{display:none}
+.combat-studio .cs-tool>summary>span{display:grid;place-items:center;flex:0 0 39px;width:39px;height:39px;border:1px solid var(--cs-border);border-radius:12px;background:var(--cs-wash);color:var(--cs-accent)}
+.combat-studio .cs-tool>summary svg{width:18px;height:18px}
+.combat-studio .cs-tool>summary>div{min-width:0;flex:1}
+.combat-studio .cs-tool h3{margin:1px 0 7px;color:var(--ink);font-size:17px;font-weight:700;line-height:1.35}
+.combat-studio .cs-tool>summary p{margin:0;color:var(--muted);font-size:14px;line-height:1.65}
+.combat-studio .cs-tool>summary>i{color:var(--muted);font-size:24px;font-style:normal;line-height:1.2;transition:transform .2s}
+.combat-studio .cs-tool[open]>summary>i{transform:rotate(45deg);color:var(--cs-accent)}
+.combat-studio .cs-tool[open]>summary{border-bottom:1px solid var(--line);background:linear-gradient(100deg,var(--cs-wash),transparent)}
+.combat-studio .cs-tool form{display:grid;gap:18px;min-width:0;padding:22px}
+.combat-studio .cs-fields{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));align-items:start;gap:16px}
+.combat-studio .cs-fields>label,.combat-studio .cs-fields fieldset>label{display:grid;gap:8px;min-width:0;color:var(--muted);font-size:13px;line-height:1.45}
+.combat-studio .cs-fields input:not([type="checkbox"]),.combat-studio .cs-fields select,.combat-studio .cs-fields textarea,.combat-studio .cs-tool-context select{width:100%;min-width:0;min-height:44px;padding:10px 12px;border:1px solid var(--line);border-radius:10px;background:var(--surface-2);color:var(--ink);font-size:14px;line-height:1.4}
+.combat-studio .cs-fields textarea{resize:vertical;min-height:100px}
+.combat-studio .cs-fields input[type="file"]{padding:9px;font-size:12px}
+.combat-studio .cs-fields .cs-wide,.combat-studio .cs-fields .cs-notice,.combat-studio .cs-fields .cs-table-scroll,.combat-studio .cs-fields .cs-metrics{grid-column:1/-1}
+.combat-studio .cs-fields .cs-check{display:flex;align-items:center;gap:10px;min-height:45px;padding:10px 12px;border:1px solid var(--line);border-radius:10px;background:var(--surface-2);color:var(--ink);font-size:14px;cursor:pointer}
+.combat-studio .cs-check input{width:17px;height:17px;accent-color:var(--cs-accent)}
+.combat-studio .cs-fields fieldset{display:grid;gap:12px;min-width:0;margin:0;padding:16px;border:1px solid var(--line);border-radius:12px}
+.combat-studio .cs-fields legend{padding:0 5px;color:var(--cs-accent);font-size:13px;font-weight:650}
+.combat-studio .cs-primary,.combat-studio [data-cs-secondary]{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:44px;padding:10px 15px;border:1px solid var(--cs-border);border-radius:11px;background:var(--cs-wash);color:var(--ink);font-size:13px;font-weight:650;line-height:1.4;transition:background .2s,border-color .2s,transform .2s}
+.combat-studio [data-cs-secondary]{border-color:var(--line);background:var(--surface-2);color:var(--muted)}
+.combat-studio .cs-primary:hover,.combat-studio [data-cs-secondary]:hover{transform:translateY(-1px);border-color:var(--cs-accent);color:var(--ink)}
+.combat-studio button:disabled{cursor:wait;opacity:.5;transform:none}
+.combat-studio .cs-tool-actions{display:flex;gap:10px;flex-wrap:wrap}
+.combat-studio .cs-result{display:grid;gap:12px;min-width:0}.combat-studio .cs-result:empty{display:none}
+.combat-studio .cs-result [data-cs-secondary]{justify-self:start}
+.combat-studio .cs-plot{margin:0;padding:14px;border:1px solid var(--cs-border);border-radius:13px;background:var(--cs-wash);min-width:0}.combat-studio .cs-plot figcaption{margin-bottom:7px;color:var(--muted);font-size:12px}.combat-studio .cs-plot svg{display:block;width:100%;height:auto;overflow:visible}.combat-studio .cs-plot polyline{fill:none;stroke:var(--cs-accent);stroke-width:2.5;stroke-linejoin:round}.combat-studio .cs-plot circle{fill:var(--surface);stroke:var(--cs-accent);stroke-width:2}.combat-studio .cs-plot-grid{stroke:var(--line);fill:none;stroke-dasharray:4 4}.combat-studio .cs-plot text{fill:var(--muted);font-size:10px}
+.combat-studio .cs-notice{margin:0;color:var(--muted);font-size:13px;line-height:1.7;overflow-wrap:anywhere}
+.combat-studio .cs-metrics{display:grid;grid-template-columns:repeat(auto-fit,minmax(125px,1fr));gap:10px;min-width:0}
+.combat-studio .cs-metrics>div{display:grid;align-content:start;gap:7px;padding:14px;border:1px solid var(--line);border-radius:12px;background:var(--surface-2)}
+.combat-studio .cs-metrics small{color:var(--muted);font-size:12px}.combat-studio .cs-metrics strong{color:var(--ink);font-size:21px;line-height:1.3;font-variant-numeric:tabular-nums;overflow-wrap:anywhere}
+.combat-studio .cs-table-scroll{max-width:100%;overflow:auto;border:1px solid var(--line);border-radius:12px}
+.combat-studio .cs-table-scroll table{width:100%;border-collapse:collapse;text-align:left;font-size:12px}
+.combat-studio .cs-table-scroll th{padding:12px;background:var(--surface-2);color:var(--muted);font-weight:650;white-space:nowrap}
+.combat-studio .cs-table-scroll td{padding:12px;border-top:1px solid var(--line);color:var(--ink);font-variant-numeric:tabular-nums;overflow-wrap:anywhere;min-width:75px}
+.combat-studio .cs-stopwatch{grid-column:1/-1;padding:20px;border:1px solid var(--line);border-radius:14px;background:var(--surface-2);color:var(--cs-accent);font-size:42px;font-weight:650;text-align:center;font-variant-numeric:tabular-nums}
+.combat-studio .cs-tools-footer{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-top:24px;color:var(--muted);font-size:12px}
+.combat-studio .cs-status{margin:0;padding:14px 18px;border:1px solid var(--cs-border);border-radius:12px;background:var(--cs-wash);color:var(--ink);font-size:14px;line-height:1.55}
+.combat-studio .cs-status:empty{display:none}
+/* Atelier builds : hiérarchie de fiche et panneaux qui respirent. */
+#app .combat-studio .builds-hub{display:grid;gap:26px;padding:0;background:transparent;border:0}
+#app .combat-studio .builds-hub>header{justify-content:flex-end;margin:0;padding:0;border:0;background:transparent}
+#app .combat-studio .builds-hub>header>div{display:none}
+#app .combat-studio .build-character-select{display:grid;grid-template-columns:180px 1fr 1fr;align-items:center;gap:24px;padding:24px;border:1px solid var(--cs-border);border-radius:22px;background:var(--surface)}
+#app .combat-studio .build-portrait-hero{grid-row:1/3;position:relative;isolation:isolate;width:180px;min-height:210px;overflow:hidden;border-radius:15px;background:var(--surface-2)}
+#app .combat-studio .build-portrait-hero .unit-backdrop{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:blur(14px) brightness(.55)}
+#app .combat-studio .build-portrait-hero .unit-portrait{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;object-position:center bottom}
+#app .combat-studio .build-portrait-hero>span{position:absolute;right:10px;bottom:10px;left:10px;z-index:2;padding:8px;border-radius:9px;background:#111c;color:#fff;font-size:11px;text-align:center}
+#app .combat-studio .build-character-select>label{display:grid;gap:10px;min-width:0;font-size:14px;color:var(--muted)}
+#app .combat-studio .build-character-skill-strip{grid-column:2/-1;display:flex;gap:12px}
+#app .combat-studio .build-character-skill-strip>span{display:grid;place-items:center;width:48px;height:48px;border:1px solid var(--line);border-radius:13px;background:var(--surface-2)}
+#app .combat-studio .build-editor{display:grid;gap:26px;padding:28px;border:1px solid var(--line);border-radius:22px;background:var(--surface)}
+#app .combat-studio .build-editor-heading{display:flex;align-items:end;gap:12px;flex-wrap:wrap;margin:0;padding:0 0 24px;border:0;border-bottom:1px solid var(--line);background:transparent}
+#app .combat-studio .build-editor-heading>div{display:grid;gap:10px;flex:1 1 100%;min-width:0}
+#app .combat-studio .build-editor-heading small{color:var(--cs-accent);font-size:12px;letter-spacing:.09em}
+#app .combat-studio .build-editor-heading input{font-size:24px;font-weight:700}
+#app .combat-studio .build-core-fields{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px;align-items:start;padding:0;background:transparent;border:0}
+#app .combat-studio .build-editor label{display:grid;gap:8px;min-width:0;color:var(--muted);font-size:13px}
+#app .combat-studio .build-editor input:not([type="color"]),#app .combat-studio .build-editor select,#app .combat-studio .build-character-select select,#app .combat-studio .build-editor textarea{width:100%;min-width:0;min-height:43px;padding:10px 12px;border:1px solid var(--line);border-radius:10px;background:var(--surface-2);color:var(--ink);font-size:14px}
+#app .combat-studio .build-editor button,#app .combat-studio .builds-hub>header button{min-height:42px;padding:10px 14px;border:1px solid var(--cs-border);border-radius:11px;background:var(--cs-wash);color:var(--ink);font-size:13px;line-height:1.4}
+#app .combat-studio .build-derived-stats{display:grid;gap:18px;padding:23px;border:1px solid var(--cs-border);border-radius:17px;background:linear-gradient(125deg,var(--cs-wash),var(--surface-2))}
+#app .combat-studio .build-derived-stats>header{display:flex;gap:16px;justify-content:space-between;flex-wrap:wrap}
+#app .combat-studio .build-derived-stats h3{margin:0 0 7px;font-size:21px}
+#app .combat-studio .build-derived-stats small,#app .combat-studio .build-derived-stats>header>span{color:var(--muted);font-size:12px;line-height:1.6}
+#app .combat-studio .build-stat-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+#app .combat-studio .build-stat-grid>div{display:grid;gap:7px;padding:16px;border:1px solid var(--line);border-radius:12px;background:var(--surface)}
+#app .combat-studio .build-stat-grid b{font-size:23px;font-variant-numeric:tabular-nums}
+#app .combat-studio .build-artifact-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:22px;align-items:start}
+#app .combat-studio .build-artifact-piece{display:grid;gap:17px;min-width:0;padding:20px;border:1px solid var(--line);border-radius:17px;background:var(--surface-2)}
+#app .combat-studio .build-piece-fields{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+#app .combat-studio .build-section-title{padding-top:12px;font-size:21px;color:var(--ink)}
+#app .combat-studio .build-talent-levels,#app .combat-studio .build-custom-tools{gap:18px;padding:20px;border:1px solid var(--line);border-radius:16px;background:var(--surface-2)}
+/* Équipes : titre commun et fiches lisibles, indépendantes des personnalisations serrées. */
+#app .combat-studio .teams-studio{padding:0;gap:26px}
+#app .combat-studio .teams-hero{display:none}
+#app .combat-studio .teams-overview{gap:16px}
+#app .combat-studio .teams-overview>article{padding:21px;min-height:108px}
+#app .combat-studio .teams-overview small{font-size:13px}
+#app .combat-studio .teams-overview b{font-size:27px}
+#app .combat-studio .teams-overview article span:last-child{font-size:12px;white-space:normal}
+#app .combat-studio .teams-workbench{padding:24px;gap:24px;background:transparent;border:1px solid var(--line);border-radius:22px}
+#app .combat-studio .teams-switcher h3,#app .combat-studio .teams-workbench-heading h3{font-size:23px}
+#app .combat-studio .teams-workbench-heading p,#app .combat-studio .teams-switcher>header>small{font-size:13px;line-height:1.6}
+#app .combat-studio .team-sheet-head{grid-template-columns:1fr;gap:20px;padding:26px}
+#app .combat-studio .team-sheet-actions{justify-content:flex-start;max-width:none;gap:10px}
+#app .combat-studio .team-sheet-actions .quiet-btn{min-height:40px;padding:9px 13px;font-size:12px}
+#app .combat-studio .team-sheet-head h3{font-size:27px}
+#app .combat-studio .team-sheet-head p,#app .combat-studio .team-role-summary,#app .combat-studio .team-role-advice{font-size:13px;line-height:1.65}
+#app .combat-studio .team-roster-meter{position:relative;display:block!important;width:min(100%,420px)!important;max-width:100%!important;height:30px;margin:16px 0;border-radius:10px}
+#app .combat-studio .team-roster-meter>span{position:absolute;inset:0 auto 0 0;width:var(--team-roster-fill);height:100%}
+#app .combat-studio .team-roster-meter small{position:absolute;inset:0;display:flex;align-items:center;margin:0;padding:0 12px;font-size:12px;color:var(--ink);background:color-mix(in srgb,var(--surface) 70%,transparent)}
+#app .combat-studio .team-compact-roster{gap:14px!important;padding:22px 25px 14px!important}
+#app .combat-studio .team-compact-member{min-height:82px!important;gap:11px!important;padding:12px!important}
+#app .combat-studio .team-compact-roster>.team-compact-member{display:flex!important;flex-direction:row!important;align-items:center!important;justify-content:flex-start!important;min-width:0;border:1px solid var(--line)!important;border-radius:13px!important;background:var(--surface-2)!important}
+#app .combat-studio .team-compact-member b{font-size:13px;white-space:normal;line-height:1.3}
+#app .combat-studio .team-compact-avatar{flex:0 0 46px!important;width:46px!important;height:46px!important}
+#app .combat-studio .team-roster{grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:24px!important}
+#app .combat-studio .unit-equipment{padding:19px 18px 10px;gap:14px}
+#app .combat-studio .unit-skills{padding:20px;gap:14px}
+#app .combat-studio .skill-strip{gap:11px}
+#app .combat-studio .skill-heading,#app .combat-studio .unit-buffs>small{font-size:11px}
+#app .combat-studio .team-live-analysis,#app .combat-studio .rotation-panel{padding:24px;margin-bottom:22px;border-radius:17px}
+#app .combat-studio .team-record>span{font-size:11px}
+#app .combat-studio .team-record>b{font-size:14px}
+/* Laboratoire : paramètres en haut, résultat net, navigation qui reste dans le flux. */
+#app .combat-studio .lab-studio{padding:0;background:transparent;--lab-accent:var(--cs-accent)}
+#app .combat-studio .lab-studio-header{display:none}
+#app .combat-studio .lab-preparation{padding:24px;margin-bottom:24px;border:1px solid var(--cs-border);border-radius:20px;background:var(--surface)}
+#app .combat-studio .lab-context-bar{display:flex;align-items:end;gap:18px;flex-wrap:wrap;margin:16px 0}
+#app .combat-studio .lab-context-bar>label{flex:1 1 180px}
+#app .combat-studio .lab-studio-section-head{gap:12px;flex-wrap:wrap}
+#app .combat-studio .lab-studio-section-head>b{font-size:21px}
+#app .combat-studio .lab-workspace{display:grid;grid-template-columns:240px minmax(0,1fr);gap:24px;align-items:start}
+#app .combat-studio .lab-reference-card{position:static;overflow:hidden;border:1px solid var(--line);border-radius:18px;background:var(--surface)}
+#app .combat-studio .lab-main{display:grid;gap:22px;min-width:0}
+#app .combat-studio .lab-tabs{position:static;display:flex;align-items:stretch;gap:8px;flex-wrap:wrap;margin:0;padding:9px;border:1px solid var(--line);border-radius:15px;background:var(--surface);box-shadow:none}
+#app .combat-studio .lab-tabs button{display:flex;align-items:center;justify-content:center;gap:7px;flex:1 1 100px;min-height:43px;padding:10px;border:1px solid transparent;border-radius:10px;color:var(--muted);font-size:13px}
+#app .combat-studio .lab-tabs button[aria-selected="true"]{border-color:var(--cs-border);background:var(--cs-wash);color:var(--cs-accent)}
+#app .combat-studio .lab-live-output{margin:0;border:1px solid var(--cs-border);border-radius:20px;background:linear-gradient(125deg,var(--cs-wash),var(--surface));box-shadow:0 14px 40px #0000000d}
+#app .combat-studio .lab-result-main{padding:25px 0}
+#app .combat-studio .lab-result-main strong{font-size:clamp(32px,4vw,50px);letter-spacing:-.03em}
+#app .combat-studio .lab-scenario-panel,#app .combat-studio .lab-current-equipment,#app .combat-studio .lab-attack-search,#app .combat-studio .lab-simulation{margin:0;padding:22px;border:1px solid var(--line);border-radius:17px;background:var(--surface)}
+#app .combat-studio .lab-section{padding:22px;border-radius:17px}
+#app .combat-studio .lab-scenario-panel>summary,#app .combat-studio .lab-current-equipment>summary,#app .combat-studio .lab-attack-search>summary{padding:0;gap:14px;font-size:15px}
+#app .combat-studio .lab-scenario-panel[open]>summary,#app .combat-studio .lab-current-equipment[open]>summary,#app .combat-studio .lab-attack-search[open]>summary{margin-bottom:22px}
+#app .combat-studio .lab-field{display:grid;gap:9px;min-width:0;font-size:13px}
+#app .combat-studio .lab-field input,#app .combat-studio .lab-field select{min-height:43px;padding:10px 12px;border:1px solid var(--line);border-radius:10px;background:var(--surface-2);font-size:14px}
+#app .combat-studio .lab-reference-stats{padding:12px 17px}
+#app .combat-studio .lab-reference-stats>div{min-height:37px;gap:10px;font-size:12px}
+#app .combat-studio .lab-overview-grid{grid-template-columns:1fr;gap:20px}
+#app .combat-studio .lab-buff-card,#app .combat-studio .lab-ally-card{padding:20px;border:1px solid var(--line);border-radius:16px;background:var(--surface);margin-bottom:16px}
+#app .combat-studio .lab-attack-kinds{gap:10px;margin:20px 0}
+#app .combat-studio .lab-attack-kinds button{min-height:82px;padding:15px 10px;border-radius:13px}
+#app .combat-studio .lab-attack-kinds button>b{font-size:13px}
+@keyframes cs-appear{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+@keyframes cs-float{50%{transform:translateY(-5px) rotate(-4deg)}}
+@container(max-width:980px){.combat-studio .cs-tool-grid{grid-template-columns:1fr}.combat-studio .cs-tool>summary{min-height:112px}#app .combat-studio .build-core-fields{grid-template-columns:repeat(2,minmax(0,1fr))}#app .combat-studio .lab-workspace{grid-template-columns:1fr}#app .combat-studio .lab-reference-card{max-width:100%;position:static}#app .combat-studio .lab-reference-stats{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 20px}#app .combat-studio .team-compact-roster{grid-template-columns:repeat(2,minmax(0,1fr))!important}}
+@media(max-width:760px){#app .combat-studio{gap:18px;padding:2px 0 30px}.combat-studio .cs-hero{padding:25px;gap:16px;border-radius:19px}.combat-studio .cs-hero h1{font-size:32px}.combat-studio .cs-hero p{font-size:14px}.combat-studio .cs-hero-mark{flex-basis:52px;width:52px;height:52px;border-radius:17px}.combat-studio .cs-hero-mark svg{width:25px;height:25px}.combat-studio .cs-eyebrow{font-size:10px}.combat-studio .cs-nav{gap:5px;padding:6px}.combat-studio .cs-nav button{flex:1 1 30%;min-height:43px;padding:9px;font-size:12px}.combat-studio .cs-tool-context{align-items:stretch;flex-direction:column;gap:17px}.combat-studio .cs-tool-context>label{flex:auto}.combat-studio .cs-tool-context h2{font-size:23px}.combat-studio .cs-tool-grid{grid-template-columns:1fr;gap:13px}.combat-studio .cs-tool>summary{min-height:110px;padding:18px;gap:11px}.combat-studio .cs-tool>summary p{font-size:13px}.combat-studio .cs-tool h3{font-size:16px}.combat-studio .cs-tool form{padding:18px}.combat-studio .cs-fields{gap:13px}.combat-studio .cs-metrics strong{font-size:19px}#app .combat-studio .build-character-select{grid-template-columns:105px 1fr;gap:16px;padding:18px}#app .combat-studio .build-portrait-hero{width:105px;min-height:210px;grid-row:1/4}#app .combat-studio .build-character-skill-strip{grid-column:2;gap:8px}#app .combat-studio .build-editor{padding:18px;gap:22px}#app .combat-studio .build-core-fields,#app .combat-studio .build-artifact-grid{grid-template-columns:1fr}#app .combat-studio .build-derived-stats{padding:17px}#app .combat-studio .build-stat-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}#app .combat-studio .build-stat-grid>div{padding:13px}#app .combat-studio .build-stat-grid b{font-size:21px}#app .combat-studio .teams-workbench{padding:16px}#app .combat-studio .team-sheet-head{padding:21px}#app .combat-studio .team-sheet-actions .quiet-btn{font-size:11px;min-height:40px}#app .combat-studio .team-roster{grid-template-columns:1fr!important;gap:18px!important}#app .combat-studio .team-compact-roster{gap:10px!important;padding:16px!important}#app .combat-studio .team-compact-member{min-height:69px!important;padding:8px!important;gap:8px!important}#app .combat-studio .team-compact-avatar{flex-basis:36px!important;width:36px!important;height:36px!important}#app .combat-studio .team-compact-member b{font-size:12px}#app .combat-studio .team-live-analysis,#app .combat-studio .rotation-panel{padding:17px}#app .combat-studio .lab-preparation{padding:18px}#app .combat-studio .lab-scenario-panel,#app .combat-studio .lab-current-equipment,#app .combat-studio .lab-attack-search,#app .combat-studio .lab-simulation{padding:17px}#app .combat-studio .lab-tabs button{font-size:12px;flex-basis:30%}#app .combat-studio .lab-attack-kinds{gap:6px}#app .combat-studio .lab-attack-kinds button{padding:10px 4px}#app .combat-studio .lab-attack-kinds button>b{font-size:11px}}
+@media(max-width:420px){.combat-studio .cs-fields{grid-template-columns:1fr}.combat-studio .cs-hero-mark{display:none}.combat-studio .cs-tool>summary>span{flex-basis:32px;width:32px;height:32px}.combat-studio .cs-tool>summary{padding:16px}.combat-studio .cs-tool form{padding:16px}.combat-studio .cs-primary{width:100%}#app .combat-studio .build-piece-fields{grid-template-columns:1fr}#app .combat-studio .teams-overview>article{padding:13px}#app .combat-studio .teams-overview small{font-size:11px}#app .combat-studio .teams-overview article span:last-child{font-size:11px}}
+@media(prefers-reduced-motion:reduce){.combat-studio *, .combat-studio *:before,.combat-studio *:after{animation:none!important;transition:none!important;scroll-behavior:auto!important}}

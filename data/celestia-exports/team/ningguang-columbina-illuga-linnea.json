@@ -1,7 +1,7 @@
 {
   "name": "Lunar-Crystallize",
   "description": "Celestia",
-  "lastEdit": 1795111188917,
+  "lastEdit": 1795649786399,
   "conditional": {
     "resonance": {},
     "reaction": {}
@@ -56,7 +56,7 @@
               "description": ""
             },
             {
-              "weight": 0.319,
+              "weight": 0.3333,
               "path": [
                 "normal",
                 "0"
@@ -74,7 +74,7 @@
               "description": ""
             },
             {
-              "weight": 0.356,
+              "weight": 0.3333,
               "path": [
                 "normal",
                 "0"
@@ -92,7 +92,7 @@
               "description": ""
             },
             {
-              "weight": 0.325,
+              "weight": 0.3333,
               "path": [
                 "normal",
                 "0"
@@ -110,7 +110,7 @@
               "description": ""
             },
             {
-              "weight": 0.319,
+              "weight": 0.3333,
               "path": [
                 "normal",
                 "0"
@@ -128,7 +128,7 @@
               "description": ""
             },
             {
-              "weight": 0.356,
+              "weight": 0.3333,
               "path": [
                 "normal",
                 "0"
@@ -146,7 +146,7 @@
               "description": ""
             },
             {
-              "weight": 0.325,
+              "weight": 0.3333,
               "path": [
                 "normal",
                 "0"
@@ -164,25 +164,7 @@
               "description": ""
             },
             {
-              "weight": 0.9999,
-              "path": [
-                "normal",
-                "0"
-              ],
-              "hitMode": "avgHit",
-              "bonusStats": {
-                "eleMas": 170,
-                "def": 200,
-                "all_dmgInc": 1063.645,
-                "all_dmg_": 30.85,
-                "critRate_": 34.38,
-                "critDMG_": 30,
-                "geo_enemyRes_": -30
-              },
-              "description": ""
-            },
-            {
-              "weight": 0.9999,
+              "weight": 2,
               "path": [
                 "normal",
                 "0"
@@ -218,7 +200,7 @@
               "description": ""
             },
             {
-              "weight": 0.9994,
+              "weight": 1.9987,
               "path": [
                 "charged",
                 "jadeDmg"
@@ -236,25 +218,7 @@
               "description": ""
             },
             {
-              "weight": 0.9994,
-              "path": [
-                "charged",
-                "jadeDmg"
-              ],
-              "hitMode": "avgHit",
-              "bonusStats": {
-                "eleMas": 170,
-                "def": 200,
-                "all_dmgInc": 1063.645,
-                "all_dmg_": 31.8,
-                "critRate_": 40,
-                "critDMG_": 30,
-                "geo_enemyRes_": -30
-              },
-              "description": ""
-            },
-            {
-              "weight": 0.5249,
+              "weight": 0.5,
               "path": [
                 "normal",
                 "0"
@@ -272,7 +236,7 @@
               "description": ""
             },
             {
-              "weight": 0.4749,
+              "weight": 0.5,
               "path": [
                 "normal",
                 "0"
@@ -290,7 +254,7 @@
               "description": ""
             },
             {
-              "weight": 0.5249,
+              "weight": 0.5,
               "path": [
                 "normal",
                 "0"
@@ -308,7 +272,7 @@
               "description": ""
             },
             {
-              "weight": 0.4749,
+              "weight": 0.5,
               "path": [
                 "normal",
                 "0"
@@ -326,97 +290,7 @@
               "description": ""
             },
             {
-              "weight": 1,
-              "path": [
-                "burst",
-                "gemDmg"
-              ],
-              "hitMode": "avgHit",
-              "bonusStats": {
-                "eleMas": 170,
-                "def": 200,
-                "all_dmgInc": 1063.645,
-                "all_dmg_": 32.25,
-                "critRate_": 40,
-                "critDMG_": 30,
-                "geo_enemyRes_": -30
-              },
-              "description": ""
-            },
-            {
-              "weight": 1,
-              "path": [
-                "burst",
-                "gemDmg"
-              ],
-              "hitMode": "avgHit",
-              "bonusStats": {
-                "eleMas": 170,
-                "def": 200,
-                "all_dmgInc": 1063.645,
-                "all_dmg_": 32.25,
-                "critRate_": 40,
-                "critDMG_": 30,
-                "geo_enemyRes_": -30
-              },
-              "description": ""
-            },
-            {
-              "weight": 1,
-              "path": [
-                "burst",
-                "gemDmg"
-              ],
-              "hitMode": "avgHit",
-              "bonusStats": {
-                "eleMas": 170,
-                "def": 200,
-                "all_dmgInc": 1063.645,
-                "all_dmg_": 32.25,
-                "critRate_": 40,
-                "critDMG_": 30,
-                "geo_enemyRes_": -30
-              },
-              "description": ""
-            },
-            {
-              "weight": 1,
-              "path": [
-                "burst",
-                "gemDmg"
-              ],
-              "hitMode": "avgHit",
-              "bonusStats": {
-                "eleMas": 170,
-                "def": 200,
-                "all_dmgInc": 1063.645,
-                "all_dmg_": 32.25,
-                "critRate_": 40,
-                "critDMG_": 30,
-                "geo_enemyRes_": -30
-              },
-              "description": ""
-            },
-            {
-              "weight": 1,
-              "path": [
-                "burst",
-                "gemDmg"
-              ],
-              "hitMode": "avgHit",
-              "bonusStats": {
-                "eleMas": 170,
-                "def": 200,
-                "all_dmgInc": 1063.645,
-                "all_dmg_": 32.25,
-                "critRate_": 40,
-                "critDMG_": 30,
-                "geo_enemyRes_": -30
-              },
-              "description": ""
-            },
-            {
-              "weight": 1,
+              "weight": 6,
               "path": [
                 "burst",
                 "gemDmg"
@@ -452,92 +326,7 @@
               "description": ""
             },
             {
-              "weight": 1,
-              "path": [
-                "burst",
-                "gemDmg"
-              ],
-              "hitMode": "avgHit",
-              "bonusStats": {
-                "eleMas": 170,
-                "all_dmgInc": 1063.645,
-                "critRate_": 24.06,
-                "critDMG_": 30,
-                "geo_enemyRes_": -30,
-                "all_dmg_": 16.1
-              },
-              "description": ""
-            },
-            {
-              "weight": 1,
-              "path": [
-                "burst",
-                "gemDmg"
-              ],
-              "hitMode": "avgHit",
-              "bonusStats": {
-                "eleMas": 170,
-                "all_dmgInc": 1063.645,
-                "critRate_": 24.06,
-                "critDMG_": 30,
-                "geo_enemyRes_": -30,
-                "all_dmg_": 16.1
-              },
-              "description": ""
-            },
-            {
-              "weight": 1,
-              "path": [
-                "burst",
-                "gemDmg"
-              ],
-              "hitMode": "avgHit",
-              "bonusStats": {
-                "eleMas": 170,
-                "all_dmgInc": 1063.645,
-                "critRate_": 24.06,
-                "critDMG_": 30,
-                "geo_enemyRes_": -30,
-                "all_dmg_": 16.1
-              },
-              "description": ""
-            },
-            {
-              "weight": 1,
-              "path": [
-                "burst",
-                "gemDmg"
-              ],
-              "hitMode": "avgHit",
-              "bonusStats": {
-                "eleMas": 170,
-                "all_dmgInc": 1063.645,
-                "critRate_": 24.06,
-                "critDMG_": 30,
-                "geo_enemyRes_": -30,
-                "all_dmg_": 16.1
-              },
-              "description": ""
-            },
-            {
-              "weight": 1,
-              "path": [
-                "burst",
-                "gemDmg"
-              ],
-              "hitMode": "avgHit",
-              "bonusStats": {
-                "eleMas": 170,
-                "all_dmgInc": 1063.645,
-                "critRate_": 24.06,
-                "critDMG_": 30,
-                "geo_enemyRes_": -30,
-                "all_dmg_": 16.1
-              },
-              "description": ""
-            },
-            {
-              "weight": 1,
+              "weight": 6,
               "path": [
                 "burst",
                 "gemDmg"
@@ -986,7 +775,7 @@
               "description": ""
             },
             {
-              "weight": 0.4559,
+              "weight": 0.5,
               "path": [
                 "normal",
                 "0"
@@ -1004,7 +793,7 @@
               "description": ""
             },
             {
-              "weight": 0.238,
+              "weight": 0.25,
               "path": [
                 "normal",
                 "0"
@@ -1022,7 +811,7 @@
               "description": ""
             },
             {
-              "weight": 0.306,
+              "weight": 0.3333,
               "path": [
                 "normal",
                 "0"
@@ -1040,7 +829,7 @@
               "description": ""
             },
             {
-              "weight": 0.238,
+              "weight": 0.25,
               "path": [
                 "normal",
                 "0"
@@ -1058,7 +847,7 @@
               "description": ""
             },
             {
-              "weight": 0.4559,
+              "weight": 0.5,
               "path": [
                 "normal",
                 "0"
@@ -1076,7 +865,7 @@
               "description": ""
             },
             {
-              "weight": 0.306,
+              "weight": 0.3333,
               "path": [
                 "normal",
                 "0"
@@ -1183,7 +972,7 @@
               "description": ""
             },
             {
-              "weight": 0.375,
+              "weight": 0.3333,
               "path": [
                 "normal",
                 "0"
@@ -1200,7 +989,7 @@
               "description": ""
             },
             {
-              "weight": 0.375,
+              "weight": 0.6667,
               "path": [
                 "normal",
                 "0"
@@ -1217,24 +1006,7 @@
               "description": ""
             },
             {
-              "weight": 0.375,
-              "path": [
-                "normal",
-                "0"
-              ],
-              "hitMode": "avgHit",
-              "bonusStats": {
-                "eleMas": 170,
-                "def": 177.5,
-                "all_dmg_": 43.13,
-                "critRate_": 40,
-                "critDMG_": 30,
-                "geo_enemyRes_": -30
-              },
-              "description": ""
-            },
-            {
-              "weight": 0.375,
+              "weight": 0.3333,
               "path": [
                 "normal",
                 "0"
@@ -1302,7 +1074,7 @@
               "description": ""
             },
             {
-              "weight": 0.281,
+              "weight": 0.25,
               "path": [
                 "normal",
                 "0"
@@ -1318,7 +1090,7 @@
               "description": ""
             },
             {
-              "weight": 0.331,
+              "weight": 0.3333,
               "path": [
                 "normal",
                 "0"
@@ -1334,7 +1106,7 @@
               "description": ""
             },
             {
-              "weight": 0.388,
+              "weight": 0.3333,
               "path": [
                 "normal",
                 "0"
@@ -1350,7 +1122,7 @@
               "description": ""
             },
             {
-              "weight": 0.388,
+              "weight": 0.3333,
               "path": [
                 "normal",
                 "0"
@@ -1366,7 +1138,7 @@
               "description": ""
             },
             {
-              "weight": 0.331,
+              "weight": 0.3333,
               "path": [
                 "normal",
                 "0"
@@ -1382,7 +1154,7 @@
               "description": ""
             },
             {
-              "weight": 0.281,
+              "weight": 0.25,
               "path": [
                 "normal",
                 "0"
@@ -1430,7 +1202,7 @@
               "description": ""
             },
             {
-              "weight": 0.288,
+              "weight": 0.3333,
               "path": [
                 "normal",
                 "0"
@@ -1446,7 +1218,7 @@
               "description": ""
             },
             {
-              "weight": 0.4249,
+              "weight": 0.5,
               "path": [
                 "normal",
                 "0"
@@ -1462,7 +1234,7 @@
               "description": ""
             },
             {
-              "weight": 0.288,
+              "weight": 0.3333,
               "path": [
                 "normal",
                 "0"
@@ -1478,7 +1250,7 @@
               "description": ""
             },
             {
-              "weight": 0.288,
+              "weight": 0.25,
               "path": [
                 "normal",
                 "0"
@@ -1494,7 +1266,7 @@
               "description": ""
             },
             {
-              "weight": 0.288,
+              "weight": 0.25,
               "path": [
                 "normal",
                 "0"
@@ -1510,7 +1282,7 @@
               "description": ""
             },
             {
-              "weight": 0.4249,
+              "weight": 0.5,
               "path": [
                 "normal",
                 "0"
@@ -1590,7 +1362,7 @@
               "description": ""
             },
             {
-              "weight": 0.344,
+              "weight": 0.3333,
               "path": [
                 "normal",
                 "0"
@@ -1606,7 +1378,7 @@
               "description": ""
             },
             {
-              "weight": 0.325,
+              "weight": 0.3333,
               "path": [
                 "normal",
                 "0"
@@ -1622,7 +1394,7 @@
               "description": ""
             },
             {
-              "weight": 0.331,
+              "weight": 0.3333,
               "path": [
                 "normal",
                 "0"
@@ -1638,7 +1410,7 @@
               "description": ""
             },
             {
-              "weight": 0.344,
+              "weight": 0.3333,
               "path": [
                 "normal",
                 "0"
@@ -1654,7 +1426,7 @@
               "description": ""
             },
             {
-              "weight": 0.325,
+              "weight": 0.3333,
               "path": [
                 "normal",
                 "0"
@@ -1671,7 +1443,7 @@
               "description": ""
             },
             {
-              "weight": 0.331,
+              "weight": 0.3333,
               "path": [
                 "normal",
                 "0"
@@ -1737,7 +1509,7 @@
               "description": ""
             },
             {
-              "weight": 0.0206,
+              "weight": 0.0292,
               "path": [
                 "reaction",
                 "lunarcrystallize"
@@ -1754,7 +1526,7 @@
               "description": ""
             },
             {
-              "weight": 0.0103,
+              "weight": 0.0625,
               "path": [
                 "reaction",
                 "lunarcrystallize"
@@ -1771,7 +1543,7 @@
               "description": ""
             },
             {
-              "weight": 0.058,
+              "weight": 0.025,
               "path": [
                 "reaction",
                 "lunarcrystallize"
@@ -1788,7 +1560,7 @@
               "description": ""
             },
             {
-              "weight": 0.0265,
+              "weight": 0.075,
               "path": [
                 "reaction",
                 "lunarcrystallize"
@@ -1805,7 +1577,7 @@
               "description": ""
             },
             {
-              "weight": 0.0791,
+              "weight": 0.0333,
               "path": [
                 "reaction",
                 "lunarcrystallize"
@@ -1822,7 +1594,7 @@
               "description": ""
             },
             {
-              "weight": 0.0334,
+              "weight": 0.0125,
               "path": [
                 "reaction",
                 "lunarcrystallize"
@@ -1839,7 +1611,7 @@
               "description": ""
             },
             {
-              "weight": 0.0069,
+              "weight": 0.0125,
               "path": [
                 "reaction",
                 "lunarcrystallize"
@@ -1856,7 +1628,7 @@
               "description": ""
             },
             {
-              "weight": 0.0088,
+              "weight": 0.0167,
               "path": [
                 "reaction",
                 "lunarcrystallize"
@@ -1873,7 +1645,7 @@
               "description": ""
             },
             {
-              "weight": 0.0202,
+              "weight": 0.0125,
               "path": [
                 "reaction",
                 "lunarcrystallize"
@@ -1890,7 +1662,7 @@
               "description": ""
             },
             {
-              "weight": 0.0098,
+              "weight": 0.025,
               "path": [
                 "reaction",
                 "lunarcrystallize"
@@ -1907,7 +1679,7 @@
               "description": ""
             },
             {
-              "weight": 0.031,
+              "weight": 0.0125,
               "path": [
                 "reaction",
                 "lunarcrystallize"
@@ -1924,7 +1696,7 @@
               "description": ""
             },
             {
-              "weight": 0.0152,
+              "weight": 0.05,
               "path": [
                 "reaction",
                 "lunarcrystallize"
@@ -1941,7 +1713,7 @@
               "description": ""
             },
             {
-              "weight": 0.0482,
+              "weight": 0.0167,
               "path": [
                 "reaction",
                 "lunarcrystallize"
@@ -1958,7 +1730,7 @@
               "description": ""
             },
             {
-              "weight": 0.0241,
+              "weight": 0.0458,
               "path": [
                 "reaction",
                 "lunarcrystallize"
@@ -1975,7 +1747,7 @@
               "description": ""
             },
             {
-              "weight": 0.0329,
+              "weight": 0.025,
               "path": [
                 "reaction",
                 "lunarcrystallize"
@@ -1992,7 +1764,7 @@
               "description": ""
             },
             {
-              "weight": 0.0197,
+              "weight": 0.0125,
               "path": [
                 "reaction",
                 "lunarcrystallize"
@@ -2009,7 +1781,7 @@
               "description": ""
             },
             {
-              "weight": 0.0143,
+              "weight": 0.0125,
               "path": [
                 "reaction",
                 "lunarcrystallize"
@@ -2026,7 +1798,7 @@
               "description": ""
             },
             {
-              "weight": 0.0084,
+              "weight": 0.0125,
               "path": [
                 "reaction",
                 "lunarcrystallize"
@@ -2043,7 +1815,7 @@
               "description": ""
             },
             {
-              "weight": 0.0192,
+              "weight": 0.0125,
               "path": [
                 "reaction",
                 "lunarcrystallize"
@@ -2060,7 +1832,7 @@
               "description": ""
             },
             {
-              "weight": 0.0093,
+              "weight": 0.025,
               "path": [
                 "reaction",
                 "lunarcrystallize"
@@ -2077,7 +1849,7 @@
               "description": ""
             },
             {
-              "weight": 0.0128,
+              "weight": 0.0292,
               "path": [
                 "reaction",
                 "lunarcrystallize"
@@ -2094,7 +1866,7 @@
               "description": ""
             },
             {
-              "weight": 0.0069,
+              "weight": 0.0125,
               "path": [
                 "reaction",
                 "lunarcrystallize"
@@ -2111,7 +1883,7 @@
               "description": ""
             },
             {
-              "weight": 0.0182,
+              "weight": 0.0125,
               "path": [
                 "reaction",
                 "lunarcrystallize"
@@ -2128,7 +1900,7 @@
               "description": ""
             },
             {
-              "weight": 0.0118,
+              "weight": 0.025,
               "path": [
                 "reaction",
                 "lunarcrystallize"
@@ -2145,7 +1917,7 @@
               "description": ""
             },
             {
-              "weight": 0.0231,
+              "weight": 0.025,
               "path": [
                 "reaction",
                 "lunarcrystallize"
@@ -2162,7 +1934,7 @@
               "description": ""
             },
             {
-              "weight": 0.0084,
+              "weight": 0.025,
               "path": [
                 "reaction",
                 "lunarcrystallize"
@@ -2179,7 +1951,7 @@
               "description": ""
             },
             {
-              "weight": 0.0128,
+              "weight": 0.0125,
               "path": [
                 "reaction",
                 "lunarcrystallize"
@@ -2196,7 +1968,7 @@
               "description": ""
             },
             {
-              "weight": 0.0059,
+              "weight": 0.0375,
               "path": [
                 "reaction",
                 "lunarcrystallize"
@@ -2213,7 +1985,7 @@
               "description": ""
             },
             {
-              "weight": 0.0192,
+              "weight": 0.0125,
               "path": [
                 "reaction",
                 "lunarcrystallize"
@@ -2230,160 +2002,7 @@
               "description": ""
             },
             {
-              "weight": 0.0069,
-              "path": [
-                "reaction",
-                "lunarcrystallize"
-              ],
-              "hitMode": "avgHit",
-              "bonusStats": {
-                "eleMas": 170,
-                "def": 124.53,
-                "lunarcrystallize_baseDmg_": 14,
-                "lunarcrystallize_dmg_": 68.082,
-                "geo_enemyRes_": -30,
-                "critRate_": 30
-              },
-              "description": ""
-            },
-            {
-              "weight": 0.0182,
-              "path": [
-                "reaction",
-                "lunarcrystallize"
-              ],
-              "hitMode": "avgHit",
-              "bonusStats": {
-                "eleMas": 170,
-                "def": 124.53,
-                "lunarcrystallize_baseDmg_": 14,
-                "lunarcrystallize_dmg_": 68.082,
-                "geo_enemyRes_": -30,
-                "critRate_": 30
-              },
-              "description": ""
-            },
-            {
-              "weight": 0.0128,
-              "path": [
-                "reaction",
-                "lunarcrystallize"
-              ],
-              "hitMode": "avgHit",
-              "bonusStats": {
-                "eleMas": 170,
-                "def": 124.53,
-                "lunarcrystallize_baseDmg_": 14,
-                "lunarcrystallize_dmg_": 68.082,
-                "geo_enemyRes_": -30,
-                "critRate_": 30
-              },
-              "description": ""
-            },
-            {
-              "weight": 0.03,
-              "path": [
-                "reaction",
-                "lunarcrystallize"
-              ],
-              "hitMode": "avgHit",
-              "bonusStats": {
-                "eleMas": 170,
-                "def": 124.53,
-                "lunarcrystallize_baseDmg_": 14,
-                "lunarcrystallize_dmg_": 68.082,
-                "geo_enemyRes_": -30,
-                "critRate_": 30
-              },
-              "description": ""
-            },
-            {
-              "weight": 0.0152,
-              "path": [
-                "reaction",
-                "lunarcrystallize"
-              ],
-              "hitMode": "avgHit",
-              "bonusStats": {
-                "eleMas": 170,
-                "def": 124.53,
-                "lunarcrystallize_baseDmg_": 14,
-                "lunarcrystallize_dmg_": 68.082,
-                "geo_enemyRes_": -30,
-                "critRate_": 30
-              },
-              "description": ""
-            },
-            {
-              "weight": 0.0059,
-              "path": [
-                "reaction",
-                "lunarcrystallize"
-              ],
-              "hitMode": "avgHit",
-              "bonusStats": {
-                "eleMas": 170,
-                "def": 124.53,
-                "lunarcrystallize_baseDmg_": 14,
-                "lunarcrystallize_dmg_": 68.082,
-                "geo_enemyRes_": -30,
-                "critRate_": 30
-              },
-              "description": ""
-            },
-            {
-              "weight": 0.0059,
-              "path": [
-                "reaction",
-                "lunarcrystallize"
-              ],
-              "hitMode": "avgHit",
-              "bonusStats": {
-                "eleMas": 170,
-                "def": 124.53,
-                "lunarcrystallize_baseDmg_": 14,
-                "lunarcrystallize_dmg_": 68.082,
-                "geo_enemyRes_": -30,
-                "critRate_": 30
-              },
-              "description": ""
-            },
-            {
-              "weight": 0.0079,
-              "path": [
-                "reaction",
-                "lunarcrystallize"
-              ],
-              "hitMode": "avgHit",
-              "bonusStats": {
-                "eleMas": 170,
-                "def": 124.53,
-                "lunarcrystallize_baseDmg_": 14,
-                "lunarcrystallize_dmg_": 68.082,
-                "geo_enemyRes_": -30,
-                "critRate_": 30
-              },
-              "description": ""
-            },
-            {
-              "weight": 0.0079,
-              "path": [
-                "reaction",
-                "lunarcrystallize"
-              ],
-              "hitMode": "avgHit",
-              "bonusStats": {
-                "eleMas": 170,
-                "def": 124.53,
-                "lunarcrystallize_baseDmg_": 14,
-                "lunarcrystallize_dmg_": 68.082,
-                "geo_enemyRes_": -30,
-                "critRate_": 30
-              },
-              "description": ""
-            },
-            {
-              "weight": 0.0079,
+              "weight": 0.0125,
               "path": [
                 "reaction",
                 "lunarcrystallize"

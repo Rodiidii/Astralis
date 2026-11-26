@@ -60,6 +60,79 @@
       "description": ""
     },
     {
+      "weight": 5,
+      "path": [
+        "passive2",
+        "dmg"
+      ],
+      "hitMode": "avgHit",
+      "reaction": "aggravate",
+      "bonusStats": {
+        "atk_": 45,
+        "critRate_": 20,
+        "all_dmg_": 75
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "passive2",
+        "dmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 45,
+        "critRate_": 20,
+        "all_dmg_": 75
+      },
+      "description": ""
+    },
+    {
+      "weight": 4,
+      "path": [
+        "constellation6",
+        "ozActiveCharDmg"
+      ],
+      "hitMode": "avgHit",
+      "reaction": "aggravate",
+      "bonusStats": {
+        "atk_": 45,
+        "critRate_": 20,
+        "all_dmg_": 75
+      },
+      "description": ""
+    },
+    {
+      "weight": 21,
+      "path": [
+        "constellation6",
+        "ozActiveCharDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 45,
+        "critRate_": 20,
+        "all_dmg_": 75
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "constellation4",
+        "burstAdditionalDmg"
+      ],
+      "hitMode": "avgHit",
+      "reaction": "aggravate",
+      "bonusStats": {
+        "atk_": 45,
+        "critRate_": 20,
+        "all_dmg_": 75
+      },
+      "description": ""
+    },
+    {
       "weight": 12,
       "path": [
         "reaction",

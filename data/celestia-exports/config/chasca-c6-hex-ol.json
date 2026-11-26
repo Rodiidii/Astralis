@@ -400,14 +400,15 @@
       "weight": 3,
       "path": [
         "skill",
-        "activationDmg"
+        "shellDmg"
       ],
       "hitMode": "avgHit",
       "bonusStats": {
         "atk": 300,
         "atk_": 24,
         "anemo_enemyRes_": -60,
-        "all_dmg_": 115
+        "all_dmg_": 115,
+        "critDMG_": 120
       },
       "description": ""
     },

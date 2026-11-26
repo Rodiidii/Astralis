@@ -38,12 +38,6 @@
   },
   "issues": [
     {
-      "code": "skippedLines",
-      "reason": "manual",
-      "lines": 2,
-      "share": 0.5512460376288081
-    },
-    {
       "code": "characterBonusStats",
       "stats": [
         {
@@ -59,7 +53,7 @@
         {
           "buff": "Grace of Kenosis (% of Nicole's ATK)",
           "key": "atk",
-          "value": 454.29885150508795
+          "value": 454.29885150508807
         }
       ]
     },
@@ -89,12 +83,6 @@
     }
   ],
   "teamIssues": [
-    {
-      "code": "skippedLines",
-      "reason": "manual",
-      "lines": 2,
-      "share": 0.5512460376288081
-    },
     {
       "code": "goSwitch",
       "switches": [

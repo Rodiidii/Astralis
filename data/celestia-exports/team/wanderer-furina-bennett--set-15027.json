@@ -1,7 +1,7 @@
 {
   "name": "Furina Bennett",
   "description": "Celestia",
-  "lastEdit": 1794351019769,
+  "lastEdit": 1795427273255,
   "conditional": {
     "resonance": {},
     "reaction": {}
@@ -58,7 +58,7 @@
               "description": ""
             },
             {
-              "weight": 9,
+              "weight": 7,
               "path": [
                 "normal",
                 "0"
@@ -102,6 +102,22 @@
                 "all_dmgInc": 208.266,
                 "atk": 1050.758,
                 "all_dmg_": 153.25,
+                "anemo_enemyRes_": -30,
+                "critDMG_": 40
+              },
+              "description": ""
+            },
+            {
+              "weight": 18,
+              "path": [
+                "passive2",
+                "dmg"
+              ],
+              "hitMode": "avgHit",
+              "bonusStats": {
+                "atk_": 40,
+                "atk": 1050.758,
+                "all_dmg_": 113.25,
                 "anemo_enemyRes_": -30,
                 "critDMG_": 40
               },
@@ -265,7 +281,7 @@
       "buildTcs": [
         {
           "name": "Celestia",
-          "description": "Celestia teammate assumption (85% of the maximum).",
+          "description": "Celestia teammate assumption (KQMS standard).",
           "characterKey": "Faruzan",
           "character": {
             "level": 90,
@@ -350,7 +366,7 @@
       "buildTcs": [
         {
           "name": "Celestia",
-          "description": "Celestia teammate assumption (85% of the maximum).",
+          "description": "Celestia teammate assumption (KQMS standard).",
           "characterKey": "Furina",
           "character": {
             "level": 90,
@@ -433,7 +449,7 @@
       "buildTcs": [
         {
           "name": "Celestia",
-          "description": "Celestia teammate assumption (85% of the maximum).",
+          "description": "Celestia teammate assumption (KQMS standard).",
           "characterKey": "Bennett",
           "character": {
             "level": 90,

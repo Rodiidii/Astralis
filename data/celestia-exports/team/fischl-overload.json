@@ -1,7 +1,7 @@
 {
   "name": "Overload",
   "description": "Celestia",
-  "lastEdit": 1794890235601,
+  "lastEdit": 1795427310680,
   "conditional": {
     "resonance": {},
     "reaction": {}
@@ -527,7 +527,7 @@
               "description": ""
             },
             {
-              "weight": 0.2261,
+              "weight": 0.25,
               "path": [
                 "reaction",
                 "overloaded"
@@ -541,7 +541,7 @@
               "description": ""
             },
             {
-              "weight": 1.005,
+              "weight": 1,
               "path": [
                 "reaction",
                 "overloaded"
@@ -555,7 +555,7 @@
               "description": ""
             },
             {
-              "weight": 0.6935,
+              "weight": 0.6667,
               "path": [
                 "reaction",
                 "overloaded"
@@ -569,7 +569,7 @@
               "description": ""
             },
             {
-              "weight": 0.1156,
+              "weight": 0.125,
               "path": [
                 "reaction",
                 "overloaded"
@@ -583,7 +583,7 @@
               "description": ""
             },
             {
-              "weight": 0.5126,
+              "weight": 0.5,
               "path": [
                 "reaction",
                 "overloaded"
@@ -597,7 +597,7 @@
               "description": ""
             },
             {
-              "weight": 0.3467,
+              "weight": 0.3333,
               "path": [
                 "reaction",
                 "overloaded"
@@ -611,7 +611,7 @@
               "description": ""
             },
             {
-              "weight": 0.1156,
+              "weight": 0.125,
               "path": [
                 "reaction",
                 "overloaded"
@@ -625,7 +625,7 @@
               "description": ""
             },
             {
-              "weight": 0.5377,
+              "weight": 0.5,
               "path": [
                 "reaction",
                 "overloaded"
@@ -639,7 +639,7 @@
               "description": ""
             },
             {
-              "weight": 0.397,
+              "weight": 0.375,
               "path": [
                 "reaction",
                 "overloaded"
@@ -653,7 +653,7 @@
               "description": ""
             },
             {
-              "weight": 0.0503,
+              "weight": 0.125,
               "path": [
                 "reaction",
                 "overloaded"
@@ -806,7 +806,7 @@
       "buildTcs": [
         {
           "name": "Celestia",
-          "description": "Celestia teammate assumption (85% of the maximum).",
+          "description": "Celestia teammate assumption (KQMS standard).",
           "characterKey": "Chevreuse",
           "character": {
             "level": 90,
@@ -891,7 +891,7 @@
       "buildTcs": [
         {
           "name": "Celestia",
-          "description": "Celestia teammate assumption (85% of the maximum).",
+          "description": "Celestia teammate assumption (KQMS standard).",
           "characterKey": "Nicole",
           "character": {
             "level": 90,
@@ -976,7 +976,7 @@
       "buildTcs": [
         {
           "name": "Celestia",
-          "description": "Celestia teammate assumption (85% of the maximum).",
+          "description": "Celestia teammate assumption (KQMS standard).",
           "characterKey": "Arlecchino",
           "character": {
             "level": 90,

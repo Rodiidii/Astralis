@@ -26,7 +26,7 @@
   },
   "goConditions": null,
   "characterBonusStats": {
-    "atk": 1680,
+    "atk": 1788,
     "eleMas": 480.096,
     "atk_": 45
   },
@@ -72,6 +72,11 @@
           "buff": "Grace of Kenosis (% of Nicole's ATK)",
           "key": "atk",
           "value": 708
+        },
+        {
+          "buff": "\"A Lamp by Your Side, A Light to Shine the Way\"",
+          "key": "atk",
+          "value": 108
         },
         {
           "buff": "Sunken Song of the Sands",

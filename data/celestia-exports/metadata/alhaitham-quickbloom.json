@@ -24,11 +24,11 @@
     "source": "ceilingStandard"
   },
   "goConditions": {
-    "Alhaitham": {
-      "withMirrors": "on"
-    },
     "LightOfFoliarIncision": {
       "afterNormalEle": "on"
+    },
+    "Alhaitham": {
+      "withMirrors": "on"
     }
   },
   "characterBonusStats": {
@@ -64,19 +64,6 @@
       "switches": [
         {
           "condition": [
-            "Alhaitham",
-            "withMirrors",
-            "on"
-          ],
-          "source": {
-            "type": "character"
-          },
-          "buffs": [
-            "Mysteries Laid Bare"
-          ]
-        },
-        {
-          "condition": [
             "LightOfFoliarIncision",
             "afterNormalEle",
             "on"
@@ -87,6 +74,19 @@
           },
           "buffs": [
             "Whitemoon Bristle"
+          ]
+        },
+        {
+          "condition": [
+            "Alhaitham",
+            "withMirrors",
+            "on"
+          ],
+          "source": {
+            "type": "character"
+          },
+          "buffs": [
+            "Mysteries Laid Bare"
           ]
         }
       ]
@@ -104,19 +104,6 @@
       "switches": [
         {
           "condition": [
-            "Alhaitham",
-            "withMirrors",
-            "on"
-          ],
-          "source": {
-            "type": "character"
-          },
-          "buffs": [
-            "Mysteries Laid Bare"
-          ]
-        },
-        {
-          "condition": [
             "LightOfFoliarIncision",
             "afterNormalEle",
             "on"
@@ -127,6 +114,19 @@
           },
           "buffs": [
             "Whitemoon Bristle"
+          ]
+        },
+        {
+          "condition": [
+            "Alhaitham",
+            "withMirrors",
+            "on"
+          ],
+          "source": {
+            "type": "character"
+          },
+          "buffs": [
+            "Mysteries Laid Bare"
           ]
         }
       ]

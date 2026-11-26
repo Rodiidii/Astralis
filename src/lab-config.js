@@ -115,6 +115,7 @@ export function setEffectOptions(set) {
  return {two:twoOptions,four};
 }
 export function effectSetting(p,scope,option) {
+ if(!option)return {enabled:false,stacks:1};
  const saved=p.effectStates?.[scope+':'+option.id];
  return {enabled:saved?.enabled??option.active,stacks:Math.max(1,Math.min(option.max,Number(saved?.stacks)||1))};
 }
@@ -202,17 +203,20 @@ export function typedAttackBonus(bonuses,kind='skill',stats={}) {
 }
 
 export function snapshotWeaponStats(snapshot,weapon,level=90,ascended=true) {
- const entry=snapshot?.weapons?.[String(weapon?.id)];
- if(!entry){const row=catalogLevelRow(weapon,level,ascended);return row&&Number.isFinite(Number(row.attack))?{atk:Number(row.attack),specialized:row.specialized,secondaryType:namedStatKey(row.specializedType),source:'Catalogue de niveaux'}:null;}
+ const entry=snapshot?.weapons?.[String(weapon?.id)],catalogRow=catalogLevelRow(weapon,level,ascended);
+ const fromCatalog=()=>catalogRow&&Number.isFinite(Number(catalogRow.attack))?{atk:Number(catalogRow.attack),specialized:catalogRow.specialized,secondaryType:namedStatKey(catalogRow.specializedType||weapon?.mainStatType),source:'Catalogue de niveaux'}:null;
+ if(!entry)return fromCatalog();
  if(!Number.isInteger(level)||level<1||level>90||(Number(weapon.rarity)<3&&level>70))return null;
  const factor=snapshot.weaponCurves?.[entry.mainStat.curve]?.[level];
- if(!Number.isFinite(factor))return null;
- const rank=Math.min(entry.ascensionBonus.atk.length-1,6,[20,40,50,60,70,80].filter(bound=>ascended?level>=bound:level>bound).length);
- const atk=entry.mainStat.base*factor+(entry.ascensionBonus.atk?.[rank]||0);
+ if(!Number.isFinite(factor))return fromCatalog();
+ const ascensionAtk=entry.ascensionBonus?.atk||[],rank=Math.min(Math.max(0,ascensionAtk.length-1),6,[20,40,50,60,70,80].filter(bound=>ascended?level>=bound:level>bound).length);
+ const snapshotAtk=Number(entry.mainStat.base)*factor+(ascensionAtk[rank]||0),atk=Number.isFinite(snapshotAtk)?snapshotAtk:Number(catalogRow?.attack);
  const sub=entry.subStat;
- const specialized=sub?sub.base*snapshot.weaponCurves?.[sub.curve]?.[level]:null;
- if(weapon.mainStatType&&(!sub||!Number.isFinite(specialized)))return null;
- return {atk,specialized,source:entry.source};
+ const snapshotSpecialized=sub?sub.base*snapshot.weaponCurves?.[sub.curve]?.[level]:null;
+ const specialized=Number.isFinite(snapshotSpecialized)?snapshotSpecialized:catalogRow?.specialized;
+ const secondaryType=namedStatKey(sub?.type)||namedStatKey(weapon?.mainStatType)||namedStatKey(catalogRow?.specializedType);
+ if(!Number.isFinite(atk))return null;
+ return {atk,specialized,secondaryType,source:entry.source||catalogRow?.source||'Catalogue de niveaux'};
 }
 
 export function kitEffectDescriptions(details, constellation, weapon, refinement, set, pieces = 4) {

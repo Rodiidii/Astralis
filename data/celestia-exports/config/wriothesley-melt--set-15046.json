@@ -5,6 +5,21 @@
     {
       "weight": 0.5,
       "path": [
+        "burst",
+        "bladeDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 55,
+        "atk": 848.791,
+        "cryo_enemyRes_": -36,
+        "all_dmg_": 68
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.5,
+      "path": [
         "skill",
         "enhanced_0"
       ],
@@ -305,7 +320,7 @@
       "description": ""
     },
     {
-      "weight": 0.5071,
+      "weight": 0.5,
       "path": [
         "burst",
         "skillDmg"
@@ -320,7 +335,7 @@
       "description": ""
     },
     {
-      "weight": 0.5071,
+      "weight": 0.5,
       "path": [
         "burst",
         "skillDmg"
@@ -335,7 +350,7 @@
       "description": ""
     },
     {
-      "weight": 0.5071,
+      "weight": 0.5,
       "path": [
         "burst",
         "skillDmg"
@@ -350,7 +365,7 @@
       "description": ""
     },
     {
-      "weight": 0.5071,
+      "weight": 0.5,
       "path": [
         "burst",
         "skillDmg"
@@ -365,7 +380,7 @@
       "description": ""
     },
     {
-      "weight": 0.5071,
+      "weight": 0.5,
       "path": [
         "burst",
         "skillDmg"
@@ -697,67 +712,7 @@
       "description": ""
     },
     {
-      "weight": 0.5071,
-      "path": [
-        "burst",
-        "skillDmg"
-      ],
-      "hitMode": "avgHit",
-      "bonusStats": {
-        "atk_": 55,
-        "atk": 848.791,
-        "cryo_enemyRes_": -36,
-        "all_dmg_": 68
-      },
-      "description": ""
-    },
-    {
-      "weight": 0.5071,
-      "path": [
-        "burst",
-        "skillDmg"
-      ],
-      "hitMode": "avgHit",
-      "bonusStats": {
-        "atk_": 55,
-        "atk": 848.791,
-        "cryo_enemyRes_": -36,
-        "all_dmg_": 68
-      },
-      "description": ""
-    },
-    {
-      "weight": 0.5071,
-      "path": [
-        "burst",
-        "skillDmg"
-      ],
-      "hitMode": "avgHit",
-      "bonusStats": {
-        "atk_": 55,
-        "atk": 848.791,
-        "cryo_enemyRes_": -36,
-        "all_dmg_": 68
-      },
-      "description": ""
-    },
-    {
-      "weight": 0.5071,
-      "path": [
-        "burst",
-        "skillDmg"
-      ],
-      "hitMode": "avgHit",
-      "bonusStats": {
-        "atk_": 55,
-        "atk": 848.791,
-        "cryo_enemyRes_": -36,
-        "all_dmg_": 68
-      },
-      "description": ""
-    },
-    {
-      "weight": 0.4361,
+      "weight": 0.5,
       "path": [
         "burst",
         "skillDmg"
@@ -775,7 +730,52 @@
       "weight": 0.5,
       "path": [
         "burst",
-        "bladeDmg"
+        "skillDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 55,
+        "atk": 848.791,
+        "cryo_enemyRes_": -36,
+        "all_dmg_": 68
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.5,
+      "path": [
+        "burst",
+        "skillDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 55,
+        "atk": 848.791,
+        "cryo_enemyRes_": -36,
+        "all_dmg_": 68
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.5,
+      "path": [
+        "burst",
+        "skillDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 55,
+        "atk": 848.791,
+        "cryo_enemyRes_": -36,
+        "all_dmg_": 68
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.5,
+      "path": [
+        "burst",
+        "skillDmg"
       ],
       "hitMode": "avgHit",
       "bonusStats": {

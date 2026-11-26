@@ -5,6 +5,124 @@
     {
       "weight": 1,
       "path": [
+        "skill",
+        "coorDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "electro_enemyRes_": -40,
+        "all_dmg_": 72
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "skill",
+        "coorDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "electro_enemyRes_": -40,
+        "all_dmg_": 72,
+        "enerRech_": -30
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "skill",
+        "coorDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "electro_enemyRes_": -40,
+        "all_dmg_": 49,
+        "enerRech_": -30
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "skill",
+        "coorDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 20,
+        "electro_enemyRes_": -40,
+        "all_dmg_": 45.4,
+        "enerRech_": -30
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "skill",
+        "coorDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 20,
+        "electro_enemyRes_": -40,
+        "all_dmg_": 25.4,
+        "enerRech_": -30
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "skill",
+        "coorDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 20,
+        "electro_enemyRes_": -40,
+        "all_dmg_": 12,
+        "enerRech_": -30
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "skill",
+        "coorDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 20,
+        "electro_enemyRes_": -40,
+        "all_dmg_": 12,
+        "enerRech_": -30
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "skill",
+        "coorDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 20,
+        "atk": 1744.735,
+        "electro_enemyRes_": -40,
+        "critDMG_": 60,
+        "enemyDefIgn_": 60,
+        "all_dmg_": 32
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
         "burst",
         "dmg"
       ],
@@ -20,7 +138,7 @@
       "description": ""
     },
     {
-      "weight": 0.4379,
+      "weight": 0.5,
       "path": [
         "skill",
         "coorDmg"
@@ -54,7 +172,7 @@
       "description": ""
     },
     {
-      "weight": 0.5629,
+      "weight": 0.5,
       "path": [
         "skill",
         "coorDmg"
@@ -105,7 +223,7 @@
       "description": ""
     },
     {
-      "weight": 0.4379,
+      "weight": 0.5,
       "path": [
         "skill",
         "coorDmg"
@@ -139,7 +257,7 @@
       "description": ""
     },
     {
-      "weight": 0.5629,
+      "weight": 0.5,
       "path": [
         "skill",
         "coorDmg"
@@ -207,7 +325,7 @@
       "description": ""
     },
     {
-      "weight": 0.9999,
+      "weight": 1,
       "path": [
         "skill",
         "coorDmg"
@@ -275,7 +393,7 @@
       "description": ""
     },
     {
-      "weight": 0.9999,
+      "weight": 1,
       "path": [
         "skill",
         "coorDmg"
@@ -341,7 +459,7 @@
       "description": ""
     },
     {
-      "weight": 0.9999,
+      "weight": 1,
       "path": [
         "skill",
         "coorDmg"
@@ -401,7 +519,7 @@
       "description": ""
     },
     {
-      "weight": 0.9999,
+      "weight": 1,
       "path": [
         "skill",
         "coorDmg"
@@ -443,7 +561,7 @@
       "description": ""
     },
     {
-      "weight": 0.9999,
+      "weight": 1,
       "path": [
         "skill",
         "coorDmg"
@@ -498,7 +616,7 @@
       "description": ""
     },
     {
-      "weight": 0.9999,
+      "weight": 1,
       "path": [
         "skill",
         "coorDmg"
@@ -510,80 +628,7 @@
       "description": ""
     },
     {
-      "weight": 0.9999,
-      "path": [
-        "skill",
-        "coorDmg"
-      ],
-      "hitMode": "avgHit",
-      "bonusStats": {
-        "electro_enemyRes_": -40,
-        "all_dmg_": 72
-      },
-      "description": ""
-    },
-    {
-      "weight": 0.55,
-      "path": [
-        "reaction",
-        "overloaded"
-      ],
-      "hitMode": "avgHit",
-      "bonusStats": {
-        "enerRech_": -21.75,
-        "atk_": -11.257,
-        "pyro_enemyRes_": -40,
-        "enemyDefIgn_": 60
-      },
-      "description": ""
-    },
-    {
-      "weight": 0.55,
-      "path": [
-        "reaction",
-        "overloaded"
-      ],
-      "hitMode": "avgHit",
-      "bonusStats": {
-        "enerRech_": -21.75,
-        "atk_": -11.257,
-        "pyro_enemyRes_": -40,
-        "enemyDefIgn_": 60
-      },
-      "description": ""
-    },
-    {
-      "weight": 0.45,
-      "path": [
-        "reaction",
-        "overloaded"
-      ],
-      "hitMode": "avgHit",
-      "bonusStats": {
-        "enerRech_": -21.75,
-        "atk_": -11.257,
-        "pyro_enemyRes_": -40,
-        "enemyDefIgn_": 60
-      },
-      "description": ""
-    },
-    {
-      "weight": 0.45,
-      "path": [
-        "reaction",
-        "overloaded"
-      ],
-      "hitMode": "avgHit",
-      "bonusStats": {
-        "enerRech_": -21.75,
-        "atk_": -11.257,
-        "pyro_enemyRes_": -40,
-        "enemyDefIgn_": 60
-      },
-      "description": ""
-    },
-    {
-      "weight": 0.9999,
+      "weight": 1,
       "path": [
         "skill",
         "coorDmg"
@@ -596,107 +641,62 @@
       "description": ""
     },
     {
-      "weight": 0.9999,
+      "weight": 0.5,
       "path": [
-        "skill",
-        "coorDmg"
+        "reaction",
+        "overloaded"
       ],
       "hitMode": "avgHit",
       "bonusStats": {
-        "electro_enemyRes_": -40,
-        "all_dmg_": 72,
-        "enerRech_": -30
+        "enerRech_": -21.75,
+        "atk_": -11.257,
+        "pyro_enemyRes_": -40,
+        "enemyDefIgn_": 60
       },
       "description": ""
     },
     {
-      "weight": 0.9999,
+      "weight": 0.5,
       "path": [
-        "skill",
-        "coorDmg"
+        "reaction",
+        "overloaded"
       ],
       "hitMode": "avgHit",
       "bonusStats": {
-        "electro_enemyRes_": -40,
-        "all_dmg_": 49,
-        "enerRech_": -30
+        "enerRech_": -21.75,
+        "atk_": -11.257,
+        "pyro_enemyRes_": -40,
+        "enemyDefIgn_": 60
       },
       "description": ""
     },
     {
-      "weight": 0.9999,
+      "weight": 0.5,
       "path": [
-        "skill",
-        "coorDmg"
+        "reaction",
+        "overloaded"
       ],
       "hitMode": "avgHit",
       "bonusStats": {
-        "atk_": 20,
-        "electro_enemyRes_": -40,
-        "all_dmg_": 45.4,
-        "enerRech_": -30
+        "enerRech_": -21.75,
+        "atk_": -11.257,
+        "pyro_enemyRes_": -40,
+        "enemyDefIgn_": 60
       },
       "description": ""
     },
     {
-      "weight": 0.9999,
+      "weight": 0.5,
       "path": [
-        "skill",
-        "coorDmg"
+        "reaction",
+        "overloaded"
       ],
       "hitMode": "avgHit",
       "bonusStats": {
-        "atk_": 20,
-        "electro_enemyRes_": -40,
-        "all_dmg_": 25.4,
-        "enerRech_": -30
-      },
-      "description": ""
-    },
-    {
-      "weight": 0.9999,
-      "path": [
-        "skill",
-        "coorDmg"
-      ],
-      "hitMode": "avgHit",
-      "bonusStats": {
-        "atk_": 20,
-        "electro_enemyRes_": -40,
-        "all_dmg_": 12,
-        "enerRech_": -30
-      },
-      "description": ""
-    },
-    {
-      "weight": 0.9999,
-      "path": [
-        "skill",
-        "coorDmg"
-      ],
-      "hitMode": "avgHit",
-      "bonusStats": {
-        "atk_": 20,
-        "electro_enemyRes_": -40,
-        "all_dmg_": 12,
-        "enerRech_": -30
-      },
-      "description": ""
-    },
-    {
-      "weight": 0.9999,
-      "path": [
-        "skill",
-        "coorDmg"
-      ],
-      "hitMode": "avgHit",
-      "bonusStats": {
-        "atk_": 20,
-        "atk": 1744.735,
-        "electro_enemyRes_": -40,
-        "critDMG_": 60,
-        "enemyDefIgn_": 60,
-        "all_dmg_": 32
+        "enerRech_": -21.75,
+        "atk_": -11.257,
+        "pyro_enemyRes_": -40,
+        "enemyDefIgn_": 60
       },
       "description": ""
     }

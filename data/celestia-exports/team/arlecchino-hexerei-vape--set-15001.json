@@ -1,7 +1,7 @@
 {
   "name": "Hexerei Vape",
   "description": "Celestia",
-  "lastEdit": 1794890124859,
+  "lastEdit": 1795409408625,
   "conditional": {
     "resonance": {},
     "reaction": {}
@@ -50,7 +50,7 @@
               "bonusStats": {
                 "atk_": 45,
                 "eleMas": 180,
-                "atk": 575.996,
+                "atk": 600,
                 "all_dmg_": 40
               },
               "description": ""
@@ -65,7 +65,7 @@
               "bonusStats": {
                 "atk_": 45,
                 "eleMas": 170.438,
-                "atk": 575.996,
+                "atk": 600,
                 "all_dmg_": 40
               },
               "description": ""
@@ -80,7 +80,7 @@
               "bonusStats": {
                 "atk_": 39.375,
                 "eleMas": 72.5,
-                "atk": 575.996,
+                "atk": 600,
                 "all_dmg_": 94.75,
                 "critRate_": 13.687
               },
@@ -98,7 +98,7 @@
               "bonusStats": {
                 "eleMas": 260,
                 "atk_": 63.344,
-                "atk": 575.996,
+                "atk": 600,
                 "all_dmg_": 100,
                 "critRate_": 15,
                 "vaporize_dmg_": 29.78
@@ -135,7 +135,7 @@
               "bonusStats": {
                 "atk_": 85,
                 "eleMas": 260,
-                "atk": 575.996,
+                "atk": 600,
                 "all_dmg_": 100,
                 "critRate_": 15
               },
@@ -153,7 +153,7 @@
               "bonusStats": {
                 "atk_": 85,
                 "eleMas": 260,
-                "atk": 575.996,
+                "atk": 600,
                 "all_dmg_": 100,
                 "critRate_": 15,
                 "vaporize_dmg_": 15
@@ -171,7 +171,7 @@
               "bonusStats": {
                 "atk_": 85,
                 "eleMas": 260,
-                "atk": 575.996,
+                "atk": 600,
                 "all_dmg_": 100,
                 "critRate_": 15
               },
@@ -188,7 +188,7 @@
               "bonusStats": {
                 "atk_": 85,
                 "eleMas": 260,
-                "atk": 575.996,
+                "atk": 600,
                 "all_dmg_": 100,
                 "critRate_": 15
               },
@@ -206,7 +206,7 @@
               "bonusStats": {
                 "atk_": 85,
                 "eleMas": 260,
-                "atk": 875.996,
+                "atk": 900,
                 "all_dmg_": 100,
                 "critRate_": 15,
                 "vaporize_dmg_": 15
@@ -225,7 +225,7 @@
               "bonusStats": {
                 "atk_": 85,
                 "eleMas": 260,
-                "atk": 851.621,
+                "atk": 875.625,
                 "all_dmg_": 100,
                 "critRate_": 15,
                 "vaporize_dmg_": 15
@@ -243,7 +243,7 @@
               "bonusStats": {
                 "atk_": 85,
                 "eleMas": 260,
-                "atk": 875.996,
+                "atk": 900,
                 "all_dmg_": 100,
                 "critRate_": 15
               },
@@ -261,7 +261,7 @@
               "bonusStats": {
                 "atk_": 85,
                 "eleMas": 260,
-                "atk": 875.996,
+                "atk": 900,
                 "all_dmg_": 100,
                 "critRate_": 15,
                 "vaporize_dmg_": 15
@@ -279,7 +279,7 @@
               "bonusStats": {
                 "atk_": 85,
                 "eleMas": 260,
-                "atk": 875.996,
+                "atk": 900,
                 "all_dmg_": 100,
                 "critRate_": 15
               },
@@ -297,7 +297,7 @@
               "bonusStats": {
                 "atk_": 85,
                 "eleMas": 260,
-                "atk": 875.996,
+                "atk": 900,
                 "all_dmg_": 100,
                 "critRate_": 15,
                 "vaporize_dmg_": 15
@@ -315,7 +315,7 @@
               "bonusStats": {
                 "atk_": 85,
                 "eleMas": 260,
-                "atk": 875.996,
+                "atk": 900,
                 "all_dmg_": 100,
                 "critRate_": 15
               },
@@ -332,7 +332,7 @@
               "bonusStats": {
                 "atk_": 85,
                 "eleMas": 260,
-                "atk": 875.996,
+                "atk": 900,
                 "all_dmg_": 100,
                 "critRate_": 15
               },
@@ -349,7 +349,7 @@
               "bonusStats": {
                 "atk_": 85,
                 "eleMas": 260,
-                "atk": 875.996,
+                "atk": 900,
                 "all_dmg_": 100,
                 "critRate_": 15
               },
@@ -366,7 +366,7 @@
               "bonusStats": {
                 "atk_": 85,
                 "eleMas": 260,
-                "atk": 875.996,
+                "atk": 900,
                 "all_dmg_": 100,
                 "critRate_": 15
               },
@@ -451,13 +451,13 @@
               "bonusStats": {
                 "atk_": 55.604,
                 "eleMas": 260,
-                "atk": 875.996,
+                "atk": 900,
                 "all_dmg_": 40
               },
               "description": ""
             },
             {
-              "weight": 2.439,
+              "weight": 2.5,
               "path": [
                 "reaction",
                 "overloaded"
@@ -466,13 +466,13 @@
               "bonusStats": {
                 "eleMas": 260,
                 "atk_": 81.884,
-                "atk": 751.893,
+                "atk": 775.897,
                 "critRate_": 15
               },
               "description": ""
             },
             {
-              "weight": 2.3429,
+              "weight": 2.3333,
               "path": [
                 "reaction",
                 "overloaded"
@@ -481,13 +481,13 @@
               "bonusStats": {
                 "eleMas": 260,
                 "atk_": 81.884,
-                "atk": 751.893,
+                "atk": 775.897,
                 "critRate_": 15
               },
               "description": ""
             },
             {
-              "weight": 1.7572,
+              "weight": 1.6667,
               "path": [
                 "reaction",
                 "overloaded"
@@ -496,13 +496,13 @@
               "bonusStats": {
                 "eleMas": 260,
                 "atk_": 81.884,
-                "atk": 751.893,
+                "atk": 775.897,
                 "critRate_": 15
               },
               "description": ""
             },
             {
-              "weight": 0.4609,
+              "weight": 0.5,
               "path": [
                 "reaction",
                 "overloaded"
@@ -511,7 +511,7 @@
               "bonusStats": {
                 "eleMas": 260,
                 "atk_": 81.884,
-                "atk": 751.893,
+                "atk": 775.897,
                 "critRate_": 15
               },
               "description": ""
@@ -613,7 +613,7 @@
       "buildTcs": [
         {
           "name": "Celestia",
-          "description": "Celestia teammate assumption (85% of the maximum).",
+          "description": "Celestia teammate assumption (KQMS standard).",
           "characterKey": "Nicole",
           "character": {
             "level": 90,
@@ -698,7 +698,7 @@
       "buildTcs": [
         {
           "name": "Celestia",
-          "description": "Celestia teammate assumption (85% of the maximum).",
+          "description": "Celestia teammate assumption (KQMS standard).",
           "characterKey": "Mona",
           "character": {
             "level": 90,
@@ -783,7 +783,7 @@
       "buildTcs": [
         {
           "name": "Celestia",
-          "description": "Celestia teammate assumption (85% of the maximum).",
+          "description": "Celestia teammate assumption (KQMS standard).",
           "characterKey": "Fischl",
           "character": {
             "level": 90,

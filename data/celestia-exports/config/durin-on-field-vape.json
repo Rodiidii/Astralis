@@ -3,6 +3,101 @@
   "description": "Celestia",
   "targets": [
     {
+      "weight": 1.75,
+      "path": [
+        "burst",
+        "decayDmg"
+      ],
+      "hitMode": "avgHit",
+      "reaction": "vaporize",
+      "bonusStats": {
+        "hp_": 25,
+        "atk_": 56,
+        "eleMas": 19.829,
+        "critRate_": 20,
+        "vaporize_dmg_": 94
+      },
+      "description": ""
+    },
+    {
+      "weight": 1.75,
+      "path": [
+        "burst",
+        "decayDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "hp_": 25,
+        "atk_": 56.271,
+        "eleMas": 19.661,
+        "critRate_": 20
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "burst",
+        "decayDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "hp_": 25,
+        "atk_": 40,
+        "eleMas": 20.174,
+        "all_dmg_": 40.79,
+        "critRate_": 20
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "burst",
+        "decayDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 60,
+        "hp_": 25,
+        "eleMas": 20,
+        "all_dmg_": 40.82,
+        "critRate_": 20
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "burst",
+        "decayDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 60,
+        "hp_": 25,
+        "critRate_": 20,
+        "all_dmg_": 9.26
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "burst",
+        "decayDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 60,
+        "hp_": 25,
+        "all_dmg_": 70.44,
+        "critRate_": 35,
+        "critDMG_": 15
+      },
+      "description": ""
+    },
+    {
       "weight": 1,
       "path": [
         "skill",
@@ -59,7 +154,7 @@
       "description": ""
     },
     {
-      "weight": 0.9354,
+      "weight": 1,
       "path": [
         "burst",
         "decayDmg"
@@ -135,7 +230,7 @@
       "description": ""
     },
     {
-      "weight": 1.6653,
+      "weight": 1.75,
       "path": [
         "burst",
         "decayDmg"
@@ -155,7 +250,7 @@
       "description": ""
     },
     {
-      "weight": 0.8475,
+      "weight": 0.75,
       "path": [
         "normal",
         "0"
@@ -176,7 +271,7 @@
       "description": ""
     },
     {
-      "weight": 1.812,
+      "weight": 1.75,
       "path": [
         "burst",
         "decayDmg"
@@ -194,7 +289,7 @@
       "description": ""
     },
     {
-      "weight": 0.8876,
+      "weight": 0.75,
       "path": [
         "charged",
         "dmg"
@@ -213,7 +308,7 @@
       "description": ""
     },
     {
-      "weight": 1.0989,
+      "weight": 1.25,
       "path": [
         "normal",
         "0"
@@ -232,7 +327,7 @@
       "description": ""
     },
     {
-      "weight": 1.6653,
+      "weight": 1.75,
       "path": [
         "burst",
         "decayDmg"
@@ -252,7 +347,7 @@
       "description": ""
     },
     {
-      "weight": 1.2346,
+      "weight": 1.25,
       "path": [
         "charged",
         "dmg"
@@ -273,7 +368,7 @@
       "description": ""
     },
     {
-      "weight": 1.0989,
+      "weight": 1,
       "path": [
         "normal",
         "0"
@@ -292,7 +387,7 @@
       "description": ""
     },
     {
-      "weight": 0.7654,
+      "weight": 0.75,
       "path": [
         "charged",
         "dmg"
@@ -313,7 +408,7 @@
       "description": ""
     },
     {
-      "weight": 1.812,
+      "weight": 1.75,
       "path": [
         "burst",
         "decayDmg"
@@ -331,7 +426,7 @@
       "description": ""
     },
     {
-      "weight": 1.0989,
+      "weight": 1,
       "path": [
         "normal",
         "0"
@@ -350,7 +445,7 @@
       "description": ""
     },
     {
-      "weight": 0.8876,
+      "weight": 0.75,
       "path": [
         "charged",
         "dmg"
@@ -369,7 +464,7 @@
       "description": ""
     },
     {
-      "weight": 1.6653,
+      "weight": 1.75,
       "path": [
         "burst",
         "decayDmg"
@@ -389,7 +484,7 @@
       "description": ""
     },
     {
-      "weight": 0.9407,
+      "weight": 1,
       "path": [
         "normal",
         "0"
@@ -410,7 +505,7 @@
       "description": ""
     },
     {
-      "weight": 0.8876,
+      "weight": 1,
       "path": [
         "charged",
         "dmg"
@@ -429,7 +524,7 @@
       "description": ""
     },
     {
-      "weight": 1.812,
+      "weight": 1.75,
       "path": [
         "burst",
         "decayDmg"
@@ -447,7 +542,7 @@
       "description": ""
     },
     {
-      "weight": 0.7033,
+      "weight": 0.75,
       "path": [
         "normal",
         "0"
@@ -521,7 +616,7 @@
       "description": ""
     },
     {
-      "weight": 1.6237,
+      "weight": 1.3125,
       "path": [
         "burst",
         "decayDmg"
@@ -541,7 +636,7 @@
       "description": ""
     },
     {
-      "weight": 1.7667,
+      "weight": 1.75,
       "path": [
         "burst",
         "decayDmg"
@@ -558,7 +653,7 @@
       "description": ""
     },
     {
-      "weight": 0.3378,
+      "weight": 0.25,
       "path": [
         "burst",
         "decayDmg"
@@ -575,7 +670,7 @@
       "description": ""
     },
     {
-      "weight": 0.2219,
+      "weight": 0.25,
       "path": [
         "charged",
         "dmg"
@@ -594,7 +689,7 @@
       "description": ""
     },
     {
-      "weight": 0.2119,
+      "weight": 0.25,
       "path": [
         "normal",
         "0"
@@ -615,7 +710,7 @@
       "description": ""
     },
     {
-      "weight": 0.1154,
+      "weight": 0.25,
       "path": [
         "charged",
         "dmg"
@@ -628,101 +723,6 @@
         "hp_": 25,
         "atk": 1050.758,
         "all_dmg_": 147.61,
-        "critRate_": 35,
-        "critDMG_": 15
-      },
-      "description": ""
-    },
-    {
-      "weight": 1.652,
-      "path": [
-        "burst",
-        "decayDmg"
-      ],
-      "hitMode": "avgHit",
-      "reaction": "vaporize",
-      "bonusStats": {
-        "hp_": 25,
-        "atk_": 56,
-        "eleMas": 19.829,
-        "critRate_": 20,
-        "vaporize_dmg_": 94
-      },
-      "description": ""
-    },
-    {
-      "weight": 1.812,
-      "path": [
-        "burst",
-        "decayDmg"
-      ],
-      "hitMode": "avgHit",
-      "bonusStats": {
-        "hp_": 25,
-        "atk_": 56.271,
-        "eleMas": 19.661,
-        "critRate_": 20
-      },
-      "description": ""
-    },
-    {
-      "weight": 1.0272,
-      "path": [
-        "burst",
-        "decayDmg"
-      ],
-      "hitMode": "avgHit",
-      "bonusStats": {
-        "hp_": 25,
-        "atk_": 40,
-        "eleMas": 20.174,
-        "all_dmg_": 40.79,
-        "critRate_": 20
-      },
-      "description": ""
-    },
-    {
-      "weight": 1.0354,
-      "path": [
-        "burst",
-        "decayDmg"
-      ],
-      "hitMode": "avgHit",
-      "bonusStats": {
-        "atk_": 60,
-        "hp_": 25,
-        "eleMas": 20,
-        "all_dmg_": 40.82,
-        "critRate_": 20
-      },
-      "description": ""
-    },
-    {
-      "weight": 0.8107,
-      "path": [
-        "burst",
-        "decayDmg"
-      ],
-      "hitMode": "avgHit",
-      "bonusStats": {
-        "atk_": 60,
-        "hp_": 25,
-        "critRate_": 20,
-        "all_dmg_": 9.26
-      },
-      "description": ""
-    },
-    {
-      "weight": 0.9754,
-      "path": [
-        "burst",
-        "decayDmg"
-      ],
-      "hitMode": "avgHit",
-      "bonusStats": {
-        "atk_": 60,
-        "hp_": 25,
-        "all_dmg_": 70.44,
         "critRate_": 35,
         "critDMG_": 15
       },

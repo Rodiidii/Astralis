@@ -15,7 +15,7 @@ export function normalizeGiLevelRow(row={}){
  return {...row,hp:row.hp??row.baseHP,attack:row.attack??row.atk??row.baseATK,defense:row.defense??row.def??row.baseDEF,bonuses,...(entry?{specializedType:types[entry[0]]||'FIGHT_PROP_'+entry[0].replace('Dmg','').toUpperCase()+'_ADD_HURT',specialized:Number(entry[1])/(entry[0]==='em'?1:100)}:{})};
 }
 export function catalogLevelRow(item={},level=90,ascended=true){
- const source=item.levelStats?.stats||item.levelStats;
+ const source=item.levelStats?.stats||item.levelStats||item.statsAtMilestones||item.stats;
  let rows=Array.isArray(source)?source.filter(row=>Number(row.level)===Number(level)):source?[source[String(level)+(ascended?'+':'')]||source[String(level)]].filter(Boolean):[];
  if(rows.length){rows=rows.slice().sort((a,b)=>Number(a.ascension||0)-Number(b.ascension||0));return normalizeGiLevelRow(ascended?rows.at(-1):rows[0]);}
  if(Number(level)===90&&item.ascensionStats)return normalizeGiLevelRow(item.ascensionStats);

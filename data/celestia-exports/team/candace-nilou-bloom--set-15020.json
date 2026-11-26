@@ -1,7 +1,7 @@
 {
   "name": "Nilou Bloom",
   "description": "Celestia",
-  "lastEdit": 1795146937879,
+  "lastEdit": 1795676042274,
   "conditional": {
     "resonance": {},
     "reaction": {}
@@ -41,7 +41,7 @@
           "description": "Celestia",
           "targets": [
             {
-              "weight": 1,
+              "weight": 2,
               "path": [
                 "skill",
                 "basicDmg"
@@ -54,20 +54,7 @@
               "description": ""
             },
             {
-              "weight": 1,
-              "path": [
-                "skill",
-                "basicDmg"
-              ],
-              "hitMode": "avgHit",
-              "bonusStats": {
-                "hp_": 20,
-                "eleMas": 100
-              },
-              "description": ""
-            },
-            {
-              "weight": 1,
+              "weight": 2,
               "path": [
                 "burst",
                 "skillDmg"
@@ -80,20 +67,7 @@
               "description": ""
             },
             {
-              "weight": 1,
-              "path": [
-                "burst",
-                "skillDmg"
-              ],
-              "hitMode": "avgHit",
-              "bonusStats": {
-                "hp_": 20,
-                "eleMas": 100
-              },
-              "description": ""
-            },
-            {
-              "weight": 1,
+              "weight": 2,
               "path": [
                 "normal",
                 "0"
@@ -107,21 +81,7 @@
               "description": ""
             },
             {
-              "weight": 1,
-              "path": [
-                "normal",
-                "0"
-              ],
-              "hitMode": "avgHit",
-              "infusionAura": "hydro",
-              "bonusStats": {
-                "hp_": 20,
-                "eleMas": 100
-              },
-              "description": ""
-            },
-            {
-              "weight": 1,
+              "weight": 2,
               "path": [
                 "normal",
                 "1"
@@ -135,21 +95,7 @@
               "description": ""
             },
             {
-              "weight": 1,
-              "path": [
-                "normal",
-                "1"
-              ],
-              "hitMode": "avgHit",
-              "infusionAura": "hydro",
-              "bonusStats": {
-                "hp_": 20,
-                "eleMas": 100
-              },
-              "description": ""
-            },
-            {
-              "weight": 1,
+              "weight": 4,
               "path": [
                 "burst",
                 "waveDmg"
@@ -162,7 +108,7 @@
               "description": ""
             },
             {
-              "weight": 1,
+              "weight": 2,
               "path": [
                 "burst",
                 "waveDmg"
@@ -175,59 +121,7 @@
               "description": ""
             },
             {
-              "weight": 1,
-              "path": [
-                "burst",
-                "waveDmg"
-              ],
-              "hitMode": "avgHit",
-              "bonusStats": {
-                "hp_": 20,
-                "eleMas": 100
-              },
-              "description": ""
-            },
-            {
-              "weight": 1,
-              "path": [
-                "burst",
-                "waveDmg"
-              ],
-              "hitMode": "avgHit",
-              "bonusStats": {
-                "hp_": 20,
-                "eleMas": 100
-              },
-              "description": ""
-            },
-            {
-              "weight": 1,
-              "path": [
-                "burst",
-                "waveDmg"
-              ],
-              "hitMode": "avgHit",
-              "bonusStats": {
-                "hp_": 20,
-                "eleMas": 100
-              },
-              "description": ""
-            },
-            {
-              "weight": 1,
-              "path": [
-                "burst",
-                "waveDmg"
-              ],
-              "hitMode": "avgHit",
-              "bonusStats": {
-                "hp_": 20,
-                "eleMas": 100
-              },
-              "description": ""
-            },
-            {
-              "weight": 1,
+              "weight": 2,
               "path": [
                 "skill",
                 "basicDmg"
@@ -240,20 +134,7 @@
               "description": ""
             },
             {
-              "weight": 1,
-              "path": [
-                "skill",
-                "basicDmg"
-              ],
-              "hitMode": "avgHit",
-              "bonusStats": {
-                "hp_": 20,
-                "eleMas": 100
-              },
-              "description": ""
-            },
-            {
-              "weight": 1,
+              "weight": 2,
               "path": [
                 "normal",
                 "0"
@@ -267,21 +148,7 @@
               "description": ""
             },
             {
-              "weight": 1,
-              "path": [
-                "normal",
-                "0"
-              ],
-              "hitMode": "avgHit",
-              "infusionAura": "hydro",
-              "bonusStats": {
-                "hp_": 20,
-                "eleMas": 100
-              },
-              "description": ""
-            },
-            {
-              "weight": 1,
+              "weight": 2,
               "path": [
                 "normal",
                 "1"
@@ -295,21 +162,7 @@
               "description": ""
             },
             {
-              "weight": 1,
-              "path": [
-                "normal",
-                "1"
-              ],
-              "hitMode": "avgHit",
-              "infusionAura": "hydro",
-              "bonusStats": {
-                "hp_": 20,
-                "eleMas": 100
-              },
-              "description": ""
-            },
-            {
-              "weight": 1,
+              "weight": 2,
               "path": [
                 "normal",
                 "2"
@@ -323,35 +176,7 @@
               "description": ""
             },
             {
-              "weight": 1,
-              "path": [
-                "normal",
-                "2"
-              ],
-              "hitMode": "avgHit",
-              "infusionAura": "hydro",
-              "bonusStats": {
-                "hp_": 20,
-                "eleMas": 100
-              },
-              "description": ""
-            },
-            {
-              "weight": 1,
-              "path": [
-                "normal",
-                "3"
-              ],
-              "hitMode": "avgHit",
-              "infusionAura": "hydro",
-              "bonusStats": {
-                "hp_": 20,
-                "eleMas": 100
-              },
-              "description": ""
-            },
-            {
-              "weight": 1,
+              "weight": 2,
               "path": [
                 "normal",
                 "3"
@@ -378,20 +203,7 @@
               "description": ""
             },
             {
-              "weight": 19,
-              "path": [
-                "reaction",
-                "bloom"
-              ],
-              "hitMode": "avgHit",
-              "bonusStats": {
-                "bloom_dmg_": 292.458,
-                "dendro_enemyRes_": -30
-              },
-              "description": ""
-            },
-            {
-              "weight": 21,
+              "weight": 40,
               "path": [
                 "reaction",
                 "bloom"
@@ -727,12 +539,12 @@
                 "atk": 33.08,
                 "def": 39.36,
                 "hp_": 9.92,
-                "atk_": 9.92,
+                "atk_": 59.52,
                 "def_": 12.4,
                 "eleMas": 39.64,
                 "enerRech_": 60.61,
-                "critRate_": 36.41,
-                "critDMG_": 26.48
+                "critRate_": 9.93,
+                "critDMG_": 13.24
               }
             }
           },

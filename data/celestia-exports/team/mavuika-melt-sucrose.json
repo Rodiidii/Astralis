@@ -1,7 +1,7 @@
 {
   "name": "Sucrose Melt",
   "description": "Celestia",
-  "lastEdit": 1794890131632,
+  "lastEdit": 1795409416798,
   "conditional": {
     "resonance": {},
     "reaction": {}
@@ -46,7 +46,55 @@
           "description": "Celestia",
           "targets": [
             {
-              "weight": 0.5516,
+              "weight": 0.5,
+              "path": [
+                "skill",
+                "radianceDmg"
+              ],
+              "hitMode": "avgHit",
+              "bonusStats": {
+                "eleMas": 156.312,
+                "atk_": 15.875,
+                "pyro_enemyRes_": -57.5,
+                "all_dmg_": 13.7,
+                "critRate_": -40
+              },
+              "description": ""
+            },
+            {
+              "weight": 0.5,
+              "path": [
+                "skill",
+                "radianceDmg"
+              ],
+              "hitMode": "avgHit",
+              "bonusStats": {
+                "eleMas": 156.312,
+                "atk_": 14.375,
+                "pyro_enemyRes_": -60,
+                "all_dmg_": 25,
+                "critRate_": -40
+              },
+              "description": ""
+            },
+            {
+              "weight": 0.3125,
+              "path": [
+                "skill",
+                "radianceDmg"
+              ],
+              "hitMode": "avgHit",
+              "bonusStats": {
+                "eleMas": 150.058,
+                "atk_": 18.235,
+                "pyro_enemyRes_": -60,
+                "all_dmg_": 25,
+                "critRate_": -40
+              },
+              "description": ""
+            },
+            {
+              "weight": 0.5625,
               "path": [
                 "burst",
                 "skillDmg"
@@ -64,7 +112,7 @@
               "description": ""
             },
             {
-              "weight": 0.2794,
+              "weight": 0.25,
               "path": [
                 "skill",
                 "chargedCyclicDmg"
@@ -81,7 +129,7 @@
               "description": ""
             },
             {
-              "weight": 0.4971,
+              "weight": 0.5,
               "path": [
                 "skill",
                 "chargedCyclicDmg"
@@ -98,7 +146,7 @@
               "description": ""
             },
             {
-              "weight": 0.4971,
+              "weight": 0.5,
               "path": [
                 "skill",
                 "chargedCyclicDmg"
@@ -115,7 +163,7 @@
               "description": ""
             },
             {
-              "weight": 0.2856,
+              "weight": 0.3125,
               "path": [
                 "skill",
                 "chargedFinalDmg"
@@ -146,7 +194,7 @@
               "description": ""
             },
             {
-              "weight": 0.4971,
+              "weight": 0.5,
               "path": [
                 "skill",
                 "chargedCyclicDmg"
@@ -162,7 +210,7 @@
               "description": ""
             },
             {
-              "weight": 0.2794,
+              "weight": 0.25,
               "path": [
                 "skill",
                 "chargedCyclicDmg"
@@ -178,7 +226,7 @@
               "description": ""
             },
             {
-              "weight": 0.4971,
+              "weight": 0.5,
               "path": [
                 "skill",
                 "chargedCyclicDmg"
@@ -194,7 +242,7 @@
               "description": ""
             },
             {
-              "weight": 0.2144,
+              "weight": 0.1875,
               "path": [
                 "skill",
                 "chargedFinalDmg"
@@ -226,7 +274,7 @@
               "description": ""
             },
             {
-              "weight": 0.4971,
+              "weight": 0.5,
               "path": [
                 "skill",
                 "chargedCyclicDmg"
@@ -271,7 +319,7 @@
               "description": ""
             },
             {
-              "weight": 0.49,
+              "weight": 0.5,
               "path": [
                 "skill",
                 "radianceDmg"
@@ -285,7 +333,7 @@
               "description": ""
             },
             {
-              "weight": 0.49,
+              "weight": 0.5,
               "path": [
                 "skill",
                 "radianceDmg"
@@ -299,7 +347,7 @@
               "description": ""
             },
             {
-              "weight": 0.441,
+              "weight": 0.4375,
               "path": [
                 "skill",
                 "radianceDmg"
@@ -314,7 +362,7 @@
               "description": ""
             },
             {
-              "weight": 0.3126,
+              "weight": 0.3125,
               "path": [
                 "skill",
                 "radianceDmg"
@@ -329,7 +377,7 @@
               "description": ""
             },
             {
-              "weight": 0.0554,
+              "weight": 0.0625,
               "path": [
                 "skill",
                 "radianceDmg"
@@ -344,7 +392,7 @@
               "description": ""
             },
             {
-              "weight": 0.2881,
+              "weight": 0.3125,
               "path": [
                 "skill",
                 "radianceDmg"
@@ -359,7 +407,7 @@
               "description": ""
             },
             {
-              "weight": 0.1475,
+              "weight": 0.0833,
               "path": [
                 "skill",
                 "radianceDmg"
@@ -374,7 +422,7 @@
               "description": ""
             },
             {
-              "weight": 0.3004,
+              "weight": 0.3125,
               "path": [
                 "skill",
                 "radianceDmg"
@@ -389,7 +437,7 @@
               "description": ""
             },
             {
-              "weight": 0.2024,
+              "weight": 0.1667,
               "path": [
                 "skill",
                 "radianceDmg"
@@ -404,7 +452,7 @@
               "description": ""
             },
             {
-              "weight": 0.4484,
+              "weight": 0.4375,
               "path": [
                 "burst",
                 "skillDmg"
@@ -422,7 +470,7 @@
               "description": ""
             },
             {
-              "weight": 0.4188,
+              "weight": 0.4167,
               "path": [
                 "skill",
                 "chargedCyclicDmg"
@@ -440,7 +488,7 @@
               "description": ""
             },
             {
-              "weight": 0.4971,
+              "weight": 0.5,
               "path": [
                 "skill",
                 "chargedCyclicDmg"
@@ -473,7 +521,7 @@
               "description": ""
             },
             {
-              "weight": 0.4188,
+              "weight": 0.4167,
               "path": [
                 "skill",
                 "chargedCyclicDmg"
@@ -491,7 +539,7 @@
               "description": ""
             },
             {
-              "weight": 0.4971,
+              "weight": 0.5,
               "path": [
                 "skill",
                 "chargedCyclicDmg"
@@ -524,7 +572,7 @@
               "description": ""
             },
             {
-              "weight": 0.4188,
+              "weight": 0.4167,
               "path": [
                 "skill",
                 "chargedCyclicDmg"
@@ -542,7 +590,7 @@
               "description": ""
             },
             {
-              "weight": 0.4971,
+              "weight": 0.5,
               "path": [
                 "skill",
                 "chargedCyclicDmg"
@@ -575,7 +623,7 @@
               "description": ""
             },
             {
-              "weight": 0.336,
+              "weight": 0.3125,
               "path": [
                 "skill",
                 "chargedCyclicDmg"
@@ -593,7 +641,7 @@
               "description": ""
             },
             {
-              "weight": 0.4971,
+              "weight": 0.5,
               "path": [
                 "skill",
                 "chargedCyclicDmg"
@@ -626,7 +674,7 @@
               "description": ""
             },
             {
-              "weight": 0.336,
+              "weight": 0.3125,
               "path": [
                 "skill",
                 "chargedCyclicDmg"
@@ -645,7 +693,7 @@
               "description": ""
             },
             {
-              "weight": 0.4971,
+              "weight": 0.5,
               "path": [
                 "skill",
                 "chargedCyclicDmg"
@@ -680,7 +728,7 @@
               "description": ""
             },
             {
-              "weight": 0.3728,
+              "weight": 0.375,
               "path": [
                 "skill",
                 "chargedCyclicDmg"
@@ -729,7 +777,7 @@
               "description": ""
             },
             {
-              "weight": 0.49,
+              "weight": 0.5,
               "path": [
                 "skill",
                 "radianceDmg"
@@ -745,7 +793,7 @@
               "description": ""
             },
             {
-              "weight": 0.2499,
+              "weight": 0.25,
               "path": [
                 "skill",
                 "radianceDmg"
@@ -760,7 +808,7 @@
               "description": ""
             },
             {
-              "weight": 0.2223,
+              "weight": 0.25,
               "path": [
                 "skill",
                 "chargedCyclicDmg"
@@ -778,7 +826,7 @@
               "description": ""
             },
             {
-              "weight": 0.2156,
+              "weight": 0.25,
               "path": [
                 "skill",
                 "chargedFinalDmg"
@@ -795,7 +843,7 @@
               "description": ""
             },
             {
-              "weight": 0.2223,
+              "weight": 0.25,
               "path": [
                 "skill",
                 "chargedCyclicDmg"
@@ -812,7 +860,7 @@
               "description": ""
             },
             {
-              "weight": 0.2156,
+              "weight": 0.1875,
               "path": [
                 "skill",
                 "chargedFinalDmg"
@@ -830,7 +878,7 @@
               "description": ""
             },
             {
-              "weight": 0.087,
+              "weight": 0.0833,
               "path": [
                 "skill",
                 "chargedCyclicDmg"
@@ -847,7 +895,7 @@
               "description": ""
             },
             {
-              "weight": 0.087,
+              "weight": 0.0833,
               "path": [
                 "skill",
                 "chargedCyclicDmg"
@@ -864,7 +912,7 @@
               "description": ""
             },
             {
-              "weight": 0.087,
+              "weight": 0.0833,
               "path": [
                 "skill",
                 "chargedCyclicDmg"
@@ -881,7 +929,7 @@
               "description": ""
             },
             {
-              "weight": 0.168,
+              "weight": 0.1875,
               "path": [
                 "skill",
                 "chargedCyclicDmg"
@@ -898,7 +946,7 @@
               "description": ""
             },
             {
-              "weight": 0.168,
+              "weight": 0.1875,
               "path": [
                 "skill",
                 "chargedCyclicDmg"
@@ -916,7 +964,7 @@
               "description": ""
             },
             {
-              "weight": 0.1269,
+              "weight": 0.125,
               "path": [
                 "skill",
                 "chargedCyclicDmg"
@@ -933,7 +981,7 @@
               "description": ""
             },
             {
-              "weight": 0.0689,
+              "weight": 0.0625,
               "path": [
                 "skill",
                 "chargedFinalDmg"
@@ -951,7 +999,7 @@
               "description": ""
             },
             {
-              "weight": 0.49,
+              "weight": 0.5,
               "path": [
                 "skill",
                 "radianceDmg"
@@ -962,54 +1010,6 @@
                 "atk_": 8.375,
                 "pyro_enemyRes_": -58.25,
                 "all_dmg_": 13.7
-              },
-              "description": ""
-            },
-            {
-              "weight": 0.49,
-              "path": [
-                "skill",
-                "radianceDmg"
-              ],
-              "hitMode": "avgHit",
-              "bonusStats": {
-                "eleMas": 156.312,
-                "atk_": 15.875,
-                "pyro_enemyRes_": -57.5,
-                "all_dmg_": 13.7,
-                "critRate_": -40
-              },
-              "description": ""
-            },
-            {
-              "weight": 0.49,
-              "path": [
-                "skill",
-                "radianceDmg"
-              ],
-              "hitMode": "avgHit",
-              "bonusStats": {
-                "eleMas": 156.312,
-                "atk_": 14.375,
-                "pyro_enemyRes_": -60,
-                "all_dmg_": 25,
-                "critRate_": -40
-              },
-              "description": ""
-            },
-            {
-              "weight": 0.3126,
-              "path": [
-                "skill",
-                "radianceDmg"
-              ],
-              "hitMode": "avgHit",
-              "bonusStats": {
-                "eleMas": 150.058,
-                "atk_": 18.235,
-                "pyro_enemyRes_": -60,
-                "all_dmg_": 25,
-                "critRate_": -40
               },
               "description": ""
             }
@@ -1110,7 +1110,7 @@
       "buildTcs": [
         {
           "name": "Celestia",
-          "description": "Celestia teammate assumption (85% of the maximum).",
+          "description": "Celestia teammate assumption (KQMS standard).",
           "characterKey": "Citlali",
           "character": {
             "level": 90,
@@ -1195,7 +1195,7 @@
       "buildTcs": [
         {
           "name": "Celestia",
-          "description": "Celestia teammate assumption (85% of the maximum).",
+          "description": "Celestia teammate assumption (KQMS standard).",
           "characterKey": "Sucrose",
           "character": {
             "level": 90,
@@ -1280,7 +1280,7 @@
       "buildTcs": [
         {
           "name": "Celestia",
-          "description": "Celestia teammate assumption (85% of the maximum).",
+          "description": "Celestia teammate assumption (KQMS standard).",
           "characterKey": "Bennett",
           "character": {
             "level": 90,

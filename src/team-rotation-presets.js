@@ -1,0 +1,16 @@
+const FLINS='10000120',AINO='10000121',INEFFA='10000116',FISCHL='10000031',SUCROSE='10000043',IANSAN='10000110';
+export function suggestedTeamRotation(team,character){
+ const members=(team.members||[]).filter(m=>m.character),byId=new Map(members.map(m=>[String(character(m.character)?.id||character(m.character)?.sourceId),m]));
+ const actions=[],add=(id,code,name,duration=1,count=1)=>{const m=byId.get(id);if(m)actions.push({character:m.character,code,name:name||code,label:name||code,id:/Q/.test(code)?'combat3':/E/.test(code)?'combat2':'combat1',type:'skill',duration,count});};
+ const flinsCombo=()=>{add(FLINS,'E','Activer la posture');add(FLINS,'N','1 normale · première particule',.5);add(FLINS,'E','Lance-tempête');add(FLINS,'sQ','Mini-déchaînement · 30 énergie',1.2);add(FLINS,'N4D','Normales et esquive · deux séries',2.15,2);add(FLINS,'N2','Deux normales avant la seconde lance',.7);add(FLINS,'E','Lance-tempête');add(FLINS,'sQ','Mini-déchaînement · 30 énergie',1.2);add(FLINS,'N4D','Normales et esquive',2.15);add(FLINS,'N5','Fin de série optionnelle · dernière particule',2.5);};
+ if([FLINS,AINO,SUCROSE].every(id=>byId.has(id))){
+  if(byId.has(INEFFA)){add(INEFFA,'E','Bouclier et Birgitta');add(AINO,'E','Appliquer Hydro');add(AINO,'Q','Déployer le canard');add(INEFFA,'Q','Partage de maîtrise · un cycle sur deux');add(SUCROSE,'E','Dispersion Électro');flinsCombo();return {name:'Sélénocution · deux mini-ultimes',actions,seconds:20,source:'https://keqingmains.com/q/flins-quickguide/',note:'Dispersion Électro avant Flins. Réussir cinq générations de particules dans sa posture. Ajuste la durée à tes animations et aux délais de l’équipe.'};}
+  if(byId.has(FISCHL)){add(FISCHL,'E','Invoquer Oz · alterner E et Q par cycle');add(AINO,'E','Appliquer Hydro');add(AINO,'Q','Déployer le canard');add(SUCROSE,'E','Dispersion Électro');flinsCombo();return {name:'Oz · alterner compétence et ultime',actions,seconds:18,source:'https://keqingmains.com/q/flins-quickguide/',note:'Fischl utilise E sur un cycle, Q sur le suivant ; son coût moyen est 0,5 ultime par cycle. Un seul E de Sucrose est prévu ici.'};}
+  if(byId.has(IANSAN)){add(AINO,'E');add(AINO,'Q');add(IANSAN,'E');add(IANSAN,'N','Activer le passif');add(IANSAN,'Q');add(SUCROSE,'E','Dispersion Électro');flinsCombo();return {name:'Iansan · garder le mouvement',actions,seconds:20,source:'https://keqingmains.com/q/iansan-quickguide/',note:'Déplace Flins pendant sa fenêtre pour entretenir les points noctâmes et le bonus d’Iansan.'};}
+ }
+ if(members.length<2||members.some(m=>!character(m.character)))return null;
+ const main=members.find(m=>/main|principal/i.test(m.role||''))||team.members?.[Number(team.activeMember)||0]||members[0];
+ for(const m of members.filter(m=>m!==main)){const id=String(character(m.character)?.id||character(m.character)?.sourceId);add(id,'E','Compétence du soutien');add(id,'Q','Ultime du soutien · si utilisé');}
+ const id=String(character(main.character)?.id||character(main.character)?.sourceId);add(id,'E','Compétence du personnage actif');add(id,'Q','Ultime du personnage actif');add(id,'N3','Enchaînement à ajuster',4);
+ return {name:'Brouillon de rotation',actions,seconds:20,source:'',note:'Brouillon basé sur les rôles. Adapte l’ordre, les actions et les durées au kit des personnages et à tes buffs.'};
+}

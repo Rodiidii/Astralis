@@ -26,7 +26,7 @@
   "goConditions": null,
   "characterBonusStats": {
     "eleMas": 802.183,
-    "atk": 372,
+    "atk": 1788,
     "hp_": 55
   },
   "enemy": {
@@ -53,6 +53,16 @@
           "value": 30
         },
         {
+          "buff": "Methexis",
+          "key": "atk",
+          "value": 300
+        },
+        {
+          "buff": "\"I Will Guide You and Show You the Path You Should Tread\"",
+          "key": "atk",
+          "value": 300
+        },
+        {
           "buff": "Instructor 4pc EM",
           "key": "eleMas",
           "value": 120
@@ -66,6 +76,16 @@
           "buff": "Sunken Song of the Sands",
           "key": "eleMas",
           "value": 432.1831850028032
+        },
+        {
+          "buff": "Grace of Kenosis (% of Nicole's ATK)",
+          "key": "atk",
+          "value": 708
+        },
+        {
+          "buff": "\"A Lamp by Your Side, A Light to Shine the Way\"",
+          "key": "atk",
+          "value": 108
         }
       ]
     },

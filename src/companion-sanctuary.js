@@ -9,7 +9,7 @@ const escapeHtml=value=>String(value??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<
 const mood=()=>{const h=new Date().getHours();return h<6?['☾','Le sanctuaire veille avec toi.']:h<12?['☀','Une nouvelle journée commence.']:h<18?['✦','On part explorer quelque chose ?']:['☽','La soirée est parfaite pour une pause.']};
 function stopRun(){if(!run)return;clearInterval(run.timer);run.cleanup?.();run=null}
 function enhance(){
- const page=document.querySelector('.assistant-page');if(!page){stopRun();return}
+ const page=document.querySelector('.assistant-page:not(.companion-lounge)');if(!page){stopRun();return}
  const existing=page.querySelector('[data-companion-sanctuary]');if(existing)return;
  const selected=page.querySelector('.assistant-character-option.selected'),image=selected?.querySelector('img'),name=selected?.querySelector('span')?.textContent?.trim()||page.querySelector('.assistant-profile-heading h3')?.textContent?.trim()||'Ton compagnon',src=image?.getAttribute('src')||'';
  const data=read(),level=Math.min(10,1+Math.floor(data.xp/60)),next=level>=10?0:60-(data.xp%60),[moodIcon,moodText]=mood(),progress=level>=10?100:Math.floor((data.xp%60)/60*100),played=data.playedDay===today();

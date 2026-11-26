@@ -1,0 +1,1535 @@
+{
+  "name": "Skill + Burst",
+  "description": "Celestia",
+  "targets": [
+    {
+      "weight": 0.0833,
+      "path": [
+        "passive1",
+        "dmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 56.883,
+        "electro_enemyRes_": -40,
+        "all_dmg_": 60
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.3333,
+      "path": [
+        "skill",
+        "dmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 86.883,
+        "electro_enemyRes_": -40,
+        "all_dmg_": 80.92,
+        "all_dmgInc": 1200
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.0833,
+      "path": [
+        "passive1",
+        "dmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 56.883,
+        "all_dmg_": 110,
+        "electro_enemyRes_": -40
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.3333,
+      "path": [
+        "constellation6",
+        "dmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 86.883,
+        "electro_enemyRes_": -40,
+        "all_dmg_": 82
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.3333,
+      "path": [
+        "burst",
+        "activationDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 86.883,
+        "electro_enemyRes_": -40,
+        "all_dmg_": 80
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.3333,
+      "path": [
+        "burst",
+        "soundwaveDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 86.883,
+        "electro_enemyRes_": -40,
+        "all_dmg_": 87
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.3333,
+      "path": [
+        "burst",
+        "soundwaveDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 56.883,
+        "electro_enemyRes_": -40,
+        "all_dmg_": 76.8
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.25,
+      "path": [
+        "passive1",
+        "dmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 56.883,
+        "all_dmg_": 135.4,
+        "electro_enemyRes_": -40
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.3333,
+      "path": [
+        "burst",
+        "soundwaveDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 56.883,
+        "electro_enemyRes_": -40,
+        "all_dmg_": 73
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.3333,
+      "path": [
+        "burst",
+        "soundwaveDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 56.883,
+        "electro_enemyRes_": -40,
+        "all_dmg_": 73
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.0833,
+      "path": [
+        "passive1",
+        "dmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 56.883,
+        "all_dmg_": 122,
+        "electro_enemyRes_": -40
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.1111,
+      "path": [
+        "passive1",
+        "dmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 56.883,
+        "all_dmg_": 122,
+        "electro_enemyRes_": -40
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.0833,
+      "path": [
+        "burst",
+        "soundwaveDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 56.883,
+        "electro_enemyRes_": -40,
+        "all_dmg_": 72
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.3333,
+      "path": [
+        "burst",
+        "soundwaveDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 56.883,
+        "electro_enemyRes_": -40,
+        "all_dmg_": 72.6
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.3333,
+      "path": [
+        "burst",
+        "soundwaveDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 56.883,
+        "electro_enemyRes_": -40,
+        "all_dmg_": 72
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.0833,
+      "path": [
+        "burst",
+        "soundwaveDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 56.883,
+        "electro_enemyRes_": -40,
+        "all_dmg_": 72
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.3333,
+      "path": [
+        "burst",
+        "soundwaveDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 61.503,
+        "electro_enemyRes_": -40,
+        "all_dmg_": 72
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.3333,
+      "path": [
+        "burst",
+        "soundwaveDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 76.883,
+        "electro_enemyRes_": -40,
+        "all_dmg_": 72
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.3333,
+      "path": [
+        "burst",
+        "soundwaveDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 76.883,
+        "electro_enemyRes_": -40,
+        "all_dmg_": 72
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.3333,
+      "path": [
+        "burst",
+        "soundwaveDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 76.883,
+        "electro_enemyRes_": -40,
+        "all_dmg_": 72
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.3333,
+      "path": [
+        "burst",
+        "soundwaveDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 76.883,
+        "electro_enemyRes_": -40,
+        "all_dmg_": 72
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.3333,
+      "path": [
+        "passive1",
+        "dmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 76.883,
+        "all_dmg_": 119.54,
+        "electro_enemyRes_": -40
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.2222,
+      "path": [
+        "burst",
+        "soundwaveDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 76.883,
+        "electro_enemyRes_": -40,
+        "all_dmg_": 72
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.25,
+      "path": [
+        "passive1",
+        "dmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 76.883,
+        "all_dmg_": 90.6,
+        "electro_enemyRes_": -40
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.0833,
+      "path": [
+        "passive1",
+        "dmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 76.883,
+        "all_dmg_": 90,
+        "electro_enemyRes_": -40
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.3333,
+      "path": [
+        "passive1",
+        "dmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 76.883,
+        "electro_enemyRes_": -40,
+        "all_dmg_": 54.421
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.3333,
+      "path": [
+        "passive1",
+        "dmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 76.883,
+        "electro_enemyRes_": -40,
+        "all_dmg_": 60
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.1667,
+      "path": [
+        "passive1",
+        "dmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 56.883,
+        "electro_enemyRes_": -40,
+        "all_dmg_": 60
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.0833,
+      "path": [
+        "passive1",
+        "dmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 56.883,
+        "electro_enemyRes_": -40,
+        "all_dmg_": 60
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.0833,
+      "path": [
+        "passive1",
+        "dmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 56.883,
+        "electro_enemyRes_": -40,
+        "all_dmg_": 60
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.3333,
+      "path": [
+        "skill",
+        "dmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 86.883,
+        "electro_enemyRes_": -40,
+        "all_dmg_": 77.86,
+        "all_dmgInc": 1200
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.3333,
+      "path": [
+        "constellation6",
+        "dmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 86.883,
+        "electro_enemyRes_": -40,
+        "all_dmg_": 81.4
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.3333,
+      "path": [
+        "burst",
+        "activationDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 86.883,
+        "electro_enemyRes_": -40,
+        "all_dmg_": 80
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.3333,
+      "path": [
+        "burst",
+        "soundwaveDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 56.883,
+        "electro_enemyRes_": -40,
+        "all_dmg_": 73
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.3333,
+      "path": [
+        "burst",
+        "soundwaveDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 56.883,
+        "electro_enemyRes_": -40,
+        "all_dmg_": 75.2
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.3333,
+      "path": [
+        "passive1",
+        "dmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 56.883,
+        "all_dmg_": 133.4,
+        "electro_enemyRes_": -40
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.3333,
+      "path": [
+        "burst",
+        "soundwaveDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 56.883,
+        "electro_enemyRes_": -40,
+        "all_dmg_": 72
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.3333,
+      "path": [
+        "burst",
+        "soundwaveDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 56.883,
+        "electro_enemyRes_": -40,
+        "all_dmg_": 72
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.0833,
+      "path": [
+        "passive1",
+        "dmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 56.883,
+        "all_dmg_": 122,
+        "electro_enemyRes_": -40
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.2222,
+      "path": [
+        "passive1",
+        "dmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 56.883,
+        "all_dmg_": 122,
+        "electro_enemyRes_": -40
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.0833,
+      "path": [
+        "burst",
+        "soundwaveDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 56.883,
+        "electro_enemyRes_": -40,
+        "all_dmg_": 72
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.3333,
+      "path": [
+        "burst",
+        "soundwaveDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 56.883,
+        "electro_enemyRes_": -40,
+        "all_dmg_": 72
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.3333,
+      "path": [
+        "burst",
+        "soundwaveDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 56.883,
+        "electro_enemyRes_": -40,
+        "all_dmg_": 72
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.0833,
+      "path": [
+        "burst",
+        "soundwaveDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 56.883,
+        "electro_enemyRes_": -40,
+        "all_dmg_": 72
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.3333,
+      "path": [
+        "burst",
+        "soundwaveDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 61.503,
+        "electro_enemyRes_": -40,
+        "all_dmg_": 72
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.3333,
+      "path": [
+        "burst",
+        "soundwaveDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 76.883,
+        "electro_enemyRes_": -40,
+        "all_dmg_": 72
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.3333,
+      "path": [
+        "burst",
+        "soundwaveDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 76.883,
+        "electro_enemyRes_": -40,
+        "all_dmg_": 72
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.3333,
+      "path": [
+        "burst",
+        "soundwaveDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 76.883,
+        "electro_enemyRes_": -40,
+        "all_dmg_": 72
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.25,
+      "path": [
+        "burst",
+        "soundwaveDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 76.883,
+        "electro_enemyRes_": -40,
+        "all_dmg_": 72
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.3333,
+      "path": [
+        "passive1",
+        "dmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 76.883,
+        "all_dmg_": 119.54,
+        "electro_enemyRes_": -40
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.25,
+      "path": [
+        "burst",
+        "soundwaveDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 76.883,
+        "electro_enemyRes_": -40,
+        "all_dmg_": 72
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.25,
+      "path": [
+        "passive1",
+        "dmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 76.883,
+        "electro_enemyRes_": -40,
+        "all_dmg_": 85.714
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.0833,
+      "path": [
+        "passive1",
+        "dmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 76.883,
+        "all_dmg_": 90,
+        "electro_enemyRes_": -40
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.2222,
+      "path": [
+        "passive1",
+        "dmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 76.883,
+        "electro_enemyRes_": -40,
+        "all_dmg_": 57.5
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.0833,
+      "path": [
+        "passive1",
+        "dmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 76.883,
+        "electro_enemyRes_": -40,
+        "all_dmg_": 60
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.3333,
+      "path": [
+        "passive1",
+        "dmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 76.883,
+        "electro_enemyRes_": -40,
+        "all_dmg_": 60
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.1667,
+      "path": [
+        "passive1",
+        "dmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 56.883,
+        "electro_enemyRes_": -40,
+        "all_dmg_": 60
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.1111,
+      "path": [
+        "passive1",
+        "dmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 56.883,
+        "electro_enemyRes_": -40,
+        "all_dmg_": 60
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.3333,
+      "path": [
+        "skill",
+        "dmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 86.883,
+        "electro_enemyRes_": -40,
+        "all_dmg_": 77.87,
+        "all_dmgInc": 1200
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.0833,
+      "path": [
+        "passive1",
+        "dmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 56.883,
+        "all_dmg_": 105,
+        "electro_enemyRes_": -40
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.3333,
+      "path": [
+        "constellation6",
+        "dmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 86.883,
+        "electro_enemyRes_": -40,
+        "all_dmg_": 77.4
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.3333,
+      "path": [
+        "burst",
+        "activationDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 86.883,
+        "electro_enemyRes_": -40,
+        "all_dmg_": 75.4
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.3333,
+      "path": [
+        "burst",
+        "soundwaveDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 56.883,
+        "electro_enemyRes_": -40,
+        "all_dmg_": 67.8
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.3333,
+      "path": [
+        "burst",
+        "soundwaveDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 56.883,
+        "electro_enemyRes_": -40,
+        "all_dmg_": 74.2
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.25,
+      "path": [
+        "passive1",
+        "dmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 56.883,
+        "all_dmg_": 128.8,
+        "electro_enemyRes_": -40
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.3333,
+      "path": [
+        "burst",
+        "soundwaveDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 56.883,
+        "electro_enemyRes_": -40,
+        "all_dmg_": 72
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.3333,
+      "path": [
+        "burst",
+        "soundwaveDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 56.883,
+        "electro_enemyRes_": -40,
+        "all_dmg_": 72
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.0833,
+      "path": [
+        "passive1",
+        "dmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 56.883,
+        "all_dmg_": 122,
+        "electro_enemyRes_": -40
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.1111,
+      "path": [
+        "burst",
+        "soundwaveDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 56.883,
+        "electro_enemyRes_": -40,
+        "all_dmg_": 72
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.3333,
+      "path": [
+        "burst",
+        "soundwaveDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 56.883,
+        "electro_enemyRes_": -40,
+        "all_dmg_": 72
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.3333,
+      "path": [
+        "burst",
+        "soundwaveDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 56.883,
+        "electro_enemyRes_": -40,
+        "all_dmg_": 72
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.0833,
+      "path": [
+        "burst",
+        "soundwaveDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 56.883,
+        "electro_enemyRes_": -40,
+        "all_dmg_": 72
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.3333,
+      "path": [
+        "burst",
+        "soundwaveDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 65.093,
+        "electro_enemyRes_": -40,
+        "all_dmg_": 72
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.3333,
+      "path": [
+        "burst",
+        "soundwaveDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 76.883,
+        "electro_enemyRes_": -40,
+        "all_dmg_": 72
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.3333,
+      "path": [
+        "burst",
+        "soundwaveDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 76.883,
+        "electro_enemyRes_": -40,
+        "all_dmg_": 72
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.3333,
+      "path": [
+        "burst",
+        "soundwaveDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 76.883,
+        "electro_enemyRes_": -40,
+        "all_dmg_": 72
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.25,
+      "path": [
+        "burst",
+        "soundwaveDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 76.883,
+        "electro_enemyRes_": -40,
+        "all_dmg_": 72
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.3333,
+      "path": [
+        "passive1",
+        "dmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 76.883,
+        "all_dmg_": 119.54,
+        "electro_enemyRes_": -40
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.1667,
+      "path": [
+        "burst",
+        "soundwaveDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 76.883,
+        "electro_enemyRes_": -40,
+        "all_dmg_": 72
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.3333,
+      "path": [
+        "passive1",
+        "dmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 76.883,
+        "electro_enemyRes_": -40,
+        "all_dmg_": 83.59
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.3333,
+      "path": [
+        "passive1",
+        "dmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 76.883,
+        "electro_enemyRes_": -40,
+        "all_dmg_": 41.6
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.3333,
+      "path": [
+        "passive1",
+        "dmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 76.883,
+        "electro_enemyRes_": -40,
+        "all_dmg_": 60
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.25,
+      "path": [
+        "passive1",
+        "dmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 56.883,
+        "electro_enemyRes_": -40,
+        "all_dmg_": 60
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.3333,
+      "path": [
+        "reaction",
+        "overloaded"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 76.883,
+        "pyro_enemyRes_": -40
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "reaction",
+        "overloaded"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 76.883,
+        "pyro_enemyRes_": -40
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.9167,
+      "path": [
+        "reaction",
+        "overloaded"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 76.883,
+        "pyro_enemyRes_": -40
+      },
+      "description": ""
+    },
+    {
+      "weight": 1.25,
+      "path": [
+        "reaction",
+        "overloaded"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 76.883,
+        "pyro_enemyRes_": -40
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.7778,
+      "path": [
+        "reaction",
+        "overloaded"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 76.883,
+        "pyro_enemyRes_": -40
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.25,
+      "path": [
+        "reaction",
+        "overloaded"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 76.883,
+        "pyro_enemyRes_": -40
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.2222,
+      "path": [
+        "reaction",
+        "overloaded"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 76.883,
+        "pyro_enemyRes_": -40
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.0833,
+      "path": [
+        "reaction",
+        "overloaded"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 76.883,
+        "pyro_enemyRes_": -40
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.5833,
+      "path": [
+        "reaction",
+        "overloaded"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 76.883,
+        "pyro_enemyRes_": -40
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.1667,
+      "path": [
+        "reaction",
+        "overloaded"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 76.883,
+        "pyro_enemyRes_": -40
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.1667,
+      "path": [
+        "reaction",
+        "overloaded"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 76.883,
+        "pyro_enemyRes_": -40
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.1667,
+      "path": [
+        "reaction",
+        "overloaded"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 76.883,
+        "pyro_enemyRes_": -40
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.2222,
+      "path": [
+        "reaction",
+        "overloaded"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 76.883,
+        "pyro_enemyRes_": -40
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.25,
+      "path": [
+        "reaction",
+        "overloaded"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 76.883,
+        "pyro_enemyRes_": -40
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.1111,
+      "path": [
+        "reaction",
+        "overloaded"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 76.883,
+        "pyro_enemyRes_": -40
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.1111,
+      "path": [
+        "reaction",
+        "overloaded"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 76.883,
+        "pyro_enemyRes_": -40
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.0833,
+      "path": [
+        "reaction",
+        "overloaded"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 76.883,
+        "pyro_enemyRes_": -40
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.2222,
+      "path": [
+        "reaction",
+        "overloaded"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 76.883,
+        "pyro_enemyRes_": -40
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.2222,
+      "path": [
+        "reaction",
+        "overloaded"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 76.883,
+        "pyro_enemyRes_": -40
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.1111,
+      "path": [
+        "reaction",
+        "overloaded"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 76.883,
+        "pyro_enemyRes_": -40
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.25,
+      "path": [
+        "reaction",
+        "overloaded"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 76.883,
+        "pyro_enemyRes_": -40
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.1111,
+      "path": [
+        "reaction",
+        "overloaded"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 76.883,
+        "pyro_enemyRes_": -40
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.1667,
+      "path": [
+        "reaction",
+        "overloaded"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 76.883,
+        "pyro_enemyRes_": -40
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.0833,
+      "path": [
+        "reaction",
+        "overloaded"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 76.883,
+        "pyro_enemyRes_": -40
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.2222,
+      "path": [
+        "reaction",
+        "overloaded"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 76.883,
+        "pyro_enemyRes_": -40
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.0833,
+      "path": [
+        "reaction",
+        "overloaded"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 76.883,
+        "pyro_enemyRes_": -40
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.0833,
+      "path": [
+        "reaction",
+        "overloaded"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 76.883,
+        "pyro_enemyRes_": -40
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.0833,
+      "path": [
+        "reaction",
+        "overloaded"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 76.883,
+        "pyro_enemyRes_": -40
+      },
+      "description": ""
+    }
+  ]
+}

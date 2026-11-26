@@ -1,0 +1,946 @@
+{
+  "sourceVersion": "KQM · table de référence 3.4, Flins Luna VI",
+  "characters": {
+    "10000076": [
+      {
+        "key": "Faruzan-0",
+        "label": "Compétence",
+        "particles": 2.0,
+        "cooldown": 6.0,
+        "minConstellation": 0,
+        "source": "https://library.keqingmains.com/resources/compendiums/elemental-skill-particles"
+      }
+    ],
+    "10000003": [
+      {
+        "key": "Jean-0",
+        "label": "Compétence maintenue",
+        "particles": 2.67,
+        "cooldown": 6.0,
+        "minConstellation": 0,
+        "source": "https://library.keqingmains.com/resources/compendiums/elemental-skill-particles"
+      }
+    ],
+    "10000047": [
+      {
+        "key": "KaedeharaKazuha-0",
+        "label": "Compétence · C1",
+        "particles": 3.0,
+        "cooldown": 5.4,
+        "minConstellation": 1,
+        "source": "https://library.keqingmains.com/resources/compendiums/elemental-skill-particles"
+      },
+      {
+        "key": "KaedeharaKazuha-1",
+        "label": "Compétence courte",
+        "particles": 3.0,
+        "cooldown": 6.1,
+        "minConstellation": 0,
+        "source": "https://library.keqingmains.com/resources/compendiums/elemental-skill-particles"
+      },
+      {
+        "key": "KaedeharaKazuha-2",
+        "label": "Compétence maintenue · C1",
+        "particles": 4.0,
+        "cooldown": 8.1,
+        "minConstellation": 1,
+        "source": "https://library.keqingmains.com/resources/compendiums/elemental-skill-particles"
+      },
+      {
+        "key": "KaedeharaKazuha-3",
+        "label": "Compétence maintenue",
+        "particles": 4.0,
+        "cooldown": 9.0,
+        "minConstellation": 0,
+        "source": "https://library.keqingmains.com/resources/compendiums/elemental-skill-particles"
+      }
+    ],
+    "10000053": [
+      {
+        "key": "Sayu-0",
+        "label": "Compétence maintenue",
+        "particles": 3.0,
+        "cooldown": 6.5,
+        "minConstellation": 0,
+        "source": "https://library.keqingmains.com/resources/compendiums/elemental-skill-particles"
+      },
+      {
+        "key": "Sayu-1",
+        "label": "Compétence courte",
+        "particles": 2.0,
+        "cooldown": 6.0,
+        "minConstellation": 0,
+        "source": "https://library.keqingmains.com/resources/compendiums/elemental-skill-particles"
+      },
+      {
+        "key": "Sayu-2",
+        "label": "Compétence maintenue",
+        "particles": 6.0,
+        "cooldown": 21.0,
+        "minConstellation": 0,
+        "source": "https://library.keqingmains.com/resources/compendiums/elemental-skill-particles"
+      }
+    ],
+    "10000059": [
+      {
+        "key": "ShikanoinHeizou-0",
+        "label": "Compétence",
+        "particles": 3.0,
+        "cooldown": 10.0,
+        "minConstellation": 0,
+        "source": "https://library.keqingmains.com/resources/compendiums/elemental-skill-particles"
+      }
+    ],
+    "10000043": [
+      {
+        "key": "Sucrose-0",
+        "label": "Compétence",
+        "particles": 4.0,
+        "cooldown": 15.0,
+        "minConstellation": 0,
+        "source": "https://library.keqingmains.com/resources/compendiums/elemental-skill-particles"
+      }
+    ],
+    "10000022": [
+      {
+        "key": "Venti-0",
+        "label": "Compétence courte",
+        "particles": 3.0,
+        "cooldown": 6.0,
+        "minConstellation": 0,
+        "source": "https://library.keqingmains.com/resources/compendiums/elemental-skill-particles"
+      },
+      {
+        "key": "Venti-1",
+        "label": "Compétence maintenue",
+        "particles": 4.0,
+        "cooldown": 15.0,
+        "minConstellation": 0,
+        "source": "https://library.keqingmains.com/resources/compendiums/elemental-skill-particles"
+      }
+    ],
+    "10000075": [
+      {
+        "key": "Wanderer-0",
+        "label": "Attaque en vol · déclenchement",
+        "particles": 1.0,
+        "cooldown": 2.0,
+        "minConstellation": 0,
+        "source": "https://library.keqingmains.com/resources/compendiums/elemental-skill-particles"
+      }
+    ],
+    "10000026": [
+      {
+        "key": "Xiao-0",
+        "label": "Compétence",
+        "particles": 3.0,
+        "cooldown": 10.0,
+        "minConstellation": 0,
+        "source": "https://library.keqingmains.com/resources/compendiums/elemental-skill-particles"
+      }
+    ],
+    "10000062": [
+      {
+        "key": "Aloy-0",
+        "label": "Compétence",
+        "particles": 5.0,
+        "cooldown": 20.0,
+        "minConstellation": 0,
+        "source": "https://library.keqingmains.com/resources/compendiums/elemental-skill-particles"
+      }
+    ],
+    "10000036": [
+      {
+        "key": "Chongyun-0",
+        "label": "Compétence",
+        "particles": 4.0,
+        "cooldown": 15.0,
+        "minConstellation": 0,
+        "source": "https://library.keqingmains.com/resources/compendiums/elemental-skill-particles"
+      }
+    ],
+    "10000088": [
+      {
+        "key": "Charlotte-0",
+        "label": "Compétence courte",
+        "particles": 3.0,
+        "cooldown": 12.0,
+        "minConstellation": 0,
+        "source": "https://library.keqingmains.com/resources/compendiums/elemental-skill-particles"
+      }
+    ],
+    "10000039": [
+      {
+        "key": "Diona-0",
+        "label": "Compétence maintenue",
+        "particles": 4.0,
+        "cooldown": 15.0,
+        "minConstellation": 0,
+        "source": "https://library.keqingmains.com/resources/compendiums/elemental-skill-particles"
+      },
+      {
+        "key": "Diona-1",
+        "label": "Compétence",
+        "particles": 1.6,
+        "cooldown": 6.0,
+        "minConstellation": 0,
+        "source": "https://library.keqingmains.com/resources/compendiums/elemental-skill-particles"
+      }
+    ],
+    "10000051": [
+      {
+        "key": "Eula-0",
+        "label": "Compétence maintenue · C2",
+        "particles": 2.5,
+        "cooldown": 4.0,
+        "minConstellation": 2,
+        "source": "https://library.keqingmains.com/resources/compendiums/elemental-skill-particles"
+      },
+      {
+        "key": "Eula-1",
+        "label": "Compétence courte",
+        "particles": 1.5,
+        "cooldown": 4.0,
+        "minConstellation": 0,
+        "source": "https://library.keqingmains.com/resources/compendiums/elemental-skill-particles"
+      },
+      {
+        "key": "Eula-2",
+        "label": "Compétence maintenue",
+        "particles": 2.5,
+        "cooldown": 10.0,
+        "minConstellation": 0,
+        "source": "https://library.keqingmains.com/resources/compendiums/elemental-skill-particles"
+      }
+    ],
+    "10000037": [
+      {
+        "key": "Ganyu-0",
+        "label": "Compétence",
+        "particles": 4.0,
+        "cooldown": 10.0,
+        "minConstellation": 0,
+        "source": "https://library.keqingmains.com/resources/compendiums/elemental-skill-particles"
+      }
+    ],
+    "10000015": [
+      {
+        "key": "Kaeya-0",
+        "label": "Compétence",
+        "particles": 4.67,
+        "cooldown": 6.0,
+        "minConstellation": 0,
+        "source": "https://library.keqingmains.com/resources/compendiums/elemental-skill-particles"
+      },
+      {
+        "key": "Kaeya-1",
+        "label": "Compétence",
+        "particles": 2.67,
+        "cooldown": 6.0,
+        "minConstellation": 0,
+        "source": "https://library.keqingmains.com/resources/compendiums/elemental-skill-particles"
+      }
+    ],
+    "10000002": [
+      {
+        "key": "KamisatoAyaka-0",
+        "label": "Compétence",
+        "particles": 4.5,
+        "cooldown": 10.0,
+        "minConstellation": 0,
+        "source": "https://library.keqingmains.com/resources/compendiums/elemental-skill-particles"
+      }
+    ],
+    "10000074": [
+      {
+        "key": "Layla-0",
+        "label": "Étoiles · 4 salves",
+        "particles": 6.0,
+        "cooldown": 12.0,
+        "minConstellation": 0,
+        "source": "https://library.keqingmains.com/resources/compendiums/elemental-skill-particles"
+      },
+      {
+        "key": "Layla-1",
+        "label": "Étoiles · 4 salves",
+        "particles": 4.5,
+        "cooldown": 12.0,
+        "minConstellation": 0,
+        "source": "https://library.keqingmains.com/resources/compendiums/elemental-skill-particles"
+      }
+    ],
+    "10000035": [
+      {
+        "key": "Qiqi-0",
+        "label": "Compétence",
+        "particles": 0.0,
+        "cooldown": 30.0,
+        "minConstellation": 0,
+        "source": "https://library.keqingmains.com/resources/compendiums/elemental-skill-particles"
+      }
+    ],
+    "10000045": [
+      {
+        "key": "Rosaria-0",
+        "label": "Compétence",
+        "particles": 3.0,
+        "cooldown": 6.0,
+        "minConstellation": 0,
+        "source": "https://library.keqingmains.com/resources/compendiums/elemental-skill-particles"
+      }
+    ],
+    "10000063": [
+      {
+        "key": "Shenhe-0",
+        "label": "Compétence courte",
+        "particles": 3.0,
+        "cooldown": 10.0,
+        "minConstellation": 0,
+        "source": "https://library.keqingmains.com/resources/compendiums/elemental-skill-particles"
+      },
+      {
+        "key": "Shenhe-1",
+        "label": "Compétence maintenue",
+        "particles": 4.0,
+        "cooldown": 15.0,
+        "minConstellation": 0,
+        "source": "https://library.keqingmains.com/resources/compendiums/elemental-skill-particles"
+      }
+    ],
+    "10000078": [
+      {
+        "key": "Alhaitham-0",
+        "label": "Projections · séquence complète",
+        "particles": 7.0,
+        "cooldown": 18.0,
+        "minConstellation": 0,
+        "source": "https://library.keqingmains.com/resources/compendiums/elemental-skill-particles"
+      }
+    ],
+    "10000067": [
+      {
+        "key": "Collei-0",
+        "label": "Compétence",
+        "particles": 3.0,
+        "cooldown": 12.0,
+        "minConstellation": 0,
+        "source": "https://library.keqingmains.com/resources/compendiums/elemental-skill-particles"
+      }
+    ],
+    "10000073": [
+      {
+        "key": "Nahida-0",
+        "label": "Purification trikarmique · déclenchement",
+        "particles": 3.0,
+        "cooldown": 7.0,
+        "minConstellation": 0,
+        "source": "https://library.keqingmains.com/resources/compendiums/elemental-skill-particles"
+      }
+    ],
+    "10000069": [
+      {
+        "key": "Tighnari-0",
+        "label": "Compétence",
+        "particles": 3.5,
+        "cooldown": 12.0,
+        "minConstellation": 0,
+        "source": "https://library.keqingmains.com/resources/compendiums/elemental-skill-particles"
+      }
+    ],
+    "10000077": [
+      {
+        "key": "Yaoyao-0",
+        "label": "Compétence",
+        "particles": 4.5,
+        "cooldown": 15.0,
+        "minConstellation": 0,
+        "source": "https://library.keqingmains.com/resources/compendiums/elemental-skill-particles"
+      }
+    ],
+    "10000024": [
+      {
+        "key": "Beidou-0",
+        "label": "Compétence maintenue",
+        "particles": 4.0,
+        "cooldown": 7.5,
+        "minConstellation": 0,
+        "source": "https://library.keqingmains.com/resources/compendiums/elemental-skill-particles"
+      }
+    ],
+    "10000071": [
+      {
+        "key": "Cyno-0",
+        "label": "Compétence",
+        "particles": 1.33,
+        "cooldown": 3.5,
+        "minConstellation": 0,
+        "source": "https://library.keqingmains.com/resources/compendiums/elemental-skill-particles"
+      },
+      {
+        "key": "Cyno-1",
+        "label": "Compétence",
+        "particles": 2.5,
+        "cooldown": 7.5,
+        "minConstellation": 0,
+        "source": "https://library.keqingmains.com/resources/compendiums/elemental-skill-particles"
+      }
+    ],
+    "10000068": [
+      {
+        "key": "Dori-0",
+        "label": "Compétence",
+        "particles": 2.0,
+        "cooldown": 9.0,
+        "minConstellation": 0,
+        "source": "https://library.keqingmains.com/resources/compendiums/elemental-skill-particles"
+      }
+    ],
+    "10000031": [
+      {
+        "key": "fischl-erc-safe",
+        "label": "Oz · 12 secondes actives (ERC prudent)",
+        "particles": 6.03,
+        "cooldown": 0,
+        "minConstellation": 0,
+        "source": "https://docs.google.com/spreadsheets/d/1XeU4lTmO9ECWFdPyc3WEQ_hhJ63hdq8gK_q9HMVV0PM/edit"
+      }
+    ],
+    "10000042": [
+      {
+        "key": "Keqing-0",
+        "label": "Compétence",
+        "particles": 2.5,
+        "cooldown": 7.5,
+        "minConstellation": 0,
+        "source": "https://library.keqingmains.com/resources/compendiums/elemental-skill-particles"
+      }
+    ],
+    "10000056": [
+      {
+        "key": "KujouSara-0",
+        "label": "Compétence",
+        "particles": 3.0,
+        "cooldown": 10.0,
+        "minConstellation": 0,
+        "source": "https://library.keqingmains.com/resources/compendiums/elemental-skill-particles"
+      }
+    ],
+    "10000065": [
+      {
+        "key": "KukiShinobu-0",
+        "label": "Anneau · durée complète · C4",
+        "particles": 5.85,
+        "cooldown": 15.0,
+        "minConstellation": 4,
+        "source": "https://library.keqingmains.com/resources/compendiums/elemental-skill-particles"
+      },
+      {
+        "key": "KukiShinobu-1",
+        "label": "Anneau · durée complète · C2",
+        "particles": 4.5,
+        "cooldown": 15.0,
+        "minConstellation": 2,
+        "source": "https://library.keqingmains.com/resources/compendiums/elemental-skill-particles"
+      },
+      {
+        "key": "KukiShinobu-2",
+        "label": "Anneau · durée complète",
+        "particles": 3.6,
+        "cooldown": 15.0,
+        "minConstellation": 0,
+        "source": "https://library.keqingmains.com/resources/compendiums/elemental-skill-particles"
+      }
+    ],
+    "10000006": [
+      {
+        "key": "Lisa-0",
+        "label": "Compétence maintenue",
+        "particles": 5.0,
+        "cooldown": 16.0,
+        "minConstellation": 0,
+        "source": "https://library.keqingmains.com/resources/compendiums/elemental-skill-particles"
+      }
+    ],
+    "10000052": [
+      {
+        "key": "RaidenShogun-0",
+        "label": "Attaques coordonnées · déclenchement",
+        "particles": 0.5,
+        "cooldown": 0.9,
+        "minConstellation": 0,
+        "source": "https://library.keqingmains.com/resources/compendiums/elemental-skill-particles"
+      }
+    ],
+    "10000020": [
+      {
+        "key": "Razor-0",
+        "label": "Compétence courte",
+        "particles": 3.0,
+        "cooldown": 6.0,
+        "minConstellation": 0,
+        "source": "https://library.keqingmains.com/resources/compendiums/elemental-skill-particles"
+      },
+      {
+        "key": "Razor-1",
+        "label": "Compétence maintenue",
+        "particles": 4.0,
+        "cooldown": 10.0,
+        "minConstellation": 0,
+        "source": "https://library.keqingmains.com/resources/compendiums/elemental-skill-particles"
+      }
+    ],
+    "10000058": [
+      {
+        "key": "YaeMiko-0",
+        "label": "Compétence",
+        "particles": 1.0,
+        "cooldown": 4.0,
+        "minConstellation": 0,
+        "source": "https://library.keqingmains.com/resources/compendiums/elemental-skill-particles"
+      }
+    ],
+    "10000038": [
+      {
+        "key": "Albedo-0",
+        "label": "Compétence",
+        "particles": 0.67,
+        "cooldown": 2.0,
+        "minConstellation": 0,
+        "source": "https://library.keqingmains.com/resources/compendiums/elemental-skill-particles"
+      }
+    ],
+    "10000057": [
+      {
+        "key": "AratakiItto-0",
+        "label": "Compétence",
+        "particles": 3.5,
+        "cooldown": 10.0,
+        "minConstellation": 0,
+        "source": "https://library.keqingmains.com/resources/compendiums/elemental-skill-particles"
+      }
+    ],
+    "10000055": [
+      {
+        "key": "Gorou-0",
+        "label": "Compétence · C1",
+        "particles": 2.0,
+        "cooldown": 8.0,
+        "minConstellation": 1,
+        "source": "https://library.keqingmains.com/resources/compendiums/elemental-skill-particles"
+      },
+      {
+        "key": "Gorou-1",
+        "label": "Compétence",
+        "particles": 2.0,
+        "cooldown": 10.0,
+        "minConstellation": 0,
+        "source": "https://library.keqingmains.com/resources/compendiums/elemental-skill-particles"
+      }
+    ],
+    "10000027": [
+      {
+        "key": "Ningguang-0",
+        "label": "Compétence · C2",
+        "particles": 3.4,
+        "cooldown": 6.0,
+        "minConstellation": 2,
+        "source": "https://library.keqingmains.com/resources/compendiums/elemental-skill-particles"
+      },
+      {
+        "key": "Ningguang-1",
+        "label": "Compétence",
+        "particles": 3.4,
+        "cooldown": 12.0,
+        "minConstellation": 0,
+        "source": "https://library.keqingmains.com/resources/compendiums/elemental-skill-particles"
+      }
+    ],
+    "10000034": [
+      {
+        "key": "Noelle-0",
+        "label": "Compétence",
+        "particles": 0.0,
+        "cooldown": 24.0,
+        "minConstellation": 0,
+        "source": "https://library.keqingmains.com/resources/compendiums/elemental-skill-particles"
+      }
+    ],
+    "10000064": [
+      {
+        "key": "YunJin-0",
+        "label": "Compétence maintenue · C1",
+        "particles": 3.0,
+        "cooldown": 7.38,
+        "minConstellation": 1,
+        "source": "https://library.keqingmains.com/resources/compendiums/elemental-skill-particles"
+      },
+      {
+        "key": "YunJin-1",
+        "label": "Compétence maintenue",
+        "particles": 3.0,
+        "cooldown": 9.0,
+        "minConstellation": 0,
+        "source": "https://library.keqingmains.com/resources/compendiums/elemental-skill-particles"
+      },
+      {
+        "key": "YunJin-2",
+        "label": "Compétence maintenue · C1",
+        "particles": 2.4,
+        "cooldown": 7.38,
+        "minConstellation": 1,
+        "source": "https://library.keqingmains.com/resources/compendiums/elemental-skill-particles"
+      },
+      {
+        "key": "YunJin-3",
+        "label": "Compétence courte · C1",
+        "particles": 2.0,
+        "cooldown": 7.38,
+        "minConstellation": 1,
+        "source": "https://library.keqingmains.com/resources/compendiums/elemental-skill-particles"
+      },
+      {
+        "key": "YunJin-4",
+        "label": "Compétence maintenue",
+        "particles": 2.4,
+        "cooldown": 9.0,
+        "minConstellation": 0,
+        "source": "https://library.keqingmains.com/resources/compendiums/elemental-skill-particles"
+      },
+      {
+        "key": "YunJin-5",
+        "label": "Compétence courte",
+        "particles": 2.0,
+        "cooldown": 9.0,
+        "minConstellation": 0,
+        "source": "https://library.keqingmains.com/resources/compendiums/elemental-skill-particles"
+      }
+    ],
+    "10000030": [
+      {
+        "key": "Zhongli-0",
+        "label": "Compétence maintenue",
+        "particles": 0.5,
+        "cooldown": 2.0,
+        "minConstellation": 0,
+        "source": "https://library.keqingmains.com/resources/compendiums/elemental-skill-particles"
+      }
+    ],
+    "10000014": [
+      {
+        "key": "Barbara-0",
+        "label": "Compétence",
+        "particles": 0.0,
+        "cooldown": 32.0,
+        "minConstellation": 0,
+        "source": "https://library.keqingmains.com/resources/compendiums/elemental-skill-particles"
+      }
+    ],
+    "10000072": [
+      {
+        "key": "Candace-0",
+        "label": "Compétence maintenue · C4",
+        "particles": 3.0,
+        "cooldown": 6.0,
+        "minConstellation": 4,
+        "source": "https://library.keqingmains.com/resources/compendiums/elemental-skill-particles"
+      },
+      {
+        "key": "Candace-1",
+        "label": "Compétence maintenue",
+        "particles": 3.0,
+        "cooldown": 9.0,
+        "minConstellation": 0,
+        "source": "https://library.keqingmains.com/resources/compendiums/elemental-skill-particles"
+      },
+      {
+        "key": "Candace-2",
+        "label": "Compétence courte",
+        "particles": 2.0,
+        "cooldown": 6.0,
+        "minConstellation": 0,
+        "source": "https://library.keqingmains.com/resources/compendiums/elemental-skill-particles"
+      }
+    ],
+    "10000066": [
+      {
+        "key": "KamisatoAyato-0",
+        "label": "Compétence",
+        "particles": 1.5,
+        "cooldown": 12.0,
+        "minConstellation": 0,
+        "source": "https://library.keqingmains.com/resources/compendiums/elemental-skill-particles"
+      }
+    ],
+    "10000041": [
+      {
+        "key": "Mona-0",
+        "label": "Compétence",
+        "particles": 3.33,
+        "cooldown": 12.0,
+        "minConstellation": 0,
+        "source": "https://library.keqingmains.com/resources/compendiums/elemental-skill-particles"
+      }
+    ],
+    "10000054": [
+      {
+        "key": "SangonomiyaKokomi-0",
+        "label": "Compétence",
+        "particles": 0.66,
+        "cooldown": 20.0,
+        "minConstellation": 0,
+        "source": "https://library.keqingmains.com/resources/compendiums/elemental-skill-particles"
+      },
+      {
+        "key": "SangonomiyaKokomi-1",
+        "label": "Compétence",
+        "particles": 3.96,
+        "cooldown": 20.0,
+        "minConstellation": 0,
+        "source": "https://library.keqingmains.com/resources/compendiums/elemental-skill-particles"
+      }
+    ],
+    "10000033": [
+      {
+        "key": "Tartaglia-0",
+        "label": "Compétence · C6",
+        "particles": 1.0,
+        "cooldown": 3.0,
+        "minConstellation": 6,
+        "source": "https://library.keqingmains.com/resources/compendiums/elemental-skill-particles"
+      }
+    ],
+    "10000025": [
+      {
+        "key": "Xingqiu-0",
+        "label": "Compétence",
+        "particles": 5.0,
+        "cooldown": 21.0,
+        "minConstellation": 0,
+        "source": "https://library.keqingmains.com/resources/compendiums/elemental-skill-particles"
+      }
+    ],
+    "10000060": [
+      {
+        "key": "Yelan-0",
+        "label": "Compétence maintenue",
+        "particles": 4.0,
+        "cooldown": 10.0,
+        "minConstellation": 0,
+        "source": "https://library.keqingmains.com/resources/compendiums/elemental-skill-particles"
+      },
+      {
+        "key": "Yelan-1",
+        "label": "Compétence maintenue · C1",
+        "particles": 4.0,
+        "cooldown": 10.0,
+        "minConstellation": 1,
+        "source": "https://library.keqingmains.com/resources/compendiums/elemental-skill-particles"
+      }
+    ],
+    "10000021": [
+      {
+        "key": "Amber-0",
+        "label": "Compétence · C4",
+        "particles": 4.0,
+        "cooldown": 12.0,
+        "minConstellation": 4,
+        "source": "https://library.keqingmains.com/resources/compendiums/elemental-skill-particles"
+      },
+      {
+        "key": "Amber-1",
+        "label": "Compétence",
+        "particles": 4.0,
+        "cooldown": 15.0,
+        "minConstellation": 0,
+        "source": "https://library.keqingmains.com/resources/compendiums/elemental-skill-particles"
+      }
+    ],
+    "10000032": [
+      {
+        "key": "Bennett-0",
+        "label": "Compétence courte dans le déchaînement · A4",
+        "particles": 2.25,
+        "cooldown": 2.0,
+        "minConstellation": 0,
+        "source": "https://library.keqingmains.com/resources/compendiums/elemental-skill-particles"
+      },
+      {
+        "key": "Bennett-1",
+        "label": "Compétence · A1",
+        "particles": 2.25,
+        "cooldown": 4.0,
+        "minConstellation": 0,
+        "source": "https://library.keqingmains.com/resources/compendiums/elemental-skill-particles"
+      },
+      {
+        "key": "Bennett-2",
+        "label": "Compétence",
+        "particles": 2.25,
+        "cooldown": 5.0,
+        "minConstellation": 0,
+        "source": "https://library.keqingmains.com/resources/compendiums/elemental-skill-particles"
+      },
+      {
+        "key": "Bennett-3",
+        "label": "Compétence maintenue · A1",
+        "particles": 3.0,
+        "cooldown": 6.0,
+        "minConstellation": 0,
+        "source": "https://library.keqingmains.com/resources/compendiums/elemental-skill-particles"
+      },
+      {
+        "key": "Bennett-4",
+        "label": "Compétence maintenue",
+        "particles": 3.0,
+        "cooldown": 7.5,
+        "minConstellation": 0,
+        "source": "https://library.keqingmains.com/resources/compendiums/elemental-skill-particles"
+      },
+      {
+        "key": "Bennett-5",
+        "label": "Compétence maintenue · A1",
+        "particles": 3.0,
+        "cooldown": 8.0,
+        "minConstellation": 0,
+        "source": "https://library.keqingmains.com/resources/compendiums/elemental-skill-particles"
+      },
+      {
+        "key": "Bennett-6",
+        "label": "Compétence maintenue",
+        "particles": 3.0,
+        "cooldown": 10.0,
+        "minConstellation": 0,
+        "source": "https://library.keqingmains.com/resources/compendiums/elemental-skill-particles"
+      }
+    ],
+    "10000016": [
+      {
+        "key": "Diluc-0",
+        "label": "Compétence courte",
+        "particles": 3.75,
+        "cooldown": 10.0,
+        "minConstellation": 0,
+        "source": "https://library.keqingmains.com/resources/compendiums/elemental-skill-particles"
+      }
+    ],
+    "10000046": [
+      {
+        "key": "HuTao-0",
+        "label": "Compétence",
+        "particles": 4.8,
+        "cooldown": 16.0,
+        "minConstellation": 0,
+        "source": "https://library.keqingmains.com/resources/compendiums/elemental-skill-particles"
+      }
+    ],
+    "10000029": [
+      {
+        "key": "Klee-0",
+        "label": "Compétence",
+        "particles": 4.0,
+        "cooldown": 20.0,
+        "minConstellation": 0,
+        "source": "https://library.keqingmains.com/resources/compendiums/elemental-skill-particles"
+      }
+    ],
+    "10000050": [
+      {
+        "key": "Thoma-0",
+        "label": "Compétence",
+        "particles": 3.4,
+        "cooldown": 15.0,
+        "minConstellation": 0,
+        "source": "https://library.keqingmains.com/resources/compendiums/elemental-skill-particles"
+      }
+    ],
+    "10000023": [
+      {
+        "key": "Xiangling-0",
+        "label": "Compétence",
+        "particles": 4.0,
+        "cooldown": 12.0,
+        "minConstellation": 0,
+        "source": "https://library.keqingmains.com/resources/compendiums/elemental-skill-particles"
+      }
+    ],
+    "10000044": [
+      {
+        "key": "Xinyan-0",
+        "label": "Compétence",
+        "particles": 4.0,
+        "cooldown": 18.0,
+        "minConstellation": 0,
+        "source": "https://library.keqingmains.com/resources/compendiums/elemental-skill-particles"
+      }
+    ],
+    "10000048": [
+      {
+        "key": "Yanfei-0",
+        "label": "Compétence",
+        "particles": 3.0,
+        "cooldown": 9.0,
+        "minConstellation": 0,
+        "source": "https://library.keqingmains.com/resources/compendiums/elemental-skill-particles"
+      }
+    ],
+    "10000049": [
+      {
+        "key": "Yoimiya-0",
+        "label": "Compétence",
+        "particles": 4.0,
+        "cooldown": 18.0,
+        "minConstellation": 0,
+        "source": "https://library.keqingmains.com/resources/compendiums/elemental-skill-particles"
+      }
+    ],
+    "10000120": [
+      {
+        "key": "flins-normal",
+        "label": "Normale sous compétence · 1 particule / déclenchement",
+        "particles": 1,
+        "cooldown": 2,
+        "maxEvents": 5,
+        "defaultEvents": 5,
+        "minConstellation": 0,
+        "source": "https://keqingmains.com/q/flins-quickguide/"
+      }
+    ],
+    "10000116": [
+      {
+        "key": "ineffa-erc-safe",
+        "label": "Birgitta · particules par seconde (ERC prudent)",
+        "particles": 0.2475,
+        "cooldown": 0,
+        "minConstellation": 0,
+        "source": "https://docs.google.com/spreadsheets/d/1XeU4lTmO9ECWFdPyc3WEQ_hhJ63hdq8gK_q9HMVV0PM/edit",
+        "unit": "seconds"
+      }
+    ],
+    "10000121": [
+      {
+        "key": "aino-skill",
+        "label": "Compétence touchée",
+        "particles": 3,
+        "cooldown": 10,
+        "minConstellation": 0,
+        "source": "https://docs.google.com/spreadsheets/d/1XeU4lTmO9ECWFdPyc3WEQ_hhJ63hdq8gK_q9HMVV0PM/edit"
+      }
+    ]
+  },
+  "burstVariants": {
+    "10000120": [
+      {
+        "key": "short",
+        "label": "Symphonie tonitruante · courte",
+        "cost": 30,
+        "bursts": 2
+      },
+      {
+        "key": "normal",
+        "label": "Déchaînement normal",
+        "cost": 80,
+        "bursts": 1
+      }
+    ]
+  }
+}

@@ -2,7 +2,7 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import {readFileSync} from 'node:fs';
 import {publishedWeaponEffects} from '../src/lab-weapon-effects.js';
-import {configuredWeaponBonuses,attackCritStats,typedAttackBonus} from '../src/lab-config.js';
+import {configuredWeaponBonuses,attackCritStats,typedAttackBonus,snapshotWeaponStats} from '../src/lab-config.js';
 import {finalStats,calculateAction} from '../src/damage-engine.js';
 import {extendedBuffBonuses,extendedBuffPools,extendedBuffWarnings} from '../src/lab-extended-buffs.js';
 import {partyWeaponBonuses,partyWeaponWarnings} from '../src/lab-support-effects.js';
@@ -10,6 +10,16 @@ const weapons=JSON.parse(readFileSync(new URL('../assets/data/gi-weapons.json',i
 const weapon=id=>({...weapons.find(w=>w.id===id),_id:String(id)});
 const config=(id,effects={},rank=1,extra={})=>configuredWeaponBonuses(weapon(id),{weaponRefinement:rank,nativeElementKey:'cryo',effectStates:Object.fromEntries(Object.entries(effects).map(([key,value])=>['weapon:'+id+':'+key,{enabled:true,stacks:value}])),...extra});
 const close=(a,b)=>assert.ok(Math.abs(a-b)<1e-7,`${a} != ${b}`);
+test('live weapon milestones fill a missing secondary stat without dropping base ATK',()=>{
+ const snapshot=JSON.parse(readFileSync(new URL('../data/lab-source-snapshot.json',import.meta.url)));
+ const milleReves=weapon(14511);
+ milleReves.statsAtMilestones={'90':{atk:542,'Elemental Mastery':265}};
+ const result=snapshotWeaponStats(snapshot,milleReves,90);
+ assert.ok(result&&Number.isFinite(result.atk));
+ assert.ok(Math.abs(result.atk-542)<1,'base ATK remains available');
+ assert.equal(result.specialized,265);
+ assert.equal(result.secondaryType,'em');
+});
 test('explicit weapon effects retain the same components at all five refinements',()=>{
  let count=0;
  for(const row of weapons){
@@ -21,6 +31,26 @@ test('explicit weapon effects retain the same components at all five refinements
   }
  }
  assert.ok(count>=192);
+});
+test('each published weapon passive control changes the calculator when checked',()=>{
+ let checked=0;
+ for(const row of weapons){
+  const first=publishedWeaponEffects(row,1);if(!first)continue;
+  const id=String(row.id),weapon={...row,_id:id},scope='weapon:'+id;
+  for(let rank=1;rank<=5;rank++){
+   const options=publishedWeaponEffects(weapon,rank);
+   const off=Object.fromEntries(options.map(option=>[scope+':'+option.id,{enabled:false,stacks:option.max||1}]));
+   const on=Object.fromEntries(options.map(option=>[scope+':'+option.id,{enabled:true,stacks:option.max||1}]));
+   const disabled=configuredWeaponBonuses(weapon,{weaponRefinement:rank,effectStates:off,nativeElementKey:'cryo'});
+   const characterId=options.find(option=>option.characters?.length)?.characters?.[0]||'test-character';
+   const fightPosition=options.some(option=>option.offfield)?'off':'on';
+   const enabled=configuredWeaponBonuses(weapon,{weaponRefinement:rank,effectStates:on,nativeElementKey:'cryo',characterId,fightPosition});
+   assert.deepEqual(disabled,{},`${row.name} R${rank} unchecked`);
+   assert.ok(Object.values(enabled).some(value=>Array.isArray(value)?value.some(Number.isFinite):Number.isFinite(value)&&value!==0),`${row.name} R${rank} checked`);
+   checked++;
+  }
+ }
+ assert.ok(checked>=960,`verified ${checked} weapon/refinement combinations`);
 });
 test('Mistsplitter, Polar Star and Thundering Pulse use nonlinear refinement tables',()=>{
  assert.equal(config(11509,{seal:3}).cryoDmg,40);

@@ -33,7 +33,7 @@
   },
   "characterBonusStats": {
     "atk_": 25,
-    "atk": 575.996
+    "atk": 600
   },
   "enemy": {
     "level": 100,
@@ -44,7 +44,7 @@
       "code": "skippedLines",
       "reason": "teammate",
       "lines": 1,
-      "share": 0.05011621980814272
+      "share": 0.05018159026244829
     },
     {
       "code": "characterBonusStats",
@@ -57,7 +57,7 @@
         {
           "buff": "Grace of Kenosis (% of Nicole's ATK)",
           "key": "atk",
-          "value": 575.9957275621549
+          "value": 600
         }
       ]
     },
@@ -124,7 +124,7 @@
       "code": "skippedLines",
       "reason": "teammate",
       "lines": 1,
-      "share": 0.05011621980814272
+      "share": 0.05018159026244829
     },
     {
       "code": "selfScaling",

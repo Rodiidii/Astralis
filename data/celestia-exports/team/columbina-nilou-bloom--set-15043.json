@@ -1,7 +1,7 @@
 {
   "name": "Nilou Lunar-Bloom",
   "description": "Celestia",
-  "lastEdit": 1795111034712,
+  "lastEdit": 1795627923389,
   "conditional": {
     "resonance": {},
     "reaction": {}
@@ -871,25 +871,7 @@
               "description": ""
             },
             {
-              "weight": 1,
-              "path": [
-                "charged",
-                "dewDmg"
-              ],
-              "hitMode": "avgHit",
-              "bonusStats": {
-                "lunarbloom_dmgInc": 6615.009,
-                "lunarbloom_baseDmg_": 14,
-                "eleMas": 125,
-                "lunarbloom_critRate_": 10,
-                "lunarbloom_critDMG_": 20,
-                "dendro_enemyRes_": -55,
-                "lunarbloom_dmg_": 106
-              },
-              "description": ""
-            },
-            {
-              "weight": 1,
+              "weight": 2,
               "path": [
                 "charged",
                 "dewDmg"
@@ -1309,25 +1291,7 @@
               "description": ""
             },
             {
-              "weight": 0.248,
-              "path": [
-                "skill",
-                "lunarbloomDmg"
-              ],
-              "hitMode": "avgHit",
-              "bonusStats": {
-                "lunarbloom_dmgInc": 6615.009,
-                "lunarbloom_baseDmg_": 14,
-                "eleMas": 121.795,
-                "lunarbloom_critRate_": 10,
-                "lunarbloom_critDMG_": 20,
-                "dendro_enemyRes_": -55,
-                "lunarbloom_dmg_": 46
-              },
-              "description": ""
-            },
-            {
-              "weight": 0.248,
+              "weight": 0.4961,
               "path": [
                 "skill",
                 "lunarbloomDmg"
@@ -1412,25 +1376,7 @@
               "description": ""
             },
             {
-              "weight": 0.1911,
-              "path": [
-                "skill",
-                "lunarbloomDmg"
-              ],
-              "hitMode": "avgHit",
-              "bonusStats": {
-                "lunarbloom_dmgInc": 6615.009,
-                "lunarbloom_baseDmg_": 14,
-                "eleMas": 125,
-                "lunarbloom_critRate_": 10,
-                "lunarbloom_critDMG_": 20,
-                "dendro_enemyRes_": -55,
-                "lunarbloom_dmg_": 106
-              },
-              "description": ""
-            },
-            {
-              "weight": 0.2419,
+              "weight": 0.433,
               "path": [
                 "skill",
                 "lunarbloomDmg"
@@ -1712,20 +1658,7 @@
               "description": ""
             },
             {
-              "weight": 1.3119,
-              "path": [
-                "reaction",
-                "bloom"
-              ],
-              "hitMode": "avgHit",
-              "bonusStats": {
-                "bloom_dmg_": 325.258,
-                "dendro_enemyRes_": -55
-              },
-              "description": ""
-            },
-            {
-              "weight": 1.3424,
+              "weight": 2.6542,
               "path": [
                 "reaction",
                 "bloom"

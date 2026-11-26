@@ -32,8 +32,8 @@
       "nightsoul": "on"
     },
     "ObsidianCodex": {
-      "4NightsoulConsume": "on",
-      "2NightsoulBlessing": "on"
+      "2NightsoulBlessing": "on",
+      "4NightsoulConsume": "on"
     }
   },
   "characterBonusStats": {
@@ -92,20 +92,6 @@
         },
         {
           "condition": [
-            "ObsidianCodex",
-            "4NightsoulConsume",
-            "on"
-          ],
-          "source": {
-            "type": "set",
-            "setId": 15038
-          },
-          "buffs": [
-            "Obsidian Codex"
-          ]
-        },
-        {
-          "condition": [
             "AThousandBlazingSuns",
             "nightsoul",
             "on"
@@ -122,6 +108,20 @@
           "condition": [
             "ObsidianCodex",
             "2NightsoulBlessing",
+            "on"
+          ],
+          "source": {
+            "type": "set",
+            "setId": 15038
+          },
+          "buffs": [
+            "Obsidian Codex"
+          ]
+        },
+        {
+          "condition": [
+            "ObsidianCodex",
+            "4NightsoulConsume",
             "on"
           ],
           "source": {
@@ -174,20 +174,6 @@
         },
         {
           "condition": [
-            "ObsidianCodex",
-            "4NightsoulConsume",
-            "on"
-          ],
-          "source": {
-            "type": "set",
-            "setId": 15038
-          },
-          "buffs": [
-            "Obsidian Codex"
-          ]
-        },
-        {
-          "condition": [
             "AThousandBlazingSuns",
             "nightsoul",
             "on"
@@ -204,6 +190,20 @@
           "condition": [
             "ObsidianCodex",
             "2NightsoulBlessing",
+            "on"
+          ],
+          "source": {
+            "type": "set",
+            "setId": 15038
+          },
+          "buffs": [
+            "Obsidian Codex"
+          ]
+        },
+        {
+          "condition": [
+            "ObsidianCodex",
+            "4NightsoulConsume",
             "on"
           ],
           "source": {

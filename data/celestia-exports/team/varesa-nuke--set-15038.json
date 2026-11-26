@@ -1,7 +1,7 @@
 {
   "name": "Nuke",
   "description": "Celestia",
-  "lastEdit": 1794351118853,
+  "lastEdit": 1795427383976,
   "conditional": {
     "resonance": {},
     "reaction": {}
@@ -42,7 +42,7 @@
           "description": "Celestia",
           "targets": [
             {
-              "weight": 1.0064,
+              "weight": 1,
               "path": [
                 "burst",
                 "fpKickDmg"

@@ -1,7 +1,7 @@
 {
   "name": "Nuke",
   "description": "Celestia",
-  "lastEdit": 1794349044615,
+  "lastEdit": 1795427330486,
   "conditional": {
     "resonance": {},
     "reaction": {}
@@ -47,12 +47,13 @@
               "bonusStats": {
                 "eleMas": 802.183,
                 "enerRech_": 20,
+                "atk": 1416,
                 "hp_": 28,
-                "all_dmgInc": 6830.61,
-                "all_dmg_": 466.2,
-                "enemyDefRed_": 30,
-                "hydro_enemyRes_": -40,
-                "critDMG_": 24
+                "all_dmgInc": 9549.95,
+                "all_dmg_": 423,
+                "hydro_enemyRes_": -65,
+                "critDMG_": 24,
+                "enemyDefIgn_": 40
               },
               "description": ""
             }
@@ -109,7 +110,7 @@
               "goblet": {
                 "level": 20,
                 "rarity": 5,
-                "statKey": "hp_"
+                "statKey": "hydro_dmg_"
               },
               "circlet": {
                 "level": 20,
@@ -121,10 +122,10 @@
               "type": "max",
               "rarity": 5,
               "stats": {
-                "hp_": 39.64,
+                "hp_": 49.55,
                 "def": 39.35,
                 "def_": 12.39,
-                "eleMas": 158.52,
+                "eleMas": 118.89,
                 "critDMG_": 66.05,
                 "hp": 507.88,
                 "enerRech_": 11.01,
@@ -219,85 +220,6 @@
       ]
     },
     {
-      "key": "Durin",
-      "name": "Durin (Celestia)",
-      "description": "",
-      "hitMode": "avgHit",
-      "infusionAura": "",
-      "bonusStats": {},
-      "conditional": {},
-      "customMultiTargets": [],
-      "buildTcs": [
-        {
-          "name": "Celestia",
-          "description": "Celestia teammate assumption (85% of the maximum).",
-          "characterKey": "Durin",
-          "character": {
-            "level": 90,
-            "ascension": 6,
-            "constellation": 6,
-            "talent": {
-              "auto": 10,
-              "skill": 10,
-              "burst": 10
-            }
-          },
-          "weapon": {
-            "key": "PeakPatrolSong",
-            "level": 90,
-            "ascension": 6,
-            "refinement": 5
-          },
-          "artifact": {
-            "sets": {
-              "Instructor": 4
-            },
-            "slots": {
-              "flower": {
-                "level": 16,
-                "rarity": 4,
-                "statKey": "hp"
-              },
-              "plume": {
-                "level": 16,
-                "rarity": 4,
-                "statKey": "atk"
-              },
-              "sands": {
-                "level": 20,
-                "rarity": 5,
-                "statKey": "atk_"
-              },
-              "goblet": {
-                "level": 16,
-                "rarity": 4,
-                "statKey": "def_"
-              },
-              "circlet": {
-                "level": 16,
-                "rarity": 4,
-                "statKey": "def_"
-              }
-            },
-            "substats": {
-              "type": "max",
-              "rarity": 4,
-              "stats": {
-                "atk": 56.21,
-                "def": 82.65,
-                "atk_": 47.53,
-                "def_": 86.73
-              }
-            }
-          },
-          "optimization": {
-            "distributedSubstats": 0,
-            "maxSubstats": {}
-          }
-        }
-      ]
-    },
-    {
       "key": "Citlali",
       "name": "Citlali (Celestia)",
       "description": "",
@@ -363,6 +285,83 @@
               "rarity": 5,
               "stats": {
                 "eleMas": 237.76
+              }
+            }
+          },
+          "optimization": {
+            "distributedSubstats": 0,
+            "maxSubstats": {}
+          }
+        }
+      ]
+    },
+    {
+      "key": "Nicole",
+      "name": "Nicole (Celestia)",
+      "description": "",
+      "hitMode": "avgHit",
+      "infusionAura": "",
+      "bonusStats": {},
+      "conditional": {},
+      "customMultiTargets": [],
+      "buildTcs": [
+        {
+          "name": "Celestia",
+          "description": "Celestia teammate assumption (85% of the maximum).",
+          "characterKey": "Nicole",
+          "character": {
+            "level": 90,
+            "ascension": 6,
+            "constellation": 6,
+            "talent": {
+              "auto": 10,
+              "skill": 10,
+              "burst": 10
+            }
+          },
+          "weapon": {
+            "key": "AngelosHeptades",
+            "level": 90,
+            "ascension": 6,
+            "refinement": 5
+          },
+          "artifact": {
+            "sets": {
+              "Instructor": 4
+            },
+            "slots": {
+              "flower": {
+                "level": 16,
+                "rarity": 4,
+                "statKey": "hp"
+              },
+              "plume": {
+                "level": 20,
+                "rarity": 5,
+                "statKey": "atk"
+              },
+              "sands": {
+                "level": 16,
+                "rarity": 4,
+                "statKey": "atk_"
+              },
+              "goblet": {
+                "level": 16,
+                "rarity": 4,
+                "statKey": "atk_"
+              },
+              "circlet": {
+                "level": 16,
+                "rarity": 4,
+                "statKey": "atk_"
+              }
+            },
+            "substats": {
+              "type": "max",
+              "rarity": 4,
+              "stats": {
+                "atk": 211.62,
+                "atk_": 49.54
               }
             }
           },

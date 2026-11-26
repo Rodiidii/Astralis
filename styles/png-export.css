@@ -1,0 +1,32 @@
+.astralis-png-preview{--png-accent:var(--accent,#c4b5fd);width:min(1220px,96vw);height:min(850px,94dvh);max-width:96vw;max-height:94dvh;padding:0;border:1px solid var(--line,#ffffff24);border-radius:24px;background:var(--surface,#151823);color:var(--ink,#f1f4fa);box-shadow:0 30px 130px #0009;overflow:hidden;font-family:inherit}
+.astralis-png-preview[open]{display:flex;flex-direction:column;animation:png-arrive .22s ease both}
+.astralis-png-preview::backdrop{background:#080c14bf;backdrop-filter:blur(12px)}
+.astralis-png-preview *{box-sizing:border-box;min-width:0}
+.astralis-png-preview .png-head{display:flex;align-items:center;justify-content:space-between;gap:20px;padding:25px 28px;border-bottom:1px solid var(--line,#ffffff18)}
+.astralis-png-preview .png-head small{font-size:9px;letter-spacing:.17em;color:var(--png-accent)}
+.astralis-png-preview h2{margin:8px 0 0;font-size:24px;line-height:1.2;letter-spacing:-.035em}
+.astralis-png-preview button{font:inherit;cursor:pointer}
+.astralis-png-preview .png-close{width:38px;height:38px;border-radius:12px;border:1px solid var(--line,#ffffff20);background:transparent;color:inherit;font-size:24px}
+.astralis-png-preview .png-workspace{display:grid;grid-template-columns:250px minmax(0,1fr);min-height:0;flex:1}
+.astralis-png-preview .png-settings{padding:26px 22px;overflow:auto;border-right:1px solid var(--line,#ffffff18)}
+.astralis-png-preview h3{font-size:15px;margin:0 0 8px}
+.astralis-png-preview .png-settings>p{color:var(--muted,#aab2c4);font-size:11px;line-height:1.6;margin-bottom:25px}
+.astralis-png-preview [data-options]{display:grid;gap:20px}
+.astralis-png-preview [data-options]>label{display:grid;gap:8px;font-size:11px;color:var(--muted,#aab2c4)}
+.astralis-png-preview select{width:100%;min-height:40px;padding:9px 10px;border:1px solid var(--line,#ffffff24);border-radius:9px;background:var(--surface-2,#202534);color:var(--ink,#fff);font:inherit}
+.astralis-png-preview .png-upload{padding:15px 12px;border:1px dashed var(--line,#ffffff35);border-radius:11px;cursor:pointer}
+.astralis-png-preview .png-upload input{max-width:100%;font-size:9px}
+.astralis-png-preview .png-reset{background:transparent;border:0;color:var(--muted,#b9c1cf);font-size:11px;text-align:left;padding:0}
+.astralis-png-preview .png-stage{position:relative;display:flex;flex-direction:column;min-height:0;padding:28px;gap:16px;background:radial-gradient(ellipse at 50% 25%,#ffffff0b,transparent 70%),#0c1018;overflow:hidden}
+.astralis-png-preview .png-frame{display:flex;align-items:center;justify-content:center;min-height:0;flex:1;border-radius:11px;overflow:hidden}
+.astralis-png-preview .png-frame canvas{box-shadow:0 15px 50px #0007;border-radius:7px}
+.astralis-png-preview .png-frame[aria-busy=true]{opacity:.55}
+.astralis-png-preview .png-dimensions{text-align:center;font-size:10px;color:#a4aec0;letter-spacing:.07em}
+.astralis-png-preview .png-actions{display:flex;align-items:center;justify-content:flex-end;gap:12px;padding:18px 24px;border-top:1px solid var(--line,#ffffff18)}
+.astralis-png-preview .png-actions p{flex:1;margin:0;color:var(--muted,#b3bdcc);font-size:11px;line-height:1.5}
+.astralis-png-preview .png-actions button{min-height:43px;padding:11px 18px;border-radius:10px;border:1px solid var(--line,#ffffff25);background:var(--surface-2,#232a38);color:inherit;font-size:12px;font-weight:650}
+.astralis-png-preview [data-save]{background:var(--png-accent)!important;color:#141820!important;border-color:transparent!important}
+.astralis-png-preview button:disabled{opacity:.4;cursor:wait}
+@keyframes png-arrive{from{opacity:0;transform:translateY(12px) scale(.985)}to{opacity:1;transform:none}}
+@media(max-width:700px){.astralis-png-preview{width:96vw;height:94dvh;border-radius:18px}.astralis-png-preview .png-head{padding:18px}.astralis-png-preview h2{font-size:20px}.astralis-png-preview .png-workspace{display:flex;flex-direction:column-reverse}.astralis-png-preview .png-settings{padding:15px 18px;max-height:190px;border-top:1px solid var(--line);border-right:0}.astralis-png-preview .png-settings>h3,.astralis-png-preview .png-settings>p{display:none}.astralis-png-preview [data-options]{grid-template-columns:1fr 1fr;gap:13px}.astralis-png-preview .png-stage{flex:1;padding:15px}.astralis-png-preview .png-actions{flex-wrap:wrap;padding:14px;gap:8px}.astralis-png-preview .png-actions p{flex-basis:100%}.astralis-png-preview .png-actions button{flex:1;padding:10px;font-size:11px}}
+@media(prefers-reduced-motion:reduce){.astralis-png-preview[open]{animation:none}}

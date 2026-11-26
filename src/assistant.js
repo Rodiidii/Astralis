@@ -1,3 +1,4 @@
+import {contextualDialogue} from './companion-dialogues.js?v=20261126-personal-workshop-6';
 import nilou from "../companions/gi/nilou.json" with { type: "json" };
 import skirk from "../companions/gi/skirk.json" with { type: "json" };
 import furina from "../companions/gi/furina.json" with { type: "json" };
@@ -51,6 +52,19 @@ export const ASSISTANT_FEATURES = Object.entries(GROUPS).flatMap(([category, ite
 export const ASSISTANT_GROUPS = GROUPS;
 export const ASSISTANT_PROFILE_KEY = 'astralis:gi:assistant-profile';
 export const ASSISTANT_PROFILES_KEY = 'astralis:gi:assistant-profiles';
+const MAIN_CHARACTER_IDS = /^(?:10000005|10000007)(?:[-_].*)?$/i;
+const MAIN_CHARACTER_NAMES = /^(?:aether|lumine|traveler|traveller|voyageur|voyageuse)(?:anemo|geo|electro|dendro|hydro|pyro|cryo)?$/i;
+export function isMainCharacterCompanion(value) {
+  const character = value && typeof value === 'object' ? value : null;
+  const id = String(character?._id ?? character?.id ?? value ?? '').trim();
+  if (MAIN_CHARACTER_IDS.test(id)) return true;
+  const name = String(character?._name ?? character?.name ?? character?.displayName ?? (character ? '' : value) ?? '').normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase().replace(/[^a-z0-9]/g, '');
+  return !!name && MAIN_CHARACTER_NAMES.test(name);
+}
+function cleanCompanionProfile(profile) {
+  if (!isMainCharacterCompanion(profile?.personaCharacter) && !isMainCharacterCompanion(profile?.companion)) return profile;
+  return { ...profile, personaCharacter: '', companion: '', label: /^compagnon\s+\d+$/i.test(String(profile?.label || '')) ? profile.label : '' };
+}
 export function readAssistantProfiles(storage = localStorage) {
   const defaults = { name:'', companion:'', region:'', favorites:[], ships:[], goal:'', enabled:true, personaCharacter:'', proactive:true, proactiveSound:false, proactiveInterval:5, messageDuration:90 };
   try {
@@ -59,7 +73,9 @@ export function readAssistantProfiles(storage = localStorage) {
       rows = [{ id:'companion-1', label:'Compagnon 1', ...defaults, ...JSON.parse(storage.getItem(ASSISTANT_PROFILE_KEY) || '{}') }];
       storage.setItem(ASSISTANT_PROFILES_KEY, JSON.stringify(rows));
     }
-    return rows.slice(0,5);
+    const storedRows=rows.slice(0,5),cleaned=storedRows.map(cleanCompanionProfile);
+    if(JSON.stringify(cleaned)!==JSON.stringify(storedRows)){try{storage.setItem(ASSISTANT_PROFILES_KEY,JSON.stringify(cleaned));}catch{}}
+    return cleaned;
   } catch { return [{ id:'companion-1', label:'Compagnon 1', ...defaults }]; }
 }
 export function saveAssistantProfile(profile, storage = localStorage) {
@@ -85,14 +101,16 @@ export function deleteAssistantProfile(storage = localStorage) {
 }
 
 export const ASSISTANT_SUGGESTIONS = [
-  ['farm','Vérifier les matériaux manquants d’un personnage','Plan de farm'],['builds','Comparer les recommandations de build','Mes builds'],['lore','Ouvrir une fiche lore liée à tes favoris','Lore & archives'],['wishes','Mettre à jour le solde de primogemmes','Vœux & objectifs'],['endgame','Préparer les équipes du prochain endgame','Endgame'],['teams','Revoir la rotation de ta dernière équipe','Équipes'],['events','Consulter les événements qui se terminent bientôt','Événements Genshin'],['events','Lire les actualités non consultées','Événements Genshin'],['characters','Vérifier les talents d’un personnage favori','Personnages'],['weapons','Comparer les armes disponibles','Armes'],['sets','Voir les sets compatibles avec ton équipe','Sets & reliques'],['tasks','Créer une petite tâche pour la prochaine session','Tâches & objectifs'],['notes','Ajouter une note à ton carnet','Carnet'],['media','Regarder une bande-annonce de personnage','Médias'],['favorites','Ranger tes favoris par priorité','Favoris'],['calc','Compléter les résultats d’une feuille de calcul','Calc Sheets'],['profile','Actualiser ton profil public','Profil Akasha'],['hoyolab','Vérifier la résine HoYoLAB enregistrée','HoYoLAB'],['farming','Planifier une session courte de farm','Plan de farm'],['endgame','Choisir des équipes pour les étages 9 et 10','Endgame'],['endgame','Noter les boss du Théâtre','Endgame'],['endgame','Préparer une stratégie de Carnage','Endgame'],['wishes','Comparer les scénarios C0 et C1','Vœux & objectifs'],['wishes','Ajouter les vœux gagnés aujourd’hui','Vœux & objectifs'],['characters','Consulter les matériaux d’ascension','Personnages'],['builds','Créer une variante de build sauvegardée','Mes builds'],['teams','Associer les builds enregistrés à une équipe','Équipes'],['events','Vérifier les dates et récompenses des événements','Événements Genshin'],['lore','Explorer une région ou une faction','Lore & archives'],['tasks','Marquer les objectifs terminés','Tâches & objectifs'],['data','Vérifier la date de mise à jour des données','Sources & données'],['changelog','Lire les changements de la dernière mise à jour','Journal des données'],['tierlist','Comparer les rôles des personnages','Tier list'],['optimizer','Ouvrir l’optimiseur de personnage','Optimiseurs'],['skowt','Parcourir les modèles 3D disponibles','Skowt · modèles & médias'],['dashboard','Revenir au résumé du compte','Tableau de bord'],['materials','Vérifier les matériaux déjà en stock','Objets & matériaux'],['farming','Revoir le calendrier de farm de la semaine','Plan de farm'],['sets','Enregistrer un set à farmer','Sets & reliques'],['characters','Ajouter un favori à la collection','Personnages']
+  ['farming','Vérifier les matériaux manquants d’un personnage','Plan de farm'],['builds','Comparer les recommandations de build','Mes builds'],['lore','Ouvrir une fiche lore liée à tes favoris','Lore & archives'],['wishes','Mettre à jour le solde de primogemmes','Vœux & objectifs'],['endgame','Préparer les équipes du prochain endgame','Endgame'],['teams','Revoir la rotation de ta dernière équipe','Équipes'],['events','Consulter les événements qui se terminent bientôt','Événements Genshin'],['events','Lire les actualités non consultées','Événements Genshin'],['characters','Vérifier les talents d’un personnage favori','Personnages'],['weapons','Comparer les armes disponibles','Armes'],['sets','Voir les sets compatibles avec ton équipe','Sets & reliques'],['tasks','Créer une petite tâche pour la prochaine session','Tâches & objectifs'],['notes','Ajouter une note à ton carnet','Carnet'],['media','Regarder une bande-annonce de personnage','Médias'],['favorites','Ranger tes favoris par priorité','Favoris'],['calc','Compléter les résultats d’une feuille de calcul','Calc Sheets'],['profile','Actualiser ton profil public','Profil Akasha'],['hoyolab','Vérifier la résine HoYoLAB enregistrée','HoYoLAB'],['farming','Planifier une session courte de farm','Plan de farm'],['endgame','Choisir des équipes pour les étages 9 et 10','Endgame'],['endgame','Noter les boss du Théâtre','Endgame'],['endgame','Préparer une stratégie de Carnage','Endgame'],['wishes','Comparer les scénarios C0 et C1','Vœux & objectifs'],['wishes','Ajouter les vœux gagnés aujourd’hui','Vœux & objectifs'],['characters','Consulter les matériaux d’ascension','Personnages'],['builds','Créer une variante de build sauvegardée','Mes builds'],['teams','Associer les builds enregistrés à une équipe','Équipes'],['events','Vérifier les dates et récompenses des événements','Événements Genshin'],['lore','Explorer une région ou une faction','Lore & archives'],['tasks','Marquer les objectifs terminés','Tâches & objectifs'],['data','Vérifier la date de mise à jour des données','Sources & données'],['changelog','Lire les changements de la dernière mise à jour','Journal des données'],['tierlist','Comparer les rôles des personnages','Tier list'],['optimizer','Ouvrir l’optimiseur de personnage','Optimiseurs'],['dashboard','Revenir au résumé du compte','Tableau de bord'],['materials','Vérifier les matériaux déjà en stock','Objets & matériaux'],['farming','Revoir le calendrier de farm de la semaine','Plan de farm'],['sets','Enregistrer un set à farmer','Sets & reliques'],['characters','Ajouter un favori à la collection','Personnages']
 ].map(([section,text,title])=>({section,text,title}));
 
 export function readAssistantProfile(storage = localStorage) {
   try {
     const value = JSON.parse(storage.getItem(ASSISTANT_PROFILE_KEY) || '{}');
     const profiles=readAssistantProfiles(storage),active=profiles.find(x=>x.id===value.id);
-    return { name: '', companion: '', region: '', favorites: [], ships: [], goal: '', enabled: true, personaCharacter: '', proactive: true, proactiveSound: false, proactiveInterval: 5, messageDuration: 90, ...(active||{}), ...value, id:value.id||active?.id||profiles[0]?.id||'companion-1' };
+    const raw={ name: '', companion: '', region: '', favorites: [], ships: [], goal: '', enabled: true, personaCharacter: '', proactive: true, proactiveSound: false, proactiveInterval: 5, messageDuration: 90, ...(active||{}), ...value, id:value.id||active?.id||profiles[0]?.id||'companion-1' },cleaned=cleanCompanionProfile(raw);
+    if(JSON.stringify(cleaned)!==JSON.stringify(raw)){try{storage.setItem(ASSISTANT_PROFILE_KEY,JSON.stringify(cleaned));}catch{}}
+    return cleaned;
   } catch {
     return { name: '', companion: '', region: '', favorites: [], ships: [], goal: '', enabled: true, proactiveInterval:5, messageDuration:90 };
   }
@@ -100,37 +118,24 @@ export function readAssistantProfile(storage = localStorage) {
 
 const VOICE_BANK = { nilou, skirk, furina, nahida, zhongli, alhaitham, kaveh, cyno, dehya, itto, navia, citlali, mavuika, collei, paimon };
 
-export function characterNudge(character, context = {}) {
-  const raw=String(character?._name||character?.name||'').normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase().replace(/[^a-z]/g,'');
-  const voice=VOICE_BANK[raw];
-  const bank=voice?.situations.arrival;
-  if(bank){
-    if(context.situation==='morning'||context.situation==='evening'){
-      return voice.situations[context.situation][0];
-    }
-    if(raw==='nilou'&&context.farmCount)return ['Entre deux pas de danse, je me suis dit qu’on pourrait préparer les matériaux des '+context.farmCount+' personnages de ta liste. Sans se presser !','Ta prochaine chorégraphie peut attendre un peu… On regarde ensemble les ressources qu’il te manque ?'][Math.floor(Math.random()*2)];
-    if(raw==='skirk'&&context.farmCount)return `Tu as ${context.farmCount} personnage(s) à préparer. Commence par leurs matériaux prioritaires. N’en néglige aucun.`;
-    if(raw==='nahida'&&context.openTasks)return `Il reste ${context.openTasks} objectif(s). Lequel te semble le plus important aujourd’hui ?`;
-    if(raw==='alhaitham'&&context.teamCount)return `Tu as ${context.teamCount} équipe(s) enregistrée(s). Choisis celle qui sert ton objectif actuel.`;
-    return bank[Math.floor(Math.random()*bank.length)];
-  }
-  const element=String(character?.elementText||character?.element||'').toLowerCase();
-  const tone={pyro:'On passe à l’action',hydro:'Gardons le rythme',cryo:'Restons méthodiques',electro:'J’ai repéré une piste utile',dendro:'Faisons pousser ta progression',anemo:'Un petit détour peut aider',geo:'Bâtissons la suite',glacio:'Un pas après l’autre',havoc:'Concentrons-nous sur la cible',spectro:'Voyons plus clair'}[element]||'J’ai regardé tes priorités';
-  if(context.farmCount)return `${tone} : ${context.farmCount} personnage(s) figurent dans ton plan de farm. Vérifie les ressources restantes avant de choisir ta prochaine session.`;
-  if(context.openTasks)return `${tone} : il reste ${context.openTasks} objectif(s) ouverts. Lequel veux-tu terminer en premier ?`;
-  if(context.teamCount)return `${tone} : tu as ${context.teamCount} équipe(s) enregistrée(s). On peut reprendre une rotation ou revoir un build.`;
-  const lines=['Je peux t’aider à choisir une prochaine étape. Qu’est-ce qui te ferait le plus avancer aujourd’hui ?','On peut revoir ton farm, tes équipes ou tes objectifs. Tu préfères commencer par quoi ?','Pas besoin de tout faire d’un coup. Choisissons une priorité, puis on verra la suite.'];
-  return lines[Math.floor(Math.random()*lines.length)];
+export function characterNudge(character,context={}) {
+ const key=String(character?._name||character?.name||'').normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase().replace(/[^a-z]/g,'');const old=VOICE_BANK[key]?.situations?.[context.situation];if(old?.length&&['morning','evening'].includes(context.situation))return old[0];
+ const situation=context.situation==='evening'?'evening':context.situation==='morning'?'arrival':context.context||(context.farmCount?'farm':context.openTasks?'tasks':context.teamCount?'rotation':'preference');
+ const index=Number(context.index??Math.floor(Math.random()*4));
+ return contextualDialogue(character,situation,index)+(context.openTasks?'\n\n'+context.openTasks+' objectif(s) ouverts dans ton atelier.':'');
 }
 
 export function assistantReply(message, profile, snapshot = {}) {
   const q = String(message || '').trim().toLocaleLowerCase('fr');
   const name = profile.name ? `${profile.name}, ` : '';
+  const roles=profile.roles||[],specialty=roles[0]||'';
   if (!q) return `${name}je peux t’aider à choisir une prochaine action. Demande-moi par exemple quoi farmer aujourd’hui, quels objectifs restent, ou combien de vœux tu as préparés.`;
-  if (/farm|farmer|résine|materiau|matériau|livre|mora|xp/.test(q)) return `${name}${snapshot.farmCount ? `tu as ${snapshot.farmCount} personnage(s) dans ton plan de farm. ` : 'ton plan de farm est encore vide. '}Commence par les ressources qui manquent vraiment; le calendrier tient compte des stocks saisis et des jours de disponibilité des livres.`;
+  if (/farm|farmer|résine|materiau|matériau|livre|mora|xp/.test(q)) return `${name}${snapshot.farmCount ? `tu as ${snapshot.farmCount} personnage(s) dans ton plan de farm. ` : 'ton plan de farm est encore vide. '}${snapshot.farmTodayCount?`${snapshot.farmTodayCount} session(s) sont prévues aujourd’hui. `:''}${snapshot.resinCurrent!=null?`Ta résine est à ${snapshot.resinCurrent}/${snapshot.resinMax||200}. `:''}${specialty==='Coach de farm'||specialty==='Gardien de résine'?'Je peux t’aider à choisir une activité selon tes priorités et ta résine. ':'Vérifie les ressources qui te manquent; le calendrier tient compte des stocks saisis et des jours de disponibilité des livres. '}`;
   if (/équipe|team|abyss|abîme|theatre|théâtre|carnage|rotation/.test(q)) return `${name}${snapshot.teamCount ? `tu as ${snapshot.teamCount} équipe(s) enregistrée(s). ` : 'aucune équipe n’est encore enregistrée. '}Choisis une équipe sauvegardée dans l’atelier, puis vérifie ses rôles, son soin ou bouclier et sa rotation.`;
+  if (/build|arme|set|art[eé]fact|optimis/.test(q)) return `${name}${snapshot.buildCount?`${snapshot.buildCount} build(s) sont sauvegardés. `:''}${specialty==='Conseiller de builds'?'Je peux t’aider à comparer les variantes et repérer celle qui mérite une amélioration. ':'Ouvre tes builds pour comparer les statistiques, armes et sets dans le contexte du personnage.'}`;
+  if (/événement|evenement|actualité|actualite|nouveaut|programme spécial|programme special/.test(q)) return `${name}ouvre « Événements Genshin » pour parcourir le calendrier, les récompenses suivies et les dates de fin. ${specialty==='Suivi des événements'||specialty==='Lecteur d’actualités'?'Je peux t’aider à choisir quoi surveiller en premier.':''}`.trim();
   if (/voeu|vœu|primo|pity|banni/.test(q)) return `${name}le suivi des vœux est enregistré sur cet appareil. Ouvre « Vœux & objectifs » pour mettre à jour tes primogemmes, ta pity, ta garantie et comparer les probabilités cumulées.`;
   if (/lore|histoire|region|région|faction|ship/.test(q)) return `${name}${profile.region ? `tu préfères ${profile.region}. ` : ''}Ouvre « Lore & archives » et utilise la recherche pour relier régions, personnages, factions et événements historiques. Tes ships restent privés dans ton profil local.`;
-  if (/objectif|tache|tâche|aujourd|aujourd'hui|journée|rappel/.test(q)) return `${name}${snapshot.openTasks ? `${snapshot.openTasks} objectif(s) sont encore ouverts. ` : ''}Choisis une tâche prioritaire et une action réalisable aujourd’hui; tes échéances et rappels sont conservés dans Astralis.`;
-  return `${name}j’ai gardé ta préférence${profile.goal ? ` « ${profile.goal} »` : ''}. Je peux t’orienter vers le farm, les équipes, les vœux, le lore, les objectifs ou les nouveautés. Les données personnelles du compagnon restent stockées localement.`;
+  if (/objectif|tache|tâche|aujourd|aujourd'hui|journée|rappel/.test(q)) return `${name}${snapshot.openTasks ? `${snapshot.openTasks} objectif(s) sont encore ouverts. ` : ''}${snapshot.overdueCount?`${snapshot.overdueCount} sont en retard. `:''}${snapshot.dueTodayCount?`${snapshot.dueTodayCount} sont prévus aujourd’hui. `:''}${profile.goal?`Ta priorité notée est « ${profile.goal} ». `:''}Choisis une action réaliste; tes échéances et rappels restent dans Astralis.`;
+  return `${name}j’ai gardé ta préférence${profile.goal ? ` « ${profile.goal} »` : ''}${specialty?` et mon rôle de ${specialty.toLocaleLowerCase('fr')}`:''}. Je peux t’orienter vers le farm, les équipes, les vœux, le lore, les objectifs ou les nouveautés. Les données personnelles du compagnon restent stockées localement.`;
 }

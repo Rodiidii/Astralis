@@ -1,7 +1,7 @@
 {
   "name": "Premium",
   "description": "Celestia",
-  "lastEdit": 1794351113730,
+  "lastEdit": 1795628012366,
   "conditional": {
     "resonance": {},
     "reaction": {}
@@ -113,25 +113,7 @@
               "description": ""
             },
             {
-              "weight": 1,
-              "path": [
-                "skill",
-                "cloudstriderDmg"
-              ],
-              "hitMode": "avgHit",
-              "reaction": "melt",
-              "bonusStats": {
-                "atk": 798.899,
-                "atk_": 48,
-                "all_dmgInc": 8738.526,
-                "pyro_enemyRes_": -20,
-                "critRate_": 40,
-                "all_dmg_": 60
-              },
-              "description": ""
-            },
-            {
-              "weight": 1,
+              "weight": 2,
               "path": [
                 "skill",
                 "cloudstriderDmg"

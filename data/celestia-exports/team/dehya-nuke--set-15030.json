@@ -1,7 +1,7 @@
 {
   "name": "Nuke",
   "description": "Celestia",
-  "lastEdit": 1794351149232,
+  "lastEdit": 1795427427144,
   "conditional": {
     "resonance": {},
     "reaction": {}
@@ -45,14 +45,15 @@
               "reaction": "melt",
               "bonusStats": {
                 "atk": 1416,
-                "eleMas": 665.788,
+                "eleMas": 370,
                 "enerRech_": 20,
                 "hp_": 30,
-                "all_dmg_": 383,
-                "all_dmgInc": 8719.755,
+                "all_dmg_": 380.2,
+                "all_dmgInc": 10644.87,
                 "enemyDefIgn_": 40,
                 "pyro_enemyRes_": -65,
-                "critDMG_": 24
+                "critDMG_": 24,
+                "enemyDefRed_": 30
               },
               "description": ""
             }
@@ -219,8 +220,8 @@
       ]
     },
     {
-      "key": "Furina",
-      "name": "Furina (Celestia)",
+      "key": "Durin",
+      "name": "Durin (Celestia)",
       "description": "",
       "hitMode": "avgHit",
       "infusionAura": "",
@@ -231,7 +232,7 @@
         {
           "name": "Celestia",
           "description": "Celestia teammate assumption (85% of the maximum).",
-          "characterKey": "Furina",
+          "characterKey": "Durin",
           "character": {
             "level": 90,
             "ascension": 6,
@@ -243,48 +244,50 @@
             }
           },
           "weapon": {
-            "key": "KeyOfKhajNisut",
+            "key": "PeakPatrolSong",
             "level": 90,
             "ascension": 6,
             "refinement": 5
           },
           "artifact": {
             "sets": {
-              "SongOfDaysPast": 4
+              "Instructor": 4
             },
             "slots": {
               "flower": {
-                "level": 20,
-                "rarity": 5,
+                "level": 16,
+                "rarity": 4,
                 "statKey": "hp"
               },
               "plume": {
-                "level": 20,
-                "rarity": 5,
+                "level": 16,
+                "rarity": 4,
                 "statKey": "atk"
               },
               "sands": {
                 "level": 20,
                 "rarity": 5,
-                "statKey": "hp_"
+                "statKey": "atk_"
               },
               "goblet": {
-                "level": 20,
-                "rarity": 5,
-                "statKey": "hp_"
+                "level": 16,
+                "rarity": 4,
+                "statKey": "def_"
               },
               "circlet": {
-                "level": 20,
-                "rarity": 5,
-                "statKey": "hp_"
+                "level": 16,
+                "rarity": 4,
+                "statKey": "def_"
               }
             },
             "substats": {
               "type": "max",
-              "rarity": 5,
+              "rarity": 4,
               "stats": {
-                "hp": 4824.81,
-                "hp_": 59.47
+                "atk": 56.21,
+                "def": 82.65,
+                "atk_": 47.53,
+                "def_": 86.73
               }
             }
           },

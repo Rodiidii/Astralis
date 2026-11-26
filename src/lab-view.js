@@ -5,7 +5,7 @@ import {CHARACTER_BUFF_IDS as buffCharacterIds} from './lab-character-buffs.js';
 import {scopes as characterBuffScopes} from './complex-controls.js?v=20261117-clear-buffs-2';
 import {compareLabScores,labReferenceScore} from './lab-comparison.js';
 import './lab-import-config.js?v=84';
-import {snapshotWeaponStats,resolvedEffectBonuses,ATTACK_KINDS,attackOptions,setEffectOptions,effectSetting,weaponEffectOptions} from './lab-config.js?v=20261117-clear-buffs-2';
+import {snapshotWeaponStats,resolvedEffectBonuses,ATTACK_KINDS,attackOptions,setEffectOptions,effectSetting,weaponEffectOptions} from './lab-config.js?v=20261125-weapon-stats-1';
 import { LAB_REACTIONS, LAB_BUFF_TYPES, talentValueRows } from './lab-actions.js?v=84';
 import { ic } from './icons.js?v=20261107-stability-6';
 import { ARTIFACT_MAIN_BY_SLOT, ARTIFACT_SLOT_LABELS, ARTIFACT_SLOTS } from './artifact-model.js?v=20261110-builds-3';
@@ -110,7 +110,7 @@ function sidebar(context,p) {
     '<table class="lab-stat-table"><caption>Statistiques finales de combat</caption><tbody>'+basic.map(key=>'<tr><th scope="row">'+statIcon(key)+' '+LAB_STAT_LABELS[key]+'</th><td data-lab-live-stat="'+key+'">'+esc(labStatValue(key,stats[key]))+'</td></tr>').join('')+
     '<tr><th scope="row">Force du bouclier</th><td data-lab-live-stat="shieldStrength">'+esc(labStatValue('shieldStrength',stats.shieldStrength||0))+'</td></tr><tr class="lab-element-stat"><td colspan="2">'+damageBonusDetails(stats)+'</td></tr><tr class="lab-res-row"><th scope="row">Baisses de RÉS de la cible</th><td><div class="lab-res-reduction-list" data-lab-res-reduction aria-live="polite">—</div></td></tr></tbody></table>'+
     '<button class="quiet-btn lab-edit-reference" type="button" data-lab-edit-reference>'+ic('pencil')+' Modifier les valeurs</button>'+
-    '<p class="lab-sidebar-note">Les résultats suivent le build, l’attaque et les hypothèses que tu sélectionnes.</p></aside>';
+    '</aside>';
 }
 
 function specialReactionControls(p){
@@ -122,7 +122,7 @@ function specialReactionControls(p){
 }
 
 function actionEditor(p) {
-  return '<div class="lab-action-editor"><div class="lab-attack-target"><span class="lab-target-icon">'+ic('target')+'</span><div><span class="eyebrow">ATTAQUE CIBLE</span><strong data-lab-target-name>'+esc(p.targetName||'Définir une attaque')+'</strong><small>Choisis un talent ou renseigne son multiplicateur.</small></div><button type="button" class="quiet-btn" data-lab-tab="talents">Choisir '+ic('arrow')+'</button></div>'+
+  return '<div class="lab-action-editor"><div class="lab-attack-target"><span class="lab-target-icon">'+ic('target')+'</span><div><span class="eyebrow">ATTAQUE CIBLE</span><strong data-lab-target-name>'+esc(p.targetName||'Définir une attaque')+'</strong></div><button type="button" class="quiet-btn" data-lab-tab="talents">Choisir '+ic('arrow')+'</button></div>'+
     (p.components?.length?'<p class="lab-hit-groups"><strong>Coups du talent</strong> '+p.components.map(part=>esc(part.count)+' × '+esc(Number((part.talentMultiplier*100).toFixed(3)))+' %').join(' + ')+'<small>Modifier le multiplicateur ou le nombre de coups remplace cette décomposition par des coups identiques.</small></p>':'')+
     '<details class="lab-disclosure lab-coefficients"><summary>Ajuster les coefficients <span>Coups, multiplicateur et stat utilisée</span></summary><div class="lab-fields"><label class="lab-field"><span>Stat utilisée</span><select data-lab="baseStat">'+[['atk','ATQ'],['hp','PV'],['def','DÉF'],['em','Maîtrise élémentaire']].map(([key,label])=>'<option value="'+key+'" '+(p.baseStat===key?'selected':'')+'>'+label+'</option>').join('')+'</select></label>'+
     field('Multiplicateur du talent','talent',p.talent,.001)+field('Dégâts plats par coup','flat',p.flat)+field('Nombre de coups','hitCount',p.hitCount||1,1,1)+field('Coups avec réaction','reactingHits',p.reactingHits||0,1,0)+
@@ -135,7 +135,7 @@ function actionEditor(p) {
     ((p.reaction?.startsWith('directLunar')||['stellarConduct','directStellarSwirl','stellarSwirl','lunarCharged','lunarCrystallize'].includes(p.reaction))?'<p class="lab-data-note">Réservé aux coups explicitement considérés comme des dégâts lunaires dans le kit. Les bonus DGT classiques et les plumes ordinaires sont exclus.</p>'+field('Bonus de base de cette réaction (%)','lunarBaseBonus',p.lunarBaseBonus||0)+field('Élévation de cette réaction (%)','lunarElevation',p.lunarElevation||0)+field('Dégâts plats spécifiques à cette réaction','lunarFlat',p.lunarFlat||0):'')+
     field('Ennemis touchés par chaque impact','targetCount',p.targetCount||1,1,1)+field('Niveau ennemi','enemyLevel',p.enemyLevel,1,1)+field('Résistance ennemie (%)','resistance',p.resistance,1,-100)+field('Réduction de RÉS (%)','resReduction',p.resReduction)+field('Réduction de DÉF (%)','defReduction',p.defReduction)+field('Ignore DÉF (%)','defIgnore',p.defIgnore)+
     field('Amplification · 1,5 ou 2','ampBase',p.ampBase,.1)+field('Coefficient de réaction vérifié','reactionCoeff',p.reactionCoeff,.001)+field('Multiplicateur de niveau vérifié','reactionLevel',p.reactionLevel,.001)+field('Bonus de réaction (%)','reactionBonus',p.reactionBonus,.1)+'</div>'+specialReactionControls(p)+'</details>'+
-    '<details class="lab-disclosure" data-lab-reference><summary>Statistiques et bonus <span>Avant les cinq artéfacts</span></summary><p class="lab-note">Le build charge les stats du personnage et de son arme. Les bonus conditionnels restent à renseigner lorsqu’ils sont actifs.</p><div class="lab-fields">'+
+    '<details class="lab-disclosure" data-lab-reference><summary>Statistiques et bonus <span>Avant les cinq artéfacts</span></summary><div class="lab-fields">'+
     ['hp','atk','def','em','critRate','critDmg','er'].map(key=>field(LAB_STAT_LABELS[key]+(percentStats.has(key)?' (%)':''),key,p[key])).join('')+
     field('Bonus DGT général (%)','bonus',p.bonus)+field('Bonus DGT de l’élément (%)','elementBonus',p.elementBonus)+'</div><button class="quiet-btn" type="button" data-lab-action="save">Enregistrer les paramètres</button></details>'+
     '<div class="lab-inline-actions">'+
@@ -143,7 +143,7 @@ function actionEditor(p) {
 }
 
 function output(p) {
-  return section('RÉSULTAT / SIMULATION', 'La puissance de ton build', '<button type="button" class="button-primary lab-studio-calculate" data-lab-action="calculate">'+ic('sparkle')+' Calculer l’attaque</button><div class="lab-result-main"><span data-lab-result-title>Dégâts de l’attaque sélectionnée</span><strong data-lab-damage>—</strong><small data-lab-warning>Le résultat apparaîtra après le calcul.</small></div>'+
+  return section('RÉSULTAT / SIMULATION', 'Dégâts de l’attaque', '<button type="button" class="button-primary lab-studio-calculate" data-lab-action="calculate">'+ic('sparkle')+' Calculer l’attaque</button><div class="lab-result-main"><span data-lab-result-title>Dégâts de l’attaque sélectionnée</span><strong data-lab-damage>—</strong><small data-lab-warning></small></div>'+
     '<div class="lab-result-comparison" data-lab-comparison></div><div data-lab-sensitivity class="lab-sensitivity"></div>'+
     '<details class="lab-disclosure"><summary>Voir le calcul <span>Chaque terme de la formule</span></summary><div data-lab-breakdown><p class="lab-note">Sélectionne une attaque pour afficher sa décomposition.</p></div></details>','lab-output');
 }
@@ -212,7 +212,7 @@ export function renderLabWorkspace(context,p) {
   return '<div class="lab-page lab-workbench lab-studio" data-damage-lab'+jsonAttrs+' style="--lab-element:'+(elementColors[elementKey(character)]||'#c4b5fd')+';--lab-accent:#c4b5fd">'+
     '<header class="lab-studio-header"><div class="lab-studio-heading"><span class="lab-studio-kicker"><i></i> ASTRALIS / GENSHIN IMPACT</span><h1>Laboratoire <span>de dégâts.</span></h1><p>Un personnage. Toutes les possibilités.</p></div><div class="lab-studio-header-action"><span>TON PROCHAIN BUILD COMMENCE ICI</span><button type="button" data-lab-studio-tab="optimizer">Trouver le meilleur build '+ic('arrowRight')+'</button><small>'+ic('shield')+' Tes essais sont conservés sur cet appareil.</small></div></header>'+
     '<aside class="lab-data-sync"><span data-lab-sync-status>Tables numériques locales · vérification automatique quotidienne</span><button type="button" data-lab-sync-refresh>Vérifier maintenant</button></aside>'+
-    '<section class="lab-preparation"><header class="lab-studio-section-head"><span>01 / CONFIGURATION</span><b>Ton point de départ</b></header>'+contextBar+'<details class="lab-build-drawer"><summary>'+ic('sword')+' Équipement & réglages du build <span>Niveaux, arme et sauvegardes</span>'+ic('arrowRight')+'</summary><div class="lab-build-drawer-body">'+buildControls+'<lab-configurations></lab-configurations>'+weaponEditor(context,p)+'</div>'+'</details></section>'+
+    '<section class="lab-preparation"><header class="lab-studio-section-head"><span>01 / CONFIGURATION</span><b>Ton point de départ</b></header>'+contextBar+'<div class="lab-visible-loadout">'+renderEquipment(context,p)+'</div><lab-configurations></lab-configurations><details class="lab-build-drawer" open><summary>'+ic('sword')+' Équipement & réglages du build <span>Niveaux, arme et sauvegardes</span>'+ic('arrowRight')+'</summary><div class="lab-build-drawer-body">'+buildControls+weaponEditor(context,p)+'</div>'+'</details></section>'+
     '<div class="lab-workspace">'+sidebar(context,p)+'<div class="lab-main">'+
     '<nav class="lab-tabs" role="tablist" aria-label="Vues du laboratoire">'+tabs.map(([id,label,icon])=>'<button type="button" role="tab" id="lab-tab-'+id+'" aria-controls="lab-view-'+id+'" aria-selected="'+(tab===id)+'" tabindex="'+(tab===id?'0':'-1')+'" data-lab-tab="'+id+'">'+ic(icon)+label+'</button>').join('')+'</nav>'+
     '<div class="lab-live-output">'+output(p)+'</div>'+
@@ -316,7 +316,7 @@ function attackChooser(context,p) {
  return '<section class="lab-target-dock" aria-label="Attaque à tester"><header><div><span class="eyebrow">ATTAQUE CIBLE</span><h2>Chaque coup compte.</h2></div><label>Niveau de base du talent<select data-lab-target-level>'+Array.from({length:15},(_,i)=>'<option value="'+(i+1)+'" '+(Number(p.talentLevel)===i+1?'selected':'')+'>'+(i+1)+'</option>').join('')+'</select></label></header>'+
   '<div class="lab-attack-kinds" role="group" aria-label="Type d’attaque">'+ATTACK_KINDS.map(([key,label,code])=>'<button type="button" data-lab-attack-kind="'+key+'" aria-pressed="'+(kind===key)+'" class="'+(kind===key?'active':'')+'"><span>'+actionIcon(key)+'</span><b>'+label+'</b></button>').join('')+'</div>'+
   '<div class="lab-precise-attack">'+actionIcon(kind)+'<label><span>Coup précis · '+esc(skill?.name||'kit du personnage')+'</span><select data-lab-target-attack><option value="">'+(choices.length?'Choisir le coup à tester…':'Coefficients indisponibles pour cette catégorie')+'</option>'+choices.map(row=>'<option value="'+row.id+'" '+(chosen?.id===row.id?'selected':'')+'>'+esc(row.text)+'</option>').join('')+'</select></label><div class="lab-target-readout"><small>CIBLE ACTUELLE</small><strong>'+esc(p.targetName||'Aucune attaque sélectionnée')+'</strong><span>'+esc(p.hitCount||1)+' coup(s) · '+esc(p.critMode==='average'?'Dégâts moyens':p.critMode==='crit'?'Critique':'Sans CRIT')+'</span></div></div>'+
-  (!choices.length?'<p class="lab-data-note">Cette catégorie n’a pas de coefficient simple disponible dans le kit chargé. Sélectionne une autre catégorie ou renseigne les coefficients dans les conditions du calcul.</p>':'')+'<details class="lab-catalogue-panel"><summary>Explorer tous les dégâts <span>Talents, CRIT et réactions</span></summary><div data-lab-attack-table aria-live="polite"></div></details></section>';
+  (!choices.length?'<p class="lab-data-note">Aucun dégât direct pour cette catégorie. Choisis un autre talent.</p>':'')+'<details class="lab-catalogue-panel"><summary>Explorer tous les dégâts <span>Talents, CRIT et réactions</span></summary><div data-lab-attack-table aria-live="polite"></div></details></section>';
 }
 export function effectControls(p,scope,options) {
  return options.map(option=>{
@@ -358,7 +358,7 @@ function weaponEditor(context,p) {
  const character=context.characters.find(row=>String(row._id)===String(p.character)),weapon=context.activeWeapon;
  const compatible=context.weapons.filter(row=>!character?.weaponType||row.weaponType===character.weaponType);
  const scope='weapon:'+String(weapon?._id||weapon?.id||'');
- const description=weapon?.['r'+(Number(p.weaponRefinement)||1)]?.description;
+ const description=weapon?.['r'+(Number(p.weaponRefinement)||1)]?.description||weapon?.passive?.refinements?.[String(Number(p.weaponRefinement)||1)]?.description||weapon?.passive?.refinements?.[String(Number(p.weaponRefinement)||1)]?.desc;
  const cachedProfile=p.referenceWeaponProfile,profile=weapon&&String(cachedProfile?.id)===String(weapon.id||weapon._id)&&Number(cachedProfile.level)===Number(p.weaponLevel)?cachedProfile:null;
  const baseline=weapon?snapshotWeaponStats(context.sourceSnapshot,weapon,Math.min(Number(weapon.rarity)<3?70:90,Number(p.weaponLevel)||90))||profile:null;
  const subType=context.sourceSnapshot?.weapons?.[String(weapon?.id)]?.subStat?.type||namedStatKey(baseline?.secondaryType)||baseline?.secondaryType,subLabel=LAB_STAT_LABELS[subType]||({atkPct:'ATQ',hpPct:'PV',defPct:'DÉF',atk_:'ATQ',hp_:'PV',def_:'DÉF',critRate_:'Taux CRIT',critDMG_:'DGT CRIT',enerRech_:'Recharge',eleMas:'Maîtrise élémentaire',physical_dmg_:'DGT physiques'})[subType]||subType;

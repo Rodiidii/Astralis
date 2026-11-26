@@ -25,7 +25,7 @@
   },
   "goConditions": null,
   "characterBonusStats": {
-    "atk_": 82.541,
+    "atk_": 76.036,
     "atk": 1050.758
   },
   "enemy": {
@@ -49,7 +49,7 @@
         {
           "buff": "Chevreuse A4 ATK (Pyro/Electro)",
           "key": "atk_",
-          "value": 37.54054972703511
+          "value": 31.03576367505076
         },
         {
           "buff": "Fantastic Voyage",
@@ -64,5 +64,23 @@
       ]
     }
   ],
-  "teamIssues": []
+  "teamIssues": [
+    {
+      "code": "characterBonusStats",
+      "stats": [
+        {
+          "buff": "Pyro Resonance",
+          "key": "atk_",
+          "value": 25
+        }
+      ]
+    },
+    {
+      "code": "setEffects",
+      "setIds": [
+        15005,
+        15007
+      ]
+    }
+  ]
 }

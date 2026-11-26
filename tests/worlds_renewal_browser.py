@@ -1,0 +1,73 @@
+"""Exercise the farm, calculation, event gallery and knowledge reader in the real app."""
+import json,threading,hashlib,tempfile
+from functools import partial
+from pathlib import Path
+from playwright.sync_api import sync_playwright,expect
+from voyage_browser import ROOT,Quiet,Server
+server=Server(('127.0.0.1',0),partial(Quiet,directory=str(ROOT)));threading.Thread(target=server.serve_forever,daemon=True).start()
+base=f'http://127.0.0.1:{server.server_port}'
+try:
+ with sync_playwright() as pw,tempfile.TemporaryDirectory() as tmp:
+  browser=pw.chromium.launch();context=browser.new_context(viewport={'width':1440,'height':1000},service_workers='block',accept_downloads=True,permissions=['clipboard-read','clipboard-write']);page=context.new_page();page.set_default_timeout(20000);page.set_default_navigation_timeout(120000);expect.set_options(timeout=20000);errors=[];downloads=[];published=[]
+  page.on('pageerror',lambda e:(errors.append(str(e)),print('PAGE ERROR',e.stack,flush=True)));page.on('download',lambda d:downloads.append(d))
+  def route(r):
+   url=r.request.url
+   if url.startswith(base+'/src/app.js'):r.fulfill(body=(ROOT/'src/app.js').read_text(encoding='utf-8')+'\nwindow.combatQA={state,render,renderPageOnly,showAssistantToast,openBooster,boosterOddsMode};',content_type='application/javascript')
+   elif url.startswith(base+'/assets/user/combat-examples-request.json'):r.fulfill(status=404,body='')
+   elif url.startswith(base+'/api/gi/lore?'):r.fulfill(json={'extract':'# Le témoignage\nFontaine conserve un témoignage approfondi.\n# Les sources\nLe texte est chargé depuis le service de lecture.'})
+   elif url.startswith(base+'/api/character-sheets/status'):r.fulfill(json={'ok':True,'readOnly':False,'adminConfigured':True,'authenticated':False,'localAdmin':True,'publishReady':True,'storage':'QA local'})
+   elif url.startswith(base+'/api/character-sheets/publish'):
+    payload=r.request.post_data_json['sheet'];published.append(payload);r.fulfill(json={'ok':True,'sheet':{'id':payload['id'],'version':1,'updatedAt':1800000000000}})
+   elif url.startswith(base+'/api/character-sheets/index'):r.fulfill(json={'sheets':[]})
+   elif url.startswith(base+'/api/character-sheets/status'):r.fulfill(json={'ok':True,'readOnly':False,'adminConfigured':True,'authenticated':False,'localAdmin':True,'publishReady':True,'storage':'QA local'})
+   elif url.startswith(base+'/api/character-sheets/publish'):
+    payload=r.request.post_data_json['sheet'];published.append(payload);r.fulfill(json={'ok':True,'sheet':{'id':payload['id'],'version':1,'updatedAt':1800000000000}})
+   elif url.startswith(base+'/api/character-sheets/index'):r.fulfill(json={'sheets':[]})
+   elif url.startswith(base+'/api/'):r.fulfill(json={})
+   elif url.startswith(base):
+    from urllib.parse import urlsplit,unquote
+    path=(ROOT/unquote(urlsplit(url).path).lstrip('/')).resolve()
+    if path.is_dir():path=path/'index.html'
+    if path.is_relative_to(ROOT) and path.is_file():r.fulfill(path=str(path))
+    else:r.fulfill(status=404,body='')
+   else:r.abort()
+  cdp=context.new_cdp_session(page);cdp.send('Debugger.enable');cdp.on('Debugger.scriptFailedToParse',lambda e:print('SYNTAX',e.get('url'),e.get('startLine'),flush=True))
+  page.add_init_script("window.qaConsoleErrors=[];const ce=console.error;console.error=(...a)=>{window.qaConsoleErrors.push(a.map(v=>v?.stack||String(v)));ce(...a)}");print('Stage startup',flush=True);page.route('**/*',route);page.goto(base,wait_until='commit');page.wait_for_function('window.combatQA!==undefined',timeout=120000)
+  print('Stage fixtures',flush=True);page.evaluate('''async()=>{
+   const {state}=combatQA,manifest=await fetch('/data/lab-character-conditions.json').then(r=>r.json()),aliases=await fetch('/public/gi-name-aliases.json').then(r=>r.json());
+   Object.defineProperty(state,'catalogErrors',{configurable:true,get:()=>({}),set:()=>{}});
+   state.catalogs['gi:character']=Object.entries(manifest.characters).filter(([key,row])=>['10000120','10000116','10000110','10000121','10000043','10000031','10000106','10000107','10000032'].includes(row.id)).map(([key,row])=>({_id:row.id,id:row.id,_category:'character',_name:row.name,name:key,elementText:({Flins:'Electro',Ineffa:'Electro',Iansan:'Electro',Aino:'Hydro',Sucrose:'Anemo',Fischl:'Electro',Mavuika:'Pyro',Citlali:'Cryo',Bennett:'Pyro'})[key]||'Cryo',_labImage:'/assets/relations/portraits/'+row.id+'.png',_labSplash:'/assets/genshin/splashes/'+row.id+'.webp'}));
+   const icons={'13407':'UI_EquipIcon_Pole_Zephyrus','12502':'UI_EquipIcon_Claymore_Wolfmound','12401':'UI_EquipIcon_Claymore_Zephyrus'};
+   state.catalogs['gi:weapon']=aliases.weapons.map(r=>({_id:r.id,id:r.id,_category:'weapon',_name:r.fr?.[0]||r.en[0],name:r.en[0],rarity:Number(r.id[2])||5,images:{filename_icon:icons[r.id]}}));
+   state.catalogs['gi:artifact']=aliases.artifacts.map(r=>({_id:r.id,id:r.id,_category:'artifact',_name:r.fr?.[0]||r.en[0],name:r.en[0],rarity:5,images:{filename_flower:'UI_RelicIcon_'+r.id+'_4',filename_plume:'UI_RelicIcon_'+r.id+'_2',filename_sands:'UI_RelicIcon_'+r.id+'_5',filename_goblet:'UI_RelicIcon_'+r.id+'_1',filename_circlet:'UI_RelicIcon_'+r.id+'_3'}}));
+   for(const kind of ['character','weapon','artifact']){const fixture=state.catalogs['gi:'+kind];Object.defineProperty(state.catalogs,'gi:'+kind,{configurable:true,get:()=>fixture,set:()=>{}});}
+   for(const c of state.catalogs['gi:character'])state.details['gi:'+c._id]={};
+   state.labSources=await fetch('/data/lab-source-snapshot.json').then(r=>r.json());
+   const {installCombatExamples}=await import('/src/combat-examples.js'),pack=await fetch('/data/flins-examples.json').then(r=>r.json());installCombatExamples(localStorage,pack,{character:state.catalogs['gi:character'],weapon:state.catalogs['gi:weapon'],artifact:state.catalogs['gi:artifact']});
+   localStorage.setItem('astralis:gi:damage-lab:v1',JSON.stringify(pack.scenario));localStorage.setItem('astralis:gi:team-focus',pack.teams[0].id);localStorage.setItem('astralis:gi:assistant-profile','{"enabled":false}');state.game='gi';state.section='teams';combatQA.render();
+  }''')
+  page.add_style_tag(content='.backup-reminder,.data-update-toast,.data-update-notice,#assistant-toast-stack,#theme-signature-companion{display:none!important}')
+  print('Dashboard',flush=True)
+  page.evaluate("async()=>{const S=await import('/src/store.js');S.saveTask('gi',{id:'qa-priority',title:'Tester les buffs de mon équipe',due:new Date().toLocaleDateString('sv-SE'),done:false});combatQA.state.section='dashboard';combatQA.render()}");page.wait_for_timeout(500);expect(page.locator('[data-aurora-dashboard]')).to_be_visible();page.locator('[data-au-custom]').click();page.locator('[data-au-goal]').fill('Préparer une équipe et mon prochain détour');page.locator('[data-au-calm]').check();assert page.evaluate("JSON.parse(localStorage.getItem('astralis:aurora-dashboard:v1')).calm");page.locator('[data-au-task=qa-priority]').click();assert page.evaluate("async()=>{const S=await import('/src/store.js');return S.tasks('gi').find(t=>t.id==='qa-priority').done}");page.screenshot(path=str(ROOT/'docs/renewal-dashboard.png'));assert page.locator('.sidebar [data-nav=notes],.rail [data-nav=notes]').count()==0
+  print('CalcSheets Suivi',flush=True)
+  page.evaluate("()=>{localStorage.setItem('astralis:gi:calc-sheets',JSON.stringify([{id:'qa-table',title:'Test',time:19,members:[{name:'Flins'},{name:'Ineffa'},{name:'Aino'},{name:'Sucrose'}]}]));combatQA.state.section='calc';combatQA.render()}")
+  expect(page.locator('.cw-table')).to_be_visible();expect(page.locator('.cw-tracking')).to_be_hidden();page.locator('[data-cw-view=tracking]').click();expect(page.locator('.cw-scoreboard')).to_be_visible();expect(page.locator('[data-cc-team]')).to_be_visible();page.locator('[data-cw-view=composition]').click();expect(page.locator('.cw-scoreboard')).to_be_hidden();page.screenshot(path=str(ROOT/'docs/renewal-calcsheets.png'))
+  print('Map',flush=True)
+  page.evaluate("()=>{combatQA.state.section='atlas';combatQA.render()}");expect(page.locator('map-expedition')).to_be_visible();expect(page.locator('.mx-map atlas-map-viewer')).to_be_visible();page.locator('[data-mx-progress]').first.fill('73');assert page.locator('[data-mx-average]').inner_text()!='0';page.locator('[data-ar-place]').check();page.locator('[data-ar-label]').fill('Départ au téléporteur');page.locator('.ar-canvas').click(position={'x':210,'y':200});page.locator('[data-ar-label]').fill('Mon second repère');page.locator('.ar-canvas').click(position={'x':310,'y':300});expect(page.locator('.ar-pin')).to_have_count(2);pin=page.locator('.ar-pin').first;before=pin.get_attribute('style');pin.hover();page.mouse.down();box=pin.bounding_box();page.mouse.move(box['x']+42,box['y']+30,steps=4);page.mouse.up();assert pin.get_attribute('style')!=before;page.locator('[data-ar-up]').last.click();expect(page.locator('[data-ar-name]').first).to_have_value('Mon second repère');page.screenshot(path=str(ROOT/'docs/renewal-exploration.png'))
+  print('Sheet studio',flush=True)
+  page.evaluate("()=>{combatQA.state.section='sheets';combatQA.render()}");expect(page.locator('[data-sheet-template=blank]')).to_be_visible();page.locator('[data-sheet-template=blank]').click();expect(page.locator('.sheet-design-lab')).to_be_visible();page.locator('[data-sheet-design-preset=editorial]').click();assert page.locator('.sheet-editor-page').get_attribute('data-guide-pattern')=='grain';page.locator('[data-sheet-design=fontSize]').fill('20');page.locator('[data-sheet-design=pattern]').select_option('dots');page.locator('[data-sheet-action=add-block][data-block-type=metrics]').click();page.locator('[data-sheet-special-items]').last.fill('Recharge|160 %\nRotation|20 s');page.locator('[data-sheet-action=add-block][data-block-type=checklist]').click();page.locator('[data-sheet-special-items]').last.fill('[ ] Vérifier les buffs\n[x] Préparer la rotation');page.locator('[data-sheet-action=add-block][data-block-type=accordion]').click();page.locator('[data-sheet-special-label]').last.fill('Pourquoi ce choix ?');page.screenshot(path=str(ROOT/'docs/renewal-sheet-editor.png'));page.locator('[data-sheet-action=save]').click();assert not published;page.locator('[data-sheet-action=publish]').click();page.wait_for_timeout(300);assert published and published[-1]['design']['fontSize']==20;assert any(b['type']=='metrics' for b in published[-1]['pages'][0]['blocks']);page.locator('[data-sheet-action=preview]').click();expect(page.locator('.guide-metrics')).to_contain_text('160 %');expect(page.locator('.guide-checklist')).to_contain_text('Vérifier les buffs');expect(page.locator('.guide-accordion')).to_contain_text('Pourquoi ce choix');assert page.locator('.sheet-reader-page').evaluate("e=>getComputedStyle(e).getPropertyValue('--guide-size').trim()")=='20px';page.screenshot(path=str(ROOT/'docs/renewal-sheet-reader.png'))
+  print('Arcade',flush=True)
+  page.evaluate("()=>{combatQA.state.section='arcade';combatQA.render()}");expect(page.locator('.al-game-card')).to_have_count(15);expect(page.locator('.arcade-layout')).to_be_hidden();page.locator('[data-al-play=memory]').click();expect(page.locator('.arcade-layout')).to_be_visible();page.locator('.al-back').click();expect(page.locator('.al-library')).to_be_visible();page.screenshot(path=str(ROOT/'docs/renewal-arcade.png'))
+  print('Express',flush=True)
+  page.evaluate("()=>{localStorage.setItem('astralis:gi:cabin-mode','idle');localStorage.setItem('astralis:express-des-mondes:v1',JSON.stringify({version:1,world:'gi',place:'mondstadt',screen:'home',wallets:{mora:1000000,credits:1000000,shells:1000000},xp:100000,crewByWorld:{gi:{owned:['amber','kaeya','lisa','barbara'],active:'amber',levels:{amber:100,kaeya:100,lisa:100,barbara:100}}},tutorial:{done:true,step:0},lastAt:Date.now()}));combatQA.state.section='daily-quiz';combatQA.render()}")
+  expect(page.locator('[data-industry]')).to_be_visible();page.locator('[data-exw=harvest]').first.click();assert page.evaluate("JSON.parse(localStorage.getItem('astralis:express-des-mondes:v1')).taps")>=1
+  page.locator('[data-industry-action=tool][data-tool=garden]').click();page.locator('[data-industry-action=place][data-cell="0"]').click();page.locator('[data-industry-action=place][data-cell="1"]').click();expect(page.locator('.ei-base .has-plot')).to_have_count(2);page.locator('[data-industry-action=view][data-view=research]').click();page.locator('[data-industry-action=research][data-research=tools]').click();expect(page.locator('.ei-research').first).to_contain_text('1/30');page.locator('[data-industry-action=view][data-view=talents]').click();page.locator('[data-industry-action=talent][data-talent="0"]').click();expect(page.locator('.ei-talent').first).to_contain_text('1/20');page.locator('[data-industry-action=view][data-view=shop]').click();page.locator('[data-industry]').scroll_into_view_if_needed();page.screenshot(path=str(ROOT/'docs/renewal-express.png'))
+  print('All rosters',flush=True)
+  for world in ['hsr','ww','gi']:
+   page.locator('[data-world="'+world+'"]').click();expect(page.locator('[data-industry]')).to_be_visible();assert page.locator('[data-world="'+world+'"]').get_attribute('aria-selected')=='true';summary=page.evaluate("async()=>{const m=await import('/src/express-worlds.js?v=20261126-worlds-renewal-3');return m.expressCatalogueSummary()}");print('ROSTER',summary['world'],summary['count'],flush=True);assert summary['count']>=({'gi':124,'hsr':99,'ww':65}[world]);catalogue=json.loads((ROOT/'public/card-catalog.json').read_text(encoding='utf-8'))['catalogs'][world+':character'];assert set(str(p['id']) for p in catalogue).issubset(set(summary['ids']))
+  for section in ['dashboard','calc','atlas','sheets','arcade','daily-quiz']:
+   print('MOBILE',section,flush=True);page.set_viewport_size({'width':390,'height':844});page.evaluate('(section)=>{combatQA.state.section=section;combatQA.render()}',section);page.wait_for_timeout(150);assert page.evaluate('document.documentElement.scrollWidth<=innerWidth+1'),(section,page.evaluate('document.documentElement.scrollWidth'));
+   if section=='sheets':assert page.locator('.sheet-read-text').first.bounding_box()['width']>240,'mobile reading column must be comfortable'
+   page.screenshot(path=str(ROOT/('docs/renewal-'+section+'-mobile.png')))
+  assert not errors,errors;assert not page.evaluate('window.qaConsoleErrors'),page.evaluate('window.qaConsoleErrors');print('PASS: dashboard, tracking, map routes/progress, custom sheet editor/reader, arcade, tycoon economy/specializations/worlds and mobile',flush=True);browser.close()
+finally:server.shutdown();server.server_close()

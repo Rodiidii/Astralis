@@ -1,0 +1,204 @@
+{
+  "source": "https://docs.google.com/spreadsheets/d/1XeU4lTmO9ECWFdPyc3WEQ_hhJ63hdq8gK_q9HMVV0PM/edit",
+  "checkedAt": "2026-11-26",
+  "cases": [
+    {
+      "name": "Flins / Ineffa / Aino / Sucrose",
+      "members": [
+        {
+          "name": "Flins",
+          "expected": 131.44061499999998,
+          "cost": 80.0,
+          "flat": 20.0,
+          "particleEnergy": 45.64799091,
+          "ledger": [
+            15.0,
+            10.6029,
+            5.4,
+            4.0,
+            2.856,
+            7.789090909
+          ]
+        },
+        {
+          "name": "Ineffa",
+          "expected": 100.0,
+          "cost": 60.0,
+          "flat": 0.0,
+          "particleEnergy": 67.19206182,
+          "ledger": [
+            18.0,
+            16.76268,
+            10.8,
+            4.8,
+            4.5152,
+            12.31418182
+          ]
+        },
+        {
+          "name": "Aino",
+          "expected": 145.43474709999998,
+          "cost": 50.0,
+          "flat": 10.0,
+          "particleEnergy": 27.50374364,
+          "ledger": [
+            3.0,
+            2.79378,
+            15.0,
+            2.4,
+            2.2576,
+            2.052363636
+          ]
+        },
+        {
+          "name": "Sucrose",
+          "expected": 178.8797202,
+          "cost": 80.0,
+          "flat": 0.0,
+          "particleEnergy": 44.72278909,
+          "ledger": [
+            6.0,
+            5.31828,
+            10.8,
+            14.4,
+            4.2976,
+            3.906909091
+          ]
+        }
+      ],
+      "cycle": 17.0
+    },
+    {
+      "name": "Flins / Iansan / Aino / Sucrose",
+      "members": [
+        {
+          "name": "Flins",
+          "expected": 129.1120223,
+          "cost": 80.0,
+          "flat": 20.0,
+          "particleEnergy": 46.47127273,
+          "ledger": [
+            15.0,
+            10.8,
+            5.4,
+            4.0,
+            3.024,
+            8.247272727
+          ]
+        },
+        {
+          "name": "Iansan",
+          "expected": 112.1033331,
+          "cost": 70.0,
+          "flat": 21.0,
+          "particleEnergy": 43.70967273,
+          "ledger": [
+            9.0,
+            18.0,
+            5.4,
+            2.4,
+            2.3904,
+            6.519272727
+          ]
+        },
+        {
+          "name": "Aino",
+          "expected": 129.1844002,
+          "cost": 50.0,
+          "flat": 10.0,
+          "particleEnergy": 30.96349091,
+          "ledger": [
+            3.0,
+            6.0,
+            15.0,
+            2.4,
+            2.3904,
+            2.173090909
+          ]
+        },
+        {
+          "name": "Sucrose",
+          "expected": 308.3616465,
+          "cost": 80.0,
+          "flat": 0.0,
+          "particleEnergy": 25.94356364,
+          "ledger": [
+            3.0,
+            6.0,
+            5.4,
+            7.2,
+            2.2752,
+            2.068363636
+          ]
+        }
+      ],
+      "cycle": 18.0
+    },
+    {
+      "name": "Flins / Fischl / Aino / Lan Yan",
+      "members": [
+        {
+          "name": "Flins",
+          "expected": 119.8520807,
+          "cost": 80.0,
+          "flat": 20.0,
+          "particleEnergy": 50.06170909,
+          "ledger": [
+            15.0,
+            16.6428,
+            5.4,
+            3.0,
+            2.688,
+            7.330909091
+          ]
+        },
+        {
+          "name": "Fischl",
+          "expected": 100.0,
+          "cost": 60.0,
+          "flat": 0.0,
+          "particleEnergy": 69.37490909,
+          "ledger": [
+            18.0,
+            21.708,
+            10.8,
+            3.6,
+            4.096,
+            11.17090909
+          ]
+        },
+        {
+          "name": "Aino",
+          "expected": 145.58988390000002,
+          "cost": 50.0,
+          "flat": 10.0,
+          "particleEnergy": 27.47443636,
+          "ledger": [
+            3.0,
+            3.618,
+            15.0,
+            1.8,
+            2.1248,
+            1.931636364
+          ]
+        },
+        {
+          "name": "Lan Yan",
+          "expected": 136.93650630000002,
+          "cost": 60.0,
+          "flat": 0.0,
+          "particleEnergy": 43.81592727,
+          "ledger": [
+            6.0,
+            8.2008,
+            10.8,
+            10.8,
+            4.1984,
+            3.816727273
+          ]
+        }
+      ],
+      "cycle": 16.0
+    }
+  ]
+}

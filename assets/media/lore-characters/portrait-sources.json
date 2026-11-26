@@ -1,0 +1,42 @@
+{
+  "ronova": {
+    "portrait": "ronova-portrait.png",
+    "source": "User supplied Ronova illustration, retained from previous request",
+    "method": "Existing transparent portrait"
+  },
+  "istaroth": {
+    "portrait": "istaroth-portrait.png",
+    "source": "istaroth.jpg",
+    "reference": "https://www.youtube.com/watch?v=jvXVmvW8ZQw",
+    "method": "Built-in image editing, transparent head-and-shoulders extraction"
+  },
+  "naberius": {
+    "portrait": "naberius-portrait.png",
+    "source": "../../express-lore/naberius.jpg",
+    "reference": "https://www.hoyolab.com/article/39895957",
+    "method": "Built-in image editing, right-side Naberius only, transparent head-and-shoulders extraction"
+  },
+  "asmoday": {
+    "portrait": "asmoday-portrait.png",
+    "source": "../../express-lore/asmoday.png",
+    "reference": "https://gamewith.net/genshin-impact/article/show/24112",
+    "method": "Built-in image editing, transparent head-and-shoulders extraction"
+  },
+  "dainsleif": {
+    "portrait": "dainsleif-portrait.png",
+    "source": "../../relations/lore/dainsleif.webp",
+    "reference": "https://www.hoyolab.com/article/79079",
+    "method": "Built-in image editing, transparent head-and-shoulders extraction"
+  },
+  "capitano": {
+    "portrait": "capitano-source-official.png",
+    "source": "https://act-upload.hoyoverse.com/event-ugc-hoyowiki/2025/01/03/237301566/1a328d36a9cee6e5e2f7918ecb8d3637_8482852792156418172.png",
+    "reference": "https://wiki.hoyolab.com/m/genshin/entry/7417?lang=en-us",
+    "method": "Original transparent profile icon downloaded without editing"
+  },
+  "obsidian": {
+    "portrait": "../../express-lore/obsidian.png",
+    "method": "Original profile image unchanged at user request",
+    "sha256": "7325fb981758564acb2455cbdb68081151f60a05ce6f062fa604e08e4fc31182"
+  }
+}

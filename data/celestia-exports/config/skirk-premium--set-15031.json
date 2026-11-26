@@ -1,5 +1,5 @@
 {
-  "name": "Premium DMG",
+  "name": "Mona Combo",
   "description": "Celestia",
   "targets": [
     {
@@ -29,9 +29,9 @@
       "bonusStats": {
         "atk_": 88,
         "hp_": 25,
-        "critRate_": 34.68,
+        "critRate_": 35.88,
         "cryo_enemyRes_": -55,
-        "all_dmg_": 108.89,
+        "all_dmg_": 108.91,
         "critDMG_": 40
       },
       "description": ""
@@ -46,15 +46,15 @@
       "bonusStats": {
         "atk_": 88,
         "hp_": 25,
-        "critRate_": 34.68,
+        "critRate_": 35.88,
         "cryo_enemyRes_": -55,
-        "all_dmg_": 110.98,
+        "all_dmg_": 111.01,
         "critDMG_": 40
       },
       "description": ""
     },
     {
-      "weight": 0.5353,
+      "weight": 0.1338,
       "path": [
         "skill",
         "0"
@@ -63,32 +63,15 @@
       "bonusStats": {
         "atk_": 88,
         "hp_": 25,
-        "critRate_": 50.43,
+        "critRate_": 62.88,
         "cryo_enemyRes_": -55,
-        "all_dmg_": 113.05,
+        "all_dmg_": 113.11,
         "critDMG_": 40
       },
       "description": ""
     },
     {
-      "weight": 0.5353,
-      "path": [
-        "skill",
-        "1"
-      ],
-      "hitMode": "avgHit",
-      "bonusStats": {
-        "atk_": 88,
-        "hp_": 25,
-        "critRate_": 50.43,
-        "cryo_enemyRes_": -55,
-        "all_dmg_": 114.96,
-        "critDMG_": 40
-      },
-      "description": ""
-    },
-    {
-      "weight": 0.5353,
+      "weight": 0.3569,
       "path": [
         "skill",
         "0"
@@ -97,15 +80,15 @@
       "bonusStats": {
         "atk_": 88,
         "hp_": 25,
-        "critRate_": 51,
+        "critRate_": 47.88,
         "cryo_enemyRes_": -55,
-        "all_dmg_": 116.9,
+        "all_dmg_": 113.11,
         "critDMG_": 40
       },
       "description": ""
     },
     {
-      "weight": 0.5353,
+      "weight": 0.1338,
       "path": [
         "skill",
         "1"
@@ -114,32 +97,15 @@
       "bonusStats": {
         "atk_": 88,
         "hp_": 25,
-        "critRate_": 51,
+        "critRate_": 62.88,
         "cryo_enemyRes_": -55,
-        "all_dmg_": 116.95,
+        "all_dmg_": 115.01,
         "critDMG_": 40
       },
       "description": ""
     },
     {
-      "weight": 0.5353,
-      "path": [
-        "skill",
-        "0"
-      ],
-      "hitMode": "avgHit",
-      "bonusStats": {
-        "atk_": 88,
-        "hp_": 25,
-        "critRate_": 51,
-        "cryo_enemyRes_": -55,
-        "all_dmg_": 136.96,
-        "critDMG_": 40
-      },
-      "description": ""
-    },
-    {
-      "weight": 0.5353,
+      "weight": 0.3569,
       "path": [
         "skill",
         "1"
@@ -148,43 +114,9 @@
       "bonusStats": {
         "atk_": 88,
         "hp_": 25,
-        "critRate_": 66,
+        "critRate_": 47.88,
         "cryo_enemyRes_": -55,
-        "all_dmg_": 138.94,
-        "critDMG_": 40
-      },
-      "description": ""
-    },
-    {
-      "weight": 0.5353,
-      "path": [
-        "skill",
-        "0"
-      ],
-      "hitMode": "avgHit",
-      "bonusStats": {
-        "atk_": 88,
-        "hp_": 25,
-        "critRate_": 65.25,
-        "cryo_enemyRes_": -55,
-        "all_dmg_": 140.07,
-        "critDMG_": 40
-      },
-      "description": ""
-    },
-    {
-      "weight": 0.5353,
-      "path": [
-        "skill",
-        "1"
-      ],
-      "hitMode": "avgHit",
-      "bonusStats": {
-        "atk_": 88,
-        "hp_": 25,
-        "critRate_": 51,
-        "cryo_enemyRes_": -55,
-        "all_dmg_": 142,
+        "all_dmg_": 115.01,
         "critDMG_": 40
       },
       "description": ""
@@ -201,7 +133,7 @@
         "hp_": 25,
         "critRate_": 51,
         "cryo_enemyRes_": -55,
-        "all_dmg_": 143.14,
+        "all_dmg_": 116.91,
         "critDMG_": 40
       },
       "description": ""
@@ -216,434 +148,9 @@
       "bonusStats": {
         "atk_": 88,
         "hp_": 25,
-        "critRate_": 54.94,
-        "cryo_enemyRes_": -55,
-        "all_dmg_": 147.06,
-        "critDMG_": 40
-      },
-      "description": ""
-    },
-    {
-      "weight": 0.5353,
-      "path": [
-        "skill",
-        "2"
-      ],
-      "hitMode": "avgHit",
-      "bonusStats": {
-        "atk_": 88,
-        "hp_": 25,
         "critRate_": 51,
         "cryo_enemyRes_": -55,
-        "all_dmg_": 148.05,
-        "critDMG_": 40
-      },
-      "description": ""
-    },
-    {
-      "weight": 0.5353,
-      "path": [
-        "skill",
-        "2"
-      ],
-      "hitMode": "avgHit",
-      "bonusStats": {
-        "atk_": 88,
-        "hp_": 25,
-        "critRate_": 49.875,
-        "cryo_enemyRes_": -55,
-        "critDMG_": 40,
-        "all_dmg_": 143.55
-      },
-      "description": ""
-    },
-    {
-      "weight": 0.5353,
-      "path": [
-        "skill",
-        "3"
-      ],
-      "hitMode": "avgHit",
-      "bonusStats": {
-        "atk_": 88,
-        "hp_": 25,
-        "critRate_": 51,
-        "cryo_enemyRes_": -55,
-        "critDMG_": 40,
-        "all_dmg_": 91.96
-      },
-      "description": ""
-    },
-    {
-      "weight": 0.5353,
-      "path": [
-        "skill",
-        "3"
-      ],
-      "hitMode": "avgHit",
-      "bonusStats": {
-        "atk_": 88,
-        "hp_": 25,
-        "critRate_": 51,
-        "cryo_enemyRes_": -55,
-        "critDMG_": 40,
-        "all_dmg_": 91.96
-      },
-      "description": ""
-    },
-    {
-      "weight": 0.5353,
-      "path": [
-        "skill",
-        "4"
-      ],
-      "hitMode": "avgHit",
-      "bonusStats": {
-        "atk_": 88,
-        "hp_": 25,
-        "critRate_": 51,
-        "cryo_enemyRes_": -55,
-        "critDMG_": 40,
-        "all_dmg_": 72.03
-      },
-      "description": ""
-    },
-    {
-      "weight": 0.5353,
-      "path": [
-        "skill",
-        "0"
-      ],
-      "hitMode": "avgHit",
-      "bonusStats": {
-        "atk_": 88,
-        "hp_": 25,
-        "critRate_": 51,
-        "cryo_enemyRes_": -55,
-        "critDMG_": 40,
-        "all_dmg_": 72.61
-      },
-      "description": ""
-    },
-    {
-      "weight": 0.5353,
-      "path": [
-        "skill",
-        "1"
-      ],
-      "hitMode": "avgHit",
-      "bonusStats": {
-        "atk_": 88,
-        "hp_": 25,
-        "critRate_": 48.19,
-        "cryo_enemyRes_": -55,
-        "critDMG_": 40,
-        "all_dmg_": 73.96
-      },
-      "description": ""
-    },
-    {
-      "weight": 0.5353,
-      "path": [
-        "skill",
-        "0"
-      ],
-      "hitMode": "avgHit",
-      "bonusStats": {
-        "atk_": 88,
-        "hp_": 25,
-        "critRate_": 51,
-        "cryo_enemyRes_": -55,
-        "critDMG_": 40,
-        "all_dmg_": 78.02
-      },
-      "description": ""
-    },
-    {
-      "weight": 0.5353,
-      "path": [
-        "skill",
-        "1"
-      ],
-      "hitMode": "avgHit",
-      "bonusStats": {
-        "atk_": 88,
-        "hp_": 25,
-        "critRate_": 51,
-        "cryo_enemyRes_": -55,
-        "critDMG_": 40,
-        "all_dmg_": 78.07
-      },
-      "description": ""
-    },
-    {
-      "weight": 0.5353,
-      "path": [
-        "skill",
-        "chargedDmg"
-      ],
-      "hitMode": "avgHit",
-      "bonusStats": {
-        "atk_": 88,
-        "hp_": 25,
-        "critRate_": 47.25,
-        "cryo_enemyRes_": -55,
-        "critDMG_": 40,
-        "all_dmg_": 78.07
-      },
-      "description": ""
-    },
-    {
-      "weight": 0.5353,
-      "path": [
-        "skill",
-        "chargedDmg"
-      ],
-      "hitMode": "avgHit",
-      "bonusStats": {
-        "atk_": 88,
-        "hp_": 25,
-        "critRate_": 51,
-        "cryo_enemyRes_": -55,
-        "critDMG_": 40,
-        "all_dmg_": 78.07
-      },
-      "description": ""
-    },
-    {
-      "weight": 0.5353,
-      "path": [
-        "skill",
-        "chargedDmg"
-      ],
-      "hitMode": "avgHit",
-      "bonusStats": {
-        "atk_": 88,
-        "hp_": 25,
-        "critRate_": 51,
-        "cryo_enemyRes_": -55,
-        "critDMG_": 40,
-        "all_dmg_": 79.37
-      },
-      "description": ""
-    },
-    {
-      "weight": 0.5353,
-      "path": [
-        "skill",
-        "0"
-      ],
-      "hitMode": "avgHit",
-      "bonusStats": {
-        "atk_": 88,
-        "hp_": 25,
-        "critRate_": 51,
-        "cryo_enemyRes_": -55,
-        "critDMG_": 40,
-        "all_dmg_": 79.96
-      },
-      "description": ""
-    },
-    {
-      "weight": 0.5353,
-      "path": [
-        "skill",
-        "1"
-      ],
-      "hitMode": "avgHit",
-      "bonusStats": {
-        "atk_": 88,
-        "hp_": 25,
-        "critRate_": 51,
-        "cryo_enemyRes_": -55,
-        "critDMG_": 40,
-        "all_dmg_": 79.96
-      },
-      "description": ""
-    },
-    {
-      "weight": 0.5353,
-      "path": [
-        "skill",
-        "0"
-      ],
-      "hitMode": "avgHit",
-      "bonusStats": {
-        "atk_": 88,
-        "hp_": 25,
-        "critRate_": 51,
-        "cryo_enemyRes_": -55,
-        "critDMG_": 40,
-        "all_dmg_": 82.79
-      },
-      "description": ""
-    },
-    {
-      "weight": 0.5353,
-      "path": [
-        "skill",
-        "1"
-      ],
-      "hitMode": "avgHit",
-      "bonusStats": {
-        "atk_": 88,
-        "hp_": 25,
-        "critRate_": 51,
-        "cryo_enemyRes_": -55,
-        "critDMG_": 40,
-        "all_dmg_": 86.04
-      },
-      "description": ""
-    },
-    {
-      "weight": 0.5353,
-      "path": [
-        "skill",
-        "0"
-      ],
-      "hitMode": "avgHit",
-      "bonusStats": {
-        "atk_": 88,
-        "hp_": 25,
-        "critRate_": 43.31,
-        "cryo_enemyRes_": -55,
-        "critDMG_": 40,
-        "all_dmg_": 86.45
-      },
-      "description": ""
-    },
-    {
-      "weight": 0.5353,
-      "path": [
-        "skill",
-        "1"
-      ],
-      "hitMode": "avgHit",
-      "bonusStats": {
-        "atk_": 88,
-        "hp_": 25,
-        "critRate_": 36,
-        "cryo_enemyRes_": -55,
-        "critDMG_": 40,
-        "all_dmg_": 87
-      },
-      "description": ""
-    },
-    {
-      "weight": 0.5353,
-      "path": [
-        "skill",
-        "2"
-      ],
-      "hitMode": "avgHit",
-      "bonusStats": {
-        "atk_": 88,
-        "hp_": 25,
-        "critRate_": 36,
-        "cryo_enemyRes_": -55,
-        "critDMG_": 40,
-        "all_dmg_": 87
-      },
-      "description": ""
-    },
-    {
-      "weight": 0.5353,
-      "path": [
-        "skill",
-        "2"
-      ],
-      "hitMode": "avgHit",
-      "bonusStats": {
-        "atk_": 68,
-        "hp_": 25,
-        "critRate_": 36,
-        "cryo_enemyRes_": -55,
-        "critDMG_": 40,
-        "all_dmg_": 87
-      },
-      "description": ""
-    },
-    {
-      "weight": 0.5353,
-      "path": [
-        "skill",
-        "3"
-      ],
-      "hitMode": "avgHit",
-      "bonusStats": {
-        "atk_": 68,
-        "hp_": 25,
-        "critRate_": 50.25,
-        "cryo_enemyRes_": -55,
-        "critDMG_": 40,
-        "all_dmg_": 87
-      },
-      "description": ""
-    },
-    {
-      "weight": 0.5353,
-      "path": [
-        "skill",
-        "3"
-      ],
-      "hitMode": "avgHit",
-      "bonusStats": {
-        "atk_": 68,
-        "hp_": 25,
-        "critRate_": 39.75,
-        "cryo_enemyRes_": -55,
-        "critDMG_": 40,
-        "all_dmg_": 87
-      },
-      "description": ""
-    },
-    {
-      "weight": 0.5353,
-      "path": [
-        "skill",
-        "4"
-      ],
-      "hitMode": "avgHit",
-      "bonusStats": {
-        "atk_": 68,
-        "hp_": 25,
-        "critRate_": 51,
-        "cryo_enemyRes_": -55,
-        "critDMG_": 40,
-        "all_dmg_": 87
-      },
-      "description": ""
-    },
-    {
-      "weight": 0.5353,
-      "path": [
-        "skill",
-        "0"
-      ],
-      "hitMode": "avgHit",
-      "bonusStats": {
-        "atk_": 136,
-        "hp_": 25,
-        "critRate_": 35.28,
-        "cryo_enemyRes_": -55,
-        "all_dmg_": 109.15,
-        "critDMG_": 40
-      },
-      "description": ""
-    },
-    {
-      "weight": 0.5353,
-      "path": [
-        "skill",
-        "1"
-      ],
-      "hitMode": "avgHit",
-      "bonusStats": {
-        "atk_": 136,
-        "hp_": 25,
-        "critRate_": 35.28,
-        "cryo_enemyRes_": -55,
-        "all_dmg_": 111,
+        "all_dmg_": 116.99,
         "critDMG_": 40
       },
       "description": ""
@@ -656,11 +163,11 @@
       ],
       "hitMode": "avgHit",
       "bonusStats": {
-        "atk_": 136,
+        "atk_": 88,
         "hp_": 25,
-        "critRate_": 54.78,
+        "critRate_": 51,
         "cryo_enemyRes_": -55,
-        "all_dmg_": 113.01,
+        "all_dmg_": 137.01,
         "critDMG_": 40
       },
       "description": ""
@@ -673,75 +180,7 @@
       ],
       "hitMode": "avgHit",
       "bonusStats": {
-        "atk_": 136,
-        "hp_": 25,
-        "critRate_": 54.78,
-        "cryo_enemyRes_": -55,
-        "all_dmg_": 115,
-        "critDMG_": 40
-      },
-      "description": ""
-    },
-    {
-      "weight": 0.5353,
-      "path": [
-        "skill",
-        "0"
-      ],
-      "hitMode": "avgHit",
-      "bonusStats": {
-        "atk_": 136,
-        "hp_": 25,
-        "critRate_": 51,
-        "cryo_enemyRes_": -55,
-        "all_dmg_": 116.97,
-        "critDMG_": 40
-      },
-      "description": ""
-    },
-    {
-      "weight": 0.5353,
-      "path": [
-        "skill",
-        "1"
-      ],
-      "hitMode": "avgHit",
-      "bonusStats": {
-        "atk_": 136,
-        "hp_": 25,
-        "critRate_": 51,
-        "cryo_enemyRes_": -55,
-        "all_dmg_": 117,
-        "critDMG_": 40
-      },
-      "description": ""
-    },
-    {
-      "weight": 0.5353,
-      "path": [
-        "skill",
-        "0"
-      ],
-      "hitMode": "avgHit",
-      "bonusStats": {
-        "atk_": 136,
-        "hp_": 25,
-        "critRate_": 51,
-        "cryo_enemyRes_": -55,
-        "all_dmg_": 137,
-        "critDMG_": 40
-      },
-      "description": ""
-    },
-    {
-      "weight": 0.5353,
-      "path": [
-        "skill",
-        "1"
-      ],
-      "hitMode": "avgHit",
-      "bonusStats": {
-        "atk_": 136,
+        "atk_": 88,
         "hp_": 25,
         "critRate_": 66,
         "cryo_enemyRes_": -55,
@@ -758,11 +197,776 @@
       ],
       "hitMode": "avgHit",
       "bonusStats": {
+        "atk_": 88,
+        "hp_": 25,
+        "critRate_": 66,
+        "cryo_enemyRes_": -55,
+        "all_dmg_": 140.11,
+        "critDMG_": 40
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.1338,
+      "path": [
+        "skill",
+        "0"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 88,
+        "hp_": 25,
+        "critRate_": 51,
+        "cryo_enemyRes_": -55,
+        "all_dmg_": 140.11,
+        "critDMG_": 40
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.5353,
+      "path": [
+        "skill",
+        "1"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 88,
+        "hp_": 25,
+        "critRate_": 51,
+        "cryo_enemyRes_": -55,
+        "all_dmg_": 142,
+        "critDMG_": 40
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.5353,
+      "path": [
+        "skill",
+        "0"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 88,
+        "hp_": 25,
+        "critRate_": 51,
+        "cryo_enemyRes_": -55,
+        "all_dmg_": 143.09,
+        "critDMG_": 40
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.1338,
+      "path": [
+        "skill",
+        "1"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 88,
+        "hp_": 25,
+        "critRate_": 66,
+        "cryo_enemyRes_": -55,
+        "all_dmg_": 147.07,
+        "critDMG_": 40
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.3569,
+      "path": [
+        "skill",
+        "1"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 88,
+        "hp_": 25,
+        "critRate_": 51,
+        "cryo_enemyRes_": -55,
+        "all_dmg_": 147.07,
+        "critDMG_": 40
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.5353,
+      "path": [
+        "skill",
+        "2"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 88,
+        "hp_": 25,
+        "critRate_": 51,
+        "cryo_enemyRes_": -55,
+        "all_dmg_": 148.11,
+        "critDMG_": 40
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.5353,
+      "path": [
+        "skill",
+        "2"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 88,
+        "hp_": 25,
+        "critRate_": 49.5,
+        "cryo_enemyRes_": -55,
+        "critDMG_": 40,
+        "all_dmg_": 142.11
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.5353,
+      "path": [
+        "skill",
+        "3"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 88,
+        "hp_": 25,
+        "critRate_": 51,
+        "cryo_enemyRes_": -55,
+        "critDMG_": 40,
+        "all_dmg_": 92
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.5353,
+      "path": [
+        "skill",
+        "3"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 88,
+        "hp_": 25,
+        "critRate_": 51,
+        "cryo_enemyRes_": -55,
+        "critDMG_": 40,
+        "all_dmg_": 92
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.5353,
+      "path": [
+        "skill",
+        "4"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 88,
+        "hp_": 25,
+        "critRate_": 51,
+        "cryo_enemyRes_": -55,
+        "critDMG_": 40,
+        "all_dmg_": 72.09
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.5353,
+      "path": [
+        "skill",
+        "0"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 88,
+        "hp_": 25,
+        "critRate_": 51,
+        "cryo_enemyRes_": -55,
+        "critDMG_": 40,
+        "all_dmg_": 72.5
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.5353,
+      "path": [
+        "skill",
+        "1"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 88,
+        "hp_": 25,
+        "critRate_": 51,
+        "cryo_enemyRes_": -55,
+        "critDMG_": 40,
+        "all_dmg_": 74
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.1338,
+      "path": [
+        "skill",
+        "1"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 88,
+        "hp_": 25,
+        "critRate_": 36,
+        "cryo_enemyRes_": -55,
+        "critDMG_": 40,
+        "all_dmg_": 74
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.5353,
+      "path": [
+        "skill",
+        "0"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 88,
+        "hp_": 25,
+        "critRate_": 51,
+        "cryo_enemyRes_": -55,
+        "critDMG_": 40,
+        "all_dmg_": 78.04
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.5353,
+      "path": [
+        "skill",
+        "1"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 88,
+        "hp_": 25,
+        "critRate_": 51,
+        "cryo_enemyRes_": -55,
+        "critDMG_": 40,
+        "all_dmg_": 78.11
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.4015,
+      "path": [
+        "skill",
+        "chargedDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 88,
+        "hp_": 25,
+        "critRate_": 51,
+        "cryo_enemyRes_": -55,
+        "critDMG_": 40,
+        "all_dmg_": 78.11
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.1338,
+      "path": [
+        "skill",
+        "chargedDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 88,
+        "hp_": 25,
+        "critRate_": 36,
+        "cryo_enemyRes_": -55,
+        "critDMG_": 40,
+        "all_dmg_": 78.11
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.5353,
+      "path": [
+        "skill",
+        "chargedDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 88,
+        "hp_": 25,
+        "critRate_": 51,
+        "cryo_enemyRes_": -55,
+        "critDMG_": 40,
+        "all_dmg_": 78.11
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.5353,
+      "path": [
+        "skill",
+        "chargedDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 88,
+        "hp_": 25,
+        "critRate_": 51,
+        "cryo_enemyRes_": -55,
+        "critDMG_": 40,
+        "all_dmg_": 79.32
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.5353,
+      "path": [
+        "skill",
+        "0"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 88,
+        "hp_": 25,
+        "critRate_": 51,
+        "cryo_enemyRes_": -55,
+        "critDMG_": 40,
+        "all_dmg_": 80.01
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.5353,
+      "path": [
+        "skill",
+        "1"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 88,
+        "hp_": 25,
+        "critRate_": 51,
+        "cryo_enemyRes_": -55,
+        "critDMG_": 40,
+        "all_dmg_": 80.01
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.5353,
+      "path": [
+        "skill",
+        "0"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 88,
+        "hp_": 25,
+        "critRate_": 51,
+        "cryo_enemyRes_": -55,
+        "critDMG_": 40,
+        "all_dmg_": 82.83
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.5353,
+      "path": [
+        "skill",
+        "1"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 88,
+        "hp_": 25,
+        "critRate_": 51,
+        "cryo_enemyRes_": -55,
+        "critDMG_": 40,
+        "all_dmg_": 86.11
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.2676,
+      "path": [
+        "skill",
+        "0"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 88,
+        "hp_": 25,
+        "critRate_": 51,
+        "cryo_enemyRes_": -55,
+        "critDMG_": 40,
+        "all_dmg_": 86.54
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.1338,
+      "path": [
+        "skill",
+        "0"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 88,
+        "hp_": 25,
+        "critRate_": 36,
+        "cryo_enemyRes_": -55,
+        "critDMG_": 40,
+        "all_dmg_": 86.54
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.5353,
+      "path": [
+        "skill",
+        "1"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 88,
+        "hp_": 25,
+        "critRate_": 36,
+        "cryo_enemyRes_": -55,
+        "critDMG_": 40,
+        "all_dmg_": 87
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.5353,
+      "path": [
+        "skill",
+        "2"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 88,
+        "hp_": 25,
+        "critRate_": 36,
+        "cryo_enemyRes_": -55,
+        "critDMG_": 40,
+        "all_dmg_": 87
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.5353,
+      "path": [
+        "skill",
+        "2"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 68,
+        "hp_": 25,
+        "critRate_": 36,
+        "cryo_enemyRes_": -55,
+        "critDMG_": 40,
+        "all_dmg_": 87
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.3569,
+      "path": [
+        "skill",
+        "3"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 68,
+        "hp_": 25,
+        "critRate_": 51,
+        "cryo_enemyRes_": -55,
+        "critDMG_": 40,
+        "all_dmg_": 87
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.1338,
+      "path": [
+        "skill",
+        "3"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 68,
+        "hp_": 25,
+        "critRate_": 36,
+        "cryo_enemyRes_": -55,
+        "critDMG_": 40,
+        "all_dmg_": 87
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.1338,
+      "path": [
+        "skill",
+        "3"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 68,
+        "hp_": 25,
+        "critRate_": 51,
+        "cryo_enemyRes_": -55,
+        "critDMG_": 40,
+        "all_dmg_": 87
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.3569,
+      "path": [
+        "skill",
+        "3"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 68,
+        "hp_": 25,
+        "critRate_": 36,
+        "cryo_enemyRes_": -55,
+        "critDMG_": 40,
+        "all_dmg_": 87
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.5353,
+      "path": [
+        "skill",
+        "4"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 68,
+        "hp_": 25,
+        "critRate_": 51,
+        "cryo_enemyRes_": -55,
+        "critDMG_": 40,
+        "all_dmg_": 87
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.5353,
+      "path": [
+        "skill",
+        "0"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
         "atk_": 136,
         "hp_": 25,
-        "critRate_": 65.25,
+        "critRate_": 35.76,
         "cryo_enemyRes_": -55,
-        "all_dmg_": 140.02,
+        "all_dmg_": 109.01,
+        "critDMG_": 40
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.5353,
+      "path": [
+        "skill",
+        "1"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 136,
+        "hp_": 25,
+        "critRate_": 35.76,
+        "cryo_enemyRes_": -55,
+        "all_dmg_": 111.01,
+        "critDMG_": 40
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.2676,
+      "path": [
+        "skill",
+        "0"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 136,
+        "hp_": 25,
+        "critRate_": 62.64,
+        "cryo_enemyRes_": -55,
+        "all_dmg_": 113.09,
+        "critDMG_": 40
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.2676,
+      "path": [
+        "skill",
+        "0"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 136,
+        "hp_": 25,
+        "critRate_": 47.64,
+        "cryo_enemyRes_": -55,
+        "all_dmg_": 113.09,
+        "critDMG_": 40
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.2676,
+      "path": [
+        "skill",
+        "1"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 136,
+        "hp_": 25,
+        "critRate_": 62.64,
+        "cryo_enemyRes_": -55,
+        "all_dmg_": 115.01,
+        "critDMG_": 40
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.2676,
+      "path": [
+        "skill",
+        "1"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 136,
+        "hp_": 25,
+        "critRate_": 47.64,
+        "cryo_enemyRes_": -55,
+        "all_dmg_": 115.01,
+        "critDMG_": 40
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.5353,
+      "path": [
+        "skill",
+        "0"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 136,
+        "hp_": 25,
+        "critRate_": 51,
+        "cryo_enemyRes_": -55,
+        "all_dmg_": 116.89,
+        "critDMG_": 40
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.5353,
+      "path": [
+        "skill",
+        "1"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 136,
+        "hp_": 25,
+        "critRate_": 51,
+        "cryo_enemyRes_": -55,
+        "all_dmg_": 116.99,
+        "critDMG_": 40
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.5353,
+      "path": [
+        "skill",
+        "0"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 136,
+        "hp_": 25,
+        "critRate_": 51,
+        "cryo_enemyRes_": -55,
+        "all_dmg_": 137.01,
+        "critDMG_": 40
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.5353,
+      "path": [
+        "skill",
+        "1"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 136,
+        "hp_": 25,
+        "critRate_": 66,
+        "cryo_enemyRes_": -55,
+        "all_dmg_": 138.96,
+        "critDMG_": 40
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.5353,
+      "path": [
+        "skill",
+        "0"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 136,
+        "hp_": 25,
+        "critRate_": 66,
+        "cryo_enemyRes_": -55,
+        "all_dmg_": 140.11,
+        "critDMG_": 40
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.1338,
+      "path": [
+        "skill",
+        "0"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 136,
+        "hp_": 25,
+        "critRate_": 51,
+        "cryo_enemyRes_": -55,
+        "all_dmg_": 140.11,
         "critDMG_": 40
       },
       "description": ""
@@ -796,13 +1000,13 @@
         "hp_": 25,
         "critRate_": 51,
         "cryo_enemyRes_": -55,
-        "all_dmg_": 142.94,
+        "all_dmg_": 143.15,
         "critDMG_": 40
       },
       "description": ""
     },
     {
-      "weight": 0.5353,
+      "weight": 0.1338,
       "path": [
         "skill",
         "1"
@@ -811,9 +1015,26 @@
       "bonusStats": {
         "atk_": 136,
         "hp_": 25,
-        "critRate_": 55.31,
+        "critRate_": 66,
         "cryo_enemyRes_": -55,
-        "all_dmg_": 147.01,
+        "all_dmg_": 147.07,
+        "critDMG_": 40
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.3569,
+      "path": [
+        "skill",
+        "1"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 136,
+        "hp_": 25,
+        "critRate_": 51,
+        "cryo_enemyRes_": -55,
+        "all_dmg_": 147.07,
         "critDMG_": 40
       },
       "description": ""
@@ -830,7 +1051,7 @@
         "hp_": 25,
         "critRate_": 51,
         "cryo_enemyRes_": -55,
-        "all_dmg_": 148.01,
+        "all_dmg_": 148.09,
         "critDMG_": 40
       },
       "description": ""
@@ -845,10 +1066,10 @@
       "bonusStats": {
         "atk_": 136,
         "hp_": 25,
-        "critRate_": 48.563,
+        "critRate_": 49.313,
         "cryo_enemyRes_": -55,
         "critDMG_": 40,
-        "all_dmg_": 138.26
+        "all_dmg_": 141.34
       },
       "description": ""
     },
@@ -865,7 +1086,7 @@
         "critRate_": 51,
         "cryo_enemyRes_": -55,
         "critDMG_": 40,
-        "all_dmg_": 92
+        "all_dmg_": 91.99
       },
       "description": ""
     },
@@ -882,7 +1103,7 @@
         "critRate_": 51,
         "cryo_enemyRes_": -55,
         "critDMG_": 40,
-        "all_dmg_": 92
+        "all_dmg_": 91.99
       },
       "description": ""
     },
@@ -899,7 +1120,7 @@
         "critRate_": 51,
         "cryo_enemyRes_": -55,
         "critDMG_": 40,
-        "all_dmg_": 72.01
+        "all_dmg_": 72.09
       },
       "description": ""
     },
@@ -916,12 +1137,12 @@
         "critRate_": 51,
         "cryo_enemyRes_": -55,
         "critDMG_": 40,
-        "all_dmg_": 72.56
+        "all_dmg_": 72.58
       },
       "description": ""
     },
     {
-      "weight": 0.5353,
+      "weight": 0.4015,
       "path": [
         "skill",
         "1"
@@ -930,10 +1151,27 @@
       "bonusStats": {
         "atk_": 136,
         "hp_": 25,
-        "critRate_": 48.19,
+        "critRate_": 51,
         "cryo_enemyRes_": -55,
         "critDMG_": 40,
-        "all_dmg_": 74
+        "all_dmg_": 73.99
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.1338,
+      "path": [
+        "skill",
+        "1"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 136,
+        "hp_": 25,
+        "critRate_": 36,
+        "cryo_enemyRes_": -55,
+        "critDMG_": 40,
+        "all_dmg_": 73.99
       },
       "description": ""
     },
@@ -950,7 +1188,7 @@
         "critRate_": 51,
         "cryo_enemyRes_": -55,
         "critDMG_": 40,
-        "all_dmg_": 77.97
+        "all_dmg_": 78.11
       },
       "description": ""
     },
@@ -967,7 +1205,41 @@
         "critRate_": 51,
         "cryo_enemyRes_": -55,
         "critDMG_": 40,
-        "all_dmg_": 78.02
+        "all_dmg_": 78.11
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.4015,
+      "path": [
+        "skill",
+        "chargedDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 136,
+        "hp_": 25,
+        "critRate_": 51,
+        "cryo_enemyRes_": -55,
+        "critDMG_": 40,
+        "all_dmg_": 78.11
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.1338,
+      "path": [
+        "skill",
+        "chargedDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 136,
+        "hp_": 25,
+        "critRate_": 36,
+        "cryo_enemyRes_": -55,
+        "critDMG_": 40,
+        "all_dmg_": 78.11
       },
       "description": ""
     },
@@ -981,10 +1253,10 @@
       "bonusStats": {
         "atk_": 136,
         "hp_": 25,
-        "critRate_": 47.25,
+        "critRate_": 51,
         "cryo_enemyRes_": -55,
         "critDMG_": 40,
-        "all_dmg_": 78.02
+        "all_dmg_": 78.11
       },
       "description": ""
     },
@@ -1001,24 +1273,7 @@
         "critRate_": 51,
         "cryo_enemyRes_": -55,
         "critDMG_": 40,
-        "all_dmg_": 78.02
-      },
-      "description": ""
-    },
-    {
-      "weight": 0.5353,
-      "path": [
-        "skill",
-        "chargedDmg"
-      ],
-      "hitMode": "avgHit",
-      "bonusStats": {
-        "atk_": 136,
-        "hp_": 25,
-        "critRate_": 51,
-        "cryo_enemyRes_": -55,
-        "critDMG_": 40,
-        "all_dmg_": 79.46
+        "all_dmg_": 79.57
       },
       "description": ""
     },
@@ -1035,7 +1290,7 @@
         "critRate_": 51,
         "cryo_enemyRes_": -55,
         "critDMG_": 40,
-        "all_dmg_": 80
+        "all_dmg_": 80.01
       },
       "description": ""
     },
@@ -1052,7 +1307,7 @@
         "critRate_": 51,
         "cryo_enemyRes_": -55,
         "critDMG_": 40,
-        "all_dmg_": 80
+        "all_dmg_": 80.01
       },
       "description": ""
     },
@@ -1069,7 +1324,7 @@
         "critRate_": 51,
         "cryo_enemyRes_": -55,
         "critDMG_": 40,
-        "all_dmg_": 83
+        "all_dmg_": 82.99
       },
       "description": ""
     },
@@ -1086,12 +1341,12 @@
         "critRate_": 51,
         "cryo_enemyRes_": -55,
         "critDMG_": 40,
-        "all_dmg_": 86.01
+        "all_dmg_": 86.09
       },
       "description": ""
     },
     {
-      "weight": 0.5353,
+      "weight": 0.2676,
       "path": [
         "skill",
         "0"
@@ -1100,10 +1355,27 @@
       "bonusStats": {
         "atk_": 136,
         "hp_": 25,
-        "critRate_": 45.94,
+        "critRate_": 51,
         "cryo_enemyRes_": -55,
         "critDMG_": 40,
-        "all_dmg_": 86.45
+        "all_dmg_": 86.36
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.1784,
+      "path": [
+        "skill",
+        "0"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 136,
+        "hp_": 25,
+        "critRate_": 36,
+        "cryo_enemyRes_": -55,
+        "critDMG_": 40,
+        "all_dmg_": 86.36
       },
       "description": ""
     },
@@ -1168,7 +1440,7 @@
       "bonusStats": {
         "atk_": 68,
         "hp_": 25,
-        "critRate_": 48.19,
+        "critRate_": 51,
         "cryo_enemyRes_": -55,
         "critDMG_": 40,
         "all_dmg_": 87
@@ -1176,7 +1448,7 @@
       "description": ""
     },
     {
-      "weight": 0.5353,
+      "weight": 0.1338,
       "path": [
         "skill",
         "3"
@@ -1185,7 +1457,41 @@
       "bonusStats": {
         "atk_": 68,
         "hp_": 25,
-        "critRate_": 39.75,
+        "critRate_": 36,
+        "cryo_enemyRes_": -55,
+        "critDMG_": 40,
+        "all_dmg_": 87
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.1338,
+      "path": [
+        "skill",
+        "3"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 68,
+        "hp_": 25,
+        "critRate_": 51,
+        "cryo_enemyRes_": -55,
+        "critDMG_": 40,
+        "all_dmg_": 87
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.3569,
+      "path": [
+        "skill",
+        "3"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 68,
+        "hp_": 25,
+        "critRate_": 36,
         "cryo_enemyRes_": -55,
         "critDMG_": 40,
         "all_dmg_": 87

@@ -1,7 +1,7 @@
 {
   "name": "C2 Dreamdrifter",
   "description": "Celestia",
-  "lastEdit": 1794890226524,
+  "lastEdit": 1795427298992,
   "conditional": {
     "resonance": {},
     "reaction": {}
@@ -62,10 +62,10 @@
               "description": ""
             },
             {
-              "weight": 3.2,
+              "weight": 3.25,
               "path": [
-                "skill",
-                "contDmg"
+                "lockedPassive",
+                "skillContDmg"
               ],
               "hitMode": "avgHit",
               "bonusStats": {
@@ -76,10 +76,10 @@
               "description": ""
             },
             {
-              "weight": 2.56,
+              "weight": 2.5,
               "path": [
-                "skill",
-                "contDmg"
+                "lockedPassive",
+                "skillContDmg"
               ],
               "hitMode": "avgHit",
               "bonusStats": {
@@ -90,10 +90,10 @@
               "description": ""
             },
             {
-              "weight": 2.56,
+              "weight": 2.5,
               "path": [
-                "skill",
-                "contDmg"
+                "lockedPassive",
+                "skillContDmg"
               ],
               "hitMode": "avgHit",
               "bonusStats": {
@@ -105,7 +105,7 @@
               "description": ""
             },
             {
-              "weight": 1.92,
+              "weight": 2,
               "path": [
                 "constellation1",
                 "ssDmg"
@@ -121,7 +121,7 @@
               "description": ""
             },
             {
-              "weight": 2.56,
+              "weight": 2.5,
               "path": [
                 "lockedPassive",
                 "skillContSsDmg"
@@ -151,7 +151,7 @@
               "description": ""
             },
             {
-              "weight": 0.76,
+              "weight": 0.75,
               "path": [
                 "burst",
                 "shockwaveDmg"
@@ -165,7 +165,7 @@
               "description": ""
             },
             {
-              "weight": 0.76,
+              "weight": 0.75,
               "path": [
                 "burst",
                 "shockwaveDmg"
@@ -179,7 +179,7 @@
               "description": ""
             },
             {
-              "weight": 4.5374,
+              "weight": 4.5296,
               "path": [
                 "reaction",
                 "stellarswirl"
@@ -195,7 +195,7 @@
               "description": ""
             },
             {
-              "weight": 1.8133,
+              "weight": 1.8889,
               "path": [
                 "reaction",
                 "stellarswirl"
@@ -212,7 +212,7 @@
               "description": ""
             },
             {
-              "weight": 0.8527,
+              "weight": 0.7878,
               "path": [
                 "reaction",
                 "stellarswirl_vortex1"
@@ -229,7 +229,7 @@
               "description": ""
             },
             {
-              "weight": 0.3998,
+              "weight": 0.3939,
               "path": [
                 "reaction",
                 "stellarswirl_vortex1"
@@ -245,10 +245,10 @@
               "description": ""
             },
             {
-              "weight": 1.8,
+              "weight": 1.75,
               "path": [
-                "skill",
-                "contDmg"
+                "lockedPassive",
+                "skillContDmg"
               ],
               "hitMode": "avgHit",
               "bonusStats": {
@@ -259,10 +259,10 @@
               "description": ""
             },
             {
-              "weight": 1.44,
+              "weight": 1.5,
               "path": [
-                "skill",
-                "contDmg"
+                "lockedPassive",
+                "skillContDmg"
               ],
               "hitMode": "avgHit",
               "bonusStats": {
@@ -273,10 +273,10 @@
               "description": ""
             },
             {
-              "weight": 1.44,
+              "weight": 1.5,
               "path": [
-                "skill",
-                "contDmg"
+                "lockedPassive",
+                "skillContDmg"
               ],
               "hitMode": "avgHit",
               "bonusStats": {
@@ -288,7 +288,7 @@
               "description": ""
             },
             {
-              "weight": 1.08,
+              "weight": 1,
               "path": [
                 "constellation1",
                 "ssDmg"
@@ -304,7 +304,7 @@
               "description": ""
             },
             {
-              "weight": 1.44,
+              "weight": 1.5,
               "path": [
                 "lockedPassive",
                 "skillContSsDmg"
@@ -320,7 +320,7 @@
               "description": ""
             },
             {
-              "weight": 1.24,
+              "weight": 1.25,
               "path": [
                 "burst",
                 "shockwaveDmg"
@@ -334,7 +334,7 @@
               "description": ""
             },
             {
-              "weight": 1.24,
+              "weight": 1.25,
               "path": [
                 "burst",
                 "shockwaveDmg"
@@ -348,7 +348,7 @@
               "description": ""
             },
             {
-              "weight": 2.5523,
+              "weight": 2.5602,
               "path": [
                 "reaction",
                 "stellarswirl"
@@ -364,7 +364,7 @@
               "description": ""
             },
             {
-              "weight": 1.02,
+              "weight": 0.9444,
               "path": [
                 "reaction",
                 "stellarswirl"
@@ -381,7 +381,7 @@
               "description": ""
             },
             {
-              "weight": 0.7562,
+              "weight": 0.7878,
               "path": [
                 "reaction",
                 "stellarswirl_vortex1"
@@ -398,7 +398,7 @@
               "description": ""
             },
             {
-              "weight": 0.3545,
+              "weight": 0.3939,
               "path": [
                 "reaction",
                 "stellarswirl_vortex1"
@@ -510,7 +510,7 @@
       "buildTcs": [
         {
           "name": "Celestia",
-          "description": "Celestia teammate assumption (85% of the maximum).",
+          "description": "Celestia teammate assumption (KQMS standard).",
           "characterKey": "Sucrose",
           "character": {
             "level": 90,
@@ -599,7 +599,7 @@
       "buildTcs": [
         {
           "name": "Celestia",
-          "description": "Celestia teammate assumption (85% of the maximum).",
+          "description": "Celestia teammate assumption (KQMS standard).",
           "characterKey": "Odette",
           "character": {
             "level": 90,

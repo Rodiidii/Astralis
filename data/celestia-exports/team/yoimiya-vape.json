@@ -1,7 +1,7 @@
 {
   "name": "Vape",
   "description": "Celestia",
-  "lastEdit": 1794890244479,
+  "lastEdit": 1795427318237,
   "conditional": {
     "resonance": {},
     "reaction": {}
@@ -38,7 +38,61 @@
           "description": "Celestia",
           "targets": [
             {
-              "weight": 0.4876,
+              "weight": 0.5,
+              "path": [
+                "burst",
+                "exp"
+              ],
+              "hitMode": "avgHit",
+              "bonusStats": {
+                "pyro_enemyRes_": -35,
+                "all_dmg_": 40
+              },
+              "description": ""
+            },
+            {
+              "weight": 0.5,
+              "path": [
+                "burst",
+                "exp"
+              ],
+              "hitMode": "avgHit",
+              "bonusStats": {
+                "pyro_enemyRes_": -35,
+                "all_dmg_": 40
+              },
+              "description": ""
+            },
+            {
+              "weight": 0.625,
+              "path": [
+                "burst",
+                "exp"
+              ],
+              "hitMode": "avgHit",
+              "bonusStats": {
+                "atk_": 20,
+                "pyro_enemyRes_": -35
+              },
+              "description": ""
+            },
+            {
+              "weight": 0.375,
+              "path": [
+                "burst",
+                "exp"
+              ],
+              "hitMode": "avgHit",
+              "bonusStats": {
+                "atk_": 65,
+                "eleMas": 180,
+                "pyro_enemyRes_": -35,
+                "all_dmg_": 48
+              },
+              "description": ""
+            },
+            {
+              "weight": 0.5,
               "path": [
                 "normal",
                 "0"
@@ -52,7 +106,7 @@
               "description": ""
             },
             {
-              "weight": 0.4876,
+              "weight": 0.5,
               "path": [
                 "normal",
                 "0"
@@ -66,7 +120,7 @@
               "description": ""
             },
             {
-              "weight": 0.5315,
+              "weight": 0.5,
               "path": [
                 "normal",
                 "0"
@@ -83,7 +137,7 @@
               "description": ""
             },
             {
-              "weight": 0.4876,
+              "weight": 0.5,
               "path": [
                 "normal",
                 "0"
@@ -115,7 +169,7 @@
               "description": ""
             },
             {
-              "weight": 0.5093,
+              "weight": 0.5,
               "path": [
                 "normal",
                 "2"
@@ -164,7 +218,7 @@
               "description": ""
             },
             {
-              "weight": 0.5102,
+              "weight": 0.5,
               "path": [
                 "normal",
                 "4"
@@ -181,7 +235,7 @@
               "description": ""
             },
             {
-              "weight": 0.4917,
+              "weight": 0.5,
               "path": [
                 "normal",
                 "0"
@@ -198,7 +252,7 @@
               "description": ""
             },
             {
-              "weight": 0.4876,
+              "weight": 0.5,
               "path": [
                 "normal",
                 "0"
@@ -230,7 +284,7 @@
               "description": ""
             },
             {
-              "weight": 0.5093,
+              "weight": 0.5,
               "path": [
                 "normal",
                 "2"
@@ -279,7 +333,7 @@
               "description": ""
             },
             {
-              "weight": 0.5102,
+              "weight": 0.5,
               "path": [
                 "normal",
                 "4"
@@ -296,7 +350,7 @@
               "description": ""
             },
             {
-              "weight": 0.4876,
+              "weight": 0.5,
               "path": [
                 "normal",
                 "0"
@@ -312,7 +366,7 @@
               "description": ""
             },
             {
-              "weight": 0.4876,
+              "weight": 0.5,
               "path": [
                 "normal",
                 "0"
@@ -344,7 +398,7 @@
               "description": ""
             },
             {
-              "weight": 0.5093,
+              "weight": 0.5,
               "path": [
                 "normal",
                 "2"
@@ -393,7 +447,7 @@
               "description": ""
             },
             {
-              "weight": 0.5102,
+              "weight": 0.5,
               "path": [
                 "normal",
                 "4"
@@ -410,7 +464,7 @@
               "description": ""
             },
             {
-              "weight": 0.3588,
+              "weight": 0.375,
               "path": [
                 "normal",
                 "0"
@@ -427,7 +481,7 @@
               "description": ""
             },
             {
-              "weight": 0.4876,
+              "weight": 0.5,
               "path": [
                 "normal",
                 "0"
@@ -457,7 +511,7 @@
               "description": ""
             },
             {
-              "weight": 0.4876,
+              "weight": 0.5,
               "path": [
                 "normal",
                 "0"
@@ -471,7 +525,7 @@
               "description": ""
             },
             {
-              "weight": 0.4876,
+              "weight": 0.5,
               "path": [
                 "normal",
                 "0"
@@ -485,7 +539,7 @@
               "description": ""
             },
             {
-              "weight": 0.5884,
+              "weight": 0.625,
               "path": [
                 "normal",
                 "0"
@@ -502,7 +556,7 @@
               "description": ""
             },
             {
-              "weight": 0.4876,
+              "weight": 0.5,
               "path": [
                 "normal",
                 "0"
@@ -534,7 +588,7 @@
               "description": ""
             },
             {
-              "weight": 0.5093,
+              "weight": 0.5,
               "path": [
                 "normal",
                 "2"
@@ -583,7 +637,7 @@
               "description": ""
             },
             {
-              "weight": 0.5102,
+              "weight": 0.5,
               "path": [
                 "normal",
                 "4"
@@ -600,7 +654,7 @@
               "description": ""
             },
             {
-              "weight": 0.4981,
+              "weight": 0.5,
               "path": [
                 "normal",
                 "0"
@@ -617,7 +671,7 @@
               "description": ""
             },
             {
-              "weight": 0.5271,
+              "weight": 0.5,
               "path": [
                 "normal",
                 "0"
@@ -649,7 +703,7 @@
               "description": ""
             },
             {
-              "weight": 0.5093,
+              "weight": 0.5,
               "path": [
                 "normal",
                 "2"
@@ -698,7 +752,7 @@
               "description": ""
             },
             {
-              "weight": 0.5102,
+              "weight": 0.5,
               "path": [
                 "normal",
                 "4"
@@ -715,7 +769,7 @@
               "description": ""
             },
             {
-              "weight": 0.4632,
+              "weight": 0.375,
               "path": [
                 "normal",
                 "0"
@@ -731,7 +785,7 @@
               "description": ""
             },
             {
-              "weight": 0.4876,
+              "weight": 0.5,
               "path": [
                 "normal",
                 "0"
@@ -763,7 +817,7 @@
               "description": ""
             },
             {
-              "weight": 0.4533,
+              "weight": 0.5,
               "path": [
                 "normal",
                 "2"
@@ -812,7 +866,7 @@
               "description": ""
             },
             {
-              "weight": 0.449,
+              "weight": 0.5,
               "path": [
                 "normal",
                 "4"
@@ -829,7 +883,7 @@
               "description": ""
             },
             {
-              "weight": 0.5315,
+              "weight": 0.5,
               "path": [
                 "normal",
                 "0"
@@ -846,7 +900,7 @@
               "description": ""
             },
             {
-              "weight": 0.4876,
+              "weight": 0.5,
               "path": [
                 "normal",
                 "0"
@@ -878,7 +932,7 @@
               "description": ""
             },
             {
-              "weight": 0.526,
+              "weight": 0.5,
               "path": [
                 "burst",
                 "exp"
@@ -893,7 +947,7 @@
               "description": ""
             },
             {
-              "weight": 0.1585,
+              "weight": 0.125,
               "path": [
                 "normal",
                 "0"
@@ -909,7 +963,7 @@
               "description": ""
             },
             {
-              "weight": 0.3995,
+              "weight": 0.375,
               "path": [
                 "reaction",
                 "overloaded"
@@ -923,7 +977,7 @@
               "description": ""
             },
             {
-              "weight": 2.7915,
+              "weight": 2.8333,
               "path": [
                 "reaction",
                 "overloaded"
@@ -937,7 +991,7 @@
               "description": ""
             },
             {
-              "weight": 3.0162,
+              "weight": 3,
               "path": [
                 "reaction",
                 "overloaded"
@@ -951,7 +1005,7 @@
               "description": ""
             },
             {
-              "weight": 0.6991,
+              "weight": 0.6667,
               "path": [
                 "reaction",
                 "overloaded"
@@ -965,7 +1019,7 @@
               "description": ""
             },
             {
-              "weight": 0.0999,
+              "weight": 0.125,
               "path": [
                 "reaction",
                 "overloaded"
@@ -978,7 +1032,7 @@
               "description": ""
             },
             {
-              "weight": 0.6742,
+              "weight": 0.6667,
               "path": [
                 "reaction",
                 "overloaded"
@@ -992,7 +1046,7 @@
               "description": ""
             },
             {
-              "weight": 0.3196,
+              "weight": 0.3333,
               "path": [
                 "reaction",
                 "overloaded"
@@ -1002,60 +1056,6 @@
                 "atk_": 61.132,
                 "eleMas": 180,
                 "pyro_enemyRes_": -35
-              },
-              "description": ""
-            },
-            {
-              "weight": 0.5131,
-              "path": [
-                "burst",
-                "exp"
-              ],
-              "hitMode": "avgHit",
-              "bonusStats": {
-                "pyro_enemyRes_": -35,
-                "all_dmg_": 40
-              },
-              "description": ""
-            },
-            {
-              "weight": 0.4942,
-              "path": [
-                "burst",
-                "exp"
-              ],
-              "hitMode": "avgHit",
-              "bonusStats": {
-                "pyro_enemyRes_": -35,
-                "all_dmg_": 40
-              },
-              "description": ""
-            },
-            {
-              "weight": 0.5496,
-              "path": [
-                "burst",
-                "exp"
-              ],
-              "hitMode": "avgHit",
-              "bonusStats": {
-                "atk_": 20,
-                "pyro_enemyRes_": -35
-              },
-              "description": ""
-            },
-            {
-              "weight": 0.4172,
-              "path": [
-                "burst",
-                "exp"
-              ],
-              "hitMode": "avgHit",
-              "bonusStats": {
-                "atk_": 65,
-                "eleMas": 180,
-                "pyro_enemyRes_": -35,
-                "all_dmg_": 48
               },
               "description": ""
             }
@@ -1156,7 +1156,7 @@
       "buildTcs": [
         {
           "name": "Celestia",
-          "description": "Celestia teammate assumption (85% of the maximum).",
+          "description": "Celestia teammate assumption (KQMS standard).",
           "characterKey": "Durin",
           "character": {
             "level": 90,
@@ -1241,7 +1241,7 @@
       "buildTcs": [
         {
           "name": "Celestia",
-          "description": "Celestia teammate assumption (85% of the maximum).",
+          "description": "Celestia teammate assumption (KQMS standard).",
           "characterKey": "Yelan",
           "character": {
             "level": 90,
@@ -1326,7 +1326,7 @@
       "buildTcs": [
         {
           "name": "Celestia",
-          "description": "Celestia teammate assumption (85% of the maximum).",
+          "description": "Celestia teammate assumption (KQMS standard).",
           "characterKey": "Fischl",
           "character": {
             "level": 90,

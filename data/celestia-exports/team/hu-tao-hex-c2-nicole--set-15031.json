@@ -1,7 +1,7 @@
 {
   "name": "Hex C2 Nicole",
   "description": "Celestia",
-  "lastEdit": 1794890169066,
+  "lastEdit": 1795409453890,
   "conditional": {
     "resonance": {},
     "reaction": {}
@@ -42,24 +42,7 @@
           "description": "Celestia",
           "targets": [
             {
-              "weight": 0.5427,
-              "path": [
-                "skill",
-                "dmg"
-              ],
-              "hitMode": "avgHit",
-              "bonusStats": {
-                "atk": -990.298,
-                "eleMas": 69.697,
-                "atk_": 13.939,
-                "pyro_enemyRes_": -25,
-                "all_dmg_": 40,
-                "critRate_": 12
-              },
-              "description": ""
-            },
-            {
-              "weight": 0.7779,
+              "weight": 1.3236,
               "path": [
                 "skill",
                 "dmg"
@@ -76,7 +59,7 @@
               "description": ""
             },
             {
-              "weight": 0.6534,
+              "weight": 1.1118,
               "path": [
                 "skill",
                 "dmg"
@@ -88,23 +71,6 @@
                 "eleMas": 46.809,
                 "pyro_enemyRes_": -25,
                 "all_dmg_": 40
-              },
-              "description": ""
-            },
-            {
-              "weight": 0.4622,
-              "path": [
-                "skill",
-                "dmg"
-              ],
-              "hitMode": "avgHit",
-              "bonusStats": {
-                "atk": -990.298,
-                "atk_": 30.909,
-                "eleMas": 54.545,
-                "all_dmg_": 100,
-                "critRate_": 15,
-                "pyro_enemyRes_": -25
               },
               "description": ""
             },
@@ -1376,7 +1342,7 @@
               "hitMode": "avgHit",
               "bonusStats": {
                 "eleMas": 135,
-                "atk": -1020.298,
+                "atk": -855.298,
                 "atk_": 11,
                 "all_dmg_": 58.85,
                 "pyro_enemyRes_": -25
@@ -1496,7 +1462,7 @@
       "buildTcs": [
         {
           "name": "Celestia",
-          "description": "Celestia teammate assumption (85% of the maximum).",
+          "description": "Celestia teammate assumption (KQMS standard).",
           "characterKey": "Nicole",
           "character": {
             "level": 90,
@@ -1581,7 +1547,7 @@
       "buildTcs": [
         {
           "name": "Celestia",
-          "description": "Celestia teammate assumption (85% of the maximum).",
+          "description": "Celestia teammate assumption (KQMS standard).",
           "characterKey": "Mona",
           "character": {
             "level": 90,
@@ -1666,7 +1632,7 @@
       "buildTcs": [
         {
           "name": "Celestia",
-          "description": "Celestia teammate assumption (85% of the maximum).",
+          "description": "Celestia teammate assumption (KQMS standard).",
           "characterKey": "Yelan",
           "character": {
             "level": 90,

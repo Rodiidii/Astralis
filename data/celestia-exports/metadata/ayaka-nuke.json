@@ -29,7 +29,7 @@
     }
   },
   "characterBonusStats": {
-    "atk": 2316.721,
+    "atk": 2424.721,
     "atk_": 93
   },
   "enemy": {
@@ -69,6 +69,11 @@
           "buff": "Grace of Kenosis (% of Nicole's ATK)",
           "key": "atk",
           "value": 708
+        },
+        {
+          "buff": "\"A Lamp by Your Side, A Light to Shine the Way\"",
+          "key": "atk",
+          "value": 108
         },
         {
           "buff": "Waters in Full Splendor",

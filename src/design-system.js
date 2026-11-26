@@ -25,7 +25,8 @@ function installRailGroups(rail) {
     group.className = 'rail-group';
     group.open = true;
     const summary = document.createElement('summary');
-    summary.textContent = label.textContent.trim();
+    summary.append(...label.childNodes);
+    summary.addEventListener('click', event => { if(event.target.closest('button')) event.preventDefault(); });
     group.append(summary, content);
     label.replaceWith(group);
   }
@@ -34,6 +35,8 @@ function installSearch(rail) {
   if (activeRail === rail && searchNode?.isConnected) return;
   activeRail = rail;
   installRailGroups(rail);
+  // The current shell has its own shared search launcher (also available on phones).
+  if(rail.closest('.shell-v2')) { searchNode = null; return; }
   const box = document.createElement('label');
   box.className = 'rail-quick-search';
   box.innerHTML = '<input type="search" aria-label="Rechercher une page" placeholder="Rechercher une page…" autocomplete="off"><kbd>Ctrl K</kbd>';
@@ -73,6 +76,7 @@ function sync() {
 }
 window.addEventListener('keydown', event => {
   if ((event.ctrlKey || event.metaKey) && event.key.toLowerCase() === 'k') {
+    if(document.querySelector('.shell-v2')) return;
     event.preventDefault();
     const input = document.querySelector('.rail-quick-search input');
     input?.focus(); input?.select();

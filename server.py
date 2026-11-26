@@ -21,7 +21,7 @@ import xml.etree.ElementTree as ET
 from pathlib import Path
 from datetime import datetime, timezone, timedelta
 from email.utils import parsedate_to_datetime
-from concurrent.futures import ThreadPoolExecutor
+from concurrent.futures import ThreadPoolExecutor, as_completed
 from html import unescape
 from html.parser import HTMLParser
 from http.server import SimpleHTTPRequestHandler, ThreadingHTTPServer
@@ -522,8 +522,10 @@ gi_lore_index_cache: tuple[float, bytes] | None = None
 GI_LORE_CACHE_FILE = Path(__file__).resolve().parent / ".cache" / "gi-lore-index-v3.json"
 
 
-def fetch(url: str) -> bytes:
-    request = Request(url, headers={"User-Agent": "Mozilla/5.0 (compatible; Astralis/1.0)", "Accept": "application/json,text/html,*/*"})
+def fetch(url: str, headers: dict[str, str] | None = None) -> bytes:
+    request_headers = {"User-Agent": "Mozilla/5.0 (compatible; Astralis/1.0)", "Accept": "application/json,text/html,*/*"}
+    request_headers.update(headers or {})
+    request = Request(url, headers=request_headers)
     with urlopen(request, timeout=18) as response:
         return response.read()
 
@@ -1021,6 +1023,8 @@ def genshinflex_calendar_rows() -> list[dict]:
         if row.get("kind") not in allowed or not row.get("start") or not row.get("end"):
             continue
         item = {key: row.get(key) for key in fields}
+        if item.get("kind") == "event" and re.search(r"stygian\s+onslaught|carnage\s+chthonien", str(item.get("title") or ""), re.I):
+            item["kind"] = "onslaught"
         item["source"] = item.get("source") or {"title": "GenshinFlex · calendrier basé sur les annonces officielles", "url": "https://genshinflex.com/en/calendar/"}
         item["icons"] = item.get("icons") or []
         rows.append(item)
@@ -1047,6 +1051,64 @@ def _calendar_datetime(value: object) -> datetime | None:
     return parsed.astimezone(timezone.utc)
 
 
+def _calendar_windows_match(left: dict, right: dict, tolerance_hours: int = 12) -> bool:
+    """Match a shared event across feeds despite local/UTC publication offsets."""
+    if left.get("kind") != right.get("kind"):
+        return False
+    left_start, right_start = _calendar_datetime(left.get("start")), _calendar_datetime(right.get("start"))
+    left_end, right_end = _calendar_datetime(left.get("end")), _calendar_datetime(right.get("end"))
+    if not left_start or not right_start or not left_end or not right_end:
+        return False
+    tolerance = tolerance_hours * 3600
+    start_delta = abs((left_start - right_start).total_seconds())
+    end_delta = abs((left_end - right_end).total_seconds())
+    duration_delta = abs(((left_end - left_start) - (right_end - right_start)).total_seconds())
+    return start_delta <= tolerance and end_delta <= tolerance and duration_delta <= tolerance
+
+
+def _calendar_title_tokens(row: dict) -> set[str]:
+    """Return useful, lightly translated words for cross-language event matching."""
+    text = " ".join([
+        str(row.get("title") or ""),
+        " ".join(str(icon.get("name") or "") for icon in row.get("icons") or [] if isinstance(icon, dict)),
+    ])
+    normalized = unicodedata.normalize("NFKD", text).encode("ascii", "ignore").decode().casefold()
+    stop = {"the", "a", "an", "and", "of", "for", "to", "in", "on", "la", "le", "les", "un", "une", "des", "du", "de", "d", "en", "dans", "pour", "et", "au", "aux", "contre", "with", "from", "event", "evenement", "genshin"}
+    aliases = {
+        "grande": "grand", "defence": "defense", "defense": "defense",
+        "judgment": "jugement", "judgement": "jugement", "unjust": "injuste",
+        "blocks": "bloc", "block": "bloc", "blocs": "bloc",
+        "project": "projet", "smashing": "destruction", "destroy": "destruction",
+        "destructions": "destruction", "stress": "stress",
+        "onslaught": "carnage", "stygian": "chthonian", "chthonian": "chthonian",
+        "cthonian": "chthonian", "cthonien": "chthonian", "chtonien": "chthonian", "carnage": "carnage",
+    }
+    tokens = set()
+    for word in re.findall(r"[a-z0-9]+", normalized):
+        if word in stop or len(word) < 3:
+            continue
+        word = aliases.get(word, word)
+        if word.endswith("s") and len(word) > 4:
+            word = word[:-1]
+        tokens.add(word)
+    return tokens
+
+
+def _calendar_identity_score(left: dict, right: dict) -> int:
+    """Score title identity; time overlap alone is never enough for rewards."""
+    if left.get("kind") != right.get("kind"):
+        return 0
+    left_tokens, right_tokens = _calendar_title_tokens(left), _calendar_title_tokens(right)
+    overlap = left_tokens & right_tokens
+    if len(overlap) >= 2:
+        return len(overlap) * 10
+    # A single distinctive featured name can identify a banner; one generic
+    # event word is too weak to attach a reward amount safely.
+    if len(overlap) == 1 and left.get("kind") in {"char-banner", "weapon-banner"} and max(map(len, overlap)) >= 6:
+        return 1
+    return 0
+
+
 def _clean_genshin_calendar(events: list[dict], now: datetime | None = None) -> list[dict]:
     """Remove expired feed rows and collapse duplicate records for the same banner phase."""
     now = now or datetime.now(timezone.utc)
@@ -1067,11 +1129,7 @@ def _clean_genshin_calendar(events: list[dict], now: datetime | None = None) -> 
     def banner_window_match(left: dict, right: dict) -> bool:
         if left.get("kind") != right.get("kind") or left.get("kind") not in {"char-banner", "weapon-banner"}:
             return False
-        left_start, right_start = _calendar_datetime(left.get("start")), _calendar_datetime(right.get("start"))
-        left_end, right_end = _calendar_datetime(left.get("end")), _calendar_datetime(right.get("end"))
-        return bool(left_start and right_start and left_end and right_end
-                    and abs((left_start-right_start).total_seconds()) <= 12*3600
-                    and abs((left_end-right_end).total_seconds()) <= 12*3600)
+        return _calendar_windows_match(left, right, tolerance_hours=12)
 
     grouped: list[list[dict]] = []
     for row in sorted(valid, key=lambda item: (item.get("start", ""), item.get("kind", ""))):
@@ -1109,12 +1167,56 @@ def _clean_genshin_calendar(events: list[dict], now: datetime | None = None) -> 
                 item["title"] = " / ".join(dict.fromkeys(featured))
             descriptions = [str(row.get("description") or "").strip() for row in group if row.get("description")]
             item["description"] = " · ".join(dict.fromkeys(descriptions)) or " · ".join(names)
-        item["primogems"] = max((int(row.get("primogems") or 0) for row in group), default=0) or None
+        stated_primos = [int(row["primogems"]) for row in group if row.get("primogems") is not None]
+        item["primogems"] = max(stated_primos) if stated_primos else None
         merged.append(item)
 
-    # De-duplicate repeated event/endgame/version rows by kind, title and start day.
-    result, seen = [], set()
+    # Merge duplicate event announcements even when sources disagree on the
+    # opening timestamp by a day or two. Keep the richest/reward-verified row.
+    event_groups: list[list[dict]] = []
     for row in sorted(merged, key=lambda item: (item.get("start", ""), item.get("title", "").casefold())):
+        group = None
+        if row.get("kind") in {"event", "onslaught"}:
+            group = next((candidate for candidate in event_groups
+                          if candidate[0].get("kind") == row.get("kind")
+                          and _calendar_identity_score(candidate[0], row) >= 20
+                          and _calendar_windows_match(candidate[0], row, tolerance_hours=72)), None)
+        if group is None:
+            event_groups.append([row])
+        else:
+            group.append(row)
+
+    merged_events = []
+    for group in event_groups:
+        def completeness(row: dict) -> tuple[int, int, int, int, int]:
+            return (
+                int(bool(row.get("verificationSource"))),
+                int(row.get("primogems") is not None),
+                len(row.get("rewards") or []),
+                int(bool(row.get("image"))),
+                len(str(row.get("description") or "")),
+            )
+        primary = max(group, key=completeness)
+        item = dict(primary)
+        if not item.get("image"):
+            item["image"] = next((row.get("image") for row in group if row.get("image")), "")
+        if not item.get("description"):
+            item["description"] = next((row.get("description") for row in group if row.get("description")), "")
+        if not item.get("rewards"):
+            item["rewards"] = max((row.get("rewards") or [] for row in group), key=len, default=[])
+        icons, seen_icons = [], set()
+        for row in group:
+            for icon in row.get("icons") or []:
+                name = re.sub(r"[^a-z0-9]", "", unicodedata.normalize("NFKD", str(icon.get("name", ""))).encode("ascii", "ignore").decode().lower())
+                if name and name not in seen_icons:
+                    seen_icons.add(name)
+                    icons.append(icon)
+        item["icons"] = icons or item.get("icons") or []
+        merged_events.append(item)
+
+    # De-duplicate repeated remaining calendar rows by kind, title and start day.
+    result, seen = [], set()
+    for row in sorted(merged_events, key=lambda item: (item.get("start", ""), item.get("title", "").casefold())):
         start = _calendar_datetime(row.get("start"))
         key = (row.get("kind"), re.sub(r"\W+", "", str(row.get("title", "")).casefold()), start.date().isoformat() if start else "")
         if key in seen:
@@ -1140,20 +1242,22 @@ def genshin_events() -> bytes:
         ennead_source = {"title": "Récompenses et illustrations · Ennead", "url": "https://api.ennead.cc/mihoyo/genshin/calendar?lang=fr-fr"}
         supplements = []
         for row in payload.get("events", []):
-            rewards = list(row.get("rewards") or [])
-            special = row.get("special_reward") or {}
-            primo_rows = [reward for reward in [*rewards, special]
+            rewards = [item for item in (row.get("rewards") or []) if isinstance(item, dict)]
+            special = row.get("special_reward") if isinstance(row.get("special_reward"), dict) else {}
+            all_rewards = [*rewards, *([special] if special else [])]
+            primo_rows = [reward for reward in all_rewards
                           if "primo" in str(reward.get("name", "")).casefold() and int(reward.get("amount") or 0) > 0]
             stamp_start, stamp_end = int(row.get("start_time") or 0), int(row.get("end_time") or 0)
             if not stamp_start or not stamp_end:
                 continue
-            supplements.append({"kind": "onslaught" if "hardchallenge" in str(row.get("type_name", "")).casefold() else "event",
+            supplements.append({"id": f"ennead-event-{row.get('id') or stamp_start}",
+                "kind": "onslaught" if "hardchallenge" in str(row.get("type_name", "")).casefold() else "event",
                 "title": str(row.get("name") or "Événement Genshin"),
                 "start": datetime.fromtimestamp(stamp_start, timezone.utc).isoformat().replace("+00:00", "Z"),
                 "end": datetime.fromtimestamp(stamp_end, timezone.utc).isoformat().replace("+00:00", "Z"),
                 "image": row.get("image_url", ""), "primogems": sum(int(reward.get("amount") or 0) for reward in primo_rows),
                 "description": str(row.get("description") or ""),
-                "rewards": [{"name": reward.get("name"), "amount": reward.get("amount"), "icon": reward.get("icon", "")} for reward in rewards],
+                "rewards": [{"name": reward.get("name"), "amount": reward.get("amount"), "icon": reward.get("icon", "")} for reward in all_rewards],
                 "verificationSource": ennead_source})
         for row in payload.get("banners", []):
             stamp_start, stamp_end = int(row.get("start_time") or 0), int(row.get("end_time") or 0)
@@ -1161,35 +1265,59 @@ def genshin_events() -> bytes:
                 continue
             kind = "weapon-banner" if row.get("weapons") else "char-banner"
             featured = row.get("weapons") or row.get("characters") or []
-            supplements.append({"kind": kind, "title": str(row.get("name") or "Vœux"),
+            supplements.append({"id": f"ennead-banner-{row.get('id') or stamp_start}", "kind": kind, "title": str(row.get("name") or "Vœux"),
                 "start": datetime.fromtimestamp(stamp_start, timezone.utc).isoformat().replace("+00:00", "Z"),
                 "end": datetime.fromtimestamp(stamp_end, timezone.utc).isoformat().replace("+00:00", "Z"),
                 "icons": [{"name": item.get("name", ""), "src": item.get("icon", ""), "rarity": item.get("rarity")} for item in featured],
                 "verificationSource": ennead_source})
 
-        # Only enrich a GenshinFlex row when its type and published time window agree.
-        # This keeps the better calendar's list and dates intact without importing duplicates.
-        for supplement in supplements:
-            start, end = _calendar_datetime(supplement.get("start")), _calendar_datetime(supplement.get("end"))
-            if not start or not end:
-                continue
-            matches = []
-            for event in events:
-                if event.get("kind") != supplement.get("kind"):
+        # A shared time window is not an identity: several simultaneous events can
+        # have different rewards. Require a title/featured-character match, then
+        # assign each feed row and supplement at most once.
+        proposals = []
+        for supplement_index, supplement in enumerate(supplements):
+            candidates = []
+            for event_index, event in enumerate(events):
+                if not _calendar_windows_match(event, supplement, tolerance_hours=24):
                     continue
-                event_start, event_end = _calendar_datetime(event.get("start")), _calendar_datetime(event.get("end"))
-                if event_start and event_end and abs((event_start-start).total_seconds()) <= 12*3600 and abs((event_end-end).total_seconds()) <= 12*3600:
-                    matches.append(event)
-            if len(matches) != 1:
+                score = _calendar_identity_score(event, supplement)
+                if score:
+                    candidates.append((score, event_index))
+            if not candidates:
                 continue
-            event = matches[0]
+            top_score = max(score for score, _ in candidates)
+            best = [event_index for score, event_index in candidates if score == top_score]
+            if len(best) == 1:
+                proposals.append((top_score, best[0], supplement_index))
+
+        by_event = {}
+        for score, event_index, supplement_index in proposals:
+            by_event.setdefault(event_index, []).append((score, supplement_index))
+        matched_supplements = set()
+        for event_index, candidates in by_event.items():
+            top_score = max(score for score, _ in candidates)
+            best = [supplement_index for score, supplement_index in candidates if score == top_score]
+            if len(best) != 1:
+                continue
+            supplement_index = best[0]
+            supplement = supplements[supplement_index]
+            event = events[event_index]
+            matched_supplements.add(supplement_index)
+            if supplement.get("kind") in {"event", "onslaught"} and supplement.get("title"):
+                event["title"] = supplement["title"]
             event["image"] = event.get("image") or supplement.get("image", "")
-            event["primogems"] = event.get("primogems") or supplement.get("primogems")
-            event["description"] = event.get("description") or supplement.get("description", "")
+            # Ennead rewards belong to this matched title, including a verified 0.
+            event["primogems"] = supplement.get("primogems")
+            event["description"] = supplement.get("description") or event.get("description", "")
             event["rewards"] = supplement.get("rewards", event.get("rewards", []))
             event["verificationSource"] = supplement.get("verificationSource")
             if not event.get("icons") and supplement.get("icons"):
                 event["icons"] = supplement["icons"]
+
+        # Keep real Ennead events that the primary feed omitted (often a secondary
+        # event running in the exact same date window as a larger one).
+        events.extend(supplement for index, supplement in enumerate(supplements)
+                      if index not in matched_supplements)
 
         if not events:
             events = supplements
@@ -1199,6 +1327,50 @@ def genshin_events() -> bytes:
 
     events = _clean_genshin_calendar(events)
     return json.dumps({"updatedAt": time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime()), "source": source, "events": events}, ensure_ascii=False).encode("utf-8")
+
+
+def hoyoverse_codes() -> bytes:
+    """Fetch active public redemption codes for Genshin and Star Rail."""
+    games = {
+        "gi": ("genshin", "Genshin Impact", "https://genshin.hoyoverse.com/en/gift?code="),
+        "hsr": ("starrail", "Honkai: Star Rail", "https://hsr.hoyoverse.com/gift?code="),
+    }
+
+    def load_game(entry: tuple[str, tuple[str, str, str]]) -> tuple[str, list[dict]]:
+        game, (slug, label, redeem_base) = entry
+        url = f"https://api.ennead.cc/mihoyo/{slug}/codes"
+        payload = json.loads(fetch(url).decode("utf-8", errors="replace"))
+        rows, seen = [], set()
+        for row in payload.get("active", []):
+            if not isinstance(row, dict):
+                continue
+            code = str(row.get("code") or "").strip()
+            identity = code.upper()
+            if not re.fullmatch(r"[A-Z0-9]{4,32}", identity) or identity in seen:
+                continue
+            seen.add(identity)
+            rewards = [str(value).strip() for value in row.get("rewards", []) if str(value).strip()] if isinstance(row.get("rewards"), list) else []
+            rows.append({"id": f"{game}:{identity}", "game": game, "gameName": label,
+                "code": code, "rewards": rewards,
+                "redeemUrl": redeem_base + quote(code, safe=""),
+                "source": {"title": "Ennead · codes actifs publics", "url": url}})
+        return game, rows
+
+    codes, errors = [], {}
+    with ThreadPoolExecutor(max_workers=2) as pool:
+        futures = {pool.submit(load_game, entry): entry[0] for entry in games.items()}
+        for future in as_completed(futures):
+            game = futures[future]
+            try:
+                _, rows = future.result()
+                codes.extend(rows)
+            except Exception as exc:
+                errors[game] = str(exc)
+    if not codes and errors:
+        raise OSError("Les listes de codes Genshin et Honkai: Star Rail sont indisponibles.")
+    codes.sort(key=lambda row: (row["game"], row["code"].casefold()))
+    return json.dumps({"updatedAt": datetime.now(timezone.utc).isoformat(),
+        "source": "Ennead · codes actifs publics", "codes": codes, "errors": errors}, ensure_ascii=False).encode("utf-8")
 
 
 def _xml_text(node: ET.Element | None) -> str:
@@ -1277,10 +1449,117 @@ def _official_hoyoverse_news(payload: bytes) -> list[dict]:
     return rows
 
 
+class _HoYoLABOfficialEventsParser(HTMLParser):
+    """Extract dated cards from HoYoLAB's public, server-rendered event list."""
+    def __init__(self) -> None:
+        super().__init__(convert_charrefs=True)
+        self.cards: list[dict] = []
+        self.card: dict | None = None
+        self.depth = 0
+        self.capture = ""
+
+    def handle_starttag(self, tag: str, attrs: list[tuple[str, str | None]]) -> None:
+        values = {key: value or "" for key, value in attrs}
+        classes = set(values.get("class", "").split())
+        if tag == "div" and "mhy-contribution-card" in classes:
+            self.card = {"title": "", "titleAttribute": "", "description": "", "duration": "", "status": "", "link": "", "image": ""}
+            self.depth = 1
+            self.capture = ""
+            return
+        if not self.card:
+            return
+        if tag == "div":
+            self.depth += 1
+        if tag == "a" and not self.card["link"]:
+            self.card["link"] = urljoin("https://www.hoyolab.com/official/2", values.get("href", ""))
+        if tag == "h3" and "mhy-contribution-card__title" in classes:
+            self.card["titleAttribute"] = values.get("title", "")
+            self.capture = "title"
+        elif tag == "div" and "mhy-contribution-card__desc" in classes:
+            self.capture = "description"
+        elif tag == "span" and "mhy-contribution-card__duration" in classes:
+            self.capture = "duration"
+        elif tag == "span" and "mhy-contribution-card__status" in classes:
+            self.capture = "status"
+        elif tag in {"img", "source"}:
+            self.card["image"] = values.get("data-src") or values.get("src") or self.card["image"]
+        style = values.get("style", "")
+        image = re.search(r"url\([\"']?(.*?)[\"']?\)", style, re.I)
+        if image and not self.card["image"]:
+            self.card["image"] = urljoin("https://www.hoyolab.com", image.group(1))
+
+    def handle_endtag(self, tag: str) -> None:
+        if not self.card:
+            return
+        if tag in {"h3", "div", "span"} and self.capture and ((tag == "h3" and self.capture == "title") or (tag == "div" and self.capture == "description") or (tag == "span" and self.capture in {"duration", "status"})):
+            self.capture = ""
+        if tag == "div":
+            self.depth -= 1
+            if self.depth <= 0:
+                if not self.card.get("title"):
+                    self.card["title"] = self.card.get("titleAttribute", "")
+                if self.card.get("title"):
+                    self.cards.append(self.card)
+                self.card = None
+                self.capture = ""
+
+    def handle_data(self, data: str) -> None:
+        if self.card and self.capture:
+            self.card[self.capture] = (self.card.get(self.capture, "") + data).strip() if self.capture != "description" else (self.card.get(self.capture, "") + data)
+
+
+def _hoyolab_external_events(payload: bytes) -> list[dict]:
+    parser = _HoYoLABOfficialEventsParser()
+    parser.feed(payload.decode("utf-8", errors="replace"))
+    utc8 = timezone(timedelta(hours=8))
+
+    def window(value: str) -> tuple[str, str]:
+        match = re.search(r"(\d{4})/(\d{1,2})/(\d{1,2})\s*[-–—]\s*(\d{4})/(\d{1,2})/(\d{1,2})", value)
+        if not match:
+            return "", ""
+        start = datetime(*(int(part) for part in match.groups()[:3]), tzinfo=utc8)
+        end = datetime(*(int(part) for part in match.groups()[3:]), hour=23, minute=59, second=59, tzinfo=utc8)
+        return start.isoformat(), end.isoformat()
+
+    rows = []
+    for card in parser.cards:
+        title = re.sub(r"\s+", " ", unescape(card.get("title", ""))).strip()
+        if not title:
+            continue
+        description = re.sub(r"\s+", " ", unescape(card.get("description", ""))).strip()
+        start, end = window(card.get("duration", ""))
+        text = f"{title} {description}"
+        if re.search(r"web\s+event|événement web|evenement web", text, re.I):
+            external_type = "web"
+        elif re.search(r"community|communaut|topic discussion|discussion|forum|creator|créateur|createur|submission|concours|contest|competition|compétition|giveaway|tirage au sort|chance to win|share.{0,50}(?:win|reward|event)|top.?up center|recharge", text, re.I):
+            external_type = "community"
+        else:
+            # An official card for a playable in-game activity stays on the
+            # game calendar; only out-of-game campaigns belong in this feed.
+            continue
+        slug = card.get("link", "") or title
+        rows.append({
+            "id": "hoyolab-event:" + hashlib.sha256(slug.encode("utf-8")).hexdigest()[:16],
+            "title": title,
+            "description": description,
+            "link": card.get("link", ""),
+            "start": start,
+            "end": end,
+            "date": start,
+            "image": card.get("image", ""),
+            "status": card.get("status", ""),
+            "category": external_type,
+            "externalType": external_type,
+            "source": {"title": "HoYoLAB · événements officiels", "url": "https://www.hoyolab.com/official/2"},
+            "feed": "HoYoLAB · événements officiels",
+        })
+    return rows
+
+
 def genshin_news() -> bytes:
     feeds = [("official", "https://genshin-feed.com/feed/rss-fr-all-articles.xml", "Actualités officielles"), ("feed-events", "https://genshin-feed.com/feed/rss-fr-events.xml", "Événements")]
     youtube_source = "https://www.youtube.com/feeds/videos.xml?channel_id=UCiS882YPwZt1NfaM0gR0D9Q"
-    sources = {"official-api": "https://sg-public-api-static.hoyoverse.com/content_v2_user/app/a1b1f9d3315447cc/getContentList?iAppId=32&iChanId=395&iPageSize=40&iPage=1&sLangKey=fr-fr", "hoyolab": "https://bbs-api-os.hoyolab.com/community/post/wapi/getNewsList?gids=2&page_size=30&type=1", **{key: url for key, url, _ in feeds}}
+    sources = {"official-api": "https://sg-public-api-static.hoyoverse.com/content_v2_user/app/a1b1f9d3315447cc/getContentList?iAppId=32&iChanId=395&iPageSize=40&iPage=1&sLangKey=fr-fr", "hoyolab": "https://bbs-api-os.hoyolab.com/community/post/wapi/getNewsList?gids=2&page_size=30&type=1", "hoyolab-events": "https://www.hoyolab.com/official/2", **{key: url for key, url, _ in feeds}}
     raw, errors = {}, []
     with ThreadPoolExecutor(max_workers=5) as pool:
         futures = {pool.submit(fetch, url): key for key, url in sources.items()}
@@ -1346,7 +1625,12 @@ def genshin_news() -> bytes:
             videos.append({"id": video_id, "title": article.get("title", "Vidéo liée à une annonce Genshin"), "date": article.get("date", ""), "link": f"https://www.youtube.com/watch?v={video_id}", "embed": f"https://www.youtube-nocookie.com/embed/{video_id}", "image": f"https://i.ytimg.com/vi/{video_id}/hqdefault.jpg", "source": "Vidéo · annonce Genshin officielle"})
     if youtube_error and not videos: errors.append(f"YouTube temporairement indisponible: {youtube_error}")
     ordered = sorted(articles.values(), key=lambda row: _news_timestamp(row.get("date", "")), reverse=True)
-    return json.dumps({"updatedAt": time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime()), "source": "HoYoverse / HoYoLAB / YouTube", "articles": ordered[:60], "videos": videos, "errors": errors}, ensure_ascii=False).encode("utf-8")
+    external_events = []
+    try:
+        external_events = _hoyolab_external_events(raw["hoyolab-events"])
+    except Exception as exc:
+        errors.append(f"Événements HoYoLAB: {exc}")
+    return json.dumps({"updatedAt": time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime()), "source": "HoYoverse / HoYoLAB / YouTube", "articles": ordered[:60], "externalEvents": external_events, "videos": videos, "errors": errors}, ensure_ascii=False).encode("utf-8")
 
 
 def genshin_tierlist_status() -> bytes:
@@ -1360,16 +1644,56 @@ def genshin_tierlist_status() -> bytes:
 
 
 _THEATER_DB_ICON_CACHE: dict[str, str] = {}
+_GI_ENEMY_ICON_DB: dict[str, dict[str, str]] | None = None
+_HOYOWIKI_ENEMY_ART_CACHE: tuple[float, dict[str, str]] = (0.0, {})
+def genshin_enemy_artworks() -> dict[str, str]:
+    """Read enemy art URLs from HoYoWiki pages; use remote links, never copy image files."""
+    global _HOYOWIKI_ENEMY_ART_CACHE
+    checked, cached = _HOYOWIKI_ENEMY_ART_CACHE
+    if time.time() - checked < 21600 and cached:
+        return cached
+    artwork: dict[str, str] = {}
+    try:
+        source = fetch("https://wiki.hoyolab.com/pc/genshin/aggregate/enemy?bbs_presentation_style=&crawler=Googlebot").decode("utf-8", "replace")
+        for block in re.split(r'<div class="genshin-show-enemy-item">', source)[1:]:
+            name_match = re.search(r'class="card-with-transparent-bg-name pc">\s*(.*?)\s*</div>', block, re.I | re.S)
+            style_match = re.search(r'<div class="card-with-transparent-bg-right pc" style="([^"]+)"', block, re.I | re.S)
+            image_match = re.search(r"url\(['\"]?(.*?)['\"]?\)", style_match.group(1), re.I) if style_match else None
+            if name_match and image_match:
+                name = html_text(name_match.group(1))
+                image = unescape(image_match.group(1))
+                if name and image.startswith("https://"):
+                    artwork[_gi_build_token(name)] = image
+        _HOYOWIKI_ENEMY_ART_CACHE = (time.time(), artwork)
+    except Exception:
+        if cached:
+            return cached
+    return artwork
 def theater_db_icon(name: str) -> str:
-    key = re.sub(r"[^a-z0-9]+", " ", name.casefold()).strip()
+    global _GI_ENEMY_ICON_DB
+    clean_name = re.sub(r"\s*[×x]\s*\d+$", "", str(name or "").strip(), flags=re.I)
+    key = re.sub(r"[^a-z0-9]+", " ", clean_name.casefold()).strip()
     if key in _THEATER_DB_ICON_CACHE: return _THEATER_DB_ICON_CACHE[key]
     icon = ""
     try:
-        url = "https://genshin-db-api.vercel.app/api/v5/enemies?" + urlencode({"query": name, "matchCategories": "true", "verboseCategories": "true", "resultLanguage": "English"})
+        if _GI_ENEMY_ICON_DB is None:
+            catalog_path = Path(__file__).resolve().parent / "artifacts" / "genshin-enemy-images.json"
+            catalog = json.loads(catalog_path.read_text(encoding="utf-8"))
+            _GI_ENEMY_ICON_DB = catalog if isinstance(catalog, dict) else {}
+        entry = _GI_ENEMY_ICON_DB.get(_gi_build_token(clean_name), {})
+        filename = entry.get("filename_icon", "") if isinstance(entry, dict) else ""
+        if filename:
+            icon = "https://gi.yatta.moe/assets/UI/monster/" + quote(filename, safe="") + ".png"
+            _THEATER_DB_ICON_CACHE[key] = icon
+            return icon
+    except Exception:
+        _GI_ENEMY_ICON_DB = {}
+    try:
+        url = "https://genshin-db-api.vercel.app/api/v5/enemies?" + urlencode({"query": clean_name, "matchCategories": "true", "verboseCategories": "true", "resultLanguage": "English"})
         request = Request(url, headers={"User-Agent": "Mozilla/5.0 (compatible; Astralis/1.0)", "Accept": "application/json"})
         with urlopen(request, timeout=6) as response: row = json.loads(response.read())
         candidates = row if isinstance(row, list) else [row]
-        wanted = re.sub(r"[^a-z0-9]+", " ", name.casefold()).strip()
+        wanted = re.sub(r"[^a-z0-9]+", " ", clean_name.casefold()).strip()
         for candidate in candidates:
             found = re.sub(r"[^a-z0-9]+", " ", str(candidate.get("name", "")).casefold()).strip()
             if found == wanted or (len(wanted) > 12 and (wanted in found or found in wanted)):
@@ -1484,6 +1808,7 @@ def genshin_endgame() -> bytes:
         calendar = pool.submit(genshinflex_calendar_rows)
         wiki_abyss_future = pool.submit(_parse_fandom_abyss_rotation, cycle_start)
         official_blessing_future = pool.submit(_official_abyss_blessing, cycle_start)
+        enemy_art_future = pool.submit(genshin_enemy_artworks)
         abyss, theater, onslaught = [future.result() for future in pages]
         try:
             windows = calendar.result()
@@ -1657,6 +1982,32 @@ def genshin_endgame() -> bytes:
                           "opening": next((v for k,v in groups.items() if "opening" in k), []),
                           "guests": next((v for k,v in groups.items() if "special guest" in k), []), "bosses": theater_bosses},
               "onslaught": onslaught_data}
+    try:
+        enemy_art = enemy_art_future.result()
+        icon_aliases = {"battlehardenedsamachurl": "geosamachurl", "battlehardenedprismslime": "largegeoslime", "prismslime": "largegeoslime"}
+        art_aliases = {"battlehardenedsamachurl": "geosamachurl", "battlehardenedprismslime": "largegeoslime", "prismslime": "largegeoslime"}
+        for group in result.get("floors", []):
+            entries = [enemy for chamber in group.get("chambers", []) for half in chamber.get("halves", []) for enemy in half.get("enemies", [])]
+            for enemy in entries:
+                # Always attach official artwork as a browser-side fallback, even when a catalog icon exists.
+                token = _gi_build_token(enemy.get("name", "").split(" ×", 1)[0])
+                if token in icon_aliases:
+                    enemy["icon"] = theater_db_icon(icon_aliases[token])
+                elif not enemy.get("icon"):
+                    enemy["icon"] = theater_db_icon(enemy.get("name", ""))
+                enemy["art"] = enemy_art.get(token) or enemy_art.get(art_aliases.get(token, ""), "")
+        for section in (result.get("theater", {}), result.get("onslaught", {})):
+            for group in section.get("bosses", []):
+                for enemy in group.get("enemies", []):
+                    # Always attach official artwork as a browser-side fallback, even when a catalog icon exists.
+                    token = _gi_build_token(enemy.get("name", "").split(" ×", 1)[0])
+                    if token in icon_aliases:
+                        enemy["icon"] = theater_db_icon(icon_aliases[token])
+                    elif not enemy.get("icon"):
+                        enemy["icon"] = theater_db_icon(enemy.get("name", ""))
+                    enemy["art"] = enemy_art.get(token) or enemy_art.get(art_aliases.get(token, ""), "")
+    except Exception:
+        pass
     return json.dumps(result, ensure_ascii=False).encode("utf-8")
 
 
@@ -2213,6 +2564,21 @@ class Handler(SimpleHTTPRequestHandler):
                 except Exception as exc:
                     self.send_json(502, {"error": "Le calendrier GenshinFlex est indisponible.", "detail": str(exc)}); return
             self.send_bytes(200, payload, "application/json; charset=utf-8"); return
+        if path == "/api/game-codes":
+            key = "game-codes"; now = time.time()
+            with cache_lock:
+                entry = cache.get(key); stale_payload = entry[1] if entry else None
+                payload = entry[1] if entry and now-entry[0] < 900 and not refresh else None
+            if payload is None:
+                try:
+                    payload = hoyoverse_codes()
+                    with cache_lock: cache[key] = (now, payload)
+                except Exception as exc:
+                    if stale_payload:
+                        payload = stale_payload
+                    else:
+                        self.send_json(502, {"error": "Les codes publics sont momentanément indisponibles.", "detail": str(exc)}); return
+            self.send_bytes(200, payload, "application/json; charset=utf-8"); return
         if path in {"/api/gi/news", "/api/gi/tierlist"}:
             key = path.removeprefix("/api/")
             now = time.time()
@@ -2420,10 +2786,16 @@ class Handler(SimpleHTTPRequestHandler):
         self.wfile.write(payload)
 
 
+class AstralisHTTPServer(ThreadingHTTPServer):
+    # The app imports a large module graph at startup. Keep a larger accept
+    # backlog so short bursts of local asset requests do not get refused.
+    request_queue_size = 128
+
+
 if __name__ == "__main__":
     if os.name == "nt":
-        ThreadingHTTPServer.allow_reuse_address = False
-    server = ThreadingHTTPServer((HOST, PORT), Handler)
+        AstralisHTTPServer.allow_reuse_address = False
+    server = AstralisHTTPServer((HOST, PORT), Handler)
     _APP_HTTP_SERVER = server
     print(f"Astralis lancé sur http://{HOST}:{PORT}")
     if not HOSTED:

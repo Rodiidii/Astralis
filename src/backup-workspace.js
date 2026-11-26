@@ -1,4 +1,4 @@
-export const WORKSPACE_BACKUP_KEYS=Object.freeze(['astralis:gi:objectives-v2','astralis:gi:talent-targets','astralis:gi:farm-priority','astralis:gi:farm-xp','astralis:gi:farm-simulation','astralis:local-profile:v1','astralis:collection-binder:v1','astralis:booster-quests:v1','astralis:astral-seal:v1','astralis:studio:gi','astralis:studio:hsr','astralis:studio:ww']);
+export const WORKSPACE_BACKUP_KEYS=Object.freeze(['astralis:theme-studio:v1','astralis:planning-studio:v1','astralis:favorites-studio:v1','astralis:gi:objectives-v2','astralis:gi:talent-targets','astralis:gi:farm-priority','astralis:gi:farm-xp','astralis:gi:farm-simulation','astralis:local-profile:v1','astralis:collection-binder:v1','astralis:booster-quests:v1','astralis:astral-seal:v1','astralis:studio:gi','astralis:studio:hsr','astralis:studio:ww']);
 export function exportWorkspaceState(storage){
  const entries={};for(const key of WORKSPACE_BACKUP_KEYS){const raw=storage.getItem(key);if(raw!=null){try{JSON.parse(raw);}catch{throw new Error('Données locales illisibles : '+key);}entries[key]=raw;}}
  return {version:1,entries};

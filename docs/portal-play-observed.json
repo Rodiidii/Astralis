@@ -1,0 +1,52 @@
+{
+  "version": "1.0.58",
+  "revision": "20261126-portal-play-1",
+  "unitTests": {
+    "passed": 55,
+    "failed": 0
+  },
+  "syntax": {
+    "checkedFiles": 16,
+    "errors": 0
+  },
+  "browser": {
+    "passed": true,
+    "desktop": [
+      1440,
+      1000
+    ],
+    "compactDesktop": [
+      1440,
+      700
+    ],
+    "mobile": [
+      390,
+      844
+    ],
+    "arcadeCoverImagesLoaded": 16,
+    "calcLibraryScrolledFromY": 356.984375,
+    "calcLibraryScrolledToY": -291.015625,
+    "checks": [
+      "dashboard tasks and customization persistence",
+      "borderless navigation and topbar",
+      "fixed and flow header",
+      "Genshin Idle recruitment, collection, combat and separate save",
+      "regional celebration activation",
+      "other page startup",
+      "nine mobile pages without horizontal overflow",
+      "reduced motion"
+    ],
+    "pageErrors": 0,
+    "consoleErrors": 0
+  },
+  "realAccountModified": false,
+  "cleanup": {
+    "removedFiles": 404,
+    "bytes": 78600073
+  },
+  "infinityfree": {
+    "prepared": true,
+    "liveUploadPerformed": false,
+    "pythonBackendRequiredForLiveFeeds": true
+  }
+}

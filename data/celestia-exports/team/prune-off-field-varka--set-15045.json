@@ -1,7 +1,7 @@
 {
   "name": "Off-field Varka",
   "description": "Celestia",
-  "lastEdit": 1794351134345,
+  "lastEdit": 1795427414263,
   "conditional": {
     "resonance": {},
     "reaction": {}
@@ -81,6 +81,38 @@
                 "atk": 804.299,
                 "enerRech_": 48,
                 "anemo_enemyRes_": -35,
+                "all_dmg_": 40
+              },
+              "description": ""
+            },
+            {
+              "weight": 8,
+              "path": [
+                "passive1",
+                "pyroDmg"
+              ],
+              "hitMode": "avgHit",
+              "bonusStats": {
+                "atk_": 80,
+                "atk": 804.299,
+                "enerRech_": 48,
+                "pyro_enemyRes_": -35,
+                "all_dmg_": 40
+              },
+              "description": ""
+            },
+            {
+              "weight": 8,
+              "path": [
+                "constellation4",
+                "pyroDmg"
+              ],
+              "hitMode": "avgHit",
+              "bonusStats": {
+                "atk_": 80,
+                "atk": 804.299,
+                "enerRech_": 48,
+                "pyro_enemyRes_": -35,
                 "all_dmg_": 40
               },
               "description": ""
@@ -197,7 +229,7 @@
       "buildTcs": [
         {
           "name": "Celestia",
-          "description": "Celestia teammate assumption (85% of the maximum).",
+          "description": "Celestia teammate assumption (KQMS standard).",
           "characterKey": "Nicole",
           "character": {
             "level": 90,
@@ -282,7 +314,7 @@
       "buildTcs": [
         {
           "name": "Celestia",
-          "description": "Celestia teammate assumption (85% of the maximum).",
+          "description": "Celestia teammate assumption (KQMS standard).",
           "characterKey": "Durin",
           "character": {
             "level": 90,
@@ -367,7 +399,7 @@
       "buildTcs": [
         {
           "name": "Celestia",
-          "description": "Celestia teammate assumption (85% of the maximum).",
+          "description": "Celestia teammate assumption (KQMS standard).",
           "characterKey": "Varka",
           "character": {
             "level": 90,

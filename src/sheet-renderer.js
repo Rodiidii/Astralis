@@ -1,7 +1,7 @@
 import {EL,backdrop} from './sheet-backdrop.js';
 import {referenceMarkup,shares} from './sheet-reference-templates.js';
 export {shares};
-export const SHEET_FORMATS={team:[2000,1570],compare:[2000,1530],build:[2000,1420],lab:[2000,2000],farm:[1080,1736]};
+export const SHEET_FORMATS={team:[2000,1570],compare:[2000,1530],build:[2000,940],lab:[2000,2000],farm:[1080,1736]};
 export function sheetElement(value){const key=String(value||'').toLowerCase();return ({'anémo':'anemo','électro':'electro','géo':'geo',ice:'cryo',wind:'anemo',fire:'pyro',lightning:'electro'})[key]||(EL[key]?key:'cryo');}
 export function sheetSeed(value){let h=2166136261;for(const c of String(value))h=Math.imul(h^c.charCodeAt(0),16777619);return h>>>0;}
 export function readableAccent(value,background){
@@ -55,7 +55,7 @@ async function prepare(data,el,loadImage){
  const tasks=[];
  function asset(object,key){if(!object)return;tasks.push(resolveImage(object[key],sheetElement(object.element||el),loadImage).then(uri=>object[key]=uri||(key==='image'&&(object===d||d.members.includes(object))?fallback(el):null)));}
  asset(d,'image');for(const m of d.members){m.element=sheetElement(m.element||el);asset(m,'image');asset(m.weapon,'image');asset(m.set,'image');}
- asset(d.weapon,'image');for(const p of d.artifacts||[])asset(p,'image');for(const m of d.materials||[])asset(m,'image');
+ asset(d.weapon,'image');for(const t of [...(d.talentDetails||[]),...(d.constellationDetails||[])])asset(t,'image');for(const p of d.artifacts||[])asset(p,'image');for(const m of d.materials||[])asset(m,'image');
  for(const a of d.rotation||[])if(a.image)asset(a,'image');
  await Promise.all(tasks);return d;
 }
@@ -76,6 +76,7 @@ function reflow(root,type){
   }
  }
  if(type==='build'){
+  if(content.classList.contains('build-showcase'))return;
   const right=document.createElement('main'),nodes=[...content.children].filter(n=>parseFloat(n.style.left)>=700);
   right.className='sheet-build-right';content.append(right);flow(right,nodes,0,62,32);right.style.marginLeft='740px';right.style.marginRight='70px';return;
  }
@@ -107,14 +108,15 @@ function fitText(root){
 export async function mountSheet(type,input,options={}){
  if(!SHEET_FORMATS[type])throw new Error('Type de fiche inconnu.');
  const d={...adaptSheetData(type,input)},el=sheetElement(options.element||d.element),[width,minHeight]=SHEET_FORMATS[type];
+ if(options.element&&d.identity)d.identity={...d.identity,accent:'',secondary:''};
  if(options.artwork)d.image=options.artwork;
  if(type==='compare'){const ids=(d.members||[]).map(m=>m.id).filter(Boolean);if(new Set(ids).size!==ids.length)throw new Error('Un personnage apparaît plusieurs fois dans le comparatif.');}
- await fontCSS();const loader=options.loadImage||(await import('./poster-export.js')).posterBitmap,data=await prepare(d,el,loader);
+ await fontCSS();const loader=options.loadImage||(await import('./poster-export.js?v=20261126-personal-workshop-6')).posterBitmap,data=await prepare(d,el,loader);
  const host=document.createElement('div');host.style.cssText='position:fixed;left:-25000px;top:0;pointer-events:none;z-index:-20';
  const shadow=host.attachShadow({mode:'open'}),style=document.createElement('style');
  cssPromise ||=fetch(new URL('../assets/sheet-reference.css',import.meta.url)).then(r=>r.text());style.textContent=(await cssPromise)+EXTRA_CSS;shadow.append(style);
  const root=document.createElement('article');root.className='sheet sheet-'+type;root.style.cssText='position:relative;width:'+width+'px;min-height:'+minHeight+'px;transform:none;--e1:'+EL[el].e1+';--e2:'+EL[el].e2+';--e3:'+EL[el].e3+';--e4:'+EL[el].e4+';--serif:"Sheet Cormorant",Georgia,serif;--sans:"Sheet Inter",sans-serif';
- const customAccent=/^#[a-f0-9]{6}$/i.test(options.accent||d.accent||'')?readableAccent(options.accent||d.accent,EL[el].e3):null;
+ const customAccent=/^#[a-f0-9]{6}$/i.test(options.accent||(options.element?'':d.accent)||'')?readableAccent(options.accent||d.accent,EL[el].e3):null;
  if(customAccent)root.style.setProperty('--e1',customAccent);
  root.innerHTML='<div class="bgsvg"></div>'+referenceMarkup(type,data,el);shadow.append(root);document.body.append(host);
  try{
@@ -147,7 +149,7 @@ export async function mountSheet(type,input,options={}){
    const match=node.firstChild.textContent.match(/^([\d\s\u202f]+),(\d+)(.*)$/);
    if(match){const decimal=document.createElement('span');decimal.style.fontSize='.55em';decimal.textContent=','+match[2];node.firstChild.replaceWith(document.createTextNode(match[1]),decimal,document.createTextNode(match[3]));}
   }
-  if(['team','build'].includes(type)&&!Object.values(data.damage||{}).some(v=>typeof v==='number'&&Number.isFinite(v))){
+  if(type==='team'&&!Object.values(data.damage||{}).some(v=>typeof v==='number'&&Number.isFinite(v))){
    const panel=type==='team'?root.querySelector('.pn.glow'):[...root.querySelectorAll('.pn.glow')].at(-1);
    panel.innerHTML='<span>Dégâts à calculer dans le laboratoire</span><small class="sheet-unknown">Non confirmé</small>';
    panel.style.cssText+=';display:flex;gap:16px;align-items:center;height:auto;min-height:64px;padding:18px 28px;font:500 22px var(--sans)';
@@ -170,4 +172,4 @@ export async function renderSheet(type,data,options={}){
  const sheet=await mountSheet(type,data,options);
  try{const library=await captureLibrary();const canvas=await library.toCanvas(sheet.root,{pixelRatio:options.pixelRatio??2,skipAutoScale:true,fontEmbedCSS:await fontCSS(),cacheBust:false});canvas.sheetAudit=sheet.audit;return canvas;}finally{sheet.dispose();}
 }
-const EXTRA_CSS='.sheet-unknown{display:inline-block;margin-left:8px;font:500 12px/1.3 var(--sans);padding:3px 6px;border:1px solid #ffffff45;border-radius:6px;vertical-align:middle;color:#f6f1e7}.sheet{color:#f6f1e7}.sheet *{box-sizing:border-box;min-width:0}.sheet .in{font-family:var(--sans)}.sheet .art{object-fit:cover}.sheet-item-image{width:78px;height:78px;object-fit:contain}.sheet .ttl,.sheet .sub{white-space:normal;overflow-wrap:anywhere}.sheet .num{font-variant-numeric:tabular-nums lining-nums}.sheet .pn{flex-shrink:0}.sheet .mut{color:var(--e2)}.sheet .foot{bottom:30px}.sheet-build .in>div[style*="left:70px"]{max-width:550px}.sheet-build .in>div[style*="width:690px"] .art{height:100%!important}.sheet .ico>.sheet-item-image{width:90%;height:90%}.sheet-build .in{position:relative;inset:auto;min-height:1420px}.sheet-farm .sheet-item-image{width:72px;height:72px}.sheet-farm .pn{min-height:100px}.sheet-farm .pn b.num{font-size:34px!important;white-space:nowrap}.sheet .pn [style*="white-space:nowrap"]{white-space:normal!important;overflow:visible!important}.sheet .pn p{overflow-wrap:anywhere}.sheet .pn div[style*="font:600 25px"]{overflow-wrap:anywhere}.sheet .pn>div[style*="height:400px"]{min-height:400px}.sheet .pn>div[style*="height:210px"]{min-height:210px}';
+const EXTRA_CSS='.sheet .build-gallery .sheet-item-image{width:100px;height:100px}.sheet .build-gallery span>.sheet-item-image{width:30px;height:30px}.build-gallery>div[style*="bottom:39px"] .sheet-item-image{width:34px;height:34px}.sheet-unknown{display:inline-block;margin-left:8px;font:500 12px/1.3 var(--sans);padding:3px 6px;border:1px solid #ffffff45;border-radius:6px;vertical-align:middle;color:#f6f1e7}.sheet{color:#f6f1e7}.sheet *{box-sizing:border-box;min-width:0}.sheet .in{font-family:var(--sans)}.sheet .art{object-fit:cover}.sheet-item-image{width:78px;height:78px;object-fit:contain}.sheet .ttl,.sheet .sub{white-space:normal;overflow-wrap:anywhere}.sheet .num{font-variant-numeric:tabular-nums lining-nums}.sheet .pn{flex-shrink:0}.sheet .mut{color:var(--e2)}.sheet .foot{bottom:30px}.sheet-build .in>div[style*="left:70px"]{max-width:550px}.sheet-build .in>div[style*="width:690px"] .art{height:100%!important}.sheet .ico>.sheet-item-image{width:90%;height:90%}.sheet-build .in{position:relative;inset:auto;min-height:940px}.build-showcase .sheet-item-image{width:125px;height:125px}.build-showcase span>.sheet-item-image{width:36px;height:36px}.build-showcase .art{filter:none}.sheet-farm .sheet-item-image{width:72px;height:72px}.sheet-farm .pn{min-height:100px}.sheet-farm .pn b.num{font-size:34px!important;white-space:nowrap}.sheet .pn [style*="white-space:nowrap"]{white-space:normal!important;overflow:visible!important}.sheet .pn p{overflow-wrap:anywhere}.sheet .pn div[style*="font:600 25px"]{overflow-wrap:anywhere}.sheet .pn>div[style*="height:400px"]{min-height:400px}.sheet .pn>div[style*="height:210px"]{min-height:210px}';

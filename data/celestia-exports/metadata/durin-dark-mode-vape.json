@@ -84,5 +84,47 @@
       ]
     }
   ],
-  "teamIssues": []
+  "teamIssues": [
+    {
+      "code": "characterBonusStats",
+      "stats": [
+        {
+          "buff": "Pyro Resonance",
+          "key": "atk_",
+          "value": 25
+        }
+      ]
+    },
+    {
+      "code": "selfScaling",
+      "buffs": [
+        "A4 Primordial Fusion — 3% of the original DMG per 100 ATK, 75% cap"
+      ]
+    },
+    {
+      "code": "goSwitch",
+      "switches": [
+        {
+          "condition": [
+            "AthameArtis",
+            "burstHit",
+            "on"
+          ],
+          "source": {
+            "type": "weapon",
+            "weaponId": 11518
+          },
+          "buffs": [
+            "Day King's Splendor Solis"
+          ]
+        }
+      ]
+    },
+    {
+      "code": "setEffects",
+      "setIds": [
+        15044
+      ]
+    }
+  ]
 }

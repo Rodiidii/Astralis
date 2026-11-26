@@ -1,7 +1,7 @@
 {
   "name": "Hyperbloom",
   "description": "Celestia",
-  "lastEdit": 1794890307183,
+  "lastEdit": 1795427405531,
   "conditional": {
     "resonance": {},
     "reaction": {}
@@ -64,7 +64,7 @@
               "description": ""
             },
             {
-              "weight": 0.8586,
+              "weight": 0.75,
               "path": [
                 "normal",
                 "0"
@@ -79,7 +79,7 @@
               "description": ""
             },
             {
-              "weight": 1.0183,
+              "weight": 1,
               "path": [
                 "constellation6",
                 "dmg"
@@ -134,7 +134,7 @@
               "description": ""
             },
             {
-              "weight": 0.8586,
+              "weight": 1,
               "path": [
                 "normal",
                 "0"
@@ -149,7 +149,7 @@
               "description": ""
             },
             {
-              "weight": 1.0183,
+              "weight": 1,
               "path": [
                 "constellation6",
                 "dmg"
@@ -190,7 +190,7 @@
               "description": ""
             },
             {
-              "weight": 1.328,
+              "weight": 1.3333,
               "path": [
                 "normal",
                 "0"
@@ -219,7 +219,7 @@
               "description": ""
             },
             {
-              "weight": 1.0183,
+              "weight": 1,
               "path": [
                 "constellation6",
                 "dmg"
@@ -273,7 +273,7 @@
               "description": ""
             },
             {
-              "weight": 0.672,
+              "weight": 0.6667,
               "path": [
                 "normal",
                 "0"
@@ -287,7 +287,7 @@
               "description": ""
             },
             {
-              "weight": 1.0183,
+              "weight": 1,
               "path": [
                 "constellation6",
                 "dmg"
@@ -342,7 +342,7 @@
               "description": ""
             },
             {
-              "weight": 0.8586,
+              "weight": 0.75,
               "path": [
                 "normal",
                 "0"
@@ -357,7 +357,7 @@
               "description": ""
             },
             {
-              "weight": 0.9267,
+              "weight": 1,
               "path": [
                 "constellation6",
                 "dmg"
@@ -370,7 +370,7 @@
               "description": ""
             },
             {
-              "weight": 0.4242,
+              "weight": 0.5,
               "path": [
                 "normal",
                 "0"
@@ -559,7 +559,7 @@
       "buildTcs": [
         {
           "name": "Celestia",
-          "description": "Celestia teammate assumption (85% of the maximum).",
+          "description": "Celestia teammate assumption (KQMS standard).",
           "characterKey": "KukiShinobu",
           "character": {
             "level": 90,
@@ -644,7 +644,7 @@
       "buildTcs": [
         {
           "name": "Celestia",
-          "description": "Celestia teammate assumption (85% of the maximum).",
+          "description": "Celestia teammate assumption (KQMS standard).",
           "characterKey": "Xingqiu",
           "character": {
             "level": 90,
@@ -729,7 +729,7 @@
       "buildTcs": [
         {
           "name": "Celestia",
-          "description": "Celestia teammate assumption (85% of the maximum).",
+          "description": "Celestia teammate assumption (KQMS standard).",
           "characterKey": "Fischl",
           "character": {
             "level": 90,

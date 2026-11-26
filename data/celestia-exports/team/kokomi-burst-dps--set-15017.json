@@ -1,7 +1,7 @@
 {
   "name": "Burst DPS",
   "description": "Celestia",
-  "lastEdit": 1794890252027,
+  "lastEdit": 1795427327389,
   "conditional": {
     "resonance": {},
     "reaction": {}
@@ -48,7 +48,7 @@
               "description": ""
             },
             {
-              "weight": 1.0056,
+              "weight": 1,
               "path": [
                 "skill",
                 "dmg"
@@ -62,7 +62,7 @@
               "description": ""
             },
             {
-              "weight": 1.0689,
+              "weight": 1,
               "path": [
                 "skill",
                 "dmg"
@@ -76,7 +76,7 @@
               "description": ""
             },
             {
-              "weight": 1.0056,
+              "weight": 1,
               "path": [
                 "skill",
                 "dmg"
@@ -90,7 +90,7 @@
               "description": ""
             },
             {
-              "weight": 1.0056,
+              "weight": 1,
               "path": [
                 "skill",
                 "dmg"
@@ -104,7 +104,7 @@
               "description": ""
             },
             {
-              "weight": 1.0056,
+              "weight": 1,
               "path": [
                 "skill",
                 "dmg"
@@ -133,7 +133,7 @@
               "description": ""
             },
             {
-              "weight": 1.0056,
+              "weight": 1,
               "path": [
                 "skill",
                 "dmg"
@@ -192,7 +192,7 @@
               "description": ""
             },
             {
-              "weight": 1.0056,
+              "weight": 1,
               "path": [
                 "skill",
                 "dmg"
@@ -297,7 +297,7 @@
               "description": ""
             },
             {
-              "weight": 0.9744,
+              "weight": 1,
               "path": [
                 "skill",
                 "dmg"
@@ -387,7 +387,7 @@
               "description": ""
             },
             {
-              "weight": 0.9744,
+              "weight": 1,
               "path": [
                 "skill",
                 "dmg"
@@ -477,7 +477,7 @@
               "description": ""
             },
             {
-              "weight": 0.9744,
+              "weight": 1,
               "path": [
                 "skill",
                 "dmg"
@@ -552,7 +552,7 @@
               "description": ""
             },
             {
-              "weight": 0.9744,
+              "weight": 1,
               "path": [
                 "skill",
                 "dmg"
@@ -661,7 +661,7 @@
       "buildTcs": [
         {
           "name": "Celestia",
-          "description": "Celestia teammate assumption (85% of the maximum).",
+          "description": "Celestia teammate assumption (KQMS standard).",
           "characterKey": "KaedeharaKazuha",
           "character": {
             "level": 90,
@@ -746,7 +746,7 @@
       "buildTcs": [
         {
           "name": "Celestia",
-          "description": "Celestia teammate assumption (85% of the maximum).",
+          "description": "Celestia teammate assumption (KQMS standard).",
           "characterKey": "Furina",
           "character": {
             "level": 90,
@@ -831,7 +831,7 @@
       "buildTcs": [
         {
           "name": "Celestia",
-          "description": "Celestia teammate assumption (85% of the maximum).",
+          "description": "Celestia teammate assumption (KQMS standard).",
           "characterKey": "Yelan",
           "character": {
             "level": 90,

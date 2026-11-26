@@ -8,8 +8,9 @@ export function parseLabConfiguration(text) {
     target.path.every(part => typeof part === 'string' || Number.isFinite(part)) &&
     (target.weight == null || Number.isFinite(target.weight));
   const isTargetGroup = group => Array.isArray(group?.targets) && group.targets.length > 0 && group.targets.every(isTarget);
-  if (!original || typeof original.name !== 'string' || !original.name.trim()) throw new Error('Nom de configuration absent.');
+  if (!original || (typeof original.name !== 'string' || !original.name.trim()) && !(typeof original.key === 'string' && Array.isArray(original.buildTcs))) throw new Error('Nom de configuration absent.');
   if(original.format==='astralis-team'&&Array.isArray(original.team?.members)&&original.team.members.length>=1&&original.team.members.length<=4)return {kind:'astralis-team',original};
+  if(original&&typeof original.key==='string'&&Array.isArray(original.buildTcs)&&original.buildTcs.length)return {kind:'team',original:{name:original.name||original.key,loadoutData:[original]}};
   if (isTargetGroup(original)) return {kind:'multi-target', original};
   if (Array.isArray(original.loadoutData) && original.loadoutData.length >= 1 && original.loadoutData.length <= 4 &&
       original.loadoutData.some(member => member != null) &&
@@ -26,13 +27,14 @@ export function labConfigurations() {
 
 class LabConfigurations extends (globalThis.HTMLElement || class {}) {
   connectedCallback() {
-    this.innerHTML = '<details><summary>Configurations JSON et équipes importées</summary><label>Importer depuis Genshin Optimizer ou Celestia<input type="file" accept=".json,application/json" multiple></label><button type="button" data-celestia-list>Parcourir les exports Celestia locaux</button><p data-celestia-sync-status role="status"></p><div data-celestia-choices></div><p data-import-status role="status"></p><div data-config-list></div></details>';
+    this.innerHTML = '<section class="lc-import"><header><div><small>CELESTIA</small><h3>Charger un personnage ou une équipe</h3></div><nav><button type="button" data-celestia-mode="team" aria-pressed="true">Équipe</button><button type="button" data-celestia-mode="character" aria-pressed="false">Personnage</button></nav></header><label>Importer depuis Genshin Optimizer ou Celestia<input type="file" accept=".json,application/json" multiple></label><button type="button" data-celestia-list>Parcourir les exports Celestia locaux</button><p data-celestia-sync-status role="status"></p><div data-celestia-choices></div><p data-import-status role="status"></p><details class="lc-saved"><summary>Imports déjà enregistrés</summary><div data-config-list></div></details><button type="button" class="lc-example" data-mavuika-example>Essayer Mavuika Fonte · Iansan C6 · Mort-du-loup</button></section>';
     this.querySelector('input').addEventListener('change', async event => {
       const status = this.querySelector('[data-import-status]'), messages = [], saved = labConfigurations();
       for (const file of event.target.files) {
         try {
           if (file.size > MAX_BYTES) throw new Error('Fichier trop volumineux.');
           const config = parseLabConfiguration(await file.text());
+          await this.openInLab(config,file.name);
           const identical = saved.some(row => JSON.stringify(row.original) === JSON.stringify(config.original));
           if (!identical) saved.push({...config, id:crypto.randomUUID()});
           messages.push(file.name + (identical ? ' · déjà enregistré' : ' · enregistré'));
@@ -45,9 +47,24 @@ class LabConfigurations extends (globalThis.HTMLElement || class {}) {
       this.renderList();
     });
     this.querySelector('[data-celestia-list]').addEventListener('click', () => this.loadCelestia());
-    this.renderList();this.checkUpdates();this.syncTimer=setInterval(()=>this.checkUpdates(),60000);
+    this.querySelectorAll('[data-celestia-mode]').forEach(button=>button.onclick=()=>{this.importMode=button.dataset.celestiaMode;this.querySelectorAll('[data-celestia-mode]').forEach(b=>b.setAttribute('aria-pressed',String(b===button)));});
+    this.querySelector('[data-mavuika-example]').onclick=async()=>{const status=this.querySelector('[data-import-status]');try{const response=await fetch('/data/celestia-exports/team/mavuika-melt-premium.json');if(!response.ok)throw Error('Exemple local indisponible.');document.dispatchEvent(new CustomEvent('astralis:lab-celestia-import',{bubbles:true,detail:{original:await response.json(),mode:'team',preset:'mavuika-wgs'}}));}catch(error){status.textContent=error.message;}};
+    this.renderList();this.loadCelestia();this.checkUpdates();this.syncTimer=setInterval(()=>this.checkUpdates(),60000);
   }
   disconnectedCallback(){clearInterval(this.syncTimer);}
+  async openInLab(config,file=''){
+   if(config.kind==='astralis-team'){document.dispatchEvent(new CustomEvent('astralis:lab-native-team',{detail:config.original}));return;}
+   let original=config.original;
+   if(config.kind==='multi-target'){
+    const base=String(file).split('/').at(-1).replace(/\.json$/i,'');
+    if(!/^[a-z0-9-]+$/i.test(base))throw Error('Choisis le fichier Team correspondant pour importer les statistiques.');
+    const response=await fetch('/data/celestia-exports/team/'+base+'.json');
+    if(!response.ok)throw Error('Ce fichier contient des cibles seules. Choisis son export Team Celestia.');
+    original=await response.json();
+   }
+   document.dispatchEvent(new CustomEvent('astralis:lab-celestia-import',{bubbles:true,detail:{original,mode:this.importMode||'team',file}}));
+  }
+
   async checkUpdates(){const host=this.querySelector('[data-celestia-sync-status]');if(!host)return;try{const data=await fetch('/api/lab/export-status',{cache:'no-store'}).then(r=>r.ok?r.json():{});if(data.checkedAt&&this.lastSync!==data.checkedAt&&this.querySelector('[data-celestia-choices] input'))await this.loadCelestia(this.querySelector('[data-celestia-choices] input').value);this.lastSync=data.checkedAt;host.textContent=data.state==='running'?'Recherche automatique de nouveaux exports Celestia…':data.state==='ready'?'Exports Celestia vérifiés · '+new Date(data.checkedAt*1000).toLocaleString('fr-FR'):data.state==='partial'||data.state==='error'?'Exports conservés · certaines sources sont temporairement indisponibles':'Les nouveaux exports sont vérifiés automatiquement toutes les six heures pendant qu’Astralis est ouvert.';}catch{host.textContent='Exports locaux disponibles.';}}
 
   async loadCelestia(previousQuery='') {
@@ -56,7 +73,7 @@ class LabConfigurations extends (globalThis.HTMLElement || class {}) {
     try {
       const base = './data/celestia-exports/';
       const response = await fetch(base + 'manifest.json', {cache:'no-store'});
-      if (!response.ok) throw new Error('Exécute le script de collecte Celestia dans le projet.');
+      if (!response.ok) throw new Error('L’index Celestia local est indisponible. Tu peux importer un fichier JSON.');
       const manifest = await response.json();
       const aliases = await fetch('./public/gi-name-aliases.json').then(reply=>reply.ok?reply.json():{}).catch(()=>({}));
       const setNames = new Map((aliases.artifacts || []).map(set=>[String(set.id),set.fr?.[0] || set.en?.[0]]));
@@ -114,6 +131,7 @@ class LabConfigurations extends (globalThis.HTMLElement || class {}) {
                 localStorage.setItem(seenKey, JSON.stringify(seen));
                 status.textContent = config.original.name + ' · enregistré';
                 this.renderList();
+                await this.openInLab(config,row.file);
                 draw();
               } catch (error) { status.textContent = error.message; }
               finally {button.disabled=false;}
@@ -156,10 +174,10 @@ class LabConfigurations extends (globalThis.HTMLElement || class {}) {
       if (row.kind === 'team') {
         const open = document.createElement('button');
         open.type = 'button';
-        open.textContent = 'Ouvrir dans Équipes';
+        open.textContent = 'Charger dans le laboratoire';
         open.addEventListener('click', () => {
           const current = labConfigurations().find(item => item.id === row.id);
-          if (current) this.dispatchEvent(new CustomEvent('astralis:open-imported-team', {bubbles:true,detail:current}));
+          if (current) this.openInLab(current);
         });
         details.append(open);
         for (const [index, member] of row.original.loadoutData.entries()) {

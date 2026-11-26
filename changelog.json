@@ -2,6 +2,38 @@
   "schemaVersion": 1,
   "releases": [
     {
+      "id": "2026-11-26-portal-play-1",
+      "date": "2026-11-26",
+      "title": "Un nouveau portail, des jeux au cœur de Teyvat",
+      "summary": "Accueil cinématique personnalisable, Arcade illustrée avec Genshin Idle et un Express des Mondes plus vivant.",
+      "changes": [
+        {
+          "area": "Accueil",
+          "text": "Une scène de Teyvat avec le personnage du thème, des mouvements réglables et des informations utiles réorganisables : farm, objectifs, vœux et rendez-vous."
+        },
+        {
+          "area": "Arcade astral",
+          "text": "Les couvertures réutilisent les illustrations Genshin. Genshin Idle retrouve son accès, sa collection, ses combats et sa sauvegarde indépendante."
+        },
+        {
+          "area": "Express des Mondes",
+          "text": "Nouveau comptoir, trois ambiances et fêtes régionales à durée limitée. Les matériaux dépensés activent réellement récolte, artisanat ou énergie du groupe."
+        },
+        {
+          "area": "Navigation",
+          "text": "Suppression des bordures du menu et de la barre du haut. Densité, arrondis, largeur et comportement de la barre réglables ; correction de l’espace en haut des pages."
+        },
+        {
+          "area": "CalcSheets",
+          "text": "Mes compositions reste dans Suivi et défile normalement avec la page."
+        },
+        {
+          "area": "Distribution",
+          "text": "Les archives excluent les données privées et les sorties de diagnostic. Une préparation séparée est fournie pour InfinityFree."
+        }
+      ]
+    },
+    {
       "id": "2026-11-19-settings-identity-1",
       "date": "2026-11-19",
       "title": "Des réglages plus clairs, une icône partout",

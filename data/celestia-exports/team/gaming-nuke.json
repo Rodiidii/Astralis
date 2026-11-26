@@ -1,7 +1,7 @@
 {
   "name": "Nuke",
   "description": "Celestia",
-  "lastEdit": 1794349121205,
+  "lastEdit": 1795427436769,
   "conditional": {
     "resonance": {},
     "reaction": {}
@@ -52,7 +52,7 @@
               "hitMode": "critHit",
               "reaction": "melt",
               "bonusStats": {
-                "atk": 1308,
+                "atk": 1416,
                 "eleMas": 370,
                 "all_dmgInc": 25940.906,
                 "all_dmg_": 341.5,
@@ -226,81 +226,6 @@
       ]
     },
     {
-      "key": "Durin",
-      "name": "Durin (Celestia)",
-      "description": "",
-      "hitMode": "avgHit",
-      "infusionAura": "",
-      "bonusStats": {},
-      "conditional": {},
-      "customMultiTargets": [],
-      "buildTcs": [
-        {
-          "name": "Celestia",
-          "description": "Celestia teammate assumption (85% of the maximum).",
-          "characterKey": "Durin",
-          "character": {
-            "level": 90,
-            "ascension": 6,
-            "constellation": 0,
-            "talent": {
-              "auto": 10,
-              "skill": 10,
-              "burst": 10
-            }
-          },
-          "weapon": {
-            "key": "KeyOfKhajNisut",
-            "level": 90,
-            "ascension": 6,
-            "refinement": 5
-          },
-          "artifact": {
-            "sets": {},
-            "slots": {
-              "flower": {
-                "level": 20,
-                "rarity": 5,
-                "statKey": "hp"
-              },
-              "plume": {
-                "level": 20,
-                "rarity": 5,
-                "statKey": "atk"
-              },
-              "sands": {
-                "level": 20,
-                "rarity": 5,
-                "statKey": "hp_"
-              },
-              "goblet": {
-                "level": 20,
-                "rarity": 5,
-                "statKey": "hp_"
-              },
-              "circlet": {
-                "level": 20,
-                "rarity": 5,
-                "statKey": "hp_"
-              }
-            },
-            "substats": {
-              "type": "max",
-              "rarity": 5,
-              "stats": {
-                "hp": 4824.81,
-                "hp_": 59.47
-              }
-            }
-          },
-          "optimization": {
-            "distributedSubstats": 0,
-            "maxSubstats": {}
-          }
-        }
-      ]
-    },
-    {
       "key": "Citlali",
       "name": "Citlali (Celestia)",
       "description": "",
@@ -366,6 +291,83 @@
               "rarity": 4,
               "stats": {
                 "eleMas": 158.53
+              }
+            }
+          },
+          "optimization": {
+            "distributedSubstats": 0,
+            "maxSubstats": {}
+          }
+        }
+      ]
+    },
+    {
+      "key": "Xianyun",
+      "name": "Xianyun (Celestia)",
+      "description": "",
+      "hitMode": "avgHit",
+      "infusionAura": "",
+      "bonusStats": {},
+      "conditional": {},
+      "customMultiTargets": [],
+      "buildTcs": [
+        {
+          "name": "Celestia",
+          "description": "Celestia teammate assumption (85% of the maximum).",
+          "characterKey": "Xianyun",
+          "character": {
+            "level": 90,
+            "ascension": 6,
+            "constellation": 6,
+            "talent": {
+              "auto": 10,
+              "skill": 10,
+              "burst": 10
+            }
+          },
+          "weapon": {
+            "key": "CranesEchoingCall",
+            "level": 90,
+            "ascension": 6,
+            "refinement": 5
+          },
+          "artifact": {
+            "sets": {
+              "ViridescentVenerer": 4
+            },
+            "slots": {
+              "flower": {
+                "level": 20,
+                "rarity": 5,
+                "statKey": "hp"
+              },
+              "plume": {
+                "level": 20,
+                "rarity": 5,
+                "statKey": "atk"
+              },
+              "sands": {
+                "level": 20,
+                "rarity": 5,
+                "statKey": "atk_"
+              },
+              "goblet": {
+                "level": 20,
+                "rarity": 5,
+                "statKey": "atk_"
+              },
+              "circlet": {
+                "level": 20,
+                "rarity": 5,
+                "statKey": "atk_"
+              }
+            },
+            "substats": {
+              "type": "max",
+              "rarity": 5,
+              "stats": {
+                "atk": 314.12,
+                "atk_": 59.47
               }
             }
           },

@@ -3,6 +3,21 @@
   "description": "Celestia",
   "targets": [
     {
+      "weight": 1.25,
+      "path": [
+        "charged",
+        "judgmentDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "hp_": 25,
+        "all_dmg_": 106.36,
+        "hydro_enemyRes_": -76,
+        "critRate_": 36
+      },
+      "description": ""
+    },
+    {
       "weight": 1,
       "path": [
         "skill",
@@ -138,7 +153,7 @@
       "description": ""
     },
     {
-      "weight": 0.625,
+      "weight": 1.25,
       "path": [
         "charged",
         "judgmentDmg"
@@ -147,21 +162,6 @@
       "bonusStats": {
         "hp_": 25,
         "all_dmg_": 156.38,
-        "hydro_enemyRes_": -76,
-        "critRate_": 36
-      },
-      "description": ""
-    },
-    {
-      "weight": 0.625,
-      "path": [
-        "charged",
-        "judgmentDmg"
-      ],
-      "hitMode": "avgHit",
-      "bonusStats": {
-        "hp_": 25,
-        "all_dmg_": 147.51,
         "hydro_enemyRes_": -76,
         "critRate_": 36
       },
@@ -582,21 +582,6 @@
       "bonusStats": {
         "hp_": 25,
         "all_dmg_": 147.78,
-        "hydro_enemyRes_": -76,
-        "critRate_": 36
-      },
-      "description": ""
-    },
-    {
-      "weight": 1.25,
-      "path": [
-        "charged",
-        "judgmentDmg"
-      ],
-      "hitMode": "avgHit",
-      "bonusStats": {
-        "hp_": 25,
-        "all_dmg_": 106.36,
         "hydro_enemyRes_": -76,
         "critRate_": 36
       },

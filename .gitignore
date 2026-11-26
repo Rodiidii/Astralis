@@ -10,8 +10,6 @@ data/lab-user-exports/
 
 _backup_avant_modif/
 
-_backup_avant_modif/
-
 # Fichiers locaux et sorties temporaires de diagnostic
 .idea/
 *.log
@@ -23,3 +21,10 @@ _backup_avant_modif/
 
 # Brouillons et publications locales des fiches
 data/character-sheets.sqlite3
+
+# Sorties de tests et caches sans utilité dans l’application
+/artifacts/
+.pytest_cache/
+.playwright/
+*.sqlite3-shm
+*.sqlite3-wal

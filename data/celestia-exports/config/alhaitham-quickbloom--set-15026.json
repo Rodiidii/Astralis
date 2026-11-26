@@ -3,21 +3,6 @@
   "description": "Celestia",
   "targets": [
     {
-      "weight": 0.9677,
-      "path": [
-        "skill",
-        "mirrorDmg1"
-      ],
-      "hitMode": "avgHit",
-      "bonusStats": {
-        "atk_": 14,
-        "eleMas": 100,
-        "atk": 145.297,
-        "dendro_enemyRes_": -30
-      },
-      "description": ""
-    },
-    {
       "weight": 1,
       "path": [
         "skill",
@@ -70,7 +55,7 @@
       "description": ""
     },
     {
-      "weight": 1.04,
+      "weight": 1.25,
       "path": [
         "skill",
         "mirrorDmg1"
@@ -87,7 +72,7 @@
       "description": ""
     },
     {
-      "weight": 0.9677,
+      "weight": 1,
       "path": [
         "skill",
         "mirrorDmg1"
@@ -103,7 +88,7 @@
       "description": ""
     },
     {
-      "weight": 0.9615,
+      "weight": 1,
       "path": [
         "normal",
         "1"
@@ -120,7 +105,7 @@
       "description": ""
     },
     {
-      "weight": 1.04,
+      "weight": 1,
       "path": [
         "skill",
         "mirrorDmg1"
@@ -137,7 +122,7 @@
       "description": ""
     },
     {
-      "weight": 1.0526,
+      "weight": 1,
       "path": [
         "charged",
         "dmg"
@@ -189,7 +174,7 @@
       "description": ""
     },
     {
-      "weight": 1.0638,
+      "weight": 1,
       "path": [
         "normal",
         "1"
@@ -207,7 +192,7 @@
       "description": ""
     },
     {
-      "weight": 0.9677,
+      "weight": 1,
       "path": [
         "skill",
         "mirrorDmg1"
@@ -223,7 +208,7 @@
       "description": ""
     },
     {
-      "weight": 1.04,
+      "weight": 1,
       "path": [
         "skill",
         "mirrorDmg1"
@@ -240,7 +225,7 @@
       "description": ""
     },
     {
-      "weight": 0.9677,
+      "weight": 1,
       "path": [
         "skill",
         "mirrorDmg1"
@@ -291,7 +276,7 @@
       "description": ""
     },
     {
-      "weight": 1.0526,
+      "weight": 1.25,
       "path": [
         "charged",
         "dmg"
@@ -326,7 +311,7 @@
       "description": ""
     },
     {
-      "weight": 0.9677,
+      "weight": 1,
       "path": [
         "skill",
         "mirrorDmg1"
@@ -342,7 +327,7 @@
       "description": ""
     },
     {
-      "weight": 0.9677,
+      "weight": 1,
       "path": [
         "skill",
         "mirrorDmg1"
@@ -442,7 +427,7 @@
       "description": ""
     },
     {
-      "weight": 0.9615,
+      "weight": 0.75,
       "path": [
         "normal",
         "1"
@@ -459,7 +444,7 @@
       "description": ""
     },
     {
-      "weight": 1.04,
+      "weight": 1,
       "path": [
         "skill",
         "mirrorDmg1"
@@ -476,7 +461,7 @@
       "description": ""
     },
     {
-      "weight": 0.9677,
+      "weight": 1,
       "path": [
         "skill",
         "mirrorDmg1"
@@ -492,7 +477,7 @@
       "description": ""
     },
     {
-      "weight": 1.04,
+      "weight": 1,
       "path": [
         "skill",
         "mirrorDmg1"
@@ -509,7 +494,7 @@
       "description": ""
     },
     {
-      "weight": 1.0526,
+      "weight": 1,
       "path": [
         "charged",
         "dmg"
@@ -561,7 +546,7 @@
       "description": ""
     },
     {
-      "weight": 1.0638,
+      "weight": 1.25,
       "path": [
         "normal",
         "1"
@@ -579,7 +564,7 @@
       "description": ""
     },
     {
-      "weight": 0.9677,
+      "weight": 1,
       "path": [
         "skill",
         "mirrorDmg1"
@@ -595,7 +580,7 @@
       "description": ""
     },
     {
-      "weight": 1.04,
+      "weight": 1,
       "path": [
         "skill",
         "mirrorDmg1"
@@ -612,7 +597,7 @@
       "description": ""
     },
     {
-      "weight": 0.9677,
+      "weight": 1,
       "path": [
         "skill",
         "mirrorDmg1"
@@ -680,7 +665,7 @@
       "description": ""
     },
     {
-      "weight": 1.0638,
+      "weight": 1,
       "path": [
         "normal",
         "1"
@@ -698,7 +683,7 @@
       "description": ""
     },
     {
-      "weight": 1.04,
+      "weight": 1,
       "path": [
         "skill",
         "mirrorDmg1"
@@ -715,7 +700,7 @@
       "description": ""
     },
     {
-      "weight": 0.9677,
+      "weight": 1,
       "path": [
         "skill",
         "mirrorDmg1"
@@ -731,7 +716,7 @@
       "description": ""
     },
     {
-      "weight": 1.04,
+      "weight": 1,
       "path": [
         "skill",
         "mirrorDmg1"
@@ -748,7 +733,7 @@
       "description": ""
     },
     {
-      "weight": 1.0526,
+      "weight": 1,
       "path": [
         "charged",
         "dmg"
@@ -801,7 +786,7 @@
       "description": ""
     },
     {
-      "weight": 0.9615,
+      "weight": 1,
       "path": [
         "normal",
         "1"
@@ -835,7 +820,7 @@
       "description": ""
     },
     {
-      "weight": 0.9677,
+      "weight": 1,
       "path": [
         "skill",
         "mirrorDmg1"
@@ -851,7 +836,7 @@
       "description": ""
     },
     {
-      "weight": 1.04,
+      "weight": 1,
       "path": [
         "skill",
         "mirrorDmg1"
@@ -886,7 +871,7 @@
       "description": ""
     },
     {
-      "weight": 0.9677,
+      "weight": 1,
       "path": [
         "skill",
         "mirrorDmg1"
@@ -919,7 +904,7 @@
       "description": ""
     },
     {
-      "weight": 0.9615,
+      "weight": 1,
       "path": [
         "normal",
         "1"
@@ -954,7 +939,7 @@
       "description": ""
     },
     {
-      "weight": 1.04,
+      "weight": 1,
       "path": [
         "skill",
         "mirrorDmg1"
@@ -971,7 +956,7 @@
       "description": ""
     },
     {
-      "weight": 0.9677,
+      "weight": 1,
       "path": [
         "skill",
         "mirrorDmg1"
@@ -1002,7 +987,7 @@
       "description": ""
     },
     {
-      "weight": 1.04,
+      "weight": 1,
       "path": [
         "skill",
         "mirrorDmg1"
@@ -1018,7 +1003,7 @@
       "description": ""
     },
     {
-      "weight": 0.7895,
+      "weight": 0.75,
       "path": [
         "charged",
         "dmg"
@@ -1067,7 +1052,7 @@
       "description": ""
     },
     {
-      "weight": 0.9615,
+      "weight": 1,
       "path": [
         "normal",
         "1"
@@ -1083,7 +1068,7 @@
       "description": ""
     },
     {
-      "weight": 0.9677,
+      "weight": 1,
       "path": [
         "skill",
         "mirrorDmg1"
@@ -1098,7 +1083,7 @@
       "description": ""
     },
     {
-      "weight": 0.9677,
+      "weight": 1,
       "path": [
         "skill",
         "mirrorDmg1"
@@ -1162,7 +1147,7 @@
       "description": ""
     },
     {
-      "weight": 0.9615,
+      "weight": 1,
       "path": [
         "normal",
         "1"
@@ -1178,7 +1163,7 @@
       "description": ""
     },
     {
-      "weight": 0.4839,
+      "weight": 0.25,
       "path": [
         "skill",
         "mirrorDmg1"
@@ -1193,7 +1178,7 @@
       "description": ""
     },
     {
-      "weight": 1.04,
+      "weight": 1,
       "path": [
         "skill",
         "mirrorDmg1"
@@ -1258,7 +1243,7 @@
       "description": ""
     },
     {
-      "weight": 0.8085,
+      "weight": 0.75,
       "path": [
         "normal",
         "1"
@@ -1275,7 +1260,7 @@
       "description": ""
     },
     {
-      "weight": 0.52,
+      "weight": 0.75,
       "path": [
         "skill",
         "mirrorDmg1"
@@ -1291,13 +1276,28 @@
       "description": ""
     },
     {
-      "weight": 0.2308,
+      "weight": 0.25,
       "path": [
         "normal",
         "1"
       ],
       "hitMode": "avgHit",
       "infusionAura": "dendro",
+      "bonusStats": {
+        "atk_": 14,
+        "eleMas": 100,
+        "atk": 145.297,
+        "dendro_enemyRes_": -30
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.75,
+      "path": [
+        "skill",
+        "mirrorDmg1"
+      ],
+      "hitMode": "avgHit",
       "bonusStats": {
         "atk_": 14,
         "eleMas": 100,

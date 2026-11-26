@@ -51,6 +51,38 @@
       "description": ""
     },
     {
+      "weight": 8,
+      "path": [
+        "passive1",
+        "pyroDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 60,
+        "atk": 350,
+        "enerRech_": 48,
+        "pyro_enemyRes_": -35,
+        "all_dmg_": 40
+      },
+      "description": ""
+    },
+    {
+      "weight": 8,
+      "path": [
+        "constellation4",
+        "pyroDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 60,
+        "atk": 350,
+        "enerRech_": 48,
+        "pyro_enemyRes_": -35,
+        "all_dmg_": 40
+      },
+      "description": ""
+    },
+    {
       "weight": 10,
       "path": [
         "reaction",

@@ -1,7 +1,7 @@
 {
   "name": "Hyper",
   "description": "Celestia",
-  "lastEdit": 1794890141286,
+  "lastEdit": 1795409426078,
   "conditional": {
     "resonance": {},
     "reaction": {}
@@ -37,6 +37,20 @@
           "name": "Hyper",
           "description": "Celestia",
           "targets": [
+            {
+              "weight": 1.25,
+              "path": [
+                "charged",
+                "judgmentDmg"
+              ],
+              "hitMode": "avgHit",
+              "bonusStats": {
+                "all_dmg_": 106.36,
+                "hydro_enemyRes_": -76,
+                "critRate_": 36
+              },
+              "description": ""
+            },
             {
               "weight": 1,
               "path": [
@@ -164,7 +178,7 @@
               "description": ""
             },
             {
-              "weight": 0.625,
+              "weight": 1.25,
               "path": [
                 "charged",
                 "judgmentDmg"
@@ -172,20 +186,6 @@
               "hitMode": "avgHit",
               "bonusStats": {
                 "all_dmg_": 156.38,
-                "hydro_enemyRes_": -76,
-                "critRate_": 36
-              },
-              "description": ""
-            },
-            {
-              "weight": 0.625,
-              "path": [
-                "charged",
-                "judgmentDmg"
-              ],
-              "hitMode": "avgHit",
-              "bonusStats": {
-                "all_dmg_": 147.51,
                 "hydro_enemyRes_": -76,
                 "critRate_": 36
               },
@@ -582,20 +582,6 @@
                 "critRate_": 36
               },
               "description": ""
-            },
-            {
-              "weight": 1.25,
-              "path": [
-                "charged",
-                "judgmentDmg"
-              ],
-              "hitMode": "avgHit",
-              "bonusStats": {
-                "all_dmg_": 106.36,
-                "hydro_enemyRes_": -76,
-                "critRate_": 36
-              },
-              "description": ""
             }
           ]
         }
@@ -694,7 +680,7 @@
       "buildTcs": [
         {
           "name": "Celestia",
-          "description": "Celestia teammate assumption (85% of the maximum).",
+          "description": "Celestia teammate assumption (KQMS standard).",
           "characterKey": "KaedeharaKazuha",
           "character": {
             "level": 90,
@@ -779,7 +765,7 @@
       "buildTcs": [
         {
           "name": "Celestia",
-          "description": "Celestia teammate assumption (85% of the maximum).",
+          "description": "Celestia teammate assumption (KQMS standard).",
           "characterKey": "Xilonen",
           "character": {
             "level": 90,
@@ -864,7 +850,7 @@
       "buildTcs": [
         {
           "name": "Celestia",
-          "description": "Celestia teammate assumption (85% of the maximum).",
+          "description": "Celestia teammate assumption (KQMS standard).",
           "characterKey": "Furina",
           "character": {
             "level": 90,

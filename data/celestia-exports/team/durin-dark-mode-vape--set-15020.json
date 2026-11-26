@@ -1,7 +1,7 @@
 {
   "name": "Dark Vape",
   "description": "Celestia",
-  "lastEdit": 1794350983007,
+  "lastEdit": 1795212214062,
   "conditional": {
     "resonance": {},
     "reaction": {}
@@ -27,8 +27,7 @@
       "hitMode": "avgHit",
       "infusionAura": "",
       "bonusStats": {
-        "atk_": 25,
-        "atk": 548.791
+        "atk_": 25
       },
       "conditional": {
         "AthameArtis": {
@@ -48,7 +47,7 @@
               ],
               "hitMode": "avgHit",
               "bonusStats": {
-                "atk": 300,
+                "atk": 848.791,
                 "atk_": 15,
                 "all_dmg_": 40
               },
@@ -62,7 +61,7 @@
               ],
               "hitMode": "avgHit",
               "bonusStats": {
-                "atk": 300,
+                "atk": 848.791,
                 "atk_": 15,
                 "all_dmg_": 40
               },
@@ -76,7 +75,7 @@
               ],
               "hitMode": "avgHit",
               "bonusStats": {
-                "atk": 300,
+                "atk": 848.791,
                 "atk_": 15,
                 "all_dmg_": 40
               },
@@ -91,7 +90,7 @@
               "hitMode": "avgHit",
               "reaction": "vaporize",
               "bonusStats": {
-                "atk": 300,
+                "atk": 848.791,
                 "atk_": 15,
                 "vaporize_dmg_": 70,
                 "all_dmg_": 40
@@ -106,7 +105,7 @@
               ],
               "hitMode": "avgHit",
               "bonusStats": {
-                "atk": 300,
+                "atk": 848.791,
                 "atk_": 15,
                 "all_dmg_": 40
               },
@@ -120,7 +119,7 @@
               ],
               "hitMode": "avgHit",
               "bonusStats": {
-                "atk": 300,
+                "atk": 848.791,
                 "atk_": 15,
                 "all_dmg_": 40
               },
@@ -136,7 +135,8 @@
               "reaction": "vaporize",
               "bonusStats": {
                 "atk_": 15,
-                "all_dmg_": 53,
+                "atk": 548.791,
+                "all_dmg_": 66,
                 "vaporize_dmg_": 70
               },
               "description": ""
@@ -151,7 +151,8 @@
               "reaction": "vaporize",
               "bonusStats": {
                 "atk_": 15,
-                "all_dmg_": 53,
+                "atk": 548.791,
+                "all_dmg_": 66,
                 "vaporize_dmg_": 70
               },
               "description": ""
@@ -165,7 +166,8 @@
               "hitMode": "avgHit",
               "bonusStats": {
                 "atk_": 15,
-                "all_dmg_": 53
+                "atk": 548.791,
+                "all_dmg_": 66
               },
               "description": ""
             },
@@ -178,7 +180,8 @@
               "hitMode": "avgHit",
               "bonusStats": {
                 "atk_": 15,
-                "all_dmg_": 53
+                "atk": 548.791,
+                "all_dmg_": 66
               },
               "description": ""
             }
@@ -267,7 +270,91 @@
         }
       ]
     },
-    null,
+    {
+      "key": "Nicole",
+      "name": "Nicole (Celestia)",
+      "description": "",
+      "hitMode": "avgHit",
+      "infusionAura": "",
+      "bonusStats": {},
+      "conditional": {},
+      "customMultiTargets": [],
+      "buildTcs": [
+        {
+          "name": "Celestia",
+          "description": "Celestia teammate assumption (KQMS standard).",
+          "characterKey": "Nicole",
+          "character": {
+            "level": 90,
+            "ascension": 6,
+            "constellation": 0,
+            "talent": {
+              "auto": 10,
+              "skill": 10,
+              "burst": 10
+            }
+          },
+          "weapon": {
+            "key": "OathswornEye",
+            "level": 90,
+            "ascension": 6,
+            "refinement": 5
+          },
+          "artifact": {
+            "sets": {
+              "CelestialGift": 4
+            },
+            "slots": {
+              "flower": {
+                "level": 20,
+                "rarity": 5,
+                "statKey": "hp"
+              },
+              "plume": {
+                "level": 20,
+                "rarity": 5,
+                "statKey": "atk"
+              },
+              "sands": {
+                "level": 20,
+                "rarity": 5,
+                "statKey": "atk_"
+              },
+              "goblet": {
+                "level": 20,
+                "rarity": 5,
+                "statKey": "atk_"
+              },
+              "circlet": {
+                "level": 20,
+                "rarity": 5,
+                "statKey": "atk_"
+              }
+            },
+            "substats": {
+              "type": "max",
+              "rarity": 5,
+              "stats": {
+                "hp": 507.88,
+                "atk": 165.4,
+                "def": 39.36,
+                "hp_": 9.92,
+                "atk_": 29.76,
+                "def_": 12.4,
+                "eleMas": 39.64,
+                "enerRech_": 11.02,
+                "critRate_": 19.86,
+                "critDMG_": 39.72
+              }
+            }
+          },
+          "optimization": {
+            "distributedSubstats": 0,
+            "maxSubstats": {}
+          }
+        }
+      ]
+    },
     null,
     null
   ]

@@ -1,7 +1,7 @@
 {
   "name": "Plunge",
   "description": "Celestia",
-  "lastEdit": 1794351077247,
+  "lastEdit": 1795427338805,
   "conditional": {
     "resonance": {},
     "reaction": {}
@@ -47,7 +47,7 @@
               "description": ""
             },
             {
-              "weight": 0.4718,
+              "weight": 0.5,
               "path": [
                 "plunging",
                 "dmg"
@@ -83,7 +83,7 @@
               "description": ""
             },
             {
-              "weight": 0.4169,
+              "weight": 0.5,
               "path": [
                 "plunging",
                 "dmg"
@@ -119,7 +119,7 @@
               "description": ""
             },
             {
-              "weight": 0.515,
+              "weight": 0.5,
               "path": [
                 "plunging",
                 "dmg"
@@ -155,7 +155,7 @@
               "description": ""
             },
             {
-              "weight": 0.5032,
+              "weight": 0.5,
               "path": [
                 "plunging",
                 "dmg"
@@ -191,7 +191,7 @@
               "description": ""
             },
             {
-              "weight": 0.5395,
+              "weight": 0.5,
               "path": [
                 "plunging",
                 "dmg"
@@ -227,7 +227,7 @@
               "description": ""
             },
             {
-              "weight": 0.4787,
+              "weight": 0.5,
               "path": [
                 "plunging",
                 "dmg"
@@ -261,7 +261,7 @@
               "description": ""
             },
             {
-              "weight": 0.5032,
+              "weight": 0.5,
               "path": [
                 "plunging",
                 "dmg"
@@ -294,7 +294,7 @@
               "description": ""
             },
             {
-              "weight": 0.5718,
+              "weight": 0.5,
               "path": [
                 "plunging",
                 "dmg"
@@ -436,7 +436,7 @@
       "buildTcs": [
         {
           "name": "Celestia",
-          "description": "Celestia teammate assumption (85% of the maximum).",
+          "description": "Celestia teammate assumption (KQMS standard).",
           "characterKey": "Xianyun",
           "character": {
             "level": 90,
@@ -521,7 +521,7 @@
       "buildTcs": [
         {
           "name": "Celestia",
-          "description": "Celestia teammate assumption (85% of the maximum).",
+          "description": "Celestia teammate assumption (KQMS standard).",
           "characterKey": "Citlali",
           "character": {
             "level": 90,
@@ -606,7 +606,7 @@
       "buildTcs": [
         {
           "name": "Celestia",
-          "description": "Celestia teammate assumption (85% of the maximum).",
+          "description": "Celestia teammate assumption (KQMS standard).",
           "characterKey": "Bennett",
           "character": {
             "level": 90,

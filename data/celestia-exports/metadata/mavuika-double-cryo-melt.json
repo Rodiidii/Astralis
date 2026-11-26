@@ -24,6 +24,9 @@
     "source": "ceilingStandard"
   },
   "goConditions": {
+    "Mavuika": {
+      "a1NsBurst": "on"
+    },
     "AThousandBlazingSuns": {
       "passive": "on",
       "nightsoul": "on"
@@ -31,9 +34,6 @@
     "ObsidianCodex": {
       "2NightsoulBlessing": "on",
       "4NightsoulConsume": "on"
-    },
-    "Mavuika": {
-      "a1NsBurst": "on"
     }
   },
   "characterBonusStats": {
@@ -70,6 +70,19 @@
       "switches": [
         {
           "condition": [
+            "Mavuika",
+            "a1NsBurst",
+            "on"
+          ],
+          "source": {
+            "type": "character"
+          },
+          "buffs": [
+            "Gift of Flaming Flowers"
+          ]
+        },
+        {
+          "condition": [
             "AThousandBlazingSuns",
             "passive",
             "on"
@@ -122,19 +135,6 @@
           },
           "buffs": [
             "Obsidian Codex"
-          ]
-        },
-        {
-          "condition": [
-            "Mavuika",
-            "a1NsBurst",
-            "on"
-          ],
-          "source": {
-            "type": "character"
-          },
-          "buffs": [
-            "Gift of Flaming Flowers"
           ]
         }
       ]
@@ -152,6 +152,19 @@
       "switches": [
         {
           "condition": [
+            "Mavuika",
+            "a1NsBurst",
+            "on"
+          ],
+          "source": {
+            "type": "character"
+          },
+          "buffs": [
+            "Gift of Flaming Flowers"
+          ]
+        },
+        {
+          "condition": [
             "AThousandBlazingSuns",
             "passive",
             "on"
@@ -204,19 +217,6 @@
           },
           "buffs": [
             "Obsidian Codex"
-          ]
-        },
-        {
-          "condition": [
-            "Mavuika",
-            "a1NsBurst",
-            "on"
-          ],
-          "source": {
-            "type": "character"
-          },
-          "buffs": [
-            "Gift of Flaming Flowers"
           ]
         }
       ]

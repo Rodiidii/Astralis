@@ -35,7 +35,6 @@
   "characterBonusStats": {
     "atk": 1788,
     "eleMas": 798.904,
-    "hp_": 30,
     "atk_": 45
   },
   "enemy": {
@@ -65,11 +64,6 @@
           "buff": "Gilded Hall ATK",
           "key": "atk",
           "value": 372
-        },
-        {
-          "buff": "Cheesy Crab Hotpot HP",
-          "key": "hp_",
-          "value": 30
         },
         {
           "buff": "Instructor 4pc EM",
@@ -164,11 +158,6 @@
           "buff": "Gilded Hall ATK",
           "key": "atk",
           "value": 372
-        },
-        {
-          "buff": "Cheesy Crab Hotpot HP",
-          "key": "hp_",
-          "value": 30
         }
       ]
     },

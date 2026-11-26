@@ -1,7 +1,7 @@
 {
   "name": "Nuke",
   "description": "Celestia",
-  "lastEdit": 1794351114442,
+  "lastEdit": 1795427380783,
   "conditional": {
     "resonance": {},
     "reaction": {}
@@ -41,7 +41,7 @@
           "description": "Celestia",
           "targets": [
             {
-              "weight": 1.0261,
+              "weight": 1,
               "path": [
                 "burst",
                 "skillDmg"
@@ -51,7 +51,7 @@
                 "atk": 1308,
                 "enerRech_": 20,
                 "atk_": 180,
-                "all_dmgInc": 10165.533,
+                "all_dmgInc": 10918.108,
                 "all_dmg_": 281,
                 "enemyDefIgn_": 40,
                 "electro_enemyRes_": -100,
@@ -126,15 +126,15 @@
               "type": "max",
               "rarity": 5,
               "stats": {
+                "atk": 99.21,
                 "atk_": 49.55,
                 "def": 39.35,
                 "def_": 12.39,
-                "eleMas": 118.89,
                 "critDMG_": 66.05,
                 "hp": 507.88,
                 "hp_": 9.91,
                 "enerRech_": 11.01,
-                "atk": 33.07,
+                "eleMas": 39.63,
                 "critRate_": 6.61
               }
             }

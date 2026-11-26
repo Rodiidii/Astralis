@@ -1,7 +1,7 @@
 {
   "name": "Hex C2 Nicole",
   "description": "Celestia",
-  "lastEdit": 1794890168968,
+  "lastEdit": 1795409453792,
   "conditional": {
     "resonance": {},
     "reaction": {}
@@ -42,7 +42,7 @@
           "description": "Celestia",
           "targets": [
             {
-              "weight": 0.7147,
+              "weight": 0.6498,
               "path": [
                 "skill",
                 "dmg"
@@ -58,7 +58,7 @@
               "description": ""
             },
             {
-              "weight": 0.6048,
+              "weight": 0.6721,
               "path": [
                 "skill",
                 "dmg"
@@ -74,7 +74,7 @@
               "description": ""
             },
             {
-              "weight": 0.6068,
+              "weight": 0.5517,
               "path": [
                 "skill",
                 "dmg"
@@ -91,7 +91,7 @@
               "description": ""
             },
             {
-              "weight": 0.508,
+              "weight": 0.5645,
               "path": [
                 "skill",
                 "dmg"
@@ -451,7 +451,7 @@
               "description": ""
             },
             {
-              "weight": 1.3128,
+              "weight": 1.313,
               "path": [
                 "skill",
                 "dmg"
@@ -695,7 +695,7 @@
               "description": ""
             },
             {
-              "weight": 1.3951,
+              "weight": 1.3952,
               "path": [
                 "skill",
                 "dmg"
@@ -711,7 +711,7 @@
               "description": ""
             },
             {
-              "weight": 1.2968,
+              "weight": 1.2957,
               "path": [
                 "skill",
                 "dmg"
@@ -727,7 +727,7 @@
               "description": ""
             },
             {
-              "weight": 0.198,
+              "weight": 0.3301,
               "path": [
                 "skill",
                 "dmg"
@@ -744,7 +744,7 @@
               "description": ""
             },
             {
-              "weight": 0.3607,
+              "weight": 0.3006,
               "path": [
                 "skill",
                 "dmg"
@@ -761,7 +761,7 @@
               "description": ""
             },
             {
-              "weight": 0.6261,
+              "weight": 0.5693,
               "path": [
                 "skill",
                 "dmg"
@@ -1122,7 +1122,7 @@
               "description": ""
             },
             {
-              "weight": 1.3048,
+              "weight": 1.3049,
               "path": [
                 "skill",
                 "dmg"
@@ -1366,7 +1366,7 @@
               "description": ""
             },
             {
-              "weight": 1.3059,
+              "weight": 1.3061,
               "path": [
                 "skill",
                 "dmg"
@@ -1478,7 +1478,7 @@
       "buildTcs": [
         {
           "name": "Celestia",
-          "description": "Celestia teammate assumption (85% of the maximum).",
+          "description": "Celestia teammate assumption (KQMS standard).",
           "characterKey": "Nicole",
           "character": {
             "level": 90,
@@ -1563,7 +1563,7 @@
       "buildTcs": [
         {
           "name": "Celestia",
-          "description": "Celestia teammate assumption (85% of the maximum).",
+          "description": "Celestia teammate assumption (KQMS standard).",
           "characterKey": "Mona",
           "character": {
             "level": 90,
@@ -1648,7 +1648,7 @@
       "buildTcs": [
         {
           "name": "Celestia",
-          "description": "Celestia teammate assumption (85% of the maximum).",
+          "description": "Celestia teammate assumption (KQMS standard).",
           "characterKey": "Yelan",
           "character": {
             "level": 90,

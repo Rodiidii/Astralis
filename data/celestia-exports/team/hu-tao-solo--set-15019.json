@@ -1,7 +1,7 @@
 {
   "name": "Solo",
   "description": "Celestia",
-  "lastEdit": 1794350993779,
+  "lastEdit": 1795627954608,
   "conditional": {
     "resonance": {},
     "reaction": {}
@@ -473,19 +473,7 @@
               "description": ""
             },
             {
-              "weight": 0.1667,
-              "path": [
-                "skill",
-                "dmg"
-              ],
-              "hitMode": "avgHit",
-              "bonusStats": {
-                "atk": 2145.959
-              },
-              "description": ""
-            },
-            {
-              "weight": 0.1667,
+              "weight": 0.3333,
               "path": [
                 "skill",
                 "dmg"
@@ -941,475 +929,7 @@
               "description": ""
             },
             {
-              "weight": 0.1667,
-              "path": [
-                "skill",
-                "dmg"
-              ],
-              "hitMode": "avgHit",
-              "bonusStats": {
-                "atk": 2145.959
-              },
-              "description": ""
-            },
-            {
-              "weight": 0.1667,
-              "path": [
-                "skill",
-                "dmg"
-              ],
-              "hitMode": "avgHit",
-              "bonusStats": {
-                "atk": 2145.959
-              },
-              "description": ""
-            },
-            {
-              "weight": 0.1667,
-              "path": [
-                "normal",
-                "0"
-              ],
-              "hitMode": "avgHit",
-              "infusionAura": "pyro",
-              "bonusStats": {
-                "atk": 2145.959,
-                "all_dmg_": 50
-              },
-              "description": ""
-            },
-            {
-              "weight": 0.1667,
-              "path": [
-                "normal",
-                "1"
-              ],
-              "hitMode": "avgHit",
-              "infusionAura": "pyro",
-              "bonusStats": {
-                "atk": 2145.959,
-                "all_dmg_": 50
-              },
-              "description": ""
-            },
-            {
-              "weight": 0.1667,
-              "path": [
-                "charged",
-                "dmg"
-              ],
-              "hitMode": "avgHit",
-              "infusionAura": "pyro",
-              "bonusStats": {
-                "atk": 2145.959,
-                "all_dmg_": 50
-              },
-              "description": ""
-            },
-            {
-              "weight": 0.1667,
-              "path": [
-                "normal",
-                "0"
-              ],
-              "hitMode": "avgHit",
-              "infusionAura": "pyro",
-              "bonusStats": {
-                "atk": 2145.959,
-                "all_dmg_": 50
-              },
-              "description": ""
-            },
-            {
-              "weight": 0.1667,
-              "path": [
-                "normal",
-                "1"
-              ],
-              "hitMode": "avgHit",
-              "infusionAura": "pyro",
-              "bonusStats": {
-                "atk": 2145.959,
-                "all_dmg_": 50
-              },
-              "description": ""
-            },
-            {
-              "weight": 0.1667,
-              "path": [
-                "charged",
-                "dmg"
-              ],
-              "hitMode": "avgHit",
-              "infusionAura": "pyro",
-              "bonusStats": {
-                "atk": 2145.959,
-                "all_dmg_": 50
-              },
-              "description": ""
-            },
-            {
-              "weight": 0.1667,
-              "path": [
-                "normal",
-                "0"
-              ],
-              "hitMode": "avgHit",
-              "infusionAura": "pyro",
-              "bonusStats": {
-                "atk": 2145.959,
-                "all_dmg_": 50
-              },
-              "description": ""
-            },
-            {
-              "weight": 0.1667,
-              "path": [
-                "normal",
-                "1"
-              ],
-              "hitMode": "avgHit",
-              "infusionAura": "pyro",
-              "bonusStats": {
-                "atk": 2145.959,
-                "all_dmg_": 50
-              },
-              "description": ""
-            },
-            {
-              "weight": 0.1667,
-              "path": [
-                "charged",
-                "dmg"
-              ],
-              "hitMode": "avgHit",
-              "infusionAura": "pyro",
-              "bonusStats": {
-                "atk": 2145.959,
-                "all_dmg_": 50
-              },
-              "description": ""
-            },
-            {
-              "weight": 0.1667,
-              "path": [
-                "normal",
-                "0"
-              ],
-              "hitMode": "avgHit",
-              "infusionAura": "pyro",
-              "bonusStats": {
-                "atk": 2145.959,
-                "all_dmg_": 50
-              },
-              "description": ""
-            },
-            {
-              "weight": 0.1667,
-              "path": [
-                "normal",
-                "1"
-              ],
-              "hitMode": "avgHit",
-              "infusionAura": "pyro",
-              "bonusStats": {
-                "atk": 2145.959,
-                "all_dmg_": 50
-              },
-              "description": ""
-            },
-            {
-              "weight": 0.1667,
-              "path": [
-                "charged",
-                "dmg"
-              ],
-              "hitMode": "avgHit",
-              "infusionAura": "pyro",
-              "bonusStats": {
-                "atk": 2145.959,
-                "all_dmg_": 50
-              },
-              "description": ""
-            },
-            {
-              "weight": 0.1667,
-              "path": [
-                "normal",
-                "0"
-              ],
-              "hitMode": "avgHit",
-              "infusionAura": "pyro",
-              "bonusStats": {
-                "atk": 2145.959,
-                "all_dmg_": 50
-              },
-              "description": ""
-            },
-            {
-              "weight": 0.1667,
-              "path": [
-                "normal",
-                "1"
-              ],
-              "hitMode": "avgHit",
-              "infusionAura": "pyro",
-              "bonusStats": {
-                "atk": 2145.959,
-                "all_dmg_": 50
-              },
-              "description": ""
-            },
-            {
-              "weight": 0.1667,
-              "path": [
-                "charged",
-                "dmg"
-              ],
-              "hitMode": "avgHit",
-              "infusionAura": "pyro",
-              "bonusStats": {
-                "atk": 2145.959,
-                "all_dmg_": 50
-              },
-              "description": ""
-            },
-            {
-              "weight": 0.1667,
-              "path": [
-                "normal",
-                "0"
-              ],
-              "hitMode": "avgHit",
-              "infusionAura": "pyro",
-              "bonusStats": {
-                "atk": 2145.959,
-                "all_dmg_": 50
-              },
-              "description": ""
-            },
-            {
-              "weight": 0.1667,
-              "path": [
-                "normal",
-                "1"
-              ],
-              "hitMode": "avgHit",
-              "infusionAura": "pyro",
-              "bonusStats": {
-                "atk": 2145.959,
-                "all_dmg_": 50
-              },
-              "description": ""
-            },
-            {
-              "weight": 0.1667,
-              "path": [
-                "charged",
-                "dmg"
-              ],
-              "hitMode": "avgHit",
-              "infusionAura": "pyro",
-              "bonusStats": {
-                "atk": 2145.959,
-                "all_dmg_": 50
-              },
-              "description": ""
-            },
-            {
-              "weight": 0.1667,
-              "path": [
-                "normal",
-                "0"
-              ],
-              "hitMode": "avgHit",
-              "infusionAura": "pyro",
-              "bonusStats": {
-                "atk": 2145.959,
-                "all_dmg_": 50
-              },
-              "description": ""
-            },
-            {
-              "weight": 0.1667,
-              "path": [
-                "normal",
-                "1"
-              ],
-              "hitMode": "avgHit",
-              "infusionAura": "pyro",
-              "bonusStats": {
-                "atk": 2145.959,
-                "all_dmg_": 50
-              },
-              "description": ""
-            },
-            {
-              "weight": 0.1667,
-              "path": [
-                "charged",
-                "dmg"
-              ],
-              "hitMode": "avgHit",
-              "infusionAura": "pyro",
-              "bonusStats": {
-                "atk": 2145.959,
-                "all_dmg_": 50
-              },
-              "description": ""
-            },
-            {
-              "weight": 0.1667,
-              "path": [
-                "normal",
-                "0"
-              ],
-              "hitMode": "avgHit",
-              "infusionAura": "pyro",
-              "bonusStats": {
-                "atk": 2145.959,
-                "all_dmg_": 50
-              },
-              "description": ""
-            },
-            {
-              "weight": 0.1667,
-              "path": [
-                "normal",
-                "1"
-              ],
-              "hitMode": "avgHit",
-              "infusionAura": "pyro",
-              "bonusStats": {
-                "atk": 2145.959,
-                "all_dmg_": 50
-              },
-              "description": ""
-            },
-            {
-              "weight": 0.1667,
-              "path": [
-                "charged",
-                "dmg"
-              ],
-              "hitMode": "avgHit",
-              "infusionAura": "pyro",
-              "bonusStats": {
-                "atk": 2145.959,
-                "all_dmg_": 50
-              },
-              "description": ""
-            },
-            {
-              "weight": 0.1667,
-              "path": [
-                "normal",
-                "0"
-              ],
-              "hitMode": "avgHit",
-              "infusionAura": "pyro",
-              "bonusStats": {
-                "atk": 2145.959,
-                "all_dmg_": 50
-              },
-              "description": ""
-            },
-            {
-              "weight": 0.1667,
-              "path": [
-                "normal",
-                "1"
-              ],
-              "hitMode": "avgHit",
-              "infusionAura": "pyro",
-              "bonusStats": {
-                "atk": 2145.959,
-                "all_dmg_": 50
-              },
-              "description": ""
-            },
-            {
-              "weight": 0.1667,
-              "path": [
-                "charged",
-                "dmg"
-              ],
-              "hitMode": "avgHit",
-              "infusionAura": "pyro",
-              "bonusStats": {
-                "atk": 2145.959,
-                "all_dmg_": 50
-              },
-              "description": ""
-            },
-            {
-              "weight": 0.1667,
-              "path": [
-                "normal",
-                "0"
-              ],
-              "hitMode": "avgHit",
-              "infusionAura": "pyro",
-              "bonusStats": {
-                "atk": 2145.959,
-                "all_dmg_": 50
-              },
-              "description": ""
-            },
-            {
-              "weight": 0.1667,
-              "path": [
-                "normal",
-                "1"
-              ],
-              "hitMode": "avgHit",
-              "infusionAura": "pyro",
-              "bonusStats": {
-                "atk": 2145.959,
-                "all_dmg_": 50
-              },
-              "description": ""
-            },
-            {
-              "weight": 0.1667,
-              "path": [
-                "charged",
-                "dmg"
-              ],
-              "hitMode": "avgHit",
-              "infusionAura": "pyro",
-              "bonusStats": {
-                "atk": 2145.959,
-                "all_dmg_": 50
-              },
-              "description": ""
-            },
-            {
-              "weight": 0.1667,
-              "path": [
-                "skill",
-                "dmg"
-              ],
-              "hitMode": "avgHit",
-              "bonusStats": {
-                "atk": 2145.959
-              },
-              "description": ""
-            },
-            {
-              "weight": 0.1667,
-              "path": [
-                "skill",
-                "dmg"
-              ],
-              "hitMode": "avgHit",
-              "bonusStats": {
-                "atk": 2145.959
-              },
-              "description": ""
-            },
-            {
-              "weight": 0.1667,
+              "weight": 0.3333,
               "path": [
                 "skill",
                 "dmg"
@@ -1853,475 +1373,7 @@
               "description": ""
             },
             {
-              "weight": 0.1667,
-              "path": [
-                "skill",
-                "dmg"
-              ],
-              "hitMode": "avgHit",
-              "bonusStats": {
-                "atk": 2145.959
-              },
-              "description": ""
-            },
-            {
-              "weight": 0.1667,
-              "path": [
-                "skill",
-                "dmg"
-              ],
-              "hitMode": "avgHit",
-              "bonusStats": {
-                "atk": 2145.959
-              },
-              "description": ""
-            },
-            {
-              "weight": 0.1667,
-              "path": [
-                "normal",
-                "0"
-              ],
-              "hitMode": "avgHit",
-              "infusionAura": "pyro",
-              "bonusStats": {
-                "atk": 2145.959,
-                "all_dmg_": 50
-              },
-              "description": ""
-            },
-            {
-              "weight": 0.1667,
-              "path": [
-                "normal",
-                "1"
-              ],
-              "hitMode": "avgHit",
-              "infusionAura": "pyro",
-              "bonusStats": {
-                "atk": 2145.959,
-                "all_dmg_": 50
-              },
-              "description": ""
-            },
-            {
-              "weight": 0.1667,
-              "path": [
-                "charged",
-                "dmg"
-              ],
-              "hitMode": "avgHit",
-              "infusionAura": "pyro",
-              "bonusStats": {
-                "atk": 2145.959,
-                "all_dmg_": 50
-              },
-              "description": ""
-            },
-            {
-              "weight": 0.1667,
-              "path": [
-                "normal",
-                "0"
-              ],
-              "hitMode": "avgHit",
-              "infusionAura": "pyro",
-              "bonusStats": {
-                "atk": 2145.959,
-                "all_dmg_": 50
-              },
-              "description": ""
-            },
-            {
-              "weight": 0.1667,
-              "path": [
-                "normal",
-                "1"
-              ],
-              "hitMode": "avgHit",
-              "infusionAura": "pyro",
-              "bonusStats": {
-                "atk": 2145.959,
-                "all_dmg_": 50
-              },
-              "description": ""
-            },
-            {
-              "weight": 0.1667,
-              "path": [
-                "charged",
-                "dmg"
-              ],
-              "hitMode": "avgHit",
-              "infusionAura": "pyro",
-              "bonusStats": {
-                "atk": 2145.959,
-                "all_dmg_": 50
-              },
-              "description": ""
-            },
-            {
-              "weight": 0.1667,
-              "path": [
-                "normal",
-                "0"
-              ],
-              "hitMode": "avgHit",
-              "infusionAura": "pyro",
-              "bonusStats": {
-                "atk": 2145.959,
-                "all_dmg_": 50
-              },
-              "description": ""
-            },
-            {
-              "weight": 0.1667,
-              "path": [
-                "normal",
-                "1"
-              ],
-              "hitMode": "avgHit",
-              "infusionAura": "pyro",
-              "bonusStats": {
-                "atk": 2145.959,
-                "all_dmg_": 50
-              },
-              "description": ""
-            },
-            {
-              "weight": 0.1667,
-              "path": [
-                "charged",
-                "dmg"
-              ],
-              "hitMode": "avgHit",
-              "infusionAura": "pyro",
-              "bonusStats": {
-                "atk": 2145.959,
-                "all_dmg_": 50
-              },
-              "description": ""
-            },
-            {
-              "weight": 0.1667,
-              "path": [
-                "normal",
-                "0"
-              ],
-              "hitMode": "avgHit",
-              "infusionAura": "pyro",
-              "bonusStats": {
-                "atk": 2145.959,
-                "all_dmg_": 50
-              },
-              "description": ""
-            },
-            {
-              "weight": 0.1667,
-              "path": [
-                "normal",
-                "1"
-              ],
-              "hitMode": "avgHit",
-              "infusionAura": "pyro",
-              "bonusStats": {
-                "atk": 2145.959,
-                "all_dmg_": 50
-              },
-              "description": ""
-            },
-            {
-              "weight": 0.1667,
-              "path": [
-                "charged",
-                "dmg"
-              ],
-              "hitMode": "avgHit",
-              "infusionAura": "pyro",
-              "bonusStats": {
-                "atk": 2145.959,
-                "all_dmg_": 50
-              },
-              "description": ""
-            },
-            {
-              "weight": 0.1667,
-              "path": [
-                "normal",
-                "0"
-              ],
-              "hitMode": "avgHit",
-              "infusionAura": "pyro",
-              "bonusStats": {
-                "atk": 2145.959,
-                "all_dmg_": 50
-              },
-              "description": ""
-            },
-            {
-              "weight": 0.1667,
-              "path": [
-                "normal",
-                "1"
-              ],
-              "hitMode": "avgHit",
-              "infusionAura": "pyro",
-              "bonusStats": {
-                "atk": 2145.959,
-                "all_dmg_": 50
-              },
-              "description": ""
-            },
-            {
-              "weight": 0.1667,
-              "path": [
-                "charged",
-                "dmg"
-              ],
-              "hitMode": "avgHit",
-              "infusionAura": "pyro",
-              "bonusStats": {
-                "atk": 2145.959,
-                "all_dmg_": 50
-              },
-              "description": ""
-            },
-            {
-              "weight": 0.1667,
-              "path": [
-                "normal",
-                "0"
-              ],
-              "hitMode": "avgHit",
-              "infusionAura": "pyro",
-              "bonusStats": {
-                "atk": 2145.959,
-                "all_dmg_": 50
-              },
-              "description": ""
-            },
-            {
-              "weight": 0.1667,
-              "path": [
-                "normal",
-                "1"
-              ],
-              "hitMode": "avgHit",
-              "infusionAura": "pyro",
-              "bonusStats": {
-                "atk": 2145.959,
-                "all_dmg_": 50
-              },
-              "description": ""
-            },
-            {
-              "weight": 0.1667,
-              "path": [
-                "charged",
-                "dmg"
-              ],
-              "hitMode": "avgHit",
-              "infusionAura": "pyro",
-              "bonusStats": {
-                "atk": 2145.959,
-                "all_dmg_": 50
-              },
-              "description": ""
-            },
-            {
-              "weight": 0.1667,
-              "path": [
-                "normal",
-                "0"
-              ],
-              "hitMode": "avgHit",
-              "infusionAura": "pyro",
-              "bonusStats": {
-                "atk": 2145.959,
-                "all_dmg_": 50
-              },
-              "description": ""
-            },
-            {
-              "weight": 0.1667,
-              "path": [
-                "normal",
-                "1"
-              ],
-              "hitMode": "avgHit",
-              "infusionAura": "pyro",
-              "bonusStats": {
-                "atk": 2145.959,
-                "all_dmg_": 50
-              },
-              "description": ""
-            },
-            {
-              "weight": 0.1667,
-              "path": [
-                "charged",
-                "dmg"
-              ],
-              "hitMode": "avgHit",
-              "infusionAura": "pyro",
-              "bonusStats": {
-                "atk": 2145.959,
-                "all_dmg_": 50
-              },
-              "description": ""
-            },
-            {
-              "weight": 0.1667,
-              "path": [
-                "normal",
-                "0"
-              ],
-              "hitMode": "avgHit",
-              "infusionAura": "pyro",
-              "bonusStats": {
-                "atk": 2145.959,
-                "all_dmg_": 50
-              },
-              "description": ""
-            },
-            {
-              "weight": 0.1667,
-              "path": [
-                "normal",
-                "1"
-              ],
-              "hitMode": "avgHit",
-              "infusionAura": "pyro",
-              "bonusStats": {
-                "atk": 2145.959,
-                "all_dmg_": 50
-              },
-              "description": ""
-            },
-            {
-              "weight": 0.1667,
-              "path": [
-                "charged",
-                "dmg"
-              ],
-              "hitMode": "avgHit",
-              "infusionAura": "pyro",
-              "bonusStats": {
-                "atk": 2145.959,
-                "all_dmg_": 50
-              },
-              "description": ""
-            },
-            {
-              "weight": 0.1667,
-              "path": [
-                "normal",
-                "0"
-              ],
-              "hitMode": "avgHit",
-              "infusionAura": "pyro",
-              "bonusStats": {
-                "atk": 2145.959,
-                "all_dmg_": 50
-              },
-              "description": ""
-            },
-            {
-              "weight": 0.1667,
-              "path": [
-                "normal",
-                "1"
-              ],
-              "hitMode": "avgHit",
-              "infusionAura": "pyro",
-              "bonusStats": {
-                "atk": 2145.959,
-                "all_dmg_": 50
-              },
-              "description": ""
-            },
-            {
-              "weight": 0.1667,
-              "path": [
-                "charged",
-                "dmg"
-              ],
-              "hitMode": "avgHit",
-              "infusionAura": "pyro",
-              "bonusStats": {
-                "atk": 2145.959,
-                "all_dmg_": 50
-              },
-              "description": ""
-            },
-            {
-              "weight": 0.1667,
-              "path": [
-                "normal",
-                "0"
-              ],
-              "hitMode": "avgHit",
-              "infusionAura": "pyro",
-              "bonusStats": {
-                "atk": 2145.959,
-                "all_dmg_": 50
-              },
-              "description": ""
-            },
-            {
-              "weight": 0.1667,
-              "path": [
-                "normal",
-                "1"
-              ],
-              "hitMode": "avgHit",
-              "infusionAura": "pyro",
-              "bonusStats": {
-                "atk": 2145.959,
-                "all_dmg_": 50
-              },
-              "description": ""
-            },
-            {
-              "weight": 0.1667,
-              "path": [
-                "charged",
-                "dmg"
-              ],
-              "hitMode": "avgHit",
-              "infusionAura": "pyro",
-              "bonusStats": {
-                "atk": 2145.959,
-                "all_dmg_": 50
-              },
-              "description": ""
-            },
-            {
-              "weight": 0.1667,
-              "path": [
-                "skill",
-                "dmg"
-              ],
-              "hitMode": "avgHit",
-              "bonusStats": {
-                "atk": 2145.959
-              },
-              "description": ""
-            },
-            {
-              "weight": 0.1667,
-              "path": [
-                "skill",
-                "dmg"
-              ],
-              "hitMode": "avgHit",
-              "bonusStats": {
-                "atk": 2145.959
-              },
-              "description": ""
-            },
-            {
-              "weight": 0.1667,
+              "weight": 0.3333,
               "path": [
                 "skill",
                 "dmg"
@@ -2765,7 +1817,7 @@
               "description": ""
             },
             {
-              "weight": 0.1667,
+              "weight": 0.3333,
               "path": [
                 "skill",
                 "dmg"
@@ -2778,6 +1830,882 @@
             },
             {
               "weight": 0.1667,
+              "path": [
+                "normal",
+                "0"
+              ],
+              "hitMode": "avgHit",
+              "infusionAura": "pyro",
+              "bonusStats": {
+                "atk": 2145.959,
+                "all_dmg_": 50
+              },
+              "description": ""
+            },
+            {
+              "weight": 0.1667,
+              "path": [
+                "normal",
+                "1"
+              ],
+              "hitMode": "avgHit",
+              "infusionAura": "pyro",
+              "bonusStats": {
+                "atk": 2145.959,
+                "all_dmg_": 50
+              },
+              "description": ""
+            },
+            {
+              "weight": 0.1667,
+              "path": [
+                "charged",
+                "dmg"
+              ],
+              "hitMode": "avgHit",
+              "infusionAura": "pyro",
+              "bonusStats": {
+                "atk": 2145.959,
+                "all_dmg_": 50
+              },
+              "description": ""
+            },
+            {
+              "weight": 0.1667,
+              "path": [
+                "normal",
+                "0"
+              ],
+              "hitMode": "avgHit",
+              "infusionAura": "pyro",
+              "bonusStats": {
+                "atk": 2145.959,
+                "all_dmg_": 50
+              },
+              "description": ""
+            },
+            {
+              "weight": 0.1667,
+              "path": [
+                "normal",
+                "1"
+              ],
+              "hitMode": "avgHit",
+              "infusionAura": "pyro",
+              "bonusStats": {
+                "atk": 2145.959,
+                "all_dmg_": 50
+              },
+              "description": ""
+            },
+            {
+              "weight": 0.1667,
+              "path": [
+                "charged",
+                "dmg"
+              ],
+              "hitMode": "avgHit",
+              "infusionAura": "pyro",
+              "bonusStats": {
+                "atk": 2145.959,
+                "all_dmg_": 50
+              },
+              "description": ""
+            },
+            {
+              "weight": 0.1667,
+              "path": [
+                "normal",
+                "0"
+              ],
+              "hitMode": "avgHit",
+              "infusionAura": "pyro",
+              "bonusStats": {
+                "atk": 2145.959,
+                "all_dmg_": 50
+              },
+              "description": ""
+            },
+            {
+              "weight": 0.1667,
+              "path": [
+                "normal",
+                "1"
+              ],
+              "hitMode": "avgHit",
+              "infusionAura": "pyro",
+              "bonusStats": {
+                "atk": 2145.959,
+                "all_dmg_": 50
+              },
+              "description": ""
+            },
+            {
+              "weight": 0.1667,
+              "path": [
+                "charged",
+                "dmg"
+              ],
+              "hitMode": "avgHit",
+              "infusionAura": "pyro",
+              "bonusStats": {
+                "atk": 2145.959,
+                "all_dmg_": 50
+              },
+              "description": ""
+            },
+            {
+              "weight": 0.1667,
+              "path": [
+                "normal",
+                "0"
+              ],
+              "hitMode": "avgHit",
+              "infusionAura": "pyro",
+              "bonusStats": {
+                "atk": 2145.959,
+                "all_dmg_": 50
+              },
+              "description": ""
+            },
+            {
+              "weight": 0.1667,
+              "path": [
+                "normal",
+                "1"
+              ],
+              "hitMode": "avgHit",
+              "infusionAura": "pyro",
+              "bonusStats": {
+                "atk": 2145.959,
+                "all_dmg_": 50
+              },
+              "description": ""
+            },
+            {
+              "weight": 0.1667,
+              "path": [
+                "charged",
+                "dmg"
+              ],
+              "hitMode": "avgHit",
+              "infusionAura": "pyro",
+              "bonusStats": {
+                "atk": 2145.959,
+                "all_dmg_": 50
+              },
+              "description": ""
+            },
+            {
+              "weight": 0.1667,
+              "path": [
+                "normal",
+                "0"
+              ],
+              "hitMode": "avgHit",
+              "infusionAura": "pyro",
+              "bonusStats": {
+                "atk": 2145.959,
+                "all_dmg_": 50
+              },
+              "description": ""
+            },
+            {
+              "weight": 0.1667,
+              "path": [
+                "normal",
+                "1"
+              ],
+              "hitMode": "avgHit",
+              "infusionAura": "pyro",
+              "bonusStats": {
+                "atk": 2145.959,
+                "all_dmg_": 50
+              },
+              "description": ""
+            },
+            {
+              "weight": 0.1667,
+              "path": [
+                "charged",
+                "dmg"
+              ],
+              "hitMode": "avgHit",
+              "infusionAura": "pyro",
+              "bonusStats": {
+                "atk": 2145.959,
+                "all_dmg_": 50
+              },
+              "description": ""
+            },
+            {
+              "weight": 0.1667,
+              "path": [
+                "normal",
+                "0"
+              ],
+              "hitMode": "avgHit",
+              "infusionAura": "pyro",
+              "bonusStats": {
+                "atk": 2145.959,
+                "all_dmg_": 50
+              },
+              "description": ""
+            },
+            {
+              "weight": 0.1667,
+              "path": [
+                "normal",
+                "1"
+              ],
+              "hitMode": "avgHit",
+              "infusionAura": "pyro",
+              "bonusStats": {
+                "atk": 2145.959,
+                "all_dmg_": 50
+              },
+              "description": ""
+            },
+            {
+              "weight": 0.1667,
+              "path": [
+                "charged",
+                "dmg"
+              ],
+              "hitMode": "avgHit",
+              "infusionAura": "pyro",
+              "bonusStats": {
+                "atk": 2145.959,
+                "all_dmg_": 50
+              },
+              "description": ""
+            },
+            {
+              "weight": 0.1667,
+              "path": [
+                "normal",
+                "0"
+              ],
+              "hitMode": "avgHit",
+              "infusionAura": "pyro",
+              "bonusStats": {
+                "atk": 2145.959,
+                "all_dmg_": 50
+              },
+              "description": ""
+            },
+            {
+              "weight": 0.1667,
+              "path": [
+                "normal",
+                "1"
+              ],
+              "hitMode": "avgHit",
+              "infusionAura": "pyro",
+              "bonusStats": {
+                "atk": 2145.959,
+                "all_dmg_": 50
+              },
+              "description": ""
+            },
+            {
+              "weight": 0.1667,
+              "path": [
+                "charged",
+                "dmg"
+              ],
+              "hitMode": "avgHit",
+              "infusionAura": "pyro",
+              "bonusStats": {
+                "atk": 2145.959,
+                "all_dmg_": 50
+              },
+              "description": ""
+            },
+            {
+              "weight": 0.1667,
+              "path": [
+                "normal",
+                "0"
+              ],
+              "hitMode": "avgHit",
+              "infusionAura": "pyro",
+              "bonusStats": {
+                "atk": 2145.959,
+                "all_dmg_": 50
+              },
+              "description": ""
+            },
+            {
+              "weight": 0.1667,
+              "path": [
+                "normal",
+                "1"
+              ],
+              "hitMode": "avgHit",
+              "infusionAura": "pyro",
+              "bonusStats": {
+                "atk": 2145.959,
+                "all_dmg_": 50
+              },
+              "description": ""
+            },
+            {
+              "weight": 0.1667,
+              "path": [
+                "charged",
+                "dmg"
+              ],
+              "hitMode": "avgHit",
+              "infusionAura": "pyro",
+              "bonusStats": {
+                "atk": 2145.959,
+                "all_dmg_": 50
+              },
+              "description": ""
+            },
+            {
+              "weight": 0.1667,
+              "path": [
+                "normal",
+                "0"
+              ],
+              "hitMode": "avgHit",
+              "infusionAura": "pyro",
+              "bonusStats": {
+                "atk": 2145.959,
+                "all_dmg_": 50
+              },
+              "description": ""
+            },
+            {
+              "weight": 0.1667,
+              "path": [
+                "normal",
+                "1"
+              ],
+              "hitMode": "avgHit",
+              "infusionAura": "pyro",
+              "bonusStats": {
+                "atk": 2145.959,
+                "all_dmg_": 50
+              },
+              "description": ""
+            },
+            {
+              "weight": 0.1667,
+              "path": [
+                "charged",
+                "dmg"
+              ],
+              "hitMode": "avgHit",
+              "infusionAura": "pyro",
+              "bonusStats": {
+                "atk": 2145.959,
+                "all_dmg_": 50
+              },
+              "description": ""
+            },
+            {
+              "weight": 0.1667,
+              "path": [
+                "normal",
+                "0"
+              ],
+              "hitMode": "avgHit",
+              "infusionAura": "pyro",
+              "bonusStats": {
+                "atk": 2145.959,
+                "all_dmg_": 50
+              },
+              "description": ""
+            },
+            {
+              "weight": 0.1667,
+              "path": [
+                "normal",
+                "1"
+              ],
+              "hitMode": "avgHit",
+              "infusionAura": "pyro",
+              "bonusStats": {
+                "atk": 2145.959,
+                "all_dmg_": 50
+              },
+              "description": ""
+            },
+            {
+              "weight": 0.1667,
+              "path": [
+                "charged",
+                "dmg"
+              ],
+              "hitMode": "avgHit",
+              "infusionAura": "pyro",
+              "bonusStats": {
+                "atk": 2145.959,
+                "all_dmg_": 50
+              },
+              "description": ""
+            },
+            {
+              "weight": 0.1667,
+              "path": [
+                "skill",
+                "dmg"
+              ],
+              "hitMode": "avgHit",
+              "bonusStats": {
+                "atk": 2145.959
+              },
+              "description": ""
+            },
+            {
+              "weight": 0.3333,
+              "path": [
+                "skill",
+                "dmg"
+              ],
+              "hitMode": "avgHit",
+              "bonusStats": {
+                "atk": 2145.959
+              },
+              "description": ""
+            },
+            {
+              "weight": 0.1667,
+              "path": [
+                "normal",
+                "0"
+              ],
+              "hitMode": "avgHit",
+              "infusionAura": "pyro",
+              "bonusStats": {
+                "atk": 2145.959,
+                "all_dmg_": 50
+              },
+              "description": ""
+            },
+            {
+              "weight": 0.1667,
+              "path": [
+                "normal",
+                "1"
+              ],
+              "hitMode": "avgHit",
+              "infusionAura": "pyro",
+              "bonusStats": {
+                "atk": 2145.959,
+                "all_dmg_": 50
+              },
+              "description": ""
+            },
+            {
+              "weight": 0.1667,
+              "path": [
+                "charged",
+                "dmg"
+              ],
+              "hitMode": "avgHit",
+              "infusionAura": "pyro",
+              "bonusStats": {
+                "atk": 2145.959,
+                "all_dmg_": 50
+              },
+              "description": ""
+            },
+            {
+              "weight": 0.1667,
+              "path": [
+                "normal",
+                "0"
+              ],
+              "hitMode": "avgHit",
+              "infusionAura": "pyro",
+              "bonusStats": {
+                "atk": 2145.959,
+                "all_dmg_": 50
+              },
+              "description": ""
+            },
+            {
+              "weight": 0.1667,
+              "path": [
+                "normal",
+                "1"
+              ],
+              "hitMode": "avgHit",
+              "infusionAura": "pyro",
+              "bonusStats": {
+                "atk": 2145.959,
+                "all_dmg_": 50
+              },
+              "description": ""
+            },
+            {
+              "weight": 0.1667,
+              "path": [
+                "charged",
+                "dmg"
+              ],
+              "hitMode": "avgHit",
+              "infusionAura": "pyro",
+              "bonusStats": {
+                "atk": 2145.959,
+                "all_dmg_": 50
+              },
+              "description": ""
+            },
+            {
+              "weight": 0.1667,
+              "path": [
+                "normal",
+                "0"
+              ],
+              "hitMode": "avgHit",
+              "infusionAura": "pyro",
+              "bonusStats": {
+                "atk": 2145.959,
+                "all_dmg_": 50
+              },
+              "description": ""
+            },
+            {
+              "weight": 0.1667,
+              "path": [
+                "normal",
+                "1"
+              ],
+              "hitMode": "avgHit",
+              "infusionAura": "pyro",
+              "bonusStats": {
+                "atk": 2145.959,
+                "all_dmg_": 50
+              },
+              "description": ""
+            },
+            {
+              "weight": 0.1667,
+              "path": [
+                "charged",
+                "dmg"
+              ],
+              "hitMode": "avgHit",
+              "infusionAura": "pyro",
+              "bonusStats": {
+                "atk": 2145.959,
+                "all_dmg_": 50
+              },
+              "description": ""
+            },
+            {
+              "weight": 0.1667,
+              "path": [
+                "normal",
+                "0"
+              ],
+              "hitMode": "avgHit",
+              "infusionAura": "pyro",
+              "bonusStats": {
+                "atk": 2145.959,
+                "all_dmg_": 50
+              },
+              "description": ""
+            },
+            {
+              "weight": 0.1667,
+              "path": [
+                "normal",
+                "1"
+              ],
+              "hitMode": "avgHit",
+              "infusionAura": "pyro",
+              "bonusStats": {
+                "atk": 2145.959,
+                "all_dmg_": 50
+              },
+              "description": ""
+            },
+            {
+              "weight": 0.1667,
+              "path": [
+                "charged",
+                "dmg"
+              ],
+              "hitMode": "avgHit",
+              "infusionAura": "pyro",
+              "bonusStats": {
+                "atk": 2145.959,
+                "all_dmg_": 50
+              },
+              "description": ""
+            },
+            {
+              "weight": 0.1667,
+              "path": [
+                "normal",
+                "0"
+              ],
+              "hitMode": "avgHit",
+              "infusionAura": "pyro",
+              "bonusStats": {
+                "atk": 2145.959,
+                "all_dmg_": 50
+              },
+              "description": ""
+            },
+            {
+              "weight": 0.1667,
+              "path": [
+                "normal",
+                "1"
+              ],
+              "hitMode": "avgHit",
+              "infusionAura": "pyro",
+              "bonusStats": {
+                "atk": 2145.959,
+                "all_dmg_": 50
+              },
+              "description": ""
+            },
+            {
+              "weight": 0.1667,
+              "path": [
+                "charged",
+                "dmg"
+              ],
+              "hitMode": "avgHit",
+              "infusionAura": "pyro",
+              "bonusStats": {
+                "atk": 2145.959,
+                "all_dmg_": 50
+              },
+              "description": ""
+            },
+            {
+              "weight": 0.1667,
+              "path": [
+                "normal",
+                "0"
+              ],
+              "hitMode": "avgHit",
+              "infusionAura": "pyro",
+              "bonusStats": {
+                "atk": 2145.959,
+                "all_dmg_": 50
+              },
+              "description": ""
+            },
+            {
+              "weight": 0.1667,
+              "path": [
+                "normal",
+                "1"
+              ],
+              "hitMode": "avgHit",
+              "infusionAura": "pyro",
+              "bonusStats": {
+                "atk": 2145.959,
+                "all_dmg_": 50
+              },
+              "description": ""
+            },
+            {
+              "weight": 0.1667,
+              "path": [
+                "charged",
+                "dmg"
+              ],
+              "hitMode": "avgHit",
+              "infusionAura": "pyro",
+              "bonusStats": {
+                "atk": 2145.959,
+                "all_dmg_": 50
+              },
+              "description": ""
+            },
+            {
+              "weight": 0.1667,
+              "path": [
+                "normal",
+                "0"
+              ],
+              "hitMode": "avgHit",
+              "infusionAura": "pyro",
+              "bonusStats": {
+                "atk": 2145.959,
+                "all_dmg_": 50
+              },
+              "description": ""
+            },
+            {
+              "weight": 0.1667,
+              "path": [
+                "normal",
+                "1"
+              ],
+              "hitMode": "avgHit",
+              "infusionAura": "pyro",
+              "bonusStats": {
+                "atk": 2145.959,
+                "all_dmg_": 50
+              },
+              "description": ""
+            },
+            {
+              "weight": 0.1667,
+              "path": [
+                "charged",
+                "dmg"
+              ],
+              "hitMode": "avgHit",
+              "infusionAura": "pyro",
+              "bonusStats": {
+                "atk": 2145.959,
+                "all_dmg_": 50
+              },
+              "description": ""
+            },
+            {
+              "weight": 0.1667,
+              "path": [
+                "normal",
+                "0"
+              ],
+              "hitMode": "avgHit",
+              "infusionAura": "pyro",
+              "bonusStats": {
+                "atk": 2145.959,
+                "all_dmg_": 50
+              },
+              "description": ""
+            },
+            {
+              "weight": 0.1667,
+              "path": [
+                "normal",
+                "1"
+              ],
+              "hitMode": "avgHit",
+              "infusionAura": "pyro",
+              "bonusStats": {
+                "atk": 2145.959,
+                "all_dmg_": 50
+              },
+              "description": ""
+            },
+            {
+              "weight": 0.1667,
+              "path": [
+                "charged",
+                "dmg"
+              ],
+              "hitMode": "avgHit",
+              "infusionAura": "pyro",
+              "bonusStats": {
+                "atk": 2145.959,
+                "all_dmg_": 50
+              },
+              "description": ""
+            },
+            {
+              "weight": 0.1667,
+              "path": [
+                "normal",
+                "0"
+              ],
+              "hitMode": "avgHit",
+              "infusionAura": "pyro",
+              "bonusStats": {
+                "atk": 2145.959,
+                "all_dmg_": 50
+              },
+              "description": ""
+            },
+            {
+              "weight": 0.1667,
+              "path": [
+                "normal",
+                "1"
+              ],
+              "hitMode": "avgHit",
+              "infusionAura": "pyro",
+              "bonusStats": {
+                "atk": 2145.959,
+                "all_dmg_": 50
+              },
+              "description": ""
+            },
+            {
+              "weight": 0.1667,
+              "path": [
+                "charged",
+                "dmg"
+              ],
+              "hitMode": "avgHit",
+              "infusionAura": "pyro",
+              "bonusStats": {
+                "atk": 2145.959,
+                "all_dmg_": 50
+              },
+              "description": ""
+            },
+            {
+              "weight": 0.1667,
+              "path": [
+                "normal",
+                "0"
+              ],
+              "hitMode": "avgHit",
+              "infusionAura": "pyro",
+              "bonusStats": {
+                "atk": 2145.959,
+                "all_dmg_": 50
+              },
+              "description": ""
+            },
+            {
+              "weight": 0.1667,
+              "path": [
+                "normal",
+                "1"
+              ],
+              "hitMode": "avgHit",
+              "infusionAura": "pyro",
+              "bonusStats": {
+                "atk": 2145.959,
+                "all_dmg_": 50
+              },
+              "description": ""
+            },
+            {
+              "weight": 0.1667,
+              "path": [
+                "charged",
+                "dmg"
+              ],
+              "hitMode": "avgHit",
+              "infusionAura": "pyro",
+              "bonusStats": {
+                "atk": 2145.959,
+                "all_dmg_": 50
+              },
+              "description": ""
+            },
+            {
+              "weight": 0.1667,
+              "path": [
+                "skill",
+                "dmg"
+              ],
+              "hitMode": "avgHit",
+              "bonusStats": {
+                "atk": 2145.959
+              },
+              "description": ""
+            },
+            {
+              "weight": 0.3333,
               "path": [
                 "skill",
                 "dmg"

@@ -30,7 +30,7 @@
     }
   },
   "characterBonusStats": {
-    "atk": 848.791,
+    "atk": 899.855,
     "atk_": 62.541
   },
   "enemy": {
@@ -41,8 +41,8 @@
     {
       "code": "skippedLines",
       "reason": "teammate",
-      "lines": 1,
-      "share": 0.25454126308906677
+      "lines": 2,
+      "share": 0.274674150533323
     },
     {
       "code": "characterBonusStats",
@@ -60,7 +60,7 @@
         {
           "buff": "Grace of Kenosis (% of Nicole's ATK)",
           "key": "atk",
-          "value": 548.7914632081548
+          "value": 599.854615146592
         },
         {
           "buff": "Chevreuse A4 ATK (Pyro/Electro)",
@@ -103,7 +103,9 @@
     {
       "code": "setEffects",
       "setIds": [
-        15044
+        15044,
+        15037,
+        15045
       ]
     }
   ],
@@ -111,8 +113,8 @@
     {
       "code": "skippedLines",
       "reason": "teammate",
-      "lines": 1,
-      "share": 0.25454126308906677
+      "lines": 2,
+      "share": 0.274674150533323
     },
     {
       "code": "goSwitch",
@@ -148,7 +150,9 @@
     {
       "code": "setEffects",
       "setIds": [
-        15044
+        15044,
+        15037,
+        15045
       ]
     }
   ]

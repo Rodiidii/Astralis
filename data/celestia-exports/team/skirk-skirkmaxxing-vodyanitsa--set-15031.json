@@ -1,7 +1,7 @@
 {
-  "name": "Premium Vodyanitsa",
+  "name": "Premium",
   "description": "Celestia",
-  "lastEdit": 1794350960262,
+  "lastEdit": 1795409422043,
   "conditional": {
     "resonance": {},
     "reaction": {}
@@ -34,7 +34,7 @@
       },
       "customMultiTargets": [
         {
-          "name": "Premium Vodyanitsa",
+          "name": "Premium",
           "description": "Celestia",
           "targets": [
             {
@@ -567,7 +567,7 @@
       "buildTcs": [
         {
           "name": "Celestia",
-          "description": "Celestia teammate assumption (85% of the maximum).",
+          "description": "Celestia teammate assumption (KQMS standard).",
           "characterKey": "Escoffier",
           "character": {
             "level": 90,
@@ -652,7 +652,7 @@
       "buildTcs": [
         {
           "name": "Celestia",
-          "description": "Celestia teammate assumption (85% of the maximum).",
+          "description": "Celestia teammate assumption (KQMS standard).",
           "characterKey": "Vodyanitsa",
           "character": {
             "level": 90,
@@ -737,7 +737,7 @@
       "buildTcs": [
         {
           "name": "Celestia",
-          "description": "Celestia teammate assumption (85% of the maximum).",
+          "description": "Celestia teammate assumption (KQMS standard).",
           "characterKey": "Furina",
           "character": {
             "level": 90,

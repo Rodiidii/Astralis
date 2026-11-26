@@ -1,7 +1,7 @@
 {
   "name": "Premium Lunar-Charged",
   "description": "Celestia",
-  "lastEdit": 1795111065289,
+  "lastEdit": 1795627940767,
   "conditional": {
     "resonance": {},
     "reaction": {}
@@ -167,23 +167,7 @@
               "description": ""
             },
             {
-              "weight": 1,
-              "path": [
-                "skill",
-                "na4"
-              ],
-              "hitMode": "avgHit",
-              "bonusStats": {
-                "atk_": 24,
-                "eleMas": 235.549,
-                "electro_enemyRes_": -40,
-                "critDMG_": 28,
-                "critRate_": 30
-              },
-              "description": ""
-            },
-            {
-              "weight": 1,
+              "weight": 2,
               "path": [
                 "skill",
                 "na4"
@@ -247,23 +231,7 @@
               "description": ""
             },
             {
-              "weight": 1,
-              "path": [
-                "skill",
-                "na4"
-              ],
-              "hitMode": "avgHit",
-              "bonusStats": {
-                "atk_": 24,
-                "eleMas": 235.549,
-                "electro_enemyRes_": -40,
-                "critDMG_": 28,
-                "critRate_": 30
-              },
-              "description": ""
-            },
-            {
-              "weight": 1,
+              "weight": 2,
               "path": [
                 "skill",
                 "na4"
@@ -443,24 +411,7 @@
               "description": ""
             },
             {
-              "weight": 0.1489,
-              "path": [
-                "reaction",
-                "lunarcharged"
-              ],
-              "hitMode": "avgHit",
-              "bonusStats": {
-                "eleMas": 189.799,
-                "lunarcharged_baseDmg_": 21,
-                "lunarcharged_dmg_": 153.47,
-                "electro_enemyRes_": -40,
-                "critRate_": 30,
-                "critDMG_": 24.981
-              },
-              "description": ""
-            },
-            {
-              "weight": 0.1489,
+              "weight": 0.2978,
               "path": [
                 "reaction",
                 "lunarcharged"

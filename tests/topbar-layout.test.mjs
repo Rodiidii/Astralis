@@ -9,7 +9,7 @@ const [app, css, html] = await Promise.all([
 ]);
 
 test('les ressources suivent les actions, restent à droite avant le profil et sont dynamiques par jeu', () => {
-  assert.match(app, /<div class="topbar-resources"[^>]*>\$\{topbarResources\(state\.game\)\}<\/div><button class="topbar-profile"/);
+  assert.match(app, /<div class="topbar-resources"[^>]*>\$\{topbarResources\(state\.game\)\}<\/div>(?:\$\{mobileInstallButton\(\)\})?<button class="topbar-profile"/);
   assert.match(app, /if\(game==='gi'\)/);
   assert.match(app, /if\(game==='hsr'\)/);
   assert.match(css, /\.topbar-resources\s*\{[^}]*margin-left:\s*auto/s);

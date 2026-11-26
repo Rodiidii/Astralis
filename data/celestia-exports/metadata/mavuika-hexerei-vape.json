@@ -24,16 +24,16 @@
     "source": "ceilingStandard"
   },
   "goConditions": {
-    "Mavuika": {
-      "a1NsBurst": "on"
-    },
     "AThousandBlazingSuns": {
       "passive": "on",
       "nightsoul": "on"
     },
     "ObsidianCodex": {
-      "2NightsoulBlessing": "on",
-      "4NightsoulConsume": "on"
+      "4NightsoulConsume": "on",
+      "2NightsoulBlessing": "on"
+    },
+    "Mavuika": {
+      "a1NsBurst": "on"
     }
   },
   "characterBonusStats": {
@@ -70,19 +70,6 @@
       "switches": [
         {
           "condition": [
-            "Mavuika",
-            "a1NsBurst",
-            "on"
-          ],
-          "source": {
-            "type": "character"
-          },
-          "buffs": [
-            "Gift of Flaming Flowers"
-          ]
-        },
-        {
-          "condition": [
             "AThousandBlazingSuns",
             "passive",
             "on"
@@ -112,7 +99,7 @@
         {
           "condition": [
             "ObsidianCodex",
-            "2NightsoulBlessing",
+            "4NightsoulConsume",
             "on"
           ],
           "source": {
@@ -125,8 +112,21 @@
         },
         {
           "condition": [
+            "Mavuika",
+            "a1NsBurst",
+            "on"
+          ],
+          "source": {
+            "type": "character"
+          },
+          "buffs": [
+            "Gift of Flaming Flowers"
+          ]
+        },
+        {
+          "condition": [
             "ObsidianCodex",
-            "4NightsoulConsume",
+            "2NightsoulBlessing",
             "on"
           ],
           "source": {
@@ -158,19 +158,6 @@
       "switches": [
         {
           "condition": [
-            "Mavuika",
-            "a1NsBurst",
-            "on"
-          ],
-          "source": {
-            "type": "character"
-          },
-          "buffs": [
-            "Gift of Flaming Flowers"
-          ]
-        },
-        {
-          "condition": [
             "AThousandBlazingSuns",
             "passive",
             "on"
@@ -200,7 +187,7 @@
         {
           "condition": [
             "ObsidianCodex",
-            "2NightsoulBlessing",
+            "4NightsoulConsume",
             "on"
           ],
           "source": {
@@ -213,8 +200,21 @@
         },
         {
           "condition": [
+            "Mavuika",
+            "a1NsBurst",
+            "on"
+          ],
+          "source": {
+            "type": "character"
+          },
+          "buffs": [
+            "Gift of Flaming Flowers"
+          ]
+        },
+        {
+          "condition": [
             "ObsidianCodex",
-            "4NightsoulConsume",
+            "2NightsoulBlessing",
             "on"
           ],
           "source": {

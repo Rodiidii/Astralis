@@ -54,6 +54,20 @@ export function updateTask(game, id, patch) {
 }
 export function deleteTask(game, id) { write(`tasks:${game}`, tasks(game).filter(item => item.id !== id)); }
 
+// Commit a workspace action once, including cross-game changes and deletions.
+export function applyTaskChanges(upsert = [], remove = []) {
+  for (const game of ['hsr', 'gi', 'ww']) {
+    const rows = tasks(game), additions = upsert.filter(t => t.game === game);
+    const removed = new Set(remove.filter(t => t.game === game).map(t => String(t.id)));
+    const changed = new Map(additions.map(t => [String(t.id), { ...t, updated: Date.now() }]));
+    const next = rows.filter(t => !removed.has(String(t.id))).map(t => changed.get(String(t.id)) || t);
+    const ids = new Set(next.map(t => String(t.id)));
+    next.unshift(...additions.filter(t => !ids.has(String(t.id)) && !removed.has(String(t.id))).map(t => ({ ...t, updated: Date.now() })));
+    if (additions.length || removed.size) localStorage.setItem(prefix + `tasks:${game}`, JSON.stringify(next));
+  }
+  window.dispatchEvent(new CustomEvent('astralis:change', { detail: 'tasks:batch' }));
+}
+
 export function dailyTeam(game) { return read(`daily-team:${game}`, null); }
 export function saveDailyTeam(game, team) { write(`daily-team:${game}`, team); }
 

@@ -1,7 +1,7 @@
 {
   "name": "Skill & Burst",
   "description": "Celestia",
-  "lastEdit": 1794890291935,
+  "lastEdit": 1795427374364,
   "conditional": {
     "resonance": {},
     "reaction": {}
@@ -34,7 +34,7 @@
           "description": "Celestia",
           "targets": [
             {
-              "weight": 1.123,
+              "weight": 1,
               "path": [
                 "skill",
                 "dmg"
@@ -50,7 +50,7 @@
               "description": ""
             },
             {
-              "weight": 1.2181,
+              "weight": 1.25,
               "path": [
                 "burst",
                 "dmg"
@@ -65,7 +65,7 @@
               "description": ""
             },
             {
-              "weight": 1.0194,
+              "weight": 1,
               "path": [
                 "burst",
                 "dmg"
@@ -95,7 +95,7 @@
               "description": ""
             },
             {
-              "weight": 1.0194,
+              "weight": 1,
               "path": [
                 "burst",
                 "dmg"
@@ -140,7 +140,7 @@
               "description": ""
             },
             {
-              "weight": 0.949,
+              "weight": 1,
               "path": [
                 "burst",
                 "dmg"
@@ -155,7 +155,7 @@
               "description": ""
             },
             {
-              "weight": 1.0194,
+              "weight": 1,
               "path": [
                 "burst",
                 "dmg"
@@ -185,7 +185,7 @@
               "description": ""
             },
             {
-              "weight": 0.949,
+              "weight": 1,
               "path": [
                 "burst",
                 "dmg"
@@ -230,7 +230,7 @@
               "description": ""
             },
             {
-              "weight": 1.0194,
+              "weight": 1,
               "path": [
                 "burst",
                 "dmg"
@@ -245,7 +245,7 @@
               "description": ""
             },
             {
-              "weight": 1.0194,
+              "weight": 1,
               "path": [
                 "burst",
                 "dmg"
@@ -260,7 +260,7 @@
               "description": ""
             },
             {
-              "weight": 1.0194,
+              "weight": 1,
               "path": [
                 "burst",
                 "dmg"
@@ -275,7 +275,7 @@
               "description": ""
             },
             {
-              "weight": 1.0194,
+              "weight": 1,
               "path": [
                 "burst",
                 "dmg"
@@ -290,7 +290,7 @@
               "description": ""
             },
             {
-              "weight": 0.8216,
+              "weight": 0.75,
               "path": [
                 "burst",
                 "dmg"
@@ -305,7 +305,7 @@
               "description": ""
             },
             {
-              "weight": 0.877,
+              "weight": 1,
               "path": [
                 "skill",
                 "dmg"
@@ -320,7 +320,7 @@
               "description": ""
             },
             {
-              "weight": 0.9562,
+              "weight": 1,
               "path": [
                 "burst",
                 "dmg"
@@ -350,7 +350,7 @@
               "description": ""
             },
             {
-              "weight": 1.0194,
+              "weight": 1,
               "path": [
                 "burst",
                 "dmg"
@@ -395,7 +395,7 @@
               "description": ""
             },
             {
-              "weight": 1.0194,
+              "weight": 1,
               "path": [
                 "burst",
                 "dmg"
@@ -410,7 +410,7 @@
               "description": ""
             },
             {
-              "weight": 0.9562,
+              "weight": 1,
               "path": [
                 "burst",
                 "dmg"
@@ -440,7 +440,7 @@
               "description": ""
             },
             {
-              "weight": 1.0194,
+              "weight": 1,
               "path": [
                 "burst",
                 "dmg"
@@ -485,7 +485,7 @@
               "description": ""
             },
             {
-              "weight": 0.9562,
+              "weight": 1,
               "path": [
                 "burst",
                 "dmg"
@@ -596,7 +596,7 @@
       "buildTcs": [
         {
           "name": "Celestia",
-          "description": "Celestia teammate assumption (85% of the maximum).",
+          "description": "Celestia teammate assumption (KQMS standard).",
           "characterKey": "Durin",
           "character": {
             "level": 90,
@@ -681,7 +681,7 @@
       "buildTcs": [
         {
           "name": "Celestia",
-          "description": "Celestia teammate assumption (85% of the maximum).",
+          "description": "Celestia teammate assumption (KQMS standard).",
           "characterKey": "Nicole",
           "character": {
             "level": 90,
@@ -766,7 +766,7 @@
       "buildTcs": [
         {
           "name": "Celestia",
-          "description": "Celestia teammate assumption (85% of the maximum).",
+          "description": "Celestia teammate assumption (KQMS standard).",
           "characterKey": "Mona",
           "character": {
             "level": 90,

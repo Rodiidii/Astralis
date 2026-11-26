@@ -1,7 +1,7 @@
 {
   "name": "Nuke",
   "description": "Celestia",
-  "lastEdit": 1794349065328,
+  "lastEdit": 1795427353795,
   "conditional": {
     "resonance": {},
     "reaction": {}
@@ -50,11 +50,12 @@
               "reaction": "vaporize",
               "bonusStats": {
                 "eleMas": 828.416,
-                "all_dmgInc": 6883.075,
-                "all_dmg_": 476.2,
-                "enemyDefRed_": 30,
-                "hydro_enemyRes_": -40,
-                "critDMG_": 24
+                "atk": 1416,
+                "all_dmgInc": 9602.415,
+                "all_dmg_": 433,
+                "hydro_enemyRes_": -65,
+                "critDMG_": 24,
+                "enemyDefIgn_": 40
               },
               "description": ""
             }
@@ -221,85 +222,6 @@
       ]
     },
     {
-      "key": "Durin",
-      "name": "Durin (Celestia)",
-      "description": "",
-      "hitMode": "avgHit",
-      "infusionAura": "",
-      "bonusStats": {},
-      "conditional": {},
-      "customMultiTargets": [],
-      "buildTcs": [
-        {
-          "name": "Celestia",
-          "description": "Celestia teammate assumption (85% of the maximum).",
-          "characterKey": "Durin",
-          "character": {
-            "level": 90,
-            "ascension": 6,
-            "constellation": 6,
-            "talent": {
-              "auto": 10,
-              "skill": 10,
-              "burst": 10
-            }
-          },
-          "weapon": {
-            "key": "PeakPatrolSong",
-            "level": 90,
-            "ascension": 6,
-            "refinement": 5
-          },
-          "artifact": {
-            "sets": {
-              "Instructor": 4
-            },
-            "slots": {
-              "flower": {
-                "level": 16,
-                "rarity": 4,
-                "statKey": "hp"
-              },
-              "plume": {
-                "level": 16,
-                "rarity": 4,
-                "statKey": "atk"
-              },
-              "sands": {
-                "level": 20,
-                "rarity": 5,
-                "statKey": "atk_"
-              },
-              "goblet": {
-                "level": 16,
-                "rarity": 4,
-                "statKey": "def_"
-              },
-              "circlet": {
-                "level": 16,
-                "rarity": 4,
-                "statKey": "def_"
-              }
-            },
-            "substats": {
-              "type": "max",
-              "rarity": 4,
-              "stats": {
-                "atk": 56.21,
-                "def": 82.65,
-                "atk_": 47.53,
-                "def_": 86.73
-              }
-            }
-          },
-          "optimization": {
-            "distributedSubstats": 0,
-            "maxSubstats": {}
-          }
-        }
-      ]
-    },
-    {
       "key": "Citlali",
       "name": "Citlali (Celestia)",
       "description": "",
@@ -365,6 +287,83 @@
               "rarity": 5,
               "stats": {
                 "eleMas": 237.76
+              }
+            }
+          },
+          "optimization": {
+            "distributedSubstats": 0,
+            "maxSubstats": {}
+          }
+        }
+      ]
+    },
+    {
+      "key": "Nicole",
+      "name": "Nicole (Celestia)",
+      "description": "",
+      "hitMode": "avgHit",
+      "infusionAura": "",
+      "bonusStats": {},
+      "conditional": {},
+      "customMultiTargets": [],
+      "buildTcs": [
+        {
+          "name": "Celestia",
+          "description": "Celestia teammate assumption (85% of the maximum).",
+          "characterKey": "Nicole",
+          "character": {
+            "level": 90,
+            "ascension": 6,
+            "constellation": 6,
+            "talent": {
+              "auto": 10,
+              "skill": 10,
+              "burst": 10
+            }
+          },
+          "weapon": {
+            "key": "AngelosHeptades",
+            "level": 90,
+            "ascension": 6,
+            "refinement": 5
+          },
+          "artifact": {
+            "sets": {
+              "Instructor": 4
+            },
+            "slots": {
+              "flower": {
+                "level": 16,
+                "rarity": 4,
+                "statKey": "hp"
+              },
+              "plume": {
+                "level": 20,
+                "rarity": 5,
+                "statKey": "atk"
+              },
+              "sands": {
+                "level": 16,
+                "rarity": 4,
+                "statKey": "atk_"
+              },
+              "goblet": {
+                "level": 16,
+                "rarity": 4,
+                "statKey": "atk_"
+              },
+              "circlet": {
+                "level": 16,
+                "rarity": 4,
+                "statKey": "atk_"
+              }
+            },
+            "substats": {
+              "type": "max",
+              "rarity": 4,
+              "stats": {
+                "atk": 211.62,
+                "atk_": 49.54
               }
             }
           },

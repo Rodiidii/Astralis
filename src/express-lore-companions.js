@@ -1,0 +1,15 @@
+import { LORE_VISUALS } from './character-visual-identity.js?v=20261124-expedition-3';
+// Lore guests have original tycoon bonuses; these are not official combat kits.
+const gods='https://www.hoyolab.com/article/39895957';
+export const LORE_COMPANIONS={
+ gi:[
+  {id:'capitano',name:'Capitano',elementText:'Lame de givre',effectColor:'#acdaed',icon:'/assets/media/lore-characters/capitano.webp',portraitPosition:'50% 12%',signature:'Serment du Capitaine',motifs:'Masque, lame et sillage de givre',loreBasis:'Le Capitaine avance derrière son casque, puis sa lame trace un sillage glacé.',source:'https://www.youtube.com/@GenshinImpact'},
+  {id:'dainsleif',name:'Dainsleif',elementText:'Pouvoir de Khaenri’ah',effectColor:'#5dbeff',icon:'/assets/relations/lore/dainsleif.webp',portraitPosition:'50% 10%',signature:'Gardien du rameau',motifs:'Main azurée et sceau étoilé',loreBasis:'Une main azurée ouvre un sceau étoilé, puis une fissure traverse la destinée.',source:'https://www.hoyolab.com/article/79079'},
+  {id:'ronova',name:'Ronova',elementText:'Ombre de la Mort',effectColor:'#ef657d',icon:'/assets/media/lore-characters/ronova-portrait.png',portraitPosition:'50% 50%',signature:'Ailes de la Mort',motifs:'Ailes écarlates et plumes',loreBasis:'L’Ombre de la Mort déploie ses ailes écarlates autour du vœu.',source:gods},
+  {id:'istaroth',name:'Istaroth',elementText:'Ombre du Temps',effectColor:'#9ddedb',icon:'/assets/media/lore-characters/istaroth.jpg',portraitPosition:'36% 26%',signature:'Reflux des instants',motifs:'Sablier et cadran à rebours',loreBasis:'Le sablier se retourne ; le cadran et son sillage remontent le temps.',source:gods},
+  {id:'naberius',name:'Naberius',elementText:'Ombre de la Vie',effectColor:'#d4e9a1',icon:'/assets/express-lore/naberius.jpg',portraitPosition:'78% 26%',signature:'Souffle de la Vie',motifs:'Germe, ramifications et éclosion',loreBasis:'Une pousse apparaît, se ramifie et s’ouvre en fleur autour de la destinée.',source:gods},
+  {id:'asmoday',name:'Asmoday',elementText:'Ombre de l’Espace',effectColor:'#ff6e62',icon:'/assets/express-lore/asmoday.png',portraitPosition:'50% 30%',signature:'Verrou spatial',motifs:'Cubes rouges et cage spatiale',loreBasis:'Les cubes rouges se resserrent en une cage, puis libèrent le vœu.',source:'https://genshin.hoyoverse.com/',searchTerms:'déesse inconnue unknown god sustainer principes célestes'}
+ ].map(p=>({...p,icon:LORE_VISUALS[p.id]?.portrait||p.icon,portraitPosition:'50% 50%',searchTerms:[p.searchTerms||'',p.elementText.startsWith('Ombre')?'shades shade quatre ombres':'',p.id==='capitano'?'il capitano le capitaine':p.id==='dainsleif'?'dainsielf':''].join(' '),lore:true,rarity:5})),
+ hsr:[{id:'obsidian',name:'Obsidian',elementText:'Dix Cœurs de pierre',effectColor:'#ed6285',icon:'/assets/express-lore/obsidian.png',portraitPosition:'53% 40%',signature:'Toast d’obsidienne',motifs:'Pierre écarlate, coupe et ailes nocturnes',loreBasis:'Une pierre écarlate s’élève, une coupe bascule et des ailes nocturnes traversent le vœu.',source:'https://www.youtube.com/watch?v=C5YQEsZ-yWU',searchTerms:'obisidian',lore:true,rarity:5}],
+ ww:[]
+};

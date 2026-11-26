@@ -35,6 +35,9 @@ export function makeNextRecurringTask(task, due, createId = () => crypto.randomU
     id: String(createId()), title: String(step.title).trim(), done: false
   })) : [];
   const next = { ...task, id, seriesId: String(task.seriesId || task.id || id), due, done: false, completedAt: null, steps };
+  if ('actualMinutes' in next) next.actualMinutes=0;
+  if ('status' in next) next.status='todo';
+  if ('occurrenceCreated' in next) next.occurrenceCreated=false;
   delete next._editing;
   return next;
 }

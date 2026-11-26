@@ -1,7 +1,7 @@
 {
   "name": "Off-field Lunar-Crystallize",
   "description": "Celestia",
-  "lastEdit": 1794350938160,
+  "lastEdit": 1795282436718,
   "conditional": {
     "resonance": {},
     "reaction": {}
@@ -100,7 +100,7 @@
               "description": ""
             },
             {
-              "weight": 11.2002,
+              "weight": 11.4226,
               "path": [
                 "reaction",
                 "lunarcrystallize"
@@ -181,14 +181,14 @@
               "type": "max",
               "rarity": 5,
               "stats": {
-                "hp_": 19.82,
                 "def": 39.35,
                 "def_": 12.39,
                 "enerRech_": 33.03,
                 "critRate_": 19.83,
                 "critDMG_": 79.26,
                 "hp": 507.88,
-                "eleMas": 39.63,
+                "hp_": 15.16,
+                "eleMas": 60.61,
                 "atk": 33.07,
                 "atk_": 9.91
               }

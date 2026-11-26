@@ -1,3 +1,4 @@
+import {mountKnowledgeWorkbench} from './knowledge-workbench.js?v=20261126-reading-studio-2';
 
 import {relationRank,relationEvidenceProfile,RELATION_RANKS,proofsForMode,sharedVoiceTargets} from './relation-ranks.js?v=20261115-evidence-strength-1';
 import {summarizeRelationInsights} from './relation-insights.js?v=20261115-network-insights-1';
@@ -11,6 +12,8 @@ export function renderReferenceTeaser(){
  return '<div><span class="relations-kicker">INDEX DE RÉFÉRENCE · '+esc(reference.checkedAt)+'</span><b>Le corpus publié par Ties</b></div><div class="relations-reference-teaser-counts"><span><b>'+reference.counts.storyLines.toLocaleString('fr-FR')+'</b><small>passages d’histoire</small></span><span><b>'+reference.counts.voiceLines.toLocaleString('fr-FR')+'</b><small>lignes vocales</small></span><span><b>'+reference.counts.quests.toLocaleString('fr-FR')+'</b><small>quêtes</small></span><span><b>'+reference.counts.playableCharacters.toLocaleString('fr-FR')+'</b><small>personnages jouables</small></span></div><p>Chiffres annoncés par le site source; ils ne sont pas importés dans les preuves locales d’Astralis.</p><a href="'+esc(reference.url)+'" target="_blank" rel="noopener noreferrer">Consulter la référence ↗</a>';
 }
 export function enhanceRelations(g) {
+ mountKnowledgeWorkbench(g,{route:{kind:'relations'},edges:g.edges||[],entities:[...(g.characters?.values?.()||[])].map(c=>({id:String(c.id||c._id),name:c.name||c._name,kind:'character'})),open:e=>document.dispatchEvent(new CustomEvent('astralis:knowledge-character',{detail:e.id})),openRoute:r=>document.dispatchEvent(new CustomEvent('astralis:knowledge-route',{detail:r}))});
+
  if(g.readingBound)return;g.readingBound=true;
  const referenceTeaser=document.createElement('section');
  referenceTeaser.className='relations-reference-teaser';referenceTeaser.setAttribute('aria-label','Compteurs annoncés par le site de référence');

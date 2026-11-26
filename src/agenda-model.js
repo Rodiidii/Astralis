@@ -52,11 +52,12 @@ export function shiftAgendaMonth(value, delta){
  return Number.isNaN(date.getTime())?'':`${date.getUTCFullYear()}-${String(date.getUTCMonth()+1).padStart(2,'0')}`;
 }
 export function filterNewsRows(rows=[],{category='all',query='',source='all',view='all',readKeys=[],savedKeys=[]}={}){
- const read=new Set(readKeys),saved=new Set(savedKeys),needle=String(query).trim().toLocaleLowerCase('fr');
+ const read=new Set(readKeys),saved=new Set(savedKeys),needle=String(query).trim().toLocaleLowerCase('fr'),now=Date.now();
  return rows.filter(row=>{
   const key=String(row.id||row.link||row.title||''),text=`${row.title||''} ${row.description||''} ${row.source||''}`.toLocaleLowerCase('fr');
-  const matchesSource=source==='all'||(source==='hoyolab'&&String(row.feed||'').toLowerCase().includes('hoyolab'))||(source==='community'&&!!row.kind)||(source==='official'&&!row.kind&&!String(row.feed||'').toLowerCase().includes('hoyolab'));
-  const matchesView=view==='all'||(view==='unread'&&!read.has(key))||(view==='saved'&&saved.has(key));
+  let host='';try{host=new URL(row.link||row.url||row.source?.url||'').hostname.toLowerCase()}catch{}
+  const matchesSource=source==='all'||(source==='hoyolab'&&(host==='hoyolab.com'||host.endsWith('.hoyolab.com')))||(source==='community'&&!!row.kind)||(source==='official'&&(['genshin.hoyoverse.com','hoyoverse.com'].includes(host)||host.endsWith('.hoyoverse.com')||host==='hoyolab.com'||host.endsWith('.hoyolab.com')));
+  const start=Date.parse(row.start||''),end=Date.parse(row.end||row.start||''),matchesView=view==='all'||(view==='unread'&&!read.has(key))||(view==='saved'&&saved.has(key))||(view==='upcoming'&&Number.isFinite(start)&&start>now)||(view==='active'&&Number.isFinite(start)&&Number.isFinite(end)&&start<=now&&end>=now);
   return (category==='all'||row.category===category)&&(!needle||text.includes(needle))&&matchesSource&&matchesView;
  });
 }

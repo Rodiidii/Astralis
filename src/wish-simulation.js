@@ -6,7 +6,7 @@ export function simulateWishOrder(targets,state={},trials=6000){
  let seed=721943;const random=()=>{seed^=seed<<13;seed^=seed>>>17;seed^=seed<<5;return (seed>>>0)/4294967296;};
  const samples=rows.map(()=>[]),losses=new Map();
  for(let run=0;run<trials;run++){
-  let cp=Math.max(0,Math.min(89,+state.characterPity||0)),wp=Math.max(0,Math.min(79,+state.weaponPity||0)),cg=!!state.characterGuarantee,wg=!!state.weaponGuarantee,streak=Math.max(0,Math.min(3,+state.radiance||0)),spent=0,lost=0;
+  let cp=Math.max(0,Math.min(89,+state.characterPity||0)),wp=Math.max(0,Math.min(79,+state.weaponPity||0)),cg=!!state.characterGuarantee,wg=!!state.weaponGuarantee,streak=Math.max(0,Math.min(3,+state.radiance||0)),spent=0,lost=0,fate=!!state.weaponFatePoint;
   const nextFive=weapon=>{let p=weapon?wp:cp,pulls=0;while(true){p++;pulls++;const rate=weapon?(p>=80?1:p<63?.007:Math.min(1,.007+.07*(p-62))):(p>=90?1:p<74?.006:Math.min(1,.006+.06*(p-73)));if(random()<rate)break;}if(weapon)wp=0;else cp=0;spent+=pulls;};
   for(let index=0;index<rows.length;index++){
    const row=rows[index];
@@ -16,6 +16,7 @@ export function simulateWishOrder(targets,state={},trials=6000){
    // One Fate Point guarantees the selected weapon on the next 5-star in this banner.
    // A featured-banner guarantee alone is a 50/50 between its two weapons.
    for(let copy=0;copy<row.refinements;copy++){
+    if(fate){nextFive(true);fate=false;wg=false;continue;}
     nextFive(true);const featured=wg||random()<.75;wg=false;const selected=featured&&random()<.5;
     if(!selected){nextFive(true);wg=false;}
    }

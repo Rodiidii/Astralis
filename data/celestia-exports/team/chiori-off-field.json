@@ -1,7 +1,7 @@
 {
   "name": "Off-field",
   "description": "Celestia",
-  "lastEdit": 1794349029332,
+  "lastEdit": 1795427315126,
   "conditional": {
     "resonance": {},
     "reaction": {}
@@ -44,7 +44,7 @@
           "description": "Celestia",
           "targets": [
             {
-              "weight": 0.1253,
+              "weight": 0.125,
               "path": [
                 "skill",
                 "turretDmg"
@@ -56,7 +56,7 @@
               "description": ""
             },
             {
-              "weight": 0.2506,
+              "weight": 0.25,
               "path": [
                 "skill",
                 "turretDmg"
@@ -68,7 +68,7 @@
               "description": ""
             },
             {
-              "weight": 0.1253,
+              "weight": 0.125,
               "path": [
                 "skill",
                 "turretDmg"
@@ -94,7 +94,7 @@
               "description": ""
             },
             {
-              "weight": 0.1127,
+              "weight": 0.125,
               "path": [
                 "skill",
                 "turretDmg"
@@ -107,7 +107,7 @@
               "description": ""
             },
             {
-              "weight": 0.2506,
+              "weight": 0.25,
               "path": [
                 "skill",
                 "turretDmg"
@@ -120,33 +120,7 @@
               "description": ""
             },
             {
-              "weight": 0.1378,
-              "path": [
-                "skill",
-                "turretDmg"
-              ],
-              "hitMode": "avgHit",
-              "bonusStats": {
-                "atk": 514.786,
-                "all_dmg_": 40
-              },
-              "description": ""
-            },
-            {
-              "weight": 0.5,
-              "path": [
-                "skill",
-                "sweepDmg"
-              ],
-              "hitMode": "avgHit",
-              "bonusStats": {
-                "atk": 514.786,
-                "all_dmg_": 40
-              },
-              "description": ""
-            },
-            {
-              "weight": 0.3884,
+              "weight": 0.125,
               "path": [
                 "skill",
                 "turretDmg"
@@ -172,7 +146,7 @@
               "description": ""
             },
             {
-              "weight": 0.4886,
+              "weight": 0.375,
               "path": [
                 "skill",
                 "turretDmg"
@@ -185,7 +159,20 @@
               "description": ""
             },
             {
-              "weight": 0.5011,
+              "weight": 0.5,
+              "path": [
+                "skill",
+                "sweepDmg"
+              ],
+              "hitMode": "avgHit",
+              "bonusStats": {
+                "atk": 514.786,
+                "all_dmg_": 40
+              },
+              "description": ""
+            },
+            {
+              "weight": 0.5,
               "path": [
                 "skill",
                 "turretDmg"
@@ -198,7 +185,7 @@
               "description": ""
             },
             {
-              "weight": 0.5011,
+              "weight": 0.5,
               "path": [
                 "skill",
                 "turretDmg"
@@ -211,7 +198,20 @@
               "description": ""
             },
             {
-              "weight": 0.1253,
+              "weight": 0.5,
+              "path": [
+                "skill",
+                "turretDmg"
+              ],
+              "hitMode": "avgHit",
+              "bonusStats": {
+                "atk": 514.786,
+                "all_dmg_": 40
+              },
+              "description": ""
+            },
+            {
+              "weight": 0.125,
               "path": [
                 "skill",
                 "turretDmg"
@@ -236,7 +236,7 @@
               "description": ""
             },
             {
-              "weight": 0.3823,
+              "weight": 0.375,
               "path": [
                 "skill",
                 "turretDmg"
@@ -249,7 +249,7 @@
               "description": ""
             },
             {
-              "weight": 0.1067,
+              "weight": 0.125,
               "path": [
                 "skill",
                 "turretDmg"
@@ -275,7 +275,7 @@
               "description": ""
             },
             {
-              "weight": 0.3823,
+              "weight": 0.375,
               "path": [
                 "skill",
                 "turretDmg"
@@ -288,7 +288,7 @@
               "description": ""
             },
             {
-              "weight": 0.1193,
+              "weight": 0.125,
               "path": [
                 "skill",
                 "turretDmg"
@@ -327,7 +327,7 @@
               "description": ""
             },
             {
-              "weight": 0.3823,
+              "weight": 0.375,
               "path": [
                 "skill",
                 "turretDmg"
@@ -340,7 +340,7 @@
               "description": ""
             },
             {
-              "weight": 0.1193,
+              "weight": 0.125,
               "path": [
                 "skill",
                 "turretDmg"
@@ -353,7 +353,7 @@
               "description": ""
             },
             {
-              "weight": 0.1253,
+              "weight": 0.125,
               "path": [
                 "skill",
                 "turretDmg"
@@ -366,7 +366,7 @@
               "description": ""
             },
             {
-              "weight": 0.3758,
+              "weight": 0.375,
               "path": [
                 "skill",
                 "turretDmg"
@@ -475,7 +475,7 @@
       "buildTcs": [
         {
           "name": "Celestia",
-          "description": "Celestia teammate assumption (85% of the maximum).",
+          "description": "Celestia teammate assumption (KQMS standard).",
           "characterKey": "Nicole",
           "character": {
             "level": 90,
@@ -560,7 +560,7 @@
       "buildTcs": [
         {
           "name": "Celestia",
-          "description": "Celestia teammate assumption (85% of the maximum).",
+          "description": "Celestia teammate assumption (KQMS standard).",
           "characterKey": "Navia",
           "character": {
             "level": 90,
@@ -643,7 +643,7 @@
       "buildTcs": [
         {
           "name": "Celestia",
-          "description": "Celestia teammate assumption (85% of the maximum).",
+          "description": "Celestia teammate assumption (KQMS standard).",
           "characterKey": "Fischl",
           "character": {
             "level": 90,

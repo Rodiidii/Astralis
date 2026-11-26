@@ -1,7 +1,7 @@
 {
   "name": "Off-field Quickbloom",
   "description": "Celestia",
-  "lastEdit": 1794349021314,
+  "lastEdit": 1795427309290,
   "conditional": {
     "resonance": {},
     "reaction": {}
@@ -91,6 +91,84 @@
                 "dmg"
               ],
               "hitMode": "avgHit",
+              "bonusStats": {
+                "atk_": 45,
+                "eleMas": 250,
+                "critRate_": 20,
+                "all_dmg_": 75
+              },
+              "description": ""
+            },
+            {
+              "weight": 5,
+              "path": [
+                "passive2",
+                "dmg"
+              ],
+              "hitMode": "avgHit",
+              "reaction": "aggravate",
+              "bonusStats": {
+                "atk_": 45,
+                "eleMas": 250,
+                "critRate_": 20,
+                "all_dmg_": 75
+              },
+              "description": ""
+            },
+            {
+              "weight": 1,
+              "path": [
+                "passive2",
+                "dmg"
+              ],
+              "hitMode": "avgHit",
+              "bonusStats": {
+                "atk_": 45,
+                "eleMas": 250,
+                "critRate_": 20,
+                "all_dmg_": 75
+              },
+              "description": ""
+            },
+            {
+              "weight": 4,
+              "path": [
+                "constellation6",
+                "ozActiveCharDmg"
+              ],
+              "hitMode": "avgHit",
+              "reaction": "aggravate",
+              "bonusStats": {
+                "atk_": 45,
+                "eleMas": 250,
+                "critRate_": 20,
+                "all_dmg_": 75
+              },
+              "description": ""
+            },
+            {
+              "weight": 21,
+              "path": [
+                "constellation6",
+                "ozActiveCharDmg"
+              ],
+              "hitMode": "avgHit",
+              "bonusStats": {
+                "atk_": 45,
+                "eleMas": 250,
+                "critRate_": 20,
+                "all_dmg_": 75
+              },
+              "description": ""
+            },
+            {
+              "weight": 1,
+              "path": [
+                "constellation4",
+                "burstAdditionalDmg"
+              ],
+              "hitMode": "avgHit",
+              "reaction": "aggravate",
               "bonusStats": {
                 "atk_": 45,
                 "eleMas": 250,
@@ -211,7 +289,7 @@
       "buildTcs": [
         {
           "name": "Celestia",
-          "description": "Celestia teammate assumption (85% of the maximum).",
+          "description": "Celestia teammate assumption (KQMS standard).",
           "characterKey": "Nahida",
           "character": {
             "level": 90,
@@ -296,7 +374,7 @@
       "buildTcs": [
         {
           "name": "Celestia",
-          "description": "Celestia teammate assumption (85% of the maximum).",
+          "description": "Celestia teammate assumption (KQMS standard).",
           "characterKey": "Alhaitham",
           "character": {
             "level": 90,
@@ -379,7 +457,7 @@
       "buildTcs": [
         {
           "name": "Celestia",
-          "description": "Celestia teammate assumption (85% of the maximum).",
+          "description": "Celestia teammate assumption (KQMS standard).",
           "characterKey": "Furina",
           "character": {
             "level": 90,

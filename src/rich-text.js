@@ -1,7 +1,7 @@
 const ESCAPE = { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' };
 const escapeText = value => String(value).replace(/[&<>"']/g, character => ESCAPE[character]);
 const COLOR = /^#(?:[\da-f]{6}|[\da-f]{8})$/i;
-const INLINE_TOKEN = /\{LINK#[^}]+\}|\{\/LINK\}|<\/?(?:color(?:=[^>]+)?|b|i|u|size(?:=[^>]+)?|br|sprite(?:\s+name=|=)[^>]+|sprite)\s*\/?\s*>|\{[A-Za-z_$][\w$]*(?::[A-Za-z0-9]+)?\}|\\n|\r\n?|\n/gi;
+const INLINE_TOKEN = /\{LINK#[^}]+\}|\{\/LINK\}|<\/?(?:span(?:\s[^>]*)?|p|div|strong|em|ul|ol|li|color(?:=[^>]+)?|b|i|u|size(?:=[^>]+)?|br|sprite(?:\s+name=|=)[^>]+|sprite)\s*\/?\s*>|\{[A-Za-z_$][\w$]*(?::[A-Za-z0-9]+)?\}|\\n|\r\n?|\n/gi;
 
 function resolveValue(key, values, level) {
   if (!values || typeof values !== 'object') return undefined;
@@ -40,6 +40,18 @@ export function renderGameText(value, options = {}) {
     const lower = token.toLowerCase();
     if (token === '\\n' || token === '\n' || token === '\r' || token === '\r\n') html += '<br>';
     else if (lower === '<br>' || lower === '<br/>' || lower === '<br />') html += '<br>';
+    else if (/^<span\b/i.test(token)) {
+      // Catalog descriptions may already contain HTML spans. Retain only a
+      // validated colour; attributes and event handlers never reach the DOM.
+      const color=token.match(/(?:^|[;\s"'])color\s*:\s*(#[\da-f]{6}(?:[\da-f]{2})?)(?=[;\s"'>])/i)?.[1];
+      html+=color?`<span style="color:${color}">`:'<span>';stack.push('</span>');
+    } else if(lower==='</span>')closeTag('</span>');
+    else if(/^<\/?(?:p|div|ul|ol)\s*>$/i.test(token))html+='<br>';
+    else if(/^<li\s*>$/i.test(token))html+='<br>• ';
+    else if(lower==='</li>')html+='<br>';
+    else if(/^<\/?(?:strong|em)\s*>$/i.test(token)){
+      const tag=/strong/i.test(token)?'b':'i';if(token[1]==='/')closeTag(`</${tag}>`);else{html+=`<${tag}>`;stack.push(`</${tag}>`);}
+    }
     else if (/^\{LINK#/i.test(token) || lower === '{/link}') { /* source link labels are retained as plain text */ }
     else if (/^\{[A-Za-z_$]/.test(token)) {
       const [, key, format] = token.match(/^\{([\w$]+)(?::([A-Za-z0-9]+))?\}$/) || [];

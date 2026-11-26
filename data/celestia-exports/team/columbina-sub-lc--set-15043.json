@@ -1,7 +1,7 @@
 {
   "name": "Off-field Lunar-Charged",
   "description": "Celestia",
-  "lastEdit": 1795111043654,
+  "lastEdit": 1795627928465,
   "conditional": {
     "resonance": {},
     "reaction": {}
@@ -157,21 +157,7 @@
               "description": ""
             },
             {
-              "weight": 0.5,
-              "path": [
-                "skill",
-                "continuousDmg"
-              ],
-              "hitMode": "avgHit",
-              "bonusStats": {
-                "eleMas": 253.786,
-                "critRate_": 15,
-                "hydro_enemyRes_": -40
-              },
-              "description": ""
-            },
-            {
-              "weight": 0.5,
+              "weight": 1,
               "path": [
                 "skill",
                 "continuousDmg"
@@ -201,21 +187,7 @@
               "description": ""
             },
             {
-              "weight": 0.5,
-              "path": [
-                "skill",
-                "continuousDmg"
-              ],
-              "hitMode": "avgHit",
-              "bonusStats": {
-                "eleMas": 253.786,
-                "critRate_": 15,
-                "hydro_enemyRes_": -40
-              },
-              "description": ""
-            },
-            {
-              "weight": 0.5,
+              "weight": 1,
               "path": [
                 "skill",
                 "continuousDmg"
@@ -353,7 +325,7 @@
               "description": ""
             },
             {
-              "weight": 0.1031,
+              "weight": 0.2061,
               "path": [
                 "reaction",
                 "lunarcharged"
@@ -385,39 +357,7 @@
               "description": ""
             },
             {
-              "weight": 0.1031,
-              "path": [
-                "reaction",
-                "lunarcharged"
-              ],
-              "hitMode": "avgHit",
-              "bonusStats": {
-                "eleMas": 252.986,
-                "lunarcharged_baseDmg_": 28,
-                "critRate_": 15,
-                "lunarcharged_dmg_": 84.792,
-                "electro_enemyRes_": -40
-              },
-              "description": ""
-            },
-            {
-              "weight": 0.1031,
-              "path": [
-                "reaction",
-                "lunarcharged"
-              ],
-              "hitMode": "avgHit",
-              "bonusStats": {
-                "eleMas": 252.986,
-                "lunarcharged_baseDmg_": 28,
-                "critRate_": 15,
-                "lunarcharged_dmg_": 84.792,
-                "electro_enemyRes_": -40
-              },
-              "description": ""
-            },
-            {
-              "weight": 0.1031,
+              "weight": 0.2061,
               "path": [
                 "reaction",
                 "lunarcharged"
@@ -643,35 +583,7 @@
               "description": ""
             },
             {
-              "weight": 0.5,
-              "path": [
-                "skill",
-                "continuousDmg"
-              ],
-              "hitMode": "avgHit",
-              "bonusStats": {
-                "eleMas": 203.786,
-                "critRate_": 15,
-                "all_dmg_": 20
-              },
-              "description": ""
-            },
-            {
-              "weight": 0.5,
-              "path": [
-                "skill",
-                "continuousDmg"
-              ],
-              "hitMode": "avgHit",
-              "bonusStats": {
-                "eleMas": 203.786,
-                "critRate_": 15,
-                "all_dmg_": 20
-              },
-              "description": ""
-            },
-            {
-              "weight": 0.5,
+              "weight": 1.5,
               "path": [
                 "skill",
                 "continuousDmg"

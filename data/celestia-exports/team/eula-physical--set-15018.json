@@ -1,7 +1,7 @@
 {
   "name": "Physical",
   "description": "Celestia",
-  "lastEdit": 1794890257689,
+  "lastEdit": 1795427331104,
   "conditional": {
     "resonance": {},
     "reaction": {}
@@ -325,7 +325,7 @@
               "description": ""
             },
             {
-              "weight": 0.9399,
+              "weight": 1,
               "path": [
                 "reaction",
                 "shattered"
@@ -339,7 +339,7 @@
               "description": ""
             },
             {
-              "weight": 0.3169,
+              "weight": 0.25,
               "path": [
                 "reaction",
                 "shattered"
@@ -353,7 +353,7 @@
               "description": ""
             },
             {
-              "weight": 0.7432,
+              "weight": 0.75,
               "path": [
                 "reaction",
                 "shattered"
@@ -476,7 +476,7 @@
       "buildTcs": [
         {
           "name": "Celestia",
-          "description": "Celestia teammate assumption (85% of the maximum).",
+          "description": "Celestia teammate assumption (KQMS standard).",
           "characterKey": "Furina",
           "character": {
             "level": 90,
@@ -561,7 +561,7 @@
       "buildTcs": [
         {
           "name": "Celestia",
-          "description": "Celestia teammate assumption (85% of the maximum).",
+          "description": "Celestia teammate assumption (KQMS standard).",
           "characterKey": "RaidenShogun",
           "character": {
             "level": 90,
@@ -646,7 +646,7 @@
       "buildTcs": [
         {
           "name": "Celestia",
-          "description": "Celestia teammate assumption (85% of the maximum).",
+          "description": "Celestia teammate assumption (KQMS standard).",
           "characterKey": "Mika",
           "character": {
             "level": 90,

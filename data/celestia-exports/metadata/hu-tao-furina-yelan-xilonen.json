@@ -5,7 +5,7 @@
     "kind": "normal"
   },
   "child": {
-    "constellation": 0,
+    "constellation": 1,
     "characterLevel": 90,
     "talents": {
       "burst": 10,
@@ -79,7 +79,7 @@
     {
       "code": "setEffects",
       "setIds": [
-        15019
+        15031
       ]
     }
   ],
@@ -117,7 +117,7 @@
     {
       "code": "setEffects",
       "setIds": [
-        15019
+        15031
       ]
     }
   ]

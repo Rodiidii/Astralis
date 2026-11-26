@@ -1,7 +1,7 @@
 {
   "name": "Mono Pyro",
   "description": "Celestia",
-  "lastEdit": 1794349036567,
+  "lastEdit": 1795427323569,
   "conditional": {
     "resonance": {},
     "reaction": {}
@@ -107,7 +107,7 @@
               "bonusStats": {
                 "atk_": 20,
                 "atk": 1050.758,
-                "all_dmg_": 108.36,
+                "all_dmg_": 93.36,
                 "pyro_enemyRes_": -91
               },
               "description": ""
@@ -209,7 +209,7 @@
       "buildTcs": [
         {
           "name": "Celestia",
-          "description": "Celestia teammate assumption (85% of the maximum).",
+          "description": "Celestia teammate assumption (KQMS standard).",
           "characterKey": "KaedeharaKazuha",
           "character": {
             "level": 90,
@@ -294,7 +294,7 @@
       "buildTcs": [
         {
           "name": "Celestia",
-          "description": "Celestia teammate assumption (85% of the maximum).",
+          "description": "Celestia teammate assumption (KQMS standard).",
           "characterKey": "Xilonen",
           "character": {
             "level": 90,
@@ -379,7 +379,7 @@
       "buildTcs": [
         {
           "name": "Celestia",
-          "description": "Celestia teammate assumption (85% of the maximum).",
+          "description": "Celestia teammate assumption (KQMS standard).",
           "characterKey": "Bennett",
           "character": {
             "level": 90,

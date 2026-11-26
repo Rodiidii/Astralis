@@ -1,0 +1,3819 @@
+{
+  "characters": {
+    "10000121": {
+      "name": "Aino",
+      "profile": "emSupport",
+      "priority": [
+        "em",
+        "er"
+      ],
+      "conditional": [
+        "critRate",
+        "hpPct"
+      ],
+      "label": "Soutien maîtrise",
+      "reason": "CRIT pour Favonius ; PV pour le bouclier de Citlali.",
+      "reviewed": true,
+      "evidence": [
+        {
+          "talent": "passive2",
+          "text": "Les DGT infligés par les déchaînements élémentaires d'Aino augmentent d'une valeur équivalant à 50 % de sa maîtrise élémentaire"
+        },
+        {
+          "talent": "c2",
+          "text": "Si Aino fait partie de l'équipe mais n'est pas déployée pendant la durée de la zone à refroidissement hydronique focalisée de son déchaînement élémentaire Refroidisseur hydronique de précision, le canardeur tranquille tire un ballon d'eau supplémentaire infligeant des DGT Hydro de zone d'une valeur équivalant à 25 % de l'ATQ d'Aino et 100 % de sa maîtrise élémentaire sur tout ennemi proche touché par une attaque de votre personnage déployé, ces DGT étant considérés comme des DGT de déchaînement élémentaire"
+        }
+      ],
+      "source": "data/lab-character-conditions.json · Aino"
+    },
+    "10000038": {
+      "name": "Albedo",
+      "profile": "defDamage",
+      "priority": [
+        "critRate",
+        "critDmg",
+        "defPct",
+        "er"
+      ],
+      "conditional": [],
+      "label": "Dégâts DÉF",
+      "reason": "La recharge dépend de la rotation.",
+      "reviewed": true,
+      "evidence": [
+        {
+          "talent": "passive1",
+          "text": "De plus, les DGT infligés augmentent d'une valeur équivalant à 240 % de la DÉF d'Albedo si une aura argentée créée par Albedo est actuellement sur le terrain"
+        },
+        {
+          "talent": "c2",
+          "text": "Chaque cumul de jugement fatal confère un bonus de DGT équivalant à 30 % de la DÉF d'Albedo"
+        },
+        {
+          "talent": "c2",
+          "text": "Ces germes explosent violemment et infligent des DGT Géo de zone d'une valeur équivalant à 300 % de la DÉF d'Albedo, ces DGT étant considérés comme des DGT de déchaînement élémentaire"
+        },
+        {
+          "talent": "c6",
+          "text": "De plus, utiliser le déchaînement élémentaire Transformation : Reflux Géo détruit également toutes les auras argentées du terrain, ce qui permet à cette instance du déchaînement élémentaire de consommer 4 cumuls de jugement fatal de la constellation {LINK#TE382}Éon de l'avènement afin d'augmenter les DGT infligés par les germes fatals d'une valeur équivalant à 250 % de la DÉF d'Albedo pendant 20 s"
+        }
+      ],
+      "source": "data/lab-character-conditions.json · Albedo"
+    },
+    "10000078": {
+      "name": "Alhaitham",
+      "profile": "emDamage",
+      "priority": [
+        "critRate",
+        "critDmg",
+        "em"
+      ],
+      "conditional": [
+        "er",
+        "atkPct"
+      ],
+      "label": "Dégâts / maîtrise",
+      "reason": "ATQ et recharge dépendent des coefficients et de la rotation.",
+      "reviewed": true,
+      "evidence": [],
+      "source": "data/lab-character-conditions.json · Alhaitham"
+    },
+    "10000062": {
+      "name": "Aloy",
+      "profile": "atkDamage",
+      "priority": [
+        "critRate",
+        "critDmg",
+        "atkPct",
+        "er"
+      ],
+      "conditional": [
+        "em"
+      ],
+      "label": "Dégâts ATQ",
+      "reason": "La maîtrise dépend de la réaction ; la recharge dépend de la rotation.",
+      "reviewed": true,
+      "evidence": [],
+      "source": "data/lab-character-conditions.json · Aloy"
+    },
+    "10000148": {
+      "name": "Alyosha",
+      "profile": "atkHeal",
+      "priority": [
+        "atkPct",
+        "er"
+      ],
+      "conditional": [
+        "critRate"
+      ],
+      "label": "Soin ATQ",
+      "reason": "D’après le kit local : soin basé sur l’ATQ et utilité de la recharge.",
+      "reviewed": true,
+      "evidence": [
+        {
+          "talent": "passive1",
+          "text": "Lorsque Tugarin attaque, il restaure également les PV des personnages déployés de l'équipe à proximité d'une valeur équivalant à 120 % de l'ATQ d'Alyosha"
+        },
+        {
+          "talent": "c4",
+          "text": "Lorsque Tugarin attaque, il restaure également les PV du personnage à proximité ayant le pourcentage de PV restant le plus bas d'une valeur équivalant à 60 % de l'ATQ d'Alyosha"
+        }
+      ],
+      "source": "data/lab-character-conditions.json · Alyosha"
+    },
+    "10000021": {
+      "name": "Amber",
+      "profile": "atkDamage",
+      "priority": [
+        "critRate",
+        "critDmg",
+        "atkPct",
+        "er"
+      ],
+      "conditional": [
+        "em"
+      ],
+      "label": "Dégâts ATQ",
+      "reason": "La maîtrise dépend de la réaction ; la recharge dépend de la rotation.",
+      "reviewed": true,
+      "evidence": [],
+      "source": "data/lab-character-conditions.json · Amber"
+    },
+    "10000057": {
+      "name": "Arataki Itto",
+      "profile": "defDamage",
+      "priority": [
+        "critRate",
+        "critDmg",
+        "defPct",
+        "er"
+      ],
+      "conditional": [],
+      "label": "Dégâts DÉF",
+      "reason": "La recharge dépend de la rotation.",
+      "reviewed": true,
+      "evidence": [
+        {
+          "talent": "combat3",
+          "text": "La VIT d'attaque des attaques normales d'Itto augmente, et son ATQ sera augmentée en fonction de sa DÉF"
+        },
+        {
+          "talent": "passive2",
+          "text": "Les DGT infligés par les kesa giri d'Arataki augmentent d'une valeur équivalant à 35 % de la DÉF d'Arataki Itto"
+        }
+      ],
+      "source": "data/lab-character-conditions.json · AratakiItto"
+    },
+    "10000096": {
+      "name": "Arlecchino",
+      "profile": "atkDamage",
+      "priority": [
+        "critRate",
+        "critDmg",
+        "atkPct",
+        "er"
+      ],
+      "conditional": [
+        "em"
+      ],
+      "label": "Dégâts ATQ",
+      "reason": "La maîtrise dépend de la réaction ; la recharge dépend de la rotation.",
+      "reviewed": true,
+      "evidence": [
+        {
+          "talent": "combat1",
+          "text": "Sous l'effet du masque de la mort rouge, toucher un ennemi avec une attaque normale augmente les DGT de l'attaque d'une valeur équivalant à un pourcentage de l'ATQ d'Arlecchino multipliée par le pourcentage de son engagement vital actuel et consomme 7,5 % de l'engagement vital actuel"
+        },
+        {
+          "talent": "combat2",
+          "text": "Quand Arlecchino utilise une attaque chargée ou le déchaînement élémentaire « Ascension lunatique », elle absorbe et annule les dettes sanguinaires à proximité, chaque dette sanguinaire lui accordant un engagement vital d'une valeur équivalant à 65 % de ses PV max"
+        },
+        {
+          "talent": "passive1",
+          "text": "Lorsqu'un ennemi affligé d'une dette sanguinaire infligée par Arlecchino elle-même est éliminé, elle obtient immédiatement un engagement vital d'une valeur équivalant à 130 % de ses PV max"
+        },
+        {
+          "talent": "c2",
+          "text": "Lorsque Arlecchino absorbe une dette à échéance, elle envoie un feu lunatique vers l'avant, infligeant des DGT Pyro de zone d'une valeur équivalant à 900 % de son ATQ et augmentant ses RÉS élémentaires et physique de 20 % pendant 15 s"
+        }
+      ],
+      "source": "data/lab-character-conditions.json · Arlecchino"
+    },
+    "10000082": {
+      "name": "Baizhu",
+      "profile": "hpSupport",
+      "priority": [
+        "hpPct",
+        "er"
+      ],
+      "conditional": [
+        "critRate",
+        "em"
+      ],
+      "label": "Soutien PV",
+      "reason": "CRIT conditionnel à Favonius ; maîtrise selon le rôle de réaction.",
+      "reviewed": true,
+      "evidence": [
+        {
+          "talent": "combat2",
+          "text": "Après avoir effectué 3 attaques ou s'il n'y a pas d'ennemis à proximité, l'esprit revient et soigne tous les personnages de l'équipe à proximité selon les PV max de Baizhu"
+        },
+        {
+          "talent": "combat3",
+          "text": "Dans les circonstances suivantes, le bouclier aseptique soigne votre personnage déployé selon les PV max de Baizhu et libère une veine d'aura pour attaquer les ennemis en infligeant des DGT Dendro :"
+        },
+        {
+          "talent": "passive3",
+          "text": "Lorsque Baizhu fait partie de l'équipe, interagir avec certains objets récoltables soigne votre personnage déployé d'une valeur équivalant à 2,5 % des PV max de Baizhu"
+        },
+        {
+          "talent": "c2",
+          "text": "L'esprit divisé de gaze effectue 1 attaque avant de revenir, infligeant des DGT Dendro d'une valeur équivalant à 250 % de l'ATQ de Baizhu et soignant pour 20 % du soin de l'esprit de gaze de Diagnostic universel"
+        }
+      ],
+      "source": "data/lab-character-conditions.json · Baizhu"
+    },
+    "10000014": {
+      "name": "Barbara",
+      "profile": "hpSupport",
+      "priority": [
+        "hpPct",
+        "er"
+      ],
+      "conditional": [
+        "critRate",
+        "em"
+      ],
+      "label": "Soutien PV",
+      "reason": "CRIT conditionnel à Favonius ; maîtrise selon le rôle de réaction.",
+      "reviewed": true,
+      "evidence": [],
+      "source": "data/lab-character-conditions.json · Barbara"
+    },
+    "10000024": {
+      "name": "Beidou",
+      "profile": "atkDamage",
+      "priority": [
+        "critRate",
+        "critDmg",
+        "atkPct",
+        "er"
+      ],
+      "conditional": [
+        "em"
+      ],
+      "label": "Dégâts ATQ",
+      "reason": "La maîtrise dépend de la réaction ; la recharge dépend de la rotation.",
+      "reviewed": true,
+      "evidence": [
+        {
+          "talent": "c1",
+          "text": "Génère un bouclier qui absorbe une quantité de DGT équivalant à 16 % des PV max et dure 15 s"
+        }
+      ],
+      "source": "data/lab-character-conditions.json · Beidou"
+    },
+    "10000032": {
+      "name": "Bennett",
+      "profile": "baseBuff",
+      "priority": [
+        "er",
+        "hpPct"
+      ],
+      "conditional": [
+        "critRate"
+      ],
+      "label": "Soutien ATQ de base",
+      "reason": "L’ATQ % des artéfacts n’augmente pas ce buff. PV utile au soin de Bennett.",
+      "reviewed": true,
+      "evidence": [],
+      "source": "data/lab-character-conditions.json · Bennett"
+    },
+    "10000072": {
+      "name": "Candace",
+      "profile": "hpSupport",
+      "priority": [
+        "hpPct",
+        "er"
+      ],
+      "conditional": [
+        "critRate",
+        "em"
+      ],
+      "label": "Soutien PV",
+      "reason": "CRIT conditionnel à Favonius ; maîtrise selon le rôle de réaction.",
+      "reviewed": true,
+      "evidence": [
+        {
+          "talent": "combat2",
+          "text": "Brandit son bouclier pour bloquer les attaques des ennemis proches, formant un bouclier qui absorbe les DGT selon ses PV max et est efficace à 250 % contre les DGT Hydro"
+        },
+        {
+          "talent": "combat3",
+          "text": "Brandissant son arme en l'air, Candace invoque une bénédiction divine qui inflige des DGT Hydro de zone selon ses PV max et confère l'état Prière de couronne cramoisie à votre personnage déployé"
+        },
+        {
+          "talent": "c6",
+          "text": "Lorsqu'un personnage déployé (hormis Candace) affecté par l'état Prière de couronne cramoisie de Liturgie : Marée de la bergeronnette inflige des DGT élémentaires à un ennemi avec une attaque normale, il déclenche une marée d'impact, infligeant des DGT Hydro de zone d'une valeur équivalant à 15 % des PV max de Candace"
+        }
+      ],
+      "source": "data/lab-character-conditions.json · Candace"
+    },
+    "10000088": {
+      "name": "Charlotte",
+      "profile": "atkHeal",
+      "priority": [
+        "atkPct",
+        "er"
+      ],
+      "conditional": [
+        "critRate"
+      ],
+      "label": "Soin ATQ",
+      "reason": "Taux CRIT utile à Favonius.",
+      "reviewed": true,
+      "evidence": [
+        {
+          "talent": "combat3",
+          "text": "En condensant de la glace pour créer l'emblème de L'Oiseau de vapeur, Charlotte crée un champ de flash info qui inflige des DGT Cryo de zone et restaure les PV de tous les personnages de l'équipe à proximité selon son ATQ"
+        },
+        {
+          "talent": "combat3",
+          "text": "Lorsque le personnage déployé est à l'intérieur du champ, ses PV sont restaurés de façon continue selon l'ATQ de Charlotte"
+        },
+        {
+          "talent": "c1",
+          "text": "Lorsque Pose : Corroboration complète a effectué un soin sur un personnage, ce dernier obtient une marque de vérification pendant 6 s, qui le soigne une fois toutes les 2 s d'une valeur équivalant à 80 % de l'ATQ de Charlotte"
+        },
+        {
+          "talent": "c6",
+          "text": "Lorsqu'une attaque normale ou chargée du personnage déployé a touché un ennemi affligé de l'effet Impression ciblée de Cadrage : Composition gelée, Monsieur Vérité effectue une attaque coordonnée qui inflige des DGT Cryo de zone d'une valeur équivalant à 180 % de l'ATQ de Charlotte et soigne les PV des personnages déployés à portée de l'attaque d'une valeur équivalant à 42 % de l'ATQ de Charlotte"
+        }
+      ],
+      "source": "data/lab-character-conditions.json · Charlotte"
+    },
+    "10000104": {
+      "name": "Chasca",
+      "profile": "atkDamage",
+      "priority": [
+        "critRate",
+        "critDmg",
+        "atkPct",
+        "er"
+      ],
+      "conditional": [
+        "em"
+      ],
+      "label": "Dégâts ATQ",
+      "reason": "La maîtrise dépend de la réaction ; la recharge dépend de la rotation.",
+      "reviewed": true,
+      "evidence": [
+        {
+          "talent": "c2",
+          "text": "De plus, lorsqu'une cartouche radieuse de chassombre de la visée multiple de la compétence élémentaire Chasse des rênes spirituelles touche un ennemi, elle inflige des DGT de zone de son élément d'une valeur équivalant à 400 % de l'ATQ de Chasca"
+        },
+        {
+          "talent": "c4",
+          "text": "Lorsqu'une cartouche brisâme de lumière du déchaînement élémentaire Assaut de faucheur d'âmes touche un ennemi, Chasca récupère 1,5 pt d'énergie élémentaire et la cartouche brisâme de lumière inflige des DGT de zone de son élément d'une valeur équivalant à 400 % de l'ATQ de Chasca, ces DGT étant considérés comme des DGT d'attaque chargée"
+        }
+      ],
+      "source": "data/lab-character-conditions.json · Chasca"
+    },
+    "10000090": {
+      "name": "Chevreuse",
+      "profile": "hpSupport",
+      "priority": [
+        "hpPct",
+        "er"
+      ],
+      "conditional": [
+        "critRate",
+        "em"
+      ],
+      "label": "Soutien PV",
+      "reason": "CRIT conditionnel à Favonius ; maîtrise selon le rôle de réaction.",
+      "reviewed": true,
+      "evidence": [
+        {
+          "talent": "combat2",
+          "text": "Pendant une courte durée après que Chevreuse tire un coup de feu, les PV de votre personnage déployé sont restaurés de façon continue selon les PV max de Chevreuse"
+        },
+        {
+          "talent": "c2",
+          "text": "En touchant avec l'appui long de Tir de suppression rapide à courte portée, 2 explosions en chaîne sont déclenchées près de l'emplacement touché, chaque explosion infligeant des DGT Pyro d'une valeur équivalant à 120 % de l'ATQ de Chevreuse"
+        },
+        {
+          "talent": "c6",
+          "text": "Lorsque l'effet de soins de Tir de suppression rapide à courte portée a duré 12 s, tous les personnages de l'équipe à proximité récupèrent une fois des PV d'une valeur équivalant à 10 % des PV max de Chevreuse"
+        }
+      ],
+      "source": "data/lab-character-conditions.json · Chevreuse"
+    },
+    "10000094": {
+      "name": "Chiori",
+      "profile": "defDamage",
+      "priority": [
+        "critRate",
+        "critDmg",
+        "defPct",
+        "er"
+      ],
+      "conditional": [],
+      "label": "Dégâts DÉF",
+      "reason": "La recharge dépend de la rotation.",
+      "reviewed": true,
+      "evidence": [
+        {
+          "talent": "combat2",
+          "text": "Après s'être précipitée en avant sur ses pieds dansants et légers comme la soie, Chiori invoque sa poupée automate Tamoto à côté d'elle et effectue une attaque ascendante à la fin de sa ruée, infligeant des DGT Géo de zone aux ennemis proches selon son ATQ et sa DÉF"
+        },
+        {
+          "talent": "combat2",
+          "text": "Entaille les ennemis proches de façon intermittente pour infliger des DGT Géo de zone selon l'ATQ et la DÉF de Chiori"
+        },
+        {
+          "talent": "combat3",
+          "text": "Dégainant deux lames de leur fourreau, Chiori tranche avec le talent de découpe d'une tailleuse experte, infligeant des DGT Géo de zone selon son ATQ et sa DÉF"
+        },
+        {
+          "talent": "c6",
+          "text": "De plus, les DGT infligés par les attaques normales de Chiori augmentent d'une valeur équivalant à 235 % de sa DÉF"
+        }
+      ],
+      "source": "data/lab-character-conditions.json · Chiori"
+    },
+    "10000036": {
+      "name": "Chongyun",
+      "profile": "atkDamage",
+      "priority": [
+        "critRate",
+        "critDmg",
+        "atkPct",
+        "er"
+      ],
+      "conditional": [
+        "em"
+      ],
+      "label": "Dégâts ATQ",
+      "reason": "La maîtrise dépend de la réaction ; la recharge dépend de la rotation.",
+      "reviewed": true,
+      "evidence": [
+        {
+          "talent": "c1",
+          "text": "Le dernier coup d'attaque normale libère 3 lames de glace vers l'avant ; chacune inflige une quantité de DGT Cryo équivalant à 50 % de l'ATQ de Chongyun"
+        }
+      ],
+      "source": "data/lab-character-conditions.json · Chongyun"
+    },
+    "10000107": {
+      "name": "Citlali",
+      "profile": "emSupport",
+      "priority": [
+        "em",
+        "er"
+      ],
+      "conditional": [
+        "critRate",
+        "hpPct"
+      ],
+      "label": "Soutien maîtrise",
+      "reason": "CRIT pour Favonius ; PV pour le bouclier de Citlali.",
+      "reviewed": true,
+      "evidence": [
+        {
+          "talent": "combat2",
+          "text": "L'absorption de DGT d'un bouclier d'opale est basée sur la maîtrise élémentaire de Citlali"
+        },
+        {
+          "talent": "passive2",
+          "text": "Pendant la compétence élémentaire Étoile d'aurore givrée, les DGT infligés par la tempête de givre d'Itzpapa augmentent d'une valeur équivalant à 90 % de la maîtrise élémentaire de Citlali"
+        },
+        {
+          "talent": "passive2",
+          "text": "Pendant le déchaînement élémentaire Édit de splendeur liée, les DGT infligés par la tempête glaciale augmentent d'une valeur équivalant à 1 200 % de la maîtrise élémentaire de Citlali"
+        },
+        {
+          "talent": "c1",
+          "text": "Lorsque Citlali utilise la compétence élémentaire Étoile d'aurore givrée, elle obtient l'effet Tenue d'opale jusqu'à ce qu'Itzpapa quitte le terrain : pendant cet effet, Citlali obtient 10 lames stellaires, une lame étant consommée lorsqu'un membre de l'équipe déployé à proximité autre que Citlali inflige des DGT avec une attaque normale, chargée ou plongeante ou une compétence ou un déchaînement élémentaires, et ce, afin d'augmenter les DGT infligés d'une valeur équivalant à 200 % de la maîtrise élémentaire de Citlali"
+        }
+      ],
+      "source": "data/lab-character-conditions.json · Citlali"
+    },
+    "10000098": {
+      "name": "Clorinde",
+      "profile": "atkDamage",
+      "priority": [
+        "critRate",
+        "critDmg",
+        "atkPct",
+        "er"
+      ],
+      "conditional": [
+        "em"
+      ],
+      "label": "Dégâts ATQ",
+      "reason": "La maîtrise dépend de la réaction ; la recharge dépend de la rotation.",
+      "reviewed": true,
+      "evidence": [
+        {
+          "talent": "combat2",
+          "text": "Lorsque son engagement vital est inférieur à 100 % de ses PV max, Clorinde effectue un tir de mousquet qui lui accorde de l'engagement vital selon ses PV max et qui transperce les ennemis pour infliger des DGT encore plus importants aux ennemis en chemin"
+        },
+        {
+          "talent": "combat2",
+          "text": "Avec un engagement vital inférieur à 100 % de ses PV max, Clorinde récupère des PV selon la valeur de son engagement vital et la zone d'effet et les DGT infligés par cette instance d'empalement nocturne augmentent"
+        },
+        {
+          "talent": "combat3",
+          "text": "Clorinde s'accorde un engagement vital selon ses PV max avant de zigzaguer rapidement et de frapper avec sa lame et son mousquet en même temps, infligeant des DGT Électro de zone"
+        },
+        {
+          "talent": "passive1",
+          "text": "Lorsqu'un personnage de l'équipe à proximité a déclenché une réaction liée à l'élément Électro sur un ennemi, les DGT Électro infligés par les attaques normales de Clorinde et par Fin de la clarté augmentent d'une valeur équivalant à 20 % de l'ATQ de Clorinde pendant 15 s"
+        }
+      ],
+      "source": "data/lab-character-conditions.json · Clorinde"
+    },
+    "10000067": {
+      "name": "Collei",
+      "profile": "burstSupport",
+      "priority": [
+        "er"
+      ],
+      "conditional": [
+        "critRate",
+        "em",
+        "atkPct"
+      ],
+      "label": "Soutien déchaînement",
+      "reason": "Après la recharge nécessaire, choisir les statistiques du rôle.",
+      "reviewed": true,
+      "evidence": [
+        {
+          "talent": "passive1",
+          "text": "Si un de vos personnages dans l'équipe déclenche une réaction de Brûlure, de Stimulation, de Suractivation, de Propagation, de Fleurissement, de Sélénofleurissement, d'Exubérance ou de Bourgeonnement avant le retour de l'anneau floral , le personnage obtient l'effet Germe au retour de l'anneau, ce qui inflige de façon continue aux ennemis proches des DGT Dendro d'une valeur équivalant à 40 % de l'ATQ de Collei pendant 3 s"
+        },
+        {
+          "talent": "c2",
+          "text": "Au retour de l'anneau floral, le personnage obtient l'effet Germe de l'aptitude d'élévation « Retour folié », infligeant de façon continue aux ennemis proches des DGT Dendro d'une valeur équivalant à 40 % de l'ATQ de Collei pendant 3 s"
+        },
+        {
+          "talent": "c6",
+          "text": "Lorsque l'anneau floral touche, il crée un Cuilein-Anbar miniature qui inflige des DGT Dendro d'une valeur équivalant à 200 % de l'ATQ de Collei"
+        }
+      ],
+      "source": "data/lab-character-conditions.json · Collei"
+    },
+    "10000125": {
+      "name": "Columbina",
+      "profile": "hpDamage",
+      "priority": [
+        "critRate",
+        "critDmg",
+        "hpPct",
+        "er"
+      ],
+      "conditional": [
+        "em",
+        "atkPct"
+      ],
+      "label": "Dégâts PV",
+      "reason": "D’après le kit local : dégâts et bonus fondés sur les PV ; recharge selon la rotation.",
+      "reviewed": true,
+      "evidence": [
+        {
+          "talent": "passive3",
+          "text": "Lorsqu'un personnage de l'équipe déclenche une réaction d'Électrocution, de Fleurissement ou de Cristallisation Hydro, la réaction est convertie respectivement en réaction de Sélénocution, de Sélénofleurissement ou de Sélénocristallisation, et les DGT de base des réactions sélènes des personnages de l'équipe augmentent selon les PV max de Columbina : chaque tranche de 1 000 PV max augmente les DGT de base de 0,2 %, ces DGT pouvant être augmentés d'un maximum de 7 % de cette manière"
+        },
+        {
+          "talent": "c2",
+          "text": "Réaction de Sélénocution : l'ATQ de votre personnage déployé augmente d'une valeur équivalant à 1 % des PV max de Columbina"
+        },
+        {
+          "talent": "c2",
+          "text": "Réaction de Sélénofleurissement : la maîtrise élémentaire de votre personnage déployé augmente d'une valeur équivalant à 0,35 % des PV max de Columbina"
+        },
+        {
+          "talent": "c2",
+          "text": "Réaction de Sélénocristallisation : la DÉF de votre personnage déployé augmente d'une valeur équivalant à 1 % des PV max de Columbina"
+        }
+      ],
+      "source": "data/lab-character-conditions.json · Columbina"
+    },
+    "10000071": {
+      "name": "Cyno",
+      "profile": "emDamage",
+      "priority": [
+        "critRate",
+        "critDmg",
+        "em"
+      ],
+      "conditional": [
+        "er",
+        "atkPct"
+      ],
+      "label": "Dégâts / maîtrise",
+      "reason": "ATQ et recharge dépendent des coefficients et de la rotation.",
+      "reviewed": true,
+      "evidence": [
+        {
+          "talent": "passive1",
+          "text": "S'il utilise Rite : Traversée abyssale dans cette posture, il active l'effet Ordalie, augmentant les DGT infligés par cette utilisation de Rite : Traversée abyssale de 35 % et tirant vers l'avant 3 éclairs de sable qui infligent des DGT Électro d'une valeur équivalant à 100 % de son ATQ"
+        },
+        {
+          "talent": "passive1",
+          "text": "Radiance « Astroconduction » : Activer l'effet Ordalie permet à la place à Cyno de tirer 3 éclairs de sable « Étoime » vers l'avant pour infliger des DGT Électro d'une valeur équivalant à 200 % de son ATQ, ces DGT étant considérés comme des DGT de réaction d'Astroconduction"
+        },
+        {
+          "talent": "passive2",
+          "text": "Les DGT de certaines attaques de Cyno augmentent selon sa maîtrise élémentaire :"
+        },
+        {
+          "talent": "passive2",
+          "text": "Les DGT de ses attaques normales sous l'effet d'éclaireur sermenté augmentent d'une valeur équivalant à 150 % de sa maîtrise élémentaire"
+        }
+      ],
+      "source": "data/lab-character-conditions.json · Cyno"
+    },
+    "10000115": {
+      "name": "Dahlia",
+      "profile": "hpSupport",
+      "priority": [
+        "hpPct",
+        "er"
+      ],
+      "conditional": [
+        "critRate",
+        "em"
+      ],
+      "label": "Soutien PV",
+      "reason": "CRIT conditionnel à Favonius ; maîtrise selon le rôle de réaction.",
+      "reviewed": true,
+      "evidence": [
+        {
+          "talent": "combat3",
+          "text": "L'absorption de DGT du bouclier de faveur sacrée est basée sur les PV max de Dahlia et ce dernier absorbe les DGT Hydro 250 % plus efficacement"
+        },
+        {
+          "talent": "passive2",
+          "text": "Lorsque votre personnage déployé est affecté par une faveur favonienne du déchaînement élémentaire Psautier radieux, sa VIT d'attaque augmente selon les PV max de Dahlia : chaque tranche de 1 000 PV max augmente la VIT d'attaque de 0,5 %, la VIT d'attaque pouvant être augmentée d'un maximum de 20 % de cette manière"
+        }
+      ],
+      "source": "data/lab-character-conditions.json · Dahlia"
+    },
+    "10000079": {
+      "name": "Dehya",
+      "profile": "hpAtk",
+      "priority": [
+        "hpPct",
+        "atkPct",
+        "er"
+      ],
+      "conditional": [
+        "critRate",
+        "critDmg",
+        "em"
+      ],
+      "label": "Dégâts / protection",
+      "reason": "Priorités différentes entre mitigation, déchaînement et réaction.",
+      "reviewed": true,
+      "evidence": [
+        {
+          "talent": "combat2",
+          "text": "Lorsqu'un ennemi dans la zone subit des DGT, le sanctuaire ardent déclenche une attaque coordonnée, lui infligeant des DGT Pyro de zone selon l'ATQ et les PV max de Dehya"
+        },
+        {
+          "talent": "combat3",
+          "text": "Dans cet état, Dehya déchaîne automatiquement et de façon continue ses poings de crinière enflammée pour infliger des DGT Pyro selon son ATQ et ses PV max, et, une fois la durée écoulée, elle utilise son pied plongeant d'incinération qui inflige des DGT Pyro de zone, toujours selon son ATQ et ses PV max"
+        },
+        {
+          "talent": "passive2",
+          "text": "Lorsque ses PV sont inférieurs à 40 %, Dehya les restaure d'une valeur équivalant à 20 % de ses PV max, puis 6 % de ses PV max toutes les 2 s pendant 10 s"
+        },
+        {
+          "talent": "c1",
+          "text": "Augmente les PV max de Dehya de 20 %, et augmente les DGT infligés par les attaques de Dehya citées ci-dessous en fonction de ses PV max :"
+        }
+      ],
+      "source": "data/lab-character-conditions.json · Dehya"
+    },
+    "10000016": {
+      "name": "Diluc",
+      "profile": "atkDamage",
+      "priority": [
+        "critRate",
+        "critDmg",
+        "atkPct",
+        "er"
+      ],
+      "conditional": [
+        "em"
+      ],
+      "label": "Dégâts ATQ",
+      "reason": "La maîtrise dépend de la réaction ; la recharge dépend de la rotation.",
+      "reviewed": true,
+      "evidence": [],
+      "source": "data/lab-character-conditions.json · Diluc"
+    },
+    "10000039": {
+      "name": "Diona",
+      "profile": "hpSupport",
+      "priority": [
+        "hpPct",
+        "er"
+      ],
+      "conditional": [
+        "critRate",
+        "em"
+      ],
+      "label": "Soutien PV",
+      "reason": "CRIT conditionnel à Favonius ; maîtrise selon le rôle de réaction.",
+      "reviewed": true,
+      "evidence": [],
+      "source": "data/lab-character-conditions.json · Diona"
+    },
+    "10000068": {
+      "name": "Dori",
+      "profile": "burstSupport",
+      "priority": [
+        "er"
+      ],
+      "conditional": [
+        "critRate",
+        "em",
+        "atkPct"
+      ],
+      "label": "Soutien déchaînement",
+      "reason": "Après la recharge nécessaire, choisir les statistiques du rôle.",
+      "reviewed": true,
+      "evidence": [
+        {
+          "talent": "combat3",
+          "text": "Récupère des PV de façon continue selon les PV max de Dori"
+        },
+        {
+          "talent": "c2",
+          "text": "Au combat, lorsque le djinn soigne le personnage auquel il est relié, un tir djinn est déclenché à l'emplacement du personnage, infligeant des DGT équivalant à 50 % de l'ATQ de Dori"
+        },
+        {
+          "talent": "c6",
+          "text": "Si une attaque normale touche un ennemi, tous les personnages de l'équipe à proximité récupèrent des PV d'une valeur équivalant à 4 % des PV max de Dori"
+        }
+      ],
+      "source": "data/lab-character-conditions.json · Dori"
+    },
+    "10000123": {
+      "name": "Durin",
+      "profile": "atkDamage",
+      "priority": [
+        "critRate",
+        "critDmg",
+        "atkPct",
+        "er"
+      ],
+      "conditional": [
+        "em"
+      ],
+      "label": "Dégâts ATQ",
+      "reason": "La maîtrise dépend de la réaction ; la recharge dépend de la rotation.",
+      "reviewed": true,
+      "evidence": [
+        {
+          "talent": "passive2",
+          "text": "Lorsqu'une attaque intermittente du dragon de flamme blanche ou du dragon de corrosion noire inflige des DGT, 1 cumul de fusion primordiale est consommé pour augmenter davantage les DGT d'une valeur équivalant à 3 % des DGT d'origine par tranche de 100 pts d'ATQ, les DGT pouvant être augmentés d'un maximum de 75 % de cette manière"
+        },
+        {
+          "talent": "c1",
+          "text": "Lorsque le personnage déployé inflige des DGT avec une attaque normale, une attaque chargée, une attaque plongeante, une compétence élémentaire ou un déchaînement élémentaire, il consomme 1 cumul de cycle d'illumination pour augmenter les DGT infligés d'une valeur équivalant à 60 % de l'ATQ de Durin"
+        },
+        {
+          "talent": "c1",
+          "text": "Lorsque Durin inflige des DGT avec un déchaînement élémentaire, il consomme 2 cumuls de cycle d'illumination pour augmenter les DGT infligés d'une valeur équivalant à 150 % de l'ATQ de Durin"
+        }
+      ],
+      "source": "data/lab-character-conditions.json · Durin"
+    },
+    "10000099": {
+      "name": "Émilie",
+      "profile": "atkDamage",
+      "priority": [
+        "critRate",
+        "critDmg",
+        "atkPct",
+        "er"
+      ],
+      "conditional": [
+        "em"
+      ],
+      "label": "Dégâts ATQ",
+      "reason": "La maîtrise dépend de la réaction ; la recharge dépend de la rotation.",
+      "reviewed": true,
+      "evidence": [
+        {
+          "talent": "passive1",
+          "text": "Chaque fois qu'il collecte 2 senteurs, un flacon de Lumidouce de niveau 2 consomme ses senteurs pour libérer une cologne d'aiguail clair qui inflige des DGT Dendro de zone d'une valeur équivalant à 600 % de l'ATQ d'Émilie aux ennemis"
+        },
+        {
+          "talent": "passive2",
+          "text": "Les DGT qu'Émilie inflige aux ennemis brûlés augmentent selon son ATQ : chaque tranche de 1 000 pts d'ATQ augmente les DGT de 15 %, les DGT pouvant être augmentés d'un maximum de 36 % de cette manière"
+        },
+        {
+          "talent": "c6",
+          "text": "Pendant cette durée, Émilie génère une senteur après avoir utilisé une attaque normale ou chargée, et ses attaques normales et chargées sont converties en DGT Dendro ne pouvant pas être enchantés, les DGT qu'elles infligent étant de plus augmentés d'une valeur équivalant à 300 % de l'ATQ d'Émilie"
+        }
+      ],
+      "source": "data/lab-character-conditions.json · Emilie"
+    },
+    "10000112": {
+      "name": "Escoffier",
+      "profile": "atkHeal",
+      "priority": [
+        "atkPct",
+        "er"
+      ],
+      "conditional": [
+        "critRate"
+      ],
+      "label": "Soin ATQ",
+      "reason": "Taux CRIT utile à Favonius.",
+      "reviewed": true,
+      "evidence": [
+        {
+          "talent": "combat3",
+          "text": "Faisant preuve de compétences exceptionnelles en matière de couteau, Escoffier inflige des DGT Cryo de zone et restaure les PV de tous les personnages de l'équipe à proximité selon son ATQ"
+        },
+        {
+          "talent": "passive1",
+          "text": "Après avoir utilisé son déchaînement élémentaire Art de la découpe, Escoffier obtient l'effet Régime rééducateur pendant 9 s : restaure les PV des personnages déployés de l'équipe à proximité pour une valeur équivalant à 138,24 % de l'ATQ d'Escoffier toutes les secondes"
+        },
+        {
+          "talent": "c2",
+          "text": "Lorsque Escoffier active son mek cuistot en mode « Stockage à froid », elle obtient l'effet Mets fraîchement préparé pendant 15 s : pendant cet effet, Escoffier obtient 5 cumuls de plat froid, un cumul étant consommé lorsqu'un membre de l'équipe déployé à proximité autre qu'Escoffier inflige des DGT Cryo avec une attaque normale, une attaque chargée, une attaque plongeante, une compétence élémentaire ou un déchaînement élémentaire, et ce, afin d'augmenter les DGT infligés d'une valeur équivalant à 240 % de l'ATQ d'Escoffier"
+        },
+        {
+          "talent": "c6",
+          "text": "Lorsqu'une attaque normale, chargée ou plongeante de votre personnage déployé touche un ennemi, le mode « Stockage à froid » du mek cuistot tire un parfait glacé spécial supplémentaire, infligeant des DGT Cryo de zone d'une valeur équivalant à 500 % de l'ATQ d'Escoffier, ces DGT étant considérés comme des DGT de compétence élémentaire"
+        }
+      ],
+      "source": "data/lab-character-conditions.json · Escoffier"
+    },
+    "10000051": {
+      "name": "Eula",
+      "profile": "atkDamage",
+      "priority": [
+        "critRate",
+        "critDmg",
+        "atkPct",
+        "er"
+      ],
+      "conditional": [
+        "em"
+      ],
+      "label": "Dégâts ATQ",
+      "reason": "La maîtrise dépend de la réaction ; la recharge dépend de la rotation.",
+      "reviewed": true,
+      "evidence": [],
+      "source": "data/lab-character-conditions.json · Eula"
+    },
+    "10000076": {
+      "name": "Faruzan",
+      "profile": "burstSupport",
+      "priority": [
+        "er"
+      ],
+      "conditional": [
+        "critRate",
+        "em",
+        "atkPct"
+      ],
+      "label": "Soutien déchaînement",
+      "reason": "Après la recharge nécessaire, choisir les statistiques du rôle.",
+      "reviewed": true,
+      "evidence": [
+        {
+          "talent": "passive2",
+          "text": "Lorsqu'un personnage sous l'effet Vent de prière de Sentier secret du vent inflige des DGT Anémo à un ennemi en utilisant une attaque normale, chargée ou plongeante ou une compétence ou un déchaînement élémentaires, il déclenche l'effet Protection venteuse : augmente les DGT infligés d'une valeur équivalant à 32 % de l'ATQ de base de Faruzan"
+        }
+      ],
+      "source": "data/lab-character-conditions.json · Faruzan"
+    },
+    "10000031": {
+      "name": "Fischl",
+      "profile": "atkDamage",
+      "priority": [
+        "critRate",
+        "critDmg",
+        "atkPct",
+        "er"
+      ],
+      "conditional": [
+        "em"
+      ],
+      "label": "Dégâts ATQ",
+      "reason": "La maîtrise dépend de la réaction ; la recharge dépend de la rotation.",
+      "reviewed": true,
+      "evidence": [
+        {
+          "talent": "passive2",
+          "text": "Lorsque votre personnage déployé déclenche une réaction liée à l'élément Électro en la présence d'Oz, l'ennemi est frappé par la foudre du jugement divin, et subit des DGT Électro équivalant à 80 % de l'ATQ de Fischl"
+        },
+        {
+          "talent": "c1",
+          "text": "Oz garde toujours un œil de corbeau sur Fischl, même quand il ne l'accompagne pas au combat : les attaques normales de Fischl infligent un bonus de DGT équivalant à 22 % de l'ATQ"
+        },
+        {
+          "talent": "c2",
+          "text": "Ailes de surveillance nocturne inflige un bonus de DGT équivalant à 200 % de l'ATQ et sa zone d'effet augmente de 50 %"
+        },
+        {
+          "talent": "c4",
+          "text": "Incarnation de la nuit inflige un bonus de DGT Électro équivalant à 222 % de l'ATQ aux ennemis proches"
+        }
+      ],
+      "source": "data/lab-character-conditions.json · Fischl"
+    },
+    "10000120": {
+      "name": "Flins",
+      "profile": "atkReaction",
+      "priority": [
+        "atkPct",
+        "critRate",
+        "critDmg",
+        "em"
+      ],
+      "conditional": [
+        "er"
+      ],
+      "label": "Sélénocution",
+      "reason": "ATQ, maîtrise et CRIT contribuent aux dégâts ; recharge selon la rotation.",
+      "reviewed": true,
+      "evidence": [
+        {
+          "talent": "passive2",
+          "text": "La maîtrise élémentaire de Flins augmente d'une valeur équivalant à 8 % de son ATQ, la maîtrise élémentaire pouvant être augmentée d'un maximum de 160 pts de cette manière"
+        },
+        {
+          "talent": "passive3",
+          "text": "Lorsqu'un personnage de l'équipe déclenche une réaction d'Électrocution, elle est convertie en réaction de Sélénocution, et les DGT de base des réactions de Sélénocution augmentent selon l'ATQ de Flins : chaque tranche de 100 pts d'ATQ augmente les DGT de base de 0,7 %, les DGT pouvant être augmentés d'un maximum de 14 % de cette manière"
+        },
+        {
+          "talent": "c2",
+          "text": "Pendant 6 s après l'utilisation de sa compétence élémentaire spéciale Lances du nord, la prochaine attaque normale de Flins qui touche un ennemi inflige des DGT Électro de zone supplémentaires d'une valeur équivalant à 50 % de son ATQ, ces DGT étant considérés comme des DGT de réaction de Sélénocution"
+        },
+        {
+          "talent": "c4",
+          "text": "De plus, son aptitude d'élévation « Murmure de flamme » est renforcée : la maîtrise élémentaire de Flins augmente d'une valeur équivalant à 10 % de son ATQ, la maîtrise élémentaire pouvant être augmentée d'un maximum de 220 pts de cette manière"
+        }
+      ],
+      "source": "data/lab-character-conditions.json · Flins"
+    },
+    "10000085": {
+      "name": "Fréminet",
+      "profile": "atkDamage",
+      "priority": [
+        "critRate",
+        "critDmg",
+        "atkPct",
+        "er"
+      ],
+      "conditional": [
+        "em"
+      ],
+      "label": "Dégâts ATQ",
+      "reason": "La maîtrise dépend de la réaction ; la recharge dépend de la rotation.",
+      "reviewed": true,
+      "evidence": [],
+      "source": "data/lab-character-conditions.json · Freminet"
+    },
+    "10000089": {
+      "name": "Furina",
+      "profile": "hpDamage",
+      "priority": [
+        "critRate",
+        "critDmg",
+        "hpPct",
+        "er"
+      ],
+      "conditional": [
+        "em",
+        "atkPct"
+      ],
+      "label": "Dégâts PV",
+      "reason": "ATQ utile à Hu Tao ; maîtrise conditionnelle aux réactions.",
+      "reviewed": true,
+      "evidence": [
+        {
+          "talent": "combat2",
+          "text": "De l'écume danse joyeusement, infligeant des DGT Hydro de zone selon les PV max de Furina et convoquant 3 membres du salon : le gentilhomme Usher en forme de poulpe bouffi, la surintendante Chevalmarin en forme d'Hippocampe bulleux et la demoiselle Crabaletta en forme de Cuiracrabe"
+        },
+        {
+          "talent": "combat2",
+          "text": "Ces derniers attaquent les ennemis proches de façon intermittente en donnant la priorité aux cibles que le personnage déployé attaque, infligeant des DGT Hydro selon les PV max de Furina"
+        },
+        {
+          "talent": "combat2",
+          "text": "Furina convoque le chanteur des eaux, qui restaure régulièrement les PV des personnages déployés à proximité selon ses PV max"
+        },
+        {
+          "talent": "combat3",
+          "text": "Éveille l'envie de se délecter, créant une scène d'écume qui inflige des DGT Hydro de zone selon les PV max de Furina et accorde l'état Réjouissance universelle aux personnages de l'équipe à proximité : pendant sa durée, lorsque les PV actuels d'un personnage augmentent ou diminuent, Furina obtient 1 pt de fanfare à chaque fois que le personnage obtient ou perd des PV d'une valeur équivalant à 1 % de ses PV max"
+        }
+      ],
+      "source": "data/lab-character-conditions.json · Furina"
+    },
+    "10000092": {
+      "name": "Gaming",
+      "profile": "atkDamage",
+      "priority": [
+        "critRate",
+        "critDmg",
+        "atkPct",
+        "er"
+      ],
+      "conditional": [
+        "em"
+      ],
+      "label": "Dégâts ATQ",
+      "reason": "La maîtrise dépend de la réaction ; la recharge dépend de la rotation.",
+      "reviewed": true,
+      "evidence": [
+        {
+          "talent": "passive1",
+          "text": "Après avoir touché un ennemi avec l'attaque plongeante « Augure nébuleux » d'Ascension bestiale, Gaming récupère des PV d'une valeur équivalant à 1,5 % de ses PV max une fois toutes les 0,2 s pendant 0,8 s"
+        }
+      ],
+      "source": "data/lab-character-conditions.json · Gaming"
+    },
+    "10000037": {
+      "name": "Ganyu",
+      "profile": "atkDamage",
+      "priority": [
+        "critRate",
+        "critDmg",
+        "atkPct",
+        "er"
+      ],
+      "conditional": [
+        "em"
+      ],
+      "label": "Dégâts ATQ",
+      "reason": "La maîtrise dépend de la réaction ; la recharge dépend de la rotation.",
+      "reviewed": true,
+      "evidence": [],
+      "source": "data/lab-character-conditions.json · Ganyu"
+    },
+    "10000055": {
+      "name": "Gorou",
+      "profile": "defSupport",
+      "priority": [
+        "defPct",
+        "er"
+      ],
+      "conditional": [
+        "critRate"
+      ],
+      "label": "Soutien DÉF",
+      "reason": "CRIT pour Favonius. La baisse de RÉS de Xilonen dépend du niveau du talent.",
+      "reviewed": true,
+      "evidence": [
+        {
+          "talent": "passive2",
+          "text": "Les DGT des attaques suivantes de Gorou augmentent en fonction de sa DÉF :"
+        },
+        {
+          "talent": "c4",
+          "text": "Lorsque le prestige de général est dans l'état Imprenabilité ou Fracas, il restaure également les PV du personnage déployé dans la zone d'effet toutes les 1,5 s d'une valeur équivalant à 50 % de la DÉF de Gorou"
+        }
+      ],
+      "source": "data/lab-character-conditions.json · Gorou"
+    },
+    "10000046": {
+      "name": "Hu Tao",
+      "profile": "hpDamage",
+      "priority": [
+        "critRate",
+        "critDmg",
+        "hpPct",
+        "er"
+      ],
+      "conditional": [
+        "em",
+        "atkPct"
+      ],
+      "label": "Dégâts PV",
+      "reason": "ATQ utile à Hu Tao ; maîtrise conditionnelle aux réactions.",
+      "reviewed": true,
+      "evidence": [
+        {
+          "talent": "c2",
+          "text": "Bourgeon de prune inflige un bonus de DGT équivalant à 10 % des PV max de Hu Tao lorsqu'elle bénéficie de l'effet"
+        }
+      ],
+      "source": "data/lab-character-conditions.json · HuTao"
+    },
+    "10000110": {
+      "name": "Iansan",
+      "profile": "atkBuff",
+      "priority": [
+        "atkPct",
+        "er"
+      ],
+      "conditional": [
+        "critRate"
+      ],
+      "label": "Soutien ATQ totale",
+      "reason": "L’ATQ des artéfacts contribue au bonus ou au bouclier ; CRIT pour Favonius.",
+      "reviewed": true,
+      "evidence": [
+        {
+          "talent": "combat3",
+          "text": "La jauge suit les déplacements de votre personnage déployé et augmente son ATQ de différentes manières selon les points de noctâme d'Iansan :"
+        },
+        {
+          "talent": "passive2",
+          "text": "Lorsque Iansan restaure au moins 1 pt de noctâme pendant cet effet, elle restaure également les PV de votre personnage déployé d'une valeur équivalant à 60 % de son ATQ, cet effet pouvant être déclenché une fois toutes les 2,8 s"
+        }
+      ],
+      "source": "data/lab-character-conditions.json · Iansan"
+    },
+    "10000113": {
+      "name": "Ifa",
+      "profile": "emReaction",
+      "priority": [
+        "em",
+        "er"
+      ],
+      "conditional": [
+        "hpPct",
+        "critRate"
+      ],
+      "label": "Réactions",
+      "reason": "Taux CRIT utile à Favonius, pas aux dégâts de dispersion ou d’Exubérance.",
+      "reviewed": true,
+      "evidence": [
+        {
+          "talent": "c6",
+          "text": "Lorsque Ifa utilise un tir de soutien avec un appui long, il a 50 % de chances de déclencher un tir tonique supplémentaire qui inflige des DGT Anémo d'une valeur équivalant à 120 % de l'ATQ d'Ifa, ces DGT étant considérés comme des DGT d'attaque normale"
+        }
+      ],
+      "source": "data/lab-character-conditions.json · Ifa"
+    },
+    "10000127": {
+      "name": "Illuga",
+      "profile": "emSupport",
+      "priority": [
+        "em",
+        "er"
+      ],
+      "conditional": [
+        "critRate",
+        "hpPct"
+      ],
+      "label": "Soutien maîtrise",
+      "reason": "CRIT pour Favonius ; PV pour le bouclier de Citlali.",
+      "reviewed": true,
+      "evidence": [
+        {
+          "talent": "combat3",
+          "text": "Lorsqu'un personnage déployé de l'équipe à proximité inflige des DGT Géo à un ennemi avec une attaque normale, une attaque chargée, une attaque plongeante, une compétence élémentaire ou un déchaînement élémentaire, Illuga consomme 1 cumul de chant de rossignol pour augmenter les DGT selon sa maîtrise élémentaire, les DGT augmentant davantage s'ils sont le résultat d'une réaction de Sélénocristallisation"
+        },
+        {
+          "talent": "passive2",
+          "text": "Les effets du chant de rossignol sont renforcés : lorsque l'équipe contient 1/2/3 personnages Hydro ou Géo, le chant de rossignol augmente davantage les DGT d'une valeur équivalant respectivement à 7 %/14 %/24 % de la maîtrise élémentaire d'Illuga, cette augmentation valant respectivement 48 %/96 %/160 % de la maîtrise élémentaire d'Illuga s'il s'agit de DGT infligés par une réaction de Sélénocristallisation"
+        },
+        {
+          "talent": "c2",
+          "text": "Pendant la durée de l'effet Chant nocturne d'oriole du déchaînement élémentaire Reflet sans ombre, Illuga invoque Aédon tous les 7 cumuls de chant de rossignol consommés pour infliger une fois des DGT Géo d'une valeur équivalant à 400 % de sa maîtrise élémentaire et à 200 % de sa DÉF à un ennemi proche, ces DGT étant considérés comme des DGT de déchaînement élémentaire"
+        }
+      ],
+      "source": "data/lab-character-conditions.json · Illuga"
+    },
+    "10000116": {
+      "name": "Ineffa",
+      "profile": "atkReaction",
+      "priority": [
+        "atkPct",
+        "critRate",
+        "critDmg",
+        "em"
+      ],
+      "conditional": [
+        "er"
+      ],
+      "label": "Sélénocution",
+      "reason": "ATQ, maîtrise et CRIT contribuent aux dégâts ; recharge selon la rotation.",
+      "reviewed": true,
+      "evidence": [
+        {
+          "talent": "combat2",
+          "text": "L'absorption de DGT de la barrière de protection à flux optique est basée sur l'ATQ d'Ineffa et cette dernière absorbe les DGT Électro 250 % plus efficacement"
+        },
+        {
+          "talent": "passive1",
+          "text": "Si des nuages orageux créés par une réaction de Sélénocution sont à proximité de Birgitta lorsqu'elle déclenche une décharge électrique, elle lance une attaque supplémentaire infligeant des DGT Électro de zone d'une valeur équivalant à 65 % de l'ATQ d'Ineffa, ces DGT étant considérés comme des DGT de réaction de Sélénocution"
+        },
+        {
+          "talent": "passive2",
+          "text": "Utiliser le déchaînement élémentaire Commande suprême : Exterminateur cyclonique accorde l'effet Refactorisation des paramètres à tous vos personnages de l'équipe : augmente la maîtrise élémentaire de votre personnage déployé et d'Ineffa d'une valeur équivalant à 6 % de l'ATQ d'Ineffa pendant 20 s"
+        },
+        {
+          "talent": "passive3",
+          "text": "Lorsqu'un personnage de l'équipe déclenche une réaction d'Électrocution, elle est convertie en réaction de Sélénocution, dont les DGT de base augmentent selon l'ATQ d'Ineffa : chaque tranche de 100 pts d'ATQ augmente les DGT de base de 0,7 %, les DGT pouvant être augmentés d'un maximum de 14 % de cette manière"
+        }
+      ],
+      "source": "data/lab-character-conditions.json · Ineffa"
+    },
+    "10000124": {
+      "name": "Jahoda",
+      "profile": "atkHeal",
+      "priority": [
+        "atkPct",
+        "er"
+      ],
+      "conditional": [
+        "critRate"
+      ],
+      "label": "Soin ATQ",
+      "reason": "Taux CRIT utile à Favonius.",
+      "reviewed": true,
+      "evidence": [],
+      "source": "data/lab-character-conditions.json · Jahoda"
+    },
+    "10000003": {
+      "name": "Jean",
+      "profile": "atkHeal",
+      "priority": [
+        "atkPct",
+        "er"
+      ],
+      "conditional": [
+        "critRate"
+      ],
+      "label": "Soin ATQ",
+      "reason": "Taux CRIT utile à Favonius.",
+      "reviewed": true,
+      "evidence": [
+        {
+          "talent": "passive1",
+          "text": "Les attaques normales de Jean ont 50 % de chances de restaurer une quantité de PV équivalant à 15 % de l'ATQ de Jean à tous les personnages de l'équipe lorsqu'elles touchent"
+        }
+      ],
+      "source": "data/lab-character-conditions.json · Jean"
+    },
+    "10000100": {
+      "name": "Kachina",
+      "profile": "defSupport",
+      "priority": [
+        "defPct",
+        "er"
+      ],
+      "conditional": [
+        "critRate"
+      ],
+      "label": "Soutien DÉF",
+      "reason": "CRIT pour Favonius. La baisse de RÉS de Xilonen dépend du niveau du talent.",
+      "reviewed": true,
+      "evidence": [
+        {
+          "talent": "combat2",
+          "text": "Lorsqu'il est présent indépendamment de Kachina, Virevolturbo frappe le sol de façon intermittente, infligeant des DGT Géo de zone infusés de noctâme selon la DÉF de Kachina"
+        },
+        {
+          "talent": "combat2",
+          "text": "Lorsque Kachina chevauche Virevolturbo, elle peut contrôler ses mouvements rapides, escalader et utiliser son attaque normale pour frapper le sol, infligeant des DGT Géo de zone infusés de noctâme selon la DÉF de Kachina"
+        },
+        {
+          "talent": "combat3",
+          "text": "Kachina frappe le sol, infligeant des DGT Géo de zone selon sa DÉF et créant un super champ de forage"
+        },
+        {
+          "talent": "passive2",
+          "text": "Augmente les DGT infligés par Virevolturbo d'une valeur équivalant à 20 % de la DÉF de Kachina"
+        }
+      ],
+      "source": "data/lab-character-conditions.json · Kachina"
+    },
+    "10000047": {
+      "name": "Kaedehara Kazuha",
+      "profile": "emReaction",
+      "priority": [
+        "em",
+        "er"
+      ],
+      "conditional": [
+        "hpPct",
+        "critRate"
+      ],
+      "label": "Réactions",
+      "reason": "Taux CRIT utile à Favonius, pas aux dégâts de dispersion ou d’Exubérance.",
+      "reviewed": true,
+      "evidence": [],
+      "source": "data/lab-character-conditions.json · KaedeharaKazuha"
+    },
+    "10000015": {
+      "name": "Kaeya",
+      "profile": "atkDamage",
+      "priority": [
+        "critRate",
+        "critDmg",
+        "atkPct",
+        "er"
+      ],
+      "conditional": [
+        "em"
+      ],
+      "label": "Dégâts ATQ",
+      "reason": "La maîtrise dépend de la réaction ; la recharge dépend de la rotation.",
+      "reviewed": true,
+      "evidence": [
+        {
+          "talent": "passive1",
+          "text": "Chaque fois qu'Attaque givrée touche un ennemi, Kaeya récupère une quantité de PV équivalant à 15 % de son ATQ"
+        },
+        {
+          "talent": "c4",
+          "text": "Le bouclier absorbe une quantité de DGT équivalant à 30 % des PV max et dure 20 s"
+        }
+      ],
+      "source": "data/lab-character-conditions.json · Kaeya"
+    },
+    "10000002": {
+      "name": "Kamisato Ayaka",
+      "profile": "atkDamage",
+      "priority": [
+        "critRate",
+        "critDmg",
+        "atkPct",
+        "er"
+      ],
+      "conditional": [
+        "em"
+      ],
+      "label": "Dégâts ATQ",
+      "reason": "La maîtrise dépend de la réaction ; la recharge dépend de la rotation.",
+      "reviewed": true,
+      "evidence": [],
+      "source": "data/lab-character-conditions.json · KamisatoAyaka"
+    },
+    "10000066": {
+      "name": "Kamisato Ayato",
+      "profile": "atkDamage",
+      "priority": [
+        "critRate",
+        "critDmg",
+        "atkPct",
+        "er"
+      ],
+      "conditional": [
+        "em"
+      ],
+      "label": "Dégâts ATQ",
+      "reason": "La maîtrise dépend de la réaction ; la recharge dépend de la rotation.",
+      "reviewed": true,
+      "evidence": [
+        {
+          "talent": "combat2",
+          "text": "Après avoir touché un ennemi avec une attaque de Shunsuiken, Ayato obtient l'effet Flash onduleux, augmentant les DGT infligés par son Shunsuiken en fonction de ses PV max actuels"
+        },
+        {
+          "talent": "c6",
+          "text": "Après avoir utilisé École Kamisato : Beauté réfléchie, la prochaine attaque de Shunsuiken d'Ayato déclenche 2 attaques supplémentaires de Shunsuiken en touchant un ennemi, chaque attaque supplémentaire infligeant des DGT d'une valeur équivalant à 450 % de l'ATQ d'Ayato"
+        }
+      ],
+      "source": "data/lab-character-conditions.json · KamisatoAyato"
+    },
+    "10000081": {
+      "name": "Kaveh",
+      "profile": "emSupport",
+      "priority": [
+        "em",
+        "er"
+      ],
+      "conditional": [
+        "critRate",
+        "hpPct"
+      ],
+      "label": "Soutien maîtrise",
+      "reason": "CRIT pour Favonius ; PV pour le bouclier de Citlali.",
+      "reviewed": true,
+      "evidence": [
+        {
+          "talent": "passive1",
+          "text": "Lorsque des DGT infligés par un noyau Dendro (incluant Bourgeonnement et Exubérance) touchent Kaveh, il récupère des PV d'une valeur équivalant à 300 % de sa maîtrise élémentaire"
+        },
+        {
+          "talent": "c6",
+          "text": "Pendant la durée de Dôme peint, lorsque Kaveh touche un ennemi avec une attaque normale, chargée ou plongeante, une lumière du pairidaeza est libérée à l'emplacement de ce dernier, infligeant des DGT Dendro de zone d'une valeur équivalant à 61,8 % de l'ATQ de Kaveh et faisant éclater tous les noyaux Dendro dans la zone d'effet"
+        }
+      ],
+      "source": "data/lab-character-conditions.json · Kaveh"
+    },
+    "10000042": {
+      "name": "Keqing",
+      "profile": "atkDamage",
+      "priority": [
+        "critRate",
+        "critDmg",
+        "atkPct",
+        "er"
+      ],
+      "conditional": [
+        "em"
+      ],
+      "label": "Dégâts ATQ",
+      "reason": "La maîtrise dépend de la réaction ; la recharge dépend de la rotation.",
+      "reviewed": true,
+      "evidence": [
+        {
+          "talent": "c1",
+          "text": "Lorsque Keqing libère de nouveau Retour des étoiles lorsqu'une Lame de foudre est active, elle inflige des DGT Électro de zone équivalant à 50 % de son ATQ aux endroits où elle disparaît puis réapparaît"
+        }
+      ],
+      "source": "data/lab-character-conditions.json · Keqing"
+    },
+    "10000101": {
+      "name": "Kinich",
+      "profile": "atkDamage",
+      "priority": [
+        "critRate",
+        "critDmg",
+        "atkPct",
+        "er"
+      ],
+      "conditional": [
+        "em"
+      ],
+      "label": "Dégâts ATQ",
+      "reason": "La maîtrise dépend de la réaction ; la recharge dépend de la rotation.",
+      "reviewed": true,
+      "evidence": [
+        {
+          "talent": "passive2",
+          "text": "Lorsque Kinich utilise son canon à pointe d'écailles de Chasse canopéenne : En altitude, il consomme tous ses cumuls d'expérience de chasse, chaque cumul augmentant les DGT infligés par ce tir de canon d'une valeur équivalant à 320 % de l'ATQ de Kinich"
+        },
+        {
+          "talent": "c6",
+          "text": "Après avoir touché un ennemi, le canon à pointe d'écailles rebondit une fois entre les ennemis, infligeant des DGT Dendro d'une valeur équivalant à 700 % de l'ATQ de Kinich"
+        }
+      ],
+      "source": "data/lab-character-conditions.json · Kinich"
+    },
+    "10000061": {
+      "name": "Kirara",
+      "profile": "hpSupport",
+      "priority": [
+        "hpPct",
+        "er"
+      ],
+      "conditional": [
+        "critRate",
+        "em"
+      ],
+      "label": "Soutien PV",
+      "reason": "CRIT conditionnel à Favonius ; maîtrise selon le rôle de réaction.",
+      "reviewed": true,
+      "evidence": [
+        {
+          "talent": "combat2",
+          "text": "Le bouclier absorbe les DGT Dendro 250 % plus efficacement, et son absorption de DGT est basée sur les PV max de Kirara, mais ne dépassera pas un certain pourcentage de ses PV max"
+        },
+        {
+          "talent": "c4",
+          "text": "Lorsque l'attaque normale, chargée ou plongeante d'un personnage déployé avec un bouclier de transport sécurisé ou un bouclier de transport critique a touché un ennemi, Kirara utilise des noisettes de cataire pour déclencher une attaque coordonnée, infligeant des DGT Dendro d'une valeur équivalant à 200 % de son ATQ"
+        }
+      ],
+      "source": "data/lab-character-conditions.json · Kirara"
+    },
+    "10000029": {
+      "name": "Klee",
+      "profile": "atkDamage",
+      "priority": [
+        "critRate",
+        "critDmg",
+        "atkPct",
+        "er"
+      ],
+      "conditional": [
+        "em"
+      ],
+      "label": "Dégâts ATQ",
+      "reason": "La maîtrise dépend de la réaction ; la recharge dépend de la rotation.",
+      "reviewed": true,
+      "evidence": [
+        {
+          "talent": "c4",
+          "text": "Si Klee quitte le terrain pendant la durée de Fleur bombardier ou si la durée de Fleur bombardier arrive à son terme, une explosion se déclenche, infligeant des DGT Pyro de zone d'une valeur équivalant à 555 % de l'ATQ"
+        }
+      ],
+      "source": "data/lab-character-conditions.json · Klee"
+    },
+    "10000056": {
+      "name": "Kujou Sara",
+      "profile": "baseBuff",
+      "priority": [
+        "er"
+      ],
+      "conditional": [
+        "critRate",
+        "critDmg",
+        "atkPct"
+      ],
+      "label": "Soutien ATQ de base",
+      "reason": "L’ATQ % des artéfacts n’augmente pas ce buff. PV utile au soin de Bennett.",
+      "reviewed": true,
+      "evidence": [
+        {
+          "talent": "combat2",
+          "text": "La plume de corbeau déclenche Tengu Juurai : Embuscade après un court moment, infligeant des DGT Électro aux ennemis proches, et accordant au personnage déployé à portée un bonus d'ATQ en fonction de l'ATQ de base de Sara"
+        }
+      ],
+      "source": "data/lab-character-conditions.json · KujouSara"
+    },
+    "10000065": {
+      "name": "Kuki Shinobu",
+      "profile": "emReaction",
+      "priority": [
+        "em",
+        "er"
+      ],
+      "conditional": [
+        "hpPct",
+        "critRate"
+      ],
+      "label": "Réactions",
+      "reason": "Taux CRIT utile à Favonius, pas aux dégâts de dispersion ou d’Exubérance.",
+      "reviewed": true,
+      "evidence": [
+        {
+          "talent": "combat3",
+          "text": "Enfonce une lame d'adjuration dans le sol pour créer une barrière qui purifie la zone de tout ce qui est malsain, infligeant de façon continue des DGT Électro aux ennemis à l'intérieur selon les PV max de Kuki Shinobu"
+        },
+        {
+          "talent": "passive2",
+          "text": "L'effet Anneau de consécration s'améliore selon la maîtrise élémentaire de Kuki Shinobu :"
+        },
+        {
+          "talent": "c4",
+          "text": "Lorsqu'une attaque normale, chargée ou plongeante d'un personnage affecté par un anneau d'herbes de consécration de Kuki Shinobu touche un ennemi, une marque d'herbes tonitruantes est apposée à l'emplacement de l'ennemi pour infliger des DGT Électro de zone d'une valeur équivalant à 9,7 % des PV max de Shinobu"
+        }
+      ],
+      "source": "data/lab-character-conditions.json · KukiShinobu"
+    },
+    "10000108": {
+      "name": "Lan Yan",
+      "profile": "atkBuff",
+      "priority": [
+        "atkPct",
+        "er"
+      ],
+      "conditional": [
+        "critRate"
+      ],
+      "label": "Soutien ATQ totale",
+      "reason": "L’ATQ des artéfacts contribue au bonus ou au bouclier ; CRIT pour Favonius.",
+      "reviewed": true,
+      "evidence": [
+        {
+          "talent": "combat2",
+          "text": "L'absorption de DGT d'un bouclier d'hirondelle-follet est basée sur l'ATQ de Lan Yan et ce dernier absorbe les DGT Anémo 250 % plus efficacement"
+        },
+        {
+          "talent": "passive2",
+          "text": "Les DGT infligés par la compétence élémentaire Danse plumée d'hirondelle-follet et le déchaînement élémentaire Lever lustré de lune augmentent respectivement d'une valeur équivalant à 309 % et 774 % de la maîtrise élémentaire de Lan Yan"
+        }
+      ],
+      "source": "data/lab-character-conditions.json · LanYan"
+    },
+    "10000119": {
+      "name": "Lauma",
+      "profile": "emDamage",
+      "priority": [
+        "critRate",
+        "critDmg",
+        "em"
+      ],
+      "conditional": [
+        "er",
+        "atkPct"
+      ],
+      "label": "Dégâts / maîtrise",
+      "reason": "ATQ et recharge dépendent des coefficients et de la rotation.",
+      "reviewed": true,
+      "evidence": [
+        {
+          "talent": "combat3",
+          "text": "Lorsqu'un personnage de l'équipe à proximité inflige des DGT avec une réaction de Fleurissement, d'Exubérance, de Bourgeonnement ou de Sélénofleurissement, un cumul d'hymne pâle est consommé pour augmenter les DGT infligés selon la maîtrise élémentaire de Lauma"
+        },
+        {
+          "talent": "passive3",
+          "text": "Lorsqu'un personnage de l'équipe déclenche une réaction de Fleurissement, elle est convertie en réaction de Sélénofleurissement, dont les DGT de base augmentent selon la maîtrise élémentaire de Lauma : chaque point de maîtrise élémentaire augmente les DGT de base de 0,0175 %, les DGT pouvant être augmentés d'un maximum de 14 % de cette manière"
+        },
+        {
+          "talent": "c1",
+          "text": "Pendant la durée de cet effet, les personnages déployés à proximité récupèrent des PV pour une valeur équivalant à 500 % de la maîtrise élémentaire de Lauma lorsqu'un membre de l'équipe à proximité déclenche une réaction de Sélénofleurissement, cet effet pouvant être déclenché une fois toutes les 1,9 s"
+        },
+        {
+          "talent": "c2",
+          "text": "Les effets de l'hymne pâle s'améliorent, augmentant davantage les DGT infligés par les réactions de Fleurissement, d'Exubérance et de Bourgeonnement de tous les personnages de l'équipe à proximité d'une valeur équivalant à 500 % de la maîtrise élémentaire de Lauma et les DGT infligés par leurs réactions de Sélénofleurissement d'une valeur équivalant à 400 % de la maîtrise élémentaire de Lauma"
+        }
+      ],
+      "source": "data/lab-character-conditions.json · Lauma"
+    },
+    "10000074": {
+      "name": "Layla",
+      "profile": "hpSupport",
+      "priority": [
+        "hpPct",
+        "er"
+      ],
+      "conditional": [
+        "critRate",
+        "em"
+      ],
+      "label": "Soutien PV",
+      "reason": "CRIT conditionnel à Favonius ; maîtrise selon le rôle de réaction.",
+      "reviewed": true,
+      "evidence": [
+        {
+          "talent": "combat2",
+          "text": "L'absorption de DGT d'un rideau de sommeil est basée sur les PV max de Layla et ce dernier absorbe les DGT Cryo 250 % plus efficacement"
+        },
+        {
+          "talent": "passive2",
+          "text": "Augmente les DGT infligés par les étoiles filantes tirées par Nuits de solennité d'une valeur équivalant à 1,5 % des PV max de Layla"
+        },
+        {
+          "talent": "c4",
+          "text": "Lorsque Nuits de solennité commence à tirer des étoiles filantes, tous les personnages de l'équipe à proximité obtiennent l'effet Étoile d'aube, augmentant les DGT de leurs attaques normales et chargées d'une valeur équivalant à 5 % des PV max de Layla"
+        }
+      ],
+      "source": "data/lab-character-conditions.json · Layla"
+    },
+    "10000130": {
+      "name": "Linnea",
+      "profile": "defSupport",
+      "priority": [
+        "defPct",
+        "er"
+      ],
+      "conditional": [
+        "critRate"
+      ],
+      "label": "Soutien DÉF",
+      "reason": "D’après le kit local : soin et partage de maîtrise fondés sur la DÉF.",
+      "reviewed": true,
+      "evidence": [
+        {
+          "talent": "combat3",
+          "text": "Même les aventuriers les plus aguerris ont besoin de repos ! Linnea invoque Lumi pour frapper en forme super puissante : elle soigne tous les personnages de l'équipe à proximité et, pendant un certain temps, soigne de façon continue tous les personnages déployés à proximité selon la DÉF de Linnea"
+        },
+        {
+          "talent": "passive2",
+          "text": "Linnea augmente la maîtrise élémentaire selon votre personnage déployé d'une valeur équivalant à 5 % de sa DÉF :"
+        },
+        {
+          "talent": "passive3",
+          "text": "Lorsqu'un personnage de l'équipe déclenche une réaction de Cristallisation Hydro, elle est convertie en réaction de Sélénocristallisation, dont les DGT de base augmentent selon la DÉF de Linnea : chaque tranche de 100 pts de DÉF augmente les DGT de base de 0,7 %, les DGT pouvant être augmentés d'un maximum de 14 % de cette manière"
+        },
+        {
+          "talent": "c1",
+          "text": "Lorsqu'un personnage de l'équipe à proximité inflige des DGT de réaction de Sélénocristallisation, un catalogue de terrain est consommé pour augmenter les DGT infligés d'une valeur équivalant à 75 % de la DÉF de Linnea"
+        }
+      ],
+      "source": "data/lab-character-conditions.json · Linnea"
+    },
+    "10000006": {
+      "name": "Lisa",
+      "profile": "burstSupport",
+      "priority": [
+        "er"
+      ],
+      "conditional": [
+        "critRate",
+        "em",
+        "atkPct"
+      ],
+      "label": "Soutien déchaînement",
+      "reason": "Après la recharge nécessaire, choisir les statistiques du rôle.",
+      "reviewed": true,
+      "evidence": [],
+      "source": "data/lab-character-conditions.json · Lisa"
+    },
+    "10000129": {
+      "name": "Lohen",
+      "profile": "atkDamage",
+      "priority": [
+        "critRate",
+        "critDmg",
+        "atkPct",
+        "er"
+      ],
+      "conditional": [
+        "em"
+      ],
+      "label": "Dégâts ATQ",
+      "reason": "D’après le kit local : coefficients ATQ ; maîtrise selon la réaction.",
+      "reviewed": true,
+      "evidence": [
+        {
+          "talent": "c2",
+          "text": "Après avoir touché un ennemi avec sa compétence élémentaire spéciale Gravé dans les os et l'âme ou avoir utilisé son déchaînement élémentaire Jugement manifeste pendant l'état Coup de maître, Lohen obtient l'effet Lame purificatrice pendant 4 s : la prochaine fois qu'il touche un ennemi avec une attaque normale ou chargée pendant l'effet Coup de maître, il déclenche une attaque supplémentaire infligeant des DGT Cryo de zone d'une valeur équivalant à 500 % de son ATQ et augmente la maîtrise élémentaire des autres personnages de l'équipe à proximité de 200 pts pendant 8 s"
+        }
+      ],
+      "source": "data/lab-character-conditions.json · Lohen"
+    },
+    "10000083": {
+      "name": "Lynette",
+      "profile": "atkDamage",
+      "priority": [
+        "critRate",
+        "critDmg",
+        "atkPct",
+        "er"
+      ],
+      "conditional": [
+        "em"
+      ],
+      "label": "Dégâts ATQ",
+      "reason": "La maîtrise dépend de la réaction ; la recharge dépend de la rotation.",
+      "reviewed": true,
+      "evidence": [
+        {
+          "talent": "combat2",
+          "text": "Lorsqu'une aiguille énigmatique touche un ennemi, Lynette récupère des PV selon ses PV max, avant de perdre, pendant les 4 s qui suivent, une certaine quantité de PV à chaque seconde"
+        }
+      ],
+      "source": "data/lab-character-conditions.json · Lynette"
+    },
+    "10000084": {
+      "name": "Lyney",
+      "profile": "atkDamage",
+      "priority": [
+        "critRate",
+        "critDmg",
+        "atkPct",
+        "er"
+      ],
+      "conditional": [
+        "em"
+      ],
+      "label": "Dégâts ATQ",
+      "reason": "La maîtrise dépend de la réaction ; la recharge dépend de la rotation.",
+      "reviewed": true,
+      "evidence": [
+        {
+          "talent": "combat2",
+          "text": "Les DGT augmentent selon la quantité de cumuls consommés, et les PV de Lyney sont aussi restaurés selon ses PV max"
+        },
+        {
+          "talent": "passive1",
+          "text": "Si Lyney consomme des PV en tirant une flèche postiche, lorsque le chapeau félinois invoqué touche un ennemi, Lyney récupère 3 pts d'énergie élémentaire et les DGT infligés augmentent d'une valeur équivalant à 80 % de l'ATQ"
+        }
+      ],
+      "source": "data/lab-character-conditions.json · Lyney"
+    },
+    "10000106": {
+      "name": "Mavuika",
+      "profile": "noEnergy",
+      "priority": [
+        "critRate",
+        "critDmg",
+        "atkPct"
+      ],
+      "conditional": [
+        "em"
+      ],
+      "label": "Ressource spéciale",
+      "reason": "La recharge ne recharge pas la ferveur guerrière ni le Serpentina.",
+      "reviewed": true,
+      "evidence": [
+        {
+          "talent": "c2",
+          "text": "Lorsque Mavuika bénéficie d'une bénédiction noctâme, son ATQ de base augmente de 200 pts et elle obtient les effets suivants selon la forme de ses armements tout-feu :"
+        },
+        {
+          "talent": "c2",
+          "text": "Flambécane : les DGT infligés par ses attaques normales, ses attaques chargées et la coupe solaire de son déchaînement élémentaire Heure des cieux brûlants augmentent respectivement d'une valeur équivalant à 60 %, 90 % et 120 % de son ATQ"
+        },
+        {
+          "talent": "c6",
+          "text": "Anneau de rayonnement brûlant : lorsqu'un anneau touche un ennemi, une flambécane heurte ce dernier pour infliger des DGT Pyro de zone infusés de noctâme d'une valeur équivalant à 200 % de l'ATQ"
+        },
+        {
+          "talent": "c6",
+          "text": "Flambécane : lorsque Mavuika pilote sa flambécane, elle invoque un anneau enflammé de rayonnement brûlant qui la suit, ce dernier diminuant la DÉF des ennemis proches de 20 % et infligeant des DGT Pyro de zone infusés de noctâme d'une valeur équivalant à 500 % de l'ATQ aux ennemis proches une fois toutes les 3 s, et la capacité de Mavuika à traverser divers types de terrain est améliorée davantage"
+        }
+      ],
+      "source": "data/lab-character-conditions.json · Mavuika"
+    },
+    "10000080": {
+      "name": "Mika",
+      "profile": "hpSupport",
+      "priority": [
+        "hpPct",
+        "er"
+      ],
+      "conditional": [
+        "critRate",
+        "em"
+      ],
+      "label": "Soutien PV",
+      "reason": "CRIT conditionnel à Favonius ; maîtrise selon le rôle de réaction.",
+      "reviewed": true,
+      "evidence": [
+        {
+          "talent": "combat3",
+          "text": "Trouve la force d'encourager ses coéquipiers à partir des prières de l'Ordre de Favonius, restaurant les PV de tous les personnages de l'équipe à proximité selon les PV max de Mika et leur accordant l'état Plume d'alérion"
+        },
+        {
+          "talent": "combat3",
+          "text": "Lorsque l'attaque normale d'un personnage déployé affecté par l'état Plume d'alérion touche un ennemi, Mika restaure les PV de ce dernier selon ses propres PV max"
+        }
+      ],
+      "source": "data/lab-character-conditions.json · Mika"
+    },
+    "10000136": {
+      "name": "Mitya",
+      "profile": "emSupport",
+      "priority": [
+        "em",
+        "er"
+      ],
+      "conditional": [
+        "critRate",
+        "hpPct"
+      ],
+      "label": "Soutien maîtrise",
+      "reason": "D’après le kit local : bonus de réaction et soutien fondés sur la maîtrise.",
+      "reviewed": true,
+      "evidence": [
+        {
+          "talent": "passive3",
+          "text": "De plus, les DGT de base des réactions d'Astroconduction infligées par tous les personnages de l'équipe à proximité augmentent selon la maîtrise élémentaire de Mitya : chaque point de maîtrise élémentaire augmente les DGT de base de 0,028 %, les DGT de base pouvant être augmentés d'un maximum de 14 % de cette manière"
+        },
+        {
+          "talent": "c4",
+          "text": "Si un noyau de détection créé par Mitya est sur le terrain, il inflige une fois des DGT Électro de zone d'une valeur équivalant à 300 % de la maîtrise élémentaire de Mitya aux ennemis proches à chaque fois que 5 balises de gradient sont consommées, ces DGT étant considérés comme des DGT d'Astroconduction"
+        }
+      ],
+      "source": "data/lab-character-conditions.json · Mitya"
+    },
+    "10000041": {
+      "name": "Mona",
+      "profile": "burstSupport",
+      "priority": [
+        "er"
+      ],
+      "conditional": [
+        "critRate",
+        "em",
+        "atkPct"
+      ],
+      "label": "Soutien déchaînement",
+      "reason": "Après la recharge nécessaire, choisir les statistiques du rôle.",
+      "reviewed": true,
+      "evidence": [
+        {
+          "talent": "passive2",
+          "text": "Confère à Mona un bonus de DGT Hydro équivalant à 20 % de sa recharge d'énergie"
+        }
+      ],
+      "source": "data/lab-character-conditions.json · Mona"
+    },
+    "10000102": {
+      "name": "Mualani",
+      "profile": "hpDamage",
+      "priority": [
+        "critRate",
+        "critDmg",
+        "hpPct",
+        "er"
+      ],
+      "conditional": [
+        "em",
+        "atkPct"
+      ],
+      "label": "Dégâts PV",
+      "reason": "ATQ utile à Hu Tao ; maîtrise conditionnelle aux réactions.",
+      "reviewed": true,
+      "evidence": [
+        {
+          "talent": "combat2",
+          "text": "L'attaque normale de Mualani est convertie en morsure de Requinou, infligeant des DGT Hydro infusés de noctâme selon les PV max de Mualani"
+        },
+        {
+          "talent": "combat3",
+          "text": "Tire un super missile de Requinou qui peut suivre les ennemis, infligeant des DGT Hydro de zone infusés de noctâme selon les PV max de Mualani"
+        },
+        {
+          "talent": "passive2",
+          "text": "Lorsque Mualani utilise Requin-pact boum, elle consomme tous ses cumuls d'exploit de surf, les cumuls augmentant les DGT infligés par cette instance de Requin-pact boum d'une valeur équivalant à 15 %/30 %/45 % des PV max de Mualani, selon le nombre de cumuls consommés"
+        },
+        {
+          "talent": "c1",
+          "text": "Les DGT infligés par la première morsure déferlante de Requinou après le début de la bénédiction noctâme et par les missiles de Requinou que cette morsure déclenche augmentent d'une valeur équivalant à 66 % des PV max de Mualani"
+        }
+      ],
+      "source": "data/lab-character-conditions.json · Mualani"
+    },
+    "10000073": {
+      "name": "Nahida",
+      "profile": "emDamage",
+      "priority": [
+        "critRate",
+        "critDmg",
+        "em"
+      ],
+      "conditional": [
+        "er",
+        "atkPct"
+      ],
+      "label": "Dégâts / maîtrise",
+      "reason": "ATQ et recharge dépendent des coefficients et de la rotation.",
+      "reviewed": true,
+      "evidence": [
+        {
+          "talent": "combat2",
+          "text": "Après avoir déclenché une réaction élémentaire sur un ennemi affecté par une graine de Skandha ou lui avoir infligé des DGT grâce à un noyau Dendro (incluant Bourgeonnement et Exubérance), Nahida déclenche une purification trikarmique sur cet ennemi et tous les ennemis liés, infligeant des DGT Dendro selon son ATQ et sa maîtrise élémentaire"
+        },
+        {
+          "talent": "passive1",
+          "text": "Augmente la maîtrise élémentaire du personnage déployé à portée d'une valeur équivalant à 25 % de la maîtrise élémentaire du personnage de l'équipe en ayant le plus"
+        },
+        {
+          "talent": "c6",
+          "text": "Lorsque Nahida touche un ennemi affecté par une graine de Skandha d'Omniscience des plans avec une attaque normale ou chargée après avoir utilisé Cœur illusoire, elle utilise une « Purification trikarmique : Oubli karmique » sur cet ennemi et tous les autres ennemis liés, infligeant des DGT Dendro d'une valeur équivalant à 200 % de son ATQ et 400 % de sa maîtrise élémentaire"
+        }
+      ],
+      "source": "data/lab-character-conditions.json · Nahida"
+    },
+    "10000091": {
+      "name": "Navia",
+      "profile": "atkDamage",
+      "priority": [
+        "critRate",
+        "critDmg",
+        "atkPct",
+        "er"
+      ],
+      "conditional": [
+        "em"
+      ],
+      "label": "Dégâts ATQ",
+      "reason": "La maîtrise dépend de la réaction ; la recharge dépend de la rotation.",
+      "reviewed": true,
+      "evidence": [],
+      "source": "data/lab-character-conditions.json · Navia"
+    },
+    "10000122": {
+      "name": "Nefer",
+      "profile": "emDamage",
+      "priority": [
+        "critRate",
+        "critDmg",
+        "em"
+      ],
+      "conditional": [
+        "er",
+        "atkPct"
+      ],
+      "label": "Dégâts / maîtrise",
+      "reason": "ATQ et recharge dépendent des coefficients et de la rotation.",
+      "reviewed": true,
+      "evidence": [
+        {
+          "talent": "passive3",
+          "text": "Lorsqu'un personnage de l'équipe déclenche une réaction de Fleurissement, elle est convertie en réaction de Sélénofleurissement, dont les DGT de base augmentent selon la maîtrise élémentaire de Nefer : chaque point de maîtrise élémentaire augmente les DGT de base de 0,0175 %, les DGT pouvant être augmentés d'un maximum de 14 % de cette manière"
+        },
+        {
+          "talent": "c1",
+          "text": "Les DGT de base des réactions de Sélénofleurissement déclenchées par les performances fantasmatiques de Nefer augmentent d'une valeur équivalant à 60 % de sa maîtrise élémentaire"
+        },
+        {
+          "talent": "c6",
+          "text": "Lorsque Nefer utilise une performance fantasmatique, les DGT de son 2e coup sont convertis en DGT Dendro de zone d'une valeur équivalant à 85 % de la maîtrise élémentaire de Nefer"
+        },
+        {
+          "talent": "c6",
+          "text": "De plus, une instance supplémentaire de DGT Dendro de zone d'une valeur équivalant à 120 % de la maîtrise élémentaire de Nefer est infligée lorsque l'attaque de la performance fantasmatique finit"
+        }
+      ],
+      "source": "data/lab-character-conditions.json · Nefer"
+    },
+    "10000087": {
+      "name": "Neuvillette",
+      "profile": "hpDamage",
+      "priority": [
+        "critRate",
+        "critDmg",
+        "hpPct",
+        "er"
+      ],
+      "conditional": [
+        "em",
+        "atkPct"
+      ],
+      "label": "Dégâts PV",
+      "reason": "ATQ utile à Hu Tao ; maîtrise conditionnelle aux réactions.",
+      "reviewed": true,
+      "evidence": [
+        {
+          "talent": "combat2",
+          "text": "Neuvillette invoque une cascade déchaînée qui inflige des DGT Hydro de zone aux ennemis en face de lui selon ses PV max"
+        },
+        {
+          "talent": "combat3",
+          "text": "Neuvillette déchaîne une vague de rupture qui inflige des DGT Hydro de zone selon ses PV max"
+        },
+        {
+          "talent": "c6",
+          "text": "De plus, lorsque l'attaque chargée « Jugement équitable » touche un ennemi, 2 torrents supplémentaires sont libérés toutes les 2 s, chacun infligeant des DGT Hydro d'une valeur équivalant à 10 % des PV max de Neuvillette"
+        }
+      ],
+      "source": "data/lab-character-conditions.json · Neuvillette"
+    },
+    "10000131": {
+      "name": "Nicole",
+      "profile": "atkBuff",
+      "priority": [
+        "atkPct",
+        "er"
+      ],
+      "conditional": [
+        "critRate"
+      ],
+      "label": "Soutien ATQ totale",
+      "reason": "D’après le kit local : bouclier ou bonus de soutien fondé sur l’ATQ totale.",
+      "reviewed": true,
+      "evidence": [
+        {
+          "talent": "combat2",
+          "text": "L'absorption de DGT du bouclier de lumière ardente est basée sur l'ATQ de Nicole et ce dernier absorbe les DGT Pyro 250 % plus efficacement"
+        },
+        {
+          "talent": "combat3",
+          "text": "Ces DGT sont basés sur l'ATQ du personnage et sont considérés comme ayant été infligés par ce dernier"
+        },
+        {
+          "talent": "c1",
+          "text": "Ces DGT sont d'une valeur équivalant à 600 % de l'ATQ du personnage et sont considérés comme infligés par ce même personnage"
+        },
+        {
+          "talent": "c2",
+          "text": "Les effets de la compétence élémentaire Révélation : Lumière incréée sont renforcés : la grâce de kénose augmente l'ATQ de 300 pts supplémentaires, ce bonus n'étant pas compté pour la limite de bonus d'ATQ, et la guidance de théose diminue la RÉS élémentaire des ennemis proches de 25 % selon le type élémentaire du personnage concerné, les effets de diminution de RÉS d'un même élément ne se cumulant pas"
+        }
+      ],
+      "source": "data/lab-character-conditions.json · Nicole"
+    },
+    "10000070": {
+      "name": "Nilou",
+      "profile": "hpBloom",
+      "priority": [
+        "hpPct",
+        "hpFlat"
+      ],
+      "conditional": [
+        "em",
+        "er"
+      ],
+      "label": "Fleurissement PV",
+      "reason": "PV pour le bonus aux noyaux ; maîtrise pour les réactions propres à Nilou.",
+      "reviewed": true,
+      "evidence": [
+        {
+          "talent": "combat2",
+          "text": "Active l'état Pirouette, infligeant des DGT Hydro aux ennemis proches selon les PV max de Nilou"
+        },
+        {
+          "talent": "combat3",
+          "text": "Commence la danse des rêves éloignés et des sources à l'écoute, faisant ainsi fleurir un lotus des eaux lointaines infligeant des DGT Hydro de zone selon les PV max de Nilou et affligeant l'effet Éon persistant aux ennemis touchés"
+        }
+      ],
+      "source": "data/lab-character-conditions.json · Nilou"
+    },
+    "10000027": {
+      "name": "Ningguang",
+      "profile": "atkDamage",
+      "priority": [
+        "critRate",
+        "critDmg",
+        "atkPct",
+        "er"
+      ],
+      "conditional": [
+        "em"
+      ],
+      "label": "Dégâts ATQ",
+      "reason": "La maîtrise dépend de la réaction ; la recharge dépend de la rotation.",
+      "reviewed": true,
+      "evidence": [],
+      "source": "data/lab-character-conditions.json · Ningguang"
+    },
+    "10000034": {
+      "name": "Noëlle",
+      "profile": "defDamage",
+      "priority": [
+        "critRate",
+        "critDmg",
+        "defPct",
+        "er"
+      ],
+      "conditional": [],
+      "label": "Dégâts DÉF",
+      "reason": "La recharge dépend de la rotation.",
+      "reviewed": true,
+      "evidence": [
+        {
+          "talent": "passive1",
+          "text": "Confère un bouclier au personnage déployé pouvant absorber des DGT équivalant à 400 % de la DÉF de Noëlle pendant 20 s"
+        },
+        {
+          "talent": "c4",
+          "text": "Armure de cœur inflige une quantité de DGT Géo équivalant à 400 % de l'ATQ aux ennemis proches lorsqu'elle prend fin ou que l'armure est détruite"
+        }
+      ],
+      "source": "data/lab-character-conditions.json · Noelle"
+    },
+    "10000150": {
+      "name": "Odette",
+      "profile": "atkReaction",
+      "priority": [
+        "atkPct",
+        "critRate",
+        "critDmg",
+        "em"
+      ],
+      "conditional": [
+        "er"
+      ],
+      "label": "Sélénocution",
+      "reason": "D’après le kit local : réaction astrale ou sélène fondée sur l’ATQ ; maîtrise et CRIT selon le rôle.",
+      "reviewed": true,
+      "evidence": [
+        {
+          "talent": "passive2",
+          "text": "Chaque tranche de 100 pts d'ATQ d'Odette au-delà de 1 000 pts augmente ses DGT de réaction astrale d'une valeur équivalant à 1,5 % des DGT d'origine, les DGT pouvant être augmentés d'un maximum de 30 % supplémentaires de cette manière"
+        },
+        {
+          "talent": "passive3",
+          "text": "Lorsqu'un personnage de l'équipe déclenche une réaction de Supraconduction ou de Dispersion Cryo, elle est convertie en réaction d'Astroconduction ou d'Astrodispersion, dont les DGT de base augmentent selon l'ATQ d'Odette : chaque tranche de 100 pts d'ATQ augmente les DGT de base de ces réactions de 0,7 %, les DGT pouvant être augmentés d'un maximum de 14 % de cette manière"
+        },
+        {
+          "talent": "c1",
+          "text": "Radiance « Astroconduction » ou sans radiance : Ces DGT sont considérés comme des DGT de réaction d'Astroconduction d'une valeur équivalant à 300 % de l'ATQ d'Odette"
+        },
+        {
+          "talent": "c1",
+          "text": "Radiance « Astrodispersion » : Ces DGT sont considérés comme des DGT de réaction d'Astrodispersion d'une valeur équivalant à 450 % de l'ATQ d'Odette"
+        }
+      ],
+      "source": "data/lab-character-conditions.json · Odette"
+    },
+    "10000105": {
+      "name": "Ororon",
+      "profile": "burstSupport",
+      "priority": [
+        "er"
+      ],
+      "conditional": [
+        "critRate",
+        "em",
+        "atkPct"
+      ],
+      "label": "Soutien déchaînement",
+      "reason": "Après la recharge nécessaire, choisir les statistiques du rôle.",
+      "reviewed": true,
+      "evidence": [
+        {
+          "talent": "passive1",
+          "text": "De plus, lorsqu'un ennemi proche subit des DGT d'une réaction d'Électrocution ou de Sélénocution ou des DGT infusés de noctâme d'un autre personnage de l'équipe à proximité, Ororon consomme, si possible, 10 pts de noctâme pour entrer dans l'état Bénédiction noctâme et déclencher l'effet Hyper-sens : inflige des DGT Électro infusés de noctâme d'une valeur équivalant à 160 % de l'ATQ d'Ororon à un maximum de 4 ennemis à proximité"
+        }
+      ],
+      "source": "data/lab-character-conditions.json · Ororon"
+    },
+    "10000132": {
+      "name": "Prune",
+      "profile": "atkBuff",
+      "priority": [
+        "atkPct",
+        "er"
+      ],
+      "conditional": [
+        "critRate"
+      ],
+      "label": "Soutien ATQ totale",
+      "reason": "D’après le kit local : bouclier ou bonus de soutien fondé sur l’ATQ totale.",
+      "reviewed": true,
+      "evidence": [
+        {
+          "talent": "passive1",
+          "text": "Lorsque la cloche de l'ensorceleuse du mode Chasse-traque inflige des DGT à un ennemi pendant le déchaînement élémentaire Le glas sonne ! La chasse est ouverte, déclencher par la même occasion une réaction de Dispersion ou d'Astrodispersion sur l'ennemi invoque un marteau-serment de chasse des fléaux dont l'élément est converti selon la réaction élémentaire, infligeant des DGT élémentaires d'une valeur équivalant à 150 % de l'ATQ de Prune"
+        },
+        {
+          "talent": "c4",
+          "text": "Après avoir touché un ennemi avec un marteau-serment de chasse des fléaux dont l'élément est converti, le marteau rebondit pour atterrir sur un ennemi proche, infligeant des DGT de l'élément correspondant d'une valeur équivalent à 80 % de l'ATQ"
+        }
+      ],
+      "source": "data/lab-character-conditions.json · Prune"
+    },
+    "10000035": {
+      "name": "Qiqi",
+      "profile": "atkHeal",
+      "priority": [
+        "atkPct",
+        "er"
+      ],
+      "conditional": [
+        "critRate"
+      ],
+      "label": "Soin ATQ",
+      "reason": "Taux CRIT utile à Favonius.",
+      "reviewed": true,
+      "evidence": [
+        {
+          "talent": "c4",
+          "text": "De plus, déclencher l'effet de soins d'un talisman de fortune soigne également le personnage proche ayant le pourcentage de PV restant le plus bas une fois pour une valeur équivalant à 180 % de l'ATQ de Qiqi"
+        },
+        {
+          "talent": "c6",
+          "text": "De plus, après l'utilisation d'Arcane d'Adepte : Talisman sacré, Qiqi obtient également 4 cumuls de l'effet Aperçu de mystère, et les DGT augmentent d'une valeur équivalant à 600 % de l'ATQ de Qiqi au prix d'un cumul d'Aperçu de mystère lorsque votre personnage déployé (hormis Qiqi) inflige directement des DGT de réaction d'Astroconduction ou des DGT de réaction d'Astrodispersion avec une aptitude ou une compétence"
+        }
+      ],
+      "source": "data/lab-character-conditions.json · Qiqi"
+    },
+    "10000052": {
+      "name": "Shogun Raiden",
+      "profile": "erDamage",
+      "priority": [
+        "er",
+        "critRate",
+        "critDmg",
+        "atkPct"
+      ],
+      "conditional": [
+        "em"
+      ],
+      "label": "Dégâts / recharge",
+      "reason": "Le rôle Exubérance utilise la maîtrise à la place de ce profil.",
+      "reviewed": true,
+      "evidence": [],
+      "source": "data/lab-character-conditions.json · RaidenShogun"
+    },
+    "10000020": {
+      "name": "Razor",
+      "profile": "atkDamage",
+      "priority": [
+        "critRate",
+        "critDmg",
+        "atkPct",
+        "er"
+      ],
+      "conditional": [
+        "em"
+      ],
+      "label": "Dégâts ATQ",
+      "reason": "La maîtrise dépend de la réaction ; la recharge dépend de la rotation.",
+      "reviewed": true,
+      "evidence": [
+        {
+          "talent": "c6",
+          "text": "Toutes les 10 s, l'arme de Razor se charge d'énergie électrique pour infliger des DGT Électro d'une valeur équivalant à 100 % de l'ATQ de Razor lors de la prochaine attaque normale"
+        },
+        {
+          "talent": "lockedPassive",
+          "text": "De plus, le déchaînement élémentaire Croc éclair de Razor est renforcé : les DGT infligés par le loup de tonnerre augmentent d'une valeur équivalant à 70 % de l'ATQ de Razor"
+        },
+        {
+          "talent": "lockedPassive",
+          "text": "Si la quantité de sceaux Électro de la compétence élémentaire Griffe et tonnerre dépasse la limite pendant la durée du loup de tonnerre invoqué par le déchaînement élémentaire Croc éclair, le loup de tonnerre déclenche un éclair sur les ennemis à proximité, infligeant des DGT Électro de zone d'une valeur équivalant à 150 % de l'ATQ de Razor et restaurant 7 pts d'énergie élémentaire à Razor"
+        }
+      ],
+      "source": "data/lab-character-conditions.json · Razor"
+    },
+    "10000045": {
+      "name": "Rosalia",
+      "profile": "cryoSupport",
+      "priority": [
+        "er",
+        "critRate"
+      ],
+      "conditional": [
+        "critDmg",
+        "atkPct"
+      ],
+      "label": "Soutien CRIT",
+      "reason": "Le partage de taux CRIT valorise le taux ; ATQ et DGT CRIT pour ses dégâts.",
+      "reviewed": true,
+      "evidence": [],
+      "source": "data/lab-character-conditions.json · Rosaria"
+    },
+    "10000133": {
+      "name": "Sandrone",
+      "profile": "atkReaction",
+      "priority": [
+        "atkPct",
+        "critRate",
+        "critDmg",
+        "em"
+      ],
+      "conditional": [
+        "er"
+      ],
+      "label": "Sélénocution",
+      "reason": "D’après le kit local : réaction astrale ou sélène fondée sur l’ATQ ; maîtrise et CRIT selon le rôle.",
+      "reviewed": true,
+      "evidence": [
+        {
+          "talent": "passive3",
+          "text": "Lorsqu'un personnage de l'équipe déclenche une réaction de Supraconduction ou de Dispersion Cryo, elle est convertie en réaction d'Astroconduction ou d'Astrodispersion, dont les DGT de base augmentent selon l'ATQ de Sandrone : chaque tranche de 100 pts d'ATQ augmente les DGT de base de ces réactions de 0,7 %, les DGT pouvant être augmentés d'un maximum de 14 % de cette manière"
+        },
+        {
+          "talent": "c4",
+          "text": "Lorsque Sandrone touche un ennemi avec des DGT de réaction d'Astroconduction ou de réaction d'Astrodispersion, elle invoque également un canon à résonance prismatique supplémentaire pour effectuer une attaque coordonnée qui inflige des DGT Cryo d'une valeur équivalant à 125 % ou 187,5 % de son ATQ, ces DGT étant considérés comme des DGT de réaction astrale correspondante"
+        },
+        {
+          "talent": "c6",
+          "text": "Lorsque Fagio tire un 3e rayon condensé en mode Décodage, le rayon est converti en rayon condensé groupé plus puissant et continu qui inflige jusqu'à 4 instances supplémentaires de DGT Cryo de zone d'une valeur équivalant à 100 % de l'ATQ de Sandrone, en plus de tout rayon original tiré ultérieurement"
+        }
+      ],
+      "source": "data/lab-character-conditions.json · Sandrone"
+    },
+    "10000054": {
+      "name": "Sangonomiya Kokomi",
+      "profile": "noCrit",
+      "priority": [
+        "hpPct",
+        "er"
+      ],
+      "conditional": [
+        "em"
+      ],
+      "label": "Soin / PV",
+      "reason": "Le passif de Kokomi réduit fortement le taux CRIT ; maîtrise selon le rôle.",
+      "reviewed": true,
+      "evidence": [
+        {
+          "talent": "combat2",
+          "text": "Les soins sont fonction des PV max de Kokomi"
+        },
+        {
+          "talent": "combat3",
+          "text": "Les DGT des attaques normales et chargées de Kokomi et ceux de la méduse fantôme créée par sa compétence élémentaire augmentent en fonction des PV max de Kokomi"
+        },
+        {
+          "talent": "passive2",
+          "text": "Lorsque Kokomi revêt la parure cérémoniale créée par Ascension de la néréide, les bonus de DGT d'attaque normale et chargée en fonction de ses PV max bénéficient d'une augmentation supplémentaire basée sur 15 % de son bonus de soins"
+        },
+        {
+          "talent": "c1",
+          "text": "Lorsque Kokomi revêt la parure cérémoniale créée par Ascension de la néréide, la dernière attaque normale de son combo libère un poisson qui inflige des DGT Hydro équivalant à 30 % de ses PV max"
+        }
+      ],
+      "source": "data/lab-character-conditions.json · SangonomiyaKokomi"
+    },
+    "10000053": {
+      "name": "Sayu",
+      "profile": "atkHeal",
+      "priority": [
+        "atkPct",
+        "er"
+      ],
+      "conditional": [
+        "critRate"
+      ],
+      "label": "Soin ATQ",
+      "reason": "Taux CRIT utile à Favonius.",
+      "reviewed": true,
+      "evidence": [],
+      "source": "data/lab-character-conditions.json · Sayu"
+    },
+    "10000097": {
+      "name": "Sethos",
+      "profile": "emDamage",
+      "priority": [
+        "critRate",
+        "critDmg",
+        "em"
+      ],
+      "conditional": [
+        "er",
+        "atkPct"
+      ],
+      "label": "Dégâts / maîtrise",
+      "reason": "ATQ et recharge dépendent des coefficients et de la rotation.",
+      "reviewed": true,
+      "evidence": [
+        {
+          "talent": "combat3",
+          "text": "Sethos déclenche un rituel secret pour entrer dans l'état Méditation crépusculaire, ce qui convertit ses attaques normales pour lui permettre de tirer des carreaux crépusculaires pouvant transpercer les ennemis : inflige des DGT Électro, qui augmentent selon la maîtrise élémentaire de Sethos, aux ennemis en chemin"
+        },
+        {
+          "talent": "passive2",
+          "text": "Sethos obtient l'effet Ombre sableuse : augmente les DGT infligés par les flèches de perce-ombre d'une valeur équivalant à 700 % de sa maîtrise élémentaire"
+        }
+      ],
+      "source": "data/lab-character-conditions.json · Sethos"
+    },
+    "10000063": {
+      "name": "Shenhe",
+      "profile": "atkBuff",
+      "priority": [
+        "atkPct",
+        "er"
+      ],
+      "conditional": [
+        "critRate"
+      ],
+      "label": "Soutien ATQ totale",
+      "reason": "L’ATQ des artéfacts contribue au bonus ou au bouclier ; CRIT pour Favonius.",
+      "reviewed": true,
+      "evidence": [
+        {
+          "talent": "combat2",
+          "text": "Lorsqu'une attaque normale, chargée ou plongeante, une compétence ou un déchaînement élémentaires inflige des DGT Cryo à un ennemi, les DGT infligés augmentent en fonction de l'ATQ actuelle de Shenhe"
+        }
+      ],
+      "source": "data/lab-character-conditions.json · Shenhe"
+    },
+    "10000059": {
+      "name": "Shikanoin Heizou",
+      "profile": "atkDamage",
+      "priority": [
+        "critRate",
+        "critDmg",
+        "atkPct",
+        "er"
+      ],
+      "conditional": [
+        "em"
+      ],
+      "label": "Dégâts ATQ",
+      "reason": "La maîtrise dépend de la réaction ; la recharge dépend de la rotation.",
+      "reviewed": true,
+      "evidence": [],
+      "source": "data/lab-character-conditions.json · ShikanoinHeizou"
+    },
+    "10000095": {
+      "name": "Sigewinne",
+      "profile": "hpSupport",
+      "priority": [
+        "hpPct",
+        "er"
+      ],
+      "conditional": [
+        "critRate",
+        "em"
+      ],
+      "label": "Soutien PV",
+      "reason": "CRIT conditionnel à Favonius ; maîtrise selon le rôle de réaction.",
+      "reviewed": true,
+      "evidence": [
+        {
+          "talent": "combat2",
+          "text": "Les bulles d'eau curative rebondissent entre les ennemis proches, infligeant des DGT Hydro selon les PV max de Sigewinne aux ennemis touchés"
+        },
+        {
+          "talent": "combat2",
+          "text": "En rebondissant, les bulles d'eau curative restaurent les PV de tous les personnages de l'équipe à proximité (hormis Sigewinne) selon les PV max de Sigewinne"
+        },
+        {
+          "talent": "combat2",
+          "text": "Une bulle d'eau curative disparaît et restaure les PV de Sigewinne selon ses PV max après avoir rebondi 5 fois"
+        },
+        {
+          "talent": "combat2",
+          "text": "Chaque goutte d'eau de source que Sigewinne absorbe lui accorde un engagement vital d'une valeur équivalant à 10 % de ses PV max"
+        }
+      ],
+      "source": "data/lab-character-conditions.json · Sigewinne"
+    },
+    "10000114": {
+      "name": "Skirk",
+      "profile": "noEnergy",
+      "priority": [
+        "critRate",
+        "critDmg",
+        "atkPct"
+      ],
+      "conditional": [
+        "em"
+      ],
+      "label": "Ressource spéciale",
+      "reason": "La recharge ne recharge pas la ferveur guerrière ni le Serpentina.",
+      "reviewed": true,
+      "evidence": [
+        {
+          "talent": "c1",
+          "text": "L'aptitude d'élévation « Raisonnement outre-raison » est renforcée : absorber une faille du néant invoque une lame cristalline qui attaque les ennemis proches, infligeant des DGT Cryo d'une valeur équivalant à 500 % de l'ATQ de Skirk"
+        },
+        {
+          "talent": "c6",
+          "text": "Lorsqu'elle utilise son déchaînement élémentaire Ravage : Ruine, Skirk consomme tous les cumuls de Ravage : Section pour déclencher une attaque coordonnée : chaque cumul inflige des DGT Cryo d'une valeur équivalant à 750 % de l'ATQ de Skirk, ces dégâts étant considérés comme des DGT de déchaînement élémentaire"
+        },
+        {
+          "talent": "c6",
+          "text": "Lorsqu'elle est en mode Flash à sept phases et que le 3e ou 5e coup de son attaque normale touche un ennemi, Skirk consomme un cumul de Ravage : Section pour déclencher 3 attaques coordonnées : chaque attaque coordonnée inflige des DGT Cryo d'une valeur équivalant à 180 % de l'ATQ de Skirk, ces dégâts étant considérés comme des DGT d'attaque normale"
+        },
+        {
+          "talent": "c6",
+          "text": "Lorsqu'elle subit des DGT pendant son mode Flash à sept phases, Skirk consomme un cumul de Ravage : Section pour diminuer ces derniers de 80 % et déclencher 3 attaques coordonnées sur les ennemis proches : chaque attaque coordonnée inflige des DGT Cryo d'une valeur équivalant à 180 % de l'ATQ de Skirk, ces dégâts étant considérés comme des DGT d'attaque chargée"
+        }
+      ],
+      "source": "data/lab-character-conditions.json · Skirk"
+    },
+    "Somnia": {
+      "name": "Somnia",
+      "profile": "emDamage",
+      "priority": [
+        "critRate",
+        "critDmg",
+        "em"
+      ],
+      "conditional": [
+        "er",
+        "atkPct"
+      ],
+      "label": "Dégâts / maîtrise",
+      "reason": "D’après le kit local : dégâts et effets fondés sur la maîtrise.",
+      "reviewed": true,
+      "evidence": [
+        {
+          "talent": "combat2",
+          "text": "Les DMG infligés par les attaques normales et chargées de Somnia sont augmentés en fonction de sa maîtrise des éléments"
+        },
+        {
+          "talent": "combat3",
+          "text": "Les attaques normales ou chargées dans le champ déclenchent Star Sunder, une explosion électrique coordonnée qui inflige des DMG électriques AoE basés sur la maîtrise élémentaire de Somnia"
+        },
+        {
+          "talent": "combat3",
+          "text": "L'effet \"Moins de trois\" réduit les RES élémentaires et physiques des ennemis en fonction de la maîtrise élémentaire de Somnia"
+        },
+        {
+          "talent": "combat3",
+          "text": "De plus, les attaques normales et chargées de Somnia infligent des DMG accrus en fonction de sa maîtrise élémentaire"
+        }
+      ],
+      "source": "data/lab-character-conditions.json · Somnia"
+    },
+    "10000043": {
+      "name": "Sucrose",
+      "profile": "emReaction",
+      "priority": [
+        "em",
+        "er"
+      ],
+      "conditional": [
+        "hpPct",
+        "critRate"
+      ],
+      "label": "Réactions",
+      "reason": "Taux CRIT utile à Favonius, pas aux dégâts de dispersion ou d’Exubérance.",
+      "reviewed": true,
+      "evidence": [
+        {
+          "talent": "passive2",
+          "text": "Lorsque Esprit du vent : Sujet 6308 ou Esprit du vent : Isomorphe 75 Type II touche un ennemi, tous les personnages de l'équipe (hormis Sucrose) bénéficient pendant 8 s d'un bonus de maîtrise élémentaire équivalant à 20 % de la maîtrise élémentaire de Sucrose"
+        }
+      ],
+      "source": "data/lab-character-conditions.json · Sucrose"
+    },
+    "10000033": {
+      "name": "Tartaglia",
+      "profile": "atkDamage",
+      "priority": [
+        "critRate",
+        "critDmg",
+        "atkPct",
+        "er"
+      ],
+      "conditional": [
+        "em"
+      ],
+      "label": "Dégâts ATQ",
+      "reason": "La maîtrise dépend de la réaction ; la recharge dépend de la rotation.",
+      "reviewed": true,
+      "evidence": [],
+      "source": "data/lab-character-conditions.json · Tartaglia"
+    },
+    "10000050": {
+      "name": "Thomas",
+      "profile": "hpSupport",
+      "priority": [
+        "hpPct",
+        "er"
+      ],
+      "conditional": [
+        "critRate",
+        "em"
+      ],
+      "label": "Soutien PV",
+      "reason": "CRIT conditionnel à Favonius ; maîtrise selon le rôle de réaction.",
+      "reviewed": true,
+      "evidence": [
+        {
+          "talent": "combat2",
+          "text": "L'absorption de DGT de la barrière est fonction des PV max de Thomas"
+        },
+        {
+          "talent": "passive2",
+          "text": "Les DGT infligés par l'effondrement ardent d'O-yoroi écarlate augmentent d'une valeur équivalant à 2,2 % des PV max de Thomas"
+        }
+      ],
+      "source": "data/lab-character-conditions.json · Thoma"
+    },
+    "10000069": {
+      "name": "Tighnari",
+      "profile": "emDamage",
+      "priority": [
+        "critRate",
+        "critDmg",
+        "em"
+      ],
+      "conditional": [
+        "er",
+        "atkPct"
+      ],
+      "label": "Dégâts / maîtrise",
+      "reason": "ATQ et recharge dépendent des coefficients et de la rotation.",
+      "reviewed": true,
+      "evidence": [
+        {
+          "talent": "c6",
+          "text": "Le temps de charge des flèches florales diminue de 0,9 s et 1 flèche fleuronnée supplémentaire est créée en touchant un ennemi, pouvant infliger des DGT équivalant à 150 % de l'ATQ de Tighnari"
+        }
+      ],
+      "source": "data/lab-character-conditions.json · Tighnari"
+    },
+    "TravelerAnemoF": {
+      "name": "TravelerAnemoF",
+      "profile": "emReaction",
+      "priority": [
+        "em",
+        "er"
+      ],
+      "conditional": [
+        "hpPct",
+        "critRate"
+      ],
+      "label": "Réactions",
+      "reason": "Voyageur Anemo · profil du kit local. Ne pas utiliser les priorités d’un autre élément.",
+      "reviewed": true,
+      "evidence": [
+        {
+          "talent": "passive1",
+          "text": "Le dernier coup d'attaque normale libère une lame de vent, qui inflige une quantité de DGT Anémo équivalant à 60 % de l'ATQ aux ennemis sur sa route"
+        },
+        {
+          "talent": "lockedPassive",
+          "text": "Chaque coup de l'attaque chargée inflige des DGT Anémo qui sont augmentés d'une valeur équivalant à 60 % de l'ATQ {M#du voyageur}{F#de la voyageuse}"
+        },
+        {
+          "talent": "lockedPassive",
+          "text": "Consommer une lame de brise matinale d'un certain type élémentaire génère un vent de lame de l'élément correspondant qui inflige des DGT élémentaires d'une valeur équivalant à 50 % de l'ATQ {M#du voyageur}{F#de la voyageuse}, ces DGT étant considérés comme des DGT d'attaque chargée"
+        }
+      ],
+      "source": "data/lab-character-conditions.json · TravelerAnemoF"
+    },
+    "TravelerAnemoM": {
+      "name": "TravelerAnemoM",
+      "profile": "emReaction",
+      "priority": [
+        "em",
+        "er"
+      ],
+      "conditional": [
+        "hpPct",
+        "critRate"
+      ],
+      "label": "Réactions",
+      "reason": "Voyageur Anemo · profil du kit local. Ne pas utiliser les priorités d’un autre élément.",
+      "reviewed": true,
+      "evidence": [
+        {
+          "talent": "passive1",
+          "text": "Le dernier coup d'attaque normale libère une lame de vent, qui inflige une quantité de DGT Anémo équivalant à 60 % de l'ATQ aux ennemis sur sa route"
+        },
+        {
+          "talent": "lockedPassive",
+          "text": "Chaque coup de l'attaque chargée inflige des DGT Anémo qui sont augmentés d'une valeur équivalant à 60 % de l'ATQ {M#du voyageur}{F#de la voyageuse}"
+        },
+        {
+          "talent": "lockedPassive",
+          "text": "Consommer une lame de brise matinale d'un certain type élémentaire génère un vent de lame de l'élément correspondant qui inflige des DGT élémentaires d'une valeur équivalant à 50 % de l'ATQ {M#du voyageur}{F#de la voyageuse}, ces DGT étant considérés comme des DGT d'attaque chargée"
+        }
+      ],
+      "source": "data/lab-character-conditions.json · TravelerAnemoM"
+    },
+    "TravelerCryoF": {
+      "name": "TravelerCryoF",
+      "profile": "atkReaction",
+      "priority": [
+        "atkPct",
+        "critRate",
+        "critDmg",
+        "em"
+      ],
+      "conditional": [
+        "er"
+      ],
+      "label": "Sélénocution",
+      "reason": "Voyageur Cryo · profil du kit local. Ne pas utiliser les priorités d’un autre élément.",
+      "reviewed": true,
+      "evidence": [
+        {
+          "talent": "passive1",
+          "text": "Radiance « Astroconduction » : Pendant la durée d'une étoile perce-givre, les attaques normales, chargées et plongeantes {M#du voyageur}{F#de la voyageuse} sont converties pour infliger des DGT Cryo ne pouvant pas être enchantés, et les DGT infligés augmentent d'une valeur équivalant à 80 % de son ATQ"
+        },
+        {
+          "talent": "passive2",
+          "text": "La maîtrise élémentaire {M#du voyageur}{F#de la voyageuse} augmente d'une valeur équivalant à 8 % de son ATQ, la maîtrise élémentaire pouvant être augmentée d'un maximum de 160 pts de cette manière"
+        },
+        {
+          "talent": "passive3",
+          "text": "Lorsqu'un personnage de l'équipe déclenche une réaction de Supraconduction ou de Dispersion Cryo, elle est convertie en réaction d'Astroconduction ou d'Astrodispersion, dont les DGT de base augmentent selon l'ATQ {M#du voyageur}{F#de la voyageuse} : chaque tranche de 100 pts d'ATQ augmente les DGT de base de ces réactions de 0,35 %, les DGT pouvant être augmentés d'un maximum de 7 % de cette manière"
+        },
+        {
+          "talent": "lockedPassive",
+          "text": "Les DGT Cryo augmentent d'une valeur équivalant à 140 % de l'ATQ {M#du voyageur et il}{F#de la voyageuse et elle} obtient 2 cumuls de lueur givrée"
+        }
+      ],
+      "source": "data/lab-character-conditions.json · TravelerCryoF"
+    },
+    "TravelerCryoM": {
+      "name": "TravelerCryoM",
+      "profile": "atkReaction",
+      "priority": [
+        "atkPct",
+        "critRate",
+        "critDmg",
+        "em"
+      ],
+      "conditional": [
+        "er"
+      ],
+      "label": "Sélénocution",
+      "reason": "Voyageur Cryo · profil du kit local. Ne pas utiliser les priorités d’un autre élément.",
+      "reviewed": true,
+      "evidence": [
+        {
+          "talent": "passive1",
+          "text": "Radiance « Astroconduction » : Pendant la durée d'une étoile perce-givre, les attaques normales, chargées et plongeantes {M#du voyageur}{F#de la voyageuse} sont converties pour infliger des DGT Cryo ne pouvant pas être enchantés, et les DGT infligés augmentent d'une valeur équivalant à 80 % de son ATQ"
+        },
+        {
+          "talent": "passive2",
+          "text": "La maîtrise élémentaire {M#du voyageur}{F#de la voyageuse} augmente d'une valeur équivalant à 8 % de son ATQ, la maîtrise élémentaire pouvant être augmentée d'un maximum de 160 pts de cette manière"
+        },
+        {
+          "talent": "passive3",
+          "text": "Lorsqu'un personnage de l'équipe déclenche une réaction de Supraconduction ou de Dispersion Cryo, elle est convertie en réaction d'Astroconduction ou d'Astrodispersion, dont les DGT de base augmentent selon l'ATQ {M#du voyageur}{F#de la voyageuse} : chaque tranche de 100 pts d'ATQ augmente les DGT de base de ces réactions de 0,35 %, les DGT pouvant être augmentés d'un maximum de 7 % de cette manière"
+        },
+        {
+          "talent": "lockedPassive",
+          "text": "Les DGT Cryo augmentent d'une valeur équivalant à 140 % de l'ATQ {M#du voyageur et il}{F#de la voyageuse et elle} obtient 2 cumuls de lueur givrée"
+        }
+      ],
+      "source": "data/lab-character-conditions.json · TravelerCryoM"
+    },
+    "TravelerDendroF": {
+      "name": "TravelerDendroF",
+      "profile": "emSupport",
+      "priority": [
+        "em",
+        "er"
+      ],
+      "conditional": [
+        "critRate",
+        "hpPct"
+      ],
+      "label": "Soutien maîtrise",
+      "reason": "Voyageur Dendro · profil du kit local. Ne pas utiliser les priorités d’un autre élément.",
+      "reviewed": true,
+      "evidence": [
+        {
+          "talent": "lockedPassive",
+          "text": "Chaque coup de l'attaque chargée inflige des DGT Dendro qui sont augmentés d'une valeur équivalant à 80 % de l'ATQ {M#du voyageur}{F#de la voyageuse} et génère 2 cœurs de liane sur place, ces derniers explosant respectivement après 4 s et 8 s afin d'infliger des DGT Dendro d'une valeur équivalant à 120 % de l'ATQ {M#du voyageur}{F#de la voyageuse}"
+        }
+      ],
+      "source": "data/lab-character-conditions.json · TravelerDendroF"
+    },
+    "TravelerDendroM": {
+      "name": "TravelerDendroM",
+      "profile": "emSupport",
+      "priority": [
+        "em",
+        "er"
+      ],
+      "conditional": [
+        "critRate",
+        "hpPct"
+      ],
+      "label": "Soutien maîtrise",
+      "reason": "Voyageur Dendro · profil du kit local. Ne pas utiliser les priorités d’un autre élément.",
+      "reviewed": true,
+      "evidence": [
+        {
+          "talent": "lockedPassive",
+          "text": "Chaque coup de l'attaque chargée inflige des DGT Dendro qui sont augmentés d'une valeur équivalant à 80 % de l'ATQ {M#du voyageur}{F#de la voyageuse} et génère 2 cœurs de liane sur place, ces derniers explosant respectivement après 4 s et 8 s afin d'infliger des DGT Dendro d'une valeur équivalant à 120 % de l'ATQ {M#du voyageur}{F#de la voyageuse}"
+        }
+      ],
+      "source": "data/lab-character-conditions.json · TravelerDendroM"
+    },
+    "TravelerElectroF": {
+      "name": "TravelerElectroF",
+      "profile": "burstSupport",
+      "priority": [
+        "er"
+      ],
+      "conditional": [
+        "critRate",
+        "em",
+        "atkPct"
+      ],
+      "label": "Soutien déchaînement",
+      "reason": "Voyageur Electro · profil du kit local. Ne pas utiliser les priorités d’un autre élément.",
+      "reviewed": true,
+      "evidence": [
+        {
+          "talent": "passive2",
+          "text": "Confère un bonus supplémentaire de recharge d'énergie à l'amulette d'abondance générée par Lame d'éclair équivalant à 10 % de la recharge d'énergie {M#du voyageur}{F#de la voyageuse}"
+        },
+        {
+          "talent": "lockedPassive",
+          "text": "Chaque coup de l'attaque chargée inflige des DGT Électro qui sont augmentés d'une valeur équivalant à 100 % de l'ATQ {M#du voyageur}{F#de la voyageuse}"
+        },
+        {
+          "talent": "lockedPassive",
+          "text": "3 s après avoir touché un ennemi, un coup de foudre supplémentaire est déclenché pour infliger des DGT Électro d'une valeur équivalant à 200 % de l'ATQ {M#du voyageur}{F#de la voyageuse} et générer une amulette d'abondance, ces DGT étant considérés comme des DGT d'attaque chargée"
+        }
+      ],
+      "source": "data/lab-character-conditions.json · TravelerElectroF"
+    },
+    "TravelerElectroM": {
+      "name": "TravelerElectroM",
+      "profile": "burstSupport",
+      "priority": [
+        "er"
+      ],
+      "conditional": [
+        "critRate",
+        "em",
+        "atkPct"
+      ],
+      "label": "Soutien déchaînement",
+      "reason": "Voyageur Electro · profil du kit local. Ne pas utiliser les priorités d’un autre élément.",
+      "reviewed": true,
+      "evidence": [
+        {
+          "talent": "passive2",
+          "text": "Confère un bonus supplémentaire de recharge d'énergie à l'amulette d'abondance générée par Lame d'éclair équivalant à 10 % de la recharge d'énergie {M#du voyageur}{F#de la voyageuse}"
+        },
+        {
+          "talent": "lockedPassive",
+          "text": "Chaque coup de l'attaque chargée inflige des DGT Électro qui sont augmentés d'une valeur équivalant à 100 % de l'ATQ {M#du voyageur}{F#de la voyageuse}"
+        },
+        {
+          "talent": "lockedPassive",
+          "text": "3 s après avoir touché un ennemi, un coup de foudre supplémentaire est déclenché pour infliger des DGT Électro d'une valeur équivalant à 200 % de l'ATQ {M#du voyageur}{F#de la voyageuse} et générer une amulette d'abondance, ces DGT étant considérés comme des DGT d'attaque chargée"
+        }
+      ],
+      "source": "data/lab-character-conditions.json · TravelerElectroM"
+    },
+    "TravelerGeoF": {
+      "name": "TravelerGeoF",
+      "profile": "atkDamage",
+      "priority": [
+        "critRate",
+        "critDmg",
+        "atkPct",
+        "er"
+      ],
+      "conditional": [
+        "em"
+      ],
+      "label": "Dégâts ATQ",
+      "reason": "Voyageur Geo · profil du kit local. Ne pas utiliser les priorités d’un autre élément.",
+      "reviewed": true,
+      "evidence": [
+        {
+          "talent": "passive2",
+          "text": "Le dernier coup d'attaque normale provoque un effondrement, qui inflige une quantité de DGT Géo équivalant à 60 % de l'ATQ aux ennemis dans la zone"
+        },
+        {
+          "talent": "lockedPassive",
+          "text": "Chaque coup de l'attaque chargée inflige des DGT Géo qui sont augmentés d'une valeur équivalant à 120 % de l'ATQ {M#du voyageur}{F#de la voyageuse}"
+        }
+      ],
+      "source": "data/lab-character-conditions.json · TravelerGeoF"
+    },
+    "TravelerGeoM": {
+      "name": "TravelerGeoM",
+      "profile": "atkDamage",
+      "priority": [
+        "critRate",
+        "critDmg",
+        "atkPct",
+        "er"
+      ],
+      "conditional": [
+        "em"
+      ],
+      "label": "Dégâts ATQ",
+      "reason": "Voyageur Geo · profil du kit local. Ne pas utiliser les priorités d’un autre élément.",
+      "reviewed": true,
+      "evidence": [
+        {
+          "talent": "passive2",
+          "text": "Le dernier coup d'attaque normale provoque un effondrement, qui inflige une quantité de DGT Géo équivalant à 60 % de l'ATQ aux ennemis dans la zone"
+        },
+        {
+          "talent": "lockedPassive",
+          "text": "Chaque coup de l'attaque chargée inflige des DGT Géo qui sont augmentés d'une valeur équivalant à 120 % de l'ATQ {M#du voyageur}{F#de la voyageuse}"
+        }
+      ],
+      "source": "data/lab-character-conditions.json · TravelerGeoM"
+    },
+    "TravelerHydroF": {
+      "name": "TravelerHydroF",
+      "profile": "hpDamage",
+      "priority": [
+        "atkPct",
+        "hpPct",
+        "critRate",
+        "critDmg",
+        "er"
+      ],
+      "conditional": [
+        "em"
+      ],
+      "label": "Dégâts PV",
+      "reason": "Voyageur Hydro · profil du kit local. Ne pas utiliser les priorités d’un autre élément.",
+      "reviewed": true,
+      "evidence": [
+        {
+          "talent": "combat2",
+          "text": "Profusion : lors de l'appui long, si les PV {M#du voyageur}{F#de la voyageuse} sont supérieurs à 50 %, les DGT de ses gouttes de rosée augmentent en fonction de ses PV max et {M#il}{F#elle} perd une quantité fixe de PV à chaque seconde"
+        },
+        {
+          "talent": "lockedPassive",
+          "text": "Chaque coup de l'attaque chargée inflige des DGT Hydro qui sont augmentés d'une valeur équivalant à 150 % de l'ATQ {M#du voyageur}{F#de la voyageuse}"
+        },
+        {
+          "talent": "lockedPassive",
+          "text": "Lorsque les PV {M#du voyageur}{F#de la voyageuse} sont supérieurs ou égaux à 50 %, des PV d'une valeur équivalant à 10 % des PV max sont consommés pour augmenter davantage chaque coup de l'attaque chargée d'une valeur équivalant à 100 % de l'ATQ {M#du voyageur}{F#de la voyageuse}"
+        },
+        {
+          "talent": "lockedPassive",
+          "text": "Lorsque les PV {M#du voyageur}{F#de la voyageuse} sont inférieurs à 50 %, toucher un ennemi restaure une fois les PV {M#du voyageur}{F#de la voyageuse} pour une valeur équivalant à 25 % de ses PV max"
+        }
+      ],
+      "source": "data/lab-character-conditions.json · TravelerHydroF"
+    },
+    "TravelerHydroM": {
+      "name": "TravelerHydroM",
+      "profile": "hpDamage",
+      "priority": [
+        "atkPct",
+        "hpPct",
+        "critRate",
+        "critDmg",
+        "er"
+      ],
+      "conditional": [
+        "em"
+      ],
+      "label": "Dégâts PV",
+      "reason": "Voyageur Hydro · profil du kit local. Ne pas utiliser les priorités d’un autre élément.",
+      "reviewed": true,
+      "evidence": [
+        {
+          "talent": "combat2",
+          "text": "Profusion : lors de l'appui long, si les PV {M#du voyageur}{F#de la voyageuse} sont supérieurs à 50 %, les DGT de ses gouttes de rosée augmentent en fonction de ses PV max et {M#il}{F#elle} perd une quantité fixe de PV à chaque seconde"
+        },
+        {
+          "talent": "lockedPassive",
+          "text": "Chaque coup de l'attaque chargée inflige des DGT Hydro qui sont augmentés d'une valeur équivalant à 150 % de l'ATQ {M#du voyageur}{F#de la voyageuse}"
+        },
+        {
+          "talent": "lockedPassive",
+          "text": "Lorsque les PV {M#du voyageur}{F#de la voyageuse} sont supérieurs ou égaux à 50 %, des PV d'une valeur équivalant à 10 % des PV max sont consommés pour augmenter davantage chaque coup de l'attaque chargée d'une valeur équivalant à 100 % de l'ATQ {M#du voyageur}{F#de la voyageuse}"
+        },
+        {
+          "talent": "lockedPassive",
+          "text": "Lorsque les PV {M#du voyageur}{F#de la voyageuse} sont inférieurs à 50 %, toucher un ennemi restaure une fois les PV {M#du voyageur}{F#de la voyageuse} pour une valeur équivalant à 25 % de ses PV max"
+        }
+      ],
+      "source": "data/lab-character-conditions.json · TravelerHydroM"
+    },
+    "TravelerPyroF": {
+      "name": "TravelerPyroF",
+      "profile": "atkDamage",
+      "priority": [
+        "critRate",
+        "critDmg",
+        "atkPct",
+        "er"
+      ],
+      "conditional": [
+        "em"
+      ],
+      "label": "Dégâts ATQ",
+      "reason": "Voyageur Pyro · profil du kit local. Ne pas utiliser les priorités d’un autre élément.",
+      "reviewed": true,
+      "evidence": [
+        {
+          "talent": "combat2",
+          "text": "Lorsqu'un personnage déployé en son sein inflige des DGT à un ennemi, le seuil brûlant déclenche une attaque coordonnée infligeant des DGT Pyro infusés de noctâme selon l'ATQ {M#du voyageur}{F#de la voyageuse}"
+        },
+        {
+          "talent": "lockedPassive",
+          "text": "Chaque coup de l'attaque chargée inflige des DGT Pyro infusés de noctâme qui sont augmentés d'une valeur équivalant à 200 % de l'ATQ {M#du voyageur}{F#de la voyageuse}"
+        }
+      ],
+      "source": "data/lab-character-conditions.json · TravelerPyroF"
+    },
+    "TravelerPyroM": {
+      "name": "TravelerPyroM",
+      "profile": "atkDamage",
+      "priority": [
+        "critRate",
+        "critDmg",
+        "atkPct",
+        "er"
+      ],
+      "conditional": [
+        "em"
+      ],
+      "label": "Dégâts ATQ",
+      "reason": "Voyageur Pyro · profil du kit local. Ne pas utiliser les priorités d’un autre élément.",
+      "reviewed": true,
+      "evidence": [
+        {
+          "talent": "combat2",
+          "text": "Lorsqu'un personnage déployé en son sein inflige des DGT à un ennemi, le seuil brûlant déclenche une attaque coordonnée infligeant des DGT Pyro infusés de noctâme selon l'ATQ {M#du voyageur}{F#de la voyageuse}"
+        },
+        {
+          "talent": "lockedPassive",
+          "text": "Chaque coup de l'attaque chargée inflige des DGT Pyro infusés de noctâme qui sont augmentés d'une valeur équivalant à 200 % de l'ATQ {M#du voyageur}{F#de la voyageuse}"
+        }
+      ],
+      "source": "data/lab-character-conditions.json · TravelerPyroM"
+    },
+    "10000137": {
+      "name": "Valeriy",
+      "profile": "atkBuff",
+      "priority": [
+        "atkPct",
+        "er"
+      ],
+      "conditional": [
+        "critRate"
+      ],
+      "label": "Soutien ATQ totale",
+      "reason": "D’après le kit local : bouclier ou bonus de soutien fondé sur l’ATQ totale.",
+      "reviewed": true,
+      "evidence": [
+        {
+          "talent": "combat2",
+          "text": "L'absorption de DGT du bouclier super-chargé est basée sur l'ATQ de Valeriy et ce dernier absorbe les DGT Électro 250 % plus efficacement"
+        },
+        {
+          "talent": "passive2",
+          "text": "Si Valeriy est en radiance « Astroconduction » : chaque pt d'élan d'impact consommé augmente le bonus de DGT de l'ordre d'assaut d'une valeur équivalant à 0,9 % de l'ATQ de Valeriy"
+        },
+        {
+          "talent": "passive2",
+          "text": "Si Valeriy n'est pas en radiance « Astroconduction » : chaque pt d'élan d'impact consommé augmente le bonus de DGT de l'ordre d'assaut d'une valeur équivalant à 0,3 % de l'ATQ de Valeriy"
+        },
+        {
+          "talent": "c2",
+          "text": "De plus, lorsque Valeriy est à la limite d'élan d'impact tout en étant protégé par un bouclier super-chargé, déclencher un effet accordant de l'élan d'impact augmente à la place l'absorption de DGT du bouclier super-chargé : chaque point d'élan d'impact en trop augmente l'absorption de DGT d'une valeur équivalant à 8 % de l'ATQ de Valeriy, un maximum de 20 pts d'élan d'impact en trop pouvant être converti de cette manière"
+        }
+      ],
+      "source": "data/lab-character-conditions.json · Valeriy"
+    },
+    "10000111": {
+      "name": "Varesa",
+      "profile": "atkDamage",
+      "priority": [
+        "critRate",
+        "critDmg",
+        "atkPct",
+        "er"
+      ],
+      "conditional": [
+        "em"
+      ],
+      "label": "Dégâts ATQ",
+      "reason": "La maîtrise dépend de la réaction ; la recharge dépend de la rotation.",
+      "reviewed": true,
+      "evidence": [
+        {
+          "talent": "passive1",
+          "text": "Pendant cet effet, l'impact des attaques plongeantes de Varesa inflige des DGT supplémentaires d'une valeur équivalant à 50 % de son ATQ, ou à 180 % de son ATQ pendant sa passion ardente"
+        },
+        {
+          "talent": "c1",
+          "text": "Pendant la durée de l'effet Effondrement d'arc-en-ciel, l'impact des attaques plongeantes de Varesa inflige des DGT supplémentaires d'une valeur équivalant à 180 % de son ATQ que sa passion ardente soit activée ou non, l'aptitude d'élévation « Le triple saut en tag team ! » devant être déjà débloquée"
+        },
+        {
+          "talent": "c4",
+          "text": "Si Varesa ne bénéficie ni d'une passion ardente ni d'une transmission extrême : elle obtient l'effet Affinage diligent pendant 15 s, ce qui augmente les DGT infligés par l'impact de ses attaques plongeantes d'une valeur équivalant à 500 % de son ATQ, les DGT pouvant être augmentés d'un maximum de 20 000 pts de cette manière"
+        }
+      ],
+      "source": "data/lab-character-conditions.json · Varesa"
+    },
+    "10000128": {
+      "name": "Varka",
+      "profile": "atkDamage",
+      "priority": [
+        "critRate",
+        "critDmg",
+        "atkPct",
+        "er"
+      ],
+      "conditional": [
+        "em"
+      ],
+      "label": "Dégâts ATQ",
+      "reason": "La maîtrise dépend de la réaction ; la recharge dépend de la rotation.",
+      "reviewed": true,
+      "evidence": [
+        {
+          "talent": "passive1",
+          "text": "Lorsque l'équipe contient un personnage Pyro, Hydro, Électro ou Cryo, chaque tranche de 1 000 pts d'ATQ de Varka lui accorde un bonus de DGT Anémo et de l'élément correspondant, selon ce même ordre de priorité, de 10 % (un seul des éléments mentionnés précédemment peut bénéficier d'un bonus de DGT de cette manière), un bonus maximum de 25 % pouvant être obtenu de cette manière"
+        },
+        {
+          "talent": "c2",
+          "text": "En utilisant la compétence élémentaire spéciale Ascension des quatre vents et en effectuant l'attaque chargée spéciale Dévoreur azur, Varka déclenche une attaque supplémentaire infligeant des DGT Anémo de zone d'une valeur équivalant à 800 % de son ATQ"
+        }
+      ],
+      "source": "data/lab-character-conditions.json · Varka"
+    },
+    "10000022": {
+      "name": "Venti",
+      "profile": "atkDamage",
+      "priority": [
+        "critRate",
+        "critDmg",
+        "atkPct",
+        "er"
+      ],
+      "conditional": [
+        "em"
+      ],
+      "label": "Dégâts ATQ",
+      "reason": "La maîtrise dépend de la réaction ; la recharge dépend de la rotation.",
+      "reviewed": true,
+      "evidence": [],
+      "source": "data/lab-character-conditions.json · Venti"
+    },
+    "10000143": {
+      "name": "Vesna",
+      "profile": "atkReaction",
+      "priority": [
+        "atkPct",
+        "critRate",
+        "critDmg",
+        "em"
+      ],
+      "conditional": [
+        "er"
+      ],
+      "label": "Sélénocution",
+      "reason": "D’après le kit local : réaction astrale ou sélène fondée sur l’ATQ ; maîtrise et CRIT selon le rôle.",
+      "reviewed": true,
+      "evidence": [
+        {
+          "talent": "passive3",
+          "text": "Lorsqu'un personnage de l'équipe déclenche une réaction de Dispersion Cryo, elle est convertie en réaction d'Astrodispersion, dont les DGT de base augmentent selon l'ATQ de Vesna : chaque tranche de 100 pts d'ATQ augmente les DGT de base de réaction d'Astrodispersion de 0,7 %, les DGT pouvant être augmentés d'un maximum de 14 % de cette manière"
+        },
+        {
+          "talent": "c6",
+          "text": "Pendant 5 s après avoir utilisé Épée du vent à la limite max, Vesna peut utiliser une attaque normale ou une compétence élémentaire avec un appui simple pour déclencher une épée du vent « Transposition », une technique secrète des vila qui permet d'infliger des DGT Anémo d'une valeur équivalant à 150 % de l'ATQ de Vesna et d'invoquer des lames éthérées infligeant des DGT Anémo supplémentaires d'une valeur équivalant à 200 % de l'ATQ de Vesna"
+        }
+      ],
+      "source": "data/lab-character-conditions.json · Vesna"
+    },
+    "10000140": {
+      "name": "Vodyanitsa",
+      "profile": "hpSupport",
+      "priority": [
+        "hpPct",
+        "er"
+      ],
+      "conditional": [
+        "critRate",
+        "em"
+      ],
+      "label": "Soutien PV",
+      "reason": "D’après le kit local : soin et bonus fondés sur les PV max.",
+      "reviewed": true,
+      "evidence": [
+        {
+          "talent": "combat2",
+          "text": "De plus, pendant la durée du chant d'antan, la RÉS à l'interruption de vos personnages déployés augmente et ils récupèrent périodiquement des PV selon les PV max de Vodyanitsa"
+        },
+        {
+          "talent": "c1",
+          "text": "Chaque fois que Vodyanitsa déclenche l'effet de soin d'un chant d'antan, l'ATQ de tous les personnages de l'équipe à proximité augmente d'une valeur équivalant à 0,8 % de ses PV max pendant 5 s"
+        }
+      ],
+      "source": "data/lab-character-conditions.json · Vodyanitsa"
+    },
+    "10000075": {
+      "name": "Nomade",
+      "profile": "atkDamage",
+      "priority": [
+        "critRate",
+        "critDmg",
+        "atkPct",
+        "er"
+      ],
+      "conditional": [
+        "em"
+      ],
+      "label": "Dégâts ATQ",
+      "reason": "La maîtrise dépend de la réaction ; la recharge dépend de la rotation.",
+      "reviewed": true,
+      "evidence": [
+        {
+          "talent": "passive2",
+          "text": "Lorsque le Nomade touche un ennemi avec Kuugo : Fushoudan ou Kuugo : Toufukai pendant l'état Bienfait venteux, il a 16 % de chances d'obtenir l'effet Descente : la prochaine fois qu'il accélère dans les airs pendant cet état Bienfait venteux, l'effet est annulé, l'accélération ne consomme aucun point de Kuugoryoku et il tire 4 flèches de vent qui infligent chacune des DGT Anémo d'une valeur équivalant à 35 % de son ATQ"
+        },
+        {
+          "talent": "c1",
+          "text": "De plus, les flèches de vent tirées par l'aptitude d'élévation « Rafales de rêverie » infligent des DGT supplémentaires équivalant à 25 % de l'ATQ"
+        }
+      ],
+      "source": "data/lab-character-conditions.json · Wanderer"
+    },
+    "10000086": {
+      "name": "Wriothesley",
+      "profile": "atkDamage",
+      "priority": [
+        "critRate",
+        "critDmg",
+        "atkPct",
+        "er"
+      ],
+      "conditional": [
+        "em"
+      ],
+      "label": "Dégâts ATQ",
+      "reason": "La maîtrise dépend de la réaction ; la recharge dépend de la rotation.",
+      "reviewed": true,
+      "evidence": [
+        {
+          "talent": "passive1",
+          "text": "Lorsque les PV de Wriothesley sont inférieurs à 60 %, il obtient une réprimande miséricordieuse qui convertit la prochaine attaque chargée de son attaque normale « Poing vigoureux du givre » en poing bondissant de réprimande : ne consomme pas d'endurance, augmente les DGT infligés de 50 %, et restaure les PV de Wriothesley d'une valeur équivalant à 30 % de ses PV max en touchant"
+        },
+        {
+          "talent": "c4",
+          "text": "Les PV que le poing bondissant de réprimande restaure à Wriothesley augmentent à une valeur équivalant à 50 % de ses PV max"
+        },
+        {
+          "talent": "lockedPassive",
+          "text": "Lorsque les PV de Wriothesley sont inférieurs à 60 %, il obtient une réprimande miséricordieuse « Dévoilement » qui convertit l'attaque chargée de son attaque normale « Poing vigoureux du givre » en poing bondissant de lustre : ne consomme pas d'endurance, et restaure les PV de Wriothesley d'une valeur équivalant à 30 % de ses PV max en touchant, les PV pouvant être restaurés une fois toutes les 2 s de cette manière"
+        }
+      ],
+      "source": "data/lab-character-conditions.json · Wriothesley"
+    },
+    "10000023": {
+      "name": "Xiangling",
+      "profile": "atkDamage",
+      "priority": [
+        "critRate",
+        "critDmg",
+        "atkPct",
+        "er"
+      ],
+      "conditional": [
+        "em"
+      ],
+      "label": "Dégâts ATQ",
+      "reason": "La maîtrise dépend de la réaction ; la recharge dépend de la rotation.",
+      "reviewed": true,
+      "evidence": [
+        {
+          "talent": "c2",
+          "text": "Au bout de ce délai, ils explosent, infligeant des DGT Pyro de zone équivalant à 75 % de l'ATQ"
+        }
+      ],
+      "source": "data/lab-character-conditions.json · Xiangling"
+    },
+    "10000093": {
+      "name": "Xianyun",
+      "profile": "atkHeal",
+      "priority": [
+        "atkPct",
+        "er"
+      ],
+      "conditional": [
+        "critRate"
+      ],
+      "label": "Soin ATQ",
+      "reason": "Taux CRIT utile à Favonius.",
+      "reviewed": true,
+      "evidence": [
+        {
+          "talent": "combat3",
+          "text": "Déclenche une brise sacrée qui inflige des DGT Anémo de zone, restaure les PV de tous les personnages de l'équipe à proximité selon l'ATQ de Xianyun et invoque le mécanisme « Étoileur d'osier »"
+        },
+        {
+          "talent": "combat3",
+          "text": "Suit de façon continue le personnage déployé et restaure de façon intermittente les PV de tous les personnages de l'équipe à proximité selon l'ATQ de Xianyun"
+        },
+        {
+          "talent": "passive2",
+          "text": "Lorsque l'étoileur d'osier créé par Étoiles réunies au crépuscule possède de l'aide adeptale, les DGT des attaques plongeantes (lorsqu'elles touchent le sol) des personnages déployés à proximité augmentent d'une valeur équivalant à 200 % de l'ATQ de Xianyun"
+        },
+        {
+          "talent": "c2",
+          "text": "De plus, l'effet de l'aptitude d'élévation « Adepte dans sa demeure » est amélioré : lorsque l'étoileur d'osier créé par Étoiles réunies au crépuscule possède de l'aide adeptale, les DGT des attaques plongeantes (lorsqu'elles touchent le sol) des personnages déployés à proximité augmentent d'une valeur équivalant à 400 % de l'ATQ de Xianyun, ces DGT pouvant être augmentés d'un maximum de 18 000 de cette manière"
+        }
+      ],
+      "source": "data/lab-character-conditions.json · Xianyun"
+    },
+    "10000026": {
+      "name": "Xiao",
+      "profile": "atkDamage",
+      "priority": [
+        "critRate",
+        "critDmg",
+        "atkPct",
+        "er"
+      ],
+      "conditional": [
+        "em"
+      ],
+      "label": "Dégâts ATQ",
+      "reason": "La maîtrise dépend de la réaction ; la recharge dépend de la rotation.",
+      "reviewed": true,
+      "evidence": [],
+      "source": "data/lab-character-conditions.json · Xiao"
+    },
+    "10000103": {
+      "name": "Xilonen",
+      "profile": "defSupport",
+      "priority": [
+        "defPct",
+        "er"
+      ],
+      "conditional": [
+        "critRate"
+      ],
+      "label": "Soutien DÉF",
+      "reason": "CRIT pour Favonius. La baisse de RÉS de Xilonen dépend du niveau du talent.",
+      "reviewed": true,
+      "evidence": [
+        {
+          "talent": "combat1",
+          "text": "Plonge depuis les airs pour frapper le sol, infligeant des DGT aux ennemis en chemin et des DGT de zone à l'impact, le tout selon la DÉF de Xilonen"
+        },
+        {
+          "talent": "combat2",
+          "text": "Que les rythmes de la passion résonnent à travers la nation ! Xilonen enfile ses patins de combat rapide et se rue en avant sur une certaine distance pour infliger des DGT Géo infusés de noctâme selon sa DÉF"
+        },
+        {
+          "talent": "combat3",
+          "text": "Active la platine de mixage au phlogistique (version portable) à pleine puissance pour infliger des DGT Géo de zone infusés de noctâme selon la DÉF de Xilonen"
+        },
+        {
+          "talent": "combat3",
+          "text": "Si un minimum de 2 échantillons sources ont changé de type élémentaire : Xilonen joue un rythme exubérant qui soigne les personnages déployés à proximité à intervalles réguliers selon sa DÉF"
+        }
+      ],
+      "source": "data/lab-character-conditions.json · Xilonen"
+    },
+    "10000025": {
+      "name": "Xingqiu",
+      "profile": "atkDamage",
+      "priority": [
+        "critRate",
+        "critDmg",
+        "atkPct",
+        "er"
+      ],
+      "conditional": [
+        "em"
+      ],
+      "label": "Dégâts ATQ",
+      "reason": "La maîtrise dépend de la réaction ; la recharge dépend de la rotation.",
+      "reviewed": true,
+      "evidence": [
+        {
+          "talent": "passive1",
+          "text": "Lorsqu'une épée de pluie est brisée par des attaques ou se termine, elle restaure les PV du personnage déployé d'une quantité de PV équivalant à 6 % des PV max de Xingqiu"
+        }
+      ],
+      "source": "data/lab-character-conditions.json · Xingqiu"
+    },
+    "10000044": {
+      "name": "Xinyan",
+      "profile": "atkDamage",
+      "priority": [
+        "critRate",
+        "critDmg",
+        "atkPct",
+        "er"
+      ],
+      "conditional": [
+        "em"
+      ],
+      "label": "Dégâts ATQ",
+      "reason": "La maîtrise dépend de la réaction ; la recharge dépend de la rotation.",
+      "reviewed": true,
+      "evidence": [
+        {
+          "talent": "c6",
+          "text": "Xinyan obtient de plus un bonus d'ATQ équivalant à 50 % de sa DÉF lorsqu'elle exécute une attaque chargée"
+        }
+      ],
+      "source": "data/lab-character-conditions.json · Xinyan"
+    },
+    "10000058": {
+      "name": "Yae Miko",
+      "profile": "atkDamage",
+      "priority": [
+        "critRate",
+        "critDmg",
+        "atkPct",
+        "er"
+      ],
+      "conditional": [
+        "em"
+      ],
+      "label": "Dégâts ATQ",
+      "reason": "La maîtrise dépend de la réaction ; la recharge dépend de la rotation.",
+      "reviewed": true,
+      "evidence": [
+        {
+          "talent": "passive1",
+          "text": "Utiliser Évocation des yakan : Sakura dévastateur lorsqu'au moins 3 sakura dévastateurs sont à proximité permet également à Yae Miko de déclencher un éclair qui inflige des DGT Électro d'une valeur équivalant à 40 % de son ATQ"
+        },
+        {
+          "talent": "passive1",
+          "text": "Radiance « Astroconduction » : L'éclair supplémentaire mentionné précédemment est converti pour infliger une instance de DGT Électro considérés comme des DGT de réaction d'Astroconduction d'une valeur équivalant à 50 % de l'ATQ de Yae Miko"
+        },
+        {
+          "talent": "c2",
+          "text": "De plus, la maîtrise élémentaire de Yae Miko et celle de votre personnage déployé augmentent de 60, 90, 120, 200 pts si un sakura dévastateur est sur le terrain, selon le niveau de ce dernier"
+        },
+        {
+          "talent": "lockedPassive",
+          "text": "Lorsqu'un personnage de l'équipe à proximité a déclenché une réaction de Supraconduction ou d'Astroconduction, le prochain éclair de sakura dévastateur est renforcé : les DGT infligés augmentent d'une valeur équivalant à 80 % de l'ATQ de Yae Miko, cet effet pouvant être déclenché une fois toutes les 2,5 s"
+        }
+      ],
+      "source": "data/lab-character-conditions.json · YaeMiko"
+    },
+    "10000048": {
+      "name": "Yanfei",
+      "profile": "atkDamage",
+      "priority": [
+        "critRate",
+        "critDmg",
+        "atkPct",
+        "er"
+      ],
+      "conditional": [
+        "em"
+      ],
+      "label": "Dégâts ATQ",
+      "reason": "La maîtrise dépend de la réaction ; la recharge dépend de la rotation.",
+      "reviewed": true,
+      "evidence": [
+        {
+          "talent": "passive2",
+          "text": "Quand les attaques chargées de Yanfei infligent des coups CRIT aux ennemis, elle inflige des DGT Pyro de zone supplémentaires équivalant à 80 % de son ATQ"
+        },
+        {
+          "talent": "c4",
+          "text": "Génère un bouclier qui absorbe une quantité de DGT équivalant à 45 % des PV max et dure 15 s"
+        }
+      ],
+      "source": "data/lab-character-conditions.json · Yanfei"
+    },
+    "10000077": {
+      "name": "Yaoyao",
+      "profile": "hpSupport",
+      "priority": [
+        "hpPct",
+        "er"
+      ],
+      "conditional": [
+        "critRate",
+        "em"
+      ],
+      "label": "Soutien PV",
+      "reason": "CRIT conditionnel à Favonius ; maîtrise selon le rôle de réaction.",
+      "reviewed": true,
+      "evidence": [
+        {
+          "talent": "combat2",
+          "text": "Lance des radis de jade blanc qui explosent en touchant des personnages ou des ennemis, infligeant des DGT Dendro aux ennemis sur une certaine zone et soignant les personnages s'y trouvant selon les PV max de Yaoyao"
+        },
+        {
+          "talent": "passive2",
+          "text": "Lorsqu'un radis de jade blanc explose, les personnages déployés dans la zone d'effet récupèrent des PV d'une valeur équivalant à 0,8 % des PV max de Yaoyao toutes les secondes pendant 5 s"
+        },
+        {
+          "talent": "c4",
+          "text": "Après avoir utilisé Amas céleste de raphanus ou Coucher de lune de jade, la maîtrise élémentaire de Yaoyao augmente d'une valeur équivalant à 0,3 % de ses PV max pendant 8 s"
+        },
+        {
+          "talent": "c6",
+          "text": "Inflige des DGT Dendro de zone d'une valeur équivalant à 75 % de l'ATQ de Yaoyao"
+        }
+      ],
+      "source": "data/lab-character-conditions.json · Yaoyao"
+    },
+    "10000060": {
+      "name": "Yelan",
+      "profile": "hpDamage",
+      "priority": [
+        "critRate",
+        "critDmg",
+        "hpPct",
+        "er"
+      ],
+      "conditional": [
+        "em",
+        "atkPct"
+      ],
+      "label": "Dégâts PV",
+      "reason": "ATQ utile à Hu Tao ; maîtrise conditionnelle aux réactions.",
+      "reviewed": true,
+      "evidence": [
+        {
+          "talent": "combat1",
+          "text": "Si l'équipe est hors combat pendant 5 s, Yelan entre dans l'état Percée permettant de diminuer le temps de charge de son prochain tir visé de 80 %, et une fois le tir complètement chargé, elle peut tirer une flèche perçante qui inflige des DGT Hydro de zone selon ses PV max"
+        },
+        {
+          "talent": "combat2",
+          "text": "À la fin du déplacement, la ligne vitale explose, infligeant des DGT Hydro aux ennemis marqués selon les PV max de Yelan"
+        },
+        {
+          "talent": "combat3",
+          "text": "Suit le personnage et déclenche une attaque coordonnée dans les circonstances suivantes, infligeant des DGT Hydro selon les PV max de Yelan :"
+        },
+        {
+          "talent": "c2",
+          "text": "Lorsqu'un dé exquis déclenche une attaque coordonnée, une flèche d'eau supplémentaire est envoyée pour infliger des DGT Hydro équivalant à 14 % des PV max de Yelan"
+        }
+      ],
+      "source": "data/lab-character-conditions.json · Yelan"
+    },
+    "10000049": {
+      "name": "Yoimiya",
+      "profile": "atkDamage",
+      "priority": [
+        "critRate",
+        "critDmg",
+        "atkPct",
+        "er"
+      ],
+      "conditional": [
+        "em"
+      ],
+      "label": "Dégâts ATQ",
+      "reason": "La maîtrise dépend de la réaction ; la recharge dépend de la rotation.",
+      "reviewed": true,
+      "evidence": [],
+      "source": "data/lab-character-conditions.json · Yoimiya"
+    },
+    "10000109": {
+      "name": "Yumemizuki Mizuki",
+      "profile": "emReaction",
+      "priority": [
+        "em",
+        "er"
+      ],
+      "conditional": [
+        "hpPct",
+        "critRate"
+      ],
+      "label": "Réactions",
+      "reason": "Taux CRIT utile à Favonius, pas aux dégâts de dispersion ou d’Exubérance.",
+      "reviewed": true,
+      "evidence": [
+        {
+          "talent": "combat2",
+          "text": "Les DGT de réaction de Dispersion et les DGT de réaction d'Astrodispersion des personnages de l'équipe à proximité augmentent selon la maîtrise élémentaire de Yumemizuki Mizuki"
+        },
+        {
+          "talent": "combat3",
+          "text": "Le mini-Baku suit le personnage déployé et crée 1 snack de style yumemi à proximité à intervalles réguliers : lorsqu'un de vos personnages dans l'équipe ayant plus de 70 % de PV a collecté un tel snack, ce dernier explose et libère une onde munen qui inflige une fois des DGT Anémo de zone aux ennemis proches ; si le personnage qui collecte un snack a 70 % de PV ou moins, le snack le soigne selon la maîtrise élémentaire de Yumemizuki Mizuki, la quantité de soins augmentant de 100 % lorsque c'est Yumemizuki Mizuki qui collecte un snack et déclenche des soins ; si un snack n'est pas collecté pend"
+        },
+        {
+          "talent": "c1",
+          "text": "Lorsqu'un ennemi affecté par cet effet subit des DGT Anémo et déclenche une réaction de Dispersion ou d'Astrodispersion, l'effet est annulé pour augmenter les DGT de la réaction concernée d'une valeur équivalant à 1 100 % ou 550 % de la maîtrise élémentaire de Yumemizuki Mizuki, respectivement"
+        },
+        {
+          "talent": "c1",
+          "text": "Yumemizuki Mizuki effectue également une attaque supplémentaire sur le même ennemi qui inflige des DGT Anémo d'une valeur équivalant à 1 000 % de sa maîtrise élémentaire"
+        }
+      ],
+      "source": "data/lab-character-conditions.json · YumemizukiMizuki"
+    },
+    "10000064": {
+      "name": "Yun Jin",
+      "profile": "defSupport",
+      "priority": [
+        "defPct",
+        "er"
+      ],
+      "conditional": [
+        "critRate"
+      ],
+      "label": "Soutien DÉF",
+      "reason": "CRIT pour Favonius. La baisse de RÉS de Xilonen dépend du niveau du talent.",
+      "reviewed": true,
+      "evidence": [
+        {
+          "talent": "combat2",
+          "text": "L'absorption de DGT du bouclier est fonction des PV max de Yun Jin, et il est efficace à 150 % contre les DGT élémentaires et physiques"
+        },
+        {
+          "talent": "combat3",
+          "text": "Lorsque le personnage inflige des DGT d'attaque normale à un ennemi, les DGT infligés augmentent en fonction de la DÉF actuelle de Yun Jin"
+        },
+        {
+          "talent": "passive2",
+          "text": "Lorsque l'équipe comprend des personnages de 1/2/3/4 types élémentaires, le bonus de DGT d'attaque normale accordé par une formation de bannière de nuagerie augmente davantage d'une valeur équivalant à 2,5 %/5 %/7,5 %/11,5 % de la DÉF de Yun Jin"
+        }
+      ],
+      "source": "data/lab-character-conditions.json · YunJin"
+    },
+    "10000030": {
+      "name": "Zhongli",
+      "profile": "hpSupport",
+      "priority": [
+        "hpPct",
+        "er"
+      ],
+      "conditional": [
+        "critRate",
+        "em"
+      ],
+      "label": "Soutien PV",
+      "reason": "CRIT conditionnel à Favonius ; maîtrise selon le rôle de réaction.",
+      "reviewed": true,
+      "evidence": [
+        {
+          "talent": "passive2",
+          "text": "Augmente les DGT infligés par les attaques de Zhongli citées ci-dessous en fonction de ses PV max :"
+        }
+      ],
+      "source": "data/lab-character-conditions.json · Zhongli"
+    },
+    "10000126": {
+      "name": "Zibai",
+      "profile": "defDamage",
+      "priority": [
+        "critRate",
+        "critDmg",
+        "defPct",
+        "er"
+      ],
+      "conditional": [],
+      "label": "Dégâts DÉF",
+      "reason": "La recharge dépend de la rotation.",
+      "reviewed": true,
+      "evidence": [
+        {
+          "talent": "passive1",
+          "text": "En utilisant sa compétence élémentaire Ciel et terre manifestés ou si un personnage de l'équipe à proximité déclenche son harmonie de voile lunaire, Zibai obtient l'effet Descente sélénique pendant 4 s : augmente les DGT infligés par le 2e coup de ses foulées de destrier spirituel d'une valeur équivalant à 60 % de sa DÉF"
+        },
+        {
+          "talent": "passive3",
+          "text": "Lorsqu'un personnage de l'équipe déclenche une réaction de Cristallisation Hydro, elle est convertie en réaction de Sélénocristallisation, dont les DGT de base augmentent selon la DÉF de Zibai : chaque tranche de 100 pts de DÉF augmente les DGT de base de 0,7 %, les DGT pouvant être augmentés d'un maximum de 14 % de cette manière"
+        },
+        {
+          "talent": "c2",
+          "text": "Signelune « Lueur ascendante » : l'effet de l'aptitude d'élévation « L'Adepte de la lune arrive » est renforcé : les DGT infligés par le 2e coup de ses foulées de destrier spirituel augmentent davantage d'une valeur équivalant à 550 % de la DÉF de Zibai, l'aptitude d'élévation « L'Adepte de la lune arrive » devant déjà être débloquée"
+        }
+      ],
+      "source": "data/lab-character-conditions.json · Zibai"
+    },
+    "10000147": {
+      "name": "Danica",
+      "profile": "atkBuff",
+      "priority": [
+        "atkPct",
+        "er"
+      ],
+      "conditional": [
+        "critRate"
+      ],
+      "label": "Soutien ATQ totale",
+      "reason": "D’après le kit local : bouclier ou bonus de soutien fondé sur l’ATQ totale.",
+      "reviewed": true,
+      "evidence": [
+        {
+          "talent": "passive3",
+          "text": "Lorsqu'un personnage de l'équipe déclenche une réaction de Supraconduction, elle est convertie en réaction d'Astroconduction, dont les DGT de base augmentent selon l'ATQ de Danica : chaque tranche de 100 pts d'ATQ augmente les DGT de base de réaction d'Astroconduction de 0,7 %, les DGT pouvant être augmentés d'un maximum de 14 % de cette manière"
+        },
+        {
+          "talent": "c2",
+          "text": "Lorsqu'un personnage avec cet effet inflige des DGT de réaction d'Astroconduction, il consomme 1 cumul de trinquerie pour augmenter les DGT infligés d'une valeur équivalant à 100 % de l'ATQ de Danica"
+        },
+        {
+          "talent": "c2",
+          "text": "De plus, lorsque Danica inflige des DGT de réaction d'Astroconduction alors qu'elle est en forme de domestique « Nettoyeuse », elle consomme tous ses cumuls de trinquerie pour augmenter les DGT infligés d'une valeur équivalant à 150 % de son ATQ"
+        }
+      ],
+      "source": "data/lab-character-conditions.json · Danica"
+    },
+    "10000149": {
+      "name": "Anastasya",
+      "profile": "atkBuff",
+      "priority": [
+        "atkPct",
+        "er"
+      ],
+      "conditional": [
+        "critRate"
+      ],
+      "label": "Soutien ATQ totale",
+      "reason": "D’après le kit local : bouclier ou bonus de soutien fondé sur l’ATQ totale.",
+      "reviewed": true,
+      "evidence": [
+        {
+          "talent": "passive3",
+          "text": "Lorsqu'un personnage de l'équipe déclenche une réaction de Supraconduction ou de Dispersion Cryo, elle est convertie en réaction d'Astroconduction ou d'Astrodispersion, dont les DGT de base augmentent selon l'ATQ d'Anastasya : chaque tranche de 100 pts d'ATQ augmente les DGT de base de ces réactions de 0,7 %, les DGT pouvant être augmentés d'un maximum de 14 % de cette manière"
+        }
+      ],
+      "source": "data/lab-character-conditions.json · Anastasya"
+    },
+    "10000005": {
+      "name": "Voyageur",
+      "profile": "traveler",
+      "priority": [
+        "atkPct",
+        "critRate",
+        "critDmg",
+        "er"
+      ],
+      "conditional": [
+        "em"
+      ],
+      "reviewed": true,
+      "label": "Voyageur · adapter à l’élément",
+      "reason": "Choisis le rôle de la fiche ; Anémo valorise la maîtrise, Électro la recharge, Hydro combine PV et ATQ.",
+      "source": "Profils élémentaires du kit local"
+    },
+    "10000007": {
+      "name": "Voyageur",
+      "profile": "traveler",
+      "priority": [
+        "atkPct",
+        "critRate",
+        "critDmg",
+        "er"
+      ],
+      "conditional": [
+        "em"
+      ],
+      "reviewed": true,
+      "label": "Voyageur · adapter à l’élément",
+      "reason": "Choisis le rôle de la fiche ; Anémo valorise la maîtrise, Électro la recharge, Hydro combine PV et ATQ.",
+      "source": "Profils élémentaires du kit local"
+    },
+    "10000117": {
+      "name": "Manekin",
+      "profile": "customAvatar",
+      "priority": [],
+      "conditional": [
+        "atkPct",
+        "hpPct",
+        "defPct",
+        "em",
+        "er",
+        "critRate",
+        "critDmg"
+      ],
+      "reviewed": false,
+      "label": "Avatar personnalisable · choisir le rôle",
+      "reason": "Le catalogue ne fournit pas de kit de combat confirmé pour cet avatar. Choisis un rôle dans l’aperçu pour mettre ses lignes en valeur.",
+      "source": "public/card-catalog.json"
+    },
+    "10000118": {
+      "name": "Manekina",
+      "profile": "customAvatar",
+      "priority": [],
+      "conditional": [
+        "atkPct",
+        "hpPct",
+        "defPct",
+        "em",
+        "er",
+        "critRate",
+        "critDmg"
+      ],
+      "reviewed": false,
+      "label": "Avatar personnalisable · choisir le rôle",
+      "reason": "Le catalogue ne fournit pas de kit de combat confirmé pour cet avatar. Choisis un rôle dans l’aperçu pour mettre ses lignes en valeur.",
+      "source": "public/card-catalog.json"
+    }
+  }
+}

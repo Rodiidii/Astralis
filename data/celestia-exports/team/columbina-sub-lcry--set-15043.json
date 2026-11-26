@@ -1,7 +1,7 @@
 {
   "name": "Off-field Lunar-Crystallize",
   "description": "Celestia",
-  "lastEdit": 1794350938153,
+  "lastEdit": 1795282436710,
   "conditional": {
     "resonance": {},
     "reaction": {}
@@ -51,7 +51,7 @@
               ],
               "hitMode": "avgHit",
               "bonusStats": {
-                "eleMas": 200,
+                "eleMas": 137.6,
                 "all_dmg_": 15
               },
               "description": ""
@@ -64,7 +64,7 @@
               ],
               "hitMode": "avgHit",
               "bonusStats": {
-                "eleMas": 200,
+                "eleMas": 137.6,
                 "all_dmg_": 15
               },
               "description": ""
@@ -77,7 +77,7 @@
               ],
               "hitMode": "avgHit",
               "bonusStats": {
-                "eleMas": 200,
+                "eleMas": 137.6,
                 "all_dmg_": 15
               },
               "description": ""
@@ -90,29 +90,29 @@
               ],
               "hitMode": "avgHit",
               "bonusStats": {
-                "eleMas": 200,
+                "eleMas": 137.6,
                 "lunarcrystallize_baseDmg_": 28,
                 "geo_enemyRes_": -50,
                 "critRate_": 10,
                 "critDMG_": 30,
-                "lunarcrystallize_dmg_": 80
+                "lunarcrystallize_dmg_": 74.8
               },
               "description": ""
             },
             {
-              "weight": 10.3186,
+              "weight": 10.251,
               "path": [
                 "reaction",
                 "lunarcrystallize"
               ],
               "hitMode": "avgHit",
               "bonusStats": {
-                "eleMas": 200,
+                "eleMas": 137.6,
                 "lunarcrystallize_baseDmg_": 28,
                 "geo_enemyRes_": -50,
                 "critRate_": 10,
                 "critDMG_": 30,
-                "lunarcrystallize_dmg_": 80
+                "lunarcrystallize_dmg_": 74.8
               },
               "description": ""
             }
@@ -181,14 +181,14 @@
               "type": "max",
               "rarity": 5,
               "stats": {
-                "hp_": 19.82,
                 "def": 39.35,
                 "def_": 12.39,
                 "enerRech_": 33.03,
                 "critRate_": 19.83,
                 "critDMG_": 79.26,
                 "hp": 507.88,
-                "eleMas": 39.63,
+                "hp_": 15.16,
+                "eleMas": 60.61,
                 "atk": 33.07,
                 "atk_": 9.91
               }

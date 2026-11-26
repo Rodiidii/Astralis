@@ -44,3 +44,8 @@ test('les sprites nommés et les paramètres déjà exprimés en pourcentage son
   const html = renderGameText('<sprite name=ElementPyro> {param1:F1P}', { parameters: { param1: ['12.5%'] } });
   assert.equal(html, '<span class="game-sprite" role="img" aria-label="ElementPyro">✦</span> 12,5%');
 });
+test('les descriptions déjà balisées affichent leur texte sans conserver les attributs actifs',()=>{
+ const html=renderGameText('<p><span style="color:#ab12cd" onclick="alert(1)"><strong>Bonus</strong></span></p>');
+ assert.equal(html,'<br><span style="color:#ab12cd"><b>Bonus</b></span><br>');
+ assert.doesNotMatch(html,/onclick|&lt;p|&lt;span/);
+});

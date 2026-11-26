@@ -1,0 +1,297 @@
+/* Practical combat controls. Preserve the illustrated stages, simplify editing. */
+#app .combat-visual .teams-switcher .teams-switch-list{display:grid!important;grid-auto-flow:column;grid-auto-columns:minmax(250px,310px);grid-template-columns:none!important;gap:12px!important;overflow-x:auto!important;scroll-snap-type:x proximity;padding:3px 0 14px!important;scrollbar-width:thin;align-items:stretch}
+#app .combat-visual .teams-switch-card{position:relative;isolation:isolate;display:flex!important;flex-direction:column;align-items:start!important;justify-content:space-between;gap:14px!important;min-height:162px!important;padding:20px!important;border:1px solid var(--cv-line)!important;border-radius:16px!important;overflow:hidden;scroll-snap-align:start;background:var(--surface)!important;transition:transform .2s,border-color .2s}
+#app .combat-visual .teams-switch-card:hover{transform:translateY(-2px)}
+#app .combat-visual .teams-switch-card.is-active{border-color:var(--cs-accent)!important;box-shadow:inset 0 -3px var(--cs-accent)!important}
+#app .combat-visual .teams-switch-scene{position:absolute;z-index:-1;inset:0;opacity:.36;pointer-events:none;mask-image:linear-gradient(90deg,transparent,#000 65%)}
+#app .combat-visual .teams-switch-scene img{width:100%;height:100%;object-fit:cover;object-position:65% 38%}
+#app .combat-visual .teams-switch-portraits{display:flex!important;gap:7px!important;align-items:center}
+#app .combat-visual .teams-switch-portraits img,#app .combat-visual .teams-switch-portraits i{position:static!important;width:38px!important;height:38px!important;margin:0!important;object-fit:cover;border-radius:11px!important;border:1px solid #ffffff35!important;background:var(--surface-2)}
+#app .combat-visual .teams-switch-copy{display:grid;gap:7px;width:100%;padding-right:18px}
+#app .combat-visual .teams-switch-copy b{font-size:14px!important;white-space:normal;line-height:1.4}
+#app .combat-visual .teams-switch-copy small{font-size:9px!important;line-height:1.55;white-space:normal;color:var(--muted)}
+#app .combat-visual .teams-switch-status{position:absolute;right:13px;top:14px;font-size:9px!important;padding:4px 6px}
+#app .combat-visual .teams-switch-all{justify-content:center!important;background:linear-gradient(140deg,var(--cs-wash),transparent),var(--surface)!important}
+#app .combat-visual .teams-switch-all-mark{width:36px!important;height:36px!important;background:transparent!important}
+#app .combat-visual .team-stat-adjust{border-top:1px solid var(--cv-line);padding-top:11px}
+#app .combat-visual .team-stat-adjust>summary{font-size:10px;color:var(--cs-accent);cursor:pointer;line-height:1.5}
+#app .combat-visual .team-stat-adjust p{font-size:10px;color:var(--muted);line-height:1.6}
+#app .combat-visual .team-stat-adjust>div{display:grid;gap:9px}
+#app .combat-visual .team-stat-adjust label{display:grid;grid-template-columns:19px minmax(0,1fr) 75px;align-items:center;gap:5px;font-size:9px;color:var(--muted)}
+#app .combat-visual .team-stat-adjust label img{width:17px;height:17px;object-fit:contain}
+#app .combat-visual .team-stat-adjust input{width:100%;min-width:0;max-width:100%;padding:7px 5px!important;font-size:11px!important;height:32px!important;background:var(--cv-base);border:1px solid var(--cv-line);border-radius:7px}
+#app .combat-visual .team-stat-adjust footer{display:flex;flex-wrap:wrap;gap:6px;margin-top:12px}
+#app .combat-visual .team-stat-adjust footer button{padding:7px!important;font-size:9px!important}
+#app .combat-visual .lab-visible-loadout{margin:18px 0;min-width:0}
+#app .combat-visual .lab-visible-loadout .lab-loadout-strip{display:grid!important;grid-template-columns:1.7fr repeat(5,minmax(0,1fr));gap:8px;padding:0;background:transparent;border:0}
+#app .combat-visual .lab-visible-loadout .lab-gear-piece{min-width:0;min-height:115px;height:auto;padding:12px 8px;border:1px solid var(--cv-line);border-radius:12px;background:var(--surface)}
+#app .combat-visual .lab-visible-loadout .lab-gear-art{width:48px;height:48px;object-fit:contain}
+#app .combat-visual .lab-visible-loadout strong{font-size:10px;line-height:1.4;white-space:normal}
+#app .combat-visual .lab-visible-loadout .lab-gear-weapon strong{font-size:11px;color:var(--ink)}
+#app .combat-visual .lab-build-drawer{margin-top:16px}
+.lc-import{padding:19px;border:1px solid var(--line,#ffffff20);border-radius:15px;background:var(--surface,#171b28);display:grid;gap:13px;margin-top:18px}
+.lc-import>header{display:flex;align-items:center;justify-content:space-between;gap:15px}
+.lc-import header small{font-size:9px;letter-spacing:.14em;color:var(--accent)}
+.lc-import h3{font-size:15px!important;margin:5px 0 0!important;line-height:1.4}
+.lc-import nav{display:flex;padding:4px;gap:4px;border:1px solid var(--line);border-radius:10px}
+.lc-import nav button{padding:8px 12px;border:0;border-radius:7px;background:transparent;color:var(--muted);font-size:11px}
+.lc-import nav button[aria-pressed=true]{background:var(--surface-2,#2a3040);color:var(--ink)}
+.lc-import>label{font-size:11px;color:var(--muted);display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+.lc-import>p{font-size:10px;color:var(--muted);margin:0;line-height:1.5}
+.lc-import>button{justify-self:start;padding:9px 13px;border:1px solid var(--line);border-radius:9px;background:var(--surface-2);color:var(--ink);font-size:11px}
+.lc-import [data-celestia-choices]>input{width:100%;padding:11px;border:1px solid var(--line);border-radius:9px;background:var(--surface-2);color:var(--ink);font-size:12px}
+.lc-import .celestia-export-list{max-height:210px;overflow:auto;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:7px;margin-top:11px}
+.lc-import .celestia-export-list h4{grid-column:1/-1;font-size:10px;color:var(--muted);margin:9px 0}
+.lc-import .celestia-export-list button{display:flex;align-items:center;justify-content:space-between;gap:10px;width:100%;padding:11px;border:1px solid var(--line);border-radius:9px;background:var(--surface-2);color:var(--ink);text-align:left;font-size:11px;line-height:1.5}
+.lc-import .lc-saved{font-size:11px;color:var(--muted)}
+.lc-import .lc-example{background:color-mix(in srgb,var(--accent) 10%,var(--surface))!important;color:var(--accent)!important;border-color:color-mix(in srgb,var(--accent) 30%,transparent)!important}
+.te-references{padding:18px;border:1px solid var(--line);border-radius:13px;background:var(--surface)}
+.te-references>summary{cursor:pointer;font-size:13px;font-weight:650}.te-references p{font-size:11px;line-height:1.65;color:var(--muted)}
+.te-references article{padding:15px 0;border-top:1px solid var(--line)}.te-references h3{font-size:13px;margin:5px 0}.te-references small{color:var(--muted);font-size:10px}
+.te-references table{width:100%;border-collapse:collapse;margin-top:12px;font-size:11px}.te-references th,.te-references td{padding:10px 6px;border-bottom:1px solid var(--line);text-align:right}.te-references th:first-child{text-align:left}.te-references a{font-size:11px;color:var(--accent)}
+@media(max-width:760px){#app .combat-visual .teams-switcher .teams-switch-list{grid-auto-columns:245px}#app .combat-visual .lab-visible-loadout .lab-loadout-strip{grid-template-columns:repeat(3,minmax(0,1fr))}.lc-import{padding:14px}.lc-import>header{align-items:start;flex-direction:column}.lc-import .celestia-export-list{grid-template-columns:1fr}.te-references{padding:12px}.te-references table{font-size:9px}.te-references td,.te-references th{padding:8px 3px}}
+/* A single illustrated card per member, with compact equipment below it. */
+#app .combat-visual .cp-lineup-slot{display:flex;flex-direction:column;min-width:0;background:var(--surface);border:0;overflow:hidden}
+#app .combat-visual .cr-lineup .cp-lineup-slot>.team-compact-member,#app .combat-visual .cr-lineup .cp-lineup-slot>.team-compact-empty{position:relative;isolation:isolate;display:block!important;flex:none;width:100%!important;min-width:0;min-height:310px!important;height:310px!important;padding:0!important;margin:0!important;overflow:hidden;border:0!important;border-radius:0!important;background:radial-gradient(ellipse at 50% 20%,color-mix(in srgb,var(--member-tint,var(--cs-accent)) 28%,transparent),transparent 80%),var(--surface-2)!important;text-align:left}
+#app .combat-visual .cp-lineup-slot>.team-compact-member:after{position:absolute;z-index:1;inset:35% 0 0;content:"";pointer-events:none;background:linear-gradient(180deg,transparent,#080d1750 45%,#080d17f5)}
+#app .combat-visual .cp-lineup-slot>.team-compact-member:hover .team-compact-avatar{transform:scale(1.06)}
+#app .combat-visual .cp-lineup-slot .unit-equipment{display:grid!important;grid-template-columns:1fr 1fr!important;gap:6px!important;min-height:0!important;padding:10px!important;margin:0!important;border:0!important;background:transparent!important}
+#app .combat-visual .cp-lineup-slot .equipment-tile{display:flex!important;align-items:center!important;gap:6px!important;position:relative!important;min-width:0!important;min-height:47px!important;height:47px!important;padding:7px!important;margin:0!important;border:1px solid var(--cv-line)!important;border-radius:9px!important;background:var(--cv-base)!important;overflow:hidden!important}
+#app .combat-visual .cp-lineup-slot .equipment-label{display:none!important}
+#app .combat-visual .cp-lineup-slot .equipment-tile .gear-art,#app .combat-visual .cp-lineup-slot .gear-placeholder{position:static!important;display:block!important;flex:0 0 30px!important;width:30px!important;height:30px!important;min-height:0!important;max-width:30px!important;padding:0!important;margin:0!important;object-fit:contain!important;filter:none!important;transform:none!important;background:none!important}
+#app .combat-visual .cp-lineup-slot .gear-placeholder svg{width:25px;height:25px}
+#app .combat-visual .cp-lineup-slot .equipment-name{position:static!important;display:-webkit-box!important;-webkit-line-clamp:2;-webkit-box-orient:vertical;clip:auto!important;clip-path:none!important;flex:1;min-width:0!important;width:auto!important;height:auto!important;margin:0!important;padding:0!important;overflow:hidden!important;white-space:normal!important;font-size:9px!important;line-height:1.35!important;color:var(--muted)!important}
+#app .combat-visual .cp-lineup-skills{margin:0 10px 10px;padding:0;border:0;background:transparent}
+#app .combat-visual .cp-lineup-skills>summary{padding:9px 2px;font-size:11px;color:var(--muted);cursor:pointer}
+#app .combat-visual .cp-lineup-skills .unit-skills{padding:7px 0!important;margin:0!important}
+#app .combat-visual .cp-lineup-skills .skill-heading{display:none}
+#app .combat-visual .cp-lineup-skills .skill-strip{display:flex;flex-wrap:wrap;gap:6px;padding:0!important}
+#app .combat-visual .cp-lineup-skills .skill-button{flex:0 0 40px!important;width:40px!important;min-width:0!important;height:57px!important;min-height:0!important;padding:5px!important}
+#app .combat-visual .cp-lineup-skills .skill-symbol{width:29px!important;height:29px!important}
+#app .combat-visual .team-stats-disclosure{border-top:1px solid var(--cv-line);padding-top:7px}
+#app .combat-visual .team-stats-disclosure>summary{display:flex;align-items:center;justify-content:space-between;gap:12px;cursor:pointer;padding:16px 0;color:var(--ink);font-size:15px;font-weight:650}
+#app .combat-visual .team-stats-disclosure>summary:before{content:'›';font-size:23px;transform:rotate(90deg);transition:transform .18s}
+#app .combat-visual .team-stats-disclosure:not([open])>summary:before{transform:none}
+#app .combat-visual .team-stats-disclosure>summary>span{flex:1}
+#app .combat-visual .team-stats-disclosure>summary>small{font-size:10px;font-weight:400;color:var(--muted)}
+#app .combat-visual .team-stat-columns,#app .combat-visual .team-stat-card dl>div{display:grid!important;grid-template-columns:23px minmax(0,1fr) minmax(0,1fr);gap:5px!important;text-align:right}
+#app .combat-visual .team-stat-columns small{font-size:9px}
+#app .combat-visual .team-stat-card .team-stat-base{color:var(--muted);font-size:11px;font-weight:400}
+#app .combat-visual .team-stat-card .team-base-note{font-size:9px;white-space:normal;overflow:visible;line-height:1.5}
+#app .combat-visual .team-member-buffs{border-top:1px solid var(--cv-line);margin-top:2px}
+#app .combat-visual .team-member-buffs>summary{display:flex;align-items:center;justify-content:space-between;padding:13px 0 2px;cursor:pointer;font-size:11px;color:var(--ink)}
+#app .combat-visual .team-member-buffs>summary b{font-size:10px;padding:3px 6px;background:var(--cs-wash);border-radius:5px}
+#app .combat-visual .team-member-buffs p{font-size:10px;line-height:1.6;color:var(--muted)}
+#app .combat-visual .team-buff-origin{margin-top:12px;padding-top:10px;border-top:1px solid var(--cv-line)}
+#app .combat-visual .team-buff-origin header{display:flex;justify-content:space-between;gap:8px}
+#app .combat-visual .team-buff-origin header b{font-size:11px}
+#app .combat-visual .team-buff-origin>span{display:block;margin-top:5px;color:var(--muted);font-size:10px;line-height:1.5;overflow-wrap:anywhere}
+#app .combat-visual .team-buff-origin p{display:flex;justify-content:space-between;gap:7px;margin:7px 0 0}
+#app .combat-visual .team-buff-origin strong{white-space:nowrap;color:var(--cs-accent);font-weight:650}
+#app .combat-visual .build-talent-row p{display:-webkit-box;-webkit-line-clamp:5;-webkit-box-orient:vertical;overflow:hidden;line-height:1.65}
+@media(max-width:760px){#app .combat-visual .cr-lineup .cp-lineup-slot>.team-compact-member,#app .combat-visual .cr-lineup .cp-lineup-slot>.team-compact-empty{height:250px!important;min-height:250px!important}#app .combat-visual .cp-lineup-slot .unit-equipment{grid-template-columns:1fr!important;padding:8px!important;gap:5px!important}#app .combat-visual .cp-lineup-slot .equipment-tile{height:40px!important;min-height:40px!important}#app .combat-visual .team-stats-disclosure>summary>small{display:none}}
+#app .combat-visual:not(.cs-teams)>.cs-nav{display:none!important}
+#app .combat-visual.cs-teams>.cs-nav{justify-self:start;display:flex;min-width:min(100%,340px);width:auto}
+#app .combat-visual.cs-teams>.cs-nav button{min-width:150px}
+#app .combat-visual .cs-hero p{max-width:600px}
+#app .combat-visual .team-four-stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:13px;min-width:0;margin:18px 0}
+#app .combat-visual .team-stat-card{display:grid;align-content:start;gap:13px;min-width:0;padding:16px;border:1px solid var(--cv-line);border-radius:14px;background:var(--surface);box-shadow:0 7px 20px #00000009}
+#app .combat-visual .team-stat-card>header{display:flex;align-items:center;gap:9px;min-width:0}
+#app .combat-visual .team-stat-card>header>img,#app .combat-visual .team-stat-card>header>span{display:grid;place-items:center;width:37px;height:37px;flex:0 0 37px;object-fit:cover;border:1px solid var(--cv-line);border-radius:11px;background:var(--surface-2)}
+#app .combat-visual .team-stat-card>header>div{display:grid;gap:3px;min-width:0}
+#app .combat-visual .team-stat-card b{overflow:hidden;color:var(--ink);font-size:13px;line-height:1.3;font-weight:700;text-overflow:ellipsis;white-space:nowrap}
+#app .combat-visual .team-stat-card small{overflow:hidden;color:var(--muted);font-size:10px;line-height:1.5;text-overflow:ellipsis;white-space:nowrap}
+#app .combat-visual .team-stat-card dl{display:grid;gap:0;margin:0;padding:0}
+#app .combat-visual .team-stat-card dl>div{display:flex;align-items:center;justify-content:space-between;gap:9px;min-height:37px;border-top:1px solid var(--cv-line)}
+#app .combat-visual .team-stat-card dt{display:grid;place-items:center;flex:0 0 22px;margin:0}
+#app .combat-visual .team-stat-card dt img{display:block;width:17px;height:17px;object-fit:contain;opacity:.8}
+#app .combat-visual .team-stat-card dd{margin:0;color:var(--ink);font-size:13px;font-weight:650;font-variant-numeric:tabular-nums;white-space:nowrap}
+#app .combat-visual .team-stat-card .quiet-btn{min-height:31px;padding:6px;border:1px solid var(--cv-line);border-radius:8px;font-size:10px}
+#app .combat-visual .team-live-analysis{margin:0 20px 20px;padding:0;border:0;border-radius:0;background:transparent;box-shadow:none}
+#app .combat-visual .team-live-analysis>header{display:flex;align-items:center;margin:0;padding:4px 0;gap:15px}
+#app .combat-visual .team-live-analysis>header h4{margin:0;font-size:18px;font-weight:650;letter-spacing:-.025em}
+#app .combat-visual .team-live-analysis>.button-primary{display:none}
+#app .combat-visual .cp-team-bonus-detail>summary{padding:8px 0;color:var(--muted);font-size:11px;cursor:pointer}
+#app .combat-visual .cp-team-bonus-detail:not([open])+.team-four-stats{margin-top:10px}
+#app .combat-visual .team-sheet-head .team-sheet-actions{align-items:center}
+#app .combat-visual .unit-art{position:relative!important;height:80px!important;min-height:80px!important;overflow:hidden}
+#app .combat-visual .unit-art .unit-name{position:absolute!important;inset:auto 94px 18px 18px!important;padding:0!important;margin:0!important}
+#app .combat-visual .unit-art .unit-name b{font-size:19px;line-height:1.12;white-space:normal;overflow:visible}
+#app .combat-visual .unit-art .unit-name small{font-size:8px;line-height:1.5}
+#app .combat-visual .unit-art .unit-edit{position:absolute!important;inset:24px 13px auto auto!important;width:auto!important;max-width:80px!important;min-width:0!important;height:31px!important;min-height:31px!important;padding:6px 9px!important;margin:0!important;border-radius:8px;font-size:10px}
+#app .combat-visual .rotation-tools{gap:12px}
+
+/* Artifacts: each row is a real select + value, no nested frame or fixed width. */
+#app .combat-visual .cr-piece-drawer .build-artifact-piece{display:grid!important;grid-template-columns:125px minmax(0,1fr)!important;align-items:start!important;gap:22px!important;padding:22px!important;min-width:0!important;max-width:100%!important}
+#app .combat-visual .cr-piece-drawer .build-artifact-piece>legend{display:none!important}
+#app .combat-visual .cr-piece-drawer .build-piece-identity{display:flex!important;flex-direction:column!important;gap:12px!important;min-width:0!important;max-width:100%!important;padding:0!important;border:0!important}
+#app .combat-visual .cr-piece-drawer .build-piece-visual{position:relative!important;display:grid!important;place-items:center!important;width:100%!important;min-width:0!important;height:130px!important;min-height:0!important;margin:0!important;padding:14px!important;overflow:hidden;border:1px solid var(--cv-line);border-radius:13px;background:var(--cs-wash)}
+#app .combat-visual .cr-piece-drawer .build-piece-visual>img{position:static!important;width:95px!important;height:95px!important;max-width:100%!important;object-fit:contain!important;margin:0!important;padding:0!important}
+#app .combat-visual .cr-piece-drawer .build-piece-visual>span{position:static!important;inset:auto!important;display:block!important;width:auto!important;max-width:100%!important;height:auto!important;margin:0!important;padding:0!important;color:var(--muted);font-size:11px!important;line-height:1.7!important;text-align:center!important;white-space:normal!important;overflow-wrap:anywhere!important}
+#app .combat-visual .cr-piece-drawer .build-piece-name{font-size:12px;line-height:1.5;overflow-wrap:anywhere;text-align:center}
+#app .combat-visual .cr-piece-drawer .build-piece-fields{display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr))!important;align-items:start!important;gap:17px 20px!important;width:100%!important;min-width:0!important;max-width:100%!important;margin:0!important;padding:0!important}
+#app .combat-visual .cr-piece-drawer .build-piece-fields>label{display:grid!important;grid-template-columns:minmax(0,1fr)!important;align-items:start!important;gap:8px!important;width:100%!important;min-width:0!important;max-width:100%!important;margin:0!important;padding:0!important;color:var(--muted);font-size:12px!important}
+#app .combat-visual .cr-piece-drawer .build-stat-input{position:static!important;display:grid!important;grid-template-columns:minmax(0,1fr) 92px!important;align-items:center!important;gap:8px!important;width:100%!important;min-width:0!important;max-width:100%!important;min-height:0!important;height:auto!important;margin:0!important;padding:0!important;border:0!important;border-radius:0!important;background:transparent!important;overflow:visible!important}
+#app .combat-visual .cr-piece-drawer .build-stat-input>select,#app .combat-visual .cr-piece-drawer .build-stat-input>input{position:static!important;display:block!important;inset:auto!important;float:none!important;flex:none!important;width:100%!important;min-width:0!important;max-width:100%!important;height:43px!important;min-height:43px!important;margin:0!important;padding:9px 10px!important;border:1px solid var(--cv-line)!important;border-radius:9px!important;background:var(--cv-base)!important;color:var(--ink)!important;font-size:13px!important;box-shadow:none!important;opacity:1!important;transform:none!important}
+#app .combat-visual .cr-piece-drawer .build-piece-fields>label:first-child{grid-column:1/-1;max-width:440px!important}
+#app .combat-visual .cr-piece-drawer .build-piece-selection{display:grid!important;grid-template-columns:minmax(0,1fr)!important;grid-column:1/-1;gap:16px!important;min-width:0!important;width:100%!important;padding-top:20px;border-top:1px solid var(--cv-line)}
+#app .combat-visual .cr-piece-drawer .build-piece-upload{position:absolute!important;inset:auto 8px 8px auto!important;display:block!important;width:auto!important;margin:0!important;font-size:8px!important;opacity:0;transition:opacity .15s}
+#app .combat-visual .cr-piece-drawer .build-piece-visual:hover .build-piece-upload,#app .combat-visual .cr-piece-drawer .build-piece-visual:focus-within .build-piece-upload{opacity:1}
+#app .combat-visual .image-picker-field{min-width:0;max-width:100%}
+#app .combat-visual .image-picker{min-width:0;position:relative}
+#app .combat-visual .image-picker>summary{min-width:0;max-width:100%;min-height:48px}
+#app .combat-visual .image-picker-pop{z-index:25!important;min-width:0!important;width:100%!important;max-width:100%!important;max-height:380px;overflow:auto;border-radius:12px!important}
+#app .combat-visual .image-picker-options{display:grid!important;grid-template-columns:repeat(auto-fill,minmax(170px,1fr))!important;gap:8px!important;max-height:285px!important;overflow:auto!important;padding:8px!important}
+#app .combat-visual .image-picker-option{display:flex!important;align-items:center!important;gap:9px!important;min-width:0!important;min-height:58px!important;padding:9px!important;border-radius:9px!important;white-space:normal}
+#app .combat-visual .image-picker-option img{width:36px!important;height:36px!important;object-fit:contain!important;flex:0 0 36px}
+#app .combat-visual .image-picker-option>span{min-width:0}
+#app .combat-visual .image-picker-option b{display:block;font-size:11px;line-height:1.45;white-space:normal}
+#app .combat-visual .build-import-slot{padding:14px!important;border:1px solid var(--cv-line);border-radius:12px;background:var(--cv-base);min-width:0;max-width:100%}
+#app .combat-visual .build-import-slot>summary{font-size:12px;cursor:pointer}
+#app .combat-visual .build-relic-set-choice{display:inline-flex!important;align-items:center!important;min-height:55px!important;padding:8px!important;border-radius:10px!important}
+#app .combat-visual .build-relic-set-icons{display:flex!important;align-items:center!important;gap:4px!important}
+#app .combat-visual .build-relic-set-icons img{width:28px!important;height:28px!important;object-fit:contain!important}
+#app .combat-visual .build-relic-piece{display:grid!important;grid-template-columns:54px minmax(100px,.5fr) minmax(0,1fr)!important;align-items:center;gap:12px!important;min-height:84px!important;padding:14px!important;margin-bottom:8px!important;border-radius:12px!important;width:100%!important;min-width:0!important;max-width:100%!important}
+#app .combat-visual .build-relic-piece>img{width:50px!important;height:50px!important;object-fit:contain}
+#app .combat-visual .build-relic-piece small{font-size:11px!important;line-height:1.5!important}
+#app .combat-visual .build-relic-piece b{font-size:12px!important}
+#app .combat-visual .build-relic-piece-icon{display:grid!important;place-items:center;width:50px!important;height:50px!important}
+#app .combat-visual .build-relic-piece-icon img{width:48px!important;height:48px!important;object-fit:contain!important}
+#app .combat-visual .build-relic-piece-main{display:grid!important;gap:6px!important;min-width:0!important}
+#app .combat-visual .build-relic-piece-subs{display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:8px 15px!important;min-width:0!important}
+#app .combat-visual .build-relic-piece-subs>small{display:flex!important;align-items:center;justify-content:space-between;gap:8px;padding:6px 8px!important;border-radius:7px;background:var(--surface)!important;color:var(--muted);font-size:11px!important}
+#app .combat-visual .build-relic-piece-list{max-height:420px!important;padding:10px 0!important;overflow-y:auto!important;overflow-x:hidden!important}
+#app .combat-visual .build-relic-set-grid{display:grid!important;grid-template-columns:repeat(auto-fill,minmax(175px,1fr))!important;gap:8px!important;max-height:260px!important;overflow:auto!important;padding:10px!important}
+#app .combat-visual .build-relic-set-choice{width:100%!important;justify-content:center!important}
+#app .combat-visual .build-relic-actions{display:flex!important;flex-wrap:wrap!important;gap:9px!important;margin:15px 0!important}
+#app .combat-visual .build-relic-actions button{min-height:37px!important;padding:9px 11px!important;font-size:11px!important}
+
+/* Lab: team first. Cards select the existing buff editor directly. */
+#app .combat-visual .cp-lab-party{display:grid;gap:17px;padding:23px;margin:0 0 22px;border:1px solid var(--cs-border);border-radius:18px;background:linear-gradient(130deg,var(--cs-wash),transparent 65%),var(--cv-base)}
+#app .combat-visual .cp-lab-party>header{display:flex;align-items:end;justify-content:space-between;gap:18px}
+#app .combat-visual .cp-lab-party>header small{font-size:9px;letter-spacing:.13em;color:var(--cs-accent)}
+#app .combat-visual .cp-lab-party>header h2{margin:5px 0 0;font-size:21px;line-height:1.2;letter-spacing:-.03em}
+#app .combat-visual .cp-lab-party>header p{margin:0;color:var(--muted);font-size:12px}
+#app .combat-visual .lab-buff-roster{display:grid!important;grid-template-columns:repeat(4,minmax(0,1fr))!important;gap:11px!important;padding:0!important;margin:0!important;border:0!important;background:transparent!important;overflow:visible!important}
+#app .combat-visual .lab-buff-roster>button{display:grid!important;grid-template-columns:42px minmax(0,1fr)!important;align-items:center!important;gap:10px!important;min-width:0!important;min-height:83px!important;padding:13px!important;border:1px solid var(--cv-line)!important;border-radius:12px!important;background:var(--surface)!important;color:var(--ink);text-align:left!important}
+#app .combat-visual .lab-buff-roster>button[aria-pressed="true"]{border-color:var(--cs-border)!important;box-shadow:inset 0 -2px var(--cs-accent)}
+#app .combat-visual .lab-buff-roster>button>img{position:static!important;width:42px!important;height:48px!important;object-fit:cover!important;border-radius:10px!important}
+#app .combat-visual .lab-buff-roster .lab-roster-gear{display:none!important}
+#app .combat-visual .lab-buff-roster button>span:last-child{min-width:0;display:grid;gap:5px}
+#app .combat-visual .lab-buff-roster b{font-size:12px;line-height:1.4;white-space:normal}
+#app .combat-visual .lab-buff-roster small{font-size:9px;color:var(--muted)}
+#app .combat-visual .cp-lab-party .lab-buff-tab-heading{display:flex;justify-content:flex-end;padding:0;margin:0;background:transparent;border:0}
+#app .combat-visual .cp-lab-party .lab-buff-tab-heading>div,#app .combat-visual .cp-lab-party .lab-buff-combat-mode{display:none}
+#app .combat-visual .cp-lab-party .lab-buff-result-banner{padding:13px;margin:0;font-size:12px;border-radius:11px}
+#app .combat-visual .cp-lab-party .lab-buffs-workspace{display:flex;flex-direction:column;gap:15px}
+#app .combat-visual .cp-lab-party .lab-party-buffs{order:-2;padding:0;border:0;background:transparent;margin:0}
+#app .combat-visual .cp-lab-party .lab-party-buffs>header{display:none}
+#app .combat-visual .cp-lab-party .lab-character-buffs>header{margin-bottom:16px;padding:0 0 13px;border-bottom:1px solid var(--cv-line)}
+#app .combat-visual .cp-lab-party .lab-character-buffs{padding:19px;border:1px solid var(--cv-line);border-radius:13px;background:var(--surface)}
+#app .combat-visual .cp-lab-party .lab-received-buffs{order:3;padding:13px;margin:0;border-radius:10px}
+#app .combat-visual .cp-lab-party .lab-received-buffs>summary{font-size:12px}
+#app .combat-visual .lab-scenario-panel .lab-studio-section-head>span{display:none}
+#app .combat-visual .lab-current-equipment,#app .combat-visual .lab-attack-search{display:none}
+#app .combat-visual .lab-source-buff:not([open])>summary{min-height:48px}
+
+/* Modal is above the application chrome and constrained to the viewport. */
+#modal-root:has(.team-builder),#modal-root:has(.entity-picker-modal){position:fixed!important;inset:0!important;z-index:2147483000!important;isolation:isolate;pointer-events:none}
+#modal-root:has(.team-builder)>.modal-backdrop,#modal-root:has(.entity-picker-modal)>.modal-backdrop{position:fixed!important;inset:0!important;display:grid!important;place-items:center!important;width:100vw!important;height:100dvh!important;margin:0!important;padding:22px!important;overflow:hidden!important;pointer-events:auto;background:#05080dc9!important;backdrop-filter:blur(8px)}
+body:has(.team-editor-v2) .topbar,body:has(.entity-picker-modal) .topbar{z-index:1!important}
+body:has(.team-editor-v2) .release-notes-notice,body:has(.entity-picker-modal) .release-notes-notice{visibility:hidden!important;pointer-events:none!important}
+#modal-root .team-editor-v2{display:grid!important;grid-template-rows:auto minmax(0,1fr) auto!important;position:relative!important;inset:auto!important;width:min(900px,calc(100vw - 44px))!important;max-width:900px!important;min-width:0!important;height:min(760px,calc(100dvh - 44px))!important;max-height:calc(100dvh - 44px)!important;margin:0!important;padding:0!important;overflow:hidden!important;border:1px solid var(--line)!important;border-radius:21px!important;background:var(--surface)!important;color:var(--ink);transform:none!important;box-shadow:0 35px 120px #0009}
+#modal-root .team-editor-v2 .modal-header{position:static!important;display:flex!important;align-items:center!important;justify-content:space-between!important;gap:18px!important;margin:0!important;padding:23px 27px!important;border:0!important;border-bottom:1px solid var(--line)!important;background:var(--surface)!important}
+#modal-root .team-editor-v2 .modal-header h2{margin:6px 0 0;font-size:25px;font-weight:650;letter-spacing:-.03em}
+#modal-root .team-editor-v2 .modal-close{position:static!important;inset:auto!important;width:34px!important;height:34px!important;padding:0!important;border:1px solid var(--line);border-radius:10px;background:var(--surface-2);font-size:22px;color:var(--muted)}
+#modal-root .te-editor-scroll{min-height:0;min-width:0;overflow-y:auto;overflow-x:hidden;padding:23px 27px}
+#modal-root .team-editor-v2 .builder-meta{display:grid!important;grid-template-columns:minmax(0,1fr) 190px!important;gap:18px!important;margin:0 0 19px!important}
+#modal-root .team-editor-v2 label{display:grid;gap:8px;min-width:0;color:var(--muted);font-size:12px}
+#modal-root .team-editor-v2 input:not([type="checkbox"]),#modal-root .team-editor-v2 select,#modal-root .team-editor-v2 textarea{display:block;width:100%!important;min-width:0!important;max-width:100%!important;min-height:43px!important;padding:10px 12px!important;border:1px solid var(--line)!important;border-radius:10px!important;background:var(--surface-2)!important;color:var(--ink)!important;font-size:13px!important;box-shadow:none!important}
+#modal-root .builder-member-tabs{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:9px;margin:0 0 21px}
+#modal-root .builder-member-tabs button{display:flex;align-items:center;gap:9px;min-width:0;min-height:59px;padding:10px;border:1px solid var(--line);border-radius:11px;background:var(--surface-2);color:var(--ink);text-align:left}
+#modal-root .builder-member-tabs button[aria-pressed="true"]{border-color:var(--accent);background:color-mix(in srgb,var(--accent) 10%,var(--surface));box-shadow:inset 0 -2px var(--accent)}
+#modal-root .builder-member-tabs img,#modal-root .builder-member-tabs button>span{display:grid;place-items:center;width:34px;height:34px;flex:0 0 34px;object-fit:cover;border-radius:9px;background:var(--surface)}
+#modal-root .builder-member-tabs b{min-width:0;font-size:11px;font-weight:650;line-height:1.4;overflow-wrap:anywhere}
+#modal-root .team-editor-v2 .builder-slots{display:block!important;margin:0!important;padding:0!important}
+#modal-root .team-editor-v2 .builder-slot{position:relative;display:grid!important;grid-template-columns:175px minmax(0,1fr)!important;align-items:start;gap:16px!important;min-width:0!important;margin:0!important;padding:18px!important;border:1px solid var(--line)!important;border-radius:15px!important;background:var(--surface-2)!important;overflow:visible!important}
+#modal-root .team-editor-v2 .builder-slot-number{display:none}
+#modal-root .team-editor-v2 .builder-slot-portrait{position:relative!important;grid-column:1;grid-row:1/8;isolation:isolate;min-height:260px!important;height:100%!important;max-height:380px!important;width:100%!important;min-width:0!important;border-radius:11px!important;overflow:hidden;background:var(--surface)}
+#modal-root .team-editor-v2 .builder-slot-portrait>img{position:absolute!important;inset:0!important;width:100%!important;height:100%!important;object-fit:cover!important;object-position:52% center!important}
+#modal-root .team-editor-v2 .builder-slot-person{position:absolute;inset:auto 0 0;padding:55px 15px 17px;background:linear-gradient(transparent,#080e1ceb);color:white}
+#modal-root .team-editor-v2 .builder-slot-person b{font-size:19px;line-height:1.2;letter-spacing:-.025em}
+#modal-root .team-editor-v2 .builder-slot-person small{display:block;margin-top:5px;font-size:10px}
+#modal-root .team-editor-v2 .builder-slot>*:not(.builder-slot-portrait):not(.builder-slot-number){grid-column:2;min-width:0!important}
+#modal-root .team-editor-v2 .entity-pickers{display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:10px!important;margin:0!important}
+#modal-root .team-editor-v2 .entity-pickers-single{grid-template-columns:1fr!important}
+#modal-root .team-editor-v2 .entity-pick-trigger{display:flex!important;align-items:center;gap:9px!important;min-width:0!important;min-height:65px!important;width:100%!important;padding:11px!important;border:1px solid var(--line)!important;border-radius:10px!important;background:var(--surface)!important;color:var(--ink);text-align:left}
+#modal-root .team-editor-v2 .entity-pick-trigger>span:not(.entity-pick-placeholder){flex:1;min-width:0}
+#modal-root .team-editor-v2 .entity-pick-trigger b{display:block;font-size:11px;line-height:1.4;white-space:normal}
+#modal-root .team-editor-v2 .entity-pick-trigger small{display:block;margin-bottom:4px;font-size:8px;letter-spacing:.06em;color:var(--muted)}
+#modal-root .team-editor-v2 .entity-pick-icon,#modal-root .team-editor-v2 .entity-pick-placeholder{display:grid;place-items:center;flex:0 0 34px;width:34px;height:38px;border-radius:8px;object-fit:contain;background:var(--surface-2)}
+#modal-root .team-editor-v2 .builder-slot-empty{display:block!important;min-height:210px!important}
+#modal-root .team-editor-v2 .builder-slot-empty>button{display:grid;justify-items:center;align-content:center;gap:15px;width:100%;min-height:190px;padding:25px;border:1px dashed var(--line);border-radius:12px;background:var(--surface);color:var(--ink)}
+#modal-root .builder-slot-empty>button>span{font-size:30px;color:var(--accent)}
+#modal-root .builder-slot-empty small{font-size:12px;color:var(--muted)}
+#modal-root .team-editor-v2 .set-preview{display:none}
+#modal-root .team-editor-v2 .slot-buffs{padding:13px!important;margin:0!important;border:1px solid var(--line)!important;border-radius:10px!important;background:var(--surface)!important}
+#modal-root .team-editor-v2 .slot-buffs>summary{font-size:12px;cursor:pointer}
+#modal-root .team-editor-v2 .slot-buff-controls{display:grid!important;grid-template-columns:minmax(0,1fr) 80px!important;gap:9px!important;margin-top:15px!important}
+#modal-root .team-editor-v2 .builder-skills{min-width:0;padding:0}
+#modal-root .team-editor-v2 .builder-skills small{font-size:9px;color:var(--muted)}
+#modal-root .team-editor-v2 .skill-strip{display:flex!important;flex-wrap:wrap!important;gap:8px!important;margin-top:10px}
+#modal-root .team-editor-v2 .skill-button{width:51px!important;min-width:0;min-height:60px;padding:7px;border:1px solid var(--line);border-radius:9px;background:var(--surface)}
+#modal-root .team-editor-v2 .skill-symbol{width:29px;height:29px}
+#modal-root .team-editor-v2 .builder-extra{margin-top:19px;padding:15px;border:1px solid var(--line);border-radius:11px}
+#modal-root .team-editor-v2 .builder-extra>summary{font-size:12px;color:var(--muted);cursor:pointer}
+#modal-root .team-editor-v2 .builder-rotation{padding:17px 0;border:0;background:none}
+#modal-root .team-editor-v2 .modal-footer{position:static!important;display:flex;align-items:center;justify-content:flex-end;gap:11px;margin:0!important;padding:17px 27px!important;border:0;border-top:1px solid var(--line);background:var(--surface)}
+#modal-root .team-editor-v2 .modal-footer>span{margin-right:auto;color:var(--muted);font-size:12px}
+#modal-root .team-editor-v2 .modal-footer button{min-height:40px;padding:9px 14px;border:1px solid var(--line);border-radius:10px;background:var(--surface-2);color:var(--ink);font-size:12px}
+#modal-root .team-editor-v2 .modal-footer .button-primary{border-color:var(--accent);background:color-mix(in srgb,var(--accent) 22%,var(--surface));color:var(--ink)}
+#modal-root .entity-picker-modal{position:relative!important;width:min(760px,calc(100vw - 44px))!important;min-width:0!important;max-width:760px!important;height:min(670px,calc(100dvh - 44px))!important;max-height:calc(100dvh - 44px)!important;margin:0!important;padding:24px!important;overflow:auto!important;border:1px solid var(--line);border-radius:20px;background:var(--surface);color:var(--ink);transform:none!important}
+#modal-root .entity-picker-modal .entity-picker-grid{display:grid!important;grid-template-columns:repeat(auto-fill,minmax(125px,1fr))!important;gap:10px!important;padding:0!important;max-height:none!important;overflow:visible!important}
+#modal-root .entity-picker-modal .entity-picker-card{display:grid!important;justify-items:center;min-width:0;gap:9px;min-height:135px;padding:13px!important;border:1px solid var(--line);border-radius:12px;background:var(--surface-2);color:var(--ink)}
+#modal-root .entity-picker-modal .entity-picker-art{width:68px!important;height:68px!important;object-fit:contain!important}
+#modal-root .entity-picker-modal .entity-picker-card b{display:block;font-size:11px;text-align:center;line-height:1.4}
+#modal-root .entity-picker-modal .entity-picker-card small{font-size:10px;color:var(--muted)}
+
+/* Energy plan: input by producer, results by recipient. */
+.te-workbench{display:grid;gap:24px;min-width:0}
+.te-workbench>header{display:flex;justify-content:space-between;align-items:end;gap:20px}
+.te-workbench>header small{font-size:10px;letter-spacing:.14em;color:var(--cs-accent)}
+.te-workbench h2{margin:7px 0 0;font-size:25px;line-height:1.2;letter-spacing:-.03em}
+.te-workbench label{display:grid;gap:8px;color:var(--muted);font-size:11px;line-height:1.5;min-width:0}
+.te-workbench input:not([type=checkbox]),.te-workbench select{width:100%;min-width:0;min-height:42px;padding:9px 11px;border:1px solid var(--cv-line);border-radius:9px;background:var(--surface);color:var(--ink);font-size:13px}
+.te-workbench>header>label{min-width:230px}
+.te-cycle{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:15px;padding:20px;border:1px solid var(--cv-line);border-radius:14px;background:var(--cv-base)}
+.te-members{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;align-items:start}
+.te-member{display:grid;gap:18px;padding:21px;border:1px solid var(--cv-line);border-radius:15px;background:var(--cv-base);min-width:0}
+.te-member>header{display:flex;align-items:center;gap:12px;padding-bottom:15px;border-bottom:1px solid var(--cv-line)}
+.te-member>header>img{width:45px;height:45px;border-radius:12px;object-fit:cover}
+.te-member>header>div{display:grid;gap:4px}
+.te-member>header b{font-size:16px}
+.te-member>header small{font-size:11px;color:var(--muted)}
+.te-form{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:15px}
+.te-fav{padding:13px;border:1px solid var(--cv-line);border-radius:10px;background:var(--surface)}
+.te-fav>summary{cursor:pointer;list-style:none}
+.te-fav>summary>label{display:flex;align-items:center;gap:9px;color:var(--ink);font-size:12px}
+.te-fav input[type=checkbox]{width:16px;height:16px;accent-color:var(--cs-accent)}
+.te-fav[open] .te-form{margin:17px 0}
+.te-fav>small{font-size:10px;color:var(--muted);line-height:1.6}
+.te-special,.te-warning{margin:0;padding:12px;border:1px solid var(--cs-border);border-radius:10px;background:var(--cs-wash);color:var(--ink);font-size:12px;line-height:1.7}
+.te-results{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin:17px 0}
+.te-results article{display:grid;align-content:start;gap:8px;min-width:0;padding:19px;border:1px solid var(--cs-border);border-radius:14px;background:var(--cv-base)}
+.te-results b{font-size:13px}
+.te-results strong{font-size:31px;line-height:1.15;font-weight:650;color:var(--cs-accent);letter-spacing:-.035em;font-variant-numeric:tabular-nums}
+.te-results small,.te-results span{color:var(--muted);font-size:11px}
+.te-results em{margin-top:6px;font-size:11px;font-style:normal;line-height:1.5}
+.te-results .is-ready{color:#9bd4a9}.te-results .is-short{color:#e3b27e}
+.te-method{padding:17px;border:1px solid var(--cv-line);border-radius:12px;background:var(--cv-base);font-size:12px;color:var(--muted);line-height:1.8}
+.te-method summary{cursor:pointer;color:var(--ink)}
+.te-method a{color:var(--cs-accent)}
+@container(max-width:850px){#app .combat-visual .team-four-stats{grid-template-columns:repeat(2,minmax(0,1fr))}#app .combat-visual .lab-buff-roster{grid-template-columns:repeat(2,minmax(0,1fr))!important}#app .combat-visual .cr-piece-drawer .build-piece-fields{grid-template-columns:1fr!important}#app .combat-visual .cr-piece-drawer .build-piece-fields>label:first-child{max-width:100%!important}.te-cycle{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:760px){#app .combat-visual .team-four-stats{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}#app .combat-visual .team-stat-card{padding:13px;gap:12px}#app .combat-visual .team-stat-card b{font-size:12px}#app .combat-visual .team-stat-card dd{font-size:12px}#app .combat-visual .team-live-analysis{margin:0 15px 18px}#app .combat-visual .cp-lab-party{padding:18px}#app .combat-visual .cp-lab-party>header{align-items:start;flex-direction:column;gap:8px}#app .combat-visual .cp-lab-party>header h2{font-size:20px}#app .combat-visual .lab-buff-roster{grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:8px!important}#app .combat-visual .lab-buff-roster>button{grid-template-columns:32px minmax(0,1fr)!important;padding:10px!important;gap:8px!important;min-height:75px!important}#app .combat-visual .lab-buff-roster>button>img{width:32px!important;height:40px!important}#app .combat-visual .lab-buff-roster b{font-size:10px}#app .combat-visual .cr-piece-drawer .build-artifact-piece{grid-template-columns:1fr!important;padding:18px!important;gap:18px!important}#app .combat-visual .cr-piece-drawer .build-piece-identity{display:grid!important;grid-template-columns:65px minmax(0,1fr)!important;align-items:center!important;gap:14px!important}#app .combat-visual .cr-piece-drawer .build-piece-visual{height:65px!important;padding:8px!important}#app .combat-visual .cr-piece-drawer .build-piece-visual>img{width:49px!important;height:49px!important}#app .combat-visual .cr-piece-drawer .build-piece-name{text-align:left}#app .combat-visual .cr-piece-drawer .build-piece-fields{grid-template-columns:1fr!important}#app .combat-visual .cr-piece-drawer .build-stat-input{grid-template-columns:minmax(0,1fr) 90px!important}#app .combat-visual .build-relic-piece{grid-template-columns:45px minmax(0,1fr)!important;gap:10px!important}#app .combat-visual .build-relic-piece>*:last-child{grid-column:1/-1}.te-workbench>header{align-items:stretch;flex-direction:column;gap:18px}.te-workbench h2{font-size:22px}.te-members{grid-template-columns:1fr}.te-cycle{grid-template-columns:1fr 1fr;padding:16px}.te-results{grid-template-columns:repeat(2,minmax(0,1fr))}.te-results article{padding:16px}.te-results strong{font-size:27px}#modal-root:has(.team-builder)>.modal-backdrop,#modal-root:has(.entity-picker-modal)>.modal-backdrop{padding:10px!important}#modal-root .team-editor-v2{width:calc(100vw - 20px)!important;height:calc(100dvh - 20px)!important;max-height:calc(100dvh - 20px)!important;border-radius:17px!important}#modal-root .team-editor-v2 .modal-header{padding:18px!important}#modal-root .team-editor-v2 .modal-header h2{font-size:22px}#modal-root .te-editor-scroll{padding:17px}#modal-root .team-editor-v2 .builder-meta{grid-template-columns:1fr!important;gap:15px!important}#modal-root .builder-member-tabs{grid-template-columns:repeat(4,minmax(0,1fr));gap:6px}#modal-root .builder-member-tabs button{display:grid;justify-items:center;gap:7px;padding:8px 4px;min-height:80px}#modal-root .builder-member-tabs b{font-size:9px;text-align:center}#modal-root .team-editor-v2 .builder-slot{grid-template-columns:1fr!important;padding:15px!important;gap:15px!important}#modal-root .team-editor-v2 .builder-slot-portrait{grid-column:1;grid-row:auto;height:140px!important;min-height:140px!important;max-height:140px!important}#modal-root .team-editor-v2 .builder-slot>*:not(.builder-slot-portrait):not(.builder-slot-number){grid-column:1}#modal-root .team-editor-v2 .entity-pickers{grid-template-columns:1fr!important}#modal-root .team-editor-v2 .modal-footer{padding:14px 17px!important;gap:8px}#modal-root .team-editor-v2 .modal-footer>span{display:none}#modal-root .team-editor-v2 .modal-footer button{font-size:11px}#modal-root .entity-picker-modal{width:calc(100vw - 20px)!important;height:calc(100dvh - 20px)!important;max-height:calc(100dvh - 20px)!important;padding:19px!important;border-radius:17px!important}}
+
+#app .combat-visual .team-onfield-control{display:flex;align-items:center;justify-content:flex-end;gap:12px;color:var(--muted);font-size:11px}#app .combat-visual .team-onfield-control select{max-width:220px;padding:8px 12px;border-radius:9px}.te-profile-note{grid-column:1/-1;color:var(--muted);font-size:10px;line-height:1.6}.te-profile-note a{color:var(--accent)}
+
+#app .combat-visual .team-four-stats{align-items:start}#app .combat-visual .team-buff-origin p>span{min-width:0;overflow-wrap:anywhere}

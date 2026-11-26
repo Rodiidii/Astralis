@@ -1,0 +1,16 @@
+import {createSceneActor} from '../express-character-cinematics.js';
+const motifs={
+ pyro:'M0 70C-80 15-35-25-30-70C-5-45 10-20 3 0C40-30 37-55 30-80C105 5 75 48 0 70Z',
+ hydro:'M0-80C-30-32-70 5-70 35A70 70 0 0 0 70 35C70 5 30-32 0-80ZM-34 39Q0 66 34 39',
+ cryo:'M0-85V85M-74-43L74 43M-74 43L74-43M-22-64L0-42L22-64M-22 64L0 42L22 64M-67-13L-37-21L-45-51M67 13L37 21L45 51M-45 51L-37 21L-67 13M45-51L37-21L67-13',
+ electro:'M-22-75L22-35L-8-5L38 39L-15 80L5 26L-42-12L-9-42Z',
+ dendro:'M0 75V-62M0 25C-90 38-90-42-76-65C-25-65-5-26 0 25ZM0-12C62 4 92-45 75-78C29-72 8-55 0-12ZM0 66C40 79 77 43 67 11C25 13 4 33 0 66Z',
+ geo:'M0-85L80 0L0 85L-80 0ZM0-48L45 0L0 48L-45 0ZM-80 0H80M0-85V85',
+ anemo:'M-80 15Q-6-75 63-38Q92-15 65 3Q48 14 32 1M-61 43Q0-25 63 20Q88 42 58 54Q35 62 22 42M-24 72Q7 28 37 71'
+};
+export function buildBackdrop(element='cryo',identity={},id=''){
+ const seed=Array.from(String(id||identity.id||element)).reduce((n,c)=>(n*31+c.charCodeAt(0))>>>0,1),turn=seed%360,step=55+seed%65;
+ const personal=(identity.actors||[]).slice(0,3).map((actor,i)=>{if(typeof document==='undefined')return '';const svg=createSceneActor(actor);svg.setAttribute('x',String(820+i*290));svg.setAttribute('y',String(95+i*190));svg.setAttribute('width',String(i===0?540:180));svg.setAttribute('height',String(i===0?540:180));svg.setAttribute('fill','none');svg.setAttribute('stroke','currentColor');svg.setAttribute('opacity',String(i===0?.13:.2));return svg.outerHTML;}).join('');
+ const path=motifs[element]||motifs.cryo,stars=Array.from({length:65},(_,i)=>{const x=30+((i+seed%97)*173.17)%1940,y=25+((i+seed%41)*97.31)%880;return '<circle cx="'+x+'" cy="'+y+'" r="'+(i%6===0?1.7:.7)+'" fill="currentColor" opacity="'+(i%5===0?.3:.12)+'"/>';}).join('');
+ return `<div class="build-ornament" aria-hidden="true" style="position:absolute;inset:0;pointer-events:none;overflow:hidden;color:var(--e1)"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2000 940" style="position:absolute;inset:0;width:100%;height:100%"><defs><pattern id="build-weave" width="${step}" height="${step}" patternTransform="rotate(${turn})" patternUnits="userSpaceOnUse"><path d="M0 40L40 0L80 40L40 80Z" fill="none" stroke="currentColor" stroke-width=".7" opacity=".13"/></pattern><linearGradient id="build-glass" x1="0" x2="1"><stop stop-color="currentColor" stop-opacity=".14"/><stop offset="1" stop-color="currentColor" stop-opacity="0"/></linearGradient></defs><rect width="2000" height="940" fill="url(#build-weave)"/><path d="M500 0H1400L910 940H10Z" fill="url(#build-glass)"/><g transform="translate(1020 390)" fill="none" stroke="currentColor" opacity=".16"><circle r="345" stroke-width="1"/><circle r="330" stroke-width=".7" stroke-dasharray="2 15"/><g transform="scale(2.3)" stroke-width="1.5"><path d="${path}"/></g></g><g stroke="currentColor" fill="none" opacity=".25"><path d="M701 26V914M1250 35V905" stroke-width=".7"/><path d="M24 110V24H110M1890 24H1976V110M24 830V916H110M1890 916H1976V830"/><path d="M686 200L701 185L716 200L701 215ZM1235 725L1250 710L1265 725L1250 740Z"/></g>${personal}<g transform="translate(1020 390) rotate(${turn})" fill="none" stroke="currentColor" opacity=".15"><ellipse rx="440" ry="${180+seed%100}"/><ellipse rx="${200+seed%110}" ry="430"/><path d="M-500 0H500M0-420V420" stroke-dasharray="3 21"/></g>${stars}</svg></div>`;
+}

@@ -1,4 +1,4 @@
-import {enhanceRelations,showReport} from './relations-reading.js?v=20261115-shortest-routes-3';
+import {enhanceRelations,showReport} from './relations-reading.js?v=20261126-reading-studio-2';
 import {relationRank,concentricRelations,proofsForMode} from './relation-ranks.js?v=20261110-relations-12';
 import {referenceStoryUrl} from './relation-reference-audit.js?v=20261115-reference-audit-2';
 import {formatRelationCitation} from './relation-source-audit.js?v=20261115-citation-copy-1';
@@ -6,7 +6,7 @@ import {relationId,isTravelerVariant} from './relation-identity.js';
 import publicLoreEvidence from '../data/relations-official.json' with { type: 'json' };
 import relationOverrides from '../assets/data/gi-relation-overrides.json' with { type: 'json' };
 import loreFigures from '../assets/data/gi-relation-lore.json' with { type: 'json' };
-import { previewPng } from './poster-export.js';
+import { previewPng } from './poster-export.js?v=20261126-personal-workshop-6';
 
 const key = 'astralis:relations:v1';
 const defaults = { voiceLang:'en',volume:70,traveler:'aether',connectionMode:'voice',members:[], group:'region', lang:'fr', direction:'all', source:'all', min:1, played:[],

@@ -6,7 +6,7 @@
   },
   "child": {
     "constellation": 6,
-    "characterLevel": 90,
+    "characterLevel": 100,
     "talents": {
       "burst": 13,
       "skill": 13,
@@ -29,7 +29,7 @@
     }
   },
   "characterBonusStats": {
-    "atk": 875.996,
+    "atk": 900,
     "atk_": 61.271
   },
   "enemy": {
@@ -41,7 +41,7 @@
       "code": "skippedLines",
       "reason": "teammate",
       "lines": 2,
-      "share": 0.0616615275762034
+      "share": 0.06115796564664767
     },
     {
       "code": "characterBonusStats",
@@ -59,7 +59,7 @@
         {
           "buff": "Grace of Kenosis (% of Nicole's ATK)",
           "key": "atk",
-          "value": 575.9957275621548
+          "value": 600
         },
         {
           "buff": "Chevreuse A4 ATK (Pyro/Electro)",
@@ -92,7 +92,7 @@
       "code": "skippedLines",
       "reason": "teammate",
       "lines": 2,
-      "share": 0.061918038713231816
+      "share": 0.06143889130873868
     },
     {
       "code": "goSwitch",

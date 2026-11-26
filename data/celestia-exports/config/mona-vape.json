@@ -5,6 +5,40 @@
     {
       "weight": 0.5,
       "path": [
+        "normal",
+        "0"
+      ],
+      "hitMode": "avgHit",
+      "reaction": "vaporize",
+      "bonusStats": {
+        "atk": 711.494,
+        "eleMas": 80,
+        "atk_": 50,
+        "vaporize_dmg_": 15,
+        "all_dmg_": 86.944,
+        "critRate_": 20
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.5,
+      "path": [
+        "normal",
+        "1"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk": 711.494,
+        "eleMas": 80,
+        "atk_": 50,
+        "all_dmg_": 88.564,
+        "critRate_": 20
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.5,
+      "path": [
         "skill",
         "dot"
       ],
@@ -19,7 +53,7 @@
       "description": ""
     },
     {
-      "weight": 0.0814,
+      "weight": 0.0732,
       "path": [
         "charged",
         "dmg"
@@ -29,13 +63,13 @@
         "atk": 711.494,
         "eleMas": 80,
         "atk_": 50,
-        "all_dmg_": 88.384,
+        "all_dmg_": 90.044,
         "critRate_": 20
       },
       "description": ""
     },
     {
-      "weight": 0.1262,
+      "weight": 0.1406,
       "path": [
         "charged",
         "dmg"
@@ -45,7 +79,7 @@
         "atk": 711.494,
         "eleMas": 80,
         "atk_": 50,
-        "all_dmg_": 89.834,
+        "all_dmg_": 88.774,
         "critRate_": 20
       },
       "description": ""
@@ -95,7 +129,7 @@
         "eleMas": 80,
         "atk_": 50,
         "critRate_": 35,
-        "all_dmg_": 137.38,
+        "all_dmg_": 136.65,
         "critDMG_": 15
       },
       "description": ""
@@ -129,13 +163,13 @@
         "eleMas": 80,
         "atk_": 50,
         "critRate_": 35,
-        "all_dmg_": 152.455,
+        "all_dmg_": 152.276,
         "critDMG_": 15
       },
       "description": ""
     },
     {
-      "weight": 0.5414,
+      "weight": 0.5,
       "path": [
         "normal",
         "0"
@@ -147,15 +181,15 @@
         "eleMas": 281.684,
         "atk_": 98,
         "vaporize_dmg_": 15,
-        "all_dmg_": 150.932,
+        "all_dmg_": 154.307,
         "hydro_enemyRes_": -40,
-        "critRate_": 34.156,
-        "critDMG_": 14.156
+        "critRate_": 33.875,
+        "critDMG_": 13.875
       },
       "description": ""
     },
     {
-      "weight": 0.2006,
+      "weight": 0.2461,
       "path": [
         "charged",
         "dmg"
@@ -164,38 +198,78 @@
       "reaction": "vaporize",
       "bonusStats": {
         "eleMas": 281.684,
-        "atk_": 96.5,
+        "atk_": 98,
         "atk": 411.494,
         "vaporize_dmg_": 15,
+        "all_dmg_": 184.107,
+        "hydro_enemyRes_": -40,
+        "critRate_": 34.531,
+        "critDMG_": 14.531
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.9594,
+      "path": [
+        "charged",
+        "dmg"
+      ],
+      "hitMode": "avgHit",
+      "reaction": "vaporize",
+      "bonusStats": {
+        "atk": 711.494,
+        "eleMas": 277.684,
+        "atk_": 98,
+        "vaporize_dmg_": 15,
+        "all_dmg_": 266.957,
+        "hydro_enemyRes_": -40,
+        "critRate_": 33.781,
+        "critDMG_": 13.781
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.9594,
+      "path": [
+        "charged",
+        "dmg"
+      ],
+      "hitMode": "avgHit",
+      "reaction": "vaporize",
+      "bonusStats": {
+        "atk": 711.494,
+        "eleMas": 281.684,
+        "atk_": 98,
+        "vaporize_dmg_": 15,
+        "all_dmg_": 232.927,
+        "hydro_enemyRes_": -40,
+        "critRate_": 33.781,
+        "critDMG_": 13.781
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "charged",
+        "dmg"
+      ],
+      "hitMode": "avgHit",
+      "reaction": "vaporize",
+      "bonusStats": {
+        "atk": 711.494,
+        "eleMas": 281.684,
+        "atk_": 98,
+        "vaporize_dmg_": 15,
         "critRate_": 35,
-        "all_dmg_": 180.357,
+        "all_dmg_": 258.327,
         "critDMG_": 15,
         "hydro_enemyRes_": -40
       },
       "description": ""
     },
     {
-      "weight": 0.9747,
-      "path": [
-        "charged",
-        "dmg"
-      ],
-      "hitMode": "avgHit",
-      "reaction": "vaporize",
-      "bonusStats": {
-        "atk": 711.494,
-        "eleMas": 278.684,
-        "atk_": 98,
-        "vaporize_dmg_": 15,
-        "all_dmg_": 265.902,
-        "hydro_enemyRes_": -40,
-        "critRate_": 34.156,
-        "critDMG_": 14.156
-      },
-      "description": ""
-    },
-    {
-      "weight": 0.9747,
+      "weight": 0.9594,
       "path": [
         "charged",
         "dmg"
@@ -206,36 +280,16 @@
         "atk": 711.494,
         "eleMas": 281.684,
         "atk_": 98,
-        "vaporize_dmg_": 15,
-        "all_dmg_": 230.752,
+        "all_dmg_": 218.377,
         "hydro_enemyRes_": -40,
-        "critRate_": 34.156,
-        "critDMG_": 14.156
+        "critRate_": 33.781,
+        "vaporize_dmg_": 13.875,
+        "critDMG_": 13.781
       },
       "description": ""
     },
     {
-      "weight": 0.9747,
-      "path": [
-        "charged",
-        "dmg"
-      ],
-      "hitMode": "avgHit",
-      "reaction": "vaporize",
-      "bonusStats": {
-        "atk": 711.494,
-        "eleMas": 281.684,
-        "atk_": 98,
-        "all_dmg_": 216.152,
-        "hydro_enemyRes_": -40,
-        "critRate_": 34.156,
-        "vaporize_dmg_": 14.156,
-        "critDMG_": 14.156
-      },
-      "description": ""
-    },
-    {
-      "weight": 0.9747,
+      "weight": 0.9594,
       "path": [
         "charged",
         "dmg"
@@ -246,16 +300,16 @@
         "atk": 711.494,
         "eleMas": 231.684,
         "atk_": 98,
-        "all_dmg_": 277.982,
-        "critRate_": 34.156,
-        "vaporize_dmg_": 14.156,
-        "critDMG_": 14.156,
-        "hydro_enemyRes_": -37.75
+        "all_dmg_": 278.307,
+        "critRate_": 33.781,
+        "vaporize_dmg_": 13.781,
+        "critDMG_": 13.781,
+        "hydro_enemyRes_": -36.75
       },
       "description": ""
     },
     {
-      "weight": 0.5414,
+      "weight": 0.5,
       "path": [
         "normal",
         "0"
@@ -266,9 +320,9 @@
         "atk": 711.494,
         "eleMas": 231.684,
         "atk_": 50,
-        "all_dmg_": 94.664,
+        "all_dmg_": 94.543,
         "critRate_": 20,
-        "vaporize_dmg_": 14.156
+        "vaporize_dmg_": 13.781
       },
       "description": ""
     },
@@ -283,7 +337,7 @@
         "atk": 711.494,
         "eleMas": 231.684,
         "atk_": 50,
-        "all_dmg_": 95.379,
+        "all_dmg_": 95.143,
         "critRate_": 20
       },
       "description": ""
@@ -299,13 +353,13 @@
         "atk": 711.494,
         "eleMas": 231.684,
         "atk_": 50,
-        "all_dmg_": 92.429,
+        "all_dmg_": 92.393,
         "critRate_": 20
       },
       "description": ""
     },
     {
-      "weight": 0.0872,
+      "weight": 0.0977,
       "path": [
         "charged",
         "dmg"
@@ -315,13 +369,13 @@
         "atk": 711.494,
         "eleMas": 231.684,
         "atk_": 50,
-        "all_dmg_": 81.213,
+        "all_dmg_": 80.393,
         "critRate_": 20
       },
       "description": ""
     },
     {
-      "weight": 0.0723,
+      "weight": 0.0947,
       "path": [
         "charged",
         "dmg"
@@ -331,7 +385,7 @@
         "atk": 711.494,
         "eleMas": 231.684,
         "atk_": 50,
-        "all_dmg_": 79.813,
+        "all_dmg_": 79.403,
         "critRate_": 20
       },
       "description": ""
@@ -381,7 +435,7 @@
         "eleMas": 80,
         "atk_": 50,
         "critRate_": 35,
-        "all_dmg_": 142.723,
+        "all_dmg_": 142.943,
         "critDMG_": 15
       },
       "description": ""
@@ -421,7 +475,7 @@
       "description": ""
     },
     {
-      "weight": 0.5414,
+      "weight": 0.5,
       "path": [
         "normal",
         "0"
@@ -434,14 +488,14 @@
         "atk_": 50,
         "vaporize_dmg_": 15,
         "critRate_": 35,
-        "all_dmg_": 148.014,
+        "all_dmg_": 148.114,
         "critDMG_": 15,
         "hydro_enemyRes_": -40
       },
       "description": ""
     },
     {
-      "weight": 0.1886,
+      "weight": 0.25,
       "path": [
         "charged",
         "dmg"
@@ -454,14 +508,14 @@
         "atk": 411.494,
         "vaporize_dmg_": 15,
         "critRate_": 35,
-        "all_dmg_": 195.714,
+        "all_dmg_": 186.714,
         "critDMG_": 15,
         "hydro_enemyRes_": -40
       },
       "description": ""
     },
     {
-      "weight": 0.3828,
+      "weight": 0.375,
       "path": [
         "normal",
         "0"
@@ -490,34 +544,14 @@
         "eleMas": 281.684,
         "atk_": 50,
         "critRate_": 35,
-        "all_dmg_": 145.714,
+        "all_dmg_": 146.264,
         "critDMG_": 15,
         "hydro_enemyRes_": -40
       },
       "description": ""
     },
     {
-      "weight": 0.1194,
-      "path": [
-        "charged",
-        "dmg"
-      ],
-      "hitMode": "avgHit",
-      "reaction": "vaporize",
-      "bonusStats": {
-        "atk": 711.494,
-        "eleMas": 218.526,
-        "atk_": 50,
-        "vaporize_dmg_": 15,
-        "critRate_": 35,
-        "all_dmg_": 295.814,
-        "critDMG_": 15,
-        "hydro_enemyRes_": -40
-      },
-      "description": ""
-    },
-    {
-      "weight": 0.1886,
+      "weight": 0.25,
       "path": [
         "charged",
         "dmg"
@@ -530,14 +564,14 @@
         "atk_": 50,
         "vaporize_dmg_": 15,
         "critRate_": 35,
-        "all_dmg_": 286.784,
+        "all_dmg_": 294.804,
         "critDMG_": 15,
         "hydro_enemyRes_": -40
       },
       "description": ""
     },
     {
-      "weight": 0.696,
+      "weight": 0.25,
       "path": [
         "charged",
         "dmg"
@@ -546,18 +580,18 @@
       "reaction": "vaporize",
       "bonusStats": {
         "atk": 711.494,
-        "eleMas": 246.369,
+        "eleMas": 239.331,
         "atk_": 50,
         "vaporize_dmg_": 15,
         "critRate_": 35,
-        "all_dmg_": 274.874,
+        "all_dmg_": 309.714,
         "critDMG_": 15,
         "hydro_enemyRes_": -40
       },
       "description": ""
     },
     {
-      "weight": 0.696,
+      "weight": 0.6667,
       "path": [
         "charged",
         "dmg"
@@ -566,74 +600,18 @@
       "reaction": "vaporize",
       "bonusStats": {
         "atk": 711.494,
-        "eleMas": 281.684,
+        "eleMas": 251.932,
         "atk_": 50,
         "vaporize_dmg_": 15,
         "critRate_": 35,
-        "all_dmg_": 268.384,
+        "all_dmg_": 269.874,
         "critDMG_": 15,
         "hydro_enemyRes_": -40
       },
       "description": ""
     },
     {
-      "weight": 0.696,
-      "path": [
-        "charged",
-        "dmg"
-      ],
-      "hitMode": "avgHit",
-      "reaction": "vaporize",
-      "bonusStats": {
-        "atk": 711.494,
-        "eleMas": 281.684,
-        "atk_": 50,
-        "vaporize_dmg_": 15,
-        "critRate_": 35,
-        "all_dmg_": 223.694,
-        "critDMG_": 15,
-        "hydro_enemyRes_": -40
-      },
-      "description": ""
-    },
-    {
-      "weight": 0.7562,
-      "path": [
-        "charged",
-        "dmg"
-      ],
-      "hitMode": "avgHit",
-      "reaction": "vaporize",
-      "bonusStats": {
-        "atk": 711.494,
-        "eleMas": 80,
-        "atk_": 50,
-        "vaporize_dmg_": 15,
-        "critRate_": 35,
-        "all_dmg_": 268.414,
-        "critDMG_": 15,
-        "hydro_enemyRes_": -40
-      },
-      "description": ""
-    },
-    {
-      "weight": 0.1172,
-      "path": [
-        "normal",
-        "0"
-      ],
-      "hitMode": "avgHit",
-      "bonusStats": {
-        "atk": 711.494,
-        "eleMas": 80,
-        "atk_": 50,
-        "all_dmg_": 86.534,
-        "critRate_": 20
-      },
-      "description": ""
-    },
-    {
-      "weight": 0.9468,
+      "weight": 0.6667,
       "path": [
         "charged",
         "dmg"
@@ -643,118 +621,158 @@
       "bonusStats": {
         "atk": 711.494,
         "eleMas": 281.684,
-        "atk_": 98,
+        "atk_": 50,
         "vaporize_dmg_": 15,
         "critRate_": 35,
-        "all_dmg_": 258.817,
+        "all_dmg_": 269.814,
         "critDMG_": 15,
         "hydro_enemyRes_": -40
       },
       "description": ""
     },
     {
-      "weight": 0.2948,
+      "weight": 0.6667,
       "path": [
         "charged",
         "dmg"
-      ],
-      "hitMode": "avgHit",
-      "bonusStats": {
-        "atk": 711.494,
-        "eleMas": 281.684,
-        "atk_": 50,
-        "critRate_": 35,
-        "all_dmg_": 153.394,
-        "critDMG_": 15,
-        "hydro_enemyRes_": -40
-      },
-      "description": ""
-    },
-    {
-      "weight": 0.2948,
-      "path": [
-        "charged",
-        "dmg"
-      ],
-      "hitMode": "avgHit",
-      "bonusStats": {
-        "atk": 711.494,
-        "eleMas": 281.684,
-        "atk_": 50,
-        "critRate_": 35,
-        "all_dmg_": 266.854,
-        "critDMG_": 15,
-        "hydro_enemyRes_": -40
-      },
-      "description": ""
-    },
-    {
-      "weight": 0.2948,
-      "path": [
-        "charged",
-        "dmg"
-      ],
-      "hitMode": "avgHit",
-      "bonusStats": {
-        "atk": 711.494,
-        "eleMas": 281.684,
-        "atk_": 50,
-        "critRate_": 35,
-        "all_dmg_": 222.444,
-        "critDMG_": 15,
-        "hydro_enemyRes_": -40
-      },
-      "description": ""
-    },
-    {
-      "weight": 0.3815,
-      "path": [
-        "charged",
-        "dmg"
-      ],
-      "hitMode": "avgHit",
-      "bonusStats": {
-        "atk": 711.494,
-        "eleMas": 80,
-        "atk_": 50,
-        "critRate_": 35,
-        "all_dmg_": 268.244,
-        "critDMG_": 15,
-        "hydro_enemyRes_": -40
-      },
-      "description": ""
-    },
-    {
-      "weight": 0.3757,
-      "path": [
-        "normal",
-        "0"
       ],
       "hitMode": "avgHit",
       "reaction": "vaporize",
       "bonusStats": {
         "atk": 711.494,
-        "eleMas": 80,
+        "eleMas": 281.684,
         "atk_": 50,
         "vaporize_dmg_": 15,
-        "all_dmg_": 87.664,
-        "critRate_": 20
+        "critRate_": 35,
+        "all_dmg_": 224.094,
+        "critDMG_": 15,
+        "hydro_enemyRes_": -40
       },
       "description": ""
     },
     {
       "weight": 0.5,
       "path": [
+        "charged",
+        "dmg"
+      ],
+      "hitMode": "avgHit",
+      "reaction": "vaporize",
+      "bonusStats": {
+        "atk": 711.494,
+        "eleMas": 80,
+        "atk_": 50,
+        "vaporize_dmg_": 15,
+        "critRate_": 35,
+        "all_dmg_": 267.234,
+        "critDMG_": 15,
+        "hydro_enemyRes_": -40
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.125,
+      "path": [
         "normal",
-        "1"
+        "0"
       ],
       "hitMode": "avgHit",
       "bonusStats": {
         "atk": 711.494,
         "eleMas": 80,
         "atk_": 50,
-        "all_dmg_": 88.364,
+        "all_dmg_": 88.154,
         "critRate_": 20
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.2383,
+      "path": [
+        "charged",
+        "dmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk": 711.494,
+        "eleMas": 281.684,
+        "atk_": 50,
+        "critRate_": 35,
+        "all_dmg_": 154.434,
+        "critDMG_": 15,
+        "hydro_enemyRes_": -40
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.2383,
+      "path": [
+        "charged",
+        "dmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk": 711.494,
+        "eleMas": 281.684,
+        "atk_": 50,
+        "critRate_": 35,
+        "all_dmg_": 268.064,
+        "critDMG_": 15,
+        "hydro_enemyRes_": -40
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.2383,
+      "path": [
+        "charged",
+        "dmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk": 711.494,
+        "eleMas": 281.684,
+        "atk_": 50,
+        "critRate_": 35,
+        "all_dmg_": 222.634,
+        "critDMG_": 15,
+        "hydro_enemyRes_": -40
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.2383,
+      "path": [
+        "charged",
+        "dmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk": 711.494,
+        "eleMas": 80,
+        "atk_": 50,
+        "critRate_": 35,
+        "all_dmg_": 270.124,
+        "critDMG_": 15,
+        "hydro_enemyRes_": -40
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.2344,
+      "path": [
+        "charged",
+        "dmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk": 711.494,
+        "eleMas": 80,
+        "atk_": 50,
+        "critRate_": 35,
+        "all_dmg_": 270.124,
+        "critDMG_": 15,
+        "hydro_enemyRes_": -40
       },
       "description": ""
     }

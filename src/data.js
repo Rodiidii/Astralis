@@ -1,3 +1,4 @@
+import { CHARACTER_PORTRAITS } from './character-portrait-assets.js?v=20261124-expedition-3';
 import {normalizeGiLevelRow} from './gi-level-stats.js';
 import {farmArtwork} from './farm-art.js';
 import {equipmentArtwork} from './equipment-art.js';
@@ -7,6 +8,7 @@ import { getLocal, putLocal } from './persistence.js?v=20261107-stability-6';
 import { ic } from './icons.js?v=20261107-stability-6';
 import { talentValuesAtLevel } from './character-content.js?v=20261108-character-polish-1';
 import { importSources } from './import-sources.js?v=20261109-sources-1';
+import { normalizeWeaponSourceDetails } from './weapon-source-normalizer.js?v=20261125-weapon-source-1';
 
 export const GAMES = {
   hsr: { label: 'Honkai: Star Rail', short: 'Star Rail', icon: ic('hsr'), accent: '#c1a7ff', source: 'StarRailStaticAPI' },
@@ -71,7 +73,19 @@ function entityId(game, item, fallback) {
 function normalize(game, category, item, fallback) {
   if (!item || typeof item !== 'object') item = { name: String(item ?? fallback) };
   const id = entityId(game, item, fallback);
-  return { ...item, _id: id, _name: displayName(game, item, id), _game: game, _category: category };
+  const rarity=game==='gi'?normalizeGenshinRarity(item.rarity):item.rarity;
+  return { ...item, ...(rarity==null?{}:{rarity}), _id: id, _name: displayName(game, item, id), _game: game, _category: category };
+}
+function normalizeGenshinRarity(value){
+  if(value==null||value==='')return null;
+  const text=String(value).trim().toUpperCase();
+  const numeric=Number(text);if(Number.isFinite(numeric)&&numeric>0)return numeric;
+  if(/(?:ORANGE|GOLD|LEGENDARY|5STAR)/.test(text))return 5;
+  if(/(?:PURPLE|EPIC|4STAR)/.test(text))return 4;
+  if(/(?:BLUE|RARE|3STAR)/.test(text))return 3;
+  if(/(?:GREEN|UNCOMMON|2STAR)/.test(text))return 2;
+  if(/(?:WHITE|COMMON|1STAR)/.test(text))return 1;
+  return null;
 }
 async function json(url, signal) {
   const response = await fetch(url, { signal, cache: 'no-cache' });
@@ -112,13 +126,16 @@ export async function catalog(game, category, { force = false } = {}) {
         const cleanItems = cleanCatalogRows(saved.items);
         catalogCache.set(key, { items: cleanItems, savedAt });
         let autoRefresh=true;try{autoRefresh=JSON.parse(localStorage.getItem('astralis:preferences')||'{}').autoRefresh!==false;}catch{}
-        if (autoRefresh&&Date.now()-savedAt>=ttl&&!refreshing.has(key)) {
+        // Genshin catalogues only change through the user's explicit sync button.
+        // The version probe may notify at startup, but must never silently replace
+        // the cached catalogue after its TTL expires.
+        if (game !== 'gi' && autoRefresh&&Date.now()-savedAt>=ttl&&!refreshing.has(key)) {
           const refresh = fetchCatalog(game, category, false).then(items => {
             const previous = catalogCache.get(key)?.items;
             if (game === 'gi' && category === 'character' && previous?.length > 40 && items.length < previous.length * 0.75) throw new Error('Mise à jour partielle ignorée : conservation du catalogue Genshin déjà valide.');
             catalogCache.set(key, { items, savedAt: Date.now() });
             putLocal('cache', `catalog:${key}`, { items, savedAt: Date.now(), source: GAMES[game].source }).catch(() => {});
-            window.dispatchEvent(new CustomEvent('astralis:catalog-updated', { detail: key }));
+            window.dispatchEvent(new CustomEvent('astralis:catalog-updated', { detail: {key,previous:previous||[],items} }));
             recordSync({game,category,status:'ok',count:items.length,background:true});
           }).catch(error => {recordSync({game,category,status:'error',message:String(error?.message||error),background:true});}).finally(() => refreshing.delete(key));
           refreshing.set(key, refresh);
@@ -149,12 +166,27 @@ async function fetchLunarisGi(category, source) {
   if(!file)return null;
   const raw=await json(source.dataTemplate.replace('{version}',encodeURIComponent(version)).replace('{file}',encodeURIComponent(file)),AbortSignal.timeout(30000));
   const rows=Object.entries(raw||{}).map(([id,row])=>{
-    const rarity=String(row.qualityType||'').includes('ORANGE')?5:String(row.qualityType||'').includes('PURPLE')?4:Number(row.rarity)||0;
-    if(category==='character')return {id,substatType:normalizeGiLevelRow(row.ascensionStats).specializedType,name:row.frName||row.enName||row.chsName, enName:row.enName,rarity,element:row.element,weaponType:row.weaponType,version,sourceVersion:version,images:{filename_icon:row.CardImg||`UI_Gacha_AvatarIcon_${row.enName}`,filename_gachaSplash:row.GachaImg||`UI_Gacha_AvatarImg_${row.enName}`,lunarisIcon:row.CardImg,lunarisSplash:row.GachaImg},introduction:row.description||'',description:row.description||'',ascensionStats:row.ascensionStats||{}};
-    if(category==='weapon')return {id,mainStatType:normalizeGiLevelRow(row.ascensionStats).specializedType,name:row.frName||row.enName||row.chsName,enName:row.enName,rarity,weaponType:row.weaponType,ascensionStats:row.ascensionStats||{},images:{filename_icon:row.weaponIcon,lunarisIcon:row.weaponIcon},description:row.description||''};
-    return {id,name:row.frName||row.enName||row.chsName,enName:row.enName,rarity,setId:row.setId,images:{filename_icon:row.setIcon,lunarisIcon:row.setIcon},twoPieceBonus:row.twoPieceBonus||'',fourPieceBonus:row.fourPieceBonus||'',description:row.description||''};
-  });
+    const rarity=normalizeGenshinRarity(row.qualityType)??normalizeGenshinRarity(row.rarity)??0;
+    if(category==='character'){
+      const localizedName=String(row.frName||row.enName||row.chsName||'');
+      // Lunaris also publishes the generic, non-playable player placeholder.
+      // It has an unresolved gender token, Unknown element and no detail page;
+      // exposing it created a phantom "new character" and a permanent partial sync.
+      if(row.element==='Unknown'&&/#[{](?:M|F)#/i.test(localizedName)&&String(row.weaponType||'').includes('CROSSBOW'))return null;
+      return {id,substatType:normalizeGiLevelRow(row.ascensionStats).specializedType,name:localizedName,enName:row.enName,rarity,element:row.element,weaponType:row.weaponType,version,sourceVersion:version,images:{filename_icon:row.CardImg||`UI_Gacha_AvatarIcon_${row.enName}`,filename_gachaSplash:row.GachaImg||`UI_Gacha_AvatarImg_${row.enName}`,lunarisIcon:row.CardImg,lunarisSplash:row.GachaImg},introduction:row.description||'',description:row.description||'',ascensionStats:row.ascensionStats||{}};
+    }
+    if(category==='weapon')return {id,mainStatType:normalizeGiLevelRow(row.ascensionStats).specializedType,name:row.frName||row.enName||row.chsName,enName:row.enName,rarity,weaponType:row.weaponType,ascensionStats:row.ascensionStats||{},version,sourceVersion:version,images:{filename_icon:row.weaponIcon,lunarisIcon:row.weaponIcon},description:row.description||''};
+    return {id,name:row.frName||row.enName||row.chsName,enName:row.enName,rarity,setId:row.setId,version,sourceVersion:version,images:{filename_icon:row.setIcon,lunarisIcon:row.setIcon},twoPieceBonus:row.twoPieceBonus||'',fourPieceBonus:row.fourPieceBonus||'',description:row.description||''};
+  }).filter(Boolean);
   return {version,items:rows};
+}
+
+export async function checkGenshinCatalogVersion(){
+  const sources=await importSources(),url=sources.games.gi?.lunaris?.versionUrl;
+  if(!url)throw new Error('Source de version Genshin indisponible.');
+  const meta=await json(url,AbortSignal.timeout(15000)),version=String(meta?.version||'').trim();
+  if(!/^\d+\.\d+\.\d+$/.test(version))throw new Error('Version Genshin invalide.');
+  return version;
 }
 
 async function fetchCatalog(game, category, force) {
@@ -167,11 +199,31 @@ async function fetchCatalog(game, category, force) {
       const endpoint = file;
       const url = `${sources.games.gi.genshinDb.apiBase}/${endpoint}?query=names&matchCategories=true&verboseCategories=true&queryLanguages=french&resultLanguage=French`;
       const secondary=await json(url, AbortSignal.timeout(30000)).catch(()=>null);
+      let bundledArtifactIds=new Set();
       if(lunaris?.items?.length){
         const normName=value=>String(value||'').normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase().replace(/[^a-z0-9]/g,'');
         const extras=Array.isArray(secondary)?secondary:Object.values(secondary||{});
+        const byId=new Map(extras.filter(row=>row?.id!=null||row?.setId!=null).map(row=>[String(row.id??row.setId),row]));
         const byName=new Map(extras.map(row=>[normName(row.name||row.enName),row]));
-        data=lunaris.items.map(row=>({...((byName.get(normName(row.enName))||byName.get(normName(row.name)))||{}),...row,images:{...((byName.get(normName(row.enName))||{}).images||{}),...(row.images||{})}}));
+        const merged=lunaris.items.map(row=>{
+          const supplement=byId.get(String(row.id??row.setId))||byName.get(normName(row.enName))||byName.get(normName(row.frName||row.name))||{};
+          const item={...supplement,...row,images:{...(supplement.images||{}),...(row.images||{})}};
+          if(category==='artifact'){
+            item.twoPieceBonus=row.twoPieceBonus||row.effect2Pc||row.effect2||supplement.twoPieceBonus||supplement.effect2Pc||supplement.effect2||'';
+            item.fourPieceBonus=row.fourPieceBonus||row.effect4Pc||row.effect4||supplement.fourPieceBonus||supplement.effect4Pc||supplement.effect4||'';
+          }
+          return item;
+        });
+        if(category==='artifact'){
+          const missing=merged.filter(item=>!item.twoPieceBonus||!item.fourPieceBonus||!item.images?.filename_flower&&!item.images?.filename_circlet);
+          const details=await Promise.all(missing.map(async item=>{
+            const id=String(item.setId||item.id||'');if(!/^\d+$/.test(id))return null;
+            try{return [id,await json(`https://api.lunaris.moe/data/${encodeURIComponent(lunaris.version)}/fr/artifact/${encodeURIComponent(id)}.json`,AbortSignal.timeout(20000))]}catch{return null;}
+          }));
+          const byId=new Map(details.filter(Boolean));
+          for(const item of missing){const detail=byId.get(String(item.setId||item.id||''))?.info||{},bonuses=detail.setBonuses||{};item.twoPieceBonus||=bonuses['2pc']?.description||'';item.fourPieceBonus||=bonuses['4pc']?.description||'';item.pieces=detail.pieces||{};item.images={...(item.images||{}),...Object.fromEntries(Object.entries(detail.pieces||{}).map(([slot,piece])=>[`filename_${slot}`,piece.icon]).filter(([,icon])=>icon))};}
+        }
+        data=merged;
       } else if(secondary&&(Array.isArray(secondary)?secondary:Object.values(secondary)).some(row=>row&&typeof row==='object'&&(row.name||row.frName||row.enName)))data=secondary;
       else data=await json(`assets/data/gi-${file}.json`,AbortSignal.timeout(30000));
       // The live database has French text; the bundled Hakushin-era export is
@@ -179,18 +231,20 @@ async function fetchCatalog(game, category, force) {
       try {
         const local = await json(`assets/data/gi-${file}.json`, AbortSignal.timeout(20000));
         const localRows = Array.isArray(local) ? local : Object.values(local || {});
+        if(category==='artifact')bundledArtifactIds=new Set(localRows.map(row=>String(row.id??row.setId??'')).filter(Boolean));
         const byId = new Map(localRows.map(row => [String(row.id ?? row.name ?? '').toLowerCase(), row]));
         const byName = new Map(localRows.map(row => [String(row.name || '').toLowerCase(), row]));
         const merge = (remote, original) => {
           const key = String(remote.id ?? remote.name ?? '').toLowerCase();
           const saved = byId.get(key) || byName.get(String(remote.name || '').toLowerCase()) || {};
-          return { ...saved, ...remote, id: remote.id ?? saved.id, costs: remote.costs || saved.costs,
+          return { ...saved, ...remote, id: remote.id ?? saved.id, rarity:Number(saved.rarity)||Number(remote.rarity)||undefined, costs: remote.costs || saved.costs,
             images: { ...(saved.images || {}), ...(remote.images || {}),
               filename_icon: remote.images?.filename_icon || saved.images?.filename_icon,
               filename_flower: remote.images?.filename_flower || saved.images?.filename_flower } };
         };
         data = Array.isArray(data) ? data.map(row => merge(row)) : Object.fromEntries(Object.entries(data || {}).map(([key,row]) => [key, merge(row)]));
       } catch { /* Les assets locaux sont un enrichissement, la source principale reste utilisable. */ }
+      if(category==='artifact'&&Array.isArray(data))data=data.filter(item=>item.twoPieceBonus||item.fourPieceBonus||bundledArtifactIds.has(String(item.id??item.setId??'')));
     } else data = [];
   } else if (game === 'hsr') {
     const file = category === 'character' ? 'character' : category === 'weapon' ? 'lightcone' : category === 'artifact' ? 'relicset' : category==='material'?'item':'';
@@ -257,7 +311,7 @@ export async function hsrCharacterRanks(){
 
 let talentCostRequest;
 async function characterTalentCosts(character) {
- talentCostRequest ||= fetch('./data/gi-talent-costs.json').then(r=>r.ok?r.json():{}).catch(()=>({}));
+ talentCostRequest ||= fetch('./data/gi-talent-costs.json?v=20261123-farm-priority-2').then(r=>r.ok?r.json():{}).catch(()=>({}));
  const snapshot=await talentCostRequest;
  const traveler = ['10000005','10000007'].includes(String(character.id)) || /^traveler-/.test(character._id);
  if (traveler) {
@@ -273,16 +327,27 @@ async function characterTalentCosts(character) {
  }catch{return {};}
 }
 
-export async function characterDetails(game, character) {
+export async function characterDetails(game, character, {force=false,includeCosts=true}={}) {
   const key = `${game}:${character._id}`;
+  const requestedVersion=String(character?.sourceVersion||character?.version||'');
+  const matchesVersion=details=>!requestedVersion||String(details?.kitVersion||'')===`Lunaris ${requestedVersion}`||String(details?.sourceVersion||'')===requestedVersion;
+  const restoreTalentCosts=async details=>{
+    if(game!=='gi'||character.preRelease||!includeCosts||details?._talentCostsChecked)return details;
+    const cachedCosts=details?.talentCosts||{},hasLevels=Array.from({length:9},(_,index)=>cachedCosts[`lvl${index+2}`]).every(rows=>Array.isArray(rows)&&rows.length>0);
+    if(hasLevels)return details;
+    const talentCosts={...cachedCosts,...await characterTalentCosts(character)},enriched={...details,talentCosts,_talentCostsChecked:true};
+    detailCache.set(key,enriched);
+    putLocal('cache',`detail:studio84:${key}`,{items:enriched,savedAt:Date.now(),source:'talent-cost-recovery'}).catch(()=>{});
+    return enriched;
+  };
   // Never fuzzy-query unreleased characters: wait for a connected public source rather than fabricating kit data.
   if (game === 'gi' && character.preRelease) {
     const details = { ...character, levelStats: null, skillTalents: [], talentValues: null, passives: [], constellations: [] };
     detailCache.set(key, details);
     return details;
   }
-  if (detailCache.has(key)) return detailCache.get(key);
-  try{const saved=await getLocal('cache',`detail:studio84:${key}`);if(saved?.items&&Date.now()-(Number(saved.savedAt)||0)<cacheTtl()){detailCache.set(key,saved.items);return saved.items;}}catch{}
+  if (!force&&detailCache.has(key)) { const cached=detailCache.get(key); if(matchesVersion(cached))return restoreTalentCosts(cached); detailCache.delete(key); }
+  if(!force)try{const saved=await getLocal('cache',`detail:studio84:${key}`);if(saved?.items&&Date.now()-(Number(saved.savedAt)||0)<cacheTtl()&&matchesVersion(saved.items)){const details=await restoreTalentCosts(saved.items);detailCache.set(key,details);return details;}}catch{}
   let details = character;
   if (game === 'gi') {
     if(/^\d+$/.test(String(character.id||''))){
@@ -296,7 +361,7 @@ export async function characterDetails(game, character) {
         const constellations=Array.from({length:6},(_,i)=>raw.constellations?.[`const${i+1}`]).filter(Boolean).map((value,i)=>({...value,name:`C${i+1} · ${value.name||''}`,icon:value.icon?`https://api.lunaris.moe/data/assets/skills/${encodeURIComponent(value.icon)}.webp`:undefined}));
         const attr=(info.attributes||[]).filter(x=>Number(x.level)===90).sort((a,b)=>Number(b.ascension)-Number(a.ascension))[0]||{};
         const icon=filename=>filename?`https://api.lunaris.moe/data/assets/skills/${encodeURIComponent(filename)}.webp`:undefined;
-        details={...character,...info,talentCosts:await characterTalentCosts(character),levelStats:info.attributes,baseStats:{hp:attr.hp,attack:attr.attack??attr.atk,defense:attr.defense??attr.def},skillTalents,passives:Object.values(raw.passives||{}).filter(x=>x?.name&&x?.description).map(value=>({...value,icon:icon(value.icon)})),constellations,kitVersion:`Lunaris ${version}`,source:'Lunaris'};
+        details={...character,...info,talentCosts:includeCosts?await characterTalentCosts(character):(character.talentCosts||{}),levelStats:info.attributes,baseStats:{hp:attr.hp,attack:attr.attack??attr.atk,defense:attr.defense??attr.def},skillTalents,passives:Object.values(raw.passives||{}).filter(x=>x?.name&&x?.description).map(value=>({...value,icon:icon(value.icon)})),constellations,kitVersion:`Lunaris ${version}`,sourceVersion:version,source:'Lunaris'};
         detailCache.set(key,details);putLocal('cache',`detail:studio84:${key}`,{items:details,savedAt:Date.now(),source:'Lunaris'}).catch(()=>{});return details;
       }catch{/* fallback below: Genshin-DB remains a rescue source */}
     }
@@ -308,7 +373,7 @@ export async function characterDetails(game, character) {
       levelStatsFor('characters',character).catch(()=>null),
     ]);
     const skillTalents=['combat1','combat2','combat3'].map(key=>talentValues?.[key]).filter(Boolean);
-    details = { ...character, description:character.description, levelStats, talentValues, skillTalents:skillTalents.map((skill,index)=>{const legacy=`https://genshin.jmp.blue/characters/${encodeURIComponent(character._id)}/talent-${['na','skill','burst'][index]}`;const filename=talentValues?.images?.[`filename_combat${index+1}`];return {...skill,icon:filename?`https://enka.network/ui/${encodeURIComponent(filename)}.png`:legacy,iconFallbacks:[legacy]}}), talentCosts:talentValues?.costs||await characterTalentCosts(character), passives:['passive1','passive2','passive3'].map(key=>{const value=talentValues?.[key],filename=talentValues?.images?.['filename_'+key];return value?{...value,icon:value.icon||(filename?'https://enka.network/ui/'+encodeURIComponent(filename)+'.png':'')}:null}).filter(Boolean), constellations:constellations?['c1','c2','c3','c4','c5','c6'].map((key,index)=>constellations[key]&&({name:`Constellation ${index+1} · ${constellations[key].name}`,description:constellations[key].description,icon:`https://genshin.jmp.blue/characters/${encodeURIComponent(character._id)}/constellation-${index+1}`,level:10})).filter(Boolean):[] };
+    details = { ...character, description:character.description, levelStats, talentValues, skillTalents:skillTalents.map((skill,index)=>{const legacy=`https://genshin.jmp.blue/characters/${encodeURIComponent(character._id)}/talent-${['na','skill','burst'][index]}`;const filename=talentValues?.images?.[`filename_combat${index+1}`];return {...skill,icon:filename?`https://enka.network/ui/${encodeURIComponent(filename)}.png`:legacy,iconFallbacks:[legacy]}}), talentCosts:talentValues?.costs||(includeCosts?await characterTalentCosts(character):{}), passives:['passive1','passive2','passive3'].map(key=>{const value=talentValues?.[key],filename=talentValues?.images?.['filename_'+key];return value?{...value,icon:value.icon||(filename?'https://enka.network/ui/'+encodeURIComponent(filename)+'.png':'')}:null}).filter(Boolean), constellations:constellations?['c1','c2','c3','c4','c5','c6'].map((key,index)=>constellations[key]&&({name:`Constellation ${index+1} · ${constellations[key].name}`,description:constellations[key].description,icon:`https://genshin.jmp.blue/characters/${encodeURIComponent(character._id)}/constellation-${index+1}`,level:10})).filter(Boolean):[],sourceVersion:requestedVersion };
   }
   if (game === 'ww'&&!character.preRelease) details = { ...character, ...await json(`/detail/ww/character/${encodeURIComponent(character.apiId||character._id)}`, AbortSignal.timeout(25000)) };
   if (game === 'hsr') {
@@ -341,6 +406,41 @@ export async function characterDetails(game, character) {
   return details;
 }
 
+export async function weaponDetails(game,weapon,{force=false}={}){
+  if(game!=='gi'||!weapon)return weapon;
+  const key=`${game}:weapon:${weapon._id}`,version=String(weapon.sourceVersion||weapon.version||'');
+  const matchesVersion=value=>!version||String(value?.sourceVersion||value?.version||'')===version;
+  if(!force&&detailCache.has(key)){const cached=detailCache.get(key);if(matchesVersion(cached))return cached;detailCache.delete(key);}
+  if(!force)try{const saved=await getLocal('cache',`detail:studio84:${key}`);if(saved?.items&&Date.now()-(Number(saved.savedAt)||0)<cacheTtl()&&matchesVersion(saved.items)){detailCache.set(key,saved.items);return saved.items;}}catch{}
+  const id=String(weapon.id||weapon.setId||'');if(!/^\d+$/.test(id))return weapon;
+  try{
+    const sourceVersion=version||String((await json('https://api.lunaris.moe/data/version.json',AbortSignal.timeout(15000)))?.version||'');
+    const raw=await json(`https://api.lunaris.moe/data/${encodeURIComponent(sourceVersion)}/fr/weapon/${encodeURIComponent(id)}.json`,AbortSignal.timeout(25000));
+    const statsAtMilestones=Object.fromEntries(['1','20','40','50','60','70','80','90'].filter(level=>raw.stats?.[level]).map(level=>[level,raw.stats[level]]));
+    const refined=normalizeWeaponSourceDetails(weapon,{
+      ...raw,
+      description:raw.weaponDesc||weapon.description||'',
+      weaponDesc:raw.weaponDesc||'',
+      stats:raw.stats||{},
+      statsAtMilestones,
+      ascensionStats:raw.stats?.['90']||weapon.ascensionStats||{},
+    },sourceVersion);
+    detailCache.set(key,refined);putLocal('cache',`detail:studio84:${key}`,{items:refined,savedAt:Date.now(),source:'Lunaris'}).catch(()=>{});return refined;
+  }catch(error){if(force)throw error;return weapon;}
+}
+
+export async function refreshGenshinCatalogDetails(category,rows,{force=false,concurrency=8}={}){
+  const items=Array.isArray(rows)?rows:[];if(!['character','weapon'].includes(category))return {items,refreshed:0,failed:0,failedItems:[]};
+  let cursor=0,refreshed=0,failed=0;const failedItems=[];
+  const workers=Array.from({length:Math.min(Math.max(1,Number(concurrency)||8),items.length)},async()=>{while(cursor<items.length){const index=cursor++,item=items[index];if(item?.preRelease)continue;try{const detail=category==='character'?await characterDetails('gi',item,{force,includeCosts:false}):await weaponDetails('gi',item,{force});if(detail&&detail!==item){items[index]={...item,...detail};refreshed++;}}catch(error){failed++;failedItems.push({id:String(item?.id||item?._id||''),name:String(item?._name||item?.name||''),error:String(error?.message||error||'Détail indisponible')});}}});
+  await Promise.all(workers);
+  // A manual sync's hydrated records must survive a restart and be visible to
+  // the damage lab. The base catalog cache is otherwise written before details
+  // are attached, which made the passives appear to vanish again on next load.
+  if(category==='weapon'&&refreshed>0&&!failed){const key='studio64:gi:weapon',savedAt=Date.now(),record={items,savedAt,source:'Catalogue et passifs Lunaris'};catalogCache.set(key,{items,savedAt});await putLocal('cache',`catalog:${key}`,record).catch(()=>{});}
+  return {items,refreshed,failed,failedItems};
+}
+
 // Sources de secours par nom interne (UI_AvatarIcon_<Nom>) pour les personnages récents
 // dont l'image n'existe pas encore sur genshin.jmp.blue.
 function genshinNameSources(item) {
@@ -365,7 +465,7 @@ export function imageSet(game, item, category = item?._category || 'character') 
       if(path.startsWith('icon/')||path.startsWith('image/'))return prefix+path;
       return '';
     };
-    const urls=[];
+    const localPortrait=category==='character'?CHARACTER_PORTRAITS[`hsr:${rawId}`]:null;const urls=localPortrait?[localPortrait]:[];
     // Small, square game icons are the first choice for widgets and lists.
     // Nanoka's `icon` slug (e.g. "mar7th") is an identifier, not an image path.
     if(/^\d+$/.test(rawId)){
@@ -390,7 +490,7 @@ export function imageSet(game, item, category = item?._category || 'character') 
       // Keep the familiar Prydwen portraits first. Other icon sources remain
       // as fallbacks; character splash art stays in splashImage() and is not
       // substituted into compact avatar/icon slots.
-      ...prydwenIcons,...lunarisUrls,
+      CHARACTER_PORTRAITS[`gi:${item?.id||item?._id||''}`],...prydwenIcons,...lunarisUrls,
       item?.images?.filename_icon && `https://enka.network/ui/${encodeURIComponent(item.images.filename_icon)}.png`,
       item?.images?.filename_icon && `https://gi.yatta.moe/assets/UI/${encodeURIComponent(item.images.filename_icon)}.png`,
       item?.images?.['mihoyo_icon'], item?.images?.portrait, item?.images?.image,
@@ -421,7 +521,7 @@ export function imageSet(game, item, category = item?._category || 'character') 
     }
   }
   if (game === 'ww') {
-    const urls = [item?.portraitUrl, item?.imageUrl, item?.image, item?.iconUrl, item?.icon].filter(Boolean);
+    const local=category==='character'?CHARACTER_PORTRAITS[`ww:${item?.id||item?._id||''}`]:null;const urls = [local,item?.portraitUrl, item?.imageUrl, item?.image, item?.iconUrl, item?.icon].filter(Boolean);
     return [...new Set(urls.map(sharpenWuwa))];
   }
   return [];
@@ -466,10 +566,13 @@ export function splashImageCandidates(game, item) {
 
 export function setBonuses(item, game) {
   const raw = item || {};
-  if (game === 'gi') return [
-    (raw['2-piece_bonus']||raw.effect2Pc) && { pieces: 2, text: raw['2-piece_bonus']||raw.effect2Pc },
-    (raw['4-piece_bonus']||raw.effect4Pc) && { pieces: 4, text: raw['4-piece_bonus']||raw.effect4Pc },
-  ].filter(Boolean);
+  if (game === 'gi') {
+    const groups=raw.setBonuses||raw.bonuses||{};
+    const textOf=value=>typeof value==='string'?value:String(value?.description||value?.desc||value?.text||value?.effect||value?.value||'');
+    const two=textOf(raw['2-piece_bonus']??raw.twoPieceBonus??raw.effect2Pc??raw.effect2??groups['2pc']??groups['2-piece']??groups.twoPiece);
+    const four=textOf(raw['4-piece_bonus']??raw.fourPieceBonus??raw.effect4Pc??raw.effect4??groups['4pc']??groups['4-piece']??groups.fourPiece);
+    return [{pieces:2,text:two},{pieces:4,text:four}].filter(row=>row.text.trim());
+  }
   if (game === 'hsr') {
     const desc = Array.isArray(raw.desc) ? raw.desc : [];
     return desc.map((text, index) => ({ pieces: index ? 4 : 2, text, properties: raw.properties?.[index] || [] })).filter(row => row.text);

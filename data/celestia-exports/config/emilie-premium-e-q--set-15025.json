@@ -3,99 +3,71 @@
   "description": "Celestia",
   "targets": [
     {
-      "weight": 0.5929,
+      "weight": 1,
       "path": [
         "skill",
         "level2Dmg"
       ],
       "hitMode": "avgHit",
       "bonusStats": {
-        "atk": 546.31,
-        "dendro_enemyRes_": -65,
-        "all_dmg_": 36
-      },
-      "description": ""
-    },
-    {
-      "weight": 0.5929,
-      "path": [
-        "skill",
-        "level2Dmg"
-      ],
-      "hitMode": "avgHit",
-      "bonusStats": {
-        "atk": 546.31,
-        "dendro_enemyRes_": -65,
-        "all_dmg_": 36
-      },
-      "description": ""
-    },
-    {
-      "weight": 0.9862,
-      "path": [
-        "skill",
-        "level2Dmg"
-      ],
-      "hitMode": "avgHit",
-      "bonusStats": {
-        "atk": 546.31,
-        "all_dmg_": 22.101,
+        "atk": 548.791,
+        "all_dmg_": 16.425,
         "dendro_enemyRes_": -65
       },
       "description": ""
     },
     {
-      "weight": 0.3476,
+      "weight": 0.25,
       "path": [
         "passive1",
         "dmg"
       ],
       "hitMode": "avgHit",
       "bonusStats": {
-        "atk": 546.31,
+        "atk": 548.791,
         "dendro_enemyRes_": -65,
         "all_dmg_": 36
       },
       "description": ""
     },
     {
-      "weight": 0.4337,
+      "weight": 0.5,
       "path": [
         "passive1",
         "dmg"
       ],
       "hitMode": "avgHit",
       "bonusStats": {
-        "atk": 546.31,
+        "atk": 548.791,
         "dendro_enemyRes_": -65,
         "all_dmg_": 76
       },
       "description": ""
     },
     {
-      "weight": 0.9862,
+      "weight": 1,
       "path": [
         "skill",
         "level2Dmg"
       ],
       "hitMode": "avgHit",
       "bonusStats": {
-        "atk": 546.31,
+        "atk": 548.791,
         "dendro_enemyRes_": -65,
-        "all_dmg_": 60.051
+        "all_dmg_": 57.25
       },
       "description": ""
     },
     {
-      "weight": 0.555,
+      "weight": 0.5,
       "path": [
         "skill",
         "level2Dmg"
       ],
       "hitMode": "avgHit",
       "bonusStats": {
-        "atk": 546.31,
-        "all_dmg_": 64.674,
+        "atk": 548.791,
+        "all_dmg_": 73.517,
         "dendro_enemyRes_": -65
       },
       "description": ""
@@ -108,21 +80,21 @@
       ],
       "hitMode": "avgHit",
       "bonusStats": {
-        "atk": 546.31,
-        "all_dmg_": 59.775,
+        "atk": 548.791,
+        "all_dmg_": 59.268,
         "dendro_enemyRes_": -65
       },
       "description": ""
     },
     {
-      "weight": 0.555,
+      "weight": 0.5,
       "path": [
         "skill",
         "level2Dmg"
       ],
       "hitMode": "avgHit",
       "bonusStats": {
-        "atk": 546.31,
+        "atk": 548.791,
         "dendro_enemyRes_": -65,
         "all_dmg_": 76
       },
@@ -136,22 +108,22 @@
       ],
       "hitMode": "avgHit",
       "bonusStats": {
-        "atk": 546.31,
+        "atk": 548.791,
         "all_dmg_": 36
       },
       "description": ""
     },
     {
-      "weight": 0.5762,
+      "weight": 0.25,
       "path": [
         "burst",
         "level3Dmg"
       ],
       "hitMode": "avgHit",
       "bonusStats": {
-        "atk": 546.31,
-        "dendro_enemyRes_": -65,
-        "all_dmg_": 36
+        "atk": 548.791,
+        "all_dmg_": 34.382,
+        "dendro_enemyRes_": -65
       },
       "description": ""
     },
@@ -163,21 +135,21 @@
       ],
       "hitMode": "avgHit",
       "bonusStats": {
-        "atk": 546.31,
+        "atk": 548.791,
         "dendro_enemyRes_": -65,
         "all_dmg_": 76
       },
       "description": ""
     },
     {
-      "weight": 0.5762,
+      "weight": 0.3333,
       "path": [
         "burst",
         "level3Dmg"
       ],
       "hitMode": "avgHit",
       "bonusStats": {
-        "atk": 276.404,
+        "atk": 600,
         "dendro_enemyRes_": -65,
         "all_dmg_": 36
       },
@@ -191,7 +163,20 @@
       ],
       "hitMode": "avgHit",
       "bonusStats": {
-        "atk": 546.31,
+        "atk": 548.791,
+        "dendro_enemyRes_": -65,
+        "all_dmg_": 36
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.5,
+      "path": [
+        "burst",
+        "level3Dmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
         "dendro_enemyRes_": -65,
         "all_dmg_": 36
       },
@@ -205,28 +190,14 @@
       ],
       "hitMode": "avgHit",
       "bonusStats": {
-        "atk": 546.31,
-        "dendro_enemyRes_": -65,
-        "all_dmg_": 36
+        "atk": 548.791,
+        "all_dmg_": 33.972,
+        "dendro_enemyRes_": -65
       },
       "description": ""
     },
     {
-      "weight": 0.5762,
-      "path": [
-        "burst",
-        "level3Dmg"
-      ],
-      "hitMode": "avgHit",
-      "bonusStats": {
-        "atk": 107.865,
-        "dendro_enemyRes_": -65,
-        "all_dmg_": 36
-      },
-      "description": ""
-    },
-    {
-      "weight": 0.2788,
+      "weight": 0.25,
       "path": [
         "burst",
         "level3Dmg"
@@ -239,623 +210,683 @@
       "description": ""
     },
     {
-      "weight": 0.4432,
+      "weight": 0.5,
       "path": [
         "skill",
         "level2Dmg"
       ],
       "hitMode": "avgHit",
       "bonusStats": {
-        "atk": 546.31,
+        "atk": 548.791,
         "dendro_enemyRes_": -65,
         "all_dmg_": 36
       },
       "description": ""
     },
     {
-      "weight": 0.143,
+      "weight": 0.6667,
       "path": [
         "burst",
         "level3Dmg"
       ],
       "hitMode": "avgHit",
       "bonusStats": {
-        "atk": 546.31,
-        "all_dmg_": 22.909,
+        "atk": 548.791,
+        "all_dmg_": 17.217,
         "dendro_enemyRes_": -65
       },
       "description": ""
     },
     {
-      "weight": 0.8497,
-      "path": [
-        "burst",
-        "level3Dmg"
-      ],
-      "hitMode": "avgHit",
-      "bonusStats": {
-        "dendro_enemyRes_": -65,
-        "all_dmg_": 36
-      },
-      "description": ""
-    },
-    {
-      "weight": 0.4432,
+      "weight": 0.5,
       "path": [
         "skill",
         "level2Dmg"
       ],
       "hitMode": "avgHit",
       "bonusStats": {
-        "atk": 546.31,
+        "atk": 548.791,
         "dendro_enemyRes_": -65,
         "all_dmg_": 36
       },
       "description": ""
     },
     {
-      "weight": 0.555,
+      "weight": 0.5,
       "path": [
         "skill",
         "level2Dmg"
       ],
       "hitMode": "avgHit",
       "bonusStats": {
-        "atk": 546.31,
+        "atk": 548.791,
         "dendro_enemyRes_": -65,
         "all_dmg_": 36
       },
       "description": ""
     },
     {
-      "weight": 0.4432,
+      "weight": 0.5,
       "path": [
         "skill",
         "level2Dmg"
       ],
       "hitMode": "avgHit",
       "bonusStats": {
-        "atk": 546.31,
-        "dendro_enemyRes_": -65,
-        "all_dmg_": 36
+        "atk": 548.791,
+        "all_dmg_": 34,
+        "dendro_enemyRes_": -65
       },
       "description": ""
     },
     {
-      "weight": 0.555,
+      "weight": 0.5,
       "path": [
         "skill",
         "level2Dmg"
       ],
       "hitMode": "avgHit",
       "bonusStats": {
-        "atk": 546.31,
+        "atk": 548.791,
         "dendro_enemyRes_": -65,
         "all_dmg_": 36
       },
       "description": ""
     },
     {
-      "weight": 0.4432,
+      "weight": 0.5,
       "path": [
         "skill",
         "level2Dmg"
       ],
       "hitMode": "avgHit",
       "bonusStats": {
-        "atk": 546.31,
+        "atk": 548.791,
         "dendro_enemyRes_": -65,
         "all_dmg_": 36
       },
       "description": ""
     },
     {
-      "weight": 0.555,
+      "weight": 0.5,
       "path": [
         "skill",
         "level2Dmg"
       ],
       "hitMode": "avgHit",
       "bonusStats": {
-        "atk": 546.31,
+        "atk": 548.791,
         "dendro_enemyRes_": -65,
         "all_dmg_": 36
       },
       "description": ""
     },
     {
-      "weight": 0.4432,
+      "weight": 0.5,
       "path": [
         "skill",
         "level2Dmg"
       ],
       "hitMode": "avgHit",
       "bonusStats": {
-        "atk": 546.31,
+        "atk": 548.791,
         "dendro_enemyRes_": -65,
         "all_dmg_": 36
       },
       "description": ""
     },
     {
-      "weight": 0.2825,
+      "weight": 0.25,
       "path": [
         "passive1",
         "dmg"
       ],
       "hitMode": "avgHit",
       "bonusStats": {
-        "atk": 546.31,
+        "atk": 548.791,
         "dendro_enemyRes_": -65,
         "all_dmg_": 36
       },
       "description": ""
     },
     {
-      "weight": 0.4432,
+      "weight": 0.5,
       "path": [
         "skill",
         "level2Dmg"
       ],
       "hitMode": "avgHit",
       "bonusStats": {
-        "atk": 546.31,
+        "atk": 548.791,
         "dendro_enemyRes_": -65,
         "all_dmg_": 36
       },
       "description": ""
     },
     {
-      "weight": 0.555,
+      "weight": 0.5,
       "path": [
         "skill",
         "level2Dmg"
       ],
       "hitMode": "avgHit",
       "bonusStats": {
-        "atk": 546.31,
+        "atk": 548.791,
         "dendro_enemyRes_": -65,
         "all_dmg_": 36
       },
       "description": ""
     },
     {
-      "weight": 0.546,
+      "weight": 0.5,
       "path": [
         "passive1",
         "dmg"
       ],
       "hitMode": "avgHit",
       "bonusStats": {
-        "atk": 546.31,
+        "atk": 548.791,
         "dendro_enemyRes_": -65,
         "all_dmg_": 36
       },
       "description": ""
     },
     {
-      "weight": 0.555,
+      "weight": 0.5,
       "path": [
         "skill",
         "level2Dmg"
       ],
       "hitMode": "avgHit",
       "bonusStats": {
-        "atk": 546.31,
-        "all_dmg_": 17.393,
+        "atk": 548.791,
+        "all_dmg_": 18.837,
         "dendro_enemyRes_": -65
       },
       "description": ""
     },
     {
-      "weight": 0.4432,
+      "weight": 0.5,
       "path": [
         "skill",
         "level2Dmg"
       ],
       "hitMode": "avgHit",
       "bonusStats": {
-        "atk": 546.31,
-        "dendro_enemyRes_": -65,
-        "all_dmg_": 36
+        "atk": 548.791,
+        "all_dmg_": 34,
+        "dendro_enemyRes_": -65
       },
       "description": ""
     },
     {
-      "weight": 0.555,
+      "weight": 0.5,
       "path": [
         "skill",
         "level2Dmg"
       ],
       "hitMode": "avgHit",
       "bonusStats": {
-        "atk": 546.31,
+        "atk": 548.791,
         "dendro_enemyRes_": -65,
         "all_dmg_": 36
       },
       "description": ""
     },
     {
-      "weight": 0.2426,
+      "weight": 0.25,
       "path": [
         "passive1",
         "dmg"
       ],
       "hitMode": "avgHit",
       "bonusStats": {
-        "atk": 546.31,
+        "atk": 548.791,
         "dendro_enemyRes_": -65,
         "all_dmg_": 36
       },
       "description": ""
     },
     {
-      "weight": 0.4432,
+      "weight": 0.5,
       "path": [
         "skill",
         "level2Dmg"
       ],
       "hitMode": "avgHit",
       "bonusStats": {
-        "atk": 546.31,
+        "atk": 548.791,
         "dendro_enemyRes_": -65,
         "all_dmg_": 36
       },
       "description": ""
     },
     {
-      "weight": 1.079,
+      "weight": 1,
       "path": [
         "skill",
         "level2Dmg"
       ],
       "hitMode": "avgHit",
       "bonusStats": {
-        "atk": 546.31,
-        "all_dmg_": 20.025,
+        "atk": 548.791,
+        "all_dmg_": 20.604,
         "dendro_enemyRes_": -65
       },
       "description": ""
     },
     {
-      "weight": 1.079,
+      "weight": 0.25,
       "path": [
         "skill",
         "level2Dmg"
       ],
       "hitMode": "avgHit",
       "bonusStats": {
-        "atk": 546.31,
-        "dendro_enemyRes_": -65,
-        "all_dmg_": 36
-      },
-      "description": ""
-    },
-    {
-      "weight": 0.9982,
-      "path": [
-        "skill",
-        "level2Dmg"
-      ],
-      "hitMode": "avgHit",
-      "bonusStats": {
-        "atk": 546.31,
-        "all_dmg_": 18.45,
+        "atk": 548.791,
+        "all_dmg_": 4.235,
         "dendro_enemyRes_": -65
       },
       "description": ""
     },
     {
-      "weight": 0.9982,
+      "weight": 1,
       "path": [
         "skill",
         "level2Dmg"
       ],
       "hitMode": "avgHit",
       "bonusStats": {
-        "atk": 546.31,
+        "atk": 548.791,
         "dendro_enemyRes_": -65,
         "all_dmg_": 36
       },
       "description": ""
     },
     {
-      "weight": 0.4552,
+      "weight": 0.25,
       "path": [
         "skill",
         "level2Dmg"
       ],
       "hitMode": "avgHit",
       "bonusStats": {
-        "atk": 546.31,
+        "atk": 548.791,
         "dendro_enemyRes_": -65,
         "all_dmg_": 36
       },
       "description": ""
     },
     {
-      "weight": 0.4552,
+      "weight": 1,
       "path": [
         "skill",
         "level2Dmg"
       ],
       "hitMode": "avgHit",
       "bonusStats": {
-        "atk": 546.31,
+        "atk": 548.791,
+        "all_dmg_": 19.125,
+        "dendro_enemyRes_": -65
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "skill",
+        "level2Dmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk": 548.791,
         "dendro_enemyRes_": -65,
         "all_dmg_": 36
       },
       "description": ""
     },
     {
-      "weight": 0.3024,
+      "weight": 0.3333,
+      "path": [
+        "skill",
+        "level2Dmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk": 548.791,
+        "dendro_enemyRes_": -65,
+        "all_dmg_": 36
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.25,
       "path": [
         "passive1",
         "dmg"
       ],
       "hitMode": "avgHit",
       "bonusStats": {
-        "atk": 546.31,
+        "atk": 548.791,
         "dendro_enemyRes_": -65,
         "all_dmg_": 36
       },
       "description": ""
     },
     {
-      "weight": 0.524,
+      "weight": 0.3333,
       "path": [
         "skill",
         "level2Dmg"
       ],
       "hitMode": "avgHit",
       "bonusStats": {
-        "atk": 546.31,
-        "all_dmg_": 34.714,
+        "atk": 548.791,
+        "dendro_enemyRes_": -65,
+        "all_dmg_": 36
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.5,
+      "path": [
+        "skill",
+        "level2Dmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk": 548.791,
+        "all_dmg_": 29.6,
         "dendro_enemyRes_": -65
       },
       "description": ""
     },
     {
-      "weight": 0.4662,
+      "weight": 0.5,
       "path": [
         "passive1",
         "dmg"
       ],
       "hitMode": "avgHit",
       "bonusStats": {
-        "atk": 546.31,
+        "atk": 548.791,
         "dendro_enemyRes_": -65,
         "all_dmg_": 36
       },
       "description": ""
     },
     {
-      "weight": 0.524,
+      "weight": 0.5,
       "path": [
         "skill",
         "level2Dmg"
       ],
       "hitMode": "avgHit",
       "bonusStats": {
-        "atk": 546.31,
+        "atk": 548.791,
         "dendro_enemyRes_": -65,
         "all_dmg_": 36
       },
       "description": ""
     },
     {
-      "weight": 0.4622,
+      "weight": 0.5,
       "path": [
         "skill",
         "level2Dmg"
       ],
       "hitMode": "avgHit",
       "bonusStats": {
-        "atk": 546.31,
-        "all_dmg_": 34.541,
+        "atk": 548.791,
+        "dendro_enemyRes_": -65,
+        "all_dmg_": 36
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.5,
+      "path": [
+        "skill",
+        "level2Dmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk": 548.791,
+        "dendro_enemyRes_": -65,
+        "all_dmg_": 36
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.5,
+      "path": [
+        "skill",
+        "level2Dmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk": 548.791,
+        "all_dmg_": 6.4,
         "dendro_enemyRes_": -65
       },
       "description": ""
     },
     {
-      "weight": 0.4622,
+      "weight": 0.25,
       "path": [
         "skill",
         "level2Dmg"
       ],
       "hitMode": "avgHit",
       "bonusStats": {
-        "atk": 546.31,
+        "atk": 548.791,
         "dendro_enemyRes_": -65,
         "all_dmg_": 36
       },
       "description": ""
     },
     {
-      "weight": 0.524,
+      "weight": 0.5,
       "path": [
         "skill",
         "level2Dmg"
       ],
       "hitMode": "avgHit",
       "bonusStats": {
-        "atk": 546.31,
+        "atk": 548.791,
         "dendro_enemyRes_": -65,
         "all_dmg_": 36
       },
       "description": ""
     },
     {
-      "weight": 0.524,
-      "path": [
-        "skill",
-        "level2Dmg"
-      ],
-      "hitMode": "avgHit",
-      "bonusStats": {
-        "atk": 546.31,
-        "dendro_enemyRes_": -65,
-        "all_dmg_": 36
-      },
-      "description": ""
-    },
-    {
-      "weight": 0.3791,
+      "weight": 0.25,
       "path": [
         "passive1",
         "dmg"
       ],
       "hitMode": "avgHit",
       "bonusStats": {
-        "atk": 546.31,
+        "atk": 548.791,
         "dendro_enemyRes_": -65,
         "all_dmg_": 36
       },
       "description": ""
     },
     {
-      "weight": 0.9173,
+      "weight": 0.25,
       "path": [
         "skill",
         "level2Dmg"
       ],
       "hitMode": "avgHit",
       "bonusStats": {
-        "atk": 546.31,
-        "all_dmg_": 20.082,
+        "atk": 548.791,
+        "dendro_enemyRes_": -65,
+        "all_dmg_": 36
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.6667,
+      "path": [
+        "skill",
+        "level2Dmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk": 548.791,
+        "all_dmg_": 24,
         "dendro_enemyRes_": -65
       },
       "description": ""
     },
     {
-      "weight": 0.4681,
+      "weight": 0.5,
       "path": [
         "skill",
         "level2Dmg"
       ],
       "hitMode": "avgHit",
       "bonusStats": {
-        "atk": 546.31,
-        "all_dmg_": 34.08,
+        "atk": 548.791,
+        "dendro_enemyRes_": -65,
+        "all_dmg_": 36
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.6667,
+      "path": [
+        "skill",
+        "level2Dmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk": 548.791,
+        "dendro_enemyRes_": -65,
+        "all_dmg_": 36
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.5,
+      "path": [
+        "skill",
+        "level2Dmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk": 548.791,
+        "dendro_enemyRes_": -65,
+        "all_dmg_": 36
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.25,
+      "path": [
+        "passive1",
+        "dmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk": 548.791,
+        "dendro_enemyRes_": -65,
+        "all_dmg_": 36
+      },
+      "description": ""
+    },
+    {
+      "weight": 4,
+      "path": [
+        "reaction",
+        "burning"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk": 548.791,
+        "pyro_enemyRes_": -35
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.75,
+      "path": [
+        "reaction",
+        "burning"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk": 548.791,
+        "pyro_enemyRes_": -35
+      },
+      "description": ""
+    },
+    {
+      "weight": 4.75,
+      "path": [
+        "reaction",
+        "burning"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk": 548.791,
+        "pyro_enemyRes_": -35
+      },
+      "description": ""
+    },
+    {
+      "weight": 11.25,
+      "path": [
+        "reaction",
+        "burning"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk": 548.791,
+        "pyro_enemyRes_": -35
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.25,
+      "path": [
+        "reaction",
+        "burning"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk": 548.791,
+        "pyro_enemyRes_": -35
+      },
+      "description": ""
+    },
+    {
+      "weight": 0.5,
+      "path": [
+        "skill",
+        "level2Dmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk": 548.791,
+        "all_dmg_": 5.506,
         "dendro_enemyRes_": -65
       },
       "description": ""
     },
     {
-      "weight": 0.9173,
+      "weight": 0.5,
       "path": [
         "skill",
         "level2Dmg"
       ],
       "hitMode": "avgHit",
       "bonusStats": {
-        "atk": 546.31,
+        "atk": 548.791,
         "dendro_enemyRes_": -65,
         "all_dmg_": 36
-      },
-      "description": ""
-    },
-    {
-      "weight": 0.4681,
-      "path": [
-        "skill",
-        "level2Dmg"
-      ],
-      "hitMode": "avgHit",
-      "bonusStats": {
-        "atk": 546.31,
-        "dendro_enemyRes_": -65,
-        "all_dmg_": 36
-      },
-      "description": ""
-    },
-    {
-      "weight": 4.3815,
-      "path": [
-        "reaction",
-        "burning"
-      ],
-      "hitMode": "avgHit",
-      "bonusStats": {
-        "atk": 546.31,
-        "pyro_enemyRes_": -35
-      },
-      "description": ""
-    },
-    {
-      "weight": 10.7004,
-      "path": [
-        "reaction",
-        "burning"
-      ],
-      "hitMode": "avgHit",
-      "bonusStats": {
-        "atk": 546.31,
-        "pyro_enemyRes_": -35
-      },
-      "description": ""
-    },
-    {
-      "weight": 3.6364,
-      "path": [
-        "reaction",
-        "burning"
-      ],
-      "hitMode": "avgHit",
-      "bonusStats": {
-        "atk": 546.31,
-        "pyro_enemyRes_": -35
-      },
-      "description": ""
-    },
-    {
-      "weight": 0.8544,
-      "path": [
-        "reaction",
-        "burning"
-      ],
-      "hitMode": "avgHit",
-      "bonusStats": {
-        "atk": 546.31,
-        "pyro_enemyRes_": -35
-      },
-      "description": ""
-    },
-    {
-      "weight": 0.1292,
-      "path": [
-        "reaction",
-        "burning"
-      ],
-      "hitMode": "avgHit",
-      "bonusStats": {
-        "pyro_enemyRes_": -35
-      },
-      "description": ""
-    },
-    {
-      "weight": 0.159,
-      "path": [
-        "reaction",
-        "burning"
-      ],
-      "hitMode": "avgHit",
-      "bonusStats": {
-        "atk": 546.31,
-        "pyro_enemyRes_": -35
-      },
-      "description": ""
-    },
-    {
-      "weight": 0.1391,
-      "path": [
-        "reaction",
-        "burning"
-      ],
-      "hitMode": "avgHit",
-      "bonusStats": {
-        "atk": 546.31,
-        "pyro_enemyRes_": -35
       },
       "description": ""
     }

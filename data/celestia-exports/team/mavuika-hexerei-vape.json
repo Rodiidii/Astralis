@@ -1,7 +1,7 @@
 {
   "name": "Vape",
   "description": "Celestia",
-  "lastEdit": 1794890133261,
+  "lastEdit": 1795409418168,
   "conditional": {
     "resonance": {},
     "reaction": {}
@@ -28,16 +28,16 @@
       "infusionAura": "",
       "bonusStats": {},
       "conditional": {
-        "Mavuika": {
-          "a1NsBurst": "on"
-        },
         "AThousandBlazingSuns": {
           "passive": "on",
           "nightsoul": "on"
         },
         "ObsidianCodex": {
-          "2NightsoulBlessing": "on",
-          "4NightsoulConsume": "on"
+          "4NightsoulConsume": "on",
+          "2NightsoulBlessing": "on"
+        },
+        "Mavuika": {
+          "a1NsBurst": "on"
         }
       },
       "customMultiTargets": [
@@ -45,6 +45,82 @@
           "name": "Vape",
           "description": "Celestia",
           "targets": [
+            {
+              "weight": 0.6667,
+              "path": [
+                "skill",
+                "radianceDmg"
+              ],
+              "hitMode": "avgHit",
+              "reaction": "vaporize",
+              "bonusStats": {
+                "atk_": 12.5,
+                "pyro_enemyRes_": -36,
+                "all_dmg_": 89.58
+              },
+              "description": ""
+            },
+            {
+              "weight": 1,
+              "path": [
+                "skill",
+                "radianceDmg"
+              ],
+              "hitMode": "avgHit",
+              "reaction": "vaporize",
+              "bonusStats": {
+                "atk_": 20,
+                "pyro_enemyRes_": -36,
+                "all_dmg_": 91.36
+              },
+              "description": ""
+            },
+            {
+              "weight": 1,
+              "path": [
+                "skill",
+                "radianceDmg"
+              ],
+              "hitMode": "avgHit",
+              "reaction": "vaporize",
+              "bonusStats": {
+                "atk_": 20,
+                "pyro_enemyRes_": -36,
+                "all_dmg_": 8.35,
+                "critRate_": -40
+              },
+              "description": ""
+            },
+            {
+              "weight": 0.5,
+              "path": [
+                "skill",
+                "radianceDmg"
+              ],
+              "hitMode": "avgHit",
+              "bonusStats": {
+                "atk_": 40,
+                "pyro_enemyRes_": -36,
+                "all_dmg_": 12.58,
+                "critRate_": -40
+              },
+              "description": ""
+            },
+            {
+              "weight": 1.25,
+              "path": [
+                "skill",
+                "radianceDmg"
+              ],
+              "hitMode": "avgHit",
+              "bonusStats": {
+                "atk_": 40,
+                "pyro_enemyRes_": -36,
+                "all_dmg_": 32.57,
+                "critRate_": -40
+              },
+              "description": ""
+            },
             {
               "weight": 1,
               "path": [
@@ -63,7 +139,7 @@
               "description": ""
             },
             {
-              "weight": 1.0225,
+              "weight": 1,
               "path": [
                 "skill",
                 "chargedCyclicDmg"
@@ -80,7 +156,7 @@
               "description": ""
             },
             {
-              "weight": 0.9785,
+              "weight": 1,
               "path": [
                 "skill",
                 "chargedCyclicDmg"
@@ -111,7 +187,7 @@
               "description": ""
             },
             {
-              "weight": 0.9714,
+              "weight": 1,
               "path": [
                 "skill",
                 "chargedCyclicDmg"
@@ -128,7 +204,7 @@
               "description": ""
             },
             {
-              "weight": 0.9785,
+              "weight": 1,
               "path": [
                 "skill",
                 "chargedCyclicDmg"
@@ -159,7 +235,7 @@
               "description": ""
             },
             {
-              "weight": 1.0225,
+              "weight": 1,
               "path": [
                 "skill",
                 "chargedCyclicDmg"
@@ -176,7 +252,7 @@
               "description": ""
             },
             {
-              "weight": 0.9785,
+              "weight": 1,
               "path": [
                 "skill",
                 "chargedCyclicDmg"
@@ -207,7 +283,7 @@
               "description": ""
             },
             {
-              "weight": 1.0225,
+              "weight": 1,
               "path": [
                 "skill",
                 "chargedCyclicDmg"
@@ -224,7 +300,7 @@
               "description": ""
             },
             {
-              "weight": 0.9785,
+              "weight": 1,
               "path": [
                 "skill",
                 "chargedCyclicDmg"
@@ -255,7 +331,7 @@
               "description": ""
             },
             {
-              "weight": 0.9611,
+              "weight": 1,
               "path": [
                 "skill",
                 "chargedCyclicDmg"
@@ -273,7 +349,7 @@
               "description": ""
             },
             {
-              "weight": 1.0861,
+              "weight": 1,
               "path": [
                 "skill",
                 "chargedCyclicDmg"
@@ -290,7 +366,7 @@
               "description": ""
             },
             {
-              "weight": 0.7229,
+              "weight": 0.75,
               "path": [
                 "skill",
                 "skillDmg"
@@ -307,7 +383,7 @@
               "description": ""
             },
             {
-              "weight": 0.1104,
+              "weight": 0.25,
               "path": [
                 "skill",
                 "radianceDmg"
@@ -321,7 +397,7 @@
               "description": ""
             },
             {
-              "weight": 0.4351,
+              "weight": 0.3333,
               "path": [
                 "skill",
                 "radianceDmg"
@@ -337,7 +413,7 @@
               "description": ""
             },
             {
-              "weight": 0.2771,
+              "weight": 0.25,
               "path": [
                 "skill",
                 "skillDmg"
@@ -349,82 +425,6 @@
                 "atk": 1050.758,
                 "pyro_enemyRes_": -36,
                 "all_dmg_": 147.46,
-                "critRate_": -40
-              },
-              "description": ""
-            },
-            {
-              "weight": 0.8033,
-              "path": [
-                "skill",
-                "radianceDmg"
-              ],
-              "hitMode": "avgHit",
-              "reaction": "vaporize",
-              "bonusStats": {
-                "atk_": 12.5,
-                "pyro_enemyRes_": -36,
-                "all_dmg_": 89.58
-              },
-              "description": ""
-            },
-            {
-              "weight": 0.8808,
-              "path": [
-                "skill",
-                "radianceDmg"
-              ],
-              "hitMode": "avgHit",
-              "reaction": "vaporize",
-              "bonusStats": {
-                "atk_": 20,
-                "pyro_enemyRes_": -36,
-                "all_dmg_": 91.36
-              },
-              "description": ""
-            },
-            {
-              "weight": 0.8808,
-              "path": [
-                "skill",
-                "radianceDmg"
-              ],
-              "hitMode": "avgHit",
-              "reaction": "vaporize",
-              "bonusStats": {
-                "atk_": 20,
-                "pyro_enemyRes_": -36,
-                "all_dmg_": 8.35,
-                "critRate_": -40
-              },
-              "description": ""
-            },
-            {
-              "weight": 0.6349,
-              "path": [
-                "skill",
-                "radianceDmg"
-              ],
-              "hitMode": "avgHit",
-              "bonusStats": {
-                "atk_": 40,
-                "pyro_enemyRes_": -36,
-                "all_dmg_": 12.58,
-                "critRate_": -40
-              },
-              "description": ""
-            },
-            {
-              "weight": 1.2547,
-              "path": [
-                "skill",
-                "radianceDmg"
-              ],
-              "hitMode": "avgHit",
-              "bonusStats": {
-                "atk_": 40,
-                "pyro_enemyRes_": -36,
-                "all_dmg_": 32.57,
                 "critRate_": -40
               },
               "description": ""
@@ -526,7 +526,7 @@
       "buildTcs": [
         {
           "name": "Celestia",
-          "description": "Celestia teammate assumption (85% of the maximum).",
+          "description": "Celestia teammate assumption (KQMS standard).",
           "characterKey": "Xilonen",
           "character": {
             "level": 90,
@@ -611,7 +611,7 @@
       "buildTcs": [
         {
           "name": "Celestia",
-          "description": "Celestia teammate assumption (85% of the maximum).",
+          "description": "Celestia teammate assumption (KQMS standard).",
           "characterKey": "Furina",
           "character": {
             "level": 90,
@@ -696,7 +696,7 @@
       "buildTcs": [
         {
           "name": "Celestia",
-          "description": "Celestia teammate assumption (85% of the maximum).",
+          "description": "Celestia teammate assumption (KQMS standard).",
           "characterKey": "Bennett",
           "character": {
             "level": 90,

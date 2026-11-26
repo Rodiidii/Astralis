@@ -1,7 +1,7 @@
 {
   "name": "Whale",
   "description": "Celestia",
-  "lastEdit": 1795029670803,
+  "lastEdit": 1795282725636,
   "conditional": {
     "resonance": {},
     "reaction": {}
@@ -73,7 +73,7 @@
                 "eleMas": 665.65,
                 "lunarcrystallize_baseDmg_": 21,
                 "atk": 385.399,
-                "lunarcrystallize_dmgInc": 21553,
+                "lunarcrystallize_dmgInc": 22695.808,
                 "lunarcrystallize_dmg_": 397.98,
                 "lunarcrystallize_specialDmg_": 93,
                 "critDMG_": 120,
@@ -94,7 +94,7 @@
                 "eleMas": 665.65,
                 "lunarcrystallize_baseDmg_": 21,
                 "atk": 385.399,
-                "lunarcrystallize_dmgInc": 21553,
+                "lunarcrystallize_dmgInc": 22695.808,
                 "lunarcrystallize_dmg_": 177.98,
                 "lunarcrystallize_specialDmg_": 93,
                 "critDMG_": 120,
@@ -312,7 +312,7 @@
               "description": ""
             },
             {
-              "weight": 9.6752,
+              "weight": 9.6545,
               "path": [
                 "reaction",
                 "lunarcrystallize"
@@ -347,7 +347,7 @@
           "description": "The leaderboard reference build.",
           "characterKey": "Zibai",
           "character": {
-            "level": 90,
+            "level": 100,
             "ascension": 6,
             "constellation": 6,
             "talent": {

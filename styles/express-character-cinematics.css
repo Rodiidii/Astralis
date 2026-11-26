@@ -1,0 +1,70 @@
+.cx-character-scene{position:absolute;z-index:8;inset:0;overflow:hidden;border-radius:inherit;pointer-events:none;isolation:isolate}
+.cx-scene-actor{position:absolute;left:50%;top:53%;display:block;will-change:transform,opacity;filter:drop-shadow(0 3px 6px #04152899) drop-shadow(0 0 12px var(--scene-color));color:var(--scene-color);transform-origin:center}
+.cx-scene-actor svg{display:block;width:100%;height:100%;overflow:visible;fill:color-mix(in srgb,var(--scene-color) 28%,#0a1e27);stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.cx-scene-actor.actor-rabbit svg,.cx-scene-actor.actor-ghost svg,.cx-scene-actor.actor-sheep svg,.cx-scene-actor.actor-pillow svg{fill:#e9dfb9;stroke:#b98a68;stroke-width:1.5}
+.cx-scene-actor.actor-ghost svg{fill:#d5f2ed;stroke:#a0d2d0}
+.cx-scene-actor.actor-bomb svg{fill:#ad615c;stroke:#f0c18e}
+.cx-scene-actor.actor-column svg,.cx-scene-actor.actor-meteor svg,.cx-scene-actor.actor-coin svg{fill:#a58a49;stroke:#f4dc9f;stroke-width:2}
+.cx-scene-actor.actor-crab svg,.cx-scene-actor.actor-octopus svg,.cx-scene-actor.actor-seahorse svg,.cx-scene-actor.actor-jellyfish svg{fill:#a8dce661;stroke:#caeef4;stroke-width:1.5}
+.cx-scene-actor.actor-frame svg,.cx-scene-actor.actor-eye svg,.cx-scene-actor.actor-thread svg,.cx-scene-actor.actor-chain svg,.cx-scene-actor.actor-wind svg,.cx-scene-actor.actor-music svg{fill:none;stroke-width:2.3}
+.cx-scene-actor.actor-blade svg,.cx-scene-actor.actor-scythe svg,.cx-scene-actor.actor-slash svg,.cx-scene-actor.actor-spear svg,.cx-scene-actor.actor-dagger svg{fill:#e5ecdc;stroke:#accdce;stroke-width:1}
+.cx-scene-actor.actor-raven svg,.cx-scene-actor.actor-bat svg{fill:#49417a;stroke:#c5a1f2}
+.cx-scene-actor.actor-bubble svg{fill:#b0e5f025;stroke:#c5eaf1}
+.cx-scene-actor.actor-lotus svg,.cx-scene-actor.actor-leaf svg,.cx-scene-actor.actor-tree svg,.cx-scene-actor.actor-vine svg{fill:#a2d17c77;stroke:#c0ec9d}
+.cx-scene-actor.actor-eye svg{stroke:#d6bcff}.cx-scene-actor.actor-lightning svg{fill:#d4b5ff;stroke:#eee0ff}
+.cx-scene-actor.actor-ice svg,.cx-scene-actor.actor-snow svg{fill:#b8ebf34a;stroke:#d6f5ff}
+.cx-scene-actor.actor-gear svg,.cx-scene-actor.actor-robot svg{fill:#596d7b;stroke:#c8dee2}
+.cx-scene-actor.choreography-beam{filter:drop-shadow(0 0 20px var(--scene-color)) drop-shadow(0 0 35px var(--scene-color))}
+.cx-scene-trail{position:absolute;left:50%;top:53%;width:120px;height:120px;border:1px solid color-mix(in srgb,var(--scene-color) 60%,transparent);border-radius:50%;box-shadow:0 0 35px color-mix(in srgb,var(--scene-color) 14%,transparent);transform:translate(-50%,-50%);opacity:0}
+.cx-scene-trail.trail-dash,.cx-scene-trail.trail-cross,.cx-scene-trail.trail-draw,.cx-scene-trail.trail-beam{height:3px;width:170px;border:0;background:linear-gradient(90deg,transparent,var(--scene-color),#fff8,transparent);box-shadow:0 0 20px var(--scene-color);border-radius:50%}
+.cx-scene-trail.trail-stomp,.cx-scene-trail.trail-rise{height:30px;border-width:2px}
+.cx-scene-trail.trail-close{border-radius:20%;border-style:dashed}.cx-scene-trail.trail-explode{border-width:4px;border-style:dotted}
+.cx-cinematic-signature{position:absolute;left:50%;top:calc(53% + 115px);display:flex;align-items:center;gap:8px;padding:5px 12px 5px 6px;width:max-content;max-width:85%;border:1px solid color-mix(in srgb,var(--scene-color) 35%,transparent);border-radius:30px;background:#0e2532e8;box-shadow:0 5px 25px #0002;color:#e6efe7;opacity:1;transform:translateX(-50%)}
+.cx-cinematic-signature img{width:30px;height:30px;object-fit:contain;border-radius:50%;padding:3px;background:color-mix(in srgb,var(--scene-color) 15%,transparent)}
+.cx-cinematic-signature span{font:500 11px/1.3 'Segoe UI',sans-serif;overflow-wrap:anywhere}
+.cx-character-scene.is-quiet .cx-cinematic-signature{top:calc(53% + 90px);border-color:#d3e6ce38}
+@media(max-width:650px){.cx-cinematic-signature{top:calc(53% + 95px);max-width:90%}.cx-cinematic-signature span{font-size:10px}.cx-cinematic-signature img{width:25px;height:25px}.cx-scene-trail{width:90px;height:90px}.cx-scene-trail.trail-beam{width:150px;height:3px}}
+@media(prefers-reduced-motion:reduce){.cx-scene-actor,.cx-scene-trail{display:none}}
+.palette-alchemy .actor-bottle svg{fill:#9c68c788;stroke:#ead9fa;stroke-width:1.8}
+.palette-alchemy .actor-shards svg{fill:#debcf47a;stroke:#f3e6ff;stroke-width:1}
+.palette-alchemy .actor-potioncloud{filter:drop-shadow(0 0 18px #b37fe6bb)}
+.palette-alchemy .actor-potioncloud svg{fill:#8c50b163;stroke:#c59ae8;stroke-width:1.5}
+.palette-alchemy .trail-shatter{border-color:#efcbff;border-style:dashed;border-radius:15%}
+.palette-alchemy .trail-alchemy{border-color:#bb88de55;background:radial-gradient(circle,#ad78c633,transparent 70%);filter:blur(4px)}
+.palette-destruction:before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 50% 52%,#b9996926,transparent 52%);opacity:0;animation:cx-worldbearing 2.9s ease-out both}
+.palette-destruction .actor-greatsword{filter:drop-shadow(0 0 18px #f7c67a80) drop-shadow(0 8px 10px #000d)}
+.palette-destruction .actor-greatsword svg{fill:#152137;stroke:#f4d2a0;stroke-width:1.5}
+.palette-destruction .actor-fracture{filter:drop-shadow(0 0 8px #e8b97f)}
+.palette-destruction .actor-fracture svg{fill:none;stroke:#f5d9b0;stroke-width:1.5}
+.palette-destruction .actor-darksun{filter:drop-shadow(0 0 35px #c89b6a7a)}
+.palette-destruction .actor-darksun svg{fill:#10131fee;stroke:#e2b582;stroke-width:1.2}
+.palette-destruction .trail-cataclysm,.palette-destruction .trail-rupture{border-radius:12%;border-color:#e3c19866;box-shadow:0 0 35px #a5874f28}
+.palette-destruction .trail-collapse{background:radial-gradient(circle,#0b132dd9,transparent 70%);border-color:#e3c1983a}
+.actor-core svg,.actor-beacon svg{fill:#4d397766;stroke:#c5aff5}
+.actor-mortar svg{fill:#536275;stroke:#c6d3e4}.actor-shell svg{fill:#a3926e;stroke:#f4d99f}
+.actor-frostseal svg{fill:#96cbe64d;stroke:#d5f5ff}
+.cx-character-scene.is-quiet:before{display:none}
+.actor-club svg{fill:#9d7e5266;stroke:#f0d298}.actor-lightblade svg{fill:#e1e7f181;stroke:#f5f7ff;stroke-width:1.2}
+.actor-thunderlord svg{fill:#b9a57577;stroke:#f6e2a6;stroke-width:1.4}.actor-rifle svg{fill:#486454;stroke:#cbe7c5}
+.palette-destruction .actor-meteor svg{fill:#344052;stroke:#e1bc83;stroke-width:1.6}
+.palette-destruction .actor-meteor{filter:drop-shadow(-7px -10px 10px #dba96a55) drop-shadow(0 3px 5px #06142399)}
+.palette-destruction .actor-ember svg{fill:#d8ad6b;stroke:#f5dfb1;stroke-width:1}
+.palette-destruction .trail-meteorfall{width:75px;height:20px;border-width:1px}
+.palette-destruction .trail-aftershock{width:90px;height:28px;border-width:1px}
+.palette-destruction .trail-debris{width:75px;height:75px;border-style:dotted}
+.palette-destruction:before{animation-duration:2.1s;background:radial-gradient(ellipse at 50% 53%,#b9996911,transparent 30%)}
+@keyframes cx-worldbearing{0%{opacity:0}25%{opacity:.3}45%{opacity:.9}75%{opacity:.45}100%{opacity:0}}
+@media(prefers-reduced-motion:reduce){.palette-destruction:before{animation:none;display:none}}
+
+/* Compact, legible scenes for the seven lore guests. */
+.cx-scene-actor.actor-capitanomask svg{fill:#15242dc9;stroke:#b9d8e6}
+.cx-scene-actor.actor-spacecube svg,.cx-scene-actor.actor-spacecage svg{fill:#28161ed9;stroke:#ff725f}
+.cx-scene-actor.actor-obsidianstone svg{fill:#381320cc;stroke:#ff7e9b}
+.cx-scene-actor.actor-hourglass svg{fill:#192e36b3;stroke:#b2e6df}
+.cx-scene-actor.actor-deathwings svg{fill:#64203380;stroke:#ff7187}
+.cx-lore-label{font-size:10px!important;color:var(--text-muted,#aaa)!important;letter-spacing:.03em}
+.cx-lore-note{margin:4px 0 16px;max-width:60ch;font-size:12px;line-height:1.7;color:var(--text-muted,#abb5bd)}
+.cx-lore-note a{color:var(--cx-effect);white-space:nowrap;text-underline-offset:3px}
+
+.palette-destruction .actor-ruinmeteor svg{fill:#344052;stroke:#ecc28c;stroke-width:1.6}
+.palette-destruction .actor-ruinmeteor{filter:drop-shadow(0 0 8px #ecc28c66)}

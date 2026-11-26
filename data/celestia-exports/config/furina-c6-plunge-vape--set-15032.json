@@ -3,19 +3,7 @@
   "description": "Celestia",
   "targets": [
     {
-      "weight": 1,
-      "path": [
-        "burst",
-        "skillDmg"
-      ],
-      "hitMode": "avgHit",
-      "bonusStats": {
-        "all_dmg_": 47
-      },
-      "description": ""
-    },
-    {
-      "weight": 0.262,
+      "weight": 0.35,
       "path": [
         "skill",
         "chevalDmg"
@@ -27,7 +15,7 @@
       "description": ""
     },
     {
-      "weight": 1.213,
+      "weight": 1.05,
       "path": [
         "skill",
         "chevalDmg"
@@ -40,7 +28,7 @@
       "description": ""
     },
     {
-      "weight": 1.3825,
+      "weight": 1.4,
       "path": [
         "skill",
         "usherDmg"
@@ -53,7 +41,7 @@
       "description": ""
     },
     {
-      "weight": 1.394,
+      "weight": 1.4,
       "path": [
         "skill",
         "chevalDmg"
@@ -66,7 +54,7 @@
       "description": ""
     },
     {
-      "weight": 1.3772,
+      "weight": 1.4,
       "path": [
         "skill",
         "crabDmg"
@@ -79,7 +67,7 @@
       "description": ""
     },
     {
-      "weight": 0.5703,
+      "weight": 0.7,
       "path": [
         "skill",
         "chevalDmg"
@@ -92,7 +80,7 @@
       "description": ""
     },
     {
-      "weight": 0.4618,
+      "weight": 0.4107,
       "path": [
         "skill",
         "usherDmg"
@@ -106,7 +94,7 @@
       "description": ""
     },
     {
-      "weight": 1.4388,
+      "weight": 1.4,
       "path": [
         "skill",
         "chevalDmg"
@@ -119,7 +107,7 @@
       "description": ""
     },
     {
-      "weight": 0.8303,
+      "weight": 0.8507,
       "path": [
         "skill",
         "usherDmg"
@@ -133,7 +121,7 @@
       "description": ""
     },
     {
-      "weight": 0.9894,
+      "weight": 1.0253,
       "path": [
         "skill",
         "chevalDmg"
@@ -147,7 +135,7 @@
       "description": ""
     },
     {
-      "weight": 0.3693,
+      "weight": 0.3395,
       "path": [
         "skill",
         "chevalDmg"
@@ -175,7 +163,7 @@
       "description": ""
     },
     {
-      "weight": 1.3379,
+      "weight": 1.294,
       "path": [
         "skill",
         "chevalDmg"
@@ -189,7 +177,7 @@
       "description": ""
     },
     {
-      "weight": 1.3507,
+      "weight": 1.292,
       "path": [
         "skill",
         "crabDmg"
@@ -204,7 +192,7 @@
       "description": ""
     },
     {
-      "weight": 1.2944,
+      "weight": 1.295,
       "path": [
         "skill",
         "usherDmg"
@@ -219,7 +207,7 @@
       "description": ""
     },
     {
-      "weight": 1.4475,
+      "weight": 1.4,
       "path": [
         "skill",
         "chevalDmg"
@@ -245,7 +233,7 @@
       "bonusStats": {
         "atk_": 39.5,
         "hp_": 130.66,
-        "all_dmgInc": 10473.412,
+        "all_dmgInc": 11150.162,
         "all_dmg_": 154.31,
         "hydro_enemyRes_": -38.75
       },
@@ -262,7 +250,7 @@
       "bonusStats": {
         "atk_": 32.25,
         "hp_": 133.95,
-        "all_dmgInc": 10564.062,
+        "all_dmgInc": 11247.255,
         "critRate_": 4,
         "all_dmg_": 237.67,
         "hydro_enemyRes_": -38.75
@@ -281,7 +269,7 @@
       "bonusStats": {
         "atk_": 32.25,
         "hp_": 133.83,
-        "all_dmgInc": 42908.473,
+        "all_dmgInc": 44539.983,
         "critRate_": 4,
         "all_dmg_": 237.66,
         "hydro_enemyRes_": -38.75
@@ -299,7 +287,7 @@
       "bonusStats": {
         "atk_": 32.12,
         "hp_": 138.78,
-        "all_dmgInc": 10697.145,
+        "all_dmgInc": 11389.796,
         "critRate_": 4,
         "all_dmg_": 241.65,
         "hydro_enemyRes_": -38.75
@@ -318,7 +306,7 @@
       "bonusStats": {
         "atk_": 20,
         "hp_": 138.78,
-        "all_dmgInc": 43060.29,
+        "all_dmgInc": 44714.957,
         "critRate_": 4,
         "all_dmg_": 241.67,
         "hydro_enemyRes_": -38.75
@@ -336,7 +324,7 @@
       "bonusStats": {
         "hp_": 140,
         "atk_": 20,
-        "all_dmgInc": 10730.76,
+        "all_dmgInc": 11425.8,
         "critRate_": 4,
         "all_dmg_": 245.28,
         "hydro_enemyRes_": -38.75
@@ -355,7 +343,7 @@
       "bonusStats": {
         "hp_": 140,
         "atk_": 20,
-        "all_dmgInc": 42779.593,
+        "all_dmgInc": 44439.967,
         "critRate_": 4,
         "all_dmg_": 245.31,
         "hydro_enemyRes_": -38.75
@@ -373,7 +361,7 @@
       "bonusStats": {
         "hp_": 140,
         "atk_": 20,
-        "all_dmgInc": 10730.76,
+        "all_dmgInc": 11425.8,
         "critRate_": 4,
         "all_dmg_": 248.65,
         "hydro_enemyRes_": -38.75
@@ -392,7 +380,7 @@
       "bonusStats": {
         "hp_": 140,
         "atk_": 20,
-        "all_dmgInc": 42806.593,
+        "all_dmgInc": 44466.967,
         "critRate_": 4,
         "all_dmg_": 248.67,
         "hydro_enemyRes_": -38.75
@@ -409,7 +397,7 @@
       "infusionAura": "hydro",
       "bonusStats": {
         "hp_": 140,
-        "all_dmgInc": 10730.76,
+        "all_dmgInc": 11425.8,
         "critRate_": 4,
         "all_dmg_": 252.13,
         "hydro_enemyRes_": -38.75
@@ -427,7 +415,7 @@
       "infusionAura": "hydro",
       "bonusStats": {
         "hp_": 140,
-        "all_dmgInc": 41946.593,
+        "all_dmgInc": 43606.967,
         "critRate_": 4,
         "all_dmg_": 250.5,
         "hydro_enemyRes_": -38.75
@@ -448,7 +436,7 @@
       "description": ""
     },
     {
-      "weight": 0.9572,
+      "weight": 0.9173,
       "path": [
         "skill",
         "chevalDmg"
@@ -462,7 +450,7 @@
       "description": ""
     },
     {
-      "weight": 0.1777,
+      "weight": 0.328,
       "path": [
         "skill",
         "chevalDmg"
@@ -476,7 +464,7 @@
       "description": ""
     },
     {
-      "weight": 1.2057,
+      "weight": 1.242,
       "path": [
         "skill",
         "crabDmg"
@@ -490,7 +478,7 @@
       "description": ""
     },
     {
-      "weight": 1.2255,
+      "weight": 1.241,
       "path": [
         "skill",
         "usherDmg"
@@ -504,7 +492,7 @@
       "description": ""
     },
     {
-      "weight": 1.4475,
+      "weight": 1.4,
       "path": [
         "skill",
         "chevalDmg"
@@ -512,6 +500,18 @@
       "hitMode": "avgHit",
       "bonusStats": {
         "hydro_enemyRes_": -8.25
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "burst",
+        "skillDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "all_dmg_": 47
       },
       "description": ""
     }

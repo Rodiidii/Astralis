@@ -6,22 +6,6 @@
       "weight": 1,
       "path": [
         "skill",
-        "sprintDmg"
-      ],
-      "hitMode": "avgHit",
-      "bonusStats": {
-        "atk_": 9,
-        "atk": 1050.758,
-        "pyro_enemyRes_": -20,
-        "all_dmg_": 77.25,
-        "critRate_": 15
-      },
-      "description": ""
-    },
-    {
-      "weight": 1,
-      "path": [
-        "skill",
         "skillDmg"
       ],
       "hitMode": "avgHit",
@@ -388,6 +372,22 @@
         "atk": 1050.758,
         "pyro_enemyRes_": -20,
         "all_dmg_": 77,
+        "critRate_": 15
+      },
+      "description": ""
+    },
+    {
+      "weight": 1,
+      "path": [
+        "skill",
+        "sprintDmg"
+      ],
+      "hitMode": "avgHit",
+      "bonusStats": {
+        "atk_": 9,
+        "atk": 1050.758,
+        "pyro_enemyRes_": -20,
+        "all_dmg_": 77.25,
         "critRate_": 15
       },
       "description": ""

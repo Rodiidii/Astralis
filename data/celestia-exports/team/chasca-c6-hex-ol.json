@@ -1,7 +1,7 @@
 {
   "name": "C6 Iansan Overload",
   "description": "Celestia",
-  "lastEdit": 1794890339940,
+  "lastEdit": 1795427438584,
   "conditional": {
     "resonance": {},
     "reaction": {}
@@ -446,14 +446,15 @@
               "weight": 3,
               "path": [
                 "skill",
-                "activationDmg"
+                "shellDmg"
               ],
               "hitMode": "avgHit",
               "bonusStats": {
                 "atk": 1890,
                 "atk_": 54,
                 "anemo_enemyRes_": -60,
-                "all_dmg_": 115
+                "all_dmg_": 115,
+                "critDMG_": 120
               },
               "description": ""
             },
@@ -566,7 +567,7 @@
           "description": "The leaderboard reference build.",
           "characterKey": "Chasca",
           "character": {
-            "level": 90,
+            "level": 100,
             "ascension": 6,
             "constellation": 6,
             "talent": {
@@ -648,7 +649,7 @@
       "buildTcs": [
         {
           "name": "Celestia",
-          "description": "Celestia teammate assumption (85% of the maximum).",
+          "description": "Celestia teammate assumption (KQMS standard).",
           "characterKey": "Nicole",
           "character": {
             "level": 90,
@@ -733,7 +734,7 @@
       "buildTcs": [
         {
           "name": "Celestia",
-          "description": "Celestia teammate assumption (85% of the maximum).",
+          "description": "Celestia teammate assumption (KQMS standard).",
           "characterKey": "Durin",
           "character": {
             "level": 90,
@@ -818,7 +819,7 @@
       "buildTcs": [
         {
           "name": "Celestia",
-          "description": "Celestia teammate assumption (85% of the maximum).",
+          "description": "Celestia teammate assumption (KQMS standard).",
           "characterKey": "Iansan",
           "character": {
             "level": 90,

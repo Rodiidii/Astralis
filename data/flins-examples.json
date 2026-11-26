@@ -1,0 +1,794 @@
+{
+  "schema": 1,
+  "id": "flins-examples-20261126-v1",
+  "builds": [
+    {
+      "id": "example-flins-20261126",
+      "character": "10000120",
+      "name": "Démo · Flins — Sélénocution",
+      "level": 90,
+      "ascended": true,
+      "constellation": "C0",
+      "talentNA": 1,
+      "talentSkill": 10,
+      "talentBurst": 10,
+      "weapon": "13407",
+      "weaponLevelValue": 90,
+      "weaponAscended": true,
+      "weaponRefinement": 5,
+      "set": "15041",
+      "setMode": "four",
+      "tc": true,
+      "demo": false,
+      "pieces": [
+        {
+          "id": "flins-demo-piece-15041-0",
+          "set": "15041",
+          "slot": "flower",
+          "rarity": 5,
+          "level": 20,
+          "mainType": "hpFlat",
+          "mainValue": 4780,
+          "sub0Type": "critRate",
+          "sub0Value": 10.5,
+          "sub1Type": "critDmg",
+          "sub1Value": 21,
+          "sub2Type": "atkPct",
+          "sub2Value": 9.9,
+          "sub3Type": "er",
+          "sub3Value": 5.8
+        },
+        {
+          "id": "flins-demo-piece-15041-1",
+          "set": "15041",
+          "slot": "plume",
+          "rarity": 5,
+          "level": 20,
+          "mainType": "atkFlat",
+          "mainValue": 311,
+          "sub0Type": "critRate",
+          "sub0Value": 10.5,
+          "sub1Type": "critDmg",
+          "sub1Value": 21,
+          "sub2Type": "atkPct",
+          "sub2Value": 9.9,
+          "sub3Type": "em",
+          "sub3Value": 21
+        },
+        {
+          "id": "flins-demo-piece-15041-2",
+          "set": "15041",
+          "slot": "sands",
+          "rarity": 5,
+          "level": 20,
+          "mainType": "atkPct",
+          "mainValue": 46.6,
+          "sub0Type": "critRate",
+          "sub0Value": 7,
+          "sub1Type": "critDmg",
+          "sub1Value": 21,
+          "sub2Type": "er",
+          "sub2Value": 11.7,
+          "sub3Type": "em",
+          "sub3Value": 21
+        },
+        {
+          "id": "flins-demo-piece-15041-3",
+          "set": "15041",
+          "slot": "goblet",
+          "rarity": 5,
+          "level": 20,
+          "mainType": "atkPct",
+          "mainValue": 46.6,
+          "sub0Type": "critRate",
+          "sub0Value": 7,
+          "sub1Type": "critDmg",
+          "sub1Value": 21,
+          "sub2Type": "er",
+          "sub2Value": 11.7,
+          "sub3Type": "em",
+          "sub3Value": 21
+        },
+        {
+          "id": "flins-demo-piece-15041-4",
+          "set": "15041",
+          "slot": "circlet",
+          "rarity": 5,
+          "level": 20,
+          "mainType": "critDmg",
+          "mainValue": 62.2,
+          "sub0Type": "critRate",
+          "sub0Value": 10.5,
+          "sub1Type": "atkPct",
+          "sub1Value": 9.9,
+          "sub2Type": "er",
+          "sub2Value": 11.7,
+          "sub3Type": "em",
+          "sub3Value": 21
+        }
+      ],
+      "notes": "Exemple théorique C0, niveau 90, talents 1/10/10, Lance de Favonius R5. Pièces de démonstration : elles ne proviennent pas de ton inventaire. Tester la Symphonie tonitruante dans le laboratoire. Résultat observé : 112 957 dégâts moyens sur un impact principal, RÉS 10 %. Valeur de simulation, pas un DPS de rotation.",
+      "tcSettings": {
+        "character": "10000120",
+        "referenceCharacter": "10000120",
+        "level": 90,
+        "characterLevel": 90,
+        "constellation": 0,
+        "talentLevel": 10,
+        "talentAuto": 1,
+        "talentSkill": 10,
+        "talentBurst": 10,
+        "weaponOverride": "13407",
+        "weaponLevel": 90,
+        "weaponRefinement": 5,
+        "loadout": "equipped",
+        "attackSelection": "wr:burst.thunderDmg",
+        "actionKind": "burst",
+        "targetName": "Symphonie tonitruante · impact principal",
+        "elementKey": "electro",
+        "hitCount": 1,
+        "critMode": "average",
+        "reaction": "none",
+        "enemyLevel": 100,
+        "resistance": 10,
+        "radianceMode": "auto",
+        "wrConditions": {
+          "NightOfTheSkysUnveiling": {
+            "4GleamingMoon": "on"
+          }
+        },
+        "inventoryDefaultsVersion": 1,
+        "setRequirementsVersion": 2,
+        "tab": "overview",
+        "allies": [
+          {
+            "character": "10000116",
+            "build": "example-ineffa-20261126",
+            "level": 90,
+            "constellation": 0,
+            "talentLevel": 10,
+            "weapon": "13407",
+            "weaponLevel": 90,
+            "refinement": 5,
+            "set": "15025",
+            "wrConditions": {
+              "Ineffa": {
+                "a4AfterBurst": "on"
+              },
+              "GildedDreams": {
+                "passive": "on"
+              }
+            },
+            "position": "off"
+          },
+          {
+            "character": "10000121",
+            "level": 90,
+            "constellation": 0,
+            "talentLevel": 10,
+            "weapon": "12401",
+            "weaponLevel": 90,
+            "refinement": 5,
+            "set": "15042",
+            "wrConditions": {
+              "SilkenMoonsSerenade": {
+                "4GleamingMoon": "on"
+              }
+            },
+            "position": "off"
+          },
+          {
+            "character": "10000043",
+            "level": 90,
+            "constellation": 0,
+            "talentLevel": 10,
+            "weaponLevel": 90,
+            "refinement": 1,
+            "set": "15002",
+            "wrConditions": {
+              "Sucrose": {
+                "swirlelectro": "on",
+                "skillHit": "hit",
+                "lockAfterSkill": "on"
+              },
+              "ViridescentVenerer": {
+                "swirlelectro": "electro"
+              }
+            },
+            "position": "off"
+          }
+        ]
+      }
+    },
+    {
+      "id": "example-ineffa-20261126",
+      "character": "10000116",
+      "name": "Démo · Ineffa — soutien de Flins",
+      "level": 90,
+      "ascended": true,
+      "constellation": "C0",
+      "talentNA": 1,
+      "talentSkill": 10,
+      "talentBurst": 10,
+      "weapon": "13407",
+      "weaponLevelValue": 90,
+      "weaponAscended": true,
+      "weaponRefinement": 5,
+      "set": "15025",
+      "setMode": "four",
+      "tc": true,
+      "demo": false,
+      "pieces": [
+        {
+          "id": "flins-demo-piece-15025-0",
+          "set": "15025",
+          "slot": "flower",
+          "rarity": 5,
+          "level": 20,
+          "mainType": "hpFlat",
+          "mainValue": 4780,
+          "sub0Type": "atkPct",
+          "sub0Value": 15.2,
+          "sub1Type": "er",
+          "sub1Value": 11,
+          "sub2Type": "critRate",
+          "sub2Value": 10.5,
+          "sub3Type": "em",
+          "sub3Value": 40
+        },
+        {
+          "id": "flins-demo-piece-15025-1",
+          "set": "15025",
+          "slot": "plume",
+          "rarity": 5,
+          "level": 20,
+          "mainType": "atkFlat",
+          "mainValue": 311,
+          "sub0Type": "atkPct",
+          "sub0Value": 15.2,
+          "sub1Type": "er",
+          "sub1Value": 11,
+          "sub2Type": "critRate",
+          "sub2Value": 10.5,
+          "sub3Type": "em",
+          "sub3Value": 40
+        },
+        {
+          "id": "flins-demo-piece-15025-2",
+          "set": "15025",
+          "slot": "sands",
+          "rarity": 5,
+          "level": 20,
+          "mainType": "atkPct",
+          "mainValue": 46.6,
+          "sub0Type": "em",
+          "sub0Value": 40,
+          "sub1Type": "er",
+          "sub1Value": 11,
+          "sub2Type": "critRate",
+          "sub2Value": 10.5,
+          "sub3Type": "critDmg",
+          "sub3Value": 14
+        },
+        {
+          "id": "flins-demo-piece-15025-3",
+          "set": "15025",
+          "slot": "goblet",
+          "rarity": 5,
+          "level": 20,
+          "mainType": "atkPct",
+          "mainValue": 46.6,
+          "sub0Type": "em",
+          "sub0Value": 40,
+          "sub1Type": "er",
+          "sub1Value": 11,
+          "sub2Type": "critRate",
+          "sub2Value": 10.5,
+          "sub3Type": "critDmg",
+          "sub3Value": 14
+        },
+        {
+          "id": "flins-demo-piece-15025-4",
+          "set": "15025",
+          "slot": "circlet",
+          "rarity": 5,
+          "level": 20,
+          "mainType": "atkPct",
+          "mainValue": 46.6,
+          "sub0Type": "em",
+          "sub0Value": 40,
+          "sub1Type": "er",
+          "sub1Value": 11,
+          "sub2Type": "critRate",
+          "sub2Value": 10.5,
+          "sub3Type": "critDmg",
+          "sub3Value": 14
+        }
+      ],
+      "tcSettings": {
+        "wrConditions": {
+          "Ineffa": {
+            "a4AfterBurst": "on"
+          },
+          "GildedDreams": {
+            "passive": "on"
+          }
+        }
+      },
+      "notes": "Exemple théorique de soutien : ME partagée après le déchaînement, calculée depuis l’ATQ d’Ineffa. Pièces de démonstration."
+    }
+  ],
+  "teams": [
+    {
+      "id": "example-flins-team-20261126",
+      "name": "Démo · Flins / Ineffa / Aino / Sucrose",
+      "tag": "Sélénocution",
+      "activeMember": 0,
+      "members": [
+        {
+          "character": "10000120",
+          "buildId": "example-flins-20261126",
+          "role": "main-dps",
+          "weapon": "13407",
+          "set": "15041",
+          "refinement": 5,
+          "wrConditions": {
+            "NightOfTheSkysUnveiling": {
+              "4GleamingMoon": "on"
+            }
+          }
+        },
+        {
+          "character": "10000116",
+          "buildId": "example-ineffa-20261126",
+          "role": "sub-dps",
+          "weapon": "13407",
+          "set": "15025",
+          "refinement": 5,
+          "wrConditions": {
+            "Ineffa": {
+              "a4AfterBurst": "on"
+            },
+            "GildedDreams": {
+              "passive": "on"
+            }
+          }
+        },
+        {
+          "character": "10000121",
+          "role": "support",
+          "weapon": "12401",
+          "set": "15042",
+          "refinement": 5,
+          "wrConditions": {
+            "SilkenMoonsSerenade": {
+              "4GleamingMoon": "on"
+            }
+          }
+        },
+        {
+          "character": "10000043",
+          "role": "support",
+          "set": "15002",
+          "wrConditions": {
+            "Sucrose": {
+              "swirlelectro": "on",
+              "skillHit": "hit",
+              "lockAfterSkill": "on"
+            },
+            "ViridescentVenerer": {
+              "swirlelectro": "electro"
+            }
+          }
+        }
+      ],
+      "rotation": [],
+      "notes": "Exemple C0. Buffs : déchaînement d’Ineffa, Lune de soie et Dispersion Électro. Les personnages sans build associé utilisent leurs bases au niveau 90 et les effets du set choisi.",
+      "dps": "112 957 / impact"
+    },
+    {
+      "id": "example-flins-budget-20261126",
+      "name": "Démo · Flins / Fischl / Aino / Sucrose",
+      "tag": "Variante accessible",
+      "activeMember": 0,
+      "members": [
+        {
+          "character": "10000120",
+          "buildId": "example-flins-20261126",
+          "role": "main-dps",
+          "weapon": "13407",
+          "set": "15041",
+          "refinement": 5,
+          "wrConditions": {
+            "NightOfTheSkysUnveiling": {
+              "4GleamingMoon": "on"
+            }
+          }
+        },
+        {
+          "character": "10000031",
+          "role": "sub-dps",
+          "set": ""
+        },
+        {
+          "character": "10000121",
+          "role": "support",
+          "weapon": "12401",
+          "set": "15042",
+          "refinement": 5,
+          "wrConditions": {
+            "SilkenMoonsSerenade": {
+              "4GleamingMoon": "on"
+            }
+          }
+        },
+        {
+          "character": "10000043",
+          "role": "support",
+          "set": "15002",
+          "wrConditions": {
+            "Sucrose": {
+              "swirlelectro": "on",
+              "skillHit": "hit",
+              "lockAfterSkill": "on"
+            },
+            "ViridescentVenerer": {
+              "swirlelectro": "electro"
+            }
+          }
+        }
+      ],
+      "rotation": [],
+      "notes": "Variante à comparer au soutien d’Ineffa. Fischl n’a pas de build de démonstration associé ; équipe ton propre build pour comparer précisément."
+    }
+  ],
+  "scenario": {
+    "character": "10000120",
+    "build": "example-flins-20261126",
+    "referenceBuild": "example-flins-20261126",
+    "referenceCharacter": "10000120",
+    "level": 90,
+    "characterLevel": 90,
+    "constellation": 0,
+    "talentLevel": 10,
+    "talentAuto": 1,
+    "talentSkill": 10,
+    "talentBurst": 10,
+    "weaponOverride": "13407",
+    "weaponLevel": 90,
+    "weaponRefinement": 5,
+    "loadout": "equipped",
+    "attackSelection": "wr:burst.thunderDmg",
+    "actionKind": "burst",
+    "targetName": "Symphonie tonitruante · impact principal",
+    "elementKey": "electro",
+    "hitCount": 1,
+    "critMode": "average",
+    "reaction": "none",
+    "enemyLevel": 100,
+    "resistance": 10,
+    "radianceMode": "auto",
+    "wrConditions": {
+      "NightOfTheSkysUnveiling": {
+        "4GleamingMoon": "on"
+      }
+    },
+    "inventoryDefaultsVersion": 1,
+    "setRequirementsVersion": 2,
+    "tab": "overview",
+    "allies": [
+      {
+        "character": "10000116",
+        "build": "example-ineffa-20261126",
+        "level": 90,
+        "constellation": 0,
+        "talentLevel": 10,
+        "weapon": "13407",
+        "weaponLevel": 90,
+        "refinement": 5,
+        "set": "15025",
+        "wrConditions": {
+          "Ineffa": {
+            "a4AfterBurst": "on"
+          },
+          "GildedDreams": {
+            "passive": "on"
+          }
+        },
+        "position": "off"
+      },
+      {
+        "character": "10000121",
+        "level": 90,
+        "constellation": 0,
+        "talentLevel": 10,
+        "weapon": "12401",
+        "weaponLevel": 90,
+        "refinement": 5,
+        "set": "15042",
+        "wrConditions": {
+          "SilkenMoonsSerenade": {
+            "4GleamingMoon": "on"
+          }
+        },
+        "position": "off"
+      },
+      {
+        "character": "10000043",
+        "level": 90,
+        "constellation": 0,
+        "talentLevel": 10,
+        "weaponLevel": 90,
+        "refinement": 1,
+        "set": "15002",
+        "wrConditions": {
+          "Sucrose": {
+            "swirlelectro": "on",
+            "skillHit": "hit",
+            "lockAfterSkill": "on"
+          },
+          "ViridescentVenerer": {
+            "swirlelectro": "electro"
+          }
+        },
+        "position": "off"
+      }
+    ]
+  },
+  "observed": {
+    "at": "2026-11-26",
+    "attack": "Symphonie tonitruante · impact principal",
+    "solo": 45769.9687991991,
+    "withTeam": 112957.09804510427,
+    "resistance50": 88401.20716573378,
+    "nonCrit": 39105.3920316231,
+    "crit": 130846.6417378109,
+    "stats": {
+      "hp": 17270.8290496,
+      "atk": 2353.601979176,
+      "def": 808.51919724,
+      "em": 681.733063648016,
+      "er": 171.5268198,
+      "critRate": 80.5,
+      "critDmg": 234.60000000000002,
+      "dmgBonus": 0,
+      "pyroDmg": 0,
+      "hydroDmg": 0,
+      "cryoDmg": 0,
+      "electroDmg": 0,
+      "anemoDmg": 0,
+      "geoDmg": 0,
+      "dendroDmg": 0,
+      "physicalDmg": 0,
+      "dmgAllBonus": 0,
+      "electroChargedDmg": 0,
+      "geoCritRate": 0,
+      "geoFlatDamage": 0,
+      "hydroFlatDamage": 0,
+      "swirlCritRate": 0,
+      "swirlCritDmg": 0,
+      "swirlFlatDamage": 0,
+      "vaporizeDmg": 0,
+      "meltDmg": 0,
+      "plungeImpactFlatDamage": 0,
+      "normalCritRate": 0,
+      "normalCritDmg": 0,
+      "chargedCritDmg": 0,
+      "plungeCritRate": 0,
+      "plungeCritDmg": 0,
+      "burstCritRate": 0,
+      "burstCritDmg": 0,
+      "pyroResistance": 0,
+      "hydroResistance": 0,
+      "cryoResistance": 0,
+      "electroResistance": 0,
+      "anemoResistance": 0,
+      "geoResistance": 0,
+      "dendroResistance": 0,
+      "physicalResistance": 0,
+      "geoCritDmg": 0,
+      "chargedCritRate": 0,
+      "skillCritRate": 0,
+      "skillCritDmg": 0,
+      "staminaReduction": 0,
+      "physicalCritDmg": 0,
+      "anemoCritDmg": 0,
+      "anemoFlatDamage": 0,
+      "normalElementalDmg": 0,
+      "bloomDmg": 0,
+      "burningDmg": 0,
+      "burgeonDmg": 0,
+      "hyperbloomDmg": 0,
+      "aggravateDmg": 0,
+      "spreadDmg": 0,
+      "lunarbloomDmg": 20,
+      "superconductDmg": 0,
+      "stellarconductDmg": 0,
+      "swirlDmg": 0,
+      "stellarswirlDmg": 0,
+      "movementSpeed": 0,
+      "chargedStamina": 0,
+      "normalTalentBonus": 0,
+      "healing": 0,
+      "incomingHealing": 0,
+      "damageReduction": 0,
+      "attackSpeed": 0,
+      "normalDmg": 0,
+      "chargedDmg": 0,
+      "plungeDmg": 0,
+      "skillDmg": 0,
+      "burstDmg": 0,
+      "normalFlatDamage": 0,
+      "chargedFlatDamage": 0,
+      "plungeFlatDamage": 0,
+      "skillFlatDamage": 0,
+      "burstFlatDamage": 0,
+      "cryoFlatDamage": 0,
+      "electroCritDmg": 0,
+      "cryoCritDmg": 0,
+      "chargedAttackBonus": 0,
+      "electroNormalFlatDamage": 0,
+      "lunarchargedDmg": 40,
+      "lunarchargedBaseBonus": 28.000000000000004,
+      "lunarchargedElevation": 0,
+      "lunarchargedCritRate": 0,
+      "lunarchargedCritDmg": 0,
+      "lunarchargedFlatDamage": 0,
+      "lunarbloomBaseBonus": 0,
+      "lunarbloomElevation": 0,
+      "lunarbloomCritRate": 0,
+      "lunarbloomCritDmg": 0,
+      "lunarbloomFlatDamage": 0,
+      "lunarcrystallizeDmg": 20,
+      "lunarcrystallizeBaseBonus": 0,
+      "lunarcrystallizeElevation": 0,
+      "lunarcrystallizeCritRate": 0,
+      "lunarcrystallizeCritDmg": 0,
+      "lunarcrystallizeFlatDamage": 0,
+      "stellarconductBaseBonus": 0,
+      "stellarconductElevation": 0,
+      "stellarconductCritRate": 0,
+      "stellarconductCritDmg": 0,
+      "stellarconductFlatDamage": 0,
+      "stellarswirlBaseBonus": 0,
+      "stellarswirlElevation": 0,
+      "stellarswirlCritRate": 0,
+      "stellarswirlCritDmg": 0,
+      "stellarswirlFlatDamage": 0,
+      "hydroCritDmg": 0,
+      "dendroCritDmg": 0,
+      "energyRestored": 0,
+      "burstCooldownReduction": 0,
+      "enemyAnemoDamageReduction": 0,
+      "cryoSwirlDmg": 0,
+      "enemyAttackReduction": 0,
+      "shieldStrength": 0,
+      "defReduction": 0,
+      "defIgnore": 0
+    },
+    "teamStats": {
+      "hp": 17270.8290496,
+      "atk": 2353.601979176,
+      "def": 808.51919724,
+      "em": 681.733063648016,
+      "er": 171.5268198,
+      "critRate": 80.5,
+      "critDmg": 234.60000000000002,
+      "dmgBonus": 0,
+      "pyroDmg": 0,
+      "hydroDmg": 0,
+      "cryoDmg": 0,
+      "electroDmg": 0,
+      "anemoDmg": 0,
+      "geoDmg": 0,
+      "dendroDmg": 0,
+      "physicalDmg": 0,
+      "dmgAllBonus": 0,
+      "electroChargedDmg": 0,
+      "geoCritRate": 0,
+      "geoFlatDamage": 0,
+      "hydroFlatDamage": 0,
+      "swirlCritRate": 0,
+      "swirlCritDmg": 0,
+      "swirlFlatDamage": 0,
+      "vaporizeDmg": 0,
+      "meltDmg": 0,
+      "plungeImpactFlatDamage": 0,
+      "normalCritRate": 0,
+      "normalCritDmg": 0,
+      "chargedCritDmg": 0,
+      "plungeCritRate": 0,
+      "plungeCritDmg": 0,
+      "burstCritRate": 0,
+      "burstCritDmg": 0,
+      "pyroResistance": 0,
+      "hydroResistance": 0,
+      "cryoResistance": 0,
+      "electroResistance": 0,
+      "anemoResistance": 0,
+      "geoResistance": 0,
+      "dendroResistance": 0,
+      "physicalResistance": 0,
+      "geoCritDmg": 0,
+      "chargedCritRate": 0,
+      "skillCritRate": 0,
+      "skillCritDmg": 0,
+      "staminaReduction": 0,
+      "physicalCritDmg": 0,
+      "anemoCritDmg": 0,
+      "anemoFlatDamage": 0,
+      "normalElementalDmg": 0,
+      "bloomDmg": 0,
+      "burningDmg": 0,
+      "burgeonDmg": 0,
+      "hyperbloomDmg": 0,
+      "aggravateDmg": 0,
+      "spreadDmg": 0,
+      "lunarbloomDmg": 20,
+      "superconductDmg": 0,
+      "stellarconductDmg": 0,
+      "swirlDmg": 0,
+      "stellarswirlDmg": 0,
+      "movementSpeed": 0,
+      "chargedStamina": 0,
+      "normalTalentBonus": 0,
+      "healing": 0,
+      "incomingHealing": 0,
+      "damageReduction": 0,
+      "attackSpeed": 0,
+      "normalDmg": 0,
+      "chargedDmg": 0,
+      "plungeDmg": 0,
+      "skillDmg": 0,
+      "burstDmg": 0,
+      "normalFlatDamage": 0,
+      "chargedFlatDamage": 0,
+      "plungeFlatDamage": 0,
+      "skillFlatDamage": 0,
+      "burstFlatDamage": 0,
+      "cryoFlatDamage": 0,
+      "electroCritDmg": 0,
+      "cryoCritDmg": 0,
+      "chargedAttackBonus": 0,
+      "electroNormalFlatDamage": 0,
+      "lunarchargedDmg": 40,
+      "lunarchargedBaseBonus": 28.000000000000004,
+      "lunarchargedElevation": 0,
+      "lunarchargedCritRate": 0,
+      "lunarchargedCritDmg": 0,
+      "lunarchargedFlatDamage": 0,
+      "lunarbloomBaseBonus": 0,
+      "lunarbloomElevation": 0,
+      "lunarbloomCritRate": 0,
+      "lunarbloomCritDmg": 0,
+      "lunarbloomFlatDamage": 0,
+      "lunarcrystallizeDmg": 20,
+      "lunarcrystallizeBaseBonus": 0,
+      "lunarcrystallizeElevation": 0,
+      "lunarcrystallizeCritRate": 0,
+      "lunarcrystallizeCritDmg": 0,
+      "lunarcrystallizeFlatDamage": 0,
+      "stellarconductBaseBonus": 0,
+      "stellarconductElevation": 0,
+      "stellarconductCritRate": 0,
+      "stellarconductCritDmg": 0,
+      "stellarconductFlatDamage": 0,
+      "stellarswirlBaseBonus": 0,
+      "stellarswirlElevation": 0,
+      "stellarswirlCritRate": 0,
+      "stellarswirlCritDmg": 0,
+      "stellarswirlFlatDamage": 0,
+      "hydroCritDmg": 0,
+      "dendroCritDmg": 0,
+      "energyRestored": 0,
+      "burstCooldownReduction": 0,
+      "enemyAnemoDamageReduction": 0,
+      "cryoSwirlDmg": 0,
+      "enemyAttackReduction": 0,
+      "shieldStrength": 0,
+      "defReduction": 0,
+      "defIgnore": 0
+    },
+    "assumptions": "Une cible, un impact principal, niveau 100, RÉS 10 %, moyenne CRIT. Aucun DPS de rotation. Les pièces sont fictives."
+  }
+}

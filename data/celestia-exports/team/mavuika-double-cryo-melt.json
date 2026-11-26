@@ -1,7 +1,7 @@
 {
   "name": "Double Cryo Melt",
   "description": "Celestia",
-  "lastEdit": 1794348904370,
+  "lastEdit": 1795409413603,
   "conditional": {
     "resonance": {},
     "reaction": {}
@@ -28,6 +28,9 @@
       "infusionAura": "",
       "bonusStats": {},
       "conditional": {
+        "Mavuika": {
+          "a1NsBurst": "on"
+        },
         "AThousandBlazingSuns": {
           "passive": "on",
           "nightsoul": "on"
@@ -35,9 +38,6 @@
         "ObsidianCodex": {
           "2NightsoulBlessing": "on",
           "4NightsoulConsume": "on"
-        },
-        "Mavuika": {
-          "a1NsBurst": "on"
         }
       },
       "customMultiTargets": [
@@ -45,22 +45,6 @@
           "name": "Double Cryo Melt",
           "description": "Celestia",
           "targets": [
-            {
-              "weight": 1,
-              "path": [
-                "skill",
-                "sprintDmg"
-              ],
-              "hitMode": "avgHit",
-              "bonusStats": {
-                "atk_": 29,
-                "atk": 1050.758,
-                "pyro_enemyRes_": -20,
-                "all_dmg_": 77.25,
-                "critRate_": 15
-              },
-              "description": ""
-            },
             {
               "weight": 1,
               "path": [
@@ -436,6 +420,22 @@
                 "critRate_": 15
               },
               "description": ""
+            },
+            {
+              "weight": 1,
+              "path": [
+                "skill",
+                "sprintDmg"
+              ],
+              "hitMode": "avgHit",
+              "bonusStats": {
+                "atk_": 29,
+                "atk": 1050.758,
+                "pyro_enemyRes_": -20,
+                "all_dmg_": 77.25,
+                "critRate_": 15
+              },
+              "description": ""
             }
           ]
         }
@@ -534,7 +534,7 @@
       "buildTcs": [
         {
           "name": "Celestia",
-          "description": "Celestia teammate assumption (85% of the maximum).",
+          "description": "Celestia teammate assumption (KQMS standard).",
           "characterKey": "Escoffier",
           "character": {
             "level": 90,
@@ -619,7 +619,7 @@
       "buildTcs": [
         {
           "name": "Celestia",
-          "description": "Celestia teammate assumption (85% of the maximum).",
+          "description": "Celestia teammate assumption (KQMS standard).",
           "characterKey": "Citlali",
           "character": {
             "level": 90,
@@ -704,7 +704,7 @@
       "buildTcs": [
         {
           "name": "Celestia",
-          "description": "Celestia teammate assumption (85% of the maximum).",
+          "description": "Celestia teammate assumption (KQMS standard).",
           "characterKey": "Bennett",
           "character": {
             "level": 90,

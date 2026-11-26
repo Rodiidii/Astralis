@@ -29,7 +29,7 @@
     }
   },
   "characterBonusStats": {
-    "atk": 1680,
+    "atk": 1788,
     "hp_": 30,
     "atk_": 101
   },
@@ -85,6 +85,11 @@
           "buff": "Grace of Kenosis (% of Nicole's ATK)",
           "key": "atk",
           "value": 708
+        },
+        {
+          "buff": "\"A Lamp by Your Side, A Light to Shine the Way\"",
+          "key": "atk",
+          "value": 108
         }
       ]
     },

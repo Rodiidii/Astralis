@@ -1,7 +1,7 @@
 {
   "name": "Melt",
   "description": "Celestia",
-  "lastEdit": 1794351143174,
+  "lastEdit": 1795427422209,
   "conditional": {
     "resonance": {},
     "reaction": {}
@@ -74,8 +74,8 @@
             {
               "weight": 2,
               "path": [
-                "skill",
-                "dmg"
+                "constellation2",
+                "manualDetonationDmg"
               ],
               "hitMode": "avgHit",
               "reaction": "melt",
@@ -235,7 +235,7 @@
       "buildTcs": [
         {
           "name": "Celestia",
-          "description": "Celestia teammate assumption (85% of the maximum).",
+          "description": "Celestia teammate assumption (KQMS standard).",
           "characterKey": "Rosaria",
           "character": {
             "level": 90,
@@ -320,7 +320,7 @@
       "buildTcs": [
         {
           "name": "Celestia",
-          "description": "Celestia teammate assumption (85% of the maximum).",
+          "description": "Celestia teammate assumption (KQMS standard).",
           "characterKey": "Diona",
           "character": {
             "level": 90,
@@ -405,7 +405,7 @@
       "buildTcs": [
         {
           "name": "Celestia",
-          "description": "Celestia teammate assumption (85% of the maximum).",
+          "description": "Celestia teammate assumption (KQMS standard).",
           "characterKey": "Bennett",
           "character": {
             "level": 90,
