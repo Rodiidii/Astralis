@@ -3,6 +3,7 @@ from endgame_archive import refresh_background as endgame_archive
 from lab_data_sync import refresh as refresh_lab_data
 from app_maintenance import start_maintenance,celestia_status
 import desktop_integration
+import community_services
 from update_progress import write_status as persist_update_status, read_status as saved_update_status
 
 import json
@@ -53,8 +54,12 @@ _APP_SESSIONS_SEEN = False
 _APP_SHUTDOWN_TIMER: threading.Timer | None = None
 _APP_HTTP_SERVER: ThreadingHTTPServer | None = None
 _CHARACTER_SHEETS_ADMIN_PASSWORD = os.environ.get("ASTRALIS_CHARACTER_SHEETS_ADMIN_PASSWORD", "")
+if not HOSTED and not community_services.owner_settings() and not _CHARACTER_SHEETS_ADMIN_PASSWORD and not os.environ.get("ASTRALIS_CHARACTER_SHEETS_DB"):
+    _CHARACTER_SHEETS_READ_ONLY=True
 _CHARACTER_SHEETS_GITHUB_REPO = os.environ.get("ASTRALIS_CHARACTER_SHEETS_GITHUB_REPO", "").strip()
 _CHARACTER_SHEETS_GITHUB_TOKEN = os.environ.get("ASTRALIS_CHARACTER_SHEETS_GITHUB_TOKEN", "")
+if not HOSTED and not os.environ.get('ASTRALIS_CHARACTER_SHEETS_DB') and not _CHARACTER_SHEETS_GITHUB_TOKEN:
+    _CHARACTER_SHEETS_GITHUB_REPO,_CHARACTER_SHEETS_GITHUB_TOKEN=community_services.creator_github_credentials()
 _CHARACTER_SHEETS_GITHUB_PATH = os.environ.get("ASTRALIS_CHARACTER_SHEETS_GITHUB_PATH", "published/character-sheets").strip().strip("/")
 _CHARACTER_SHEETS_DB = Path(os.environ.get("ASTRALIS_CHARACTER_SHEETS_DB", str(_SERVER_ROOT / "data" / "character-sheets.sqlite3"))).expanduser()
 _CHARACTER_SHEETS_ADMIN_SESSIONS: dict[str, float] = {}
@@ -248,9 +253,25 @@ def _character_sheets_read() -> list[dict]:
             except (TypeError, ValueError): continue
         return output
 
+def _character_sheets_public(path: str) -> dict | None:
+    key="public-character-sheets:"+path
+    with cache_lock:old=cache.get(key)
+    if old and time.time()-old[0]<20:return json.loads(old[1])
+    request=Request("https://raw.githubusercontent.com/Rodiidii/Astralis/main/published/character-sheets/"+quote(path,safe="/")+"?v="+str(int(time.time()//15)),headers={"User-Agent":"Astralis-Public-Sheets","Cache-Control":"no-cache"})
+    with urlopen(request,timeout=10) as response:data=json.loads(response.read(6_000_000))
+    if isinstance(data,dict):
+        with cache_lock:cache[key]=(time.time(),json.dumps(data).encode())
+        return data
+    return None
+
 def _character_sheets_get(sheet_id: str) -> dict | None:
     if _CHARACTER_SHEETS_GITHUB_REPO and _CHARACTER_SHEETS_GITHUB_TOKEN:
         return _character_sheets_github_read(f"{_CHARACTER_SHEETS_GITHUB_PATH}/sheets/{sheet_id}.json")
+    if not HOSTED and not os.environ.get("ASTRALIS_CHARACTER_SHEETS_DB"):
+        try:
+            public=_character_sheets_public("sheets/"+sheet_id+".json")
+            if public:return public.get("sheet",public)
+        except Exception:pass
     return next((row for row in _character_sheets_read() if row.get("id")==sheet_id),None)
 
 def _character_sheets_index() -> list[dict]:
@@ -258,6 +279,15 @@ def _character_sheets_index() -> list[dict]:
         rows=_character_sheets_github_index()
     else:
         rows=_character_sheets_read()
+    if not _CHARACTER_SHEETS_GITHUB_TOKEN and not HOSTED and not os.environ.get("ASTRALIS_CHARACTER_SHEETS_DB"):
+        try:
+            remote=_character_sheets_public("index.json")
+            if isinstance(remote,dict):
+                indexed={str(row.get("id")):row for row in rows}
+                for row in remote.get("sheets",[]):
+                    if isinstance(row,dict) and row.get("id"):indexed[str(row["id"])]=row
+                rows=list(indexed.values())
+        except Exception:pass
     return [_character_sheets_metadata(row) for row in rows]
 
 def _character_sheets_write(sheet: dict) -> dict:
@@ -307,7 +337,7 @@ def _character_sheets_metadata(sheet: dict) -> dict:
     metadata={key:sheet.get(key) for key in ("id","characterId","characterName","title","theme","version","createdAt","updatedAt","publishedAt","tags") if key in sheet}
     cover=str(sheet.get("cover") or "")
     if cover.startswith("https://") and len(cover)<2048:metadata["cover"]=cover
-    metadata["pageCount"]=len(sheet.get("pages",[])) if isinstance(sheet.get("pages"),list) else 1
+    metadata["pageCount"]=len(sheet.get("pages",[])) if isinstance(sheet.get("pages"),list) else max(1,int(sheet.get("pageCount",1)))
     return metadata
 
 def _character_sheets_cookie_token(cookie_header: str) -> str:
@@ -2053,6 +2083,15 @@ class Handler(SimpleHTTPRequestHandler):
         global _HOYOLAB_RESIN_CACHE
         path = urlsplit(self.path).path
         if not self._require_access(): return
+        if path == "/api/profile-icon":
+            if not _is_local_origin(self.headers.get("Origin","")):
+                self.send_json(403,{"error":"Origine refusée."});return
+            try:
+                length=int(self.headers.get("Content-Length","0"))
+                if length<2 or length>900000:raise ValueError("Icône trop volumineuse.")
+                self.send_json(200,community_services.store_profile_icon(json.loads(self.rfile.read(length))))
+            except (ValueError,TypeError) as error:self.send_json(400,{"error":str(error)})
+            return
         sheet_routes={"/api/character-sheets/login","/api/character-sheets/logout","/api/character-sheets/publish","/api/character-sheets/delete"}
         allowed_origin=_same_site_origin(self.headers.get("Origin",""),self.headers.get("Host","")) if HOSTED else _is_local_origin(self.headers.get("Origin",""))
         if path in sheet_routes:
@@ -2212,6 +2251,21 @@ class Handler(SimpleHTTPRequestHandler):
         request_url = urlsplit(self.path)
         path = request_url.path
         refresh = parse_qs(request_url.query).get("refresh") == ["1"]
+        if path in {"/api/feedback/status","/api/feedback/owner-link"}:
+            link=community_services.owner_link(self.client_address[0])
+            if path.endswith("owner-link"):
+                self.send_json(200,{"url":link}) if link else self.send_json(403,{"error":"Accès créateur non configuré sur cet appareil."})
+            else:self.send_json(200,{"ok":True,"ownerAvailable":bool(link)})
+            return
+        if path in {"/api/profile-icon","/api/profile-icon/manifest"}:
+            icon_id=parse_qs(request_url.query).get("id",[""])[0]
+            icon_file=_SERVER_ROOT/"assets/user/profile-icons"/(icon_id+".png")
+            if not re.fullmatch(r"[a-f0-9]{64}",icon_id) or not icon_file.is_file():self.send_json(404,{"error":"Icône introuvable."});return
+            if path.endswith("manifest"):
+                self.send_json(200,{"id":"/","name":"Astralis","short_name":"Astralis","start_url":"/?profile-icon="+icon_id,"scope":"/","display":"standalone","icons":[{"src":"/api/profile-icon?id="+icon_id,"sizes":"512x512","type":"image/png"}]})
+            else:
+                data=icon_file.read_bytes();self.send_response(200);self.send_header("Content-Type","image/png");self.send_header("Content-Length",str(len(data)));self.end_headers();self.wfile.write(data)
+            return
         if path == "/api/character-sheets/status":
             storage=_character_sheets_storage()
             local_admin=False

@@ -76,7 +76,7 @@ const P = {
 export function ic(name, { fill = false, cls = '' } = {}) {
   const body = P[name] || P.sparkle;
   const solid = fill || name === 'play';
-  return `<svg class="ic ic-${name}${solid ? ' ic-fill' : ''}${cls ? ` ${cls}` : ''}" viewBox="0 0 24 24" aria-hidden="true" focusable="false">${body}</svg>`;
+  return `<svg data-content-icon="${name}" class="ic ic-${name}${solid ? ' ic-fill' : ''}${cls ? ` ${cls}` : ''}" viewBox="0 0 24 24" aria-hidden="true" focusable="false">${body}</svg>`;
 }
 
 /** Rangée d'étoiles de rareté (SVG remplies). */

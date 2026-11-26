@@ -5,7 +5,7 @@ AddType application/wasm .wasm
 AddType application/manifest+json .webmanifest
 <IfModule mod_rewrite.c>
 RewriteEngine On
-RewriteRule ^api/config\.php$ - [F,L]
+RewriteRule ^api/(?:config|owner)\.php$ - [F,L]
 RewriteRule ^(?:\.git|\.env|tests|scripts|artifacts|releases)(?:/|$) - [F,L]
 RewriteRule ^docs/(?!sources(?:/|$)) - [F,L]
 RewriteRule \.(?:sqlite3?|db|dpapi|pem|key|py|ps1|bat|log|bak)$ - [F,L,NC]

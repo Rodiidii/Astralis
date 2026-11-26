@@ -2,13 +2,15 @@ const root = document.querySelector('#app');
 if (root && 'MutationObserver' in window) {
   const reduced = () => matchMedia('(prefers-reduced-motion: reduce)').matches || document.documentElement.dataset.motion === 'reduced' || document.documentElement.dataset.prefPageAnimation === 'false';
   let lastPage = '', preset = 0, queued = false;
+  const entered=new Set();
   const selectors = ['.page-hero', '#page-content > section', '#page-content > article', '#page-content > .panel', '[data-dashboard-widget]', '.binder-card', '.character-card', '.weapon-card', '.set-card', '.build-artifact-piece', '.team-card', '.endgame-live-card', '.gi-event-card', '.calc-sheet', '.favorite-card'];
   const play = () => {
     queued = false;
     const frame = root.querySelector('.app-frame'), page = frame?.dataset.themeSection;
     if (!frame || !page || page === lastPage) return;
     lastPage = page;
-    if (reduced()) return;
+    if (reduced() || entered.has(page)) return;
+    entered.add(page);
     const nodes = [...new Set(selectors.flatMap(selector => [...root.querySelectorAll(selector)]))]
       .filter(node => node.isConnected && node.getClientRects().length && node.offsetWidth > 0)
       .slice(0, 38);

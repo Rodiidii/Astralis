@@ -31,6 +31,8 @@ def main()->None:
   dest=WEB/name;dest.parent.mkdir(parents=True,exist_ok=True);shutil.copy2(source,dest);manifest.append(name)
  (WEB/'api').mkdir(exist_ok=True)
  shutil.copy2(ROOT/'hosting/infinityfree/api-router.php',WEB/'api/router.php')
+ for service in ['feedback-service.php','profile-icon-service.php']:
+  shutil.copy2(ROOT/'hosting/infinityfree'/service,WEB/'api'/service)
  shutil.copy2(ROOT/'hosting/infinityfree/htaccess.template',WEB/'.htaccess')
  (WEB/'api/config.php').write_text("<?php\n// Adresse HTTPS du serveur de données Astralis, si disponible.\nreturn ['api_origin' => ''];\n",encoding='utf-8')
  catalog=json.loads((ROOT/'public/card-catalog.json').read_text(encoding='utf-8'))
@@ -55,9 +57,9 @@ def main()->None:
   size=p.stat().st_size;limit=10000 if p.name=='.htaccess' else 1000000 if p.suffix.lower() in {'.php','.html','.js','.mjs'} else 10000000
   if size>=limit:bad.append({'path':p.relative_to(WEB).as_posix(),'bytes':size,'limit':limit})
  if bad:raise SystemExit('Fichiers trop volumineux pour InfinityFree : '+json.dumps(bad))
- report={'version':'1.0.58','platform':'InfinityFree','fileCount':len(files),'totalBytes':sum(p.stat().st_size for p in files),'oversizeFiles':bad,'privateFilesIncluded':False,'videoFilesServedFromGitHubRelease':len(remote_video),'precompressedJavascript':encoded,'apiMode':'read-only, optional external Python API for live feeds','applicationSourceUnminified':True}
+ report={'version':'1.0.59','platform':'InfinityFree','fileCount':len(files),'totalBytes':sum(p.stat().st_size for p in files),'oversizeFiles':bad,'privateFilesIncluded':False,'videoFilesServedFromGitHubRelease':len(remote_video),'precompressedJavascript':encoded,'apiMode':'read-only, optional external Python API for live feeds','applicationSourceUnminified':True}
  (OUTPUT/'verification.json').write_text(json.dumps(report,ensure_ascii=False,indent=2),encoding='utf-8')
- readme="""ASTRALIS 1.0.58 — DOSSIER INFINITYFREE
+ readme="""ASTRALIS 1.0.59 — DOSSIER INFINITYFREE
 
 1. Dans InfinityFree, crée ton hébergement et active HTTPS pour ton domaine.
 2. Transfère le CONTENU du dossier htdocs dans le htdocs du domaine. Conserve src, styles, assets, public et data. Transfère aussi .htaccess (fichier caché).

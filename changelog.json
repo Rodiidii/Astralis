@@ -2,6 +2,42 @@
   "schemaVersion": 1,
   "releases": [
     {
+      "id": "2026-11-26-daily-desk-1",
+      "date": "2026-11-26",
+      "title": "Ton programme du jour, ton accueil à toi",
+      "summary": "Farm connecté, échéances endgame, personnalisation par bloc et retours privés au créateur.",
+      "changes": [
+        {
+          "area": "Tableau de bord",
+          "text": "Le farm du jour reprend les matériaux, la résine et les personnages de ton calendrier. Tu peux terminer ou rouvrir une session depuis l’accueil."
+        },
+        {
+          "area": "Personnalisation",
+          "text": "Choisis les personnages suivis, le paysage, les animations, le serveur et l’ordre, la largeur, la couleur ou le titre de chacun des huit blocs. La disposition peut être importée ou exportée."
+        },
+        {
+          "area": "Endgame",
+          "text": "Les resets des Abysses et du Théâtre suivent les horloges fixes des serveurs. Le Carnage affiche uniquement une échéance publiée."
+        },
+        {
+          "area": "Fiches partagées",
+          "text": "Vérification automatique toutes les 30 secondes, téléchargement immédiat et mise à jour de la fiche en lecture sans attendre l’inactivité. Les brouillons restent privés."
+        },
+        {
+          "area": "Communauté",
+          "text": "Un formulaire permet d’envoyer un bug ou une idée, avec catégorie et capture facultative. La boîte privée du créateur, sa pastille et ses notifications se rafraîchissent toutes les 30 secondes."
+        },
+        {
+          "area": "Navigation & accueil",
+          "text": "Démarrage par défaut sur Genshin, menu regroupé par activité, icônes du jeu et nouvel écran de bienvenue. Les actualisations ne relancent plus indéfiniment les effets d’apparition."
+        },
+        {
+          "area": "iPhone & iPad",
+          "text": "L’avatar du profil fournit une vraie icône PNG et un manifeste dédié au raccourci. Un raccourci déjà ajouté doit être recréé pour remplacer l’image conservée par iOS."
+        }
+      ]
+    },
+    {
       "id": "2026-11-26-portal-play-1",
       "date": "2026-11-26",
       "title": "Un nouveau portail, des jeux au cœur de Teyvat",

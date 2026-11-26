@@ -35,7 +35,7 @@ try:
    if file.is_file():r.fulfill(path=str(file));return
    if file.suffix=='.js' and Path(str(file)+'.gz').is_file():r.fulfill(body=gzip.decompress(Path(str(file)+'.gz').read_bytes()),content_type='application/javascript');return
    r.fulfill(status=404,body='')
-  page.route('**/*',route);page.add_init_script("localStorage.setItem('astralis:active-game','gi');localStorage.setItem('astralis:releases:last-seen','2026-11-26-portal-play-1');localStorage.setItem('astralis:gi:assistant-profile','{\"enabled\":false}')")
+  page.route('**/*',route);page.add_init_script("localStorage.setItem('astralis:active-game','gi');localStorage.setItem('astralis:releases:last-seen','2026-11-26-daily-desk-1');localStorage.setItem('astralis:gi:assistant-profile','{\"enabled\":false}')")
   print('Bundle startup: minified app and unchanged module graph',flush=True);page.goto(base,wait_until='domcontentloaded',timeout=120000);
   try:page.wait_for_selector('.home-portal',timeout=45000)
   except Exception:

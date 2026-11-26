@@ -7,13 +7,13 @@ import {industry,industryBonuses,craftIndustry} from '../src/express-industry-mo
 
 test('Personal home settings stay bounded and preserve every widget when reordered',()=>{
  const p=normalizeHomePrefs({height:5000,brightness:-30,accent:'red;display:none',widgets:['events','events','fake'],hidden:['tasks','bad'],motion:'invalid'});
- assert.equal(p.height,740);assert.equal(p.brightness,35);assert.equal(p.accent,'#a1e8d0');assert.equal(p.widgets[0],'events');assert.equal(p.widgets.length,4);assert.deepEqual(p.hidden,['tasks']);assert.equal(p.motion,'full');
+ assert.equal(p.height,740);assert.equal(p.brightness,35);assert.equal(p.accent,'#a1e8d0');assert.equal(p.widgets[0],'events');assert.equal(p.widgets.length,8);assert.deepEqual(p.hidden,['tasks']);assert.equal(p.motion,'full');
 });
 test('Home suggests actual dated work before a generic destination',()=>{
  assert.equal(nextHomeAction({farm:[{title:'Aptitudes'}],today:[{title:'Objectif'}]}).nav,'farming');
  assert.equal(nextHomeAction({farm:[],today:[{title:'Objectif'}]}).title,'Objectif');
- assert.equal(nextHomeAction({farm:[],today:[],teams:2}).nav,'teams');
- assert.equal(nextHomeAction({farm:[],today:[],teams:0}).nav,'atlas');
+ assert.equal(nextHomeAction({farm:[],today:[],teams:2}).nav,'farming');
+ assert.equal(nextHomeAction({farm:[],today:[],teams:0}).nav,'farming');
 });
 test('Idle yields are proportional to elapsed time and capped at eight hours',()=>{
  const state=idleRules.baseState([{id:'amber'}]),rates=idleRules.rates(state),start=state.mora;

@@ -9,6 +9,7 @@ const readJson=(key,fallback)=>{try{const value=JSON.parse(localStorage.getItem(
 const writeJson=(key,value)=>{try{localStorage.setItem(key,JSON.stringify(value));return true}catch{return false}};
 let host=null,characters=[],weapons=[],artifacts=[],mode='library',draft=null,reading=null,currentPageId='',remoteIndex=[],admin={authenticated:false,adminConfigured:false,publishReady:false,localAdmin:false,readOnly:true,storage:''},filter='',libraryView='all',iconCategory='actions',previewWidth='wide',pollStarted=false,lastActivity=Date.now(),pendingIds=[],drainTimer=0,pollBusy=false,downloadBusy=false,draggedBlock=-1,lastEditor=null,savedRange=null;
 let dbPromise=null;
+export const SHEET_SYNC_INTERVAL=30000;
 
 function drafts(){return readJson(DRAFT_KEY,[]).filter(x=>x&&x.id)}
 function unread(){return new Set(readJson(UNREAD_KEY,[]).map(String))}
@@ -29,15 +30,16 @@ async function cachePut(sheet){const db=await getDb();if(db)return new Promise(r
 async function cacheGet(id){const db=await getDb();if(db)return new Promise(resolve=>{const request=db.transaction('published','readonly').objectStore('published').get(id);request.onsuccess=()=>resolve(request.result||null);request.onerror=()=>resolve(null)});return readJson('astralis:character-sheets:published-fallback:v1',{})[id]||null}
 async function cacheDelete(id){const db=await getDb();if(db)return new Promise(resolve=>{const request=db.transaction('published','readwrite').objectStore('published').delete(id);request.onsuccess=()=>resolve(true);request.onerror=()=>resolve(false)});const cache=readJson('astralis:character-sheets:published-fallback:v1',{});delete cache[id];return writeJson('astralis:character-sheets:published-fallback:v1',cache)}
 async function cachedAll(){const db=await getDb();if(db)return new Promise(resolve=>{const request=db.transaction('published','readonly').objectStore('published').getAll();request.onsuccess=()=>resolve(request.result||[]);request.onerror=()=>resolve([])});return Object.values(readJson('astralis:character-sheets:published-fallback:v1',{}))}
-function activity(){lastActivity=Date.now();if(pendingIds.length){clearTimeout(drainTimer);drainTimer=setTimeout(drainQueue,120000)}}
+function activity(){lastActivity=Date.now()}
 function setupSync(){
  if(pollStarted)return;pollStarted=true;
  for(const eventName of ['pointerdown','keydown','input','touchstart','wheel','scroll'])window.addEventListener(eventName,activity,{passive:true});
  document.addEventListener('visibilitychange',()=>{if(!document.hidden)checkRemoteSheets()});
- checkRemoteSheets();setInterval(checkRemoteSheets,300000);
+ window.addEventListener('online',checkRemoteSheets);checkRemoteSheets();setInterval(checkRemoteSheets,SHEET_SYNC_INTERVAL);
 }
 function startEditorServices(){setupEvents();setupSync()}
 async function requestJson(url,options={}){
+ options={signal:AbortSignal.timeout(20000),...options};
  const response=await fetch(url,{cache:'no-store',credentials:'same-origin',...options,headers:{'Content-Type':'application/json',...(options.headers||{})}});
  let data={};try{data=await response.json()}catch{}
  if(!response.ok)throw new Error(data.error||`Le serveur a répondu ${response.status}.`);
@@ -46,6 +48,7 @@ async function requestJson(url,options={}){
 async function checkRemoteSheets(){
  if(pollBusy||downloadBusy||!navigator.onLine)return;pollBusy=true;
  try{
+  const previousIndex=JSON.stringify(remoteIndex),previousReadOnly=admin.readOnly;
   const [status,index]=await Promise.all([requestJson('/api/character-sheets/status'),requestJson('/api/character-sheets/index')]);
   admin={...admin,...status};remoteIndex=Array.isArray(index.sheets)?index.sheets:[];writeJson(META_KEY,remoteIndex);
    const liveIds=new Set(remoteIndex.map(item=>String(item.id))),cached=await cachedAll(),cachedIds=new Set(cached.map(item=>String(item.id)));
@@ -53,8 +56,8 @@ async function checkRemoteSheets(){
    const seen=seenVersions();for(const id of Object.keys(seen))if(!liveIds.has(String(id)))delete seen[id];writeJson(SEEN_KEY,seen);
    pendingIds=remoteIndex.filter(item=>Number(item.version||1)>Number(seen[item.id]||0)||!cachedIds.has(String(item.id))).map(item=>String(item.id));
    const unreadIds=unread(),keptUnread=[...unreadIds].filter(id=>liveIds.has(id));if(keptUnread.length!==unreadIds.size){writeJson(UNREAD_KEY,keptUnread);syncBadge()}
-  if(host&&mode==='library')render();
-  if(pendingIds.length){clearTimeout(drainTimer);drainTimer=setTimeout(drainQueue,Math.max(1000,120000-(Date.now()-lastActivity)))}
+  if(host?.isConnected&&mode==='library'&&(previousIndex!==JSON.stringify(remoteIndex)||previousReadOnly!==admin.readOnly))render();
+  if(pendingIds.length){clearTimeout(drainTimer);drainTimer=setTimeout(drainQueue,0)}
  }catch(error){if(error.name!=='TypeError'&&host&&mode==='library'){admin={...admin,serviceError:error.message};render()}}
  finally{pollBusy=false}
 }
@@ -64,19 +67,18 @@ function showDownloadStatus(text){
  node.classList.add('is-visible');return node;
 }
 async function drainQueue(){
- clearTimeout(drainTimer);drainTimer=0;if(!pendingIds.length||pollBusy||downloadBusy||Date.now()-lastActivity<120000){if(pendingIds.length)drainTimer=setTimeout(drainQueue,Math.max(1000,120000-(Date.now()-lastActivity)));return}
+ clearTimeout(drainTimer);drainTimer=0;if(!pendingIds.length||pollBusy||downloadBusy){if(pendingIds.length)drainTimer=setTimeout(drainQueue,250);return}
  const work=[...pendingIds];pendingIds=[];downloadBusy=true;const overlay=showDownloadStatus(`Préparation de ${work.length} fiche${work.length===1?'':'s'}…`),seen=seenVersions(),unreadIds=unread();let completed=0;
  try{
   for(const id of work){
-   if(Date.now()-lastActivity<120000){pendingIds.push(id,...work.slice(work.indexOf(id)+1));break}
    const payload=await requestJson(`/api/character-sheets/item?id=${encodeURIComponent(id)}`),sheet=payload.sheet;
-   if(!sheet?.id)continue;await cachePut(sheet);const version=Number(sheet.version)||1;if(version>Number(seen[id]||0))unreadIds.add(id);seen[id]=version;completed++;overlay.querySelector('strong').textContent=`Téléchargement des fiches · ${completed}/${work.length}`;
+   if(!sheet?.id)continue;await cachePut(sheet);if(mode==='read'&&String(reading?.id)===String(sheet.id))reading=sheet;const version=Number(sheet.version)||1;if(version>Number(seen[id]||0))unreadIds.add(id);seen[id]=version;completed++;overlay.querySelector('strong').textContent=`Téléchargement des fiches · ${completed}/${work.length}`;
   }
   writeJson(SEEN_KEY,seen);writeJson(UNREAD_KEY,[...unreadIds]);syncBadge();
   if(completed){overlay.querySelector('strong').textContent=`${completed} fiche${completed===1?' reçue':'s reçues'}`;overlay.classList.add('is-complete');setTimeout(()=>overlay.remove(),4200)}else overlay.remove();
-  if(host&&mode==='library')render();
+  if(host?.isConnected&&['library','read'].includes(mode))renderKeepingReadingPosition();
  }catch(error){pendingIds=[...new Set([...pendingIds,...work])];overlay.querySelector('strong').textContent='Synchronisation reportée';overlay.querySelector('small').textContent=error.message||'La fiche sera récupérée au prochain contrôle.';setTimeout(()=>overlay.remove(),4500)}
- finally{downloadBusy=false;if(pendingIds.length)drainTimer=setTimeout(drainQueue,Math.max(1000,120000-(Date.now()-lastActivity)))}
+ finally{downloadBusy=false;if(pendingIds.length)drainTimer=setTimeout(drainQueue,SHEET_SYNC_INTERVAL)}
 }
 function isInlineToken(token){const key=slug(token);return ELEMENT_ICONS.includes(key)||key==='element'||Object.hasOwn(ACTION_LABELS,key)||Object.hasOwn(STAT_ICONS,key)||['arme','artes'].includes(key)||!!personByToken(key)||weapons.some(item=>slug(item.name)===key||slug(item.id)===key)||artifacts.some(item=>slug(item.name)===key||slug(item.id)===key)}
 function imageTag(src,alt='',className=''){return src?`<img src="${esc(src)}" alt="${esc(alt)}" class="${esc(className)}" loading="lazy" decoding="async">`:''}
@@ -239,7 +241,8 @@ function renderReadBlock(block,index,characterId,pageId='page'){
 }
 function safeImageUrl(value){const src=String(value||'');return /^(?:data:image\/(?:png|jpeg|webp|gif);base64,|https:\/\/)/i.test(src)||(/^\/assets\/[A-Za-z0-9_./-]+$/.test(src)&&!src.split('/').includes('..'))?src:''}
 function renderPreview(){return `${renderReadView({...draft,version:draft.publishedVersion||1,updatedAt:draft.updatedAt||Date.now(),previewWidth})}<div class="sheet-preview-dock" data-preview-width="${previewWidth}"><span>APERÇU · ${previewWidth==='phone'?'téléphone':previewWidth==='tablet'?'tablette':'grand écran'}</span><div>${['phone','tablet','wide'].map(value=>`<button class="${previewWidth===value?'is-active':''}" data-sheet-preview-width="${value}">${value==='phone'?'▯':value==='tablet'?'▱':'▣'}</button>`).join('')}<button data-sheet-action="edit">Retour éditeur</button></div></div>`}
-function render(){if(!host)return;syncBadge();host.innerHTML=mode==='edit'?renderEditor():mode==='read'&&reading?renderReadView(reading):mode==='preview'?renderPreview():renderLibrary();if(mode==='edit'){host.querySelector('[data-sheet-canvas]')?.setAttribute('data-sheet-person',draft?.characterId||'');applyIconLibraryFilter()}}
+function renderKeepingReadingPosition(){const scrolls=[document.scrollingElement,...document.querySelectorAll('.workspace,#page-content,.sheet-reader-content')].filter(Boolean).map(el=>[el,el.scrollTop,el.scrollLeft]);const openDetails=[...host.querySelectorAll('details[open]')].map(el=>el.id).filter(Boolean);render();for(const [el,top,left]of scrolls)el.scrollTo({top,left,behavior:'instant'});for(const id of openDetails){const el=document.getElementById(id);if(el)el.open=true}}
+function render(){if(!host?.isConnected)return;syncBadge();host.innerHTML=mode==='edit'?renderEditor():mode==='read'&&reading?renderReadView(reading):mode==='preview'?renderPreview():renderLibrary();if(mode==='edit'){host.querySelector('[data-sheet-canvas]')?.setAttribute('data-sheet-person',draft?.characterId||'');applyIconLibraryFilter()}}
 function currentSheetFromList(id){return drafts().find(row=>String(row.id)===String(id))}
 async function openPublished(id){let sheet=await cacheGet(id);if(!sheet){try{sheet=(await requestJson(`/api/character-sheets/item?id=${encodeURIComponent(id)}`)).sheet;if(sheet)await cachePut(sheet)}catch(error){return toast(error.message||'La fiche est hors ligne et n’a pas encore été téléchargée.','error')}}if(!sheet)return toast('Fiche introuvable.','error');reading=sheet;mode='read';const set=unread();set.delete(String(id));writeJson(UNREAD_KEY,[...set]);syncBadge();render()}
 function editSheet(sheet){if(admin.readOnly)return toast('La modification des fiches est désactivée sur cette version.','error');draft=JSON.parse(JSON.stringify(sheet));ensurePages(draft);currentPageId=draft.pages[0].id;draft.blocks=draft.pages[0].blocks;mode='edit';reading=null;render()}
@@ -366,3 +369,6 @@ export function initCharacterSheets(root,options={}){
  if(location.hash.startsWith('#sheets:')){const id=location.hash.slice(8);if(id)openPublished(id)}
 }
 startEditorServices();
+
+export function startCharacterSheetSync(){setupSync()}
+export function checkSharedSheetsNow(){return checkRemoteSheets()}
