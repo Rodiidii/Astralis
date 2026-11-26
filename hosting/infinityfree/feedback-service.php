@@ -6,9 +6,7 @@ function feedback_service(string $route, string $method, string $root): void {
     $owner=is_file($ownerFile)?require $ownerFile:[];
     $ownerHash=(string)($owner['feedback_hash']??'');
     if ($ownerHash==='') reply(503,['error'=>'La boîte de réception n’est pas encore configurée.']);
-    $directory=dirname($root).'/.astralis-feedback';
-    if (!is_dir($directory) && !@mkdir($directory,0700,true)) reply(503,['error'=>'Le stockage privé est indisponible.']);
-    if (!is_writable($directory)) reply(503,['error'=>'Le stockage privé est indisponible.']);
+    $directory=astralis_private_store($root,'feedback');
     ini_set('session.use_strict_mode','1');
     session_name('astralis_creator');
     session_set_cookie_params(['lifetime'=>43200,'path'=>'/','secure'=>!empty($_SERVER['HTTPS'])&&$_SERVER['HTTPS']!=='off','httponly'=>true,'samesite'=>'Strict']);

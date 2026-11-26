@@ -4,9 +4,18 @@ import argparse,getpass,hashlib,io,json,time
 from pathlib import Path
 from infinityfree_upload import Uploader,upload_files,digest
 def main():
- parser=argparse.ArgumentParser();parser.add_argument('--source',required=True);parser.add_argument('--username',required=True);parser.add_argument('--domain',required=True);args=parser.parse_args()
+ parser=argparse.ArgumentParser();parser.add_argument('--source',required=True);parser.add_argument('--username',required=True);parser.add_argument('--domain',required=True);parser.add_argument('--only',action='append');args=parser.parse_args()
  source=Path(args.source).resolve();receipt=source.parent/('.upload-'+args.username+'.json');previous=json.loads(receipt.read_text(encoding='utf-8'));assert previous.get('username')==args.username and previous.get('domain')==args.domain
- records=previous.get('completed',{});rows=upload_files(source);changed=[row for row in rows if records.get(row[0],{}).get('sha256')!=digest(row[1])]
+ records=previous.get('completed',{})
+ if args.only:
+  rows=[]
+  for name in args.only:
+   file=(source/name).resolve()
+   if not file.is_relative_to(source) or not file.is_file() or file.suffix in {'.key','.pem','.env','.db','.py'} or name=='api/owner.php':raise ValueError('Fichier public invalide.')
+   rows.append((file.relative_to(source).as_posix(),file))
+  rows.sort(key=lambda row:({'index.html':1,'sw.js':2,'.htaccess':3}.get(row[0],0),row[0]))
+ else:rows=upload_files(source)
+ changed=[row for row in rows if records.get(row[0],{}).get('sha256')!=digest(row[1])]
  print('CHANGED_FILES',len(changed),'OF',len(rows),flush=True)
  for name,_ in changed:print('FILE',name,flush=True)
  print('CREDENTIAL_INPUT_READY',flush=True);password=getpass.getpass('Mot de passe FTP : ')

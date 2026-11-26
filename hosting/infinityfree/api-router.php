@@ -14,6 +14,16 @@ function reply(int $status, $data) {
     echo json_encode($data, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES | JSON_INVALID_UTF8_SUBSTITUTE);
     exit;
 }
+function astralis_private_store(string $root,string $kind): string {
+    $outside=dirname($root).'/.astralis-'.$kind;
+    if ((@is_dir($outside)||@mkdir($outside,0700,true)) && @is_writable($outside)) return $outside;
+    $private=$root.'/api/.astralis-private';
+    if (!is_dir($private) && !@mkdir($private,0700,true)) reply(503,['error'=>'Le stockage privé est indisponible.']);
+    if (file_put_contents($private.'/.htaccess',"Require all denied\n",LOCK_EX)===false) reply(503,['error'=>'Le stockage ne peut pas être protégé.']);
+    $directory=$private.'/'.$kind;
+    if ((!is_dir($directory)&&!@mkdir($directory,0700,true)) || !is_writable($directory)) reply(503,['error'=>'Le stockage privé est indisponible.']);
+    return $directory;
+}
 function remote_json(string $url): ?array {
     if (!function_exists('curl_init')) return null;
     $curl = curl_init($url);

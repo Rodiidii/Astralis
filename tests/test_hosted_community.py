@@ -35,7 +35,7 @@ class HostedCommunityTest(unittest.TestCase):
   self.assertEqual(self.call(self.owner,'feedback/item?id='+identifier)[1]['report']['image'],encoded)
   self.assertEqual(self.call(self.owner,'feedback/update',{'id':identifier,'status':'resolved'})[0],200)
   self.assertEqual(self.call(self.owner,'feedback/item?id='+identifier)[1]['report']['status'],'resolved')
-  self.assertFalse(any(self.web.rglob('report-*.json')))
+  self.assertFalse(any(self.web.rglob('report-*.json')));self.assertTrue((self.folder/'.astralis-feedback'/('report-'+identifier+'.json')).is_file())
   self.assertEqual(self.call(self.owner,'feedback/delete',{'id':identifier})[0],200)
  def test_rejects_executable_images_and_unauthorized_sheet_publication(self):
   status,_=self.call(self.public,'feedback',{'kind':'bug','category':'display','title':'Image incorrecte','description':'Une description suffisante pour cette vérification.','image':'data:image/svg+xml;base64,PHN2Zz4='});self.assertEqual(status,400)

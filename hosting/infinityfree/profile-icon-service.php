@@ -1,8 +1,7 @@
 <?php
 declare(strict_types=1);
 function profile_icon_service(string $route,string $method,string $root): void {
-    $dir=dirname($root).'/.astralis-profile-icons';
-    if (!is_dir($dir) && !@mkdir($dir,0700,true)) reply(503,['error'=>'Les icônes de profil sont indisponibles.']);
+    $dir=astralis_private_store($root,'profile-icons');
     $id=(string)($_GET['id']??'');
     if ($method==='GET' && preg_match('/^[a-f0-9]{64}$/D',$id) && is_file($dir.'/'.$id.'.png')) {
         if ($route==='profile-icon/manifest') reply(200,['id'=>'/','name'=>'Astralis','short_name'=>'Astralis','start_url'=>'/?profile-icon='.$id,'scope'=>'/','display'=>'standalone','background_color'=>'#111b27','theme_color'=>'#111b27','icons'=>[['src'=>'/api/profile-icon?id='.$id,'sizes'=>'512x512','type'=>'image/png','purpose'=>'any']]]);

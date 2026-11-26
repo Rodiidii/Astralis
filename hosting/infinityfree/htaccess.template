@@ -5,6 +5,7 @@ AddType application/wasm .wasm
 AddType application/manifest+json .webmanifest
 <IfModule mod_rewrite.c>
 RewriteEngine On
+RewriteRule ^api/\.astralis-private(?:/|$) - [F,L,NC]
 RewriteRule ^api/(?:config|owner)\.php$ - [F,L]
 RewriteRule ^(?:\.git|\.env|tests|scripts|artifacts|releases)(?:/|$) - [F,L]
 RewriteRule ^docs/(?!sources(?:/|$)) - [F,L]
