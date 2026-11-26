@@ -28,3 +28,7 @@ data/character-sheets.sqlite3
 .playwright/
 *.sqlite3-shm
 *.sqlite3-wal
+
+# Réponses de travail HoYo locales
+.hoyo-cache/
+.hoyo-cache-hsr/

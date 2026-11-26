@@ -1,0 +1,19 @@
+ASTRALIS 1.0.58 — DOSSIER INFINITYFREE
+
+1. Dans InfinityFree, crée ton hébergement et active HTTPS pour ton domaine.
+2. Transfère le CONTENU du dossier htdocs dans le htdocs du domaine. Conserve src, styles, assets, public et data. Transfère aussi .htaccess (fichier caché).
+3. Utilise FTP/FileZilla pour ce dossier complet. Une grosse archive ZIP ne doit pas être envoyée telle quelle : InfinityFree limite chaque fichier.
+4. Ouvre https://ton-domaine/ puis recharge si tu avais déjà ouvert une ancienne version.
+
+Les jeux, l’éditeur de builds, les équipes, le laboratoire, les cartes, la planification et les sauvegardes du navigateur sont inclus. Les catalogues conservent leurs sources publiques. Les fiches publiées sont en lecture seule.
+
+LES FONCTIONS QUI ONT BESOIN DU SERVEUR DE DONNÉES
+InfinityFree n’exécute pas le serveur Python de l’application. Les flux Événements, Endgame, certains textes de lore et médias demandent un serveur de données Astralis compatible. Si tu en possèdes un, indique son URL HTTPS dans htdocs/api/config.php, champ api_origin. Aucun mot de passe ou profil de ton installation locale n’est fourni. Sans cette configuration, ces flux signalent leur indisponibilité ; ils n’inventent pas de résultats.
+
+Les opérations Windows (lancement de Genshin, raccourcis, installation de mises à jour) restent réservées à l’application installée. Les vidéos de jeu sont chargées depuis les fichiers de la release GitHub v1.0.58 ; elles ne sont pas copiées sur InfinityFree.
+
+Le contrôle de taille est dans verification.json. La préparation ne remplace pas un essai sur ton domaine : aucun accès à ton compte InfinityFree ni upload n’a été effectué.
+
+Documentation officielle :
+https://forum.infinityfree.com/t/file-size-and-upload-limits/49308
+https://forum.infinityfree.com/t/why-isnt-api-access-working-on-my-website/115198

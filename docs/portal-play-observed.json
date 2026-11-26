@@ -47,6 +47,39 @@
   "infinityfree": {
     "prepared": true,
     "liveUploadPerformed": false,
-    "pythonBackendRequiredForLiveFeeds": true
-  }
+    "pythonBackendRequiredForLiveFeeds": true,
+    "version": "1.0.58",
+    "platform": "InfinityFree",
+    "fileCount": 4072,
+    "totalBytes": 246954854,
+    "oversizeFiles": [],
+    "privateFilesIncluded": false,
+    "videoFilesServedFromGitHubRelease": 547,
+    "precompressedJavascript": [
+      "public/lab-complete-engine.js",
+      "public/lab-wr-engine.js"
+    ],
+    "apiMode": "read-only, optional external Python API for live feeds",
+    "applicationSourceUnminified": true,
+    "browserCheck": {
+      "passed": true,
+      "minifiedApplicationStarted": true,
+      "gzipCalculationEnginesLoaded": 2,
+      "arcadeCovers": 16,
+      "idleCollectionWorked": true,
+      "mobileOverflow": false,
+      "phpApiTestedOnInfinityFree": false
+    }
+  },
+  "bundleTests": {
+    "passed": 6,
+    "failed": 0
+  },
+  "totalAutomatedTests": 61,
+  "engineFix": "NX_SHOW_DEV_COMPONENTS access is safe when process is absent in a browser",
+  "limits": [
+    "Les services distants ont été simulés ou bloqués pendant les parcours.",
+    "La passerelle PHP doit encore être essayée sur le domaine InfinityFree après transfert.",
+    "Les flux en direct demandent un serveur de données Astralis renseigné dans api/config.php."
+  ]
 }
