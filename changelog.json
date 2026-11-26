@@ -2,6 +2,34 @@
   "schemaVersion": 1,
   "releases": [
     {
+      "id": "2026-11-26-preparation-desk-1",
+      "date": "2026-11-26",
+      "title": "Ton atelier de préparation, en grand",
+      "summary": "Un tableau de bord relié à tes vrais builds, tes matériaux, tes gains et tes défis.",
+      "changes": [
+        {
+          "area": "Tableau de bord",
+          "text": "Fiches PNG des builds et projets de farm, stocks manquants, programme sur sept jours, résine disponible et export vers un agenda."
+        },
+        {
+          "area": "Primogemmes",
+          "text": "Formulaire du jour avec catégories, montants réels, Faveur séparée, annulation et journal partagé avec Vœux & objectifs."
+        },
+        {
+          "area": "Endgame",
+          "text": "Rencontres, éléments et personnages d’ouverture publiés. La prochaine composition apparaît dès qu’elle est disponible dans le flux public actualisé automatiquement."
+        },
+        {
+          "area": "Objectifs",
+          "text": "Création d’objectifs avec étapes cochables et accès direct à une session de concentration."
+        },
+        {
+          "area": "Interface",
+          "text": "Retour des icônes SVG du menu et des contrôles. Primogemmes et destinées visibles dans la barre du haut sur téléphone."
+        }
+      ]
+    },
+    {
       "id": "2026-11-26-daily-desk-1",
       "date": "2026-11-26",
       "title": "Ton programme du jour, ton accueil à toi",

@@ -8,16 +8,19 @@ const integer=v=>Number.isFinite(Number(v))?Math.min(Number.MAX_SAFE_INTEGER,Mat
 export function walletBalance(plan={}){const primos=integer(plan.currentPrimos??plan.primos),wishes=integer(plan.wishes);return {primos,wishes,converted:Math.floor(primos/160),remaining:primos%160,available:wishes+Math.floor(primos/160)};}
 export function rewardConfig(plan={}){return {welkin:!!plan.welkin,theatre:integer(plan.theatreGain),abyss:integer(plan.abyssGain),carnage:integer(plan.carnageGain),smallEvent:plan.smallEventGain==null?420:integer(plan.smallEventGain)};}
 export function claimReward(plan,type,date=localDay(),custom={}){
- const config=rewardConfig(plan),rewards={daily:[60+(config.welkin?90:0),0,'Dailies'+(config.welkin?' + Faveur':'')],reset:[0,5,'Boutique mensuelle'],theatre:[config.theatre,0,'Théâtre'],abyss:[config.abyss,0,'Abysses'],carnage:[config.carnage,0,'Carnage'],small:[config.smallEvent,0,'Petit événement'],other:[integer(custom.primos),integer(custom.wishes),custom.label||'Autre gain']};
+ const active=effectiveWishIncome(plan.history||[]),welkinDone=active.some(row=>row.rewardType==='welkin'&&row.date===date),includeWelkin=configuredWelkin(plan)&&!custom.separateWelkin&&!welkinDone;
+ const config=rewardConfig(plan),rewards={daily:[60+(includeWelkin?90:0),0,'Dailies'+(includeWelkin?' + Faveur':'')],welkin:[90,0,'Faveur'],reset:[0,5,'Boutique mensuelle'],theatre:[config.theatre,0,'Théâtre'],abyss:[config.abyss,0,'Abysses'],carnage:[config.carnage,0,'Carnage'],small:[config.smallEvent,0,'Petit événement'],other:[integer(custom.primos),integer(custom.wishes),custom.label||'Autre gain']};
  const reward=rewards[type];if(!reward)throw new Error('Récompense inconnue.');
- const period=type==='daily'?date:type==='reset'||type==='theatre'||type==='abyss'?date.slice(0,7):type==='carnage'?String(custom.period||date):null;
+ const period=type==='daily'||type==='welkin'?date:type==='reset'||type==='theatre'||type==='abyss'?date.slice(0,7):type==='carnage'?String(custom.period||date):null;
  const history=[...(plan.history||[])];
- if(period&&history.some(row=>row.rewardType===type&&row.rewardPeriod===period))throw new Error('Cette récompense est déjà enregistrée pour cette période.');
- const [primos,wishes,label]=reward;if(!primos&&!wishes)throw new Error('Indique le montant de cette récompense dans tes réglages.');
+ if(period&&active.some(row=>row.rewardType===type&&row.rewardPeriod===period))throw new Error('Cette récompense est déjà enregistrée pour cette période.');
+ if(type==='welkin'&&active.some(row=>row.rewardType==='daily'&&row.date===date&&/Faveur/.test(row.label||'')))throw new Error('La Faveur est déjà comprise dans les quotidiennes de ce jour.');
+ const [defaultPrimos,defaultWishes,label]=reward,primos=custom.actualPrimos==null?defaultPrimos:integer(custom.actualPrimos),wishes=custom.actualWishes==null?defaultWishes:integer(custom.actualWishes);if(!primos&&!wishes)throw new Error('Indique le montant de cette récompense dans tes réglages.');
  const currentPrimos=integer(plan.currentPrimos??plan.primos)+primos,totalWishes=integer(plan.wishes)+wishes;
- history.push({id:globalThis.crypto?.randomUUID?.()||String(Date.now()),date,label,primos,count:wishes,rewardType:type,rewardPeriod:period,balancePrimos:currentPrimos,balanceWishes:totalWishes});
+ history.push({id:globalThis.crypto?.randomUUID?.()||String(Date.now()),date,label:custom.note?label+' · '+String(custom.note).slice(0,120):label,primos,count:wishes,rewardType:type,rewardPeriod:period,balancePrimos:currentPrimos,balanceWishes:totalWishes});
  return {...plan,currentPrimos,primos:currentPrimos,currentPrimosExplicit:true,wishes:totalWishes,history};
 }
+function configuredWelkin(plan){return !!plan.welkin}
 export function undoReward(plan,id,date=localDay()){
  const history=[...(plan.history||[])],entry=history.find(row=>row.id===id);
  if(!entry||entry.kind==='adjustment')throw new Error('Ce gain ne peut pas être annulé.');
@@ -37,8 +40,10 @@ export function guaranteeDate(plan,income={},now=localDay()){
  const personal=income.start&&income.end?periodIncome({...income,autoMaps:false,versionGifts:false,maps:income.autoMaps?0:income.maps}).ledger.filter(r=>/^Exploration|Ajouts personnels/.test(r.label)&&r.date>=now):[];forecast.ledger.push(...personal);forecast.ledger.sort((a,b)=>a.date.localeCompare(b.date));
  for(const row of forecast.ledger){
   const kind=/Commissions/.test(row.label)?'daily':/Boutique/.test(row.label)?'reset':row.label==='Théâtre'?'theatre':row.label==='Abysses'?'abyss':'';
-  if(kind&&(plan.history||[]).some(h=>h.rewardType===kind&&h.rewardPeriod===(kind==='daily'?row.date:row.date.slice(0,7))))continue;
-  budget+=row.primos+row.wishes*160;if(budget>=required)return {date:row.date,cost,missing:Math.max(0,required-integer(plan.currentPrimos??plan.primos)-integer(plan.wishes)*160)};
+  const logged=effectiveWishIncome(plan.history||[]),claimed=logged.filter(h=>h.rewardType===kind&&h.rewardPeriod===(kind==='daily'?row.date:row.date.slice(0,7)));
+  if(kind&&kind!=='daily'&&claimed.length)continue;
+  const dailyPaid=kind==='daily'?logged.filter(h=>h.date===row.date&&['daily','welkin'].includes(h.rewardType)).reduce((n,h)=>n+Number(h.primos||0),0):0;
+  budget+=Math.max(0,row.primos-dailyPaid)+row.wishes*160;if(budget>=required)return {date:row.date,cost,missing:Math.max(0,required-integer(plan.currentPrimos??plan.primos)-integer(plan.wishes)*160)};
  }
  return {date:null,cost,missing:Math.max(0,required-budget)};
 }
@@ -47,7 +52,7 @@ export function effectiveWishIncome(history=[]){
  return rows.filter(row=>row&&row.kind!=='adjustment'&&!undone.has(row.id)&&/^\d{4}-\d{2}-\d{2}$/.test(String(row.date||'')));
 }
 export function incomeGroups(history=[]){
- const groups=new Map();for(const row of effectiveWishIncome(history)){const amount=Math.max(0,Number(row.primos)||0)+160*Math.max(0,Number(row.count)||0);if(!amount)continue;const label=({daily:'Quotidiennes',reset:'Boutique',theatre:'Théâtre',abyss:'Abysses',carnage:'Carnage',small:'Événements',other:'Autres'})[row.rewardType]||row.label||'Autres';groups.set(label,(groups.get(label)||0)+amount);}
+ const groups=new Map();for(const row of effectiveWishIncome(history)){const amount=Math.max(0,Number(row.primos)||0)+160*Math.max(0,Number(row.count)||0);if(!amount)continue;const label=({daily:'Quotidiennes',welkin:'Faveur',reset:'Boutique',theatre:'Théâtre',abyss:'Abysses',carnage:'Carnage',small:'Événements',other:'Autres'})[row.rewardType]||row.label||'Autres';groups.set(label,(groups.get(label)||0)+amount);}
  return [...groups].map(([label,value])=>({label,value}));
 }
 /** Compare equal elapsed periods: this week/month so far against the same previous days. */
@@ -102,4 +107,4 @@ class WishJournal extends (globalThis.HTMLElement||class {}){
  this.innerHTML='<section class="wish-journal"><header><div><span class="eyebrow">MES GAINS · HISTORIQUE</span><h2>Le chemin vers le prochain personnage</h2></div><nav>'+[7,30,90].map(n=>'<button type="button" data-journal-range="'+n+'" aria-pressed="'+(n===this.range)+'">'+n+' jours</button>').join('')+'<button type="button" data-export-wish-ledger>Exporter CSV</button></nav></header><p class="wish-journal-status" role="status" aria-live="polite"></p><div class="wish-period-comparisons">'+incomeComparisons(history,today).map(row=>'<article><header><b>'+row.label+'</b><small>'+row.from+' → '+row.to+'</small></header><strong>'+fmt(row.current)+'<small>primos équivalentes</small></strong><p class="'+(row.delta<0?'negative':'positive')+'">'+(row.delta>0?'+':'')+fmt(row.delta)+' · '+(row.percent==null?'Pas de base précédente':(row.percent>0?'+':'')+fmt(row.percent)+' %')+'</p><small>Précédent : '+fmt(row.previous)+' · '+row.previousFrom+' → '+row.previousTo+'</small></article>').join('')+'</div><figure class="wish-history-chart"><figcaption>'+fmt(filtered.reduce((n,h)=>n+(Number(h.primos)||0)+160*(Number(h.count)||0),0))+' primos équivalentes sur la période</figcaption><svg viewBox="0 0 1000 220" role="img" aria-label="Gains enregistrés par jour"><path d="M20 180H990" stroke="#ffffff40"/>'+bars.map((b,i)=>{const width=960/this.range,x=25+i*width,h=b.amount/max*140;return '<rect x="'+x+'" y="'+(180-h)+'" width="'+Math.max(2,width-3)+'" height="'+Math.max(1,h)+'" rx="3" fill="#98d8d0"><title>'+b.date+' · '+fmt(b.amount)+' primos équivalentes</title></rect>'}).join('')+'<text x="20" y="211">'+from+'</text><text x="860" y="211">'+today+'</text></svg></figure><label class="wish-month-selector">Comparer mes mois<input type="month" data-history-month value="'+month+'"></label><div class="wish-donut-grid">'+donut(incomeHistory.filter(h=>h.date?.startsWith(month)),month)+donut(incomeHistory.filter(h=>h.date?.startsWith(previousMonth)),previousMonth)+'</div><section class="wish-observed-stats"><header><h3>Mes statistiques de tirage</h3><small>Compte les 50/50 réellement tentés ; les 5★ garantis ne sont pas des 50/50.</small></header><div>'+[['fiftyAttempts','50/50 tentés'],['fiftyLost','50/50 perdus'],['pulls','Vœux effectués'],['fourFeatured','4★ vedettes obtenus']].map(([key,label])=>'<label>'+label+'<input type="number" min="0" data-wish-stat="'+key+'" value="'+integer(p.observedStats?.[key])+'"></label>').join('')+'</div><p><b>'+(stats.lossRate==null?'—':fmt(stats.lossRate)+' %')+'</b> de 50/50 perdus · <b>'+(stats.featuredRate==null?'—':fmt(stats.featuredRate)+' %')+'</b> de 4★ vedettes par vœu'+(stats.every?' · une vedette tous les '+fmt(stats.every)+' vœux':'')+'</p></section><details><summary>Mes entrées · '+history.length+'</summary><ol class="wish-ledger-rows">'+history.slice().reverse().map(h=>'<li><time>'+esc(h.date)+'</time><b>'+esc(h.label)+'</b><span>'+fmt(h.primos)+' primos · '+fmt(h.count)+' vœux</span><small>'+esc(h.kind==='adjustment'?'Correction manuelle du solde':'Gain enregistré')+'</small>'+(h.kind!=='adjustment'&&!history.some(row=>row.undoOf===h.id)?'<button type="button" data-undo-reward="'+esc(h.id)+'" aria-label="Annuler '+esc(h.label)+'">Annuler ce gain</button>':'')+'</li>').join('')+'</ol></details></section>';
  }
 }
-if(globalThis.customElements){customElements.define('wish-wallet',WishWallet);customElements.define('wish-journal',WishJournal);}
+if(globalThis.customElements){if(!customElements.get('wish-wallet'))customElements.define('wish-wallet',WishWallet);if(!customElements.get('wish-journal'))customElements.define('wish-journal',WishJournal);}

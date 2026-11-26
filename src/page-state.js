@@ -5,7 +5,7 @@ function pathFor(node,root){
  while(node&&node!==root){
   let part=node.localName;if(!part)return null;
   if(node.id){parts.unshift('#'+CSS.escape(node.id));break;}
-  const key=['data-build-id','data-team-id','data-build-picker','data-team-details','data-farm-goal','data-farm-person'].find(key=>node.hasAttribute(key));
+  const key=['data-build-id','data-team-id','data-build-picker','data-team-details','data-farm-goal','data-farm-person','data-project'].find(key=>node.hasAttribute(key));
   if(key)part+='['+key+'="'+CSS.escape(node.getAttribute(key))+'"]';
   else {const siblings=[...node.parentElement.children].filter(el=>el.localName===node.localName);part+=':nth-of-type('+(siblings.indexOf(node)+1)+')';}
   parts.unshift(part);node=node.parentElement;
@@ -18,11 +18,11 @@ export function capturePageState(root,view){
  const currentView=root.dataset.viewKey;
  if(currentView&&currentView!==view){routeScrollSnapshots.set(currentView,captureRouteScroll());return {view,routeScroll:routeScrollSnapshots.get(view)||null};}
  const routeScroll=captureRouteScroll();routeScrollSnapshots.set(view,routeScroll);
- if(currentView!==view||!/(?:^|:)(teams|builds|farming)$/.test(view))return {view,routeScroll};
+ if(currentView!==view||!/(?:^|:)(teams|builds|farming|dashboard)$/.test(view))return {view,routeScroll};
  const focused=root.contains(document.activeElement)?document.activeElement:null,ancestorScrolls=[];
  for(let el=root.parentElement;el;el=el.parentElement)if(el.scrollTop||el.scrollLeft)ancestorScrolls.push({path:pathFor(el,document.documentElement),top:el.scrollTop,left:el.scrollLeft});
  return {view,routeScroll,windowX:window.scrollX,windowY:window.scrollY,ancestorScrolls,
-  forms:[...root.querySelectorAll('#farm-calendar-task,#farm-calendar-character,#farm-calendar-category,#farm-calendar-custom,#farm-calendar-date')].map(el=>({path:pathFor(el,root),value:el.value})),
+  forms:[...root.querySelectorAll('#farm-calendar-task,#farm-calendar-character,#farm-calendar-category,#farm-calendar-custom,#farm-calendar-date,[data-daily-income] input:not([type=radio]):not([type=checkbox]),[data-preparation-task] input,[data-preparation-task] textarea')].map(el=>({path:pathFor(el,root),value:el.value})),
   details:[...root.querySelectorAll('details')].map(el=>({path:pathFor(el,root),open:el.open})),
   teams:[...root.querySelectorAll('[data-team-details]')].map(el=>({id:el.dataset.teamDetails,hidden:el.hidden})),
   searches:[...root.querySelectorAll('[data-image-picker-search],[data-farm-character-search],[data-farm-auto-search]')].map(el=>({path:pathFor(el,root),value:el.value})),
@@ -38,7 +38,7 @@ export function restorePageState(root,snapshot,view){
  if(!root)return;root.dataset.viewKey=view;
  if(!snapshot||snapshot.view!==view)return;
  if(snapshot.routeScroll){window.scrollTo({left:snapshot.routeScroll.windowX||0,top:snapshot.routeScroll.windowY||0,behavior:'instant'});for(const row of snapshot.routeScroll.ancestorScrolls||[]){const el=find(document,row.path);if(el)el.scrollTo({top:row.top,left:row.left,behavior:'instant'});}}
- if(!/(?:^|:)(teams|builds|farming)$/.test(view)||!snapshot.forms)return;
+ if(!/(?:^|:)(teams|builds|farming|dashboard)$/.test(view)||!snapshot.forms)return;
  for(const row of snapshot.details){const el=find(root,row.path);if(el)el.open=row.open;}
  for(const row of snapshot.teams){const section=[...root.querySelectorAll('[data-team-details]')].find(el=>el.dataset.teamDetails===row.id);if(section)section.hidden=row.hidden;const button=[...root.querySelectorAll('[data-team-details-toggle]')].find(el=>el.dataset.teamDetailsToggle===row.id);if(button)button.setAttribute('aria-expanded',String(!row.hidden));}
  for(const row of snapshot.forms||[]){const el=find(root,row.path);if(el)el.value=row.value;}

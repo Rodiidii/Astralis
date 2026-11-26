@@ -27,7 +27,7 @@ function astralis_private_store(string $root,string $kind): string {
 function remote_json(string $url): ?array {
     if (!function_exists('curl_init')) return null;
     $curl = curl_init($url);
-    curl_setopt_array($curl, [CURLOPT_RETURNTRANSFER=>true, CURLOPT_FOLLOWLOCATION=>false, CURLOPT_CONNECTTIMEOUT=>7, CURLOPT_TIMEOUT=>20, CURLOPT_USERAGENT=>'Astralis-Web/1.0.59', CURLOPT_SSL_VERIFYPEER=>true, CURLOPT_PROTOCOLS=>CURLPROTO_HTTPS, CURLOPT_HTTPHEADER=>['Accept: application/json']]);
+    curl_setopt_array($curl, [CURLOPT_RETURNTRANSFER=>true, CURLOPT_FOLLOWLOCATION=>false, CURLOPT_CONNECTTIMEOUT=>7, CURLOPT_TIMEOUT=>20, CURLOPT_USERAGENT=>'Astralis-Web/1.0.60', CURLOPT_SSL_VERIFYPEER=>true, CURLOPT_PROTOCOLS=>CURLPROTO_HTTPS, CURLOPT_HTTPHEADER=>['Accept: application/json']]);
     $body = curl_exec($curl); $status = (int)curl_getinfo($curl, CURLINFO_HTTP_CODE); curl_close($curl);
     if (!is_string($body) || strlen($body)>16*1024*1024 || $status!==200) return null;
     $data = json_decode($body, true);
@@ -54,7 +54,18 @@ if ($route==='character-sheets/item') {
     if (!is_array($data)) reply(404,['error'=>'Cette fiche n’est pas publiée dans le catalogue web.']);
     reply(200,isset($data['sheet'])?$data:['sheet'=>$data]);
 }
-if (strpos($route,'update/')===0) reply(200,['available'=>false,'supported'=>false,'hosted'=>true,'currentVersion'=>'1.0.59','message'=>'Les mises à jour du programme Windows se font dans l’application installée.']);
+if ($route==='gi/endgame') {
+    $file=astralis_private_store($root,'public-feeds').'/endgame.json';
+    if (is_file($file) && filemtime($file)>time()-300) {
+        $data=json_decode((string)file_get_contents($file),true);
+        if(is_array($data)&&isset($data['floors'],$data['theater'],$data['onslaught']))reply(200,$data);
+    }
+    $fresh=remote_json('https://raw.githubusercontent.com/Rodiidii/Astralis/main/hosting-data/gi-endgame.json?v='.intdiv(time(),300));
+    if(is_array($fresh)&&isset($fresh['floors'],$fresh['theater'],$fresh['onslaught'])){file_put_contents($file,json_encode($fresh,JSON_UNESCAPED_UNICODE),LOCK_EX);reply(200,$fresh);}
+    foreach ([$root.'/hosting-data/gi-endgame.json',$file] as $fallback)if(is_file($fallback)){$data=json_decode((string)file_get_contents($fallback),true);if(is_array($data)&&isset($data['floors'],$data['theater'],$data['onslaught']))reply(200,$data);}
+    reply(503,['error'=>'Le contenu endgame publié est momentanément indisponible.']);
+}
+if (strpos($route,'update/')===0) reply(200,['available'=>false,'supported'=>false,'hosted'=>true,'currentVersion'=>'1.0.60','message'=>'Les mises à jour du programme Windows se font dans l’application installée.']);
 if (strpos($route,'desktop/')===0) reply(200,['ok'=>true,'supported'=>false,'hosted'=>true,'settings'=>[]]);
 $allowed=['gi/news','gi/events','gi/endgame','gi/lore','gi/lore-index','gi/lore-video-list','gi/character-media','gi/character-stories','gi/character-voice','gi/character-voices','gi/region-lore','gi/relations','game-codes'];
 if (in_array($route,$allowed,true)) {

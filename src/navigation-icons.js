@@ -1,4 +1,3 @@
-import {GAME_UI} from './genshin-content-icons.js';
 // One semantic drawing per destination. Shared by the rail, shortcuts and phone navigation.
 const DRAWINGS={
  dashboard:'<rect x="3" y="3" width="7" height="9" rx="2"/><rect x="14" y="3" width="7" height="5" rx="2"/><rect x="14" y="12" width="7" height="9" rx="2"/><rect x="3" y="16" width="7" height="5" rx="2" class="nav-accent"/>',
@@ -47,7 +46,6 @@ const DRAWINGS={
 const ALIASES={'hsr-builds':'builds','hsr-lab':'lab','hsr-calc':'calc','hsr-farm':'farming','hsr-endgame':'endgame','hsr-wishes':'wishes','hsr-events':'events','hsr-lore':'lore','hsr-currency-wars':'currency-wars','progress-observatory':'progress'};
 export const NAVIGATION_ICON_IDS=Object.freeze(Object.keys(DRAWINGS));
 export function navigationIcon(id,game='gi'){
-  if(game==='gi'&&GAME_UI[id])return `<img class="nav-game-icon" src="${GAME_UI[id]}" alt="" width="24" height="24" aria-hidden="true">`;
   const key=ALIASES[id]||id,body=key==='daily-quiz'&&game!=='gi'?'<path d="M8 8a4 4 0 1 1 7 3c-2 1-3 2-3 4"/><circle cx="12" cy="19" r="1" class="nav-accent"/><circle cx="12" cy="12" r="10"/>':DRAWINGS[key]||DRAWINGS.explore;
   return `<svg class="ic navigation-icon" data-navigation-icon="${DRAWINGS[key]?key:'explore'}" viewBox="0 0 24 24" aria-hidden="true" focusable="false">${body}</svg>`;
 }

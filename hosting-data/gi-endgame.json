@@ -1,0 +1,1582 @@
+{
+  "updatedAt": "2026-11-26T22:11:43Z",
+  "windows": {
+    "abyss": {
+      "start": "2026-11-16T04:00",
+      "end": "2026-12-16T04:00"
+    },
+    "theater": {
+      "start": "2026-11-01T04:00",
+      "end": "2026-12-01T04:00"
+    },
+    "onslaught": {
+      "start": "2026-11-11T04:00",
+      "end": "2026-12-15T04:00"
+    }
+  },
+  "blessing": "Resounding Moon — When a character triggers Superconduct or Stellar-Conduct reaction on an opponent, they gain 1 stack count, and when the stack count reaches 3, a shockwave is unleashed at the opponent's position, dealing True DMG and consuming all stack counts at the same time. Up to 1 stack count can be gained every 0.1s. A shockwave can be unleashed this way every 4s.",
+  "sources": {
+    "abyss": "Genshin Impact Wiki · cycle daté",
+    "theater": "GenshinFlex · saison active",
+    "onslaught": "GenshinFlex · rotation active",
+    "blessing": "Notes de mise à jour officielles"
+  },
+  "floors": [
+    {
+      "floor": "9",
+      "levels": "72–76",
+      "disorder": "Bonus de trouble Stellar Swirl DMG +50%",
+      "chambers": [
+        {
+          "name": "Salle 9-1",
+          "halves": [
+            {
+              "name": "1re moitié",
+              "enemies": [
+                {
+                  "name": "Winged Halberd-Knight",
+                  "icon": "https://gi.yatta.moe/assets/UI/monster/UI_MonsterIcon_Human_Girl_Vila_Glaive.png",
+                  "art": "https://act-webstatic.hoyoverse.com/event-static-hoyowiki-admin/2026/08/03/9cce78a118777b29f4b0e81065306c21_7452185608333886730.png"
+                },
+                {
+                  "name": "Winged Soarer Knight",
+                  "icon": "https://gi.yatta.moe/assets/UI/monster/UI_MonsterIcon_Human_Girl_Vila_Blade.png",
+                  "art": "https://act-webstatic.hoyoverse.com/event-static-hoyowiki-admin/2026/08/03/2e715b3d62620572fc4f870cc68a23f5_3267705001912629504.png"
+                }
+              ],
+              "note": "15 enemies, 3 waves"
+            },
+            {
+              "name": "2e moitié",
+              "enemies": [
+                {
+                  "name": "Cutting Edge All-Purpose Storm Landcruiser",
+                  "icon": "https://gi.yatta.moe/assets/UI/monster/UI_MonsterIcon_Fatuimecha_CoreC_MoveD_AttackA_AttackC_AttackB_Electric.png",
+                  "art": ""
+                }
+              ],
+              "note": ""
+            }
+          ]
+        },
+        {
+          "name": "Salle 9-2",
+          "halves": [
+            {
+              "name": "1re moitié",
+              "enemies": [
+                {
+                  "name": "Winged Halberd-Knight",
+                  "icon": "https://gi.yatta.moe/assets/UI/monster/UI_MonsterIcon_Human_Girl_Vila_Glaive.png",
+                  "art": "https://act-webstatic.hoyoverse.com/event-static-hoyowiki-admin/2026/08/03/9cce78a118777b29f4b0e81065306c21_7452185608333886730.png"
+                },
+                {
+                  "name": "Volkodlak Basher",
+                  "icon": "https://gi.yatta.moe/assets/UI/monster/UI_MonsterIcon_Vukodlak_Strong_Sword.png",
+                  "art": "https://act-webstatic.hoyoverse.com/event-static-hoyowiki-admin/2026/08/03/5b456877d1f8245406f4a7d98521452c_2397721811074429217.png"
+                }
+              ],
+              "note": "12 enemies"
+            },
+            {
+              "name": "2e moitié",
+              "enemies": [
+                {
+                  "name": "Cutting Edge Fire Support Ground Effect Landcruiser ×2",
+                  "icon": "https://gi.yatta.moe/assets/UI/monster/UI_MonsterIcon_Fatuimecha_CoreC_MoveF_AttackB_Fire.png",
+                  "art": ""
+                }
+              ],
+              "note": "appear one after another"
+            }
+          ]
+        },
+        {
+          "name": "Salle 9-3",
+          "halves": [
+            {
+              "name": "1re moitié",
+              "enemies": [
+                {
+                  "name": "Rugged Elder Leshy",
+                  "icon": "https://gi.yatta.moe/assets/UI/monster/UI_MonsterIcon_Leshy_Mature_01.png",
+                  "art": "https://act-webstatic.hoyoverse.com/event-static-hoyowiki-admin/2026/08/03/3969f8c058e5115e4995fdea42baa255_3888623288429584434.png"
+                },
+                {
+                  "name": "Juvenile Tree Segment",
+                  "icon": "https://gi.yatta.moe/assets/UI/monster/UI_MonsterIcon_Leshy_Normal_01.png",
+                  "art": "https://act-webstatic.hoyoverse.com/event-static-hoyowiki-admin/2026/08/03/9d3779c3e2f06a271019979766bde52f_3764250878761053282.png"
+                }
+              ],
+              "note": "5 enemies"
+            },
+            {
+              "name": "2e moitié",
+              "enemies": [
+                {
+                  "name": "Cutting Edge Fire Support Ground Effect Landcruiser",
+                  "icon": "https://gi.yatta.moe/assets/UI/monster/UI_MonsterIcon_Fatuimecha_CoreC_MoveF_AttackB_Fire.png",
+                  "art": ""
+                },
+                {
+                  "name": "Cutting Edge All-Purpose Storm Landcruiser",
+                  "icon": "https://gi.yatta.moe/assets/UI/monster/UI_MonsterIcon_Fatuimecha_CoreC_MoveD_AttackA_AttackC_AttackB_Electric.png",
+                  "art": ""
+                }
+              ],
+              "note": "appear at the same time"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "floor": "10",
+      "levels": "80–85",
+      "disorder": "Bonus de trouble Stellar-Conduct DMG +50%",
+      "chambers": [
+        {
+          "name": "Salle 10-1",
+          "halves": [
+            {
+              "name": "1re moitié",
+              "enemies": [
+                {
+                  "name": "Volkodlak Lobber",
+                  "icon": "https://gi.yatta.moe/assets/UI/monster/UI_MonsterIcon_Vukodlak_Strong_NoWeapon.png",
+                  "art": "https://act-webstatic.hoyoverse.com/event-static-hoyowiki-admin/2026/08/03/4a7887db8a90a2e15cf39755ce346efa_5008628058724622932.png"
+                },
+                {
+                  "name": "Volkodlak Raider",
+                  "icon": "https://gi.yatta.moe/assets/UI/monster/UI_MonsterIcon_Vukodlak_Thin_Sword.png",
+                  "art": "https://act-webstatic.hoyoverse.com/event-static-hoyowiki-admin/2026/08/03/950fc30575b24bf60a6b1858e46be4b1_748961995869453458.png"
+                }
+              ],
+              "note": "15 enemies"
+            },
+            {
+              "name": "2e moitié",
+              "enemies": [
+                {
+                  "name": "Oprichniki Fireblade Shock Trooper ×2",
+                  "icon": "https://gi.yatta.moe/assets/UI/monster/UI_MonsterIcon_Oprichnik_Male_Strong_LanceArquebus.png",
+                  "art": ""
+                }
+              ],
+              "note": ""
+            }
+          ]
+        },
+        {
+          "name": "Salle 10-2",
+          "halves": [
+            {
+              "name": "1re moitié",
+              "enemies": [
+                {
+                  "name": "Leomastiff Guard",
+                  "icon": "https://gi.yatta.moe/assets/UI/monster/UI_MonsterIcon_Volkodlak_Sheepdog.png",
+                  "art": "https://act-webstatic.hoyoverse.com/event-static-hoyowiki-admin/2026/08/03/af0b2e6363a9ef17ed0bc7ef6fbc7089_1969328369532456144.png"
+                },
+                {
+                  "name": "Channel Contact",
+                  "icon": "https://gi.yatta.moe/assets/UI/monster/UI_MonsterIcon_Volkodlak_Beaver.png",
+                  "art": "https://act-webstatic.hoyoverse.com/event-static-hoyowiki-admin/2026/08/03/f8b88d761e19ee7476939996e51d8954_8629627227598384798.png"
+                }
+              ],
+              "note": "8 enemies"
+            },
+            {
+              "name": "2e moitié",
+              "enemies": [
+                {
+                  "name": "Oprichniki Thunderblitz Gvardiya ×2",
+                  "icon": "https://gi.yatta.moe/assets/UI/monster/UI_MonsterIcon_Oprichnik_Female_Slim_MachineGun.png",
+                  "art": ""
+                }
+              ],
+              "note": ""
+            }
+          ]
+        },
+        {
+          "name": "Salle 10-3",
+          "halves": [
+            {
+              "name": "1re moitié",
+              "enemies": [
+                {
+                  "name": "Glaciomancer",
+                  "icon": "https://gi.yatta.moe/assets/UI/monster/UI_MonsterIcon_Human_Female_Staff_Snegurochka.png",
+                  "art": "https://act-webstatic.hoyoverse.com/event-static-hoyowiki-admin/2026/08/03/c6d16af371f8d87c84e367f5b5c412f3_7125150281104097856.png"
+                },
+                {
+                  "name": "Glacial Warden",
+                  "icon": "https://gi.yatta.moe/assets/UI/monster/UI_MonsterIcon_Snegurochka_Male.png",
+                  "art": "https://act-webstatic.hoyoverse.com/event-static-hoyowiki-admin/2026/08/03/952b22bafd88335288772453b721068a_5472931849340552796.png"
+                }
+              ],
+              "note": "5 enemies"
+            },
+            {
+              "name": "2e moitié",
+              "enemies": [
+                {
+                  "name": "Oprichniki Thunderblitz Gvardiya",
+                  "icon": "https://gi.yatta.moe/assets/UI/monster/UI_MonsterIcon_Oprichnik_Female_Slim_MachineGun.png",
+                  "art": ""
+                },
+                {
+                  "name": "Oprichniki Fireblade Shock Trooper",
+                  "icon": "https://gi.yatta.moe/assets/UI/monster/UI_MonsterIcon_Oprichnik_Male_Strong_LanceArquebus.png",
+                  "art": ""
+                },
+                {
+                  "name": "Oprichniki Medic",
+                  "icon": "https://gi.yatta.moe/assets/UI/monster/UI_MonsterIcon_NodKrai_Oprichnik_Male.png",
+                  "art": ""
+                }
+              ],
+              "note": "5 enemies"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "floor": "11",
+      "levels": "88–92",
+      "disorder": "Bonus DGT Électro +60% · Bonus DGT Géo +60% · All enemies' HP increased to 300%.",
+      "chambers": [
+        {
+          "name": "Salle 11-1",
+          "level": "88",
+          "target": "Remaining challenge time longer than (60/180/300) sec.",
+          "halves": [
+            {
+              "name": "1re moitié",
+              "enemies": [
+                {
+                  "name": "Voywolf Hunter",
+                  "icon": "https://gi.yatta.moe/assets/UI/monster/UI_MonsterIcon_Volkodlak_Greyhound.png",
+                  "art": "https://act-webstatic.hoyoverse.com/event-static-hoyowiki-admin/2026/08/03/0cdd7a508b59687f1b6f1a20322f6f04_4141787370011065068.png"
+                },
+                {
+                  "name": "Fanged Zealot",
+                  "icon": "https://gi.yatta.moe/assets/UI/monster/UI_MonsterIcon_Volkodlak_Mammoth.png",
+                  "art": "https://act-webstatic.hoyoverse.com/event-static-hoyowiki-admin/2026/08/03/e3468a9e1636821bb33c6da286f628f9_1530522583899700606.png"
+                },
+                {
+                  "name": "Ruin Drake: Earthguard",
+                  "icon": "https://gi.yatta.moe/assets/UI/monster/UI_MonsterIcon_Gargoyle.png",
+                  "art": ""
+                }
+              ],
+              "note": "Second Half: Initially spawns four Fishers of Hidden Depths, more spawn as the previous are defeated."
+            },
+            {
+              "name": "2e moitié",
+              "enemies": [
+                {
+                  "name": "Fisher of Hidden Depths ×12",
+                  "icon": "https://gi.yatta.moe/assets/UI/monster/UI_MonsterIcon_Lloigor_Sub.png",
+                  "art": ""
+                }
+              ],
+              "note": "Second Half: Initially spawns four Fishers of Hidden Depths, more spawn as the previous are defeated."
+            }
+          ]
+        },
+        {
+          "name": "Salle 11-2",
+          "level": "90",
+          "target": "Remaining challenge time longer than (60/180/300) sec.",
+          "halves": [
+            {
+              "name": "1re moitié",
+              "enemies": [
+                {
+                  "name": "Juvenile Tree Segment ×2",
+                  "icon": "https://gi.yatta.moe/assets/UI/monster/UI_MonsterIcon_Leshy_Normal_01.png",
+                  "art": "https://act-webstatic.hoyoverse.com/event-static-hoyowiki-admin/2026/08/03/9d3779c3e2f06a271019979766bde52f_3764250878761053282.png"
+                },
+                {
+                  "name": "Rugged Elder Leshy",
+                  "icon": "https://gi.yatta.moe/assets/UI/monster/UI_MonsterIcon_Leshy_Mature_01.png",
+                  "art": "https://act-webstatic.hoyoverse.com/event-static-hoyowiki-admin/2026/08/03/3969f8c058e5115e4995fdea42baa255_3888623288429584434.png"
+                },
+                {
+                  "name": "Chimeric Crocohoof ×2",
+                  "icon": "https://gi.yatta.moe/assets/UI/monster/UI_MonsterIcon_Chimera_CrocodileBoar.png",
+                  "art": "https://act-webstatic.hoyoverse.com/event-static-hoyowiki-admin/2026/10/30/552c1cc80b774d37ff5c206dcc30c855_1299705295727038371.png"
+                },
+                {
+                  "name": "Chimeric Skorp",
+                  "icon": "https://gi.yatta.moe/assets/UI/monster/UI_MonsterIcon_Chimera_ScorpionChicken.png",
+                  "art": "https://act-webstatic.hoyoverse.com/event-static-hoyowiki-admin/2026/10/30/2883407189a9f5a3f44fe301fdccdce9_8571891151413954758.png"
+                }
+              ],
+              "note": ""
+            },
+            {
+              "name": "2e moitié",
+              "enemies": [
+                {
+                  "name": "Radiant Glacial Wolf",
+                  "icon": "https://gi.yatta.moe/assets/UI/monster/UI_MonsterIcon_Magbeast_Steppenwolf.png",
+                  "art": ""
+                }
+              ],
+              "note": ""
+            }
+          ]
+        },
+        {
+          "name": "Salle 11-3",
+          "level": "92",
+          "target": "Remaining challenge time longer than (180/300/420) sec.",
+          "halves": [
+            {
+              "name": "1re moitié",
+              "enemies": [
+                {
+                  "name": "Icebound Reflection ×12",
+                  "icon": "https://gi.yatta.moe/assets/UI/monster/UI_MonsterIcon_Crystalian_01.png",
+                  "art": "https://act-webstatic.hoyoverse.com/event-static-hoyowiki-admin/2026/10/30/6538f03b0a11d19c20b5e7d596612479_3847928969481564958.png"
+                }
+              ],
+              "note": "First Half: Initially spawns four Icebound Reflections, more spawn as the previous are defeated."
+            },
+            {
+              "name": "2e moitié",
+              "enemies": [
+                {
+                  "name": "Wilderness Hunter",
+                  "icon": "https://gi.yatta.moe/assets/UI/monster/UI_MonsterIcon_WildHunt_Elite.png",
+                  "art": ""
+                }
+              ],
+              "note": "First Half: Initially spawns four Icebound Reflections, more spawn as the previous are defeated."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "floor": "12",
+      "levels": "95–100",
+      "disorder": "1re moitié: Lunar-Crystallize DGT augmenté de 75%. · 2e moitié: Maîtrise élémentaire de l’équipe +200. · (Chamber 1) Battle Hardened Prism Slime - HP 118.75% to Local Legend (6,646,213pt). · All other enemies' HP increased to 475%.",
+      "chambers": [
+        {
+          "name": "Salle 12-1",
+          "level": "95",
+          "target": "Remaining challenge time longer than (180/300/420) sec.",
+          "halves": [
+            {
+              "name": "1re moitié",
+              "enemies": [
+                {
+                  "name": "Battle-Hardened Prism Slime",
+                  "icon": "https://gi.yatta.moe/assets/UI/monster/UI_MonsterIcon_Slime_Rock_03.png",
+                  "art": ""
+                }
+              ],
+              "note": ""
+            },
+            {
+              "name": "2e moitié",
+              "enemies": [
+                {
+                  "name": "Wavebinder",
+                  "icon": "https://gi.yatta.moe/assets/UI/monster/UI_MonsterIcon_Volkodlak_Whale.png",
+                  "art": "https://act-webstatic.hoyoverse.com/event-static-hoyowiki-admin/2026/10/30/8a63b0ca78d1dd0315bc29e66c1d3c56_1603992222483436066.png"
+                }
+              ],
+              "note": ""
+            }
+          ]
+        },
+        {
+          "name": "Salle 12-2",
+          "level": "98",
+          "target": "Remaining challenge time longer than (180/300/420) sec.",
+          "halves": [
+            {
+              "name": "1re moitié",
+              "enemies": [
+                {
+                  "name": "Frostnight Herra",
+                  "icon": "https://gi.yatta.moe/assets/UI/monster/UI_MonsterIcon_HerraFrost.png",
+                  "art": ""
+                }
+              ],
+              "note": ""
+            },
+            {
+              "name": "2e moitié",
+              "enemies": [
+                {
+                  "name": "Guardian Blade of Drifting Snow",
+                  "icon": "https://gi.yatta.moe/assets/UI/monster/UI_MonsterIcon_Snegurochka_Contessa_02.png",
+                  "art": "https://act-webstatic.hoyoverse.com/event-static-hoyowiki-admin/2026/09/18/c9318379b2358dd23cdb5eb899d57cf8_8451714367984983971.png"
+                }
+              ],
+              "note": ""
+            }
+          ]
+        },
+        {
+          "name": "Salle 12-3",
+          "level": "100",
+          "target": "Remaining challenge time longer than (180/300/420) sec.",
+          "halves": [
+            {
+              "name": "1re moitié",
+              "enemies": [
+                {
+                  "name": "Radiant Moongecko",
+                  "icon": "https://gi.yatta.moe/assets/UI/monster/UI_MonsterIcon_Magbeast_Gecko.png",
+                  "art": ""
+                }
+              ],
+              "note": ""
+            },
+            {
+              "name": "2e moitié",
+              "enemies": [
+                {
+                  "name": "Perpetual Mechanical Array",
+                  "icon": "https://gi.yatta.moe/assets/UI/monster/UI_MonsterIcon_Apparatus_Perpetual.png",
+                  "art": ""
+                }
+              ],
+              "note": ""
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "theater": {
+    "title": "Saison 29 — éléments : Hydro, Electro, Geo",
+    "period": "1 novembre — 1 décembre",
+    "elements": [
+      "Hydro",
+      "Électro",
+      "Géo"
+    ],
+    "opening": [
+      "Yelan",
+      "Aino",
+      "Flins",
+      "Fischl",
+      "Zhongli",
+      "Kachina"
+    ],
+    "guests": [
+      "Qiqi",
+      "Odette",
+      "Vesna",
+      "Jahoda"
+    ],
+    "bosses": [
+      {
+        "name": "Acte 3",
+        "enemies": [
+          {
+            "name": "Jadeplume Terrorshroom",
+            "icon": "https://gi.yatta.moe/assets/UI/monster/UI_MonsterIcon_Fungus_Raptor.png",
+            "art": ""
+          }
+        ]
+      },
+      {
+        "name": "Acte 6",
+        "enemies": [
+          {
+            "name": "Lord of the Hidden Depths",
+            "icon": "https://gi.yatta.moe/assets/UI/monster/UI_MonsterIcon_Lloigor_Primo.png",
+            "art": ""
+          }
+        ]
+      },
+      {
+        "name": "Acte 8",
+        "enemies": [
+          {
+            "name": "Battle-Hardened Samachurl",
+            "icon": "https://gi.yatta.moe/assets/UI/monster/UI_MonsterIcon_Shaman_Rock_01.png",
+            "art": ""
+          }
+        ]
+      },
+      {
+        "name": "Acte 10",
+        "enemies": [
+          {
+            "name": "Radiant Moonfly",
+            "icon": "https://gi.yatta.moe/assets/UI/monster/UI_MonsterIcon_Magbeast_Pergesa.png",
+            "art": ""
+          }
+        ]
+      }
+    ]
+  },
+  "onslaught": {
+    "title": "Version 7.2 · rotation publiée",
+    "period": "11 novembre — 15 décembre",
+    "endAt": "2026-12-15T04:00",
+    "elements": [
+      "Electro",
+      "Hydro",
+      "Geo"
+    ],
+    "bosses": [
+      {
+        "stage": "1",
+        "name": "Wavebinder",
+        "enemies": [
+          {
+            "name": "Wavebinder",
+            "icon": "https://act-webstatic.hoyoverse.com/event-static-hoyowiki-admin/2026/10/30/8a63b0ca78d1dd0315bc29e66c1d3c56_1603992222483436066.png",
+            "art": "https://act-webstatic.hoyoverse.com/event-static-hoyowiki-admin/2026/10/30/8a63b0ca78d1dd0315bc29e66c1d3c56_1603992222483436066.png"
+          }
+        ],
+        "advantages": [
+          "Stellar Glimmer",
+          "Electro"
+        ]
+      },
+      {
+        "stage": "2",
+        "name": "Emperor of Fire and Iron",
+        "enemies": [
+          {
+            "name": "Emperor of Fire and Iron",
+            "icon": "https://gi.yatta.moe/assets/UI/monster/UI_MonsterIcon_HermitCrab_Primo.png",
+            "art": ""
+          }
+        ],
+        "advantages": [
+          "Hydro",
+          "Pyro — weak"
+        ]
+      },
+      {
+        "stage": "3",
+        "name": "Radiant Moongecko",
+        "enemies": [
+          {
+            "name": "Radiant Moongecko",
+            "icon": "https://gi.yatta.moe/assets/UI/monster/UI_MonsterIcon_Magbeast_Gecko.png",
+            "art": ""
+          }
+        ],
+        "advantages": [
+          "Geo",
+          "Healers"
+        ]
+      }
+    ]
+  },
+  "archive": {
+    "rotations": [
+      {
+        "floors": [
+          {
+            "floor": "9",
+            "levels": "72–76",
+            "disorder": "Bonus de trouble Stellar Swirl DMG +50%",
+            "chambers": [
+              {
+                "name": "Salle 9-1",
+                "halves": [
+                  {
+                    "name": "1re moitié",
+                    "enemies": [
+                      {
+                        "name": "Winged Halberd-Knight",
+                        "icon": "https://gi.yatta.moe/assets/UI/monster/UI_MonsterIcon_Human_Girl_Vila_Glaive.png"
+                      },
+                      {
+                        "name": "Winged Soarer Knight",
+                        "icon": "https://gi.yatta.moe/assets/UI/monster/UI_MonsterIcon_Human_Girl_Vila_Blade.png"
+                      }
+                    ],
+                    "note": "15 enemies, 3 waves"
+                  },
+                  {
+                    "name": "2e moitié",
+                    "enemies": [
+                      {
+                        "name": "Cutting Edge All-Purpose Storm Landcruiser",
+                        "icon": "https://gi.yatta.moe/assets/UI/monster/UI_MonsterIcon_Fatuimecha_CoreC_MoveD_AttackA_AttackC_AttackB_Electric.png"
+                      }
+                    ],
+                    "note": ""
+                  }
+                ]
+              },
+              {
+                "name": "Salle 9-2",
+                "halves": [
+                  {
+                    "name": "1re moitié",
+                    "enemies": [
+                      {
+                        "name": "Winged Halberd-Knight",
+                        "icon": "https://gi.yatta.moe/assets/UI/monster/UI_MonsterIcon_Human_Girl_Vila_Glaive.png"
+                      },
+                      {
+                        "name": "Volkodlak Basher",
+                        "icon": "https://gi.yatta.moe/assets/UI/monster/UI_MonsterIcon_Vukodlak_Strong_Sword.png"
+                      }
+                    ],
+                    "note": "12 enemies"
+                  },
+                  {
+                    "name": "2e moitié",
+                    "enemies": [
+                      {
+                        "name": "Cutting Edge Fire Support Ground Effect Landcruiser ×2",
+                        "icon": "https://gi.yatta.moe/assets/UI/monster/UI_MonsterIcon_Fatuimecha_CoreC_MoveF_AttackB_Fire.png"
+                      }
+                    ],
+                    "note": "appear one after another"
+                  }
+                ]
+              },
+              {
+                "name": "Salle 9-3",
+                "halves": [
+                  {
+                    "name": "1re moitié",
+                    "enemies": [
+                      {
+                        "name": "Rugged Elder Leshy",
+                        "icon": "https://gi.yatta.moe/assets/UI/monster/UI_MonsterIcon_Leshy_Mature_01.png"
+                      },
+                      {
+                        "name": "Juvenile Tree Segment",
+                        "icon": "https://gi.yatta.moe/assets/UI/monster/UI_MonsterIcon_Leshy_Normal_01.png"
+                      }
+                    ],
+                    "note": "5 enemies"
+                  },
+                  {
+                    "name": "2e moitié",
+                    "enemies": [
+                      {
+                        "name": "Cutting Edge Fire Support Ground Effect Landcruiser",
+                        "icon": "https://gi.yatta.moe/assets/UI/monster/UI_MonsterIcon_Fatuimecha_CoreC_MoveF_AttackB_Fire.png"
+                      },
+                      {
+                        "name": "Cutting Edge All-Purpose Storm Landcruiser",
+                        "icon": "https://gi.yatta.moe/assets/UI/monster/UI_MonsterIcon_Fatuimecha_CoreC_MoveD_AttackA_AttackC_AttackB_Electric.png"
+                      }
+                    ],
+                    "note": "appear at the same time"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "floor": "10",
+            "levels": "80–85",
+            "disorder": "Bonus de trouble Stellar-Conduct DMG +50%",
+            "chambers": [
+              {
+                "name": "Salle 10-1",
+                "halves": [
+                  {
+                    "name": "1re moitié",
+                    "enemies": [
+                      {
+                        "name": "Volkodlak Lobber",
+                        "icon": "https://gi.yatta.moe/assets/UI/monster/UI_MonsterIcon_Vukodlak_Strong_NoWeapon.png"
+                      },
+                      {
+                        "name": "Volkodlak Raider",
+                        "icon": "https://gi.yatta.moe/assets/UI/monster/UI_MonsterIcon_Vukodlak_Thin_Sword.png"
+                      }
+                    ],
+                    "note": "15 enemies"
+                  },
+                  {
+                    "name": "2e moitié",
+                    "enemies": [
+                      {
+                        "name": "Oprichniki Fireblade Shock Trooper ×2",
+                        "icon": "https://gi.yatta.moe/assets/UI/monster/UI_MonsterIcon_Oprichnik_Male_Strong_LanceArquebus.png"
+                      }
+                    ],
+                    "note": ""
+                  }
+                ]
+              },
+              {
+                "name": "Salle 10-2",
+                "halves": [
+                  {
+                    "name": "1re moitié",
+                    "enemies": [
+                      {
+                        "name": "Leomastiff Guard",
+                        "icon": "https://gi.yatta.moe/assets/UI/monster/UI_MonsterIcon_Volkodlak_Sheepdog.png"
+                      },
+                      {
+                        "name": "Channel Contact",
+                        "icon": "https://gi.yatta.moe/assets/UI/monster/UI_MonsterIcon_Volkodlak_Beaver.png"
+                      }
+                    ],
+                    "note": "8 enemies"
+                  },
+                  {
+                    "name": "2e moitié",
+                    "enemies": [
+                      {
+                        "name": "Oprichniki Thunderblitz Gvardiya ×2",
+                        "icon": "https://gi.yatta.moe/assets/UI/monster/UI_MonsterIcon_Oprichnik_Female_Slim_MachineGun.png"
+                      }
+                    ],
+                    "note": ""
+                  }
+                ]
+              },
+              {
+                "name": "Salle 10-3",
+                "halves": [
+                  {
+                    "name": "1re moitié",
+                    "enemies": [
+                      {
+                        "name": "Glaciomancer",
+                        "icon": "https://gi.yatta.moe/assets/UI/monster/UI_MonsterIcon_Human_Female_Staff_Snegurochka.png"
+                      },
+                      {
+                        "name": "Glacial Warden",
+                        "icon": "https://gi.yatta.moe/assets/UI/monster/UI_MonsterIcon_Snegurochka_Male.png"
+                      }
+                    ],
+                    "note": "5 enemies"
+                  },
+                  {
+                    "name": "2e moitié",
+                    "enemies": [
+                      {
+                        "name": "Oprichniki Thunderblitz Gvardiya",
+                        "icon": "https://gi.yatta.moe/assets/UI/monster/UI_MonsterIcon_Oprichnik_Female_Slim_MachineGun.png"
+                      },
+                      {
+                        "name": "Oprichniki Fireblade Shock Trooper",
+                        "icon": "https://gi.yatta.moe/assets/UI/monster/UI_MonsterIcon_Oprichnik_Male_Strong_LanceArquebus.png"
+                      },
+                      {
+                        "name": "Oprichniki Medic",
+                        "icon": "https://gi.yatta.moe/assets/UI/monster/UI_MonsterIcon_NodKrai_Oprichnik_Male.png"
+                      }
+                    ],
+                    "note": "5 enemies"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "floor": "11",
+            "levels": "88–92",
+            "disorder": "Bonus de trouble 1st half: Anemo DMG Bonus +60% · Bonus de trouble 2nd half: Cryo DMG Bonus +60%",
+            "chambers": [
+              {
+                "name": "Salle 11-1",
+                "halves": [
+                  {
+                    "name": "1re moitié",
+                    "enemies": [
+                      {
+                        "name": "Oprichniki Grenadier ×4",
+                        "icon": "https://gi.yatta.moe/assets/UI/monster/UI_MonsterIcon_NodKrai_Oprichnik_Female.png"
+                      },
+                      {
+                        "name": "Oprichniki Line Trooper ×8",
+                        "icon": "https://gi.yatta.moe/assets/UI/monster/UI_MonsterIcon_NodKrai_Oprichnik_Male.png"
+                      },
+                      {
+                        "name": "Close Combat Storm Landcruiser ×2",
+                        "icon": "https://gi.yatta.moe/assets/UI/monster/UI_MonsterIcon_Fatuimecha_CoreA_MoveB_AttackA_Fire.png"
+                      },
+                      {
+                        "name": "Force Recon Scout Landcruiser ×2",
+                        "icon": "https://gi.yatta.moe/assets/UI/monster/UI_MonsterIcon_Fatuimecha_CoreB_MoveA_AttackB_Ice.png"
+                      },
+                      {
+                        "name": "Close Combat Scout Landcruiser ×2",
+                        "icon": "https://gi.yatta.moe/assets/UI/monster/UI_MonsterIcon_Fatuimecha_CoreA_MoveA_AttackC_Water.png"
+                      },
+                      {
+                        "name": "Force Recon Ground Effect Landcruiser ×6",
+                        "icon": "https://gi.yatta.moe/assets/UI/monster/UI_MonsterIcon_Fatuimecha_CoreB_MoveE_AttackB_Wind.png"
+                      }
+                    ],
+                    "note": "Monolith defense, 8 waves of 3 enemies"
+                  },
+                  {
+                    "name": "2e moitié",
+                    "enemies": [
+                      {
+                        "name": "Large Hydro Slime ×24",
+                        "icon": "https://gi.yatta.moe/assets/UI/monster/UI_MonsterIcon_Slime_Water_03.png"
+                      }
+                    ],
+                    "note": "Monolith defense: bring grouping or a taunt plus frequent Cryo"
+                  }
+                ]
+              },
+              {
+                "name": "Salle 11-2",
+                "halves": [
+                  {
+                    "name": "1re moitié",
+                    "enemies": [
+                      {
+                        "name": "Hydro Hilichurl Rogue ×2",
+                        "icon": "https://gi.yatta.moe/assets/UI/monster/UI_MonsterIcon_Hilistray_Water.png"
+                      },
+                      {
+                        "name": "Radiant Bladehorn",
+                        "icon": "https://gi.yatta.moe/assets/UI/monster/UI_MonsterIcon_Magbeast_Rhino.png"
+                      }
+                    ],
+                    "note": "the Radiant Bladehorn's cocoon is removed by healing"
+                  },
+                  {
+                    "name": "2e moitié",
+                    "enemies": [
+                      {
+                        "name": "Rockfond Rifthound",
+                        "icon": "https://gi.yatta.moe/assets/UI/monster/UI_MonsterIcon_Hound_Riftstalker_Rock.png"
+                      },
+                      {
+                        "name": "Thundercraven Rifthound",
+                        "icon": "https://gi.yatta.moe/assets/UI/monster/UI_MonsterIcon_Hound_Riftstalker_Electric.png"
+                      }
+                    ],
+                    "note": "4 enemies, 2 waves; bring a healer for Corrosion"
+                  }
+                ]
+              },
+              {
+                "name": "Salle 11-3",
+                "halves": [
+                  {
+                    "name": "1re moitié",
+                    "enemies": [
+                      {
+                        "name": "Oprichniki Thunderblitz Gvardiya",
+                        "icon": "https://gi.yatta.moe/assets/UI/monster/UI_MonsterIcon_Oprichnik_Female_Slim_MachineGun.png"
+                      },
+                      {
+                        "name": "Oprichniki Fireblade Shock Trooper",
+                        "icon": "https://gi.yatta.moe/assets/UI/monster/UI_MonsterIcon_Oprichnik_Male_Strong_LanceArquebus.png"
+                      },
+                      {
+                        "name": "Radiant Antelope",
+                        "icon": "https://gi.yatta.moe/assets/UI/monster/UI_MonsterIcon_Magbeast_Argali.png"
+                      }
+                    ],
+                    "note": ""
+                  },
+                  {
+                    "name": "2e moitié",
+                    "enemies": [
+                      {
+                        "name": "Millennial Pearl Seahorse",
+                        "icon": "https://gi.yatta.moe/assets/UI/monster/UI_MonsterIcon_SeaHorse_Primo_Electric.png"
+                      }
+                    ],
+                    "note": "Cryo attacks or Stellar-Conduct remove the pearl"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "floor": "12",
+            "levels": "95–100",
+            "disorder": "Bonus de trouble 1st half: Stellar Glimmer reaction DMG +75% · Bonus de trouble 2nd half: Cryo DMG Bonus +75%",
+            "chambers": [
+              {
+                "name": "Salle 12-1",
+                "halves": [
+                  {
+                    "name": "1re moitié",
+                    "enemies": [
+                      {
+                        "name": "Furiosa",
+                        "icon": "https://act-webstatic.hoyoverse.com/event-static-hoyowiki-admin/2026/08/03/5ce071f76271a66a256b36f935707dfe_8196819433733996877.png"
+                      }
+                    ],
+                    "note": "single boss; hit the roots as soon as they spawn"
+                  },
+                  {
+                    "name": "2e moitié",
+                    "enemies": [
+                      {
+                        "name": "Iniquitous Baptist",
+                        "icon": "https://gi.yatta.moe/assets/UI/monster/UI_MonsterIcon_Invoker_Archdeacon.png"
+                      },
+                      {
+                        "name": "Shadowy Husk: Standard Bearer",
+                        "icon": "https://gi.yatta.moe/assets/UI/monster/UI_MonsterIcon_ForlornVessel_Strong_Warbanner_Fire.png"
+                      },
+                      {
+                        "name": "Shadowy Husk: Defender",
+                        "icon": "https://gi.yatta.moe/assets/UI/monster/UI_MonsterIcon_ForlornVessel_Strong_Chargebow_Ice.png"
+                      }
+                    ],
+                    "note": "the Baptist cycles Electro → Hydro → Pyro shields; Freeze and Stellar-Conduct break them"
+                  }
+                ]
+              },
+              {
+                "name": "Salle 12-2",
+                "halves": [
+                  {
+                    "name": "1re moitié",
+                    "enemies": [
+                      {
+                        "name": "Radiant Moonfly",
+                        "icon": "https://gi.yatta.moe/assets/UI/monster/UI_MonsterIcon_Magbeast_Pergesa.png"
+                      }
+                    ],
+                    "note": "single boss; healing removes the cocoon"
+                  },
+                  {
+                    "name": "2e moitié",
+                    "enemies": [
+                      {
+                        "name": "Hiljetta",
+                        "icon": "https://act-webstatic.hoyoverse.com/event-static-hoyowiki-admin/2026/01/12/76555834dd7020761167b00024c4034d_4945511902396161598.png"
+                      }
+                    ],
+                    "note": "single boss; puts on battle armor mid-fight — Freeze or Overloaded breaks it"
+                  }
+                ]
+              },
+              {
+                "name": "Salle 12-3",
+                "halves": [
+                  {
+                    "name": "1re moitié",
+                    "enemies": [
+                      {
+                        "name": "Chimeric Winged Lion",
+                        "icon": "https://gi.yatta.moe/assets/UI/monster/UI_MonsterIcon_Chimera_Manticore.png"
+                      }
+                    ],
+                    "note": "single boss; break the Electro shield first"
+                  },
+                  {
+                    "name": "2e moitié",
+                    "enemies": [
+                      {
+                        "name": "Secret Source Automaton: Overseer Device",
+                        "icon": "https://gi.yatta.moe/assets/UI/monster/UI_MonsterIcon_DragonCollar.png"
+                      }
+                    ],
+                    "note": "single boss; its momentum drops with frequent Cryo hits, not with damage"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "blessing": "Bénédiction de la lune abyssale : Supraconduction, Stellar-Conduct, Cryo Swirl, Stellar Swirl, Gel and Brisé release a shockwave dealing True DMG (once every 2 s)",
+        "start": "2026-10-16T04:00",
+        "end": "2026-11-16T04:00",
+        "kind": "abyss",
+        "published": true,
+        "source": "https://genshinflex.com/en/abyss/history/"
+      },
+      {
+        "title": "Saison 29 — éléments : Hydro, Electro, Geo",
+        "period": "1 novembre — 1 décembre",
+        "elements": [
+          "Hydro",
+          "Électro",
+          "Géo"
+        ],
+        "opening": [
+          "Yelan",
+          "Aino",
+          "Flins",
+          "Fischl",
+          "Zhongli",
+          "Kachina"
+        ],
+        "guests": [
+          "Qiqi",
+          "Odette",
+          "Vesna",
+          "Jahoda"
+        ],
+        "bosses": [
+          {
+            "name": "Acte 3",
+            "enemies": [
+              {
+                "name": "Jadeplume Terrorshroom",
+                "icon": "https://gi.yatta.moe/assets/UI/monster/UI_MonsterIcon_Fungus_Raptor.png",
+                "art": ""
+              }
+            ]
+          },
+          {
+            "name": "Acte 6",
+            "enemies": [
+              {
+                "name": "Lord of the Hidden Depths",
+                "icon": "https://gi.yatta.moe/assets/UI/monster/UI_MonsterIcon_Lloigor_Primo.png",
+                "art": ""
+              }
+            ]
+          },
+          {
+            "name": "Acte 8",
+            "enemies": [
+              {
+                "name": "Battle-Hardened Samachurl",
+                "icon": "https://gi.yatta.moe/assets/UI/monster/UI_MonsterIcon_Shaman_Rock_01.png",
+                "art": ""
+              }
+            ]
+          },
+          {
+            "name": "Acte 10",
+            "enemies": [
+              {
+                "name": "Radiant Moonfly",
+                "icon": "https://gi.yatta.moe/assets/UI/monster/UI_MonsterIcon_Magbeast_Pergesa.png",
+                "art": ""
+              }
+            ]
+          }
+        ],
+        "start": "2026-11-01T04:00",
+        "end": "2026-12-01T04:00",
+        "kind": "theater",
+        "published": true,
+        "source": "https://genshinflex.com/en/theater/history/"
+      },
+      {
+        "title": "Version 7.2 · rotation publiée",
+        "period": "11 novembre — 15 décembre",
+        "endAt": "2026-12-15T04:00",
+        "elements": [
+          "Electro",
+          "Hydro",
+          "Geo"
+        ],
+        "bosses": [
+          {
+            "stage": "1",
+            "name": "Wavebinder",
+            "enemies": [
+              {
+                "name": "Wavebinder",
+                "icon": "https://act-webstatic.hoyoverse.com/event-static-hoyowiki-admin/2026/10/30/8a63b0ca78d1dd0315bc29e66c1d3c56_1603992222483436066.png",
+                "art": "https://act-webstatic.hoyoverse.com/event-static-hoyowiki-admin/2026/10/30/8a63b0ca78d1dd0315bc29e66c1d3c56_1603992222483436066.png"
+              }
+            ],
+            "advantages": [
+              "Stellar Glimmer",
+              "Electro"
+            ]
+          },
+          {
+            "stage": "2",
+            "name": "Emperor of Fire and Iron",
+            "enemies": [
+              {
+                "name": "Emperor of Fire and Iron",
+                "icon": "https://gi.yatta.moe/assets/UI/monster/UI_MonsterIcon_HermitCrab_Primo.png",
+                "art": ""
+              }
+            ],
+            "advantages": [
+              "Hydro",
+              "Pyro — weak"
+            ]
+          },
+          {
+            "stage": "3",
+            "name": "Radiant Moongecko",
+            "enemies": [
+              {
+                "name": "Radiant Moongecko",
+                "icon": "https://gi.yatta.moe/assets/UI/monster/UI_MonsterIcon_Magbeast_Gecko.png",
+                "art": ""
+              }
+            ],
+            "advantages": [
+              "Geo",
+              "Healers"
+            ]
+          }
+        ],
+        "start": "2026-11-11T04:00",
+        "end": "2026-12-15T04:00",
+        "kind": "onslaught",
+        "published": true,
+        "source": "https://genshinflex.com/en/onslaught/history/"
+      },
+      {
+        "floors": [
+          {
+            "floor": "9",
+            "levels": "72–76",
+            "disorder": "Bonus de trouble Stellar Swirl DMG +50%",
+            "chambers": [
+              {
+                "name": "Salle 9-1",
+                "halves": [
+                  {
+                    "name": "1re moitié",
+                    "enemies": [
+                      {
+                        "name": "Winged Halberd-Knight",
+                        "icon": "https://gi.yatta.moe/assets/UI/monster/UI_MonsterIcon_Human_Girl_Vila_Glaive.png",
+                        "art": "https://act-webstatic.hoyoverse.com/event-static-hoyowiki-admin/2026/08/03/9cce78a118777b29f4b0e81065306c21_7452185608333886730.png"
+                      },
+                      {
+                        "name": "Winged Soarer Knight",
+                        "icon": "https://gi.yatta.moe/assets/UI/monster/UI_MonsterIcon_Human_Girl_Vila_Blade.png",
+                        "art": "https://act-webstatic.hoyoverse.com/event-static-hoyowiki-admin/2026/08/03/2e715b3d62620572fc4f870cc68a23f5_3267705001912629504.png"
+                      }
+                    ],
+                    "note": "15 enemies, 3 waves"
+                  },
+                  {
+                    "name": "2e moitié",
+                    "enemies": [
+                      {
+                        "name": "Cutting Edge All-Purpose Storm Landcruiser",
+                        "icon": "https://gi.yatta.moe/assets/UI/monster/UI_MonsterIcon_Fatuimecha_CoreC_MoveD_AttackA_AttackC_AttackB_Electric.png",
+                        "art": ""
+                      }
+                    ],
+                    "note": ""
+                  }
+                ]
+              },
+              {
+                "name": "Salle 9-2",
+                "halves": [
+                  {
+                    "name": "1re moitié",
+                    "enemies": [
+                      {
+                        "name": "Winged Halberd-Knight",
+                        "icon": "https://gi.yatta.moe/assets/UI/monster/UI_MonsterIcon_Human_Girl_Vila_Glaive.png",
+                        "art": "https://act-webstatic.hoyoverse.com/event-static-hoyowiki-admin/2026/08/03/9cce78a118777b29f4b0e81065306c21_7452185608333886730.png"
+                      },
+                      {
+                        "name": "Volkodlak Basher",
+                        "icon": "https://gi.yatta.moe/assets/UI/monster/UI_MonsterIcon_Vukodlak_Strong_Sword.png",
+                        "art": "https://act-webstatic.hoyoverse.com/event-static-hoyowiki-admin/2026/08/03/5b456877d1f8245406f4a7d98521452c_2397721811074429217.png"
+                      }
+                    ],
+                    "note": "12 enemies"
+                  },
+                  {
+                    "name": "2e moitié",
+                    "enemies": [
+                      {
+                        "name": "Cutting Edge Fire Support Ground Effect Landcruiser ×2",
+                        "icon": "https://gi.yatta.moe/assets/UI/monster/UI_MonsterIcon_Fatuimecha_CoreC_MoveF_AttackB_Fire.png",
+                        "art": ""
+                      }
+                    ],
+                    "note": "appear one after another"
+                  }
+                ]
+              },
+              {
+                "name": "Salle 9-3",
+                "halves": [
+                  {
+                    "name": "1re moitié",
+                    "enemies": [
+                      {
+                        "name": "Rugged Elder Leshy",
+                        "icon": "https://gi.yatta.moe/assets/UI/monster/UI_MonsterIcon_Leshy_Mature_01.png",
+                        "art": "https://act-webstatic.hoyoverse.com/event-static-hoyowiki-admin/2026/08/03/3969f8c058e5115e4995fdea42baa255_3888623288429584434.png"
+                      },
+                      {
+                        "name": "Juvenile Tree Segment",
+                        "icon": "https://gi.yatta.moe/assets/UI/monster/UI_MonsterIcon_Leshy_Normal_01.png",
+                        "art": "https://act-webstatic.hoyoverse.com/event-static-hoyowiki-admin/2026/08/03/9d3779c3e2f06a271019979766bde52f_3764250878761053282.png"
+                      }
+                    ],
+                    "note": "5 enemies"
+                  },
+                  {
+                    "name": "2e moitié",
+                    "enemies": [
+                      {
+                        "name": "Cutting Edge Fire Support Ground Effect Landcruiser",
+                        "icon": "https://gi.yatta.moe/assets/UI/monster/UI_MonsterIcon_Fatuimecha_CoreC_MoveF_AttackB_Fire.png",
+                        "art": ""
+                      },
+                      {
+                        "name": "Cutting Edge All-Purpose Storm Landcruiser",
+                        "icon": "https://gi.yatta.moe/assets/UI/monster/UI_MonsterIcon_Fatuimecha_CoreC_MoveD_AttackA_AttackC_AttackB_Electric.png",
+                        "art": ""
+                      }
+                    ],
+                    "note": "appear at the same time"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "floor": "10",
+            "levels": "80–85",
+            "disorder": "Bonus de trouble Stellar-Conduct DMG +50%",
+            "chambers": [
+              {
+                "name": "Salle 10-1",
+                "halves": [
+                  {
+                    "name": "1re moitié",
+                    "enemies": [
+                      {
+                        "name": "Volkodlak Lobber",
+                        "icon": "https://gi.yatta.moe/assets/UI/monster/UI_MonsterIcon_Vukodlak_Strong_NoWeapon.png",
+                        "art": "https://act-webstatic.hoyoverse.com/event-static-hoyowiki-admin/2026/08/03/4a7887db8a90a2e15cf39755ce346efa_5008628058724622932.png"
+                      },
+                      {
+                        "name": "Volkodlak Raider",
+                        "icon": "https://gi.yatta.moe/assets/UI/monster/UI_MonsterIcon_Vukodlak_Thin_Sword.png",
+                        "art": "https://act-webstatic.hoyoverse.com/event-static-hoyowiki-admin/2026/08/03/950fc30575b24bf60a6b1858e46be4b1_748961995869453458.png"
+                      }
+                    ],
+                    "note": "15 enemies"
+                  },
+                  {
+                    "name": "2e moitié",
+                    "enemies": [
+                      {
+                        "name": "Oprichniki Fireblade Shock Trooper ×2",
+                        "icon": "https://gi.yatta.moe/assets/UI/monster/UI_MonsterIcon_Oprichnik_Male_Strong_LanceArquebus.png",
+                        "art": ""
+                      }
+                    ],
+                    "note": ""
+                  }
+                ]
+              },
+              {
+                "name": "Salle 10-2",
+                "halves": [
+                  {
+                    "name": "1re moitié",
+                    "enemies": [
+                      {
+                        "name": "Leomastiff Guard",
+                        "icon": "https://gi.yatta.moe/assets/UI/monster/UI_MonsterIcon_Volkodlak_Sheepdog.png",
+                        "art": "https://act-webstatic.hoyoverse.com/event-static-hoyowiki-admin/2026/08/03/af0b2e6363a9ef17ed0bc7ef6fbc7089_1969328369532456144.png"
+                      },
+                      {
+                        "name": "Channel Contact",
+                        "icon": "https://gi.yatta.moe/assets/UI/monster/UI_MonsterIcon_Volkodlak_Beaver.png",
+                        "art": "https://act-webstatic.hoyoverse.com/event-static-hoyowiki-admin/2026/08/03/f8b88d761e19ee7476939996e51d8954_8629627227598384798.png"
+                      }
+                    ],
+                    "note": "8 enemies"
+                  },
+                  {
+                    "name": "2e moitié",
+                    "enemies": [
+                      {
+                        "name": "Oprichniki Thunderblitz Gvardiya ×2",
+                        "icon": "https://gi.yatta.moe/assets/UI/monster/UI_MonsterIcon_Oprichnik_Female_Slim_MachineGun.png",
+                        "art": ""
+                      }
+                    ],
+                    "note": ""
+                  }
+                ]
+              },
+              {
+                "name": "Salle 10-3",
+                "halves": [
+                  {
+                    "name": "1re moitié",
+                    "enemies": [
+                      {
+                        "name": "Glaciomancer",
+                        "icon": "https://gi.yatta.moe/assets/UI/monster/UI_MonsterIcon_Human_Female_Staff_Snegurochka.png",
+                        "art": "https://act-webstatic.hoyoverse.com/event-static-hoyowiki-admin/2026/08/03/c6d16af371f8d87c84e367f5b5c412f3_7125150281104097856.png"
+                      },
+                      {
+                        "name": "Glacial Warden",
+                        "icon": "https://gi.yatta.moe/assets/UI/monster/UI_MonsterIcon_Snegurochka_Male.png",
+                        "art": "https://act-webstatic.hoyoverse.com/event-static-hoyowiki-admin/2026/08/03/952b22bafd88335288772453b721068a_5472931849340552796.png"
+                      }
+                    ],
+                    "note": "5 enemies"
+                  },
+                  {
+                    "name": "2e moitié",
+                    "enemies": [
+                      {
+                        "name": "Oprichniki Thunderblitz Gvardiya",
+                        "icon": "https://gi.yatta.moe/assets/UI/monster/UI_MonsterIcon_Oprichnik_Female_Slim_MachineGun.png",
+                        "art": ""
+                      },
+                      {
+                        "name": "Oprichniki Fireblade Shock Trooper",
+                        "icon": "https://gi.yatta.moe/assets/UI/monster/UI_MonsterIcon_Oprichnik_Male_Strong_LanceArquebus.png",
+                        "art": ""
+                      },
+                      {
+                        "name": "Oprichniki Medic",
+                        "icon": "https://gi.yatta.moe/assets/UI/monster/UI_MonsterIcon_NodKrai_Oprichnik_Male.png",
+                        "art": ""
+                      }
+                    ],
+                    "note": "5 enemies"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "floor": "11",
+            "levels": "88–92",
+            "disorder": "Bonus DGT Électro +60% · Bonus DGT Géo +60% · All enemies' HP increased to 300%.",
+            "chambers": [
+              {
+                "name": "Salle 11-1",
+                "level": "88",
+                "target": "Remaining challenge time longer than (60/180/300) sec.",
+                "halves": [
+                  {
+                    "name": "1re moitié",
+                    "enemies": [
+                      {
+                        "name": "Voywolf Hunter",
+                        "icon": "https://gi.yatta.moe/assets/UI/monster/UI_MonsterIcon_Volkodlak_Greyhound.png",
+                        "art": "https://act-webstatic.hoyoverse.com/event-static-hoyowiki-admin/2026/08/03/0cdd7a508b59687f1b6f1a20322f6f04_4141787370011065068.png"
+                      },
+                      {
+                        "name": "Fanged Zealot",
+                        "icon": "https://gi.yatta.moe/assets/UI/monster/UI_MonsterIcon_Volkodlak_Mammoth.png",
+                        "art": "https://act-webstatic.hoyoverse.com/event-static-hoyowiki-admin/2026/08/03/e3468a9e1636821bb33c6da286f628f9_1530522583899700606.png"
+                      },
+                      {
+                        "name": "Ruin Drake: Earthguard",
+                        "icon": "https://gi.yatta.moe/assets/UI/monster/UI_MonsterIcon_Gargoyle.png",
+                        "art": ""
+                      }
+                    ],
+                    "note": "Second Half: Initially spawns four Fishers of Hidden Depths, more spawn as the previous are defeated."
+                  },
+                  {
+                    "name": "2e moitié",
+                    "enemies": [
+                      {
+                        "name": "Fisher of Hidden Depths ×12",
+                        "icon": "https://gi.yatta.moe/assets/UI/monster/UI_MonsterIcon_Lloigor_Sub.png",
+                        "art": ""
+                      }
+                    ],
+                    "note": "Second Half: Initially spawns four Fishers of Hidden Depths, more spawn as the previous are defeated."
+                  }
+                ]
+              },
+              {
+                "name": "Salle 11-2",
+                "level": "90",
+                "target": "Remaining challenge time longer than (60/180/300) sec.",
+                "halves": [
+                  {
+                    "name": "1re moitié",
+                    "enemies": [
+                      {
+                        "name": "Juvenile Tree Segment ×2",
+                        "icon": "https://gi.yatta.moe/assets/UI/monster/UI_MonsterIcon_Leshy_Normal_01.png",
+                        "art": "https://act-webstatic.hoyoverse.com/event-static-hoyowiki-admin/2026/08/03/9d3779c3e2f06a271019979766bde52f_3764250878761053282.png"
+                      },
+                      {
+                        "name": "Rugged Elder Leshy",
+                        "icon": "https://gi.yatta.moe/assets/UI/monster/UI_MonsterIcon_Leshy_Mature_01.png",
+                        "art": "https://act-webstatic.hoyoverse.com/event-static-hoyowiki-admin/2026/08/03/3969f8c058e5115e4995fdea42baa255_3888623288429584434.png"
+                      },
+                      {
+                        "name": "Chimeric Crocohoof ×2",
+                        "icon": "https://gi.yatta.moe/assets/UI/monster/UI_MonsterIcon_Chimera_CrocodileBoar.png",
+                        "art": "https://act-webstatic.hoyoverse.com/event-static-hoyowiki-admin/2026/10/30/552c1cc80b774d37ff5c206dcc30c855_1299705295727038371.png"
+                      },
+                      {
+                        "name": "Chimeric Skorp",
+                        "icon": "https://gi.yatta.moe/assets/UI/monster/UI_MonsterIcon_Chimera_ScorpionChicken.png",
+                        "art": "https://act-webstatic.hoyoverse.com/event-static-hoyowiki-admin/2026/10/30/2883407189a9f5a3f44fe301fdccdce9_8571891151413954758.png"
+                      }
+                    ],
+                    "note": ""
+                  },
+                  {
+                    "name": "2e moitié",
+                    "enemies": [
+                      {
+                        "name": "Radiant Glacial Wolf",
+                        "icon": "https://gi.yatta.moe/assets/UI/monster/UI_MonsterIcon_Magbeast_Steppenwolf.png",
+                        "art": ""
+                      }
+                    ],
+                    "note": ""
+                  }
+                ]
+              },
+              {
+                "name": "Salle 11-3",
+                "level": "92",
+                "target": "Remaining challenge time longer than (180/300/420) sec.",
+                "halves": [
+                  {
+                    "name": "1re moitié",
+                    "enemies": [
+                      {
+                        "name": "Icebound Reflection ×12",
+                        "icon": "https://gi.yatta.moe/assets/UI/monster/UI_MonsterIcon_Crystalian_01.png",
+                        "art": "https://act-webstatic.hoyoverse.com/event-static-hoyowiki-admin/2026/10/30/6538f03b0a11d19c20b5e7d596612479_3847928969481564958.png"
+                      }
+                    ],
+                    "note": "First Half: Initially spawns four Icebound Reflections, more spawn as the previous are defeated."
+                  },
+                  {
+                    "name": "2e moitié",
+                    "enemies": [
+                      {
+                        "name": "Wilderness Hunter",
+                        "icon": "https://gi.yatta.moe/assets/UI/monster/UI_MonsterIcon_WildHunt_Elite.png",
+                        "art": ""
+                      }
+                    ],
+                    "note": "First Half: Initially spawns four Icebound Reflections, more spawn as the previous are defeated."
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "floor": "12",
+            "levels": "95–100",
+            "disorder": "1re moitié: Lunar-Crystallize DGT augmenté de 75%. · 2e moitié: Maîtrise élémentaire de l’équipe +200. · (Chamber 1) Battle Hardened Prism Slime - HP 118.75% to Local Legend (6,646,213pt). · All other enemies' HP increased to 475%.",
+            "chambers": [
+              {
+                "name": "Salle 12-1",
+                "level": "95",
+                "target": "Remaining challenge time longer than (180/300/420) sec.",
+                "halves": [
+                  {
+                    "name": "1re moitié",
+                    "enemies": [
+                      {
+                        "name": "Battle-Hardened Prism Slime",
+                        "icon": "https://gi.yatta.moe/assets/UI/monster/UI_MonsterIcon_Slime_Rock_03.png",
+                        "art": ""
+                      }
+                    ],
+                    "note": ""
+                  },
+                  {
+                    "name": "2e moitié",
+                    "enemies": [
+                      {
+                        "name": "Wavebinder",
+                        "icon": "https://gi.yatta.moe/assets/UI/monster/UI_MonsterIcon_Volkodlak_Whale.png",
+                        "art": "https://act-webstatic.hoyoverse.com/event-static-hoyowiki-admin/2026/10/30/8a63b0ca78d1dd0315bc29e66c1d3c56_1603992222483436066.png"
+                      }
+                    ],
+                    "note": ""
+                  }
+                ]
+              },
+              {
+                "name": "Salle 12-2",
+                "level": "98",
+                "target": "Remaining challenge time longer than (180/300/420) sec.",
+                "halves": [
+                  {
+                    "name": "1re moitié",
+                    "enemies": [
+                      {
+                        "name": "Frostnight Herra",
+                        "icon": "https://gi.yatta.moe/assets/UI/monster/UI_MonsterIcon_HerraFrost.png",
+                        "art": ""
+                      }
+                    ],
+                    "note": ""
+                  },
+                  {
+                    "name": "2e moitié",
+                    "enemies": [
+                      {
+                        "name": "Guardian Blade of Drifting Snow",
+                        "icon": "https://gi.yatta.moe/assets/UI/monster/UI_MonsterIcon_Snegurochka_Contessa_02.png",
+                        "art": "https://act-webstatic.hoyoverse.com/event-static-hoyowiki-admin/2026/09/18/c9318379b2358dd23cdb5eb899d57cf8_8451714367984983971.png"
+                      }
+                    ],
+                    "note": ""
+                  }
+                ]
+              },
+              {
+                "name": "Salle 12-3",
+                "level": "100",
+                "target": "Remaining challenge time longer than (180/300/420) sec.",
+                "halves": [
+                  {
+                    "name": "1re moitié",
+                    "enemies": [
+                      {
+                        "name": "Radiant Moongecko",
+                        "icon": "https://gi.yatta.moe/assets/UI/monster/UI_MonsterIcon_Magbeast_Gecko.png",
+                        "art": ""
+                      }
+                    ],
+                    "note": ""
+                  },
+                  {
+                    "name": "2e moitié",
+                    "enemies": [
+                      {
+                        "name": "Perpetual Mechanical Array",
+                        "icon": "https://gi.yatta.moe/assets/UI/monster/UI_MonsterIcon_Apparatus_Perpetual.png",
+                        "art": ""
+                      }
+                    ],
+                    "note": ""
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "blessing": "Resounding Moon — When a character triggers Superconduct or Stellar-Conduct reaction on an opponent, they gain 1 stack count, and when the stack count reaches 3, a shockwave is unleashed at the opponent's position, dealing True DMG and consuming all stack counts at the same time. Up to 1 stack count can be gained every 0.1s. A shockwave can be unleashed this way every 4s.",
+        "start": "2026-11-16T04:00",
+        "end": "2026-12-16T04:00",
+        "kind": "abyss",
+        "published": true,
+        "source": "https://genshinflex.com/en/abyss/history/"
+      }
+    ],
+    "checkedAt": 1795731104.5169065
+  },
+  "feedMode": "published-public-data"
+}

@@ -37,6 +37,9 @@ class HostedCommunityTest(unittest.TestCase):
   self.assertEqual(self.call(self.owner,'feedback/item?id='+identifier)[1]['report']['status'],'resolved')
   self.assertFalse(any(self.web.rglob('report-*.json')));self.assertTrue((self.folder/'.astralis-feedback'/('report-'+identifier+'.json')).is_file())
   self.assertEqual(self.call(self.owner,'feedback/delete',{'id':identifier})[0],200)
+ def test_endgame_public_feed_fallback_contains_real_encounters(self):
+  folder=self.web/'hosting-data';folder.mkdir(exist_ok=True);shutil.copy2(ROOT/'hosting-data/gi-endgame.json',folder/'gi-endgame.json')
+  status,data=self.call(self.public,'gi/endgame');self.assertEqual(status,200);self.assertGreater(len(data['floors']),0);self.assertEqual(len(data['theater']['bosses']),4);self.assertEqual(data['feedMode'],'published-public-data')
  def test_rejects_executable_images_and_unauthorized_sheet_publication(self):
   status,_=self.call(self.public,'feedback',{'kind':'bug','category':'display','title':'Image incorrecte','description':'Une description suffisante pour cette vérification.','image':'data:image/svg+xml;base64,PHN2Zz4='});self.assertEqual(status,400)
   self.assertEqual(self.call(self.public,'character-sheets/publish',{'sheet':{}})[0],403)

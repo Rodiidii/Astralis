@@ -1,4 +1,4 @@
-import {renderAuroraDashboard} from './aurora-dashboard.js?v=20261126-daily-desk-1';
+import {renderAuroraDashboard} from './aurora-dashboard.js?v=20261126-preparation-desk-1';
 import {travelTo} from './dashboard-voyage.js?v=20261116-dashboard-perf-2';
 import {renderFeature,dailyRoutineProgress} from './dashboard-features.js?v=20261115-guided-empty-1';
 import {saveDashboardLastAction} from './dashboard-last-action.js?v=20261115-dashboard-refinement-2';

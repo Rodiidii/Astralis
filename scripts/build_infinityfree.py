@@ -6,7 +6,7 @@ from pathlib import Path
 ROOT=Path(__file__).resolve().parents[1]
 OUTPUT=ROOT/'releases'/'InfinityFree'
 WEB=OUTPUT/'htdocs'
-FOLDERS={'src','styles','assets','public','data','published','companions'}
+FOLDERS={'src','styles','assets','public','data','published','companions','hosting-data'}
 ROOT_FILES={'index.html','sw.js','manifest.webmanifest','manifest.json','VERSION','changelog.json','import-sources.json','favicon.ico','favicon.png','app-icon.svg','icon.png'}
 VIDEO={'.mp4','.webm','.mov','.avi','.mkv'}
 PRIVATE_PARTS={'user','userdata','user-data','local-data','lab-user-exports','downloads','__pycache__','.git'}
@@ -57,9 +57,9 @@ def main()->None:
   size=p.stat().st_size;limit=10000 if p.name=='.htaccess' else 1000000 if p.suffix.lower() in {'.php','.html','.js','.mjs'} else 10000000
   if size>=limit:bad.append({'path':p.relative_to(WEB).as_posix(),'bytes':size,'limit':limit})
  if bad:raise SystemExit('Fichiers trop volumineux pour InfinityFree : '+json.dumps(bad))
- report={'version':'1.0.59','platform':'InfinityFree','fileCount':len(files),'totalBytes':sum(p.stat().st_size for p in files),'oversizeFiles':bad,'privateFilesIncluded':False,'videoFilesServedFromGitHubRelease':len(remote_video),'precompressedJavascript':encoded,'apiMode':'read-only, optional external Python API for live feeds','applicationSourceUnminified':True}
+ report={'version':'1.0.60','platform':'InfinityFree','fileCount':len(files),'totalBytes':sum(p.stat().st_size for p in files),'oversizeFiles':bad,'privateFilesIncluded':False,'videoFilesServedFromGitHubRelease':len(remote_video),'precompressedJavascript':encoded,'apiMode':'read-only, published endgame feed, private feedback and read-only sheets; optional external Python API for other live feeds','applicationSourceUnminified':True}
  (OUTPUT/'verification.json').write_text(json.dumps(report,ensure_ascii=False,indent=2),encoding='utf-8')
- readme="""ASTRALIS 1.0.59 — DOSSIER INFINITYFREE
+ readme="""ASTRALIS 1.0.60 — DOSSIER INFINITYFREE
 
 1. Dans InfinityFree, crée ton hébergement et active HTTPS pour ton domaine.
 2. Transfère le CONTENU du dossier htdocs dans le htdocs du domaine. Conserve src, styles, assets, public et data. Transfère aussi .htaccess (fichier caché).
@@ -69,7 +69,7 @@ def main()->None:
 Les jeux, l’éditeur de builds, les équipes, le laboratoire, les cartes, la planification et les sauvegardes du navigateur sont inclus. Les catalogues conservent leurs sources publiques. Les fiches publiées sont en lecture seule.
 
 LES FONCTIONS QUI ONT BESOIN DU SERVEUR DE DONNÉES
-InfinityFree n’exécute pas le serveur Python de l’application. Les flux Événements, Endgame, certains textes de lore et médias demandent un serveur de données Astralis compatible. Si tu en possèdes un, indique son URL HTTPS dans htdocs/api/config.php, champ api_origin. Aucun mot de passe ou profil de ton installation locale n’est fourni. Sans cette configuration, ces flux signalent leur indisponibilité ; ils n’inventent pas de résultats.
+InfinityFree n’exécute pas le serveur Python de l’application. Les rotations Endgame sont récupérées automatiquement depuis le flux public GitHub et restent consultables depuis le dernier relevé fourni. Les flux Événements, certains textes de lore et médias demandent un serveur de données Astralis compatible. Si tu en possèdes un, indique son URL HTTPS dans htdocs/api/config.php, champ api_origin. Aucun mot de passe ou profil de ton installation locale n’est fourni. Sans cette configuration, ces flux signalent leur indisponibilité ; ils n’inventent pas de résultats.
 
 Les opérations Windows (lancement de Genshin, raccourcis, installation de mises à jour) restent réservées à l’application installée. Les vidéos de jeu sont chargées depuis les fichiers de la release GitHub v1.0.58 ; elles ne sont pas copiées sur InfinityFree.
 
