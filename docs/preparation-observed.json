@@ -1,0 +1,155 @@
+{
+  "version": "1.0.60",
+  "sourceBrowser": {
+    "errors": [],
+    "checks": {
+      "defaultGenshin": true,
+      "realBuildPNG": true,
+      "PNGdownload": true,
+      "PNGclipboard": true,
+      "PNGpreview": true,
+      "dailyWelkinNoDuplicates": true,
+      "variableTheaterIncome": true,
+      "draftSurvivesRefresh": true,
+      "objectivesAndSteps": true,
+      "publishedEndgameContent": true,
+      "calendarExport": true,
+      "originalIcons": true,
+      "customization": true
+    },
+    "formats": [
+      {
+        "width": 1920,
+        "height": 1080,
+        "overflow": false,
+        "walletVisible": true
+      },
+      {
+        "width": 1536,
+        "height": 1050,
+        "overflow": false,
+        "walletVisible": true
+      },
+      {
+        "width": 1366,
+        "height": 768,
+        "overflow": false,
+        "walletVisible": true
+      },
+      {
+        "width": 1024,
+        "height": 768,
+        "overflow": false,
+        "walletVisible": true
+      },
+      {
+        "width": 768,
+        "height": 1024,
+        "overflow": false,
+        "walletVisible": true
+      },
+      {
+        "width": 844,
+        "height": 390,
+        "overflow": false,
+        "walletVisible": true
+      },
+      {
+        "width": 430,
+        "height": 932,
+        "overflow": false,
+        "walletVisible": true
+      },
+      {
+        "width": 390,
+        "height": 844,
+        "overflow": false,
+        "walletVisible": true
+      },
+      {
+        "width": 360,
+        "height": 800,
+        "overflow": false,
+        "walletVisible": true
+      },
+      {
+        "width": 320,
+        "height": 740,
+        "overflow": false,
+        "walletVisible": true
+      }
+    ],
+    "passed": true
+  },
+  "liveBrowser": {
+    "origin": "https://astralis.wuaze.com",
+    "checks": {
+      "realPublishedFeed": {
+        "floors": 4,
+        "theaterBosses": 4,
+        "onslaughtBosses": 3,
+        "updatedAt": "2026-11-26T22:11:43Z"
+      },
+      "realBuildPNG": true,
+      "renderedEndgameContent": true,
+      "walletAndTopbar": true,
+      "realFarmCompletion": true,
+      "originalSVGIcons": true,
+      "ICSexport": true,
+      "feedbackRemainsPrivate": true
+    },
+    "errors": [],
+    "formats": [
+      [
+        1920,
+        1080
+      ],
+      [
+        1536,
+        1050
+      ],
+      [
+        1366,
+        768
+      ],
+      [
+        1024,
+        768
+      ],
+      [
+        768,
+        1024
+      ],
+      [
+        844,
+        390
+      ],
+      [
+        430,
+        932
+      ],
+      [
+        390,
+        844
+      ],
+      [
+        360,
+        800
+      ],
+      [
+        320,
+        740
+      ]
+    ],
+    "passed": true
+  },
+  "endgameWorkflow": {
+    "run": "https://github.com/Rodiidii/Astralis/actions/runs/45908331161",
+    "conclusion": "success"
+  },
+  "nodeTests": 32,
+  "phpTests": 4,
+  "sheetApiTests": 3,
+  "uploadTests": 9,
+  "bundleTests": 6
+}
