@@ -5,6 +5,7 @@ import json
 import shutil
 import subprocess
 import sys
+import tarfile
 import zipfile
 from pathlib import Path
 
@@ -59,46 +60,60 @@ def write_checksum(archive: Path) -> None:
     (archive.parent / f"{archive.name}.sha256").write_text(f"{hasher.hexdigest()}  {archive.name}\n", encoding="ascii")
 
 
+def write_committed_archive(root: Path, destination: Path, tree: str = 'HEAD') -> None:
+    # Stream the committed tree instead of storing a second uncompressed archive.
+    # This keeps local files out and avoids several GB of temporary disk space.
+    process = subprocess.Popen(['git', 'archive', '--format=tar', tree], cwd=root,
+                               stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+    try:
+        with zipfile.ZipFile(destination, 'w', compression=zipfile.ZIP_DEFLATED, compresslevel=6, allowZip64=True) as output:
+            with tarfile.open(fileobj=process.stdout, mode='r|') as source:
+                for member in source:
+                    if not member.isfile() or should_skip(Path(member.name)):
+                        continue
+                    entry = zipfile.ZipInfo(member.name)
+                    entry.compress_type = zipfile.ZIP_STORED if Path(member.name).suffix.lower() in {'.mp4', '.webm', '.jpg', '.jpeg', '.webp', '.png', '.mp3', '.ogg', '.woff2', '.zip'} else zipfile.ZIP_DEFLATED
+                    with source.extractfile(member) as src, output.open(entry, 'w', force_zip64=member.size >= 2**31) as dst:
+                        shutil.copyfileobj(src, dst, length=1024 * 1024)
+        error = process.stderr.read()
+        if process.wait() != 0:
+            raise RuntimeError('Git archive a échoué : ' + error.decode('utf-8', errors='replace'))
+    except BaseException:
+        process.terminate()
+        process.wait(timeout=10)
+        destination.unlink(missing_ok=True)
+        raise
+    finally:
+        process.stdout.close()
+        process.stderr.close()
+
+
 def main() -> None:
     OUT.mkdir(parents=True, exist_ok=True)
-    archive = OUT / "Astralis-Update.zip"
-    # Build the exact committed tree. Local profiles, diagnostics and unrelated
-    # uncommitted edits must never end up in a public release.
-    snapshot = OUT / ".astralis-release-source.zip"
-    subprocess.run(["git", "archive", "--format=zip", "-0", "HEAD", "--output", str(snapshot)], cwd=ROOT, check=True)
-    try:
-        with zipfile.ZipFile(snapshot) as source:
-            names = sorted(info.filename for info in source.infolist() if not info.is_dir() and not should_skip(Path(info.filename)))
-            def copy_files(output, selected):
-                for name in selected:
-                    if name not in names:
-                        continue
-                    entry = zipfile.ZipInfo(name)
-                    entry.compress_type = zipfile.ZIP_STORED if Path(name).suffix.lower() in {".mp4", ".webm", ".jpg", ".jpeg", ".webp", ".png", ".mp3", ".ogg", ".woff2", ".zip"} else zipfile.ZIP_DEFLATED
-                    with source.open(name) as src, output.open(entry, "w") as dst:
-                        shutil.copyfileobj(src, dst)
-            with zipfile.ZipFile(archive, "w", compression=zipfile.ZIP_DEFLATED, compresslevel=6, allowZip64=True) as output:
-                copy_files(output, names)
-            write_checksum(archive)
-            base_tags = [sys.argv[i + 1] for i, arg in enumerate(sys.argv[:-1]) if arg == "--base-tag"]
-            target_version = source.read("VERSION").decode("utf-8").strip()
-            for base_tag in base_tags:
-                base_version = base_tag.removeprefix("v")
-                changed, deleted = git_changed_files(base_tag)
-                patch_archive = OUT / f"Astralis-Patch-from-{base_version}.zip"
-                previous = subprocess.check_output(["git","ls-tree","-r","--name-only","-z",base_tag],cwd=ROOT).decode("utf-8").split("\0")
-                removed = {name for name in deleted if not should_skip(Path(name))}
-                removed.update(name for name in previous if development_only(Path(name)))
-                manifest = {"kind": "astralis-delta", "baseVersion": base_version, "version": target_version, "deleted": sorted(removed)}
-                with zipfile.ZipFile(patch_archive, "w", compression=zipfile.ZIP_DEFLATED, compresslevel=6, allowZip64=True) as output:
-                    output.writestr("ASTRALIS-PATCH.json", json.dumps(manifest, ensure_ascii=False))
-                    copy_files(output, changed)
-                write_checksum(patch_archive)
-                print(f"Patch : {patch_archive} ({len(changed)} fichiers modifiés, {len(manifest['deleted'])} supprimés)")
-    finally:
-        snapshot.unlink(missing_ok=True)
-    print(f"Archive : {archive}")
-    print("Publie les fichiers ZIP et SHA-256 comme assets de la même release GitHub.")
+    archive = OUT / 'Astralis-Update.zip'
+    write_committed_archive(ROOT, archive)
+    write_checksum(archive)
+    base_tags = [sys.argv[i + 1] for i, arg in enumerate(sys.argv[:-1]) if arg == '--base-tag']
+    with zipfile.ZipFile(archive) as source:
+        names = set(source.namelist())
+        target_version = source.read('VERSION').decode('utf-8').strip()
+        for base_tag in base_tags:
+            base_version = base_tag.removeprefix('v')
+            changed, deleted = git_changed_files(base_tag)
+            patch_archive = OUT / f'Astralis-Patch-from-{base_version}.zip'
+            previous = subprocess.check_output(['git','ls-tree','-r','--name-only','-z',base_tag],cwd=ROOT).decode('utf-8').split('\0')
+            removed = {name for name in deleted if not should_skip(Path(name))}
+            removed.update(name for name in previous if development_only(Path(name)))
+            manifest = {'kind':'astralis-delta','baseVersion':base_version,'version':target_version,'deleted':sorted(removed)}
+            with zipfile.ZipFile(patch_archive,'w',compression=zipfile.ZIP_DEFLATED,compresslevel=6,allowZip64=True) as output:
+                output.writestr('ASTRALIS-PATCH.json',json.dumps(manifest,ensure_ascii=False))
+                for name in changed:
+                    if name in names:
+                        output.writestr(name,source.read(name))
+            write_checksum(patch_archive)
+            print(f"Patch : {patch_archive} ({len(changed)} fichiers modifiés, {len(manifest['deleted'])} supprimés)")
+    print(f'Archive : {archive}')
+    print('Publie les fichiers ZIP et SHA-256 comme assets de la même release GitHub.')
 
 
 if __name__ == "__main__":
