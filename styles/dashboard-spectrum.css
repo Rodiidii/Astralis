@@ -1,0 +1,44 @@
+/* Personal colours remain visible without tinting text or replacing the menu icons. */
+.hc-dashboard{--spectrum-blue:#91bbff;--spectrum-rose:#e8aad9;--spectrum-gold:#edce8d;--spectrum-mint:#91dfc8}
+.hc-dashboard .hc-page-head{position:relative;isolation:isolate;padding-block:10px 23px}
+.hc-dashboard .hc-page-head:before{content:'';position:absolute;z-index:-1;inset:-65px -15px -30px;background:radial-gradient(ellipse at 18% 40%,color-mix(in srgb,var(--hp-accent) 11%,transparent),transparent 64%);pointer-events:none}
+.hc-dashboard .hc-page-head h1 span{color:var(--hp-accent);text-shadow:0 0 32px color-mix(in srgb,var(--hp-accent) 40%,transparent)}
+.hc-dashboard .dd-ledger{position:relative;isolation:isolate;background:radial-gradient(ellipse at 5% 0%,#91bbff12,transparent 65%),radial-gradient(ellipse at 100% 100%,#91dfc812,transparent 55%),var(--dd-panel);border-color:color-mix(in srgb,var(--hp-accent) 23%,var(--dd-line));box-shadow:0 20px 65px #0000000c}
+.hc-dashboard .dd-income-categories label:has(input:checked) span{box-shadow:inset 0 0 0 1px #edce8d55;background:#edce8d16;color:var(--ink)}
+.hc-dashboard .dd-day-income em{background:linear-gradient(120deg,var(--spectrum-mint),var(--spectrum-blue));background-clip:text;-webkit-background-clip:text;color:transparent}
+.hc-dashboard .hc-day-strip{position:relative;overflow:hidden;border-radius:17px!important;background:linear-gradient(110deg,#91dfc80b,#91bbff0b 42%,#e8aad90b)!important}
+.hc-dashboard .hc-day-strip>span:nth-child(1) b{color:var(--spectrum-blue)}
+.hc-dashboard .hc-day-strip>span:nth-child(2) b{color:var(--spectrum-gold)}
+.hc-dashboard .hc-day-strip>span:nth-child(3) b{color:var(--spectrum-rose)}
+.hc-dashboard .hc-scene{box-shadow:0 17px 60px #0002;border-color:color-mix(in srgb,var(--hp-accent) 30%,transparent)!important}
+.hc-dashboard .hc-scene:after{content:'';position:absolute;inset:0;border-radius:inherit;pointer-events:none;background:linear-gradient(115deg,#91dfc817,transparent 40%,#91bbff14);box-shadow:inset 0 0 50px #080d161a}
+.hc-dashboard .hc-scene-copy,.hc-dashboard .hc-scene-top,.hc-dashboard .hc-scene-status{z-index:3}
+.hc-dashboard .dd-section-head h2{letter-spacing:-.045em}
+.hc-dashboard .dd-section-head small{display:flex;align-items:center;gap:9px}
+.hc-dashboard .dd-section-head small:before{content:'';width:6px;height:6px;background:var(--section-accent,var(--hp-accent));border-radius:50%;box-shadow:0 0 15px color-mix(in srgb,var(--section-accent,var(--hp-accent)) 45%,transparent)}
+.hc-dashboard .dd-projects{--section-accent:var(--spectrum-mint)}
+.hc-dashboard .dd-endgame{--section-accent:var(--spectrum-rose)}
+.hc-dashboard .dd-objectives{--section-accent:var(--spectrum-gold)}
+.hc-dashboard .dd-project-card{background:radial-gradient(ellipse at 100% 0%,color-mix(in srgb,var(--project-accent) 12%,transparent),transparent 65%),var(--dd-panel);border-color:color-mix(in srgb,var(--project-accent) 24%,var(--dd-line));box-shadow:0 14px 45px #00000012}
+.hc-dashboard .dd-project-top>img{border-radius:15px;background:color-mix(in srgb,var(--project-accent) 14%,transparent);box-shadow:0 0 24px color-mix(in srgb,var(--project-accent) 13%,transparent)}
+.hc-dashboard .dd-project-top h3{color:var(--project-accent)}
+.hc-dashboard .dd-project-card .dd-png-preview{background:#0d1420;border-block:1px solid color-mix(in srgb,var(--project-accent) 16%,transparent)}
+.hc-dashboard .dd-endgame-card{--challenge-accent:var(--spectrum-blue);position:relative;isolation:isolate;background:radial-gradient(ellipse at 100% 0%,color-mix(in srgb,var(--challenge-accent) 14%,transparent),transparent 60%),var(--dd-panel);border-color:color-mix(in srgb,var(--challenge-accent) 23%,var(--dd-line))}
+.hc-dashboard .dd-endgame-card:nth-child(2){--challenge-accent:var(--spectrum-rose)}
+.hc-dashboard .dd-endgame-card:nth-child(3){--challenge-accent:var(--spectrum-gold)}
+.hc-dashboard .dd-endgame-card>header>img{width:48px;height:48px;padding:7px;background:color-mix(in srgb,var(--challenge-accent) 8%,transparent);border:1px solid color-mix(in srgb,var(--challenge-accent) 17%,transparent);border-radius:15px;filter:drop-shadow(0 0 10px color-mix(in srgb,var(--challenge-accent) 15%,transparent))}
+.hc-dashboard .dd-endgame-card .dd-rotation-label{color:var(--challenge-accent);border-color:color-mix(in srgb,var(--challenge-accent) 25%,transparent)}
+.hc-dashboard .dd-endgame-card .dd-boss-group span{background:linear-gradient(105deg,color-mix(in srgb,var(--challenge-accent) 8%,transparent),transparent);border-color:color-mix(in srgb,var(--challenge-accent) 16%,transparent)}
+.hc-dashboard .dd-endgame-card .dd-boss-group img{width:43px;height:43px;filter:drop-shadow(0 3px 5px #0003)}
+.hc-dashboard .dd-endgame-card .dd-ready-teams>button{color:var(--challenge-accent);background:color-mix(in srgb,var(--challenge-accent) 8%,transparent)}
+.hc-dashboard .dd-objective{border-left:2px solid color-mix(in srgb,var(--spectrum-gold) 60%,transparent);background:linear-gradient(110deg,#edce8d07,transparent),var(--dd-panel)}
+.hc-dashboard .dd-week-days>button.is-today{box-shadow:0 7px 30px color-mix(in srgb,var(--hp-accent) 9%,transparent)}
+.profile-editor .profile-install-button{width:100%;display:grid;gap:5px;text-align:left;padding:15px 17px;margin:18px 0;border:1px solid color-mix(in srgb,var(--accent) 35%,transparent);border-radius:13px;background:color-mix(in srgb,var(--accent) 9%,transparent);color:var(--ink);font-family:inherit;font-size:13px;font-weight:600;line-height:1.5}
+.profile-install-button span{font-size:11px;font-weight:400;color:var(--muted)}
+@media(hover:hover) and (prefers-reduced-motion:no-preference){.hc-dashboard .dd-project-card,.hc-dashboard .dd-endgame-card{transition:box-shadow .25s,border-color .25s}.hc-dashboard .dd-project-card:hover{box-shadow:0 16px 45px color-mix(in srgb,var(--project-accent) 9%,transparent);border-color:color-mix(in srgb,var(--project-accent) 45%,var(--dd-line))}.hc-dashboard .dd-endgame-card:hover{border-color:color-mix(in srgb,var(--challenge-accent) 45%,var(--dd-line))}.hc-dashboard .dd-endgame-card>header>img{transition:transform .35s}.hc-dashboard .dd-endgame-card:hover>header>img{transform:translateY(-3px) rotate(-5deg)}}
+@media(max-width:760px){.hc-dashboard .hc-page-head{padding-block:0 13px}.hc-dashboard .dd-endgame-card>header>img{width:43px;height:43px;flex:none}.hc-dashboard .dd-ledger{box-shadow:none}.hc-dashboard .dd-project-card{box-shadow:none}}
+
+body:has(.profile-editor-backdrop) :is(.release-notes-notice,#assistant-toast-stack,.backup-reminder){visibility:hidden!important;pointer-events:none!important}
+
+.profile-editor-backdrop{position:fixed!important;inset:0!important;z-index:120000!important;padding:20px!important}.profile-editor-backdrop .profile-editor{max-height:calc(100dvh - 40px);overflow-y:auto;overscroll-behavior:contain}
+@media(max-width:620px){.profile-editor-backdrop{padding:12px!important}.profile-editor-backdrop .profile-editor{max-height:calc(100dvh - 24px)}}

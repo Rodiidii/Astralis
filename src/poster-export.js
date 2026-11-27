@@ -1,4 +1,4 @@
-import {renderSheet} from './sheet-renderer.js?v=20261126-personal-workshop-6';
+import {renderSheet} from './sheet-renderer.js?v=20261127-profile-colors-1';
 const formats = { square: [1080, 1080], portrait: [960, 1280], landscape: [1440, 960] };
 const models = { atelier: 'Atelier', atlas: 'Atlas', eclipse: 'Éclipse' };
 

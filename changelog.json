@@ -2,6 +2,30 @@
   "schemaVersion": 1,
   "releases": [
     {
+      "id": "2026-11-27-profile-colors-1",
+      "date": "2026-11-27",
+      "title": "La couleur de tes personnages, jusque dans tes fiches",
+      "summary": "Des PNG plus colorés, des artéfacts vivants et ton icône de profil pour le raccourci iPhone.",
+      "changes": [
+        {
+          "area": "Fiches PNG",
+          "text": "Le fond et les motifs suivent la palette du personnage, y compris les couleurs personnalisées. Les cinq pièces disposent de halos colorés et les sous-stats utiles sont mises en valeur dans des cases distinctes."
+        },
+        {
+          "area": "iPhone",
+          "text": "Un bouton dans le profil prépare le raccourci avec ta photo. L’icône est définie dès l’ouverture, même lorsque le chargement des modules est interrompu."
+        },
+        {
+          "area": "Démarrage",
+          "text": "Les modules de décoration ne bloquent plus le démarrage. Un refus réseau de script autorise une seule reprise automatique ; le bouton Réessayer conserve les données locales."
+        },
+        {
+          "area": "Tableau de bord",
+          "text": "Des couleurs distinctes pour les gains, les personnages, les défis et les objectifs. Les aperçus PNG sont régénérés après un changement de palette."
+        }
+      ]
+    },
+    {
       "id": "2026-11-27-reader-polish-1",
       "date": "2026-11-27",
       "title": "Tes personnages, tes conversations, tes guides",

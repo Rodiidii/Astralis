@@ -7,7 +7,7 @@ class HostedCommunityTest(unittest.TestCase):
  @classmethod
  def setUpClass(cls):
   cls.temp=tempfile.TemporaryDirectory();cls.folder=Path(cls.temp.name);cls.web=cls.folder/'htdocs';api=cls.web/'api';api.mkdir(parents=True)
-  for name,target in [('api-router.php','router.php'),('feedback-service.php','feedback-service.php'),('profile-icon-service.php','profile-icon-service.php')]:shutil.copy2(ROOT/'hosting/infinityfree'/name,api/target)
+  for name,target in [('api-router.php','router.php'),('feedback-service.php','feedback-service.php'),('profile-icon-service.php','profile-icon-service.php'),('profile-install.html','profile-install.html')]:shutil.copy2(ROOT/'hosting/infinityfree'/name,api/target)
   (api/'owner.php').write_text("<?php return ['feedback_hash'=>'"+hashlib.sha256(b'test-creator-key').hexdigest()+"'];")
   (cls.folder/'route.php').write_text("<?php if(strpos($_SERVER['REQUEST_URI'],'/api/')===0){require __DIR__.'/htdocs/api/router.php';}else{return false;}")
   sock=socket.socket();sock.bind(('127.0.0.1',0));port=sock.getsockname()[1];sock.close();cls.base=f'http://127.0.0.1:{port}'
@@ -45,6 +45,8 @@ class HostedCommunityTest(unittest.TestCase):
   self.assertEqual(self.call(self.public,'character-sheets/publish',{'sheet':{}})[0],403)
  def test_profile_icon_is_a_real_public_png_and_manifest_is_specific(self):
   buf=io.BytesIO();Image.new('RGB',(512,512),'#5e9ea3').save(buf,format='PNG');data=buf.getvalue();status,created=self.call(self.public,'profile-icon',{'image':'data:image/png;base64,'+base64.b64encode(data).decode()});self.assertEqual(status,200,created)
+  req=urllib.request.Request(self.base+'/api/profile-icon',data=json.dumps({'image':'data:image/png;base64,'+base64.b64encode(data).decode()}).encode(),headers={'Content-Type':'application/json','Origin':self.base});self.assertEqual(self.public.open(req).status,200)
   response=self.public.open(self.base+created['iconUrl']);self.assertEqual(response.headers.get('Content-Type'),'image/png');self.assertEqual(response.read(),data)
+  install=self.public.open(self.base+created['installUrl']);self.assertIn('text/html',install.headers['Content-Type']);html=install.read().decode();identifier=created['iconUrl'].split('=')[1];self.assertIn('/api/profile-icon/'+identifier+'.png',html);self.assertNotIn('{{ICON_ID}}',html);self.assertEqual(self.public.open(self.base+'/api/profile-icon/'+identifier+'.png').read(),data)
   manifest=json.load(self.public.open(self.base+created['manifestUrl']));self.assertEqual(manifest['icons'][0]['src'],created['iconUrl']);self.assertEqual(manifest['icons'][0]['sizes'],'512x512')
 if __name__=='__main__':unittest.main()

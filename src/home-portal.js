@@ -1,5 +1,5 @@
 import {renderDashboardLedger,mountDashboardLedger} from './dashboard-ledger.js';
-import {renderPreparationProjects,renderEndgamePreparation,renderObjectives,renderPreparationAgenda,mountPreparation} from './dashboard-preparation.js';
+import {renderPreparationProjects,renderEndgamePreparation,renderObjectives,renderPreparationAgenda,mountPreparation} from './dashboard-preparation.js?v=20261127-profile-colors-1';
 import {ATLAS_PHOTOS} from './exploration-atlas-photos.js';
 import {gameDay,endgameDeadlines,farmBrief,safeImage} from './home-command-model.js';
 export const HOME_KEY='astralis:home-portal:v1';

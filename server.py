@@ -2257,11 +2257,13 @@ class Handler(SimpleHTTPRequestHandler):
                 self.send_json(200,{"url":link}) if link else self.send_json(403,{"error":"Accès créateur non configuré sur cet appareil."})
             else:self.send_json(200,{"ok":True,"ownerAvailable":bool(link)})
             return
-        if path in {"/api/profile-icon","/api/profile-icon/manifest"}:
-            icon_id=parse_qs(request_url.query).get("id",[""])[0]
+        if path in {"/api/profile-icon","/api/profile-icon/manifest","/api/profile-icon/install"} or re.fullmatch(r"/api/profile-icon/[a-f0-9]{64}\.png",path):
+            icon_id=path.rsplit("/",1)[-1][:-4] if path.endswith(".png") else parse_qs(request_url.query).get("id",[""])[0]
             icon_file=_SERVER_ROOT/"assets/user/profile-icons"/(icon_id+".png")
             if not re.fullmatch(r"[a-f0-9]{64}",icon_id) or not icon_file.is_file():self.send_json(404,{"error":"Icône introuvable."});return
-            if path.endswith("manifest"):
+            if path.endswith("install"):
+                data=(_SERVER_ROOT/"hosting/infinityfree/profile-install.html").read_text(encoding="utf-8").replace("{{ICON_ID}}",icon_id).encode("utf-8");self.send_response(200);self.send_header("Content-Type","text/html; charset=utf-8");self.send_header("Content-Length",str(len(data)));self.end_headers();self.wfile.write(data)
+            elif path.endswith("manifest"):
                 self.send_json(200,{"id":"/","name":"Astralis","short_name":"Astralis","start_url":"/?profile-icon="+icon_id,"scope":"/","display":"standalone","icons":[{"src":"/api/profile-icon?id="+icon_id,"sizes":"512x512","type":"image/png"}]})
             else:
                 data=icon_file.read_bytes();self.send_response(200);self.send_header("Content-Type","image/png");self.send_header("Content-Length",str(len(data)));self.end_headers();self.wfile.write(data)

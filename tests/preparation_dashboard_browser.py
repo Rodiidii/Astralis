@@ -25,7 +25,7 @@ try:
    if '/api/character-sheets/index' in url:r.fulfill(json={'sheets':[]});return
    if '/api/feedback/status' in url:r.fulfill(json={'ok':True,'ownerAvailable':False});return
    if '/api/gi/endgame' in url:r.fulfill(path=str(ROOT/'hosting-data/gi-endgame.json'));return
-   if '/src/app.js' in url:r.fulfill(body=(ROOT/'src/app.js').read_text(encoding='utf-8')+'\nwindow.combatQA={state,render,renderPageOnly,readLocalList,repairStoredEnkaBuild};',content_type='application/javascript');return
+   if '/src/app.js' in url:r.fulfill(body=(ROOT/'src/app.js').read_text(encoding='utf-8')+'\nwindow.combatQA={state,render,renderPageOnly,readLocalList,repairStoredEnkaBuild,getCharacterTheme,renderDashboardPreparationPNG};',content_type='application/javascript');return
    if '/api/' in url:r.fulfill(json={});return
    file=(ROOT/unquote(urlsplit(url).path).lstrip('/')).resolve()
    if file.is_dir():file=file/'index.html'
@@ -61,6 +61,15 @@ try:
   assert Path(result.value.path()).read_bytes()[:8]==b'\x89PNG\r\n\x1a\n';report['checks']['PNGdownload']=True
   page.locator('[data-project-copy="10000120"]').click();expect(page.locator('[data-project="10000120"] [data-project-status]')).to_contain_text('copié');report['checks']['PNGclipboard']=True
   page.screenshot(path=str(ROOT/'docs/preparation-projects.png'));page.locator('[data-project-preview="10000120"]').click();expect(page.locator('.astralis-png-preview canvas')).to_be_visible();page.locator('.astralis-png-preview .png-close').click();report['checks']['PNGpreview']=True
+  print('Preparation: character theme palette and cache invalidation',flush=True)
+  before=page.locator('[data-project="10000120"]').evaluate('e=>({palette:e._pngCanvas.sheetAudit.palette,png:e._pngCanvas.toDataURL()})')
+  expected=page.evaluate("()=>combatQA.getCharacterTheme('gi','10000120',combatQA.state.catalogs['gi:character'].find(c=>c._id==='10000120'))")
+  (ROOT/'docs/build-theme-flins-vivid.png').write_bytes(__import__('base64').b64decode(before['png'].split(',')[1]));assert before['palette']['secondary']==expected['accent2'];report['checks']['PNGusesActualCharacterTheme']=True
+  page.evaluate("()=>{localStorage.setItem('astralis:character-themes:v1',JSON.stringify({'gi:10000120':{accent:'#efbe85',accent2:'#91dfc8'}}));combatQA.renderPageOnly();}")
+  page.wait_for_function("document.querySelector('[data-project=\"10000120\"]')?._pngCanvas?.sheetAudit?.palette.secondary==='#91dfc8'",timeout=120000)
+  after=page.locator('[data-project="10000120"]').evaluate('e=>({palette:e._pngCanvas.sheetAudit.palette,png:e._pngCanvas.toDataURL(),overflows:e._pngCanvas.sheetAudit.overflows})')
+  assert after['palette']['e1']=='#efbe85' and after['palette']['e3']!=before['palette']['e3'];assert after['png']!=before['png'];assert not after['overflows'];report['checks']['themeChangeInvalidatesPNGcache']=True
+  (ROOT/'docs/build-character-palette-vivid.png').write_bytes(__import__('base64').b64decode(after['png'].split(',')[1]))
   print('Preparation: wallet and objectives',flush=True)
   page.locator('[data-ledger-claim-daily]').click();expect(page.locator('[data-ledger-primos]')).to_have_text('250');expect(page.locator('[data-ledger-day-primos]')).to_have_text('150')
   page.locator('[data-ledger-claim-daily]').click();expect(page.locator('.dd-ledger-status')).to_contain_text('déjà');expect(page.locator('[data-ledger-primos]')).to_have_text('250')

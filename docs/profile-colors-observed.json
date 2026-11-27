@@ -1,0 +1,116 @@
+{
+  "date": "2026-11-27T22:47:33.553750",
+  "version": "1.0.62",
+  "unitTests": 25,
+  "PHPTests": 4,
+  "dashboard": {
+    "errors": [],
+    "checks": {
+      "defaultGenshin": true,
+      "realBuildPNG": true,
+      "PNGdownload": true,
+      "PNGclipboard": true,
+      "PNGpreview": true,
+      "PNGusesActualCharacterTheme": true,
+      "themeChangeInvalidatesPNGcache": true,
+      "dailyWelkinNoDuplicates": true,
+      "variableTheaterIncome": true,
+      "draftSurvivesRefresh": true,
+      "objectivesAndSteps": true,
+      "publishedEndgameContent": true,
+      "calendarExport": true,
+      "originalIcons": true,
+      "customization": true
+    },
+    "formats": [
+      {
+        "width": 1920,
+        "height": 1080,
+        "overflow": false,
+        "walletVisible": true
+      },
+      {
+        "width": 1536,
+        "height": 1050,
+        "overflow": false,
+        "walletVisible": true
+      },
+      {
+        "width": 1366,
+        "height": 768,
+        "overflow": false,
+        "walletVisible": true
+      },
+      {
+        "width": 1024,
+        "height": 768,
+        "overflow": false,
+        "walletVisible": true
+      },
+      {
+        "width": 768,
+        "height": 1024,
+        "overflow": false,
+        "walletVisible": true
+      },
+      {
+        "width": 844,
+        "height": 390,
+        "overflow": false,
+        "walletVisible": true
+      },
+      {
+        "width": 430,
+        "height": 932,
+        "overflow": false,
+        "walletVisible": true
+      },
+      {
+        "width": 390,
+        "height": 844,
+        "overflow": false,
+        "walletVisible": true
+      },
+      {
+        "width": 360,
+        "height": 800,
+        "overflow": false,
+        "walletVisible": true
+      },
+      {
+        "width": 320,
+        "height": 740,
+        "overflow": false,
+        "walletVisible": true
+      }
+    ],
+    "passed": true
+  },
+  "profileShortcut": {
+    "engines": {
+      "chromium": {
+        "fullAppBootWithoutDecoration": true,
+        "realProfilePNG": true,
+        "staticAppleMetadata": true,
+        "faviconMatchesProfile": true,
+        "reloadKeepsIcon": true,
+        "clearPhotoResetsIcon": true,
+        "mobileOverflow": false
+      },
+      "webkit": {
+        "fullAppBootWithoutDecoration": true,
+        "realProfilePNG": true,
+        "staticAppleMetadata": true,
+        "faviconMatchesProfile": true,
+        "reloadKeepsIcon": true,
+        "clearPhotoResetsIcon": true,
+        "mobileOverflow": false
+      }
+    },
+    "errors": [],
+    "passed": true
+  },
+  "limits": [
+    "Le menu natif de partage et l’icône installée sur un iPhone physique ne sont pas pilotables par ces tests. WebKit vérifie le parcours, les métadonnées et le PNG réellement servi."
+  ]
+}

@@ -1,5 +1,6 @@
+import {sheetPalette,recolorBackdrop} from './sheet-palette.js?v=20261127-profile-colors-1';
 import {EL,backdrop} from './sheet-backdrop.js';
-import {referenceMarkup,shares} from './sheet-reference-templates.js';
+import {referenceMarkup,shares} from './sheet-reference-templates.js?v=20261127-profile-colors-1';
 export {shares};
 export const SHEET_FORMATS={team:[2000,1570],compare:[2000,1530],build:[2000,940],lab:[2000,2000],farm:[1080,1736]};
 export function sheetElement(value){const key=String(value||'').toLowerCase();return ({'anémo':'anemo','électro':'electro','géo':'geo',ice:'cryo',wind:'anemo',fire:'pyro',lightning:'electro'})[key]||(EL[key]?key:'cryo');}
@@ -111,13 +112,12 @@ export async function mountSheet(type,input,options={}){
  if(options.element&&d.identity)d.identity={...d.identity,accent:'',secondary:''};
  if(options.artwork)d.image=options.artwork;
  if(type==='compare'){const ids=(d.members||[]).map(m=>m.id).filter(Boolean);if(new Set(ids).size!==ids.length)throw new Error('Un personnage apparaît plusieurs fois dans le comparatif.');}
- await fontCSS();const loader=options.loadImage||(await import('./poster-export.js?v=20261126-personal-workshop-6')).posterBitmap,data=await prepare(d,el,loader);
+ await fontCSS();const loader=options.loadImage||(await import('./poster-export.js?v=20261127-profile-colors-1')).posterBitmap,data=await prepare(d,el,loader);
  const host=document.createElement('div');host.style.cssText='position:fixed;left:-25000px;top:0;pointer-events:none;z-index:-20';
  const shadow=host.attachShadow({mode:'open'}),style=document.createElement('style');
  cssPromise ||=fetch(new URL('../assets/sheet-reference.css',import.meta.url)).then(r=>r.text());style.textContent=(await cssPromise)+EXTRA_CSS;shadow.append(style);
  const root=document.createElement('article');root.className='sheet sheet-'+type;root.style.cssText='position:relative;width:'+width+'px;min-height:'+minHeight+'px;transform:none;--e1:'+EL[el].e1+';--e2:'+EL[el].e2+';--e3:'+EL[el].e3+';--e4:'+EL[el].e4+';--serif:"Sheet Cormorant",Georgia,serif;--sans:"Sheet Inter",sans-serif';
- const customAccent=/^#[a-f0-9]{6}$/i.test(options.accent||(options.element?'':d.accent)||'')?readableAccent(options.accent||d.accent,EL[el].e3):null;
- if(customAccent)root.style.setProperty('--e1',customAccent);
+ const palette=sheetPalette(d,options,EL[el]);for(const key of ['e1','e2','e3','e4'])root.style.setProperty('--'+key,palette[key]);root.style.setProperty('--sheet-secondary',palette.secondary||palette.e2);
  root.innerHTML='<div class="bgsvg"></div>'+referenceMarkup(type,data,el);shadow.append(root);document.body.append(host);
  try{
   if(type==='farm'){
@@ -157,14 +157,14 @@ export async function mountSheet(type,input,options={}){
   reflow(root,type);fitText(root);
   const height=Math.max(minHeight,Math.ceil(root.querySelector('.in').scrollHeight));root.style.height=height+'px';
   const background=backdrop(width,height,el,sheetSeed(d.seed??d.title??d.name??type));
-  root.querySelector('.bgsvg').innerHTML=customAccent?background.replaceAll(EL[el].e1,customAccent):background;
+  root.querySelector('.bgsvg').innerHTML=recolorBackdrop(background,EL[el],palette);
   const bounds=root.getBoundingClientRect(),overflows=[];
   for(const node of root.querySelectorAll('div,span,b,em,p')){
    if(node.children.length||!node.textContent.trim()||!node.clientWidth)continue;
    const box=node.getBoundingClientRect();
    if(box.right>bounds.right+2||box.left<bounds.left-2||node.scrollWidth>node.clientWidth+2)overflows.push(node.textContent.slice(0,100));
   }
-  const audit={width,height,element:el,missingImages:[...root.querySelectorAll('img')].filter(i=>!i.complete||!i.naturalWidth).length,overflows};
+  const audit={width,height,element:el,palette,missingImages:[...root.querySelectorAll('img')].filter(i=>!i.complete||!i.naturalWidth).length,overflows};
   root.sheetAudit=audit;return {root,host,data,audit,dispose:()=>host.remove()};
  }catch(error){host.remove();throw error;}
 }

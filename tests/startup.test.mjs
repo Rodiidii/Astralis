@@ -34,5 +34,7 @@ test('le secours masque le chargement et explique un echec de demarrage', async 
   assert.ok(timeout, 'le delai de secours doit etre installe');
   timeout.callback();
   assert.equal(removed, true);
-  assert.match(app.innerHTML, /Le démarrage prend trop de temps/);
+  assert.match(app.innerHTML, /Le chargement a été interrompu/);
+  assert.match(app.innerHTML,/astralis-boot-retry/);
+  assert.doesNotMatch(app.innerHTML,/efface les données/);
 });

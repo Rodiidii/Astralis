@@ -27,7 +27,7 @@ function astralis_private_store(string $root,string $kind): string {
 function remote_json(string $url): ?array {
     if (!function_exists('curl_init')) return null;
     $curl = curl_init($url);
-    curl_setopt_array($curl, [CURLOPT_RETURNTRANSFER=>true, CURLOPT_FOLLOWLOCATION=>false, CURLOPT_CONNECTTIMEOUT=>7, CURLOPT_TIMEOUT=>20, CURLOPT_USERAGENT=>'Astralis-Web/1.0.61', CURLOPT_SSL_VERIFYPEER=>true, CURLOPT_PROTOCOLS=>CURLPROTO_HTTPS, CURLOPT_HTTPHEADER=>['Accept: application/json']]);
+    curl_setopt_array($curl, [CURLOPT_RETURNTRANSFER=>true, CURLOPT_FOLLOWLOCATION=>false, CURLOPT_CONNECTTIMEOUT=>7, CURLOPT_TIMEOUT=>20, CURLOPT_USERAGENT=>'Astralis-Web/1.0.62', CURLOPT_SSL_VERIFYPEER=>true, CURLOPT_PROTOCOLS=>CURLPROTO_HTTPS, CURLOPT_HTTPHEADER=>['Accept: application/json']]);
     $body = curl_exec($curl); $status = (int)curl_getinfo($curl, CURLINFO_HTTP_CODE); curl_close($curl);
     if (!is_string($body) || strlen($body)>16*1024*1024 || $status!==200) return null;
     $data = json_decode($body, true);
@@ -35,7 +35,7 @@ function remote_json(string $url): ?array {
 }
 $method = $_SERVER['REQUEST_METHOD'] ?? 'GET';
 if ($route==='feedback' || strpos($route,'feedback/')===0) {require __DIR__.'/feedback-service.php';feedback_service($route,$method,$root);exit;}
-if ($route==='profile-icon' || $route==='profile-icon/manifest') {require __DIR__.'/profile-icon-service.php';profile_icon_service($route,$method,$root);exit;}
+if ($route==='profile-icon' || in_array($route,['profile-icon/manifest','profile-icon/install'],true) || preg_match('#^profile-icon/[a-f0-9]{64}\.png$#D',$route)) {require __DIR__.'/profile-icon-service.php';profile_icon_service($route,$method,$root);exit;}
 if (!in_array($method, ['GET','HEAD'], true)) reply(403, ['ok'=>false,'readOnly'=>true,'error'=>'Cette édition web est en lecture seule pour les publications et les opérations du serveur.']);
 if ($route==='character-sheets/status') reply(200, ['ok'=>true,'readOnly'=>true,'adminConfigured'=>false,'authenticated'=>false,'localAdmin'=>false,'publishReady'=>false,'storage'=>'Édition web publique']);
 if ($route==='character-sheets/index') {
@@ -65,7 +65,7 @@ if ($route==='gi/endgame') {
     foreach ([$root.'/hosting-data/gi-endgame.json',$file] as $fallback)if(is_file($fallback)){$data=json_decode((string)file_get_contents($fallback),true);if(is_array($data)&&isset($data['floors'],$data['theater'],$data['onslaught']))reply(200,$data);}
     reply(503,['error'=>'Le contenu endgame publié est momentanément indisponible.']);
 }
-if (strpos($route,'update/')===0) reply(200,['available'=>false,'supported'=>false,'hosted'=>true,'currentVersion'=>'1.0.61','message'=>'Les mises à jour du programme Windows se font dans l’application installée.']);
+if (strpos($route,'update/')===0) reply(200,['available'=>false,'supported'=>false,'hosted'=>true,'currentVersion'=>'1.0.62','message'=>'Les mises à jour du programme Windows se font dans l’application installée.']);
 if (strpos($route,'desktop/')===0) reply(200,['ok'=>true,'supported'=>false,'hosted'=>true,'settings'=>[]]);
 $allowed=['gi/news','gi/events','gi/endgame','gi/lore','gi/lore-index','gi/lore-video-list','gi/character-media','gi/character-stories','gi/character-voice','gi/character-voices','gi/region-lore','gi/relations','game-codes'];
 if (in_array($route,$allowed,true)) {
