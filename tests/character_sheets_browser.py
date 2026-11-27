@@ -1,5 +1,6 @@
 """Browser journey for the custom character sheet editor and idle delivery."""
-import threading
+import threading,sys
+sys.stdout.reconfigure(encoding="utf-8")
 from functools import partial
 from urllib.parse import parse_qs, urlsplit
 from playwright.sync_api import sync_playwright
@@ -23,7 +24,7 @@ initCharacterSheets(document.querySelector('#host'),{characters,weapons,artifact
 
 def main():
     with sync_playwright() as playwright:
-        browser = playwright.chromium.launch(args=["--enable-unsafe-swiftshader"])
+        browser = playwright.chromium.launch(executable_path=playwright.chromium.executable_path,args=["--enable-unsafe-swiftshader"])
         author = browser.new_page(viewport={"width": 1440, "height": 1000})
         author_errors = []
         author.on("pageerror", lambda error: author_errors.append(str(error)))
@@ -68,6 +69,7 @@ def main():
         assert author.locator('#sheets-drafts').count() == 0
         author.locator('[data-sheet-library-view="all"]').click()
         author.locator('[data-sheet-action="new"][data-sheet-template="build"]').click()
+        author.locator('[data-person-choice=\"10000032\"]').click()
         guide_count = author.locator('.sheet-editor-guide summary').evaluate("node=>Number(node.textContent.match(/\\d+/)?.[0]||0)")
         assert guide_count >= 40, f"Expected at least 40 discoverable editor tools, found {guide_count}"
         author.locator('[data-sheet-field="title"]').fill("Guide complet de Bennett")
@@ -180,7 +182,7 @@ def main():
         recipient.wait_for_selector(".sheet-library-card.is-published")
         recipient.wait_for_timeout(20)
         recipient_context.clock.fast_forward(120_000)
-        recipient.wait_for_selector("[data-sheet-download-status].is-complete")
+        recipient.wait_for_function("Object.keys(JSON.parse(localStorage.getItem('astralis:character-sheets:seen-versions:v1')||'{}')).length>0")
         assert recipient.locator(".sheets-hero").is_visible(), "The page remains open during the download"
         badge = recipient.locator("[data-sheet-unread-badge]")
         assert badge.is_visible() and badge.inner_text() == "1"
@@ -205,7 +207,7 @@ def main():
         recipient.locator('[data-sheet-action="read"]').click()
         recipient.wait_for_selector('.sheet-reader-page')
         assert recipient.locator('.sheet-reader-hero h1').inner_text() == "Guide complet de Bennett · édition 2"
-        assert "VERSION 2" in recipient.locator('.sheet-reader-topbar').inner_text()
+        assert "V2" in recipient.locator('.reader-version').inner_text()
         assert recipient.locator("[data-sheet-unread-badge]").is_hidden()
         assert not recipient_errors, recipient_errors
         read_only_mode["value"] = True

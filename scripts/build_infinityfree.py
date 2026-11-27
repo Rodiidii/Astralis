@@ -57,9 +57,9 @@ def main()->None:
   size=p.stat().st_size;limit=10000 if p.name=='.htaccess' else 1000000 if p.suffix.lower() in {'.php','.html','.js','.mjs'} else 10000000
   if size>=limit:bad.append({'path':p.relative_to(WEB).as_posix(),'bytes':size,'limit':limit})
  if bad:raise SystemExit('Fichiers trop volumineux pour InfinityFree : '+json.dumps(bad))
- report={'version':'1.0.60','platform':'InfinityFree','fileCount':len(files),'totalBytes':sum(p.stat().st_size for p in files),'oversizeFiles':bad,'privateFilesIncluded':False,'videoFilesServedFromGitHubRelease':len(remote_video),'precompressedJavascript':encoded,'apiMode':'read-only, published endgame feed, private feedback and read-only sheets; optional external Python API for other live feeds','applicationSourceUnminified':True}
+ report={'version':'1.0.61','platform':'InfinityFree','fileCount':len(files),'totalBytes':sum(p.stat().st_size for p in files),'oversizeFiles':bad,'privateFilesIncluded':False,'videoFilesServedFromGitHubRelease':len(remote_video),'precompressedJavascript':encoded,'apiMode':'read-only, published endgame feed, private feedback and read-only sheets; optional external Python API for other live feeds','applicationSourceUnminified':True}
  (OUTPUT/'verification.json').write_text(json.dumps(report,ensure_ascii=False,indent=2),encoding='utf-8')
- readme="""ASTRALIS 1.0.60 — DOSSIER INFINITYFREE
+ readme="""ASTRALIS 1.0.61 — DOSSIER INFINITYFREE
 
 1. Dans InfinityFree, crée ton hébergement et active HTTPS pour ton domaine.
 2. Transfère le CONTENU du dossier htdocs dans le htdocs du domaine. Conserve src, styles, assets, public et data. Transfère aussi .htaccess (fichier caché).

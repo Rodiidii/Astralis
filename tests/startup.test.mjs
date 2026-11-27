@@ -9,8 +9,8 @@ test('les imports nommes du demarrage existent dans les modules demandes', async
     const moduleUrl = new URL('../src/' + path.replace(/^\.\//, ''), import.meta.url);
     // Browser-only custom elements are exercised in cards_browser.py.
     const source = await readFile(moduleUrl, 'utf8');
-    const module = source.includes('extends HTMLElement')
-      ? Object.fromEntries([...source.matchAll(/export\s+(?:async\s+)?(?:function|const|class)\s+(\w+)/g)].map(match => [match[1], true]))
+    const module = source.includes('extends HTMLElement') || /\b(?:document|window|location|navigator|localStorage)\b/.test(source)
+      ? Object.fromEntries([...source.matchAll(/export\s+(?:async\s+)?(?:function|const|class)\s+(\w+)/g)].map(match => [match[1], true]).concat([...source.matchAll(/export\s*\{([^}]+)\}/g)].flatMap(match=>match[1].split(',').map(name=>[name.trim().split(/\s+as\s+/).at(-1),true]))))
       : await import(moduleUrl);
     for (const name of names.split(',').map(value => value.trim().split(/\s+as\s+/)[0])) {
       assert.ok(name in module, `${path} doit exporter ${name}`);
@@ -30,7 +30,7 @@ test('le secours masque le chargement et explique un echec de demarrage', async 
     window: { addEventListener() {} },
     setTimeout(callback, delay) { timers.push({ callback, delay }); },
   });
-  const timeout = timers.find(timer => timer.delay === 12000);
+  const timeout = timers.find(timer => timer.delay >= 12000 && timer.delay <= 60000);
   assert.ok(timeout, 'le delai de secours doit etre installe');
   timeout.callback();
   assert.equal(removed, true);

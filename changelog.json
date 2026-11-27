@@ -2,6 +2,26 @@
   "schemaVersion": 1,
   "releases": [
     {
+      "id": "2026-11-27-reader-polish-1",
+      "date": "2026-11-27",
+      "title": "Tes personnages, tes conversations, tes guides",
+      "summary": "Un choix de personnage explicite, des messages plus discrets et des fiches agréables à lire.",
+      "changes": [
+        {
+          "area": "Démarrage",
+          "text": "Un module d’animation indisponible ne bloque plus le lancement. Les pages HTML reçues à la place des scripts sont écartées du cache, avec nouvelle tentative et recours à une copie JavaScript valide."
+        },
+        {
+          "area": "Compagnons",
+          "text": "Le premier personnage du catalogue n’est plus choisi automatiquement. Les messages ont une présentation plus compacte, une lecture dépliable et un accès à la conversation."
+        },
+        {
+          "area": "Fiches personnalisées",
+          "text": "Grande illustration, typographie aérée, sommaire adapté à la largeur, progression de lecture et taille du texte réglable. Une nouvelle fiche demande son personnage."
+        }
+      ]
+    },
+    {
       "id": "2026-11-26-preparation-desk-1",
       "date": "2026-11-26",
       "title": "Ton atelier de préparation, en grand",

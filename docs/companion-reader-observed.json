@@ -1,0 +1,54 @@
+{
+  "version": "1.0.61",
+  "sourceBrowser": {
+    "errors": [],
+    "checks": {
+      "defaultGenshin": true,
+      "optionalAnimationFailureDoesNotBlockApp": true,
+      "noDefaultCharacter": true,
+      "chosenCharacterConversation": true,
+      "messageExpansion": true,
+      "readerTextSize": true,
+      "mobileContents": true,
+      "newGuideRequiresCharacter": true
+    },
+    "formats": [
+      [
+        1536,
+        1050
+      ],
+      [
+        1366,
+        768
+      ],
+      [
+        1024,
+        768
+      ],
+      [
+        768,
+        1024
+      ],
+      [
+        430,
+        932
+      ],
+      [
+        390,
+        844
+      ],
+      [
+        360,
+        800
+      ],
+      [
+        320,
+        740
+      ]
+    ],
+    "passed": true
+  },
+  "startupCacheTests": 4,
+  "editorJourney": "82 outils ; sélection explicite, brouillon, publication, lecteur et lecture seule vérifiés",
+  "realtime": "Mise à jour observée sous 30 secondes pendant la lecture"
+}
