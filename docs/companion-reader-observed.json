@@ -50,5 +50,52 @@
   },
   "startupCacheTests": 4,
   "editorJourney": "82 outils ; sélection explicite, brouillon, publication, lecteur et lecture seule vérifiés",
-  "realtime": "Mise à jour observée sous 30 secondes pendant la lecture"
+  "realtime": "Mise à jour observée sous 30 secondes pendant la lecture",
+  "liveBrowser": {
+    "origin": "https://astralis.wuaze.com",
+    "checks": {
+      "noDefaultCharacter": true,
+      "animationResourceIsJavaScript": true,
+      "chosenCompanionMessage": true,
+      "actualReaderTextSize": true,
+      "publishedCoverLoaded": true,
+      "blockedAnimationsDoNotBlockStartup": true
+    },
+    "errors": [],
+    "formats": [
+      [
+        1536,
+        1050
+      ],
+      [
+        1366,
+        768
+      ],
+      [
+        1024,
+        768
+      ],
+      [
+        768,
+        1024
+      ],
+      [
+        430,
+        932
+      ],
+      [
+        390,
+        844
+      ],
+      [
+        360,
+        800
+      ],
+      [
+        320,
+        740
+      ]
+    ],
+    "passed": true
+  }
 }
