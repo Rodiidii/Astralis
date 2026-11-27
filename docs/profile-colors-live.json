@@ -1,0 +1,89 @@
+{
+  "version": "1.0.62",
+  "site": "https://astralis.wuaze.com",
+  "dashboard": {
+    "origin": "https://astralis.wuaze.com",
+    "checks": {
+      "realPublishedFeed": {
+        "floors": 4,
+        "theaterBosses": 4,
+        "onslaughtBosses": 3,
+        "updatedAt": "2026-11-27T21:16:57Z"
+      },
+      "characterPaletteApplied": {
+        "n": "Électro",
+        "e1": "#6bc8ff",
+        "e2": "#e5d0ff",
+        "e3": "#062537",
+        "e4": "#0d4d73",
+        "secondary": "#bf8aff"
+      },
+      "realBuildPNG": true,
+      "renderedEndgameContent": true,
+      "walletAndTopbar": true,
+      "realFarmCompletion": true,
+      "originalSVGIcons": true,
+      "ICSexport": true,
+      "feedbackRemainsPrivate": true
+    },
+    "errors": [],
+    "formats": [
+      [
+        1920,
+        1080
+      ],
+      [
+        1536,
+        1050
+      ],
+      [
+        1366,
+        768
+      ],
+      [
+        1024,
+        768
+      ],
+      [
+        768,
+        1024
+      ],
+      [
+        844,
+        390
+      ],
+      [
+        430,
+        932
+      ],
+      [
+        390,
+        844
+      ],
+      [
+        360,
+        800
+      ],
+      [
+        320,
+        740
+      ]
+    ],
+    "passed": true
+  },
+  "profileShortcut": {
+    "engines": {
+      "webkit": {
+        "fullAppBootWithoutDecoration": true,
+        "realProfilePNG": true,
+        "staticAppleMetadata": true,
+        "faviconMatchesProfile": true,
+        "reloadKeepsIcon": true,
+        "clearPhotoResetsIcon": true,
+        "mobileOverflow": false
+      }
+    },
+    "errors": [],
+    "passed": true
+  }
+}
