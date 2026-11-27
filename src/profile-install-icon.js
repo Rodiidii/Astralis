@@ -22,7 +22,7 @@ export async function syncProfileInstallIcon(avatar,name='Astralis'){
  if(!/^data:image\/(png|jpeg|webp);base64,/i.test(avatar||''))return null;
  const hash=[...new Uint8Array(await crypto.subtle.digest('SHA-256',new TextEncoder().encode(avatar)))].map(v=>v.toString(16).padStart(2,'0')).join('');
  let cached;try{cached=JSON.parse(localStorage.getItem(KEY)||'null')}catch{}
- if(cached?.hash===hash&&valid(cached)){apply(cached);return cached;}
+ if(cached?.hash===hash&&valid(cached)){const id=cached.iconUrl.match(/[a-f0-9]{64}/)[0],result={...cached,installUrl:'/api/profile-icon/install?id='+id};if(!cached.installUrl)localStorage.setItem(KEY,JSON.stringify(result));apply(result);return result;}
  if(pending?.hash===hash)return pending.promise;
  const promise=(async()=>{
   try{

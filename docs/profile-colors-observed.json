@@ -1,7 +1,7 @@
 {
   "date": "2026-11-27T22:47:33.553750",
   "version": "1.0.62",
-  "unitTests": 25,
+  "unitTests": 26,
   "PHPTests": 4,
   "dashboard": {
     "errors": [],
@@ -112,5 +112,23 @@
   },
   "limits": [
     "Le menu natif de partage et l’icône installée sur un iPhone physique ne sont pas pilotables par ces tests. WebKit vérifie le parcours, les métadonnées et le PNG réellement servi."
-  ]
+  ],
+  "webKitPNG": {
+    "ok": true,
+    "audit": {
+      "width": 2000,
+      "height": 940,
+      "element": "electro",
+      "palette": {
+        "n": "Électro",
+        "e1": "#6bc8ff",
+        "e2": "#e5d0ff",
+        "e3": "#062537",
+        "e4": "#0d4d73",
+        "secondary": "#bf8aff"
+      },
+      "missingImages": 0,
+      "overflows": []
+    }
+  }
 }

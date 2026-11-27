@@ -1,0 +1,7 @@
+import test from 'node:test';import assert from 'node:assert/strict';import {readFile} from 'node:fs/promises';import {webcrypto} from 'node:crypto';import vm from 'node:vm';
+test('une icône enregistrée par une ancienne version reçoit son lien de préparation iPhone',async()=>{
+ const source=(await readFile(new URL('../src/profile-install-icon.js',import.meta.url),'utf8')).replace(/export /g,''),avatar='data:image/png;base64,b2xkLWNhY2hlZA==',id='a'.repeat(64),hash=Buffer.from(await webcrypto.subtle.digest('SHA-256',new TextEncoder().encode(avatar))).toString('hex'),cache=new Map([['astralis:profile-install-icon:v1',JSON.stringify({hash,iconUrl:'/api/profile-icon?id='+id,manifestUrl:'/api/profile-icon/manifest?id='+id})]]);
+ const links=[],context={crypto:webcrypto,TextEncoder,URLSearchParams,location:{search:''},localStorage:{getItem:k=>cache.get(k),setItem:(k,v)=>cache.set(k,v)},document:{querySelectorAll:()=>[],querySelector:()=>null,createElement:()=>({setAttribute(){}}),head:{append:link=>links.push(link)}},console};
+ vm.runInNewContext(source+'\nglobalThis.sync=syncProfileInstallIcon;',context);const result=await context.sync(avatar);
+ assert.equal(result.installUrl,'/api/profile-icon/install?id='+id);assert.equal(JSON.parse(cache.get('astralis:profile-install-icon:v1')).installUrl,result.installUrl);assert.equal(links.length,2);assert.ok(links.every(link=>link.href===result.iconUrl));
+});
